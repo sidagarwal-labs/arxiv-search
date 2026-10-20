@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Data and model artifacts are reproducible from code; keep them out of git
+data/
+
+# Secrets
+.env
+*.log
