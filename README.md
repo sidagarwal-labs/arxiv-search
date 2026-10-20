@@ -80,6 +80,7 @@ data/                    git-ignored; fully reproducible from code
 | 10 | Document schema | One row per submission (latest version): `arxiv_id` (PK), `title`, `abstract`, `authors[]`, `primary_category`, `categories[]`, `submitted_month`, `updated`, `comments`, `license`, `url`, derived `embed_text`, `corpus_version` | Stable IDs anchor evaluation labels and citations. OAI-PMH exposes only the latest version, so abstracts reflect the newest revision. |
 | 11 | Author search | Hybrid retriever (BM25 + vectors, fused with Reciprocal Rank Fusion) evaluated alongside pure dense search, **plus** a structured author filter | Embeddings capture meaning, not names; lexical matching handles names, acronyms and method names. |
 | 12 | Embedding unit | `title + abstract` as one unit, no chunking (v1). RAG context size (top-k, or passage-level context) is a later experiment | Measured with the real tokenizers on the 23,304-paper corpus: median 287 tokens, p90 381, p99 466, max 782. `all-MiniLM-L6-v2` (256-token limit) **truncates 67.8%** of papers; BGE-small / E5-small (512) truncate 0.2%. |
+| 13 | Category imbalance | Keep corpus as harvested (cs.LG 10k, cs.CL 10k, cs.IR 3.3k); balance the **evaluation set** with equal queries per category | The corpus reflects real arXiv volume; balanced evaluation stops cs.IR performance from being hidden inside an overall average. Report metrics per category as well as overall. |
 
 ### Hosting data flow
 
