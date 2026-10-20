@@ -13,6 +13,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
+analysis = ["beautifulsoup4>=4.12", "tokenizers>=0.19", "sentence-transformers>=3"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

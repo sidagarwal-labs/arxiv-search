@@ -60,6 +60,7 @@ src/arxiv_search/
     parse.py             stage 2: XML → dicts (translation only, no filtering)
     build_corpus.py      stage 3: dedupe, filter, stratified sample → corpus.jsonl
 tests/                   offline unit tests (no network)
+analysis/                one-off measurements behind design decisions (e.g. full-text cost)
 data/                    git-ignored; fully reproducible from code
 ```
 
@@ -95,6 +96,28 @@ Heavy steps run offline on a laptop; the cloud holds only what search needs.
 | Postgres + pgvector | `papers` table with the schema above + one embedding column for the winning model (~100–150 MB) |
 | FastAPI | Embeds the query with the same model, runs vector/hybrid SQL, calls the LLM for RAG |
 | Next.js on Vercel | UI only; calls FastAPI |
+
+### Full-text vs. abstract: measured cost
+
+From [`analysis/measure_fulltext.py`](analysis/measure_fulltext.py) (45-paper stratified sample, arXiv HTML,
+BGE tokenizer) and [`analysis/estimate_costs.py`](analysis/estimate_costs.py) (CPU embedding throughput
+measured on the dev laptop: 22.8 abstracts/s, 8.2 chunks/s).
+
+| Per paper | Median | p90 |
+|---|---|---|
+| Title + abstract tokens | 290 | 376 |
+| Full body tokens (excl. references, tables, equations) | 8,590 | 12,309 |
+| Body ÷ abstract | 31.7× | 44.2× |
+| 512-token chunks (64 overlap) | 20 | 28 |
+| Distinct body words absent from the abstract | 94% | — |
+
+HTML was available for 96% of sampled papers (43/45).
+
+| Scenario | Papers | Vectors | Download | Embed time per model (CPU) | DB size | Free tier (500 MB)? |
+|---|---|---|---|---|---|---|
+| A. Title + abstract (current) | 23,304 | 23,304 | done | ~17 min | ~137 MB | ✅ |
+| B. Full text, all papers | 23,304 | ~450k | ~20 h | ~15 h | ~3.0 GB | ❌ |
+| C. Full text, cs.IR CC-licensed | 2,010 | ~39k | ~1.7 h | ~1.3 h | ~256 MB | ✅ |
 
 ### Data-quality notes
 
