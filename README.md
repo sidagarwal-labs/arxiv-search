@@ -79,7 +79,7 @@ data/                    git-ignored; fully reproducible from code
 
 | 10 | Document schema | One row per submission (latest version): `arxiv_id` (PK), `title`, `abstract`, `authors[]`, `primary_category`, `categories[]`, `submitted_month`, `updated`, `comments`, `license`, `url`, derived `embed_text`, `corpus_version` | Stable IDs anchor evaluation labels and citations. OAI-PMH exposes only the latest version, so abstracts reflect the newest revision. |
 | 11 | Author search | Hybrid retriever (BM25 + vectors, fused with Reciprocal Rank Fusion) evaluated alongside pure dense search, **plus** a structured author filter | Embeddings capture meaning, not names; lexical matching handles names, acronyms and method names. |
-| 12 | Embedding unit | `title + abstract` as one unit, no chunking (v1). Measure truncation with each model's real tokenizer. RAG context size (top-k, or passage-level context) is a later experiment | Title + abstract ≈ 245 tokens median, ≈ 370 at p99, so one focused passage per paper. `all-MiniLM-L6-v2` (256-token limit) likely truncates about half the abstracts; 512-token models fit nearly all. |
+| 12 | Embedding unit | `title + abstract` as one unit, no chunking (v1). RAG context size (top-k, or passage-level context) is a later experiment | Measured with the real tokenizers on the 23,304-paper corpus: median 287 tokens, p90 381, p99 466, max 782. `all-MiniLM-L6-v2` (256-token limit) **truncates 67.8%** of papers; BGE-small / E5-small (512) truncate 0.2%. |
 
 ### Hosting data flow
 
@@ -99,5 +99,11 @@ Heavy steps run offline on a laptop; the cloud holds only what search needs.
 - A category set (e.g. `cs:cs:IR`) includes cross-listed papers whose primary category is
   elsewhere (cs.CV, cs.AI, …); these are removed by the primary-category filter.
 - `corpus_stats.json` records counts per category after every filter stage.
+- **Corpus v1 (harvest 2026-10-20): 23,304 papers.** cs.LG 10,000 (sampled from 33,613),
+  cs.CL 10,000 (sampled from 19,361), cs.IR 3,304 (all eligible). Of 102,008 unique harvested
+  records, 33% had a primary category outside our three, and 18% of the rest were older papers
+  that had been recently revised.
+- The harvest `from` date filters on last modification, so papers first submitted in early
+  October 2025 and never revised are under-represented in the first month (2025-10).
 - Author lists vary widely (median 4, p90 9, max 3,435 for one large collaboration), so the UI
   should cap displayed authors.
