@@ -77,6 +77,21 @@ data/                    git-ignored; fully reproducible from code
 | 8 | Selection rule | Primary category ∈ {cs.IR, cs.CL, cs.LG}, first submitted in the last ~12 months, stratified cap of 10k per category, seed 6188 | cs.LG is several times larger than cs.IR; the cap keeps the corpus and evaluation set balanced. Primary-only drops cross-listed papers from other fields. |
 | 9 | Submission date | Month taken from the arXiv ID (`YYMM.NNNNN`), not the `<created>` field | Finding: `<created>` can hold the latest revision date (e.g. `2308.09419` showed 2026-10-03, its v3). In a 30-day test sample, 22% of papers were older papers that had been recently revised. |
 
+| 10 | Document schema | One row per submission (latest version): `arxiv_id` (PK), `title`, `abstract`, `authors[]`, `primary_category`, `categories[]`, `submitted_month`, `updated`, `comments`, `license`, `url`, derived `embed_text`, `corpus_version` | Stable IDs anchor evaluation labels and citations. OAI-PMH exposes only the latest version, so abstracts reflect the newest revision. |
+| 11 | Author search | Hybrid retriever (BM25 + vectors, fused with Reciprocal Rank Fusion) evaluated alongside pure dense search, **plus** a structured author filter | Embeddings capture meaning, not names; lexical matching handles names, acronyms and method names. |
+| 12 | Embedding unit | `title + abstract` as one unit, no chunking (v1). Measure truncation with each model's real tokenizer. RAG context size (top-k, or passage-level context) is a later experiment | Title + abstract ≈ 245 tokens median, ≈ 370 at p99, so one focused passage per paper. `all-MiniLM-L6-v2` (256-token limit) likely truncates about half the abstracts; 512-token models fit nearly all. |
+
+### Hosting data flow
+
+Heavy steps run offline on a laptop; the cloud holds only what search needs.
+
+| Location | Contents |
+|---|---|
+| Local, git-ignored | Raw XML snapshot (hundreds of MB), `corpus.jsonl`, per-model experiment vectors, evaluation runs |
+| Postgres + pgvector | `papers` table with the schema above + one embedding column for the winning model (~100–150 MB) |
+| FastAPI | Embeds the query with the same model, runs vector/hybrid SQL, calls the LLM for RAG |
+| Next.js on Vercel | UI only; calls FastAPI |
+
 ### Data-quality notes
 
 - OAI-PMH `from=` filters on the record *datestamp* (last modification), so it is only a
@@ -84,3 +99,5 @@ data/                    git-ignored; fully reproducible from code
 - A category set (e.g. `cs:cs:IR`) includes cross-listed papers whose primary category is
   elsewhere (cs.CV, cs.AI, …); these are removed by the primary-category filter.
 - `corpus_stats.json` records counts per category after every filter stage.
+- Author lists vary widely (median 4, p90 9, max 3,435 for one large collaboration), so the UI
+  should cap displayed authors.
