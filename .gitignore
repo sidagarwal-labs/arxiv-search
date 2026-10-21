@@ -6,7 +6,12 @@ __pycache__/
 .pytest_cache/
 
 # Data and model artifacts are reproducible from code; keep them out of git
-data/
+data/*
+# ...except the test set: an LLM can't reproduce it exactly, and it took ~3 h to make
+!data/eval/
+data/eval/*
+!data/eval/queries.jsonl
+!data/eval/labels.json
 
 # Secrets
 .env

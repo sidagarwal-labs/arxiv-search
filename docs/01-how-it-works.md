@@ -345,6 +345,8 @@ decisions. Their results are in [Findings](03-findings.md).
 ## The data folder
 
 `data/` is **not** in git: it's big, and anyone can rebuild it by running the steps above.
+**Exception:** `data/eval/queries.jsonl` and `labels.json` *are* in git, because an LLM wouldn't
+write the same 400 queries twice, and every score we report must use the same test set.
 
 ```
 data/
