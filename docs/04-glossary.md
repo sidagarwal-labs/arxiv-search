@@ -68,3 +68,4 @@ Short, plain definitions of every term used in this project, grouped by topic.
 | **Structured output** | Asking the LLM to reply in an exact JSON shape, so we never parse free text. |
 | **Rate limit / quota** | How many calls the free tier allows per minute or per day. 429 = too many; 503 / 500 = Google busy or failing. |
 | **Prompt version** | A fingerprint of `prompts.py` saved on every query, so we know which wording produced it. |
+| **Dev / test split** | Dev queries are for tuning; test queries are only for the final score, so tuning can't inflate it. |

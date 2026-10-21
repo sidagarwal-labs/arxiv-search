@@ -12,6 +12,7 @@ data/*
 data/eval/*
 !data/eval/queries.jsonl
 !data/eval/labels.json
+!data/eval/split.json
 
 # Secrets
 .env

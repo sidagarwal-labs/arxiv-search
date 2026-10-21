@@ -47,6 +47,7 @@ copy .env.example .env        # then paste your Gemini API key into .env
 
 # Step 4b: write 400 test queries with an LLM → data/eval/ (~3 h on the free tier; resumable)
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.make_queries
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.split    # 100 dev / 300 test
 
 # Run the tests
 .\.venv\Scripts\python.exe -m pytest -q

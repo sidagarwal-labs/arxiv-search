@@ -260,6 +260,17 @@ we expect BM25 to win on high-overlap queries and embeddings on low-overlap ones
 **Run it:** `python -m arxiv_search.evaluate.make_queries` (needs `GEMINI_API_KEY` in `.env`;
 ~2–3 hours on the free tier, mostly waiting out Google's "busy" errors).
 
+**Then split it** (`evaluate/split.py`): `python -m arxiv_search.evaluate.split` writes
+`data/eval/split.json`:
+
+| Part | Queries | Use |
+|---|---|---|
+| **dev** | 100 | Tuning: try BM25 settings, hybrid weights, prompts. Look at it freely. |
+| **test** | 300 | Final scores only. Never tune on it. |
+
+Each query type is exactly 25 dev / 75 test; specificity and category are within a query or
+two of 1/4. The split uses the fixed seed, so it's the same every time.
+
 ---
 
 ## Settings (`config.py`)
@@ -326,6 +337,9 @@ without the internet.
 | resume test | Stopping after 3 calls and rerunning finishes the rest without redoing anything |
 | retry test | A failing paper is retried with the rejection reason, then replaced |
 
+**`test_split.py`** (3 tests): dev is exactly 100 and never overlaps test; each type is 25 dev;
+specificity and category stay balanced; the split doesn't depend on file order.
+
 **Run them:** `python -m pytest -q`
 
 ---
@@ -367,6 +381,7 @@ data/
 │   ├── queries.jsonl             400 test queries
 │   ├── attempts.jsonl            every LLM attempt, with rejection reasons
 │   ├── labels.json               right answers for metrics.py
+│   ├── split.json                which 100 queries are dev, which 300 are test
 │   └── run.log
 └── experiments/                  results of the scripts in experiments/
 ```
@@ -387,7 +402,8 @@ arxiv-search/
 │   └── evaluate/                 step 4
 │       ├── metrics.py            Recall, MRR, nDCG + error bars
 │       ├── prompts.py            the exact instructions given to the query-writing LLM
-│       └── make_queries.py       step 4b: writes + checks 400 test queries → data/eval/
+│       ├── make_queries.py       step 4b: writes + checks 400 test queries → data/eval/
+│       └── split.py              100 dev / 300 test split → data/eval/split.json
 ├── tests/                        automatic checks
 ├── experiments/                  one-off measurement scripts
 ├── pyproject.toml                project name + which libraries to install

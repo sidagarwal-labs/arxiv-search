@@ -123,6 +123,12 @@ and whether the LLM judge agrees with a human.
 *Cost:* the judge was going to be Gemma to differ from the writer; we revisit the judge choice
 (e.g. a local Qwen model, or a Gemini model) when we build it.
 
+**#26 Split the queries: 100 dev / 300 test.** Tune settings (BM25 parameters, hybrid
+weights, prompts) only on dev; report final scores only on test. Balanced by type,
+specificity and category, with a fixed seed.
+*Why:* if we tuned on the queries we report, scores would look better than the system really
+is. 300 test queries still give ±0.06 error bars overall (see [Findings](03-findings.md) §6).
+
 **#21 How we score.**
 
 | Choice | Picked | Alternative we rejected |
