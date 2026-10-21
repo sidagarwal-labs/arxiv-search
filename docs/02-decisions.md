@@ -70,6 +70,17 @@ model) on our test set, then pick the winner.
 **#5 Where vectors live.** On the laptop (NumPy files) during experiments, then in a cloud
 Postgres database with pgvector for the website.
 
+**#27 Start from a BM25 baseline with no text preprocessing, then add one technique at a time.**
+- Baseline: lowercase + split on non-letters/digits; no stopwords, no stemming; title +
+  abstract; standard k1 = 1.2, b = 0.75.
+- Every technique (stopwords, stemming, authors, tuned k1/b, embeddings, hybrid...) becomes one
+  row in [the results table](05-results.md), compared with the baseline on the same queries.
+- We wrote BM25 ourselves (~70 lines, NumPy) and a test proves it matches the `rank_bm25`
+  library exactly.
+
+*Why:* without a plain baseline we can't say what each technique adds. Our own code means
+every score can be explained line by line.
+
 ---
 
 ## How we test
@@ -128,6 +139,7 @@ weights, prompts) only on dev; report final scores only on test. Balanced by typ
 specificity and category, with a fixed seed.
 *Why:* if we tuned on the queries we report, scores would look better than the system really
 is. 300 test queries still give ±0.06 error bars overall (see [Findings](03-findings.md) §6).
+Every experiment runs on dev; only the finalists are run once on test (Decision 27).
 
 **#21 How we score.**
 

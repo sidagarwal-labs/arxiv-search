@@ -13,6 +13,8 @@ data/eval/*
 !data/eval/queries.jsonl
 !data/eval/labels.json
 !data/eval/split.json
+# ...and the results of every experiment (small; the results table is rebuilt from them)
+!data/results/
 
 # Secrets
 .env

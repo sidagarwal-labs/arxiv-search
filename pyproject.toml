@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8"]
+dev = ["pytest>=8", "rank-bm25>=0.2"]  # rank-bm25 only to cross-check our own BM25 in tests
 experiments = ["beautifulsoup4>=4.12", "tokenizers>=0.19", "sentence-transformers>=3"]
 
 [tool.setuptools.packages.find]

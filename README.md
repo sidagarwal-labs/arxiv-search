@@ -17,8 +17,8 @@ Every design choice is decided by **measuring** it on a test set of queries, not
 
 - [x] 1. Download papers from arXiv
 - [x] 2. Clean up into one file of 23,304 papers
-- [ ] 3. Search: BM25 baseline → embeddings → hybrid
-- [ ] 4. Test: scoring metrics ✅, 400 test queries ✅, LLM relevance judge next
+- [ ] 3. Search: BM25 baseline ✅ → BM25 variants → embeddings → hybrid
+- [ ] 4. Test: scoring metrics ✅, 400 test queries ✅, results table ✅, LLM relevance judge next
 - [ ] 5. Answer: RAG with an LLM
 - [ ] 6. Website: database, API, web page, deploy
 
@@ -30,6 +30,7 @@ Every design choice is decided by **measuring** it on a test set of queries, not
 | [Decisions](docs/02-decisions.md) | Every choice we made and why |
 | [Findings](docs/03-findings.md) | Measurements behind the decisions |
 | [Glossary](docs/04-glossary.md) | What BM25, embedding, MRR, etc. mean |
+| [Results](docs/05-results.md) | One table comparing every search system we've tried |
 
 ## Run it
 
@@ -48,6 +49,9 @@ copy .env.example .env        # then paste your Gemini API key into .env
 # Step 4b: write 400 test queries with an LLM → data/eval/ (~3 h on the free tier; resumable)
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.make_queries
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.split    # 100 dev / 300 test
+
+# Step 4c: run a search system on the dev queries → docs/05-results.md (seconds)
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.experiments bm25-baseline
 
 # Run the tests
 .\.venv\Scripts\python.exe -m pytest -q

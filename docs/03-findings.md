@@ -174,3 +174,44 @@ Sample queries:
 | question | broad | How can we improve the accuracy of reranking documents for a retrieval augmented generation system? |
 | paraphrase | specific | maximizing income for power conversion tools and cells by using actual device behavior in Nordic power exchanges |
 | known_item | specific | Shukla generative recommendation hierarchical supervision |
+
+---
+
+## 8. BM25 baseline on dev (decision #27)
+
+Full table: [Results](05-results.md). 100 dev queries, BM25 with no preprocessing.
+Build 3.2 s, 1.5 ms per query.
+
+| Overall | R@1 | R@5 | R@10 | R@20 | MRR@10 |
+|---|---|---|---|---|---|
+| bm25-baseline | 0.43 | 0.61 | 0.67 | 0.70 | 0.50 [0.42–0.59] |
+
+**By query type** (source paper in top 20 / MRR@10):
+
+| Type | Specific | Broad |
+|---|---|---|
+| keyword | 12/12, 0.90 | 85%, 0.31 |
+| question | 92%, 0.63 | 46%, 0.21 |
+| paraphrase | 20%, 0.10 | — |
+| known_item | 25/25, 0.91 | — |
+
+**By word overlap with the source paper:**
+
+| Overlap | Queries | Found in top 20 | MRR@10 |
+|---|---|---|---|
+| under 1/3 | 22 | **0%** | 0.00 |
+| 1/3 to 2/3 | 29 | 72% | 0.37 |
+| over 2/3 | 49 | 100% | 0.80 |
+
+**What this means.**
+- BM25 is excellent when the user types the paper's words (keyword, known_item) and **blind when
+  they don't**: not one low-overlap query found its paper in the top 20. That's the gap
+  embeddings must close.
+- Example misses: "managing delivery drivers who work for several different apps…" for *Partially
+  Observable Learning for Multi-Platform Dispatch Optimization*; "an automated system that decides
+  if an image is actually helpful or harmful for verifying a claim" for *Adaptive Multimodal
+  Fact-Checking*. Same meaning, different words.
+- Broad queries score low partly because many other papers are right answers too; the LLM judge
+  will tell us how much.
+- Stemming may help a little in the middle band ("recommendations" vs "recommendation") but can't
+  fix the bottom band.

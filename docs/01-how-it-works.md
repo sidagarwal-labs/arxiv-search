@@ -16,8 +16,8 @@ produces. Read this before the code.
 |---|---|---|
 | 1. Download | ✅ Done | Ask arXiv for every paper in three categories from the last year, and save its answers untouched. |
 | 2. Clean up | ✅ Done | Turn those saved pages into one row per paper, and keep only the papers we want. |
-| 3. Search | ⏳ Next | Rank papers for a query using word matching (BM25), meaning (embeddings), or both. |
-| 4. Test | 🔨 In progress | Score each search method on 400 test queries whose right answers we know. Scoring code ✅; test queries ✅. |
+| 3. Search | 🔨 In progress | Rank papers for a query using word matching (BM25), meaning (embeddings), or both. BM25 baseline ✅. |
+| 4. Test | 🔨 In progress | Score each search method on 400 test queries whose right answers we know. Scoring code ✅; test queries ✅; results table ✅. |
 | 5. Answer (RAG) | Later | Send the top papers to an LLM and have it answer the question, citing them. |
 | 6. Website | Later | A public page where anyone can search. |
 
@@ -32,6 +32,10 @@ produces. Read this before the code.
    [`test_metrics.py`](../tests/test_metrics.py) as worked examples
 7. [`prompts.py`](../arxiv_search/evaluate/prompts.py): the exact words we send the LLM to
    write test queries, then [`make_queries.py`](../arxiv_search/evaluate/make_queries.py)
+8. [`text.py`](../arxiv_search/search/text.py) and [`bm25.py`](../arxiv_search/search/bm25.py):
+   step 3 keyword search, with [`test_bm25.py`](../tests/test_bm25.py) as a worked example
+9. [`experiments.py`](../arxiv_search/evaluate/experiments.py): runs a search system on the
+   test queries and updates the [results table](05-results.md)
 
 ---
 
@@ -144,6 +148,43 @@ The random pick uses a **fixed seed** (6188), so running it again picks exactly 
 **Output:** `data/processed/corpus.jsonl`, which **every later step reads**.
 
 **Run it:** `python -m arxiv_search.ingest.clean` (a few seconds).
+
+---
+
+## Step 3a: Keyword search, BM25 (`search/text.py`, `search/bm25.py`)
+
+**What it does:** ranks papers by how well their words match the query's words.
+
+**1. Turn text into words** (`text.py`). The baseline does the least possible:
+
+```
+tokenize("State-of-the-art RAG, SO(3).")  →  ["state", "of", "the", "art", "rag", "so", "3"]
+```
+
+Lowercase, then split on anything that isn't a letter or digit. No stopword removal, no
+stemming ("models" ≠ "model"). Each paper is `title + " " + abstract` (`paper_text`).
+
+**2. Build an inverted index** (`bm25.py`, built once, ~3 s for 23,304 papers). For every word,
+the papers containing it and how many times:
+
+```
+"retrieval" → papers [12, 40, 977, ...], counts [3, 1, 2, ...]
+```
+
+**3. Score a query.** Each query word found in a paper earns it `idf × tf_part` points:
+
+| Part | Meaning | Effect |
+|---|---|---|
+| **idf** = ln(1 + (N − df + 0.5) / (df + 0.5)) | How rare the word is (df = papers containing it) | "the" ≈ 0 points, "bm25" ≈ 8 |
+| **tf_part** = tf × (k1 + 1) / (tf + k1 × (1 − b + b × length / avg length)) | How often it's in this paper, with two brakes | |
+| **k1** = 1.2 | Saturation brake | the 2nd mention counts less than the 1st |
+| **b** = 0.75 | Length brake | long papers' counts are scaled down |
+
+A worked example with three tiny papers is in the docstring of `test_bm25_hand_worked_example`.
+Ties keep corpus order, so results are identical every run.
+
+**Why our own code** (~70 lines) instead of a library: so every number can be explained. A test
+checks it gives exactly the same scores as the `rank_bm25` library.
 
 ---
 
@@ -273,6 +314,30 @@ two of 1/4. The split uses the fixed seed, so it's the same every time.
 
 ---
 
+## Step 4c: Experiments (`evaluate/experiments.py`)
+
+**What it does:** runs one search system on the test queries and adds it to one big table,
+[docs/05-results.md](05-results.md), so every technique is compared the same way.
+
+Each system is a short function in `SYSTEMS` that builds an index and returns a search
+function. Running `python -m arxiv_search.evaluate.experiments bm25-baseline`:
+
+1. builds the index (timed → "Build s")
+2. searches each of the 100 **dev** queries, keeping the top 100 papers (timed → "ms/query")
+3. scores them with `metrics.py`
+4. saves everything to `data/results/dev/` and rebuilds the table
+
+Every row is compared with `bm25-baseline` **on the same queries** (Δ MRR with a 95% interval).
+Add `--split test` only for the finalists.
+
+| File in `data/results/<split>/` | Contents |
+|---|---|
+| `<system>.run.json` | Top 100 arxiv_ids per query |
+| `<system>.scores.jsonl` | One row per query: Recall@k, MRR@10, query type, specificity, category |
+| `<system>.info.json` | Description, build seconds, ms per query |
+
+---
+
 ## Settings (`config.py`)
 
 Every number that changes the results lives here, so nothing important is hidden inside the code.
@@ -298,6 +363,8 @@ Every number that changes the results lives here, so nothing important is hidden
 | `EVAL_QUERIES_PER_TYPE` | 100 | Test queries per type (× 4 types = 400) |
 | `EVAL_PAPERS_PER_CALL` | 4 | Papers per LLM call |
 | `EVAL_MAX_CALLS_PER_RUN` | 150 | Safety cap on calls per run |
+| `RUN_DEPTH` | 100 | Papers kept per query in experiments |
+| `BASELINE_SYSTEM` | `bm25-baseline` | The row every other system is compared with |
 
 ---
 
@@ -340,6 +407,9 @@ without the internet.
 **`test_split.py`** (3 tests): dev is exactly 100 and never overlaps test; each type is 25 dev;
 specificity and category stay balanced; the split doesn't depend on file order.
 
+**`test_bm25.py`** (4 tests): the tokenizer on tricky text; BM25 scores for three tiny papers
+worked out by hand; unknown words and ties; and identical scores to the `rank_bm25` library.
+
 **Run them:** `python -m pytest -q`
 
 ---
@@ -359,8 +429,9 @@ decisions. Their results are in [Findings](03-findings.md).
 ## The data folder
 
 `data/` is **not** in git: it's big, and anyone can rebuild it by running the steps above.
-**Exception:** `data/eval/queries.jsonl` and `labels.json` *are* in git, because an LLM wouldn't
-write the same 400 queries twice, and every score we report must use the same test set.
+**Exceptions:** `data/eval/queries.jsonl`, `labels.json` and `split.json` *are* in git, because
+an LLM wouldn't write the same 400 queries twice, and every score we report must use the same
+test set. `data/results/` is in git too: it's small, and the results table is rebuilt from it.
 
 ```
 data/
@@ -383,6 +454,9 @@ data/
 │   ├── labels.json               right answers for metrics.py
 │   ├── split.json                which 100 queries are dev, which 300 are test
 │   └── run.log
+├── results/                      STEP 4c OUTPUT: every search system's rankings + scores
+│   ├── dev/                      bm25-baseline.run.json, .scores.jsonl, .info.json, ...
+│   └── test/                     finalists only
 └── experiments/                  results of the scripts in experiments/
 ```
 
@@ -399,11 +473,15 @@ arxiv-search/
 │   │   ├── download.py           step 1:  arXiv → data/raw/
 │   │   ├── parse.py              step 2a: XML → Python dicts
 │   │   └── clean.py              step 2b: filter + sample → data/processed/corpus.jsonl
+│   ├── search/                   step 3
+│   │   ├── text.py               text → words (tokenize), paper → title + abstract
+│   │   └── bm25.py               keyword search (BM25)
 │   └── evaluate/                 step 4
 │       ├── metrics.py            Recall, MRR, nDCG + error bars
 │       ├── prompts.py            the exact instructions given to the query-writing LLM
 │       ├── make_queries.py       step 4b: writes + checks 400 test queries → data/eval/
-│       └── split.py              100 dev / 300 test split → data/eval/split.json
+│       ├── split.py              100 dev / 300 test split → data/eval/split.json
+│       └── experiments.py        step 4c: run a search system → data/results/, docs/05-results.md
 ├── tests/                        automatic checks
 ├── experiments/                  one-off measurement scripts
 ├── pyproject.toml                project name + which libraries to install
@@ -411,8 +489,7 @@ arxiv-search/
 └── .gitignore                    keeps data/, .env, .venv/ out of git
 ```
 
-Future steps get their own folder inside `arxiv_search/` when we build them: `search/`,
-`rag/`, `api/`.
+Future steps get their own folder inside `arxiv_search/` when we build them: `rag/`, `api/`.
 
 **Things you may see that aren't ours:** `.venv/` (installed libraries), `__pycache__/`,
 `.pytest_cache/` and `arxiv_search.egg-info/` are generated automatically by Python. They're not

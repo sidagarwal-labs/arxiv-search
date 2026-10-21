@@ -24,6 +24,14 @@ Short, plain definitions of every term used in this project, grouped by topic.
 |---|---|
 | **Token** | A piece of a word that a model reads. Roughly 1 token ≈ ¾ of a word. |
 | **BM25** | Classic keyword search. Scores a paper higher when it contains the query's words, especially rare words. |
+| **Tokenize** | Split text into words. Our baseline: lowercase, then split on anything that isn't a letter or digit. |
+| **Inverted index** | For every word, the list of papers containing it (like a book's index). Makes keyword search fast. |
+| **tf / df** | Term frequency: how often a word is in one paper. Document frequency: how many papers contain it. |
+| **idf** | Inverse document frequency: rare words (low df) are worth more points in BM25. |
+| **k1, b** | BM25's two settings. k1: how fast repeated words stop counting. b: how much long papers are penalized. |
+| **Stopwords** | Very common words ("the", "of", "for") that some systems drop before searching. |
+| **Stemming** | Cutting words to a root so "models", "modeling" and "model" all match. |
+| **Baseline** | The simplest system, which every other system is compared against. |
 | **Embedding / vector** | A list of numbers (e.g. 384 of them) that captures what a text means. Similar meanings give similar lists. |
 | **Embedding model** | The model that turns text into vectors. Examples: MiniLM, BGE-small, E5-small, gemini-embedding-2. |
 | **Dense search** | Search by comparing the query's vector to every paper's vector. |

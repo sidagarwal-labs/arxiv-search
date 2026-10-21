@@ -52,3 +52,8 @@ RECALL_KS = (1, 5, 10, 20)  # 20 = the candidate pool a reranker / RAG would rec
 MRR_CUTOFF = 10  # right paper at rank 11 or worse scores 0
 NDCG_K = 10  # graded relevance 0/1/2, linear gain, unjudged papers count as 0
 BOOTSTRAP_SAMPLES = 1_000  # resamples for 95% confidence intervals
+
+# --- Experiments (Decisions 26-27) ----------------------------------------
+RESULTS_DIR = DATA_DIR / "results"  # rankings + per-query scores of every system run
+RUN_DEPTH = 100  # papers kept per query: enough for Recall@20 and for a reranker / judge later
+BASELINE_SYSTEM = "bm25-baseline"  # every other system is compared against this one

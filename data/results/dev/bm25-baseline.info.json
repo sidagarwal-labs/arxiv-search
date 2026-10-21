@@ -1,0 +1,8 @@
+{
+  "system": "bm25-baseline",
+  "description": "BM25, lowercase + split on non-letters, k1=1.2 b=0.75",
+  "split": "dev",
+  "queries": 100,
+  "build_seconds": 3.2,
+  "ms_per_query": 1.5
+}
