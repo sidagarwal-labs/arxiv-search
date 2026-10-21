@@ -24,3 +24,13 @@ WINDOW_DAYS = 365  # keep papers first submitted (v1, month from arXiv ID) withi
 MAX_PER_CATEGORY = 10_000  # stratified cap so cs.LG doesn't drown out cs.IR
 MIN_ABSTRACT_WORDS = 20  # drops stubs like "This paper has been withdrawn."
 RANDOM_SEED = 6188  # fixed seed -> the same harvest always yields the same corpus
+
+# --- LLM roles (Decision 20) ---------------------------------------------
+# One model per role, sized to the reasoning the task needs. The judge is from a
+# different family (Gemma) than the query writer (Gemini) to reduce self-preference.
+QUERY_WRITER_MODEL = "gemini-3.6-flash"
+JUDGE_MODEL = "gemma-4-31b-it"
+RAG_MODEL_CANDIDATES = ("gemini-3.5-flash-lite", "gemini-3.5-flash")
+RERANKER_MODEL_CANDIDATES = ("gemini-3.5-flash-lite", "gemini-3.5-flash")
+HOSTED_EMBEDDING_MODEL = "gemini-embedding-2"
+HOSTED_EMBEDDING_DIM = 768  # reduced from the default 3,072 so production vectors fit the free DB tier
