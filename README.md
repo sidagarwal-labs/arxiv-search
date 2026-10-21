@@ -86,6 +86,7 @@ data/                    git-ignored; fully reproducible from code
 | 16 | Evaluation set size | 400 queries (balanced across 3 categories × 4 types); ~60 stratified queries hand-reviewed | Enough to detect MRR differences of roughly 0.03–0.05 between systems; the hand review measures query realism and LLM-judge agreement. |
 | 17 | LLM provider | Google Gemini free tier (AI Studio). The model is chosen **per task** by how much reasoning it needs; model IDs live in config. Generator and judge use different models | Free and sufficient for our volume. A single provider family risks self-preference bias, so we use different models per role and report agreement with human labels. |
 | 18 | Full text | Title + abstract is the production index. Full-text chunking (512-token chunks) is a **later experiment** on cs.IR Creative Commons papers (~2,010 papers, ~39k chunks) | Measured: full text is ~32× the abstract; indexing every paper would take ~20 h to download, ~15 h to embed per model, and ~3 GB of storage (over the free tier). 36% of papers carry arXiv's standard license, which doesn't let us republish full text. The subset answers "does full text help, and for which queries?" at about 3 hours total cost. |
+| 19 | Retrieval architecture | Stage 1 candidates: **BM25** (baseline), **dense**, **hybrid** (RRF). Optional stage 2: cross-encoder or **LLM reranker**, evaluated later | An LLM reranker can only reorder what stage 1 returns, so stage-1 recall caps quality. A 30-query probe on cs.IR showed dense missing author names and rare terms entirely (e.g. "ANNS" ranked 1,361 by dense vs. 5 by BM25); topic queries tied. BM25 indexes in 0.4 s and costs nothing. |
 
 ### Hosting data flow
 
@@ -119,6 +120,20 @@ HTML was available for 96% of sampled papers (43/45).
 | A. Title + abstract (current) | 23,304 | 23,304 | done | ~17 min | ~137 MB | ✅ |
 | B. Full text, all papers | 23,304 | ~450k | ~20 h | ~15 h | ~3.0 GB | ❌ |
 | C. Full text, cs.IR CC-licensed | 2,010 | ~39k | ~1.7 h | ~1.3 h | ~256 MB | ✅ |
+
+### Gemini free-tier availability (probed 2026-10-20)
+
+| Model | Free tier | Notes |
+|---|---|---|
+| `gemini-3.8-flash`, `3.7-flash`, `3.6-flash`, `3.5-flash` | ✅ | 1.5 s typical; 3.7/3.8 slower on first call |
+| `gemini-3.5-flash-lite`, `3.1-flash-lite` | ✅ | ~0.6 s |
+| `gemma-4-31b-it`, `gemma-4-26b-a4b-it` | ✅ | Open-weight Gemma family |
+| `gemini-3.1-pro-preview`, `gemini-4-argon` | ❌ | 429, zero free quota |
+| `gemini-2.5-*` | ❌ | 404, retired for new users |
+| `gemini-embedding-2`, `gemini-embedding-001` | ✅ | 3,072 dims by default; use 768 for hosting (~70 MB vs ~286 MB for 23k vectors) |
+
+Per-minute and per-day limits aren't exposed by the API; see the AI Studio rate-limit dashboard.
+Client code backs off and retries on 429.
 
 ### Data-quality notes
 
