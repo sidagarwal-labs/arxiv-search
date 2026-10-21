@@ -1,8 +1,15 @@
 {
   "system": "bm25-baseline",
-  "description": "BM25, lowercase + split on non-letters, k1=1.2 b=0.75",
+  "description": "BM25 (no preprocessing), k1=1.2 b=0.75",
+  "factors": {
+    "stopwords": false,
+    "stemming": "none",
+    "authors": false,
+    "title_x2": false
+  },
   "split": "dev",
   "queries": 100,
-  "build_seconds": 3.2,
-  "ms_per_query": 1.5
+  "mrr@10": 0.5013,
+  "build_seconds": 4.0,
+  "ms_per_query": 1.7
 }

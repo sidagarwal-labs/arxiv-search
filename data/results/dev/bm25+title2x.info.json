@@ -1,0 +1,15 @@
+{
+  "system": "bm25+title2x",
+  "description": "BM25 (title_x2), k1=1.2 b=0.75",
+  "factors": {
+    "stopwords": false,
+    "stemming": "none",
+    "authors": false,
+    "title_x2": true
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5167,
+  "build_seconds": 4.1,
+  "ms_per_query": 1.8
+}

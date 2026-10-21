@@ -164,6 +164,18 @@ tokenize("State-of-the-art RAG, SO(3).")  →  ["state", "of", "the", "art", "ra
 Lowercase, then split on anything that isn't a letter or digit. No stopword removal, no
 stemming ("models" ≠ "model"). Each paper is `title + " " + abstract` (`paper_text`).
 
+**Options we tested** (Decisions 28–30; results in [Findings](03-findings.md) §9):
+
+| Option | Function | Example |
+|---|---|---|
+| `drop_stopwords` | `tokenize` | "how is the retrieval" → `how`, `retrieval` (Lucene's 33 words) |
+| `stem` | `tokenize` | "recommendations" → `recommend`, "retrieval" → `retriev` (Snowball) |
+| `add_stems` (exact+stems) | `tokenize` | "models" → `models`, `~model`: exact match scores twice |
+| `authors` | `paper_text` | adds "Ada Lovelace Alan Turing" to the searched text |
+| `title_repeats=2` | `paper_text` | the title is written twice, so its words count double |
+
+**Our best BM25** uses exact+stems + authors + title×2 with k1 = 0.8.
+
 **2. Build an inverted index** (`bm25.py`, built once, ~3 s for 23,304 papers). For every word,
 the papers containing it and how many times:
 
@@ -319,8 +331,17 @@ two of 1/4. The split uses the fixed seed, so it's the same every time.
 **What it does:** runs one search system on the test queries and adds it to one big table,
 [docs/05-results.md](05-results.md), so every technique is compared the same way.
 
-Each system is a short function in `SYSTEMS` that builds an index and returns a search
-function. Running `python -m arxiv_search.evaluate.experiments bm25-baseline`:
+Each system is a `System` in `SYSTEMS`: a function that builds an index and returns a search
+function, plus a description. The 24 BM25 combinations are generated from `BM25_GRID`.
+
+| Command | Does |
+|---|---|
+| `python -m arxiv_search.evaluate.experiments bm25-baseline` | run one system on dev |
+| `python -m arxiv_search.evaluate.experiments "bm25*"` | run every system matching a pattern |
+| `python -m arxiv_search.evaluate.experiments --tune <system>` | try a 6 × 6 grid of k1/b on dev |
+| `python -m arxiv_search.evaluate.experiments --list` | list all systems |
+
+For each system it:
 
 1. builds the index (timed → "Build s")
 2. searches each of the 100 **dev** queries, keeping the top 100 papers (timed → "ms/query")
@@ -334,7 +355,12 @@ Add `--split test` only for the finalists.
 |---|---|
 | `<system>.run.json` | Top 100 arxiv_ids per query |
 | `<system>.scores.jsonl` | One row per query: Recall@k, MRR@10, query type, specificity, category |
-| `<system>.info.json` | Description, build seconds, ms per query |
+| `<system>.info.json` | Description, settings, build seconds, ms per query |
+| `tuning/<system>.json` | MRR@10 for every k1/b pair tried |
+
+**The results page** has the main table (best first), the **factor analysis** (each BM25
+technique's effect averaged over all settings of the others, with a paired 95% interval),
+**interaction tables** (does one technique's effect depend on another?), and k1/b grids.
 
 ---
 
@@ -407,8 +433,9 @@ without the internet.
 **`test_split.py`** (3 tests): dev is exactly 100 and never overlaps test; each type is 25 dev;
 specificity and category stay balanced; the split doesn't depend on file order.
 
-**`test_bm25.py`** (4 tests): the tokenizer on tricky text; BM25 scores for three tiny papers
-worked out by hand; unknown words and ties; and identical scores to the `rank_bm25` library.
+**`test_bm25.py`** (7 tests): the tokenizer on tricky text, with stopwords, stemming and
+exact+stems; the authors and title×2 options; BM25 scores for three tiny papers worked out by
+hand; unknown words and ties; and identical scores to the `rank_bm25` library.
 
 **Run them:** `python -m pytest -q`
 

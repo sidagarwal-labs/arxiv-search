@@ -1,0 +1,15 @@
+{
+  "system": "bm25+authors",
+  "description": "BM25 (authors), k1=1.2 b=0.75",
+  "factors": {
+    "stopwords": false,
+    "stemming": "none",
+    "authors": true,
+    "title_x2": false
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5235,
+  "build_seconds": 4.6,
+  "ms_per_query": 1.7
+}

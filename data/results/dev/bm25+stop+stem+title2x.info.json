@@ -1,0 +1,15 @@
+{
+  "system": "bm25+stop+stem+title2x",
+  "description": "BM25 (stopwords, stemming=stem, title_x2), k1=1.2 b=0.75",
+  "factors": {
+    "stopwords": true,
+    "stemming": "stem",
+    "authors": false,
+    "title_x2": true
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5146,
+  "build_seconds": 5.4,
+  "ms_per_query": 1.8
+}

@@ -1,0 +1,17 @@
+{
+  "system": "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75",
+  "description": "BM25 (stemming=exact+stems, authors, title_x2), k1=0.8 b=0.75",
+  "factors": {
+    "stopwords": false,
+    "stemming": "exact+stems",
+    "authors": true,
+    "title_x2": true,
+    "k1": 0.8,
+    "b": 0.75
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5687,
+  "build_seconds": 15.4,
+  "ms_per_query": 3.5
+}

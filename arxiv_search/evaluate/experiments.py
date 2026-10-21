@@ -1,16 +1,20 @@
 """Run search systems on the test queries and keep one big results table.
 
-Every search method we try (BM25 baseline, BM25 + stemming, embeddings, hybrid, ...) is one
-"system" in SYSTEMS below. Running a system:
+Every search method we try (BM25 variants, embeddings, hybrid, ...) is one "system" in
+SYSTEMS below. Running systems:
 
-    python -m arxiv_search.evaluate.experiments bm25-baseline            # on dev (default)
-    python -m arxiv_search.evaluate.experiments bm25-baseline --split test
+    python -m arxiv_search.evaluate.experiments bm25-baseline          # one system, on dev
+    python -m arxiv_search.evaluate.experiments "bm25*"                # every BM25 system
+    python -m arxiv_search.evaluate.experiments --tune bm25+stem       # k1/b grid on dev
+    python -m arxiv_search.evaluate.experiments bm25-baseline --split test   # finalists only
+    python -m arxiv_search.evaluate.experiments --list
 
-1. builds the system's index over all 23,304 papers (timed)
-2. searches every query in the split and keeps the top RUN_DEPTH papers (timed)
-3. scores the rankings with metrics.py
-4. saves the rankings and scores under data/results/, then rebuilds docs/05-results.md,
-   the table comparing every system run so far.
+For each system:
+1. build its index over all 23,304 papers (timed)
+2. search every query in the split and keep the top RUN_DEPTH papers (timed)
+3. score the rankings with metrics.py
+4. save rankings and scores under data/results/<split>/
+Then docs/05-results.md is rebuilt from everything saved.
 
 Rule (Decision 26): experiment on dev as much as we like; run only finalists on test.
 """
@@ -18,118 +22,301 @@ Rule (Decision 26): experiment on dev as much as we like; run only finalists on 
 from __future__ import annotations
 
 import argparse
+import fnmatch
+import itertools
 import json
 import time
+from dataclasses import dataclass, field
+from functools import cache
 from typing import Callable
 
 from arxiv_search import config
 from arxiv_search.evaluate import metrics
 from arxiv_search.evaluate.make_queries import load_jsonl
-from arxiv_search.search.bm25 import BM25
+from arxiv_search.search.bm25 import BM25, DEFAULT_B, DEFAULT_K1
 from arxiv_search.search.text import paper_text, tokenize
 
 Searcher = Callable[[str], list[str]]  # query text -> arxiv_ids, best first
 
 QUERY_TYPES = ("keyword", "question", "paraphrase", "known_item")
+MRR = f"mrr@{config.MRR_CUTOFF}"
 
 
-# --- The systems ------------------------------------------------------------
-# Each builder takes the corpus and returns a search function.
+@dataclass
+class System:
+    build: Callable[[list[dict]], Searcher]  # corpus -> search function
+    description: str
+    factors: dict = field(default_factory=dict)  # grid settings, for the factor analysis
 
 
-def bm25_baseline(corpus: list[dict]) -> Searcher:
-    """BM25 over title + abstract, lowercase + split on non-letters, k1=1.2, b=0.75."""
-    index = BM25([tokenize(paper_text(p)) for p in corpus], [p["arxiv_id"] for p in corpus])
-    return lambda query: index.search(tokenize(query), config.RUN_DEPTH)
+# --- BM25 -------------------------------------------------------------------
 
-
-# name -> (builder, one-line description shown in the results table)
-SYSTEMS: dict[str, tuple[Callable[[list[dict]], Searcher], str]] = {
-    "bm25-baseline": (bm25_baseline, "BM25, lowercase + split on non-letters, k1=1.2 b=0.75"),
+# How each stemming setting maps onto tokenize()'s options.
+STEMMING = {
+    "none": {},
+    "stem": {"stem": True},  # every word replaced by its stem
+    "exact+stems": {"add_stems": True},  # exact word kept, stem added: score = BM25(exact) + BM25(stems)
 }
+
+# Decision 29: every combination of these is run (2 × 3 × 2 × 2 = 24 systems).
+# The first value of each is "off", i.e. the baseline.
+BM25_GRID = {
+    "stopwords": [False, True],  # drop Lucene's 33 English stopwords
+    "stemming": list(STEMMING),  # none / stem / exact+stems (Snowball English)
+    "authors": [False, True],  # append author names to the paper's text
+    "title_x2": [False, True],  # write the title twice (title boost)
+}
+
+
+def bm25_index(corpus: list[dict], factors: dict) -> tuple[BM25, Callable[[str], list[str]]]:
+    """Build the index for one combination. Returns it with the tokenizer, which must be the
+    same for papers and queries (otherwise "models" could never match "models")."""
+    options = {"drop_stopwords": factors["stopwords"], **STEMMING[factors["stemming"]]}
+
+    def words(text: str) -> list[str]:
+        return tokenize(text, **options)
+
+    texts = [paper_text(p, authors=factors["authors"], title_repeats=2 if factors["title_x2"] else 1)
+             for p in corpus]
+    index = BM25([words(t) for t in texts], [p["arxiv_id"] for p in corpus],
+                 k1=factors.get("k1", DEFAULT_K1), b=factors.get("b", DEFAULT_B))
+    return index, words
+
+
+def bm25_system(factors: dict) -> System:
+    def build(corpus: list[dict]) -> Searcher:
+        index, words = bm25_index(corpus, factors)
+        return lambda query: index.search(words(query), config.RUN_DEPTH)
+
+    on = [name for name, value in factors.items() if name in BM25_GRID and value not in (False, "none")]
+    described = ", ".join(f"stemming={factors['stemming']}" if f == "stemming" else f for f in on)
+    k1b = f"k1={factors.get('k1', DEFAULT_K1)} b={factors.get('b', DEFAULT_B)}"
+    return System(build, f"BM25 ({described or 'no preprocessing'}), {k1b}", factors)
+
+
+def bm25_name(factors: dict) -> str:
+    """bm25-baseline, or e.g. bm25+stop+exact+stems+authors+title2x."""
+    parts = []
+    if factors["stopwords"]:
+        parts.append("stop")
+    if factors["stemming"] != "none":
+        parts.append(factors["stemming"])
+    if factors["authors"]:
+        parts.append("authors")
+    if factors["title_x2"]:
+        parts.append("title2x")
+    if "k1" in factors:
+        parts.append(f"k1={factors['k1']},b={factors['b']}")
+    return "bm25+" + "+".join(parts) if parts else config.BASELINE_SYSTEM
+
+
+SYSTEMS: dict[str, System] = {}
+for values in itertools.product(*BM25_GRID.values()):
+    grid_factors = dict(zip(BM25_GRID, values))
+    SYSTEMS[bm25_name(grid_factors)] = bm25_system(grid_factors)
+
+# Decision 30: the best grid combination with tuned k1. The k1/b grid on dev picked k1 = 0.8
+# for all top-3 systems; b made no clear difference, so it stays at the default 0.75.
+BM25_BEST = {"stopwords": False, "stemming": "exact+stems", "authors": True, "title_x2": True,
+             "k1": 0.8, "b": 0.75}
+SYSTEMS[bm25_name(BM25_BEST)] = bm25_system(BM25_BEST)
 
 
 # --- Running ---------------------------------------------------------------
 
 
-def run_system(name: str, split: str) -> dict:
-    """Build, search, score and save one system on one split. Returns its saved summary."""
-    builder, description = SYSTEMS[name]
+@cache
+def load_eval() -> tuple[list[dict], dict, dict, dict]:
+    """corpus, queries by id, labels, split. Loaded once, however many systems we run."""
     corpus = load_jsonl(config.PROCESSED_DIR / "corpus.jsonl")
     queries = {q["query_id"]: q for q in load_jsonl(config.EVAL_DIR / "queries.jsonl")}
     labels = json.loads((config.EVAL_DIR / "labels.json").read_text())
-    query_ids = json.loads((config.EVAL_DIR / "split.json").read_text())[split]
+    split = json.loads((config.EVAL_DIR / "split.json").read_text())
+    return corpus, queries, labels, split
+
+
+def score(run: dict[str, list[str]]) -> list[dict]:
+    """Per-query scores, with each query's type/specificity/category kept next to them."""
+    _, queries, labels, _ = load_eval()
+    rows = metrics.score_run(run, {qid: labels[qid] for qid in run})
+    for row in rows:
+        q = queries[row["query_id"]]
+        row.update(query_type=q["query_type"], specificity=q["specificity"], category=q["category"])
+    return rows
+
+
+def run_system(name: str, split: str) -> dict:
+    """Build, search, score and save one system on one split. Returns its saved summary."""
+    system = SYSTEMS[name]
+    corpus, queries, _, splits = load_eval()
+    query_ids = splits[split]
 
     start = time.perf_counter()
-    search = builder(corpus)
+    search = system.build(corpus)
     build_seconds = time.perf_counter() - start
 
     start = time.perf_counter()
     run = {qid: search(queries[qid]["query"]) for qid in query_ids}
     ms_per_query = (time.perf_counter() - start) * 1000 / len(query_ids)
 
-    rows = metrics.score_run(run, {qid: labels[qid] for qid in query_ids})
-    for row in rows:  # keep the groups next to the scores, for per-type averages
-        q = queries[row["query_id"]]
-        row.update(query_type=q["query_type"], specificity=q["specificity"], category=q["category"])
-
+    rows = score(run)
     out = config.RESULTS_DIR / split
     out.mkdir(parents=True, exist_ok=True)
     (out / f"{name}.run.json").write_text(json.dumps(run))
     (out / f"{name}.scores.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
     info = {
-        "system": name, "description": description, "split": split, "queries": len(rows),
+        "system": name, "description": system.description, "factors": system.factors,
+        "split": split, "queries": len(rows), "mrr@10": round(sum(r[MRR] for r in rows) / len(rows), 4),
         "build_seconds": round(build_seconds, 1), "ms_per_query": round(ms_per_query, 1),
     }
     (out / f"{name}.info.json").write_text(json.dumps(info, indent=2))
     return info
 
 
-# --- The results table -----------------------------------------------------
+# --- Tuning k1 and b (dev only) --------------------------------------------
 
-METRIC_COLUMNS = [f"recall@{k}" for k in config.RECALL_KS] + [f"mrr@{config.MRR_CUTOFF}"]
-MRR = f"mrr@{config.MRR_CUTOFF}"
-
-
-def _mean(rows: list[dict], metric: str) -> float:
-    return sum(r[metric] for r in rows) / len(rows) if rows else float("nan")
+K1_GRID = [0.4, 0.8, 1.2, 1.6, 2.0, 2.4]
+B_GRID = [0.3, 0.5, 0.6, 0.75, 0.9, 1.0]
 
 
-def split_table(split: str) -> str | None:
-    """Markdown table of every system run on this split, or None if none has been run."""
+def tune_bm25(name: str) -> dict:
+    """MRR@10 on dev for every (k1, b) in the grid, for one BM25 system.
+
+    The index is built once: k1 and b are only used at query time, so changing them on the
+    index is the same as rebuilding it with the new values.
+    """
+    corpus, queries, _, splits = load_eval()
+    index, words = bm25_index(corpus, SYSTEMS[name].factors)
+    query_words = {qid: words(queries[qid]["query"]) for qid in splits["dev"]}
+    grid = {}
+    for k1, b in itertools.product(K1_GRID, B_GRID):
+        index.k1, index.b = k1, b
+        rows = score({qid: index.search(w, config.RUN_DEPTH) for qid, w in query_words.items()})
+        grid[f"{k1},{b}"] = round(sum(r[MRR] for r in rows) / len(rows), 4)
+    best = max(grid, key=grid.get)
+    result = {"system": name, "metric": MRR, "split": "dev", "mrr_by_k1_b": grid, "best": best,
+              "best_mrr": grid[best], "default_mrr": grid[f"{DEFAULT_K1},{DEFAULT_B}"]}
+    folder = config.RESULTS_DIR / "dev" / "tuning"
+    folder.mkdir(parents=True, exist_ok=True)
+    (folder / f"{name}.json").write_text(json.dumps(result, indent=2))
+    return result
+
+
+# --- The results page --------------------------------------------------------
+
+METRIC_COLUMNS = [f"recall@{k}" for k in config.RECALL_KS] + [MRR]
+
+
+def _mean(values: list[float]) -> float:
+    return sum(values) / len(values) if values else float("nan")
+
+
+def load_results(split: str) -> dict[str, tuple[list[dict], dict]]:
+    """name -> (per-query scores sorted by query_id, info), for every system run on split."""
     folder = config.RESULTS_DIR / split
-    names = [n for n in SYSTEMS if (folder / f"{n}.scores.jsonl").exists()]
-    if not names:
-        return None
-    scores = {n: load_jsonl(folder / f"{n}.scores.jsonl") for n in names}
-    infos = {n: json.loads((folder / f"{n}.info.json").read_text()) for n in names}
-    baseline = scores.get(config.BASELINE_SYSTEM)
+    found = {}
+    for name in SYSTEMS:
+        if (folder / f"{name}.scores.jsonl").exists():
+            rows = sorted(load_jsonl(folder / f"{name}.scores.jsonl"), key=lambda r: r["query_id"])
+            found[name] = (rows, json.loads((folder / f"{name}.info.json").read_text()))
+    return found
 
-    header = (["System", "n"] + [m.replace("recall", "R") for m in METRIC_COLUMNS[:-1]] + ["MRR@10"]
-              + ["Δ MRR vs baseline"]
-              + list(QUERY_TYPES) + ["specific", "broad"]
-              + ["Build s", "ms/query"])
+
+def main_table(results: dict) -> str:
+    """One row per system, best MRR@10 first."""
+    baseline = results.get(config.BASELINE_SYSTEM)
+    header = (["System", "R@1", "R@5", "R@10", "R@20", "MRR@10", "Δ MRR vs baseline"]
+              + list(QUERY_TYPES) + ["specific", "broad", "Build s", "ms/query"])
     lines = ["| " + " | ".join(header) + " |", "|" + "---|" * len(header)]
-    for n in names:
-        rows = sorted(scores[n], key=lambda r: r["query_id"])
-        cells = [f"`{n}`", str(len(rows))]
+    by_mrr = sorted(results, key=lambda n: -_mean([r[MRR] for r in results[n][0]]))
+    for n in by_mrr:
+        rows, info = results[n]
+        cells = [f"**`{n}`**" if n == config.BASELINE_SYSTEM else f"`{n}`"]
         for m in METRIC_COLUMNS:
             mean, low, high = metrics.bootstrap_ci([r[m] for r in rows])
             cells.append(f"{mean:.3f} [{low:.2f}–{high:.2f}]" if m == MRR else f"{mean:.3f}")
         if baseline is None or n == config.BASELINE_SYSTEM:
             cells.append("—")
         else:
-            base = sorted(baseline, key=lambda r: r["query_id"])
-            diff, low, high = metrics.paired_diff_ci([r[MRR] for r in base], [r[MRR] for r in rows])
+            diff, low, high = metrics.paired_diff_ci([r[MRR] for r in baseline[0]], [r[MRR] for r in rows])
             cells.append(f"{diff:+.3f} [{low:+.2f}, {high:+.2f}]")
-        cells += [f"{_mean([r for r in rows if r['query_type'] == t], MRR):.3f}" for t in QUERY_TYPES]
-        cells += [f"{_mean([r for r in rows if r['specificity'] == s], MRR):.3f}"
-                  for s in ("specific", "broad")]
-        cells += [str(infos[n]["build_seconds"]), str(infos[n]["ms_per_query"])]
+        cells += [f"{_mean([r[MRR] for r in rows if r['query_type'] == t]):.3f}" for t in QUERY_TYPES]
+        cells += [f"{_mean([r[MRR] for r in rows if r['specificity'] == s]):.3f}" for s in ("specific", "broad")]
+        cells += [str(info["build_seconds"]), str(info["ms_per_query"])]
         lines.append("| " + " | ".join(cells) + " |")
+    return "\n".join(lines)
 
-    described = "\n".join(f"- `{n}`: {infos[n]['description']}" for n in names)
-    return "\n".join(lines) + "\n\n" + described
+
+def factor_analysis(results: dict) -> str | None:
+    """Average effect of each BM25 grid factor, over all combinations of the other factors.
+
+    For each query we average MRR@10 over every grid system with the factor on, and over
+    every one with it off; the paired difference of those per-query averages (with a 95%
+    interval) is the factor's effect. Needs all grid systems to have been run.
+    """
+    grid = {n: results[n][0] for n in results if set(BM25_GRID) <= set(results[n][1]["factors"])
+            and "k1" not in results[n][1]["factors"]}
+    if len(grid) < len(list(itertools.product(*BM25_GRID.values()))):
+        return None
+    factors = {n: results[n][1]["factors"] for n in grid}
+    n_queries = len(next(iter(grid.values())))
+    query_types = [r["query_type"] for r in next(iter(grid.values()))]
+
+    def per_query_mean(names: list[str]) -> list[float]:
+        return [_mean([grid[n][i][MRR] for n in names]) for i in range(n_queries)]
+
+    lines = [
+        "| Factor | Setting | Systems | Mean MRR@10 | Δ vs off [95% CI] | "
+        + " | ".join(f"Δ {t}" for t in QUERY_TYPES) + " |",
+        "|---|---|---|---|---|" + "---|" * len(QUERY_TYPES),
+    ]
+    for factor, levels in BM25_GRID.items():
+        off = per_query_mean([n for n in grid if factors[n][factor] == levels[0]])
+        for level in levels:
+            names = [n for n in grid if factors[n][factor] == level]
+            these = per_query_mean(names)
+            if level == levels[0]:
+                delta, by_type = "—", ["—"] * len(QUERY_TYPES)
+            else:
+                d, low, high = metrics.paired_diff_ci(off, these)
+                delta = f"{d:+.3f} [{low:+.2f}, {high:+.2f}]"
+                by_type = [f"{_mean([b - a for a, b, qt in zip(off, these, query_types) if qt == t]):+.3f}"
+                           for t in QUERY_TYPES]
+            lines.append(f"| {factor} | {level} | {len(names)} | {_mean(these):.3f} | {delta} | "
+                         + " | ".join(by_type) + " |")
+
+    # Two-way tables: does a factor's effect depend on another factor's setting?
+    interactions = []
+    for f1, f2 in itertools.combinations(BM25_GRID, 2):
+        rows = [f"| {f1} ↓ / {f2} → | " + " | ".join(str(v) for v in BM25_GRID[f2]) + " |",
+                "|---|" + "---|" * len(BM25_GRID[f2])]
+        for v1 in BM25_GRID[f1]:
+            cells = []
+            for v2 in BM25_GRID[f2]:
+                names = [n for n in grid if factors[n][f1] == v1 and factors[n][f2] == v2]
+                cells.append(f"{_mean(per_query_mean(names)):.3f}")
+            rows.append(f"| {v1} | " + " | ".join(cells) + " |")
+        interactions.append("\n".join(rows))
+
+    return "\n".join(lines) + "\n\n**Interactions** (mean MRR@10 for each pair of settings, " \
+        "averaged over the other two factors):\n\n" + "\n\n".join(interactions)
+
+
+def tuning_tables() -> str | None:
+    folder = config.RESULTS_DIR / "dev" / "tuning"
+    if not folder.exists():
+        return None
+    parts = []
+    for path in sorted(folder.glob("*.json")):
+        t = json.loads(path.read_text())
+        lines = [f"**`{t['system']}`**: best k1={t['best'].split(',')[0]}, b={t['best'].split(',')[1]} "
+                 f"→ MRR@10 {t['best_mrr']:.3f} (default k1={DEFAULT_K1}, b={DEFAULT_B}: {t['default_mrr']:.3f})",
+                 "", "| k1 ↓ / b → | " + " | ".join(str(b) for b in B_GRID) + " |",
+                 "|---|" + "---|" * len(B_GRID)]
+        for k1 in K1_GRID:
+            lines.append(f"| {k1} | " + " | ".join(f"{t['mrr_by_k1_b'][f'{k1},{b}']:.3f}" for b in B_GRID) + " |")
+        parts.append("\n".join(lines))
+    return "\n\n".join(parts)
 
 
 def write_results_doc() -> None:
@@ -138,30 +325,60 @@ def write_results_doc() -> None:
         "",
         "*Generated by `python -m arxiv_search.evaluate.experiments`. Don't edit by hand.*",
         "",
-        "Each row is one search system. Scores are against each query's source paper:",
+        "Each row is one search system, best first. Scores are against each query's source paper:",
         "**R@k** = share of queries whose source paper is in the top k; **MRR@10** = average of",
         "1 ÷ its rank (0 if below 10), with a 95% interval. **Δ vs baseline** is the paired",
         "difference from `bm25-baseline` on the same queries: if its interval excludes 0, the",
-        "difference is real. Broad queries have many right answers, so their scores here are a",
-        "lower bound until the LLM judge grades other papers (nDCG@10 comes then).",
-        "The columns *keyword* to *broad* are MRR@10 within that group of queries (25 per type on",
-        "dev; 74 specific, 26 broad).",
+        "difference is real. The columns *keyword* to *broad* are MRR@10 within that group (dev:",
+        "25 per type, 74 specific, 26 broad). Broad queries have many right answers, so their",
+        "scores are a lower bound until the LLM judge grades other papers (nDCG@10 comes then).",
+        "",
+        "**Careful:** picking the best of many rows on 100 dev queries flatters the winner a",
+        "little (winner's curse). The honest score is the finalist's run on test.",
     ]
-    for split, title in (("dev", "Dev (100 queries): experiments"), ("test", "Test (300 queries): finalists only")):
-        table = split_table(split)
-        parts += ["", f"## {title}", "", table or "_Nothing run yet._"]
+    dev = load_results("dev")
+    parts += ["", "## Dev (100 queries): experiments", "", main_table(dev) if dev else "_Nothing run yet._"]
+
+    analysis = factor_analysis(dev)
+    if analysis:
+        parts += ["", "### BM25: what each technique adds (Decision 29)", "",
+                  "Every combination of the four settings below was run (24 systems). Each factor's",
+                  "effect is averaged over all combinations of the other three, so it isn't tied to",
+                  "one starting point. *Δ by type* columns show who gains and who loses.", "", analysis]
+    tuning = tuning_tables()
+    if tuning:
+        parts += ["", "### BM25: tuning k1 and b on dev", "",
+                  "MRR@10 on dev for each (k1, b). k1 = how fast repeated words stop counting;",
+                  "b = how much long papers are penalized.", "", tuning]
+
+    test = load_results("test")
+    parts += ["", "## Test (300 queries): finalists only", "", main_table(test) if test else "_Nothing run yet._"]
     (config.PROJECT_ROOT / "docs" / "05-results.md").write_text("\n".join(parts) + "\n", encoding="utf-8")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run a search system and update the results table.")
-    parser.add_argument("system", choices=list(SYSTEMS))
+    parser = argparse.ArgumentParser(description="Run search systems and update docs/05-results.md.")
+    parser.add_argument("systems", nargs="*", help="system names or patterns like 'bm25*'")
     parser.add_argument("--split", choices=["dev", "test"], default="dev")
+    parser.add_argument("--tune", nargs="+", metavar="SYSTEM", help="k1/b grid on dev for these BM25 systems")
+    parser.add_argument("--list", action="store_true", help="list every system")
     args = parser.parse_args()
-    info = run_system(args.system, args.split)
+
+    if args.list:
+        for name, system in SYSTEMS.items():
+            print(f"{name:45} {system.description}")
+        return
+    names = [n for n in SYSTEMS if any(fnmatch.fnmatchcase(n, p) for p in args.systems)]
+    if args.systems and not names:
+        parser.error(f"no system matches {args.systems}; see --list")
+    for name in names:
+        info = run_system(name, args.split)
+        print(f"{name:45} MRR@10 {info['mrr@10']:.3f}  build {info['build_seconds']} s")
+    for name in args.tune or []:
+        t = tune_bm25(name)
+        print(f"tuned {name}: best k1,b = {t['best']} → {t['best_mrr']:.3f} (default {t['default_mrr']:.3f})")
     write_results_doc()
-    print(json.dumps(info, indent=2))
-    print("Table updated: docs/05-results.md")
+    print("Updated docs/05-results.md")
 
 
 if __name__ == "__main__":

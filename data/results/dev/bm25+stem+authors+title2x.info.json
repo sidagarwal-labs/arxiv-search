@@ -1,0 +1,15 @@
+{
+  "system": "bm25+stem+authors+title2x",
+  "description": "BM25 (stemming=stem, authors, title_x2), k1=1.2 b=0.75",
+  "factors": {
+    "stopwords": false,
+    "stemming": "stem",
+    "authors": true,
+    "title_x2": true
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5489,
+  "build_seconds": 5.4,
+  "ms_per_query": 1.6
+}

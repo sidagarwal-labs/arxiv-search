@@ -1,0 +1,15 @@
+{
+  "system": "bm25+exact+stems",
+  "description": "BM25 (stemming=exact+stems), k1=1.2 b=0.75",
+  "factors": {
+    "stopwords": false,
+    "stemming": "exact+stems",
+    "authors": false,
+    "title_x2": false
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5205,
+  "build_seconds": 7.3,
+  "ms_per_query": 2.2
+}

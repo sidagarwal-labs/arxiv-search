@@ -32,6 +32,11 @@ Short, plain definitions of every term used in this project, grouped by topic.
 | **Stopwords** | Very common words ("the", "of", "for") that some systems drop before searching. |
 | **Stemming** | Cutting words to a root so "models", "modeling" and "model" all match. |
 | **Baseline** | The simplest system, which every other system is compared against. |
+| **Title boost** | Making title words count more than abstract words; we do it by writing the title twice. |
+| **Full grid (factorial design)** | Running every combination of settings, so each one's effect can be measured across all the others. |
+| **Interaction** | When one technique's effect depends on another (e.g. stemming hurts alone but helps with authors). |
+| **Tuning** | Trying several values of a setting (e.g. k1) and keeping the best, on dev queries only. |
+| **Winner's curse** | The best of many systems on a small query set looks better than it really is, partly by luck. |
 | **Embedding / vector** | A list of numbers (e.g. 384 of them) that captures what a text means. Similar meanings give similar lists. |
 | **Embedding model** | The model that turns text into vectors. Examples: MiniLM, BGE-small, E5-small, gemini-embedding-2. |
 | **Dense search** | Search by comparing the query's vector to every paper's vector. |

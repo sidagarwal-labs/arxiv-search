@@ -4,13 +4,35 @@ import random
 import pytest
 
 from arxiv_search.search.bm25 import BM25
-from arxiv_search.search.text import tokenize
+from arxiv_search.search.text import paper_text, tokenize
+
+
+def test_paper_text_options():
+    paper = {"title": "Dense Retrieval", "abstract": "We study it.", "authors": ["Ada Lovelace", "Alan Turing"]}
+    assert paper_text(paper) == "Dense Retrieval We study it."
+    assert paper_text(paper, authors=True) == "Dense Retrieval We study it. Ada Lovelace Alan Turing"
+    assert paper_text(paper, title_repeats=2) == "Dense Retrieval Dense Retrieval We study it."
 
 
 def test_tokenize_lowercases_and_splits_on_non_letters():
     assert tokenize("State-of-the-art RAG, SO(3).") == ["state", "of", "the", "art", "rag", "so", "3"]
     assert tokenize("BM25 vs. dense_retrieval") == ["bm25", "vs", "dense", "retrieval"]
     assert tokenize("Café") == ["café"]
+
+
+def test_tokenize_can_drop_stopwords():
+    text = "How is the retrieval of papers not working?"
+    assert tokenize(text, drop_stopwords=True) == ["how", "retrieval", "papers", "working"]
+
+
+def test_tokenize_can_stem():
+    assert tokenize("Recommending recommendations, modeling models", stem=True) == [
+        "recommend", "recommend", "model", "model"
+    ]
+    assert tokenize("The retrieval", drop_stopwords=True, stem=True) == ["retriev"]
+    assert tokenize("Models of retrieval", add_stems=True) == [
+        "models", "of", "retrieval", "~model", "~of", "~retriev"
+    ]
 
 
 def test_bm25_hand_worked_example():

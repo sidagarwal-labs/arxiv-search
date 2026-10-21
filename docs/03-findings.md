@@ -215,3 +215,45 @@ Build 3.2 s, 1.5 ms per query.
   will tell us how much.
 - Stemming may help a little in the middle band ("recommendations" vs "recommendation") but can't
   fix the bottom band.
+
+---
+
+## 9. BM25 techniques, full grid (decisions #28–#30)
+
+All 24 combinations on dev, plus k1/b tuning. Full tables: [Results](05-results.md).
+
+**Each technique's average effect** (averaged over every setting of the other three; Δ MRR@10
+with a 95% interval):
+
+| Technique | Δ MRR@10 | Who gains | Who loses |
+|---|---|---|---|
+| Stopwords | −0.000 [−0.01, +0.01] | nobody | nobody |
+| Stemming (replace words) | +0.006 [−0.04, +0.05] | paraphrase +0.07, keyword +0.06 | known_item −0.08 |
+| **exact+stems** | **+0.025 [+0.01, +0.05]** | keyword +0.05, paraphrase +0.03, question +0.03 | (known_item −0.01) |
+| **Authors** | **+0.030 [+0.01, +0.05]** | known_item +0.12 | — |
+| **Title ×2** | **+0.014 [+0.00, +0.02]** | known_item +0.03 | — |
+
+**The interaction that matters** (mean MRR@10):
+
+| Stemming ↓ / authors → | off | on |
+|---|---|---|
+| none | 0.510 | 0.528 |
+| stem | 0.503 | 0.548 |
+| exact+stems | 0.531 | 0.556 |
+
+Stemming alone is slightly harmful, but with authors it's helpful: authors put back the exact
+matches that known-item queries lost.
+
+**Tuning k1/b** (top 3 grid systems): all three prefer k1 = 0.8 over the default 1.2 (+0.01).
+b between 0.5 and 1.0 changes MRR by under 0.01, which is noise on 100 queries.
+
+**Best BM25:** `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75`, MRR@10 **0.569** vs 0.501
+(Δ +0.067 [+0.03, +0.10]). Known-item is now perfect (1.000), keyword 0.71.
+
+**What this means.**
+- Text tricks fix *word-form* mismatches ("recommendations" vs "recommend") and add missing
+  fields (authors). That's worth about +0.07.
+- **Paraphrase is still 0.13** and R@20 stays at ~0.72: no BM25 setting finds papers described
+  in different words. That's the job for embeddings next.
+- Build times in the table vary 2–3× between identical runs (laptop load), so treat them as
+  rough.

@@ -1,0 +1,15 @@
+{
+  "system": "bm25+stop",
+  "description": "BM25 (stopwords), k1=1.2 b=0.75",
+  "factors": {
+    "stopwords": true,
+    "stemming": "none",
+    "authors": false,
+    "title_x2": false
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5015,
+  "build_seconds": 3.2,
+  "ms_per_query": 1.0
+}

@@ -81,6 +81,27 @@ Postgres database with pgvector for the website.
 *Why:* without a plain baseline we can't say what each technique adds. Our own code means
 every score can be explained line by line.
 
+**#28 Which stopwords and which stemmer.** Stopwords: Lucene/Elasticsearch's 33-word English
+list, written out in `text.py`. Stemmer: Snowball English via PyStemmer (the one Lucene uses).
+Plus a third stemming option, **exact+stems**: keep each exact word and add its stem marked
+`~` ("models" → `models`, `~model`), so an exact match earns points twice and a near match once.
+*Why:* plain stemming hurt known-item queries (0.91 → 0.75) by merging rare words into common
+ones ("generalization" → "general"). exact+stems keeps most of the gain without that loss.
+
+**#29 Test BM25 techniques as a full grid, not one at a time.** Every combination of
+stopwords (off/on) × stemming (none/stem/exact+stems) × authors (off/on) × title×2 (off/on) =
+24 systems. Each technique's effect is averaged over all settings of the others, and two-way
+tables show interactions.
+*Why:* a technique's effect can depend on the others. *Evidence:* plain stemming **hurts**
+without authors (0.510 → 0.503) but **helps** with them (0.528 → 0.548): author names give back
+the exact matches known-item queries lost. One-at-a-time testing would have rejected it.
+
+**#30 Our best BM25: exact+stems + authors + title×2, k1 = 0.8, b = 0.75.** Dev MRR@10 0.569,
++0.067 [+0.03, +0.10] over the baseline. k1 was tuned on dev only for the top 3 grid systems;
+all three picked k1 = 0.8. b made no clear difference (±0.007), so it stays at the default.
+Stopwords are left out: no effect either way.
+*Why:* tuning only what is consistent across systems limits overfitting the 100 dev queries.
+
 ---
 
 ## How we test
