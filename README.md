@@ -85,6 +85,7 @@ data/                    git-ignored; fully reproducible from code
 | 15 | Relevance labels | One labeled source paper per query (Recall@k, MRR), plus **pooled graded relevance (0/1/2)** from an LLM judge on a subset, enabling nDCG@10 | Single-label synthetic sets mark genuinely relevant papers as misses; pooling the top-10 results of every system reduces that bias. |
 | 16 | Evaluation set size | 400 queries (balanced across 3 categories × 4 types); ~60 stratified queries hand-reviewed | Enough to detect MRR differences of roughly 0.03–0.05 between systems; the hand review measures query realism and LLM-judge agreement. |
 | 17 | LLM provider | Google Gemini free tier (AI Studio). The model is chosen **per task** by how much reasoning it needs; model IDs live in config. Generator and judge use different models | Free and sufficient for our volume. A single provider family risks self-preference bias, so we use different models per role and report agreement with human labels. |
+| 18 | Full text | Title + abstract is the production index. Full-text chunking (512-token chunks) is a **later experiment** on cs.IR Creative Commons papers (~2,010 papers, ~39k chunks) | Measured: full text is ~32× the abstract; indexing every paper would take ~20 h to download, ~15 h to embed per model, and ~3 GB of storage (over the free tier). 36% of papers carry arXiv's standard license, which doesn't let us republish full text. The subset answers "does full text help, and for which queries?" at about 3 hours total cost. |
 
 ### Hosting data flow
 
