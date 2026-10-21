@@ -115,3 +115,62 @@ Bootstrap 95% intervals for a Recall of 0.60, computed with our own `bootstrap_c
 category × type cell (33 queries) is too noisy on its own. When comparing two systems, the paired
 comparison is tighter than these intervals, because both systems face the same hard and easy
 queries.
+
+---
+
+## 7. Making the 400 test queries (decisions #22–#24, run of 2026-10-21)
+
+**Choosing the writer model.**
+- `gemini-3.6-flash`: wrote good queries (~3 s per call), but its free tier allows only **20 calls
+  a day** (Google's 429 message: `GenerateRequestsPerDayPerProjectPerModel-FreeTier, limit 20`).
+- `gemma-4-31b-it`: large free quota. It needs the exact JSON shape given to it (plain "JSON
+  mode" returned a 500 error), and it sometimes wraps the JSON in ``` fences, which `llm.py` strips.
+
+**Pilots (4 calls each) before the full run:**
+
+| Pilot | Change | Accepted | Main problem left |
+|---|---|---|---|
+| 1 | first prompt | 7 / 12 | keyword reshuffled the title; paraphrase said "This paper…" |
+| 2 | + reshuffle and "this paper" checks | 9 / 16 | paraphrases reused paper words; questions copied method names |
+| 3 | Gemma; retry says why it was rejected | 11 / 16 | paraphrases still reused ordinary paper words |
+| Full run, first try | — | 30 / 48 (62%) | paraphrase only 39% |
+| **Full run, final** | + BAD/GOOD paraphrase example | **400 / 483 (83%)** | keyword queries shrink the title |
+
+**Final run, by type:**
+
+| Type | Accepted / attempts | Median words | Median overlap |
+|---|---|---|---|
+| keyword (specific / broad) | 100 / 144 (69%) | 5 / 4 | 1.00 / 0.75 |
+| question (specific / broad) | 100 / 116 (86%) | 14.5 / 13 | 0.62 / 0.50 |
+| paraphrase | 100 / 115 (87%) | 18 | 0.25 |
+| known_item | 100 / 108 (93%) | 5 | 0.75 |
+
+Split: 300 specific / 100 broad; cs.IR 136, cs.CL 132, cs.LG 132.
+
+**Why attempts were rejected** (83 rejected; one attempt can fail several checks):
+
+| Reason | Count |
+|---|---|
+| Mostly the title's words rearranged (mostly keyword) | 38 |
+| Copies 4+ words in a row from the abstract | 23 |
+| Copies 4+ words in a row from the title | 17 |
+| Paraphrase reuses more than half its words from the paper | 13 |
+| Wrong length | 9 |
+| Model skipped a paper | 4 |
+
+**What this means.**
+- Specific keyword queries use almost only the paper's own words (median overlap 1.0), so
+  they'll favor BM25. Paraphrases (0.25) are the real test of embeddings. That's why every
+  query keeps its `overlap`.
+- **Reliability:** 121 calls hit 154 server errors (77 × 503 "busy", 77 × 500 "internal"). Two
+  long outages stopped the run, and a closed laptop lid cut the connection once. Resuming lost
+  nothing. Total time was about 3 hours, almost all of it waiting.
+
+Sample queries:
+
+| Type | Specificity | Query |
+|---|---|---|
+| keyword | broad | video recommendation testing framework |
+| question | broad | How can we improve the accuracy of reranking documents for a retrieval augmented generation system? |
+| paraphrase | specific | maximizing income for power conversion tools and cells by using actual device behavior in Nordic power exchanges |
+| known_item | specific | Shukla generative recommendation hierarchical supervision |

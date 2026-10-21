@@ -18,7 +18,7 @@ Every design choice is decided by **measuring** it on a test set of queries, not
 - [x] 1. Download papers from arXiv
 - [x] 2. Clean up into one file of 23,304 papers
 - [ ] 3. Search: BM25 baseline → embeddings → hybrid
-- [ ] 4. Test: scoring metrics ✅, test-query set next
+- [ ] 4. Test: scoring metrics ✅, 400 test queries ✅, LLM relevance judge next
 - [ ] 5. Answer: RAG with an LLM
 - [ ] 6. Website: database, API, web page, deploy
 
@@ -44,6 +44,9 @@ copy .env.example .env        # then paste your Gemini API key into .env
 
 # Step 2: clean up → data/processed/corpus.jsonl
 .\.venv\Scripts\python.exe -m arxiv_search.ingest.clean
+
+# Step 4b: write 400 test queries with an LLM → data/eval/ (~3 h on the free tier; resumable)
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.make_queries
 
 # Run the tests
 .\.venv\Scripts\python.exe -m pytest -q

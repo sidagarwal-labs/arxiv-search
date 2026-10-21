@@ -17,7 +17,7 @@ produces. Read this before the code.
 | 1. Download | ✅ Done | Ask arXiv for every paper in three categories from the last year, and save its answers untouched. |
 | 2. Clean up | ✅ Done | Turn those saved pages into one row per paper, and keep only the papers we want. |
 | 3. Search | ⏳ Next | Rank papers for a query using word matching (BM25), meaning (embeddings), or both. |
-| 4. Test | 🔨 In progress | Score each search method on 400 test queries whose right answers we know. Scoring code ✅; test queries next. |
+| 4. Test | 🔨 In progress | Score each search method on 400 test queries whose right answers we know. Scoring code ✅; test queries ✅. |
 | 5. Answer (RAG) | Later | Send the top papers to an LLM and have it answer the question, citing them. |
 | 6. Website | Later | A public page where anyone can search. |
 
@@ -30,6 +30,8 @@ produces. Read this before the code.
 5. [`test_ingest.py`](../tests/test_ingest.py): small examples showing exactly what steps 1–2 do
 6. [`metrics.py`](../arxiv_search/evaluate/metrics.py): step 4 scoring, with
    [`test_metrics.py`](../tests/test_metrics.py) as worked examples
+7. [`prompts.py`](../arxiv_search/evaluate/prompts.py): the exact words we send the LLM to
+   write test queries, then [`make_queries.py`](../arxiv_search/evaluate/make_queries.py)
 
 ---
 
@@ -202,6 +204,64 @@ not luck.
 
 ---
 
+## Step 4b: Test queries (`evaluate/make_queries.py`, `evaluate/prompts.py`, `llm.py`)
+
+**What it does:** has an LLM write 400 realistic search queries, each from one paper, so we
+know the right answer to each.
+
+**The plan (fixed before any LLM call).** 400 "slots" = 4 query types × 100. Each slot has a
+category (cs.IR / cs.CL / cs.LG, taking turns) and a **specificity**:
+
+| Type | Specific | Broad | Scored by |
+|---|---|---|---|
+| keyword | 50 | 50 | specific → Recall/MRR on the source paper |
+| question | 50 | 50 | broad → nDCG@10 from the LLM judge |
+| paraphrase | 100 | 0 | |
+| known_item | 100 | 0 | |
+
+**One call = 4 papers**, one of each type, sent with the instructions in `prompts.py`. That
+means ~100 calls instead of 400, which matters on the free tier.
+
+**Every query is checked automatically** (`check_query`). It is rejected if it:
+
+| Check | Why |
+|---|---|
+| Has the wrong length for its type (keyword 2–6 words, question 6–25, paraphrase 8–30, known_item 3–12) | Real searches of that type look like this |
+| Copies 4+ words in a row from the title or abstract | Real users haven't read the paper |
+| Is mostly the title's words rearranged (not checked for known_item) | Same reason; people re-finding a paper *do* remember title words |
+| Says "this paper", "the authors", etc. | Nobody searches like that |
+| Is a paraphrase with more than half its words from the paper | Otherwise "paraphrase" just tests word matching |
+| Is a known_item query with no author surname | That's what makes it known-item |
+| Is a question not ending in "?" | |
+
+**Retries.** A rejected slot is retried on the same paper, and the prompt says **why** it was
+rejected (e.g. which words were reused). After 2 failures the slot gets a different paper.
+
+**Resume.** Every attempt is saved the moment it comes back, so stopping (daily limit, Google
+outage, laptop sleep) loses nothing: run the same command again. The script refuses to mix
+queries made with different prompt wordings (`prompt_version`).
+
+**`llm.py`** is the one place that calls Google. It waits 6 s between calls, retries on
+"busy" errors (429/500/503) waiting 10 s, 20 s, 40 s…, re-asks if the JSON comes back broken,
+and stops cleanly on a daily limit.
+
+**Output** (in `data/eval/`):
+
+| File | Contents |
+|---|---|
+| `queries.jsonl` | The 400 accepted queries: `query_id`, `query`, `query_type`, `specificity`, `category`, `source_arxiv_id`, `overlap`, `model`, `prompt_version` |
+| `attempts.jsonl` | Every attempt, accepted or not, with the reasons |
+| `labels.json` | Right answers in the shape `metrics.py` expects: `{query_id: {source_arxiv_id: 2}}` |
+| `run.log` | What the script printed |
+
+**`overlap`** = share of the query's words that appear in the paper. It's saved for analysis:
+we expect BM25 to win on high-overlap queries and embeddings on low-overlap ones.
+
+**Run it:** `python -m arxiv_search.evaluate.make_queries` (needs `GEMINI_API_KEY` in `.env`;
+~2–3 hours on the free tier, mostly waiting out Google's "busy" errors).
+
+---
+
 ## Settings (`config.py`)
 
 Every number that changes the results lives here, so nothing important is hidden inside the code.
@@ -214,14 +274,19 @@ Every number that changes the results lives here, so nothing important is hidden
 | `MIN_ABSTRACT_WORDS` | 20 | Shorter abstracts are treated as stubs |
 | `RANDOM_SEED` | 6188 | Makes random sampling repeatable |
 | `REQUEST_DELAY_SECONDS` | 3 | Politeness delay for arXiv |
-| `QUERY_WRITER_MODEL` | `gemini-3.6-flash` | LLM that writes test queries |
-| `JUDGE_MODEL` | `gemma-4-31b-it` | LLM that grades whether a result is relevant |
+| `QUERY_WRITER_MODEL` | `gemma-4-31b-it` | LLM that writes test queries |
+| `JUDGE_MODEL` | `gemma-4-31b-it` (to be revisited) | LLM that grades whether a result is relevant |
 | `RAG_MODEL_CANDIDATES` | two Gemini models | LLMs we'll compare for writing answers |
 | `HOSTED_EMBEDDING_MODEL` | `gemini-embedding-2` (768 numbers) | A cloud embedding model to compare with local ones |
 | `RECALL_KS` | 1, 5, 10, 20 | Which top-k cutoffs Recall is reported at |
 | `MRR_CUTOFF` | 10 | Right paper below rank 10 scores 0 |
 | `NDCG_K` | 10 | nDCG looks at the top 10 |
 | `BOOTSTRAP_SAMPLES` | 1,000 | Redraws used for error bars |
+| `LLM_SECONDS_BETWEEN_CALLS` | 6 | At most 10 LLM calls a minute |
+| `LLM_MAX_RETRIES` | 6 | How often to retry when Google is busy |
+| `EVAL_QUERIES_PER_TYPE` | 100 | Test queries per type (× 4 types = 400) |
+| `EVAL_PAPERS_PER_CALL` | 4 | Papers per LLM call |
+| `EVAL_MAX_CALLS_PER_RUN` | 150 | Safety cap on calls per run |
 
 ---
 
@@ -251,6 +316,15 @@ without the internet.
 | `test_score_run_*` | Skipping a query scores 0 rather than being ignored |
 | `test_bootstrap_*`, `test_paired_*` | Intervals contain the mean, the same seed gives the same answer, a consistent +0.1 gain is detected |
 | `test_summarize_groups` | Per-group averages are correct |
+
+**`test_make_queries.py`** (16 tests, using a fake LLM so no internet or quota is needed):
+
+| Tests | What they prove |
+|---|---|
+| plan tests | 400 slots, 100 per type, 300 specific / 100 broad, categories balanced |
+| check tests | Each rejection rule fires on a bad example and passes a good one |
+| resume test | Stopping after 3 calls and rerunning finishes the rest without redoing anything |
+| retry test | A failing paper is retried with the rejection reason, then replaced |
 
 **Run them:** `python -m pytest -q`
 
@@ -287,6 +361,11 @@ data/
 ├── processed/                    STEP 2 OUTPUT
 │   ├── corpus.jsonl              23,304 papers, one per line (42 MB) ← used by everything after
 │   └── corpus_stats.json         paper counts after each filter
+├── eval/                         STEP 4b OUTPUT: test queries + right answers
+│   ├── queries.jsonl             400 test queries
+│   ├── attempts.jsonl            every LLM attempt, with rejection reasons
+│   ├── labels.json               right answers for metrics.py
+│   └── run.log
 └── experiments/                  results of the scripts in experiments/
 ```
 
@@ -298,12 +377,15 @@ arxiv-search/
 ├── docs/                         plain-English explanations (this folder)
 ├── arxiv_search/                 the actual system (a Python package)
 │   ├── config.py                 all settings
+│   ├── llm.py                    the one place that calls Google's LLMs (free-tier safe)
 │   ├── ingest/                   steps 1–2
 │   │   ├── download.py           step 1:  arXiv → data/raw/
 │   │   ├── parse.py              step 2a: XML → Python dicts
 │   │   └── clean.py              step 2b: filter + sample → data/processed/corpus.jsonl
 │   └── evaluate/                 step 4
-│       └── metrics.py            Recall, MRR, nDCG + error bars
+│       ├── metrics.py            Recall, MRR, nDCG + error bars
+│       ├── prompts.py            the exact instructions given to the query-writing LLM
+│       └── make_queries.py       step 4b: writes + checks 400 test queries → data/eval/
 ├── tests/                        automatic checks
 ├── experiments/                  one-off measurement scripts
 ├── pyproject.toml                project name + which libraries to install

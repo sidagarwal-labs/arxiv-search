@@ -26,15 +26,26 @@ MAX_PER_CATEGORY = 10_000  # stratified cap so cs.LG doesn't drown out cs.IR
 MIN_ABSTRACT_WORDS = 20  # drops stubs like "This paper has been withdrawn."
 RANDOM_SEED = 6188  # fixed seed -> the same harvest always yields the same corpus
 
-# --- LLM roles (Decision 20) ---------------------------------------------
-# One model per role, sized to the reasoning the task needs. The judge is from a
-# different family (Gemma) than the query writer (Gemini) to reduce self-preference.
-QUERY_WRITER_MODEL = "gemini-3.6-flash"
+# --- LLM roles (Decision 20, writer changed in Decision 24) -----------------
+# One model per role, sized to the reasoning the task needs. Gemini Flash's free tier
+# allows only 20 calls/day per model, so the query writer is Gemma (much larger free
+# quota). The judge choice is revisited when we build it (writer == judge risks self-preference).
+QUERY_WRITER_MODEL = "gemma-4-31b-it"
 JUDGE_MODEL = "gemma-4-31b-it"
 RAG_MODEL_CANDIDATES = ("gemini-3.5-flash-lite", "gemini-3.5-flash")
 RERANKER_MODEL_CANDIDATES = ("gemini-3.5-flash-lite", "gemini-3.5-flash")
 HOSTED_EMBEDDING_MODEL = "gemini-embedding-2"
 HOSTED_EMBEDDING_DIM = 768  # reduced from the default 3,072 so production vectors fit the free DB tier
+
+# --- LLM calls on the free tier (see llm.py) -----------------------------
+LLM_SECONDS_BETWEEN_CALLS = 6  # at most 10 requests per minute
+LLM_MAX_RETRIES = 6  # retries on 503 (busy) / 429 (too fast), waiting 10 s, 20 s, 40 s, ...
+
+# --- Evaluation query set (Decisions 22-23) ------------------------------
+EVAL_DIR = DATA_DIR / "eval"
+EVAL_QUERIES_PER_TYPE = 100  # 4 types -> 400 queries; keyword/question alternate specific/broad
+EVAL_PAPERS_PER_CALL = 4  # one paper per query type in each call -> 100 calls total
+EVAL_MAX_CALLS_PER_RUN = 150  # safety cap: 100 needed + room for retries of failed queries
 
 # --- Evaluation metrics (Decision 21) ------------------------------------
 RECALL_KS = (1, 5, 10, 20)  # 20 = the candidate pool a reranker / RAG would receive

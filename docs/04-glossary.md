@@ -62,3 +62,9 @@ Short, plain definitions of every term used in this project, grouped by topic.
 | **Pooling** | Grading the combined top results from every system, so no system's finds go unjudged. |
 | **LLM judge** | An LLM that grades how relevant a result is. We check it against human grades. |
 | **Self-preference bias** | A model favoring text written by itself or its relatives. |
+| **Specificity** | Whether a test query targets one paper's idea (specific) or a general topic many papers answer (broad). |
+| **Overlap** | Share of a query's words that also appear in its source paper. High overlap favors word-matching (BM25). |
+| **Pilot** | A small trial run (a few LLM calls) to check prompt quality before the full run. |
+| **Structured output** | Asking the LLM to reply in an exact JSON shape, so we never parse free text. |
+| **Rate limit / quota** | How many calls the free tier allows per minute or per day. 429 = too many; 503 / 500 = Google busy or failing. |
+| **Prompt version** | A fingerprint of `prompts.py` saved on every query, so we know which wording produced it. |

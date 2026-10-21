@@ -97,6 +97,32 @@ Postgres database with pgvector for the website.
 *Why:* enough to tell systems apart, and the hand check tells us whether the queries look real
 and whether the LLM judge agrees with a human.
 
+**#22 How the test queries are made.**
+- **4 papers per LLM call**, one query type each, so ~100 calls instead of 400.
+  *Why:* the free tier limits calls, not words.
+- **Each query is either specific or broad.** Keyword and question queries are split 50/50;
+  paraphrase and known_item are always specific (300 specific, 100 broad in total).
+  *Why:* real users type both. A broad query ("personalized text generation") has many right
+  answers, so it's scored by nDCG@10 from the LLM judge; Recall on its one source paper is
+  only a lower bound. Specific queries are scored by Recall/MRR on the source paper.
+
+**#23 Automatic checks on every query** (listed in [How it works](01-how-it-works.md)).
+- A rejected query is retried with the reason ("reused: training, game, loss…"), then the
+  slot moves to a new paper after 2 failures.
+- No word-overlap cap on specific keyword/question queries; instead `overlap` is saved on
+  every query, so we can later show where BM25 vs. embeddings win.
+- known_item is exempt from the "title words rearranged" check: people re-finding a paper
+  really do remember title words.
+- Paraphrases may reuse at most 50% of their words from the paper. We kept 50% and instead
+  added a worked BAD/GOOD example to the prompt.
+  *Evidence:* paraphrase acceptance rose from 39% to 84% (see [Findings](03-findings.md)).
+
+**#24 Gemma writes the test queries, not Gemini Flash.**
+*Evidence:* Gemini 3.6 Flash's free tier allows only **20 calls per day**; we need ~130–170.
+`gemma-4-31b-it` has a much larger free quota and wrote realistic queries in the pilot.
+*Cost:* the judge was going to be Gemma to differ from the writer; we revisit the judge choice
+(e.g. a local Qwen model, or a Gemini model) when we build it.
+
 **#21 How we score.**
 
 | Choice | Picked | Alternative we rejected |
@@ -126,13 +152,17 @@ from the ones being tested.
 
 | Job | Model |
 |---|---|
-| Write test queries | `gemini-3.6-flash` |
-| Judge relevance | `gemma-4-31b-it` (different family from the writer) |
+| Write test queries | `gemma-4-31b-it` (was `gemini-3.6-flash`; changed in #24) |
+| Judge relevance | to be decided when we build it (#24) |
 | Write RAG answers, rerank | compare `gemini-3.5-flash-lite` vs `gemini-3.5-flash` |
 | Hosted embeddings | `gemini-embedding-2`, 768 numbers per paper |
 
-*Limit:* Gemini and Gemma are both from Google, so bias is only partly removed. The hand check
+*Limit:* all of these are from Google, so bias is only partly removed. The hand check
 measures how much remains.
+
+**Local models.** We have Ollama on the laptop (Snapdragon CPU only; Ollama can't use its NPU)
+and a desktop with an RTX 2070 (8 GB, fits ~8B models). They're options for offline jobs like
+judging, timed against the API before we choose.
 
 ---
 
@@ -150,3 +180,16 @@ measures how much remains.
 
 **#7 Code lives on GitHub** at
 [sidagarwal-labs/arxiv-search](https://github.com/sidagarwal-labs/arxiv-search).
+
+**#25 Only test embedding models we can serve cheaply.** Offline work (embedding the 23k
+papers, making the eval set) can use any machine. But every user query must be embedded **by
+the same model that embedded the papers**, live, in under a second. So every model we test
+must be servable in one of three ways, and we pick the way after seeing the results:
+
+| Option | Pros | Cons |
+|---|---|---|
+| Hosted API (e.g. `gemini-embedding-2`) | Nothing to host | Uses our quota per search |
+| Small open model on our backend (MiniLM, BGE-small, E5-small via ONNX) | No per-search cost; ~tens of ms on CPU | Needs a backend host (not Vercel) |
+| Same small model in the user's browser (transformers.js) | No server cost | 20–30 MB download; slower on phones |
+
+The vector search itself always runs on our server.
