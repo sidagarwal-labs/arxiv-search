@@ -17,7 +17,7 @@ produces. Read this before the code.
 | 1. Download | ✅ Done | Ask arXiv for every paper in three categories from the last year, and save its answers untouched. |
 | 2. Clean up | ✅ Done | Turn those saved pages into one row per paper, and keep only the papers we want. |
 | 3. Search | ⏳ Next | Rank papers for a query using word matching (BM25), meaning (embeddings), or both. |
-| 4. Test | ⏳ Next | Score each search method on 400 test queries whose right answers we know. |
+| 4. Test | 🔨 In progress | Score each search method on 400 test queries whose right answers we know. Scoring code ✅; test queries next. |
 | 5. Answer (RAG) | Later | Send the top papers to an LLM and have it answer the question, citing them. |
 | 6. Website | Later | A public page where anyone can search. |
 
@@ -28,6 +28,8 @@ produces. Read this before the code.
 3. [`parse.py`](../arxiv_search/ingest/parse.py): step 2a
 4. [`clean.py`](../arxiv_search/ingest/clean.py): step 2b
 5. [`test_ingest.py`](../tests/test_ingest.py): small examples showing exactly what steps 1–2 do
+6. [`metrics.py`](../arxiv_search/evaluate/metrics.py): step 4 scoring, with
+   [`test_metrics.py`](../tests/test_metrics.py) as worked examples
 
 ---
 
@@ -143,6 +145,63 @@ The random pick uses a **fixed seed** (6188), so running it again picks exactly 
 
 ---
 
+## Step 4: Scoring (`evaluate/metrics.py`)
+
+**What it does:** given a search system's rankings and the right answers, it says how good the
+system is, as numbers with error bars.
+
+**Two inputs, both plain dictionaries:**
+
+```python
+run    = {"q1": ["2501.00001", "2501.00042", ...]}    # what the system returned, best first
+labels = {"q1": {"2501.00042": 2, "2501.00007": 1}}   # right answers with grades 0/1/2
+```
+
+Grade 1 or 2 counts as "relevant". A query written from one paper has one label:
+`{"q1": {"2501.00042": 2}}`.
+
+**The metrics, with one worked example each.** In each example the right paper is C, and the
+system returned `[A, B, C, D, E]`.
+
+| Metric | Question it answers | Example |
+|---|---|---|
+| **Recall@k** (k = 1, 5, 10, 20) | Is the right paper in the top k? | @1 = 0 (missed); @5 = 1 (found) |
+| **MRR@10** | How high is the first right paper? 1 ÷ rank, or 0 if below rank 10 | C at rank 3 → 1/3 = 0.33 |
+| **nDCG@10** | Using grades: are the best papers at the top? 1.0 = perfect order | grades A=0, B=2, C=1 → 0.67 (worked out below) |
+| **judged@10** | What share of the top 10 has a grade at all? | If under ~90%, don't trust nDCG yet |
+
+**nDCG worked out.** Each result earns its grade ÷ log₂(rank + 1), so rank 1 gets full credit
+and rank 3 gets half:
+
+```
+ours  [A=0, B=2, C=1]:  0/1 + 2/1.585 + 1/2 = 1.762
+best  [B=2, C=1, A=0]:  2/1 + 1/1.585 + 0/2 = 2.631
+nDCG = 1.762 / 2.631 = 0.670
+```
+
+**Error bars (bootstrap).** An average from ~33 queries could shift a lot with a different set of
+queries. To measure that, we redraw the queries 1,000 times at random (some twice, some not at
+all), average each draw, and keep the middle 95% of those averages. The result is reported like
+`MRR 0.62 [0.57–0.67]`.
+
+**Is system B really better than A?** `paired_diff_ci` compares the two **on the same queries**,
+query by query: `B − A = +0.04 [0.01–0.07]`. If the range doesn't include 0, the win is real,
+not luck.
+
+**Key functions:**
+
+| Function | Job |
+|---|---|
+| `recall_at_k`, `reciprocal_rank`, `ndcg_at_k`, `judged_at_k` | Score one query |
+| `score_run` | Score every query → one row per query. A query the system returned nothing for scores 0. |
+| `bootstrap_ci` | Average with a 95% interval |
+| `paired_diff_ci` | Difference between two systems with a 95% interval |
+| `summarize` | All averages, overall and per group (e.g. per category or query type) |
+
+**Input:** a run and labels. **Output:** numbers; nothing is written to disk.
+
+---
+
 ## Settings (`config.py`)
 
 Every number that changes the results lives here, so nothing important is hidden inside the code.
@@ -159,14 +218,19 @@ Every number that changes the results lives here, so nothing important is hidden
 | `JUDGE_MODEL` | `gemma-4-31b-it` | LLM that grades whether a result is relevant |
 | `RAG_MODEL_CANDIDATES` | two Gemini models | LLMs we'll compare for writing answers |
 | `HOSTED_EMBEDDING_MODEL` | `gemini-embedding-2` (768 numbers) | A cloud embedding model to compare with local ones |
+| `RECALL_KS` | 1, 5, 10, 20 | Which top-k cutoffs Recall is reported at |
+| `MRR_CUTOFF` | 10 | Right paper below rank 10 scores 0 |
+| `NDCG_K` | 10 | nDCG looks at the top 10 |
+| `BOOTSTRAP_SAMPLES` | 1,000 | Redraws used for error bars |
 
 ---
 
-## Tests (`tests/test_ingest.py`)
+## Tests (`tests/`)
 
-Tests are small examples that check the code does what we say. They use a tiny made-up XML page,
-so they run in under a second without the internet.
+Tests are small examples that check the code does what we say. They run in under a second
+without the internet.
 
+**`test_ingest.py`** (uses a tiny made-up XML page):
 | Test | What it proves |
 |---|---|
 | `test_set_spec` | `cs.IR` is converted to arXiv's naming, `cs:cs:IR` |
@@ -175,6 +239,18 @@ so they run in under a second without the internet.
 | `test_resumption_token_and_errors` | The bookmark and the "no results" reply are both understood |
 | `test_clean_corpus_filters` | Duplicates, wrong categories, old papers, stubs and withdrawn papers are all removed |
 | `test_stratified_sample_caps_and_is_deterministic` | The cap works, and the same seed gives the same papers |
+
+**`test_metrics.py`** (18 tests, papers named A–E so you can check each number by hand):
+
+| Tests | What they prove |
+|---|---|
+| `test_recall_*` | One answer → hit or miss; several answers → share found; grade 0 doesn't count |
+| `test_reciprocal_rank*` | 1 ÷ rank; the first relevant paper counts; rank 11 scores 0 |
+| `test_dcg_*`, `test_ndcg_*` | The worked example above (0.670); perfect = 1; unjudged = 0; no relevant papers → left out |
+| `test_judged_at_k` | 2 of 5 graded → 0.4 |
+| `test_score_run_*` | Skipping a query scores 0 rather than being ignored |
+| `test_bootstrap_*`, `test_paired_*` | Intervals contain the mean, the same seed gives the same answer, a consistent +0.1 gain is detected |
+| `test_summarize_groups` | Per-group averages are correct |
 
 **Run them:** `python -m pytest -q`
 
@@ -222,10 +298,12 @@ arxiv-search/
 ├── docs/                         plain-English explanations (this folder)
 ├── arxiv_search/                 the actual system (a Python package)
 │   ├── config.py                 all settings
-│   └── ingest/                   steps 1–2
-│       ├── download.py           step 1:  arXiv → data/raw/
-│       ├── parse.py              step 2a: XML → Python dicts
-│       └── clean.py              step 2b: filter + sample → data/processed/corpus.jsonl
+│   ├── ingest/                   steps 1–2
+│   │   ├── download.py           step 1:  arXiv → data/raw/
+│   │   ├── parse.py              step 2a: XML → Python dicts
+│   │   └── clean.py              step 2b: filter + sample → data/processed/corpus.jsonl
+│   └── evaluate/                 step 4
+│       └── metrics.py            Recall, MRR, nDCG + error bars
 ├── tests/                        automatic checks
 ├── experiments/                  one-off measurement scripts
 ├── pyproject.toml                project name + which libraries to install
@@ -234,7 +312,7 @@ arxiv-search/
 ```
 
 Future steps get their own folder inside `arxiv_search/` when we build them: `search/`,
-`evaluate/`, `rag/`, `api/`.
+`rag/`, `api/`.
 
 **Things you may see that aren't ours:** `.venv/` (installed libraries), `__pycache__/`,
 `.pytest_cache/` and `arxiv_search.egg-info/` are generated automatically by Python. They're not

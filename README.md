@@ -18,7 +18,7 @@ Every design choice is decided by **measuring** it on a test set of queries, not
 - [x] 1. Download papers from arXiv
 - [x] 2. Clean up into one file of 23,304 papers
 - [ ] 3. Search: BM25 baseline → embeddings → hybrid
-- [ ] 4. Test: test-query set + scoring metrics
+- [ ] 4. Test: scoring metrics ✅, test-query set next
 - [ ] 5. Answer: RAG with an LLM
 - [ ] 6. Website: database, API, web page, deploy
 

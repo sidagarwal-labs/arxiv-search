@@ -97,6 +97,21 @@ Postgres database with pgvector for the website.
 *Why:* enough to tell systems apart, and the hand check tells us whether the queries look real
 and whether the LLM judge agrees with a human.
 
+**#21 How we score.**
+
+| Choice | Picked | Alternative we rejected |
+|---|---|---|
+| Recall cutoffs | k = 1, 5, 10, 20 | — k=20 shows whether a reranker *could* fix the order |
+| MRR cutoff | MRR@10: below rank 10 scores 0 | Full MRR (rank 500 still earns 0.002) |
+| nDCG gain | Linear: grade 2 is worth 2× grade 1 | Exponential (2^grade − 1, worth 3×) |
+| Unjudged papers | Count as 0, and report % judged next to nDCG | Skip them ("condensed" nDCG) |
+| Uncertainty | 95% bootstrap intervals on every number, paired comparison between systems | Plain averages |
+
+*Why:* MRR@10 matches what a user sees and is the standard (MS MARCO). Linear gain is simpler to
+explain, and with only 3 grades it rarely changes which system wins. Counting unjudged papers as 0
+is standard (TREC); the % judged shows when that is unfair. With ~33 queries per group, error bars
+are needed to tell a real win from noise.
+
 ---
 
 ## Which LLMs

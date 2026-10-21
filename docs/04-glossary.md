@@ -54,6 +54,11 @@ Short, plain definitions of every term used in this project, grouped by topic.
 | **Recall@k** | Share of queries where the right paper appears in the top k. |
 | **MRR (Mean Reciprocal Rank)** | Average of 1 ÷ (rank of the right paper). Rank 1 → 1.0, rank 2 → 0.5, not found → 0. |
 | **nDCG@10** | Scores the top 10 using graded relevance (0/1/2), giving more credit to good papers ranked higher. |
+| **DCG** | The sum behind nDCG: each result's grade ÷ log₂(rank + 1). nDCG = our DCG ÷ the best possible DCG. |
+| **judged@10** | Share of the top 10 that the judge has graded. Low values mean nDCG is unreliable. |
+| **Bootstrap** | Estimating uncertainty by redrawing the queries at random many times and seeing how much the average moves. |
+| **95% confidence interval** | The range the true average likely falls in, e.g. `0.62 [0.57–0.67]`. |
+| **Paired comparison** | Comparing two systems query by query on the same queries; this removes noise from some queries simply being harder. |
 | **Pooling** | Grading the combined top results from every system, so no system's finds go unjudged. |
 | **LLM judge** | An LLM that grades how relevant a result is. We check it against human grades. |
 | **Self-preference bias** | A model favoring text written by itself or its relatives. |

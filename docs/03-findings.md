@@ -97,3 +97,21 @@ embeddings. It still shows we need word matching for names.
 
 The API doesn't report rate limits, so our code waits and retries whenever it gets a
 "too many requests" (429) error.
+
+---
+
+## 6. How precise will our scores be? (decisions #16, #21)
+
+Bootstrap 95% intervals for a Recall of 0.60, computed with our own `bootstrap_ci`:
+
+| Queries in the group | Example | Interval | ± |
+|---|---|---|---|
+| 33 | one category × one query type | 0.42–0.79 | 0.18 |
+| 100 | one query type | 0.50–0.70 | 0.10 |
+| 133 | one category | 0.51–0.68 | 0.09 |
+| 400 | everything | 0.55–0.65 | 0.05 |
+
+**What this means:** overall, per-category and per-type numbers are useful. A single
+category × type cell (33 queries) is too noisy on its own. When comparing two systems, the paired
+comparison is tighter than these intervals, because both systems face the same hard and easy
+queries.

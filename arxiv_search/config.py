@@ -35,3 +35,9 @@ RAG_MODEL_CANDIDATES = ("gemini-3.5-flash-lite", "gemini-3.5-flash")
 RERANKER_MODEL_CANDIDATES = ("gemini-3.5-flash-lite", "gemini-3.5-flash")
 HOSTED_EMBEDDING_MODEL = "gemini-embedding-2"
 HOSTED_EMBEDDING_DIM = 768  # reduced from the default 3,072 so production vectors fit the free DB tier
+
+# --- Evaluation metrics (Decision 21) ------------------------------------
+RECALL_KS = (1, 5, 10, 20)  # 20 = the candidate pool a reranker / RAG would receive
+MRR_CUTOFF = 10  # right paper at rank 11 or worse scores 0
+NDCG_K = 10  # graded relevance 0/1/2, linear gain, unjudged papers count as 0
+BOOTSTRAP_SAMPLES = 1_000  # resamples for 95% confidence intervals
