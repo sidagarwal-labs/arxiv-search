@@ -4,10 +4,10 @@ Fetches a small stratified random sample of papers from arXiv's HTML renderer
 (https://arxiv.org/html/<id>), extracts the body text, and counts tokens with
 the BGE-small tokenizer (the same kind of tokenizer we would embed with).
 
-Outputs data/analysis/fulltext_sample.json, used by estimate_costs.py.
+Outputs data/experiments/fulltext_sample.json, used by estimate_costs.py.
 
 Usage:
-    python analysis/measure_fulltext.py --per-category 15
+    python experiments/measure_fulltext.py --per-category 15
 """
 
 from __future__ import annotations
@@ -116,7 +116,7 @@ def main() -> None:
               f"body_tokens={row.get('body_tokens', '-')}", flush=True)
         time.sleep(config.REQUEST_DELAY_SECONDS)
 
-    out_dir = config.DATA_DIR / "analysis"
+    out_dir = config.EXPERIMENTS_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "fulltext_sample.json").write_text(json.dumps(results, indent=2))
     print(f"Saved {len(results)} rows to {out_dir / 'fulltext_sample.json'}")

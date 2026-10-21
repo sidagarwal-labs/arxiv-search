@@ -48,7 +48,7 @@ Measured with real model tokenizers on all 23,304 papers.
 ## 3. Full paper vs. abstract (decision #18)
 
 45 sample papers, downloaded as HTML from arxiv.org
-([`measure_fulltext.py`](../analysis/measure_fulltext.py)).
+([`measure_fulltext.py`](../experiments/measure_fulltext.py)).
 
 | Per paper | Median |
 |---|---|
@@ -57,7 +57,7 @@ Measured with real model tokenizers on all 23,304 papers.
 | Chunks needed (512 tokens each) | 20 |
 | Words in the body that never appear in the abstract | 94% |
 
-Cost of each option ([`estimate_costs.py`](../analysis/estimate_costs.py), embedding speed timed
+Cost of each option ([`estimate_costs.py`](../experiments/estimate_costs.py), embedding speed timed
 on this laptop):
 
 | Option | Vectors | Download | Embed time | Storage | Fits free DB (500 MB)? |

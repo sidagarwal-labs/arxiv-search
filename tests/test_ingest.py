@@ -1,8 +1,8 @@
 from datetime import date
 
 from arxiv_search import config
-from arxiv_search.ingest.build_corpus import build_corpus, stratified_sample
-from arxiv_search.ingest.harvest import category_to_set_spec, parse_page_control
+from arxiv_search.ingest.clean import clean_corpus, stratified_sample
+from arxiv_search.ingest.download import category_to_set_spec, parse_page_control
 from arxiv_search.ingest.parse import parse_page, submitted_month_from_id
 
 LONG_ABSTRACT = " ".join(["word"] * 30)
@@ -75,16 +75,16 @@ def test_resumption_token_and_errors():
     assert parse_page_control(no_match) == (None, "noRecordsMatch")
 
 
-def test_build_corpus_filters():
+def test_clean_corpus_filters():
     records = [
         make("1", "cs.IR"),
-        make("1", "cs.IR"),  # duplicate from cross-list harvest
+        make("1", "cs.IR"),  # duplicate from cross-list download
         make("2", "cs.CV"),  # wrong primary category
         make("3", "cs.CL", submitted_month="2023-08"),  # old paper, recently revised
         make("4", "cs.LG", abstract="too short"),  # stub
         make("5", "cs.LG", comments="This paper has been withdrawn"),
     ]
-    corpus, stats = build_corpus(records, harvest_date=date(2026, 10, 20))
+    corpus, stats = clean_corpus(records, harvest_date=date(2026, 10, 20))
     assert [r["arxiv_id"] for r in corpus] == ["1"]
     assert stats["stages"]["deduplicated"]["total"] == 5
 

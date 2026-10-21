@@ -1,4 +1,4 @@
-"""Ingestion stage 3 of 3: select, sample, and write the final search corpus.
+"""Step 2b (clean up): select, sample, and write the final search corpus.
 
 Pipeline (each step is counted in corpus_stats.json so the write-up can cite it):
 
@@ -11,8 +11,8 @@ Pipeline (each step is counted in corpus_stats.json so the write-up can cite it)
       -> data/processed/corpus.jsonl
 
 Usage:
-    python -m arxiv_search.ingest.build_corpus                  # newest snapshot
-    python -m arxiv_search.ingest.build_corpus --snapshot 2026-10-20
+    python -m arxiv_search.ingest.clean                  # newest snapshot
+    python -m arxiv_search.ingest.clean --snapshot 2026-10-20
 """
 
 from __future__ import annotations
@@ -59,7 +59,7 @@ def stratified_sample(records: list[dict], cap: int, seed: int) -> list[dict]:
     return sorted(sampled, key=lambda r: r["arxiv_id"])
 
 
-def build_corpus(records: list[dict], harvest_date: date) -> tuple[list[dict], dict]:
+def clean_corpus(records: list[dict], harvest_date: date) -> tuple[list[dict], dict]:
     # Month precision: a 365-day window starting mid-month includes that whole month.
     cutoff = (harvest_date - timedelta(days=config.WINDOW_DAYS)).isoformat()[:7]
     stages: dict[str, dict] = {}
@@ -94,7 +94,7 @@ def build_corpus(records: list[dict], harvest_date: date) -> tuple[list[dict], d
 def latest_snapshot() -> Path:
     snapshots = sorted(p for p in config.RAW_DIR.iterdir() if p.is_dir())
     if not snapshots:
-        raise SystemExit("No raw snapshots found. Run arxiv_search.ingest.harvest first.")
+        raise SystemExit("No raw snapshots found. Run arxiv_search.ingest.download first.")
     return snapshots[-1]
 
 
@@ -107,7 +107,7 @@ def main() -> None:
     harvest_date = date.fromisoformat(snapshot_dir.name)
 
     records = list(iter_snapshot_records(snapshot_dir))
-    corpus, stats = build_corpus(records, harvest_date)
+    corpus, stats = clean_corpus(records, harvest_date)
 
     config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     corpus_path = config.PROCESSED_DIR / "corpus.jsonl"

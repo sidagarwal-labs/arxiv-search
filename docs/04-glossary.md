@@ -12,6 +12,7 @@ Short, plain definitions of every term used in this project, grouped by topic.
 | **Cross-list** | A paper that also appears in categories other than its main one. |
 | **OAI-PMH** | A standard way for websites to share their catalog in bulk. We use it to download arXiv's paper information. |
 | **Resumption token** | The "bookmark" arXiv gives us to fetch the next page of results. |
+| **Harvest** | OAI-PMH's word for a bulk download. `harvest_date` in our files means "the date we downloaded". |
 | **Corpus** | The set of documents we search over. Here, 23,304 papers in `corpus.jsonl`. |
 | **JSONL** | A text file with one JSON object (one paper) per line. |
 | **Seed** | A fixed starting number for random choices, so they come out the same every run. |

@@ -13,10 +13,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
-analysis = ["beautifulsoup4>=4.12", "tokenizers>=0.19", "sentence-transformers>=3"]
+experiments = ["beautifulsoup4>=4.12", "tokenizers>=0.19", "sentence-transformers>=3"]
 
 [tool.setuptools.packages.find]
-where = ["src"]
+include = ["arxiv_search*"]  # only the arxiv_search/ folder is the installable package
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

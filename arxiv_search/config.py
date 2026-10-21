@@ -7,10 +7,11 @@ visible, versioned in git, and easy to cite in the project write-up.
 from pathlib import Path
 
 # --- Paths -----------------------------------------------------------------
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[1]  # arxiv_search/config.py -> project folder
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DIR = DATA_DIR / "raw"  # untouched API responses (immutable)
 PROCESSED_DIR = DATA_DIR / "processed"  # cleaned corpus used by every later stage
+EXPERIMENTS_DIR = DATA_DIR / "experiments"  # outputs of the scripts in experiments/
 
 # --- Source: arXiv OAI-PMH ------------------------------------------------
 OAI_BASE_URL = "https://oaipmh.arxiv.org/oai"

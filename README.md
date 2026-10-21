@@ -40,10 +40,10 @@ python -m venv .venv
 copy .env.example .env        # then paste your Gemini API key into .env
 
 # Step 1: download (~20 min; if it stops, run again to resume)
-.\.venv\Scripts\python.exe -m arxiv_search.ingest.harvest
+.\.venv\Scripts\python.exe -m arxiv_search.ingest.download
 
 # Step 2: clean up → data/processed/corpus.jsonl
-.\.venv\Scripts\python.exe -m arxiv_search.ingest.build_corpus
+.\.venv\Scripts\python.exe -m arxiv_search.ingest.clean
 
 # Run the tests
 .\.venv\Scripts\python.exe -m pytest -q
@@ -52,9 +52,9 @@ copy .env.example .env        # then paste your Gemini API key into .env
 ## Folders
 
 ```
-src/arxiv_search/   the system (settings in config.py)
+arxiv_search/       the system (settings in config.py)
 tests/              automatic checks
-analysis/           one-off measurements
+experiments/        one-off measurements
 docs/               explanations
 data/               downloaded + processed data (not in git; rebuilt by the steps above)
 ```

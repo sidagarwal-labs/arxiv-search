@@ -23,15 +23,15 @@ produces. Read this before the code.
 
 ## Recommended reading order
 
-1. [`config.py`](../src/arxiv_search/config.py): every setting in one place
-2. [`harvest.py`](../src/arxiv_search/ingest/harvest.py): step 1
-3. [`parse.py`](../src/arxiv_search/ingest/parse.py): step 2a
-4. [`build_corpus.py`](../src/arxiv_search/ingest/build_corpus.py): step 2b
+1. [`config.py`](../arxiv_search/config.py): every setting in one place
+2. [`download.py`](../arxiv_search/ingest/download.py): step 1
+3. [`parse.py`](../arxiv_search/ingest/parse.py): step 2a
+4. [`clean.py`](../arxiv_search/ingest/clean.py): step 2b
 5. [`test_ingest.py`](../tests/test_ingest.py): small examples showing exactly what steps 1–2 do
 
 ---
 
-## Step 1: Download (`harvest.py`)
+## Step 1: Download (`download.py`)
 
 **What it does:** asks arXiv for paper information, one page at a time, and saves each page as-is.
 
@@ -60,12 +60,12 @@ arXiv:  "Here are the last few. No bookmark."   ← that means we're finished
 | `category_to_set_spec` | Converts `cs.IR` into arXiv's name for it, `cs:cs:IR` |
 | `fetch_page` | Makes one request, retrying when arXiv says it's busy |
 | `parse_page_control` | Reads the bookmark (or error) out of a page |
-| `harvest_category` | The loop: fetch → save → update bookmark → wait 3 s → repeat |
+| `download_category` | The loop: fetch → save → update bookmark → wait 3 s → repeat |
 
 **Input:** nothing (it calls the internet).
 **Output:** `data/raw/<date>/` (see [the data folder](#the-data-folder) below).
 
-**Run it:** `python -m arxiv_search.ingest.harvest` (took about 20 minutes).
+**Run it:** `python -m arxiv_search.ingest.download` (took about 20 minutes).
 
 ---
 
@@ -119,7 +119,7 @@ with the year and month of first submission (`2308` = 2023-08), so we trust that
 
 ---
 
-## Step 2b: Filter and sample (`build_corpus.py`)
+## Step 2b: Filter and sample (`clean.py`)
 
 **What it does:** takes every parsed paper and keeps only the ones we want, in four filters. It
 records how many papers survive each filter.
@@ -139,7 +139,7 @@ The random pick uses a **fixed seed** (6188), so running it again picks exactly 
 
 **Output:** `data/processed/corpus.jsonl`, which **every later step reads**.
 
-**Run it:** `python -m arxiv_search.ingest.build_corpus` (a few seconds).
+**Run it:** `python -m arxiv_search.ingest.clean` (a few seconds).
 
 ---
 
@@ -173,14 +173,14 @@ so they run in under a second without the internet.
 | `test_submitted_month_from_id` | `2308.09419` → `2023-08` |
 | `test_parse_page_extracts_fields_and_skips_deleted` | Fields are read correctly and deleted papers are skipped |
 | `test_resumption_token_and_errors` | The bookmark and the "no results" reply are both understood |
-| `test_build_corpus_filters` | Duplicates, wrong categories, old papers, stubs and withdrawn papers are all removed |
+| `test_clean_corpus_filters` | Duplicates, wrong categories, old papers, stubs and withdrawn papers are all removed |
 | `test_stratified_sample_caps_and_is_deterministic` | The cap works, and the same seed gives the same papers |
 
 **Run them:** `python -m pytest -q`
 
 ---
 
-## Measurement scripts (`analysis/`)
+## Measurement scripts (`experiments/`)
 
 These aren't part of the search system. They're one-off experiments we ran to make design
 decisions. Their results are in [Findings](03-findings.md).
@@ -201,6 +201,7 @@ data/
 ├── raw/                          STEP 1 OUTPUT: arXiv's answers, never edited
 │   └── 2026-10-20/               one folder per download date
 │       ├── manifest.json         what we asked for (categories, dates, URL)
+│       ├── download.log          what the download printed while running
 │       ├── cs.IR/
 │       │   ├── page_0001.xml     one saved page (~1,300 papers each)
 │       │   ├── ...               (5 pages)
@@ -210,7 +211,7 @@ data/
 ├── processed/                    STEP 2 OUTPUT
 │   ├── corpus.jsonl              23,304 papers, one per line (42 MB) ← used by everything after
 │   └── corpus_stats.json         paper counts after each filter
-└── analysis/                     results of the measurement scripts
+└── experiments/                  results of the scripts in experiments/
 ```
 
 ## The code folder
@@ -219,12 +220,22 @@ data/
 arxiv-search/
 ├── README.md                     start here
 ├── docs/                         plain-English explanations (this folder)
-├── src/arxiv_search/             the actual system
+├── arxiv_search/                 the actual system (a Python package)
 │   ├── config.py                 all settings
-│   └── ingest/                   steps 1–2: harvest.py, parse.py, build_corpus.py
+│   └── ingest/                   steps 1–2
+│       ├── download.py           step 1:  arXiv → data/raw/
+│       ├── parse.py              step 2a: XML → Python dicts
+│       └── clean.py              step 2b: filter + sample → data/processed/corpus.jsonl
 ├── tests/                        automatic checks
-├── analysis/                     one-off measurement scripts
+├── experiments/                  one-off measurement scripts
 ├── pyproject.toml                project name + which libraries to install
 ├── .env.example                  template for secrets (copy it to .env)
 └── .gitignore                    keeps data/, .env, .venv/ out of git
 ```
+
+Future steps get their own folder inside `arxiv_search/` when we build them: `search/`,
+`evaluate/`, `rag/`, `api/`.
+
+**Things you may see that aren't ours:** `.venv/` (installed libraries), `__pycache__/`,
+`.pytest_cache/` and `arxiv_search.egg-info/` are generated automatically by Python. They're not
+in git and are hidden in the VS Code Explorer.

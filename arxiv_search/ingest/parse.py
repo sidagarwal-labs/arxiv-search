@@ -1,8 +1,8 @@
-"""Ingestion stage 2 of 3: turn raw OAI-PMH XML pages into plain Python dicts.
+"""Step 2a (clean up): turn raw OAI-PMH XML pages into plain Python dicts.
 
 This module only *translates* XML into dicts and normalizes whitespace. It
 makes no decisions about which papers belong in the corpus; that is the job of
-build_corpus.py. Keeping translation and selection separate makes each easier
+clean.py. Keeping translation and selection separate makes each easier
 to test and explain.
 """
 

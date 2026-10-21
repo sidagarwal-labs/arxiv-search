@@ -2,12 +2,12 @@
 
 Combines two *measurements* with a few documented *assumptions*:
 
-  measured   data/analysis/fulltext_sample.json  (from measure_fulltext.py)
+  measured   data/experiments/fulltext_sample.json  (from measure_fulltext.py)
   measured   embedding throughput of BGE-small on this machine's CPU
   assumed    384-dim float32 vectors, pgvector HNSW index overhead, arXiv 3 s delay
 
 Usage:
-    python analysis/estimate_costs.py
+    python experiments/estimate_costs.py
 """
 
 from __future__ import annotations
@@ -44,7 +44,7 @@ def measure_throughput(model: SentenceTransformer, n_tokens: int, n_texts: int =
 
 
 def main() -> None:
-    rows = json.loads((config.DATA_DIR / "analysis" / "fulltext_sample.json").read_text())
+    rows = json.loads((config.EXPERIMENTS_DIR / "fulltext_sample.json").read_text())
     ok = [r for r in rows if r["html_available"]]
     corpus = [json.loads(l) for l in open(config.PROCESSED_DIR / "corpus.jsonl", encoding="utf-8")]
     n_docs = len(corpus)
@@ -115,7 +115,7 @@ def main() -> None:
         "throughput_texts_per_s": {"abstract_290": tps_abstract, "chunk_512": tps_chunk},
         "scenarios": scenarios,
     }
-    (config.DATA_DIR / "analysis" / "cost_estimate.json").write_text(json.dumps(out, indent=2))
+    (config.EXPERIMENTS_DIR / "cost_estimate.json").write_text(json.dumps(out, indent=2))
 
 
 if __name__ == "__main__":

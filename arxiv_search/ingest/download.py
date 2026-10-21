@@ -1,4 +1,4 @@
-"""Ingestion stage 1 of 3: download raw arXiv metadata over OAI-PMH.
+"""Step 1 (download): fetch raw arXiv metadata over OAI-PMH.
 
 How OAI-PMH works (the 30-second version)
 -----------------------------------------
@@ -14,14 +14,14 @@ Design choices
   Parsing happens later (parse.py), so if we change how we parse, we never
   have to re-download.
 * A small state.json records the next resumptionToken, so an interrupted
-  harvest resumes where it stopped instead of starting over.
+  download resumes where it stopped instead of starting over.
 * `from` filters on the record's *datestamp* (last modification), not on the
-  submission date. It is only a coarse pre-filter; build_corpus.py applies the
-  real "submitted in the last 12 months" rule using the <created> field.
+  submission date. It is only a coarse pre-filter; clean.py applies the real
+  "submitted in the last 12 months" rule using the month in the arXiv ID.
 
 Usage:
-    python -m arxiv_search.ingest.harvest
-    python -m arxiv_search.ingest.harvest --categories cs.IR --days 30   # quick test
+    python -m arxiv_search.ingest.download
+    python -m arxiv_search.ingest.download --categories cs.IR --days 30   # quick test
 """
 
 from __future__ import annotations
@@ -89,7 +89,7 @@ def parse_page_control(xml_text: str) -> tuple[str | None, str | None]:
     return token, None
 
 
-def harvest_category(
+def download_category(
     category: str, from_date: str, out_dir: Path, session: requests.Session
 ) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -169,7 +169,7 @@ def main() -> None:
     session = requests.Session()
     session.headers["User-Agent"] = config.USER_AGENT
     for category in args.categories:
-        harvest_category(category, from_date, snapshot_dir / category, session)
+        download_category(category, from_date, snapshot_dir / category, session)
         time.sleep(config.REQUEST_DELAY_SECONDS)
 
     print(f"Done. Raw snapshot: {snapshot_dir}")
