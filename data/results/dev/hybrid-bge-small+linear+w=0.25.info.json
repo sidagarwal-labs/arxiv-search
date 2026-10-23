@@ -1,0 +1,17 @@
+{
+  "system": "hybrid-bge-small+linear+w=0.25",
+  "description": "Hybrid: best BM25 + bge-small, linear",
+  "factors": {
+    "hybrid": true,
+    "model": "bge-small",
+    "method": "linear",
+    "semantic_weight": 0.25,
+    "c": 60
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5867,
+  "build_seconds": 0,
+  "ms_per_query": 0.1,
+  "timing_scope": "fusion_only"
+}

@@ -110,6 +110,17 @@ and saved in `data/embeddings/`.
 *Why:* compare practical small models for arXiv search. Training, architecture and input
 limits differ, so this does not isolate a single cause of quality differences.
 
+**#32 Compare hybrid rank blends on dev.** Best BM25 + either GTE-small or BGE-small.
+Try RRF with c = 10, 60, 100 and linear rank blending, each with embedding weights
+0.25, 0.5, 0.75 (24 combinations). Both inputs contribute their top 100 papers;
+missing papers earn zero from that input. Break score ties by first appearance
+(BM25 first, then embedding-only papers). Weight is not query-dependent.
+*Why:* rank fusion avoids mixing incompatible raw score scales and reuses saved rankings.
+This comparison does not test normalized raw-score fusion. Choose settings using dev
+MRR@10, inspect Recall@20 and query-type trade-offs, and compare against best BM25.
+The best dev row is GTE + equal-weight RRF, c = 10 (MRR 0.635); it is a candidate,
+not a confirmed test winner. Offline grid timings exclude source retrieval.
+
 ---
 
 ## How we test

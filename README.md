@@ -17,7 +17,7 @@ Every design choice is decided by **measuring** it on a test set of queries, not
 
 - [x] 1. Download papers from arXiv
 - [x] 2. Clean up into one file of 23,304 papers
-- [ ] 3. Search: BM25 baseline ✅ → BM25 variants ✅ (best: +0.07 MRR) → four embedding models ✅ → hybrid
+- [x] 3. Search: BM25 baseline → BM25 variants → four embedding models → hybrid (dev MRR: 0.635)
 - [ ] 4. Test: scoring metrics ✅, 400 test queries ✅, results table ✅, LLM relevance judge next
 - [ ] 5. Answer: RAG with an LLM
 - [ ] 6. Website: database, API, web page, deploy
@@ -53,6 +53,7 @@ copy .env.example .env        # then paste your Gemini API key into .env
 # Step 4c: run search systems on the dev queries → docs/05-results.md (seconds each)
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.experiments "bm25*"   # all 25 BM25 systems
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.experiments "dense*"  # 4 embedding models (several hours first time; cached after)
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.experiments --hybrid-grid  # 24 blends of saved dev top-100 rankings
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.experiments --list    # what systems exist
 
 # Run the tests

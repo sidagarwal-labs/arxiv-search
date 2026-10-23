@@ -36,6 +36,7 @@ from arxiv_search.evaluate.make_queries import load_jsonl
 from arxiv_search.search import dense
 from arxiv_search.search.bm25 import BM25, DEFAULT_B, DEFAULT_K1
 from arxiv_search.search.text import paper_text, tokenize
+from arxiv_search.search.hybrid import fuse
 
 Searcher = Callable[[str], list[str]]  # query text -> arxiv_ids, best first
 BuildResult = Searcher | tuple[Searcher, dict]
@@ -148,6 +149,39 @@ for model_key in config.EMBEDDING_MODELS:
     SYSTEMS[f"dense-{model_key}"] = dense_system(model_key)
 
 
+# --- Hybrid: fixed grid, dev only until we select finalists ------------------
+
+HYBRID_GRID = {}
+for model_key, weight, (method, c) in itertools.product(
+    ("gte-small", "bge-small"), (0.25, 0.5, 0.75),
+    (("rrf", 10), ("rrf", 60), ("rrf", 100), ("linear", 60)),
+):
+    name = f"hybrid-{model_key}+{method}+w={weight}" + (f"+c={c}" if method == "rrf" else "")
+    HYBRID_GRID[name] = {"model": model_key, "method": method, "semantic_weight": weight, "c": c}
+
+
+def hybrid_system(settings: dict) -> System:
+    def build(corpus: list[dict]) -> Searcher:
+        lexical_built = bm25_system(BM25_BEST).build(corpus)
+        semantic_built = dense_system(settings["model"]).build(corpus)
+        lexical = lexical_built[0] if isinstance(lexical_built, tuple) else lexical_built
+        semantic = semantic_built[0] if isinstance(semantic_built, tuple) else semantic_built
+
+        def search(query: str) -> list[str]:
+            return fuse(lexical(query), semantic(query), method=settings["method"],
+                        semantic_weight=settings["semantic_weight"], c=settings["c"],
+                        depth=config.RUN_DEPTH, k=config.RUN_DEPTH)
+
+        return search
+
+    return System(build, f"Hybrid: best BM25 + {settings['model']}, {settings['method']}",
+                  {"hybrid": True, **settings})
+
+
+for name, settings in HYBRID_GRID.items():
+    SYSTEMS[name] = hybrid_system(settings)
+
+
 # --- Running ---------------------------------------------------------------
 
 
@@ -187,6 +221,12 @@ def run_system(name: str, split: str) -> dict:
     run = {qid: search(queries[qid]["query"]) for qid in query_ids}
     ms_per_query = (time.perf_counter() - start) * 1000 / len(query_ids)
 
+    return save_run(name, split, run, build_seconds, ms_per_query, extra)
+
+
+def save_run(name: str, split: str, run: dict[str, list[str]], build_seconds: float,
+             ms_per_query: float, extra: dict) -> dict:
+    system = SYSTEMS[name]
     rows = score(run)
     out = config.RESULTS_DIR / split
     out.mkdir(parents=True, exist_ok=True)
@@ -200,6 +240,28 @@ def run_system(name: str, split: str) -> dict:
     info.update(extra)
     (out / f"{name}.info.json").write_text(json.dumps(info, indent=2))
     return info
+
+
+def run_hybrid_grid() -> None:
+    """Fuse saved dev top-100 lists; never silently use a different candidate depth."""
+    _, _, _, splits = load_eval()
+    sources = {}
+    for name in (bm25_name(BM25_BEST), "dense-gte-small", "dense-bge-small"):
+        path = config.RESULTS_DIR / "dev" / f"{name}.run.json"
+        run = json.loads(path.read_text())
+        if set(run) != set(splits["dev"]) or any(len(v) != config.RUN_DEPTH for v in run.values()):
+            raise ValueError(f"{path}: expected every dev query with {config.RUN_DEPTH} candidates")
+        sources[name] = run
+    lexical = sources[bm25_name(BM25_BEST)]
+    for name, settings in HYBRID_GRID.items():
+        semantic = sources[f"dense-{settings['model']}"]
+        start = time.perf_counter()
+        run = {qid: fuse(lexical[qid], semantic[qid], method=settings["method"],
+                         semantic_weight=settings["semantic_weight"], c=settings["c"],
+                         depth=config.RUN_DEPTH, k=config.RUN_DEPTH) for qid in splits["dev"]}
+        elapsed = (time.perf_counter() - start) * 1000 / len(run)
+        info = save_run(name, "dev", run, 0, elapsed, {"timing_scope": "fusion_only"})
+        print(f"{name}: MRR@10 {info['mrr@10']:.3f}")
 
 
 # --- Tuning k1 and b (dev only) --------------------------------------------
@@ -271,7 +333,9 @@ def main_table(results: dict) -> str:
             cells.append(f"{diff:+.3f} [{low:+.2f}, {high:+.2f}]")
         cells += [f"{_mean([r[MRR] for r in rows if r['query_type'] == t]):.3f}" for t in QUERY_TYPES]
         cells += [f"{_mean([r[MRR] for r in rows if r['specificity'] == s]):.3f}" for s in ("specific", "broad")]
-        cells += [str(info["build_seconds"]), str(info["ms_per_query"])]
+        fusion_only = info.get("timing_scope") == "fusion_only"
+        cells += ["—" if fusion_only else str(info["build_seconds"]),
+                  f"{info['ms_per_query']} (fusion only)" if fusion_only else str(info["ms_per_query"])]
         lines.append("| " + " | ".join(cells) + " |")
     return "\n".join(lines)
 
@@ -331,6 +395,37 @@ def factor_analysis(results: dict) -> str | None:
         "averaged over the other two factors):\n\n" + "\n\n".join(interactions)
 
 
+def hybrid_comparison(results: dict) -> str | None:
+    baseline = results.get(bm25_name(BM25_BEST))
+    if baseline is None or not any(n in results for n in HYBRID_GRID):
+        return None
+    lines = [
+        "Best dev MRR row in each model/method group; these are selected on dev, not",
+        "independent confirmations. Intervals do not correct for selecting the winners.",
+        "Weights are the embedding share (the remainder goes to BM25).",
+        "Offline grid timings cover fusion only, excluding both retrieval systems.",
+        "",
+        "| Model | Method | Embedding weight | c | MRR@10 | R@20 | Δ vs best BM25 [95% CI] |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    for model, method in itertools.product(("gte-small", "bge-small"), ("rrf", "linear")):
+        names = [n for n, s in HYBRID_GRID.items()
+                 if n in results and s["model"] == model and s["method"] == method]
+        if not names:
+            continue
+        name = max(names, key=lambda n: _mean([r[MRR] for r in results[n][0]]))
+        rows = results[name][0]
+        settings = HYBRID_GRID[name]
+        delta, low, high = metrics.paired_diff_ci(
+            [r[MRR] for r in baseline[0]], [r[MRR] for r in rows])
+        c = str(settings["c"]) if method == "rrf" else "—"
+        lines.append(f"| {model} | {method} | {settings['semantic_weight']} | {c} | "
+                     f"{_mean([r[MRR] for r in rows]):.3f} | "
+                     f"{_mean([r['recall@20'] for r in rows]):.2f} | "
+                     f"{delta:+.3f} [{low:+.2f}, {high:+.2f}] |")
+    return "\n".join(lines)
+
+
 def tuning_tables() -> str | None:
     folder = config.RESULTS_DIR / "dev" / "tuning"
     if not folder.exists():
@@ -367,6 +462,9 @@ def write_results_doc() -> None:
     ]
     dev = load_results("dev")
     parts += ["", "## Dev (100 queries): experiments", "", main_table(dev) if dev else "_Nothing run yet._"]
+    hybrid = hybrid_comparison(dev)
+    if hybrid:
+        parts += ["", "### Hybrid: comparison against best BM25", "", hybrid]
 
     analysis = factor_analysis(dev)
     if analysis:
@@ -391,8 +489,13 @@ def main() -> None:
     parser.add_argument("--split", choices=["dev", "test"], default="dev")
     parser.add_argument("--tune", nargs="+", metavar="SYSTEM", help="k1/b grid on dev for these BM25 systems")
     parser.add_argument("--list", action="store_true", help="list every system")
+    parser.add_argument("--hybrid-grid", action="store_true", help="fuse saved dev rankings across the fixed hybrid grid")
     args = parser.parse_args()
 
+    if args.hybrid_grid and (args.split != "dev" or args.systems or args.tune):
+        parser.error("--hybrid-grid runs on dev only and cannot be combined with systems or --tune")
+    if args.hybrid_grid:
+        run_hybrid_grid()
     if args.list:
         for name, system in SYSTEMS.items():
             print(f"{name:45} {system.description}")

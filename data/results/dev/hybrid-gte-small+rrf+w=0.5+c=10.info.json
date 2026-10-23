@@ -1,0 +1,16 @@
+{
+  "system": "hybrid-gte-small+rrf+w=0.5+c=10",
+  "description": "Hybrid: best BM25 + gte-small, rrf",
+  "factors": {
+    "hybrid": true,
+    "model": "gte-small",
+    "method": "rrf",
+    "semantic_weight": 0.5,
+    "c": 10
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.635,
+  "build_seconds": 69.0,
+  "ms_per_query": 26.4
+}

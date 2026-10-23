@@ -235,6 +235,32 @@ small timing check on this laptop. See [Findings, section 10](03-findings.md#10-
 
 ---
 
+## Step 3c: Hybrid search (`search/hybrid.py`)
+
+BM25 matches exact wording; embeddings match meaning. We retrieve the top 100 from
+each, score their union, then keep the best 100. There are no new paper embeddings.
+
+- **RRF:** a rank r contributes `weight / (c + r)`. A small c emphasizes the first
+  few positions; a larger c makes nearby ranks more alike.
+- **Linear rank blend:** a rank r contributes `weight * (101 - r) / 100`.
+- A paper missing from a list earns zero from that list. The embedding weight is
+  0.25, 0.5 or 0.75; BM25 gets the remainder. Ties keep BM25 order first, followed
+  by embedding-only papers in their original order.
+
+`python -m arxiv_search.evaluate.experiments --hybrid-grid` compares 24 combinations
+using saved dev rankings, without loading models. Missing or incomplete source runs
+raise an error. Reported times are **fusion only**, not end-to-end search time.
+The normal named-system runner builds both retrievers and uses the same fusion
+function for live queries, including new ones. For example:
+
+```powershell
+python -m arxiv_search.evaluate.experiments "hybrid-gte-small+rrf+w=0.5+c=10"
+```
+
+We have not run the held-out test queries yet.
+
+---
+
 ## Step 4: Scoring (`evaluate/metrics.py`)
 
 **What it does:** given a search system's rankings and the right answers, it says how good the
@@ -477,6 +503,10 @@ hand; unknown words and ties; and identical scores to the `rank_bm25` library.
 **`test_dense.py`** (3 tests): dense search ranks tiny 2-number vectors by cosine similarity;
 ties keep corpus order; every model in config has its prefixes. (No model is downloaded.)
 
+**`test_hybrid.py`** (13 tests): hand-worked RRF and linear scores, weights, ties,
+candidate limits, empty inputs, invalid settings and duplicates; live/offline fusion
+agreement; rejection of incomplete saved rankings. No models are downloaded.
+
 **Run them:** `python -m pytest -q`
 
 ---
@@ -544,7 +574,8 @@ arxiv-search/
 │   ├── search/                   step 3
 │   │   ├── text.py               text → words (tokenize), paper → title + abstract
 │   │   ├── bm25.py               keyword search (BM25)
-│   │   └── dense.py              meaning search (embeddings + cosine similarity)
+│   │   ├── dense.py              meaning search (embeddings + cosine similarity)
+│   │   └── hybrid.py             combine BM25 and embedding rankings
 │   └── evaluate/                 step 4
 │       ├── metrics.py            Recall, MRR, nDCG + error bars
 │       ├── prompts.py            the exact instructions given to the query-writing LLM

@@ -1,0 +1,17 @@
+{
+  "system": "hybrid-bge-small+rrf+w=0.25+c=100",
+  "description": "Hybrid: best BM25 + bge-small, rrf",
+  "factors": {
+    "hybrid": true,
+    "model": "bge-small",
+    "method": "rrf",
+    "semantic_weight": 0.25,
+    "c": 100
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5907,
+  "build_seconds": 0,
+  "ms_per_query": 0.1,
+  "timing_scope": "fusion_only"
+}

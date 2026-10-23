@@ -302,3 +302,59 @@ These scores measure finding the source paper, not every relevant paper.
 
 **Next experiment to decide together:** combine BM25's exact matching with GTE/BGE's
 meaning matching, tune on dev, and reserve test for the finalists.
+
+---
+
+## 11. Hybrid rank fusion (decision #32)
+
+We compared 24 settings: two embedding models, three embedding weights, and four
+rank formulas (RRF c = 10/60/100, or linear). Input: saved top-100 rankings from
+best BM25 and each dense model. No new embeddings or API calls.
+All rows and group winners are in [Results](05-results.md).
+
+| System | MRR@10 | R@20 | Keyword | Question | Paraphrase | Known-item |
+|---|---|---|---|---|---|---|
+| Best BM25 | 0.569 | 0.71 | 0.710 | 0.432 | 0.132 | 1.000 |
+| GTE alone | 0.525 | 0.78 | 0.688 | 0.417 | 0.364 | 0.633 |
+| BM25 + GTE, equal RRF c=10 | **0.635** | 0.84 | 0.728 | 0.518 | 0.321 | 0.973 |
+| BM25 + BGE, equal RRF c=10 | 0.602 | **0.85** | 0.709 | 0.536 | 0.232 | 0.930 |
+| BM25 + GTE, equal linear | 0.603 | 0.81 | 0.707 | 0.531 | 0.255 | 0.920 |
+
+**What we learned.**
+- The best dev MRR is GTE + equal-weight RRF, c=10: +0.066 over best BM25
+  (paired 95% interval +0.014 to +0.121). This interval does not account for
+  choosing the best of 24 settings, so it is encouraging dev evidence, not
+  independent confirmation.
+- RRF c=10 with equal weights wins within both embedding models. More smoothing
+  or more embedding weight does not automatically help.
+- The blend recovers much of GTE's paraphrase benefit without giving up most of
+  BM25's known-item strength. It does not preserve every individual advantage:
+  GTE alone still has higher paraphrase MRR.
+- BGE's best-MRR blend has slightly higher R@20 than GTE's (0.85 vs 0.84),
+  which may matter for reranking even though its MRR is lower.
+- Linear rank blending is competitive but no better on dev. We have not yet
+  compared normalized raw-score fusion.
+- An actual live run of the winning configuration reproduced all 100 offline
+  rankings exactly, using cached paper vectors and freshly embedded queries.
+  It measured 26.4 ms/query after initialization (69 s build/model setup).
+  This is one warm laptop run, not a production latency guarantee. Other grid
+  rows still report fusion-only timings.
+
+**Experiment roadmap, in order.**
+1. Human-review about 60 evaluation queries; record quality problems rather than
+   quietly rewriting the benchmark after seeing system failures.
+2. Choose an LLM relevance judge and check agreement with human grades. Pool and
+   deduplicate candidates from finalists; measure judgment coverage before
+   trusting nDCG. Budget calls and use resumable, rate-limit-aware execution.
+3. Test a small reranker on hybrid candidates: measure MRR/nDCG and latency/cost;
+   try candidate depths such as 20 and 50. Retrieval recall limits what it can fix.
+4. Benchmark the proposed serving environment: query embedding plus both searches
+   and fusion, memory, cold starts and cost. Offline fusion timings cannot answer this.
+5. Freeze finalists and settings, then evaluate on the 300 held-out queries once.
+6. For RAG, measure answer correctness, citation support and appropriate abstention,
+   not just whether an answer sounds fluent.
+
+Optional follow-ups if these expose a need: adding authors to dense input, a longer
+MiniLM input configuration, one stronger affordable embedding model, normalized
+raw-score fusion, and full-paper chunking. Full-paper ingestion is a separate
+scope expansion, not a prerequisite for validating abstract search.
