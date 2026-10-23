@@ -1,0 +1,12 @@
+{
+  "system": "dense-bge-small",
+  "description": "Dense: BAAI/bge-small-en-v1.5, title + abstract, cosine similarity",
+  "factors": {
+    "model": "bge-small"
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5056,
+  "build_seconds": 7077.4,
+  "ms_per_query": 105.3
+}

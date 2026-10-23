@@ -257,3 +257,48 @@ b between 0.5 and 1.0 changes MRR by under 0.01, which is noise on 100 queries.
   in different words. That's the job for embeddings next.
 - Build times in the table vary 2–3× between identical runs (laptop load), so treat them as
   rough.
+
+---
+
+## 10. Four small embedding models (decision #31)
+
+All four embed title + abstract without our BM25 preprocessing, then rank by cosine
+similarity. Model-specific prefixes still apply. Same 23,304 papers and 100 dev queries;
+the 300 test queries remain untouched. Full results: [Results](05-results.md).
+
+| System | MRR@10 | R@20 | Paraphrase MRR | Known-item MRR | Low-overlap R@20 |
+|---|---|---|---|---|---|
+| Best BM25 | 0.569 | 0.71 | 0.13 | 1.00 | 0.05 |
+| GTE-small | 0.525 | 0.78 | 0.36 | 0.63 | 0.59 |
+| BGE-small | 0.506 | 0.79 | 0.28 | 0.67 | 0.59 |
+| E5-small | 0.485 | 0.75 | 0.26 | 0.63 | 0.41 |
+| MiniLM | 0.407 | 0.68 | 0.26 | 0.55 | 0.45 |
+
+Low-overlap means the query's recorded word overlap with its source paper is below 0.34.
+These scores measure finding the source paper, not every relevant paper.
+
+**What changed.**
+- BM25 still has the highest overall MRR, especially for exact titles and author names.
+- Embeddings find many more papers when users describe them in different words.
+- GTE's paired difference from best BM25 is -0.043 (95% interval -0.13 to +0.05);
+  BGE's is -0.063 (-0.16 to +0.03). Neither interval establishes a clear difference,
+  and neither proves equivalence.
+- An oracle that succeeds whenever *either* system finds the source paper in its top 20
+  reaches 0.87 for BM25 + GTE and 0.88 for BM25 + BGE. This motivates trying hybrid
+  rankings; it is **not a measured hybrid score**, nor a promise that a fused top 20
+  will retain those papers.
+
+**Timing lessons.**
+- GTE loaded in float16 by default. A small CPU check took about 89 seconds for 64
+  papers, versus 6 seconds in float32. We now explicitly load all four models in
+  float32; MiniLM, BGE and E5 were already using it.
+- Recorded paper-embedding times: MiniLM 1,814 s, E5 2,701 s, GTE 2,975 s,
+  BGE 7,077 s (about 118 minutes).
+- The original BGE run included laptop standby and its timing was discarded. The
+  replacement produced identical per-query scores. Its elapsed time is still a
+  rough laptop measurement, not a controlled speed benchmark or production estimate.
+- Vectors are cached locally. These runs use no paid embedding API. Production
+  still needs the same model available to embed incoming queries.
+
+**Next experiment to decide together:** combine BM25's exact matching with GTE/BGE's
+meaning matching, tune on dev, and reserve test for the finalists.

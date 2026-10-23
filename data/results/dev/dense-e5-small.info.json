@@ -1,0 +1,12 @@
+{
+  "system": "dense-e5-small",
+  "description": "Dense: intfloat/e5-small-v2, title + abstract, cosine similarity",
+  "factors": {
+    "model": "e5-small"
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.485,
+  "build_seconds": 2701.2,
+  "ms_per_query": 39.2
+}

@@ -57,3 +57,28 @@ BOOTSTRAP_SAMPLES = 1_000  # resamples for 95% confidence intervals
 RESULTS_DIR = DATA_DIR / "results"  # rankings + per-query scores of every system run
 RUN_DEPTH = 100  # papers kept per query: enough for Recall@20 and for a reranker / judge later
 BASELINE_SYSTEM = "bm25-baseline"  # every other system is compared against this one
+
+# --- Local embedding models (Decisions 25, 31) ------------------------------
+# All small (384 numbers per vector), selected as candidates for cheap query embedding
+# on a server CPU or in the browser. Some models were trained with a fixed text in front of
+# queries and papers; leaving it out makes them worse, so it's part of the model's settings.
+EMBEDDINGS_DIR = DATA_DIR / "embeddings"  # one vector file per model (rebuildable, not in git)
+EMBEDDING_MODELS = {
+    "minilm": {  # the model from class; reads only the first 256 tokens (cuts off 68% of papers)
+        "hf_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "query_prefix": "", "paper_prefix": "",
+    },
+    "bge-small": {
+        "hf_name": "BAAI/bge-small-en-v1.5",
+        "query_prefix": "Represent this sentence for searching relevant passages: ", "paper_prefix": "",
+    },
+    "e5-small": {
+        "hf_name": "intfloat/e5-small-v2",
+        "query_prefix": "query: ", "paper_prefix": "passage: ",
+    },
+    "gte-small": {
+        "hf_name": "thenlper/gte-small",
+        "query_prefix": "", "paper_prefix": "",
+    },
+}
+EMBEDDING_BATCH_SIZE = 32

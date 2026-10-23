@@ -1,0 +1,12 @@
+{
+  "system": "dense-minilm",
+  "description": "Dense: sentence-transformers/all-MiniLM-L6-v2, title + abstract, cosine similarity",
+  "factors": {
+    "model": "minilm"
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.4065,
+  "build_seconds": 1813.9,
+  "ms_per_query": 41.7
+}

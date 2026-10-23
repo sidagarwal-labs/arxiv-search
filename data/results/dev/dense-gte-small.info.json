@@ -1,0 +1,12 @@
+{
+  "system": "dense-gte-small",
+  "description": "Dense: thenlper/gte-small, title + abstract, cosine similarity",
+  "factors": {
+    "model": "gte-small"
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.5254,
+  "build_seconds": 2975.4,
+  "ms_per_query": 36.2
+}

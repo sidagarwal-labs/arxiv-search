@@ -176,6 +176,8 @@ stemming ("models" ≠ "model"). Each paper is `title + " " + abstract` (`paper_
 
 **Our best BM25** uses exact+stems + authors + title×2 with k1 = 0.8.
 
+---
+
 **2. Build an inverted index** (`bm25.py`, built once, ~3 s for 23,304 papers). For every word,
 the papers containing it and how many times:
 
@@ -197,6 +199,39 @@ Ties keep corpus order, so results are identical every run.
 
 **Why our own code** (~70 lines) instead of a library: so every number can be explained. A test
 checks it gives exactly the same scores as the `rank_bm25` library.
+
+---
+
+## Step 3b: Meaning search, embeddings (`search/dense.py`)
+
+**What it does:** ranks papers by how close their *meaning* is to the query, even with no
+words in common. That's what BM25 can't do (paraphrase queries scored 0.13).
+
+**1. Embed every paper once.** An embedding model reads `title + abstract` and outputs 384
+numbers (a vector). Papers about similar things get vectors pointing in similar directions.
+Recorded runs took about 30–118 minutes per model on the laptop CPU, so the vectors are
+saved to `data/embeddings/<model>.npy` and reused (not in git; rebuildable).
+Laptop load and standby can distort elapsed times; these are not controlled benchmarks.
+
+**2. Embed the query** with the same model (milliseconds).
+
+**3. Score = cosine similarity** (1 = same direction; 0 = perpendicular, not a calibrated
+relevance probability). Vectors are scaled to length 1, so this is a single matrix
+multiplication: `paper_vectors @ query_vector`.
+
+**The four models** (Decision 31), all output 384 numbers and were selected as small
+candidates for cheap query serving (Decision 25). Production serving still needs testing:
+
+| Key | Model | Reads up to | Text put in front |
+|---|---|---|---|
+| `minilm` | all-MiniLM-L6-v2 (from class) | 256 tokens: **cuts off 68% of papers** | — |
+| `bge-small` | BAAI/bge-small-en-v1.5 | 512 tokens | query: "Represent this sentence for searching relevant passages: " |
+| `e5-small` | intfloat/e5-small-v2 | 512 tokens | query: "query: ", paper: "passage: " |
+| `gte-small` | thenlper/gte-small | 512 tokens | — |
+
+The prefixes follow each model's retrieval recipe. They live in `config.EMBEDDING_MODELS`.
+We explicitly use float32 on CPU: GTE's default float16 was about 15 times slower in a
+small timing check on this laptop. See [Findings, section 10](03-findings.md#10-four-small-embedding-models-decision-31).
 
 ---
 
@@ -391,6 +426,8 @@ Every number that changes the results lives here, so nothing important is hidden
 | `EVAL_MAX_CALLS_PER_RUN` | 150 | Safety cap on calls per run |
 | `RUN_DEPTH` | 100 | Papers kept per query in experiments |
 | `BASELINE_SYSTEM` | `bm25-baseline` | The row every other system is compared with |
+| `EMBEDDING_MODELS` | minilm, bge-small, e5-small, gte-small | Local embedding models and their prefixes |
+| `EMBEDDING_BATCH_SIZE` | 32 | Papers embedded at a time |
 
 ---
 
@@ -436,6 +473,9 @@ specificity and category stay balanced; the split doesn't depend on file order.
 **`test_bm25.py`** (7 tests): the tokenizer on tricky text, with stopwords, stemming and
 exact+stems; the authors and title×2 options; BM25 scores for three tiny papers worked out by
 hand; unknown words and ties; and identical scores to the `rank_bm25` library.
+
+**`test_dense.py`** (3 tests): dense search ranks tiny 2-number vectors by cosine similarity;
+ties keep corpus order; every model in config has its prefixes. (No model is downloaded.)
 
 **Run them:** `python -m pytest -q`
 
@@ -484,6 +524,7 @@ data/
 ├── results/                      STEP 4c OUTPUT: every search system's rankings + scores
 │   ├── dev/                      bm25-baseline.run.json, .scores.jsonl, .info.json, ...
 │   └── test/                     finalists only
+├── embeddings/                   STEP 3b OUTPUT: <model>.npy (23,304 × 384 numbers) + <model>.json
 └── experiments/                  results of the scripts in experiments/
 ```
 
@@ -502,7 +543,8 @@ arxiv-search/
 │   │   └── clean.py              step 2b: filter + sample → data/processed/corpus.jsonl
 │   ├── search/                   step 3
 │   │   ├── text.py               text → words (tokenize), paper → title + abstract
-│   │   └── bm25.py               keyword search (BM25)
+│   │   ├── bm25.py               keyword search (BM25)
+│   │   └── dense.py              meaning search (embeddings + cosine similarity)
 │   └── evaluate/                 step 4
 │       ├── metrics.py            Recall, MRR, nDCG + error bars
 │       ├── prompts.py            the exact instructions given to the query-writing LLM

@@ -102,6 +102,14 @@ all three picked k1 = 0.8. b made no clear difference (±0.007), so it stays at 
 Stopwords are left out: no effect either way.
 *Why:* tuning only what is consistent across systems limits overfitting the 100 dev queries.
 
+**#31 First embedding comparison: four small local models.** MiniLM-L6 (from class),
+BGE-small, E5-small and GTE-small, each with its own query/paper prefixes, embedding title +
+abstract. All output 384 numbers and are small candidates for cheap live query embedding
+(Decision 25); production serving still needs testing. Paper vectors are computed once
+and saved in `data/embeddings/`.
+*Why:* compare practical small models for arXiv search. Training, architecture and input
+limits differ, so this does not isolate a single cause of quality differences.
+
 ---
 
 ## How we test

@@ -33,10 +33,12 @@ from typing import Callable
 from arxiv_search import config
 from arxiv_search.evaluate import metrics
 from arxiv_search.evaluate.make_queries import load_jsonl
+from arxiv_search.search import dense
 from arxiv_search.search.bm25 import BM25, DEFAULT_B, DEFAULT_K1
 from arxiv_search.search.text import paper_text, tokenize
 
 Searcher = Callable[[str], list[str]]  # query text -> arxiv_ids, best first
+BuildResult = Searcher | tuple[Searcher, dict]
 
 QUERY_TYPES = ("keyword", "question", "paraphrase", "known_item")
 MRR = f"mrr@{config.MRR_CUTOFF}"
@@ -44,7 +46,7 @@ MRR = f"mrr@{config.MRR_CUTOFF}"
 
 @dataclass
 class System:
-    build: Callable[[list[dict]], Searcher]  # corpus -> search function
+    build: Callable[[list[dict]], BuildResult]  # corpus -> search function, optionally with timing info
     description: str
     factors: dict = field(default_factory=dict)  # grid settings, for the factor analysis
 
@@ -122,6 +124,30 @@ BM25_BEST = {"stopwords": False, "stemming": "exact+stems", "authors": True, "ti
 SYSTEMS[bm25_name(BM25_BEST)] = bm25_system(BM25_BEST)
 
 
+# --- Dense (embeddings) -----------------------------------------------------
+
+
+def dense_system(model_key: str) -> System:
+    def build(corpus: list[dict]) -> BuildResult:
+        ids = [p["arxiv_id"] for p in corpus]
+        vectors, info = dense.paper_vectors(model_key, [paper_text(p) for p in corpus], ids, model_key)
+        index = dense.DenseIndex(vectors, ids)
+        dense.embed_queries(model_key, ["warm up"])  # load the model now, not during the timed queries
+
+        def search(query: str) -> list[str]:
+            return index.search(dense.embed_queries(model_key, [query])[0], config.RUN_DEPTH)
+
+        # Building = embedding every paper, which only happens once; report that time.
+        return search, {"build_seconds": info["embed_seconds"]}
+
+    model = config.EMBEDDING_MODELS[model_key]["hf_name"]
+    return System(build, f"Dense: {model}, title + abstract, cosine similarity", {"model": model_key})
+
+
+for model_key in config.EMBEDDING_MODELS:
+    SYSTEMS[f"dense-{model_key}"] = dense_system(model_key)
+
+
 # --- Running ---------------------------------------------------------------
 
 
@@ -152,8 +178,10 @@ def run_system(name: str, split: str) -> dict:
     query_ids = splits[split]
 
     start = time.perf_counter()
-    search = system.build(corpus)
+    built = system.build(corpus)
     build_seconds = time.perf_counter() - start
+    # A builder may also return extra info, e.g. dense systems report their one-time embedding time.
+    search, extra = built if isinstance(built, tuple) else (built, {})
 
     start = time.perf_counter()
     run = {qid: search(queries[qid]["query"]) for qid in query_ids}
@@ -169,6 +197,7 @@ def run_system(name: str, split: str) -> dict:
         "split": split, "queries": len(rows), "mrr@10": round(sum(r[MRR] for r in rows) / len(rows), 4),
         "build_seconds": round(build_seconds, 1), "ms_per_query": round(ms_per_query, 1),
     }
+    info.update(extra)
     (out / f"{name}.info.json").write_text(json.dumps(info, indent=2))
     return info
 

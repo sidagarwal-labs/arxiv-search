@@ -37,6 +37,7 @@ Short, plain definitions of every term used in this project, grouped by topic.
 | **Interaction** | When one technique's effect depends on another (e.g. stemming hurts alone but helps with authors). |
 | **Tuning** | Trying several values of a setting (e.g. k1) and keeping the best, on dev queries only. |
 | **Winner's curse** | The best of many systems on a small query set looks better than it really is, partly by luck. |
+| **Query / passage prefix** | A fixed text some embedding models expect in front of queries or papers (e.g. E5's "query: "), because they were trained that way. |
 | **Embedding / vector** | A list of numbers (e.g. 384 of them) that captures what a text means. Similar meanings give similar lists. |
 | **Embedding model** | The model that turns text into vectors. Examples: MiniLM, BGE-small, E5-small, gemini-embedding-2. |
 | **Dense search** | Search by comparing the query's vector to every paper's vector. |
