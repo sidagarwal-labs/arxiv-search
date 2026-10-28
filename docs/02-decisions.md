@@ -43,6 +43,17 @@ hidden inside an overall average.
 take ~20 h to download, ~15 h to embed, and ~3 GB of storage, which is over the free limit. We'll
 test full text on a small, legally reusable subset: about 2,000 cs.IR papers.
 
+*Planned pilot (agreed 2026-10-28, runs after the judge exists):*
+- Same ~2,000 papers indexed two ways: abstracts only vs. full text in 512-token chunks
+  (a paper scores as its best chunk). Also test a cheap middle option: abstract index, with
+  full-text passages pulled only for the top 20 (at rerank / answer time).
+- Our 400 queries were written from abstracts, so they favour the abstract index. We add
+  ~100 queries written from paper bodies (methods, datasets, results) and score with nDCG
+  from the judge, whose rubric then also shows the matching passage.
+- Report quality per query type next to download time, embedding hours, storage, index size
+  and ms/query. Expand to all papers only if the gain's 95% interval excludes zero and the
+  middle option doesn't capture most of it.
+
 ---
 
 ## How search works
@@ -196,6 +207,30 @@ explain, and with only 3 grades it rarely changes which system wins. Counting un
 is standard (TREC); the % judged shows when that is unfair. With ~33 queries per group, error bars
 are needed to tell a real win from noise.
 
+**#33 An LLM judge grades (search, paper) pairs 0/1/2, checked against human grades.**
+
+| Choice | Picked | Alternative we rejected |
+|---|---|---|
+| What is graded | One (search, paper) pair at a time, 0 / 1 / 2 | Grading a whole ranked list (can't be reused across systems) |
+| Which papers | Top 10 of 5 main systems, de-duplicated (~23 per search, ~2,260 for dev) | Every system's top 10 (~4,400 pairs, mostly near-duplicates) |
+| What the grader sees | Search text + title + authors (first 10) + full abstract | Title only (too little); full paper (slow, costly, and we only index abstracts) |
+| Blindness | No rank, no system name, no "source paper" flag; papers shuffled and labelled P1…Pn | Showing the ranked list (graders favour rank 1) |
+| Calls | One call per search, each paper graded on its own, reason (≤ 20 words) before grade | One call per pair (~23× more calls) |
+| Judge | Pilot Gemma 4 31B (API) vs. Qwen 2.5 7B (local) on the same 266 pairs, pick by agreement with Sid's 100 blind human grades | Picking a judge without measuring it |
+| Re-use | Grades cached by (judge, rubric version, search text, paper text); human grades override LLM grades | Re-grading every run |
+
+*Why:* grading pairs once means every system — including future rerankers and OpenAI models —
+is scored from the same cached labels, and only new papers cost calls. Humans and the LLM see
+the same information, so disagreements are about judgement, not information.
+
+*How we keep the judge honest:* tune the rubric on the pilot human grades; confirm on fresh
+human grades it was not tuned on (e.g. from teammates via the website); then audit a sample of
+new LLM grades whenever new systems add pairs. Agreement is reported as exact agreement,
+quadratic-weighted Cohen's kappa, and agreement on "relevant (1–2) vs not (0)". Sanity check:
+the paper a query was written from should almost always get 2.
+
+*Later:* RAG answers need a separate rubric (correctness, citation support, abstention).
+
 ---
 
 ## Which LLMs
@@ -211,7 +246,7 @@ from the ones being tested.
 | Job | Model |
 |---|---|
 | Write test queries | `gemma-4-31b-it` (was `gemini-3.6-flash`; changed in #24) |
-| Judge relevance | to be decided when we build it (#24) |
+| Judge relevance | piloting `gemma-4-31b-it` vs. local `qwen2.5:7b` (#33) |
 | Write RAG answers, rerank | compare `gemini-3.5-flash-lite` vs `gemini-3.5-flash` |
 | Hosted embeddings | `gemini-embedding-2`, 768 numbers per paper |
 

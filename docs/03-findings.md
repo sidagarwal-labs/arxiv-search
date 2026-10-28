@@ -346,6 +346,8 @@ All rows and group winners are in [Results](05-results.md).
 2. Choose an LLM relevance judge and check agreement with human grades. Pool and
    deduplicate candidates from finalists; measure judgment coverage before
    trusting nDCG. Budget calls and use resumable, rate-limit-aware execution.
+   *Status (2026-10-28):* judge built (Decision 33); piloting Gemma 4 31B vs.
+   Qwen 2.5 7B on 266 pairs against 100 blind human grades.
 3. Test a small reranker on hybrid candidates: measure MRR/nDCG and latency/cost;
    try candidate depths such as 20 and 50. Retrieval recall limits what it can fix.
 4. Benchmark the proposed serving environment: query embedding plus both searches
@@ -357,4 +359,6 @@ All rows and group winners are in [Results](05-results.md).
 Optional follow-ups if these expose a need: adding authors to dense input, a longer
 MiniLM input configuration, one stronger affordable embedding model, normalized
 raw-score fusion, and full-paper chunking. Full-paper ingestion is a separate
-scope expansion, not a prerequisite for validating abstract search.
+scope expansion, not a prerequisite for validating abstract search. Its pilot design
+(abstract vs. full-text chunks on ~2,000 papers, plus body-text queries graded by the
+judge, weighed against cost) is under Decision 18.

@@ -31,7 +31,6 @@ RANDOM_SEED = 6188  # fixed seed -> the same harvest always yields the same corp
 # allows only 20 calls/day per model, so the query writer is Gemma (much larger free
 # quota). The judge choice is revisited when we build it (writer == judge risks self-preference).
 QUERY_WRITER_MODEL = "gemma-4-31b-it"
-JUDGE_MODEL = "gemma-4-31b-it"
 RAG_MODEL_CANDIDATES = ("gemini-3.5-flash-lite", "gemini-3.5-flash")
 RERANKER_MODEL_CANDIDATES = ("gemini-3.5-flash-lite", "gemini-3.5-flash")
 HOSTED_EMBEDDING_MODEL = "gemini-embedding-2"
@@ -57,6 +56,27 @@ BOOTSTRAP_SAMPLES = 1_000  # resamples for 95% confidence intervals
 RESULTS_DIR = DATA_DIR / "results"  # rankings + per-query scores of every system run
 RUN_DEPTH = 100  # papers kept per query: enough for Recall@20 and for a reranker / judge later
 BASELINE_SYSTEM = "bm25-baseline"  # every other system is compared against this one
+
+# --- Relevance judge (Decision 33) -----------------------------------------
+# Pilot: both judges grade the same pairs; the user's blind grades decide which to keep.
+JUDGES = {
+    "gemma-31b": {"backend": "gemini", "model": "gemma-4-31b-it"},  # API; same model wrote the queries
+    "qwen2.5-7b": {"backend": "ollama", "model": "qwen2.5:7b"},  # local; independent of the writer
+}
+JUDGMENTS_DIR = EVAL_DIR / "judgments"  # one cache file per judge: <judge>.jsonl
+JUDGE_POOL_SYSTEMS = [  # papers in any of these systems' top JUDGE_POOL_DEPTH get graded
+    "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75",
+    "dense-gte-small",
+    "dense-bge-small",
+    "hybrid-gte-small+rrf+w=0.5+c=10",
+    "hybrid-bge-small+rrf+w=0.5+c=10",
+]
+JUDGE_POOL_DEPTH = 10  # = NDCG_K: the papers nDCG@10 looks at (~23 unique per query)
+JUDGE_MAX_PAPERS_PER_CALL = 30  # one call per query; a bigger pool is split into calls
+JUDGE_PILOT_QUERIES_PER_TYPE = 3  # 12 pilot queries
+JUDGE_PILOT_HUMAN_PAIRS_PER_TYPE = 25  # 100 pairs graded blind by a person
+OLLAMA_URL = "http://localhost:11434"
+OLLAMA_CONTEXT_TOKENS = 16_384  # Ollama's default window is too small for ~25 abstracts
 
 # --- Local embedding models (Decisions 25, 31) ------------------------------
 # All small (384 numbers per vector), selected as candidates for cheap query embedding

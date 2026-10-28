@@ -75,6 +75,9 @@ Short, plain definitions of every term used in this project, grouped by topic.
 | **Paired comparison** | Comparing two systems query by query on the same queries; this removes noise from some queries simply being harder. |
 | **Pooling** | Grading the combined top results from every system, so no system's finds go unjudged. |
 | **LLM judge** | An LLM that grades how relevant a result is. We check it against human grades. |
+| **Cohen's kappa** | Agreement between two graders after removing the agreement expected by chance. 1 = perfect, 0 = no better than chance. "Quadratic" kappa punishes a 0-vs-2 disagreement 4× more than 0-vs-1. Above ~0.6 is usually called substantial. |
+| **Rubric version** | A fingerprint of `judge_prompts.py` saved with every LLM grade; changing the rubric re-grades everything. |
+| **Blind grading** | The grader doesn't see which system found a paper, its rank, or which paper the query came from. |
 | **Self-preference bias** | A model favoring text written by itself or its relatives. |
 | **Specificity** | Whether a test query targets one paper's idea (specific) or a general topic many papers answer (broad). |
 | **Overlap** | Share of a query's words that also appear in its source paper. High overlap favors word-matching (BM25). |

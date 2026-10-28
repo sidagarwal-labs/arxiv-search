@@ -13,6 +13,9 @@ data/eval/*
 !data/eval/queries.jsonl
 !data/eval/labels.json
 !data/eval/split.json
+# ...and graded labels: neither an LLM nor a person grades exactly the same way twice
+!data/eval/judgments/
+!data/eval/judge_pilot/
 # ...and the results of every experiment (small; the results table is rebuilt from them)
 !data/results/
 

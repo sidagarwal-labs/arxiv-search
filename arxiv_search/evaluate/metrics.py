@@ -20,6 +20,7 @@ Then:
     bootstrap_ci     average of one metric with a 95% confidence interval
     paired_diff_ci   is system B really better than system A on the same queries?
     summarize        averages + intervals, overall or per group (category / query type)
+    cohen_kappa      how much two graders agree, beyond what chance would give
 
 All settings (k values, cutoff, number of resamples) come from config.py (Decision 21).
 """
@@ -193,3 +194,34 @@ def summarize(rows: list[dict], group_by: dict[str, str] | None = None) -> dict[
             values = [row[name] for row in group_rows if row[name] is not None]
             summary[group][name] = bootstrap_ci(values) if values else None
     return summary
+
+
+# --- Agreement between graders (Decision 33) ---------------------------------
+
+
+def cohen_kappa(a: list[int], b: list[int], categories: tuple[int, ...] = (0, 1, 2),
+                weights: str | None = None) -> float:
+    """Agreement between two graders, corrected for chance: 1 = perfect, 0 = chance level.
+
+    kappa = 1 - (observed disagreement) / (disagreement expected by chance), where chance
+    pairs each grader's grades at random, keeping how often each used every grade.
+    weights=None: any disagreement costs 1. weights="quadratic": costs (i - j)^2, so
+    0-vs-2 costs 4 times as much as 0-vs-1 (the usual choice for ordered grades).
+
+    Example: a = [0, 1, 2, 2], b = [0, 1, 2, 1]: one 2-vs-1 disagreement.
+        observed = 1/4; chance = 1 - (1*1 + 1*2 + 2*1)/16 = 11/16  -> kappa = 1 - 4/11 = 0.636
+    Returns nan if chance disagreement is 0 (both graders always used one grade).
+    """
+    if len(a) != len(b) or not a:
+        raise ValueError("kappa needs two equally long, non-empty lists of grades")
+    index = {c: i for i, c in enumerate(categories)}
+    n = len(categories)
+    observed = np.zeros((n, n))
+    for x, y in zip(a, b):
+        observed[index[x], index[y]] += 1
+    observed /= len(a)
+    expected = np.outer(observed.sum(axis=1), observed.sum(axis=0))
+    i, j = np.indices((n, n))
+    cost = (i - j) ** 2 if weights == "quadratic" else (i != j).astype(float)
+    chance = float((cost * expected).sum())
+    return float("nan") if chance == 0 else 1 - float((cost * observed).sum()) / chance

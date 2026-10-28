@@ -71,17 +71,20 @@ def _parse(response: types.GenerateContentResponse, schema: type[BaseModel]) -> 
 
 
 def generate_json(
-    model: str, prompt: str, schema: type[BaseModel], system_instruction: str | None = None
+    model: str, prompt: str, schema: type[BaseModel], system_instruction: str | None = None,
+    temperature: float | None = None,
 ) -> tuple[BaseModel, dict]:
     """Call the model and return (parsed answer, usage info).
 
     `schema` is a pydantic class describing the JSON we want back; the model is told to
     answer in exactly that shape. If it still returns broken JSON, we ask again.
+    temperature=0 makes answers as repeatable as the API allows (used by the judge).
     """
     request_config = types.GenerateContentConfig(
         system_instruction=system_instruction,
         response_mime_type="application/json",
         response_schema=schema,
+        temperature=temperature,
     )
     for attempt in range(config.LLM_MAX_RETRIES + 1):
         _wait_for_pacing()

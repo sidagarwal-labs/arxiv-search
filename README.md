@@ -18,7 +18,7 @@ Every design choice is decided by **measuring** it on a test set of queries, not
 - [x] 1. Download papers from arXiv
 - [x] 2. Clean up into one file of 23,304 papers
 - [x] 3. Search: BM25 baseline → BM25 variants → four embedding models → hybrid (dev MRR: 0.635)
-- [ ] 4. Test: scoring metrics ✅, 400 test queries ✅, results table ✅, LLM relevance judge next
+- [ ] 4. Test: scoring metrics ✅, 400 test queries ✅, results table ✅, LLM relevance judge (built; piloting vs. human grades)
 - [ ] 5. Answer: RAG with an LLM
 - [ ] 6. Website: database, API, web page, deploy
 
@@ -55,6 +55,10 @@ copy .env.example .env        # then paste your Gemini API key into .env
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.experiments "dense*"  # 4 embedding models (several hours first time; cached after)
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.experiments --hybrid-grid  # 24 blends of saved dev top-100 rankings
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.experiments --list    # what systems exist
+
+# Step 4d: LLM relevance judge (resumable; see docs/01-how-it-works.md)
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge --judge gemma-31b --queries pilot
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge_pilot report   # agreement with human grades
 
 # Run the tests
 .\.venv\Scripts\python.exe -m pytest -q

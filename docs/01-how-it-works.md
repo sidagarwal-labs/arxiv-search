@@ -425,6 +425,42 @@ technique's effect averaged over all settings of the others, with a paired 95% i
 
 ---
 
+## Step 4d: LLM relevance judge (`evaluate/judge.py`, `judge_prompts.py`, `judge_pilot.py`)
+
+**Why:** Recall and MRR only credit the one paper a query was written from. Many other papers
+can be just as good an answer, especially for questions and broad topics. A judge grades every
+paper a system returns, so we can compute nDCG@10 (Decision 33).
+
+**What it does:**
+
+1. **Pool** (`pool`): for each query, take the top 10 of the 5 main systems in
+   `JUDGE_POOL_SYSTEMS` and remove duplicates (~23 papers per query).
+2. **Grade** (`judge_query`): one LLM call per query. Papers are shuffled with a fixed seed and
+   labelled P1…Pn, so the judge never sees rank, system or which paper is the "source". It
+   sees the search text, title, first 10 authors and the full abstract, and for each paper
+   writes a short reason, then a grade: **2** = highly relevant (what the user is looking for;
+   for a search describing one specific paper, only that paper), **1** = partly relevant,
+   **0** = not relevant (rubric in `judge_prompts.py`). A bad answer (missing or extra label)
+   is retried up to 3 times.
+3. **Cache** (`judge_pairs`): each grade is appended to `data/eval/judgments/<judge>.jsonl`,
+   keyed by (judge, rubric version, search text, paper text). Re-runs skip cached pairs;
+   editing the rubric changes its version, so everything is re-graded.
+
+**The pilot** (`judge_pilot.py`) picks which judge to trust: 12 dev queries (3 per type),
+266 pairs. Sid grades 100 of them blind in `human_grades.xlsx` (25 per type), then the report
+compares each judge with Sid: exact agreement, Cohen's kappa (quadratic), agreement on
+relevant-vs-not, a confusion table, seconds per call, and how often source papers got a 2.
+
+| Command | Does |
+|---|---|
+| `python -m arxiv_search.evaluate.judge_pilot sheet` | write the blind human grading sheet (won't overwrite) |
+| `python -m arxiv_search.evaluate.judge --judge gemma-31b --queries pilot` | grade the pilot pairs (resumable) |
+| `python -m arxiv_search.evaluate.judge --judge qwen2.5-7b --queries pilot` | same, with the local model via Ollama |
+| `python -m arxiv_search.evaluate.judge_pilot report` | agreement report → `data/eval/judge_pilot/report.md` |
+| `python -m arxiv_search.evaluate.judge --judge <key> --queries dev --max-calls 20` | grade all dev pairs, at most 20 calls this run |
+
+---
+
 ## Settings (`config.py`)
 
 Every number that changes the results lives here, so nothing important is hidden inside the code.
@@ -438,7 +474,7 @@ Every number that changes the results lives here, so nothing important is hidden
 | `RANDOM_SEED` | 6188 | Makes random sampling repeatable |
 | `REQUEST_DELAY_SECONDS` | 3 | Politeness delay for arXiv |
 | `QUERY_WRITER_MODEL` | `gemma-4-31b-it` | LLM that writes test queries |
-| `JUDGE_MODEL` | `gemma-4-31b-it` (to be revisited) | LLM that grades whether a result is relevant |
+| `JUDGES` | Gemma 4 31B (API) and Qwen 2.5 7B (local), piloted | LLMs that grade whether a result is relevant (Decision 33) |
 | `RAG_MODEL_CANDIDATES` | two Gemini models | LLMs we'll compare for writing answers |
 | `HOSTED_EMBEDDING_MODEL` | `gemini-embedding-2` (768 numbers) | A cloud embedding model to compare with local ones |
 | `RECALL_KS` | 1, 5, 10, 20 | Which top-k cutoffs Recall is reported at |
@@ -507,6 +543,11 @@ ties keep corpus order; every model in config has its prefixes. (No model is dow
 candidate limits, empty inputs, invalid settings and duplicates; live/offline fusion
 agreement; rejection of incomplete saved rankings. No models are downloaded.
 
+**`test_judge.py`** (6 tests, with a fake LLM): Cohen's kappa on a hand-worked example;
+shuffled labels map back to the right papers and the prompt hides rank/source; bad answers
+are rejected and retried; cached pairs are skipped but re-graded if the paper text changes,
+and judges don't share caches; `--max-calls` stops and a re-run resumes.
+
 **Run them:** `python -m pytest -q`
 
 ---
@@ -529,6 +570,9 @@ decisions. Their results are in [Findings](03-findings.md).
 **Exceptions:** `data/eval/queries.jsonl`, `labels.json` and `split.json` *are* in git, because
 an LLM wouldn't write the same 400 queries twice, and every score we report must use the same
 test set. `data/results/` is in git too: it's small, and the results table is rebuilt from it.
+`data/eval/judgments/` (LLM grades) and `data/eval/judge_pilot/` (human grades and the
+agreement report) are in git as well: neither an LLM nor a person would grade exactly the
+same way twice.
 
 ```
 data/

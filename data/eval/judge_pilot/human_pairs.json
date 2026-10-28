@@ -1,0 +1,502 @@
+[
+ {
+  "row": 1,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2605.08587"
+ },
+ {
+  "row": 2,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2609.32119"
+ },
+ {
+  "row": 3,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2602.10560"
+ },
+ {
+  "row": 4,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2607.25357"
+ },
+ {
+  "row": 5,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2610.17191"
+ },
+ {
+  "row": 6,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2605.28062"
+ },
+ {
+  "row": 7,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2610.16137"
+ },
+ {
+  "row": 8,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2604.00004"
+ },
+ {
+  "row": 9,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2602.01744"
+ },
+ {
+  "row": 10,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2511.05313"
+ },
+ {
+  "row": 11,
+  "query_id": "q-keyword-017",
+  "arxiv_id": "2607.27692"
+ },
+ {
+  "row": 12,
+  "query_id": "q-question-002",
+  "arxiv_id": "2603.23575"
+ },
+ {
+  "row": 13,
+  "query_id": "q-question-002",
+  "arxiv_id": "2609.39223"
+ },
+ {
+  "row": 14,
+  "query_id": "q-question-002",
+  "arxiv_id": "2605.20295"
+ },
+ {
+  "row": 15,
+  "query_id": "q-question-002",
+  "arxiv_id": "2510.03151"
+ },
+ {
+  "row": 16,
+  "query_id": "q-question-002",
+  "arxiv_id": "2512.17073"
+ },
+ {
+  "row": 17,
+  "query_id": "q-question-002",
+  "arxiv_id": "2608.23816"
+ },
+ {
+  "row": 18,
+  "query_id": "q-question-002",
+  "arxiv_id": "2603.19172"
+ },
+ {
+  "row": 19,
+  "query_id": "q-question-002",
+  "arxiv_id": "2602.06183"
+ },
+ {
+  "row": 20,
+  "query_id": "q-question-002",
+  "arxiv_id": "2610.20353"
+ },
+ {
+  "row": 21,
+  "query_id": "q-keyword-053",
+  "arxiv_id": "2605.04134"
+ },
+ {
+  "row": 22,
+  "query_id": "q-keyword-053",
+  "arxiv_id": "2606.20906"
+ },
+ {
+  "row": 23,
+  "query_id": "q-keyword-053",
+  "arxiv_id": "2605.00222"
+ },
+ {
+  "row": 24,
+  "query_id": "q-keyword-053",
+  "arxiv_id": "2610.19640"
+ },
+ {
+  "row": 25,
+  "query_id": "q-keyword-053",
+  "arxiv_id": "2607.07935"
+ },
+ {
+  "row": 26,
+  "query_id": "q-question-050",
+  "arxiv_id": "2605.24113"
+ },
+ {
+  "row": 27,
+  "query_id": "q-question-050",
+  "arxiv_id": "2605.04230"
+ },
+ {
+  "row": 28,
+  "query_id": "q-question-050",
+  "arxiv_id": "2610.04249"
+ },
+ {
+  "row": 29,
+  "query_id": "q-question-050",
+  "arxiv_id": "2602.16340"
+ },
+ {
+  "row": 30,
+  "query_id": "q-question-050",
+  "arxiv_id": "2603.03099"
+ },
+ {
+  "row": 31,
+  "query_id": "q-question-050",
+  "arxiv_id": "2605.27662"
+ },
+ {
+  "row": 32,
+  "query_id": "q-question-050",
+  "arxiv_id": "2510.26303"
+ },
+ {
+  "row": 33,
+  "query_id": "q-question-050",
+  "arxiv_id": "2512.06737"
+ },
+ {
+  "row": 34,
+  "query_id": "q-question-050",
+  "arxiv_id": "2601.18615"
+ },
+ {
+  "row": 35,
+  "query_id": "q-question-053",
+  "arxiv_id": "2605.11093"
+ },
+ {
+  "row": 36,
+  "query_id": "q-question-053",
+  "arxiv_id": "2604.22271"
+ },
+ {
+  "row": 37,
+  "query_id": "q-question-053",
+  "arxiv_id": "2607.08991"
+ },
+ {
+  "row": 38,
+  "query_id": "q-question-053",
+  "arxiv_id": "2604.14090"
+ },
+ {
+  "row": 39,
+  "query_id": "q-question-053",
+  "arxiv_id": "2610.20179"
+ },
+ {
+  "row": 40,
+  "query_id": "q-question-053",
+  "arxiv_id": "2604.18307"
+ },
+ {
+  "row": 41,
+  "query_id": "q-question-053",
+  "arxiv_id": "2610.07389"
+ },
+ {
+  "row": 42,
+  "query_id": "q-known_item-073",
+  "arxiv_id": "2605.11666"
+ },
+ {
+  "row": 43,
+  "query_id": "q-known_item-073",
+  "arxiv_id": "2603.07388"
+ },
+ {
+  "row": 44,
+  "query_id": "q-known_item-073",
+  "arxiv_id": "2607.19573"
+ },
+ {
+  "row": 45,
+  "query_id": "q-known_item-073",
+  "arxiv_id": "2510.15349"
+ },
+ {
+  "row": 46,
+  "query_id": "q-known_item-073",
+  "arxiv_id": "2606.09731"
+ },
+ {
+  "row": 47,
+  "query_id": "q-known_item-073",
+  "arxiv_id": "2608.26465"
+ },
+ {
+  "row": 48,
+  "query_id": "q-known_item-073",
+  "arxiv_id": "2605.23446"
+ },
+ {
+  "row": 49,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2609.33150"
+ },
+ {
+  "row": 50,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2602.10014"
+ },
+ {
+  "row": 51,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2602.02405"
+ },
+ {
+  "row": 52,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2510.23081"
+ },
+ {
+  "row": 53,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2610.13672"
+ },
+ {
+  "row": 54,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2602.03094"
+ },
+ {
+  "row": 55,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2511.00602"
+ },
+ {
+  "row": 56,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2603.25681"
+ },
+ {
+  "row": 57,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2609.31571"
+ },
+ {
+  "row": 58,
+  "query_id": "q-paraphrase-097",
+  "arxiv_id": "2609.01422"
+ },
+ {
+  "row": 59,
+  "query_id": "q-keyword-022",
+  "arxiv_id": "2604.16774"
+ },
+ {
+  "row": 60,
+  "query_id": "q-keyword-022",
+  "arxiv_id": "2608.07855"
+ },
+ {
+  "row": 61,
+  "query_id": "q-keyword-022",
+  "arxiv_id": "2604.00131"
+ },
+ {
+  "row": 62,
+  "query_id": "q-keyword-022",
+  "arxiv_id": "2605.14401"
+ },
+ {
+  "row": 63,
+  "query_id": "q-keyword-022",
+  "arxiv_id": "2609.27981"
+ },
+ {
+  "row": 64,
+  "query_id": "q-keyword-022",
+  "arxiv_id": "2609.12655"
+ },
+ {
+  "row": 65,
+  "query_id": "q-keyword-022",
+  "arxiv_id": "2605.10923"
+ },
+ {
+  "row": 66,
+  "query_id": "q-keyword-022",
+  "arxiv_id": "2609.16053"
+ },
+ {
+  "row": 67,
+  "query_id": "q-keyword-022",
+  "arxiv_id": "2606.00619"
+ },
+ {
+  "row": 68,
+  "query_id": "q-paraphrase-004",
+  "arxiv_id": "2604.16311"
+ },
+ {
+  "row": 69,
+  "query_id": "q-paraphrase-004",
+  "arxiv_id": "2510.22055"
+ },
+ {
+  "row": 70,
+  "query_id": "q-paraphrase-004",
+  "arxiv_id": "2606.27274"
+ },
+ {
+  "row": 71,
+  "query_id": "q-paraphrase-004",
+  "arxiv_id": "2604.04692"
+ },
+ {
+  "row": 72,
+  "query_id": "q-paraphrase-004",
+  "arxiv_id": "2607.00576"
+ },
+ {
+  "row": 73,
+  "query_id": "q-paraphrase-004",
+  "arxiv_id": "2510.23508"
+ },
+ {
+  "row": 74,
+  "query_id": "q-paraphrase-004",
+  "arxiv_id": "2601.01897"
+ },
+ {
+  "row": 75,
+  "query_id": "q-known_item-029",
+  "arxiv_id": "2512.02070"
+ },
+ {
+  "row": 76,
+  "query_id": "q-known_item-029",
+  "arxiv_id": "2605.05218"
+ },
+ {
+  "row": 77,
+  "query_id": "q-known_item-029",
+  "arxiv_id": "2609.24444"
+ },
+ {
+  "row": 78,
+  "query_id": "q-known_item-029",
+  "arxiv_id": "2511.01226"
+ },
+ {
+  "row": 79,
+  "query_id": "q-known_item-029",
+  "arxiv_id": "2605.09032"
+ },
+ {
+  "row": 80,
+  "query_id": "q-known_item-029",
+  "arxiv_id": "2603.13702"
+ },
+ {
+  "row": 81,
+  "query_id": "q-known_item-029",
+  "arxiv_id": "2604.18399"
+ },
+ {
+  "row": 82,
+  "query_id": "q-known_item-029",
+  "arxiv_id": "2604.01712"
+ },
+ {
+  "row": 83,
+  "query_id": "q-known_item-029",
+  "arxiv_id": "2603.22326"
+ },
+ {
+  "row": 84,
+  "query_id": "q-paraphrase-036",
+  "arxiv_id": "2610.06715"
+ },
+ {
+  "row": 85,
+  "query_id": "q-paraphrase-036",
+  "arxiv_id": "2510.22531"
+ },
+ {
+  "row": 86,
+  "query_id": "q-paraphrase-036",
+  "arxiv_id": "2605.12516"
+ },
+ {
+  "row": 87,
+  "query_id": "q-paraphrase-036",
+  "arxiv_id": "2510.25623"
+ },
+ {
+  "row": 88,
+  "query_id": "q-paraphrase-036",
+  "arxiv_id": "2607.09094"
+ },
+ {
+  "row": 89,
+  "query_id": "q-paraphrase-036",
+  "arxiv_id": "2605.24297"
+ },
+ {
+  "row": 90,
+  "query_id": "q-paraphrase-036",
+  "arxiv_id": "2605.18490"
+ },
+ {
+  "row": 91,
+  "query_id": "q-paraphrase-036",
+  "arxiv_id": "2604.23779"
+ },
+ {
+  "row": 92,
+  "query_id": "q-known_item-039",
+  "arxiv_id": "2603.11772"
+ },
+ {
+  "row": 93,
+  "query_id": "q-known_item-039",
+  "arxiv_id": "2604.22292"
+ },
+ {
+  "row": 94,
+  "query_id": "q-known_item-039",
+  "arxiv_id": "2607.09094"
+ },
+ {
+  "row": 95,
+  "query_id": "q-known_item-039",
+  "arxiv_id": "2605.08437"
+ },
+ {
+  "row": 96,
+  "query_id": "q-known_item-039",
+  "arxiv_id": "2510.04124"
+ },
+ {
+  "row": 97,
+  "query_id": "q-known_item-039",
+  "arxiv_id": "2607.22479"
+ },
+ {
+  "row": 98,
+  "query_id": "q-known_item-039",
+  "arxiv_id": "2610.18622"
+ },
+ {
+  "row": 99,
+  "query_id": "q-known_item-039",
+  "arxiv_id": "2607.03325"
+ },
+ {
+  "row": 100,
+  "query_id": "q-known_item-039",
+  "arxiv_id": "2608.03756"
+ }
+]
