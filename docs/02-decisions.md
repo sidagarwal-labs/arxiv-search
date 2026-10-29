@@ -233,6 +233,60 @@ the paper a query was written from should almost always get 2.
 
 ---
 
+## OpenAI experiment plan (2026-10-28)
+
+The account's data-sharing offer shows two shared daily token pools: 250,000 for
+listed large models and 2,500,000 for listed mini/nano models. These are aggregate
+allowances across eligible models, not per-model budgets. Usage beyond the offer,
+and other models, can incur charges. Embeddings are not listed in the screenshot:
+treat them as paid and require a separate approved budget. Do not assume Batch API
+or tool charges are covered without checking current account terms.
+
+**Order and measurements (planned, not implemented):**
+
+1. **Independent relevance judge:** compare `gpt-4.1-mini` and `gpt-4.1-nano` on
+   the same 100 frozen human-labeled pairs. Use the same evidence and rubric as
+   Gemma/Qwen. Measure exact agreement, quadratic kappa, relevant-vs-not agreement,
+   0-vs-2 disagreements, per-query-type results, tokens, retries and wall time.
+   Use `gpt-4.1` on the same pilot only if the smaller models leave meaningful
+   quality gaps. Human grades remain authoritative; model consensus is not truth.
+2. **Reranking:** compare the winning affordable OpenAI candidate against no reranker
+   and a local cross-encoder, using identical hybrid candidates at depths 20 and 50.
+   Measure nDCG@10, MRR@10, coverage, latency and tokens. Freeze the judge first;
+   audit self-preference if the same model family judges and reranks.
+3. **Embeddings, separately budgeted:** compare `text-embedding-3-small` and
+   `text-embedding-3-large` with GTE/BGE, alone and with the same BM25/fusion recipe.
+   Start on the same small corpus for every model, then evaluate finalists on the
+   full corpus. Measure quality, dimensions/storage, build cost and query latency.
+   Reduced-corpus results are not directly comparable with full-corpus scores.
+4. **Query rewriting:** test raw queries vs. one cached rewrite or multi-query
+   retrieval, especially questions and paraphrases. Measure quality and added
+   latency/tokens; check that rewriting does not lose known-item identifiers.
+5. **RAG answers:** after retrieval is stable, compare small-model answers grounded
+   in the same retrieved evidence. Evaluate correctness, citation support,
+   abstention, latency and tokens with a separate answer-level rubric.
+
+**Budget controls required before automated runs:** dedicated project/key;
+allowlisted models; persistent daily counters by allowance pool; conservative
+preflight input estimates plus reserved maximum output; actual usage reconciliation;
+bounded retries counted conservatively when usage is unknown; caching and resume;
+concurrency-safe reservations across jobs; explicit stop rather than paid fallback.
+Initial local ceilings: 150,000 large-model tokens and 1,500,000 mini/nano tokens per
+day (60% of the displayed allowances). Start each model with one measured smoke call
+and a small call cap. Verify the provider's reset rules before implementing resets.
+
+These controls cannot guarantee organization-wide free usage if other projects or
+clients consume the same pools. Dashboard budgets/alerts are additional safeguards,
+not assumed hard spending caps. Confirm account usage before each experiment.
+
+Data sharing is enabled for all projects in the screenshot. Prefer selecting only
+the public-data research project. Send public arXiv material and synthetic queries
+only, not secrets, private documents or identifiable human notes. Keep the key in
+the Git-ignored `.env` as `OPENAI_API_KEY`, server-side only. Adding the key does
+not start any calls; the OpenAI adapter and quota controls still need implementation.
+
+---
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model
