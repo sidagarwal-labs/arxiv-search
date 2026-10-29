@@ -647,3 +647,53 @@ Rankings and P@10 did not change. Compare candidates only within this snapshot.
 These 38-setting dev results and unadjusted intervals are exploratory; winner
 selection can inflate gains. Preserve the frozen baseline while reviewing the
 graded-relevance versus source-target tradeoff. UI/RAG/test remain deferred.
+
+## 19. Why known-item source ranking regresses; offline refinement
+
+The 75% semantic c=100 setting changes source ranks on only **two of 25**
+known-item queries relative to the frozen control. Known-item MRR falls
+0.980 to 0.9433, top-1 hits fall 24/25 to 23/25, and top-10 target recall
+stays 25/25. Known-item graded nDCG actually rises 0.6948 to 0.7137:
+broader useful results and exact-target ranking are different objectives.
+
+| Query | Source rank: original / 75% c100 | Source lexical / dense ranks |
+|---|---|---|
+| Mathur rag policy qa | 1 / 4 | 1 / 16 |
+| Qiao variable length semantic ids | 2 / 3 | 1 / 8 |
+
+For Mathur, the 75% blend ranks generic RAG/QA papers ahead of the target;
+the first result has lexical rank18 and dense rank3. The target's exact
+author/topic signal makes it BM25 rank1 but dense rank16. Qiao similarly
+has a strong lexical author/title match but several close semantic neighbors.
+Dense input contains title/abstract, while BM25 also contains authors.
+
+RRF score is `(1-w)/(c+lexical_rank) + w/(c+semantic_rank)`, with an absent
+list contributing zero. Two variables changed: semantic weight rose and c
+rose from10 to100. A larger c flattens the rank1 advantage, so a clear
+lexical winner gets less protection. This explains the measured score
+ordering, not necessarily every retrieval failure.
+
+An offline 24-setting refinement (weights .50/.55/.60/.65/.70/.75 and
+c10/30/60/100, depth100) reused the fixed 3,190-pair snapshot. No API calls.
+Some settings expose 1-5 unjudged pairs; their provisional nDCG must not
+be used for winner selection. Two fully covered refinements:
+
+| Setting | nDCG@10 | P@10 | Known-item source MRR |
+|---|---|---|---|
+| Original 50%, c10 | 0.6641 | 0.633 | 0.980 |
+| Previous 75%, c100 | 0.7095 | 0.690 | 0.9433 |
+| **55% semantic / 45% lexical, c30** | **0.7106** | **0.689** | **0.980** |
+| 60% semantic / 40% lexical, c60 | 0.7139 | 0.700 | 0.9533 |
+
+The 55%/c30 setting restores Mathur rank1 and Qiao rank2, matching original
+known-item MRR while retaining graded-relevance gains. Its paired nDCG
+difference versus75%/c100 has CI [-0.0104, +0.0125]; do not claim a meaningful
+nDCG superiority. It is an attractive tradeoff candidate, not independently
+validated optimum. The 60%/c60 option's corresponding CI is
+[-0.0055, +0.0146]. Further source-target regressions outside known-item
+must still be reviewed before promoting a new default.
+
+Next targeted tests, if needed: author/title-aware lexical protection,
+explicit user-selected exact-paper mode, or bounded query-dependent fusion.
+Do not route on synthetic `query_type`, source overlap or known source IDs:
+those are evaluation metadata, not available live intent signals.
