@@ -362,3 +362,29 @@ raw-score fusion, and full-paper chunking. Full-paper ingestion is a separate
 scope expansion, not a prerequisite for validating abstract search. Its pilot design
 (abstract vs. full-text chunks on ~2,000 papers, plus body-text queries graded by the
 judge, weighed against cost) is under Decision 18.
+
+## 12. Relevance judge pilot (in progress, 2026-10-28)
+
+The first shared query, "linear time long context recall", has 26 pooled papers.
+These are smoke-test observations, not evidence that either judge is accurate.
+
+| Observation | Gemma 4 31B (API) | Qwen 2.5 7B (local CPU) |
+|---|---|---|
+| Wall time for the first query | 729.7 s, including six API retries | 1,014.4 s |
+| Grades 2 / 1 / 0 | 7 / 11 / 8 | 2 / 15 / 9 |
+| Source paper grade | 2 | 2 |
+
+The judges agree on 16 of 26 grades. This is agreement between models, not
+human-validated quality. Qwen used 9,029 input tokens and 754 output tokens.
+Gemma encountered HTTP 500, 429 and 503 responses before succeeding; its measured
+wall time must not be reported as pure inference time.
+
+At the evening checkpoint, Gemma had saved 71 pairs across 3 queries and Qwen
+26 pairs across 1 query. Neither process was still running; the empty logs did
+not establish why. Both were resumed with unbuffered output and exit-code logging.
+Cached pairs are reused. The CLI's retrieval pool contains 263 pairs; the pilot
+sample including source-paper sanity checks contains 266. Complete coverage of
+that expanded sample must be checked before interpreting the agreement report.
+
+Next: finish the pilot, collect the 100 blind human grades, then compare agreement
+and runtime before selecting a judge. No judge has been selected yet.
