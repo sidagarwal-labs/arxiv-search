@@ -388,3 +388,15 @@ that expanded sample must be checked before interpreting the agreement report.
 
 Next: finish the pilot, collect the 100 blind human grades, then compare agreement
 and runtime before selecting a judge. No judge has been selected yet.
+
+**Reliability changes (2026-10-28):** a subsequent Gemma batch repeatedly returned
+`es` instead of `P17` and was correctly rejected. The SDK's default retry policy
+also allowed up to five attempts inside each application attempt. We now disable
+nested SDK retries, set a 120-second request timeout, retry transient HTTP
+408/429/500/502/503/504 responses with bounded backoff and jitter, and preserve
+the existing daily-quota stop. Gemini judge batches are capped at 10 papers and
+validation retries include corrective label instructions. The rubric and cache
+keys stay unchanged: batch size and corrective delivery instructions can still
+affect grades, so timing and quality should be rechecked rather than assumed.
+API capacity failures remain outside our control. No unlimited retry loop or
+paid-model fallback was added.

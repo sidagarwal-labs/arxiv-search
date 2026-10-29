@@ -107,14 +107,19 @@ def judge_query(judge_key: str, query: dict, papers: list[dict], call: CallFn) -
     labels = [f"P{i}" for i in range(1, len(order) + 1)]
     prompt = judge_prompts.build_prompt(query["query"], [paper_block(l, p) for l, p in zip(labels, order)])
 
+    start = time.perf_counter()
     for attempt in range(1, MAX_ATTEMPTS + 1):
-        start = time.perf_counter()
         answer, usage = call(prompt)
         seconds = time.perf_counter() - start
         problem = check_answer(answer, labels)
         if problem is None:
             break
         print(f"  {query['query_id']}: {problem}; asking again ({attempt}/{MAX_ATTEMPTS})")
+        prompt = judge_prompts.build_prompt(
+            query["query"], [paper_block(l, p) for l, p in zip(labels, order)]
+        ) + (f"\n\nYour previous response failed validation: {problem}.\n"
+             f"Return exactly one grade for each of these labels: {', '.join(labels)}. "
+             "Do not invent labels or omit any papers. Return the complete JSON again.")
     else:
         raise ValueError(f"{query['query_id']}: judge never returned a usable answer: {problem}")
 
@@ -200,10 +205,13 @@ def judge_pairs(judge_key: str, pairs: dict[str, list[str]], queries: dict, pape
         query = queries[qid]
         todo = [papers[a] for a in ids if pair_key(judge_key, query["query"], papers[a]) not in cached]
         counts["cached"] += len(ids) - len(todo)
-        for start in range(0, len(todo), config.JUDGE_MAX_PAPERS_PER_CALL):
+        batch_limit = (config.GEMMA_JUDGE_MAX_PAPERS_PER_CALL
+                       if config.JUDGES[judge_key]["backend"] == "gemini"
+                       else config.JUDGE_MAX_PAPERS_PER_CALL)
+        for start in range(0, len(todo), batch_limit):
             if max_calls is not None and counts["calls"] >= max_calls:
                 return counts
-            batch = todo[start:start + config.JUDGE_MAX_PAPERS_PER_CALL]
+            batch = todo[start:start + batch_limit]
             rows = judge_query(judge_key, query, batch, call)
             for row in rows:
                 append_jsonl(path, row)  # saved immediately: a crash loses at most one call
@@ -233,11 +241,10 @@ def main() -> None:
 
     papers, queries, split = load_inputs()
     if args.queries == "pilot":
-        from arxiv_search.evaluate.judge_pilot import pilot_query_ids
-        query_ids = pilot_query_ids(queries, split)
+        from arxiv_search.evaluate.judge_pilot import pilot_pairs
+        pairs = pilot_pairs(queries, split)
     else:
-        query_ids = split["dev"]
-    pairs = pool(query_ids)
+        pairs = pool(split["dev"])
     print(f"{args.judge}: {sum(map(len, pairs.values()))} pairs over {len(pairs)} queries "
           f"(rubric {RUBRIC_VERSION})")
     counts = judge_pairs(args.judge, pairs, queries, papers, max_calls=args.max_calls)

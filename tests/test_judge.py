@@ -57,6 +57,8 @@ def test_bad_answer_is_asked_again():
         if answers[0] is not None:
             bad, answers[0] = answers[0], None
             return bad, {}
+        assert "failed validation" in prompt
+        assert "P1" in prompt
         return fake_call([])(prompt)
 
     rows = judge.judge_query("gemma-31b", QUERY, [PAPERS["p1"]], call)
@@ -90,3 +92,15 @@ def test_max_calls_stops_and_rerun_resumes(tmp_path, monkeypatch):
     assert judge.judge_pairs("gemma-31b", pairs, queries, PAPERS, call=fake_call([]), max_calls=1)["calls"] == 1
     assert judge.judge_pairs("gemma-31b", pairs, queries, PAPERS, call=fake_call([])) == \
         {"cached": 1, "judged": 1, "calls": 1}
+
+
+def test_gemma_small_batches_save_and_resume(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "JUDGMENTS_DIR", tmp_path)
+    monkeypatch.setattr(config, "GEMMA_JUDGE_MAX_PAPERS_PER_CALL", 2)
+    pairs = {"q1": list(PAPERS)}
+    calls = []
+    assert judge.judge_pairs("gemma-31b", pairs, {"q1": QUERY}, PAPERS,
+                             call=fake_call(calls), max_calls=1)["judged"] == 2
+    result = judge.judge_pairs("gemma-31b", pairs, {"q1": QUERY}, PAPERS,
+                              call=fake_call(calls))
+    assert result == {"cached": 2, "judged": 3, "calls": 2}

@@ -13,6 +13,7 @@ Free-tier rules it handles, so the rest of the code doesn't have to:
 from __future__ import annotations
 
 import re
+import random
 import time
 
 import httpx
@@ -36,7 +37,10 @@ def client() -> genai.Client:
     global _client
     if _client is None:
         load_dotenv(config.PROJECT_ROOT / ".env")  # reads GEMINI_API_KEY
-        _client = genai.Client()
+        _client = genai.Client(http_options=types.HttpOptions(
+            timeout=config.LLM_REQUEST_TIMEOUT_SECONDS * 1000,
+            retry_options=types.HttpRetryOptions(attempts=1),
+        ))
     return _client
 
 
@@ -53,7 +57,7 @@ def _retry_delay(error: errors.APIError, attempt: int) -> float:
     match = re.search(r"retryDelay'?\"?:\s*'?\"?(\d+)", str(error))
     if match:
         return int(match.group(1)) + 1
-    return min(10 * 2**attempt, 300)
+    return min(10 * 2**attempt, 300) + random.uniform(0, 5)
 
 
 def _parse(response: types.GenerateContentResponse, schema: type[BaseModel]) -> BaseModel | None:
@@ -95,7 +99,7 @@ def generate_json(
         except errors.APIError as error:
             if error.code == 429 and "PerDay" in str(error):
                 raise DailyLimitReached(f"{model}: daily free-tier quota used up.\n{error}") from error
-            if error.code not in (429, 500, 503) or attempt == config.LLM_MAX_RETRIES:
+            if error.code not in (408, 429, 500, 502, 503, 504) or attempt == config.LLM_MAX_RETRIES:
                 raise
             delay = _retry_delay(error, attempt)
             print(f"  {model} returned {error.code}; waiting {delay:.0f}s (retry {attempt + 1})")

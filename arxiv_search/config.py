@@ -39,6 +39,7 @@ HOSTED_EMBEDDING_DIM = 768  # reduced from the default 3,072 so production vecto
 # --- LLM calls on the free tier (see llm.py) -----------------------------
 LLM_SECONDS_BETWEEN_CALLS = 6  # at most 10 requests per minute
 LLM_MAX_RETRIES = 6  # retries on 503 (busy) / 429 (too fast), waiting 10 s, 20 s, 40 s, ...
+LLM_REQUEST_TIMEOUT_SECONDS = 120
 
 # --- Evaluation query set (Decisions 22-23) ------------------------------
 EVAL_DIR = DATA_DIR / "eval"
@@ -73,6 +74,7 @@ JUDGE_POOL_SYSTEMS = [  # papers in any of these systems' top JUDGE_POOL_DEPTH g
 ]
 JUDGE_POOL_DEPTH = 10  # = NDCG_K: the papers nDCG@10 looks at (~23 unique per query)
 JUDGE_MAX_PAPERS_PER_CALL = 30  # one call per query; a bigger pool is split into calls
+GEMMA_JUDGE_MAX_PAPERS_PER_CALL = 10  # smaller replies reduce missing/mistyped labels
 JUDGE_PILOT_QUERIES_PER_TYPE = 3  # 12 pilot queries
 JUDGE_PILOT_HUMAN_PAIRS_PER_TYPE = 25  # 100 pairs graded blind by a person
 OLLAMA_URL = "http://localhost:11434"

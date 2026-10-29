@@ -435,19 +435,23 @@ paper a system returns, so we can compute nDCG@10 (Decision 33).
 
 1. **Pool** (`pool`): for each query, take the top 10 of the 5 main systems in
    `JUDGE_POOL_SYSTEMS` and remove duplicates (~23 papers per query).
-2. **Grade** (`judge_query`): one LLM call per query. Papers are shuffled with a fixed seed and
+2. **Grade** (`judge_query`): papers are shuffled with a fixed seed and
    labelled P1…Pn, so the judge never sees rank, system or which paper is the "source". It
    sees the search text, title, first 10 authors and the full abstract, and for each paper
    writes a short reason, then a grade: **2** = highly relevant (what the user is looking for;
    for a search describing one specific paper, only that paper), **1** = partly relevant,
    **0** = not relevant (rubric in `judge_prompts.py`). A bad answer (missing or extra label)
-   is retried up to 3 times.
+   is retried up to 3 times, with the validation error and exact allowed labels
+   included in the retry prompt. Gemini judge batches are capped at 10 papers;
+   local batches remain capped at 30. Each completed batch is cached immediately.
+   This reduces the amount lost to an invalid reply without guessing label mappings.
 3. **Cache** (`judge_pairs`): each grade is appended to `data/eval/judgments/<judge>.jsonl`,
    keyed by (judge, rubric version, search text, paper text). Re-runs skip cached pairs;
    editing the rubric changes its version, so everything is re-graded.
 
 **The pilot** (`judge_pilot.py`) picks which judge to trust: 12 dev queries (3 per type),
-266 pairs. Sid grades 100 of them blind in `human_grades.xlsx` (25 per type), then the report
+266 pairs (including source-paper checks, also used by the pilot CLI). Sid grades
+100 of them blind in `human_grades.xlsx` (25 per type), then the report
 compares each judge with Sid: exact agreement, Cohen's kappa (quadratic), agreement on
 relevant-vs-not, a confusion table, seconds per call, and how often source papers got a 2.
 
