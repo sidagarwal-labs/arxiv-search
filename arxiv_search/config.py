@@ -63,7 +63,20 @@ BASELINE_SYSTEM = "bm25-baseline"  # every other system is compared against this
 JUDGES = {
     "gemma-31b": {"backend": "gemini", "model": "gemma-4-31b-it"},  # API; same model wrote the queries
     "qwen2.5-7b": {"backend": "ollama", "model": "qwen2.5:7b"},  # local; independent of the writer
+    "openai-nano": {"backend": "openai", "model": "gpt-5.4-nano"},
+    "openai-mini": {"backend": "openai", "model": "gpt-5.4-mini"},
 }
+OPENAI_LEDGER_PATH = DATA_DIR / "openai" / "usage.sqlite3"
+# Local, cumulative reservations, NOT provider billing quotas or rolling daily counters.
+# Both allowed models share mini. No UTC midnight reset: start a new ledger manually
+# only after checking the provider's allowance and all other clients' usage.
+OPENAI_TOKEN_LIMITS = {"mini": 1_500_000, "large": 150_000}
+OPENAI_BUDGET_FRACTION = 0.9  # leave headroom; cannot guarantee organizational free usage
+OPENAI_MAX_ATTEMPTS = 3  # every HTTP attempt reserves separately, including retries
+OPENAI_MAX_RETRY_WAIT_SECONDS = 60
+OPENAI_MAX_OUTPUT_TOKENS = 2048
+OPENAI_INPUT_OVERHEAD_TOKENS = 4096
+OPENAI_JUDGE_MAX_PAPERS_PER_CALL = 10
 JUDGMENTS_DIR = EVAL_DIR / "judgments"  # one cache file per judge: <judge>.jsonl
 JUDGE_POOL_SYSTEMS = [  # papers in any of these systems' top JUDGE_POOL_DEPTH get graded
     "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75",

@@ -233,6 +233,30 @@ The prefixes follow each model's retrieval recipe. They live in `config.EMBEDDIN
 We explicitly use float32 on CPU: GTE's default float16 was about 15 times slower in a
 small timing check on this laptop. See [Findings, section 10](03-findings.md#10-four-small-embedding-models-decision-31).
 
+**Where is the vector store?** For experiments we do not use a hosted vector
+database: NumPy arrays on disk plus paper-ID metadata are the store. `DenseIndex`
+loads them and does exact cosine search in memory. Document embeddings are
+computed once and cached offline; new queries still need the same embedding
+model (local for GTE/BGE, an API call for OpenAI). The planned hosted website uses
+Postgres/pgvector; that migration has not happened yet.
+
+**Paid embedding pilot** (`evaluate/embedding_pilot.py`): compare OpenAI small and
+large with cached GTE/BGE on the same seeded 2,000-paper subset and all 100 dev
+queries. Every dev source is retained. The CLI defaults to token/cost estimates
+without calling OpenAI; `--run` permits calls under the approved $0.25 lifetime
+cap, shared across both models. It uses exact `cl100k_base` token counts,
+transactional SQLite reservations before requests and no automatic paid retries.
+Unknown failures retain their reservations. OpenAI vectors are cached locally
+under `data/embeddings/openai-pilot/`; scores, subset manifest and sanitized usage
+summaries go to `data/results/embedding-pilot/`.
+
+The smaller corpus has fewer distractors, so its scores must not be mixed with
+the full-corpus table. The results page has a separate pilot section. OpenAI
+uses the full title and abstract while GTE/BGE keep their 512-token input limit;
+this is an end-to-end configuration comparison, not a pure model-size ablation.
+Prices checked against OpenAI's model pages: small $0.02 and large $0.13 per
+million input tokens. Recheck prices before future runs.
+
 ---
 
 ## Step 3c: Hybrid search (`search/hybrid.py`)
@@ -462,6 +486,26 @@ relevant-vs-not, a confusion table, seconds per call, and how often source paper
 | `python -m arxiv_search.evaluate.judge --judge qwen2.5-7b --queries pilot` | same, with the local model via Ollama |
 | `python -m arxiv_search.evaluate.judge_pilot report` | agreement report → `data/eval/judge_pilot/report.md` |
 | `python -m arxiv_search.evaluate.judge --judge <key> --queries dev --max-calls 20` | grade all dev pairs, at most 20 calls this run |
+
+**OpenAI calibration:** `--judge openai-nano` and `--judge openai-mini` select
+`gpt-5.4-nano` and `gpt-5.4-mini`. `--queries human` grades only the pairs with
+completed human labels, never sending the human grades, notes or reasoning.
+Only the query, paper title/authors/abstract and rubric go to the API.
+These runs use batches of up to 10, strict JSON output, no reasoning budget,
+bounded retries and `OPENAI_API_KEY` from the local `.env`.
+
+`openai_api.py` reserves tokens transactionally in a local SQLite ledger before
+every attempt, then reconciles successful requests against actual input/output
+usage. Unknown failures retain their conservative reservations. Mini/nano share
+one allowance; the configured ceilings are 1.5 million mini/nano and 150,000 large
+tokens with additional reservation headroom. There is deliberately **no automatic
+reset**: limits remain conservative across restarts and dates, pending verification
+of account reset rules. Only the two approved mini/nano models are enabled.
+Other projects' usage is not visible to this ledger, so verify account usage too.
+
+Run `judge_pilot report`, then `evaluate.experiments` to refresh both the detailed
+agreement report and the central results page. Retrieval scores and judge
+agreement remain separate: a better judge does not itself improve search ranking.
 
 ---
 

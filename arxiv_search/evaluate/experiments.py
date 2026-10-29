@@ -480,7 +480,16 @@ def write_results_doc() -> None:
 
     test = load_results("test")
     parts += ["", "## Test (300 queries): finalists only", "", main_table(test) if test else "_Nothing run yet._"]
-    (config.PROJECT_ROOT / "docs" / "05-results.md").write_text("\n".join(parts) + "\n", encoding="utf-8")
+    pilot_report = config.EVAL_DIR / "judge_pilot" / "report.md"
+    if pilot_report.exists():
+        parts += ["", "## Relevance judge calibration (separate from retrieval scores)", "",
+                  pilot_report.read_text(encoding="utf-8").replace("# Judge pilot", "### Judge pilot", 1)]
+    embedding_report = config.RESULTS_DIR / "embedding-pilot" / "report.md"
+    if embedding_report.exists():
+        parts += ["", "## Embedding pilot (reduced corpus; separate benchmark)", "",
+                  embedding_report.read_text(encoding="utf-8")]
+    (config.PROJECT_ROOT / "docs" / "05-results.md").write_text(
+        "\n".join(parts).rstrip() + "\n", encoding="utf-8")
 
 
 def main() -> None:

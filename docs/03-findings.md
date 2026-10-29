@@ -400,3 +400,57 @@ keys stay unchanged: batch size and corrective delivery instructions can still
 affect grades, so timing and quality should be rechecked rather than assumed.
 API capacity failures remain outside our control. No unlimited retry loop or
 paid-model fallback was added.
+
+## 13. First OpenAI pilots (2026-10-28)
+
+**Judging:** Gemma completed all 266 pilot pairs after the reliability changes.
+OpenAI nano and mini each graded exactly the 100 frozen human-labeled pairs,
+blind and with the same rubric/evidence. Neither model received human grades or
+notes. The human workbook is preserved, including its original reasoning.
+
+| Judge | Human pairs compared | Exact | Quadratic kappa | Relevant agreement | 0-vs-2 errors |
+|---|---|---|---|---|---|
+| Gemma 4 31B | 100 | 79% | 0.81 | 83% | 0 |
+| GPT-5.4 mini | 100 | 77% | 0.80 | 84% | 0 |
+| GPT-5.4 nano | 100 | 65% | 0.66 | 77% | 1 |
+
+Mini and Gemma are close on this pilot; this is not evidence that a 2-point
+difference is meaningful. Nano was less aligned with these labels, especially
+known-item searches. Mini offers an independent model family from the query
+writer and much lower observed latency: about 3 seconds per small batch here.
+All OpenAI judge calls succeeded on their first HTTP attempt.
+Nano used 38,660 total input/output tokens and mini 38,611: 77,271 combined,
+about 3.1% of the displayed 2.5-million-token shared daily allowance. These are
+our calls only, not a check of organization-wide usage or a billing invoice.
+Fresh human labels are still needed for validation after any rubric tuning.
+Qwen remains partial and must not be compared on different pair coverage.
+Detailed confusion matrices and coverage are in [Results](05-results.md).
+
+**Embeddings:** approved pilot budget was $0.25 total. We selected 2,000 papers
+before looking at scores (all dev sources plus seeded random distractors) and
+used the same subset and 100 dev queries for every model. Cached local paper
+vectors were sliced to that subset; local query vectors were recomputed.
+
+| Model | Dimensions | MRR@10 | R@10 | Paid embedding cost |
+|---|---|---|---|---|
+| GTE-small | 384 | 0.755 | 0.94 | no API charge |
+| BGE-small | 384 | 0.740 | 0.92 | no API charge |
+| OpenAI small | 1,536 | 0.792 | 0.93 | $0.0108 |
+| OpenAI large | 3,072 | 0.844 | 0.95 | $0.0701 |
+
+Large minus GTE: +0.088 MRR, paired 95% interval [+0.027, +0.148].
+Large minus small: +0.052 [-0.006, +0.110], so a large-over-small gain is
+promising but not established. Small minus GTE also has an interval crossing zero.
+This is dev screening with fewer distractors, not a full-corpus or held-out result.
+OpenAI reads the full title/abstract while GTE/BGE truncate at 512 tokens; do not
+attribute the difference only to model capacity.
+
+Both OpenAI embedding pilots together cost about **$0.0808** at the checked
+standard prices, comfortably under the approved cap. Each used 538,881 tokens
+including queries and 34 requests, with no unknown reservations. The full corpus
+contains 6,259,638 `cl100k_base` tokens. At
+[$0.02/million for small](https://developers.openai.com/api/docs/models/text-embedding-3-small)
+and [$0.13/million for large](https://developers.openai.com/api/docs/models/text-embedding-3-large),
+embedding all papers once would be about **$0.1252 / $0.8138**, respectively,
+excluding future queries, retries and taxes. No full-corpus OpenAI embedding run
+was made. Paper vectors stay offline; the paid API is needed to embed new queries.

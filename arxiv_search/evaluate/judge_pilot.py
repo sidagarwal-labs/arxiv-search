@@ -138,15 +138,18 @@ def read_human_grades() -> dict[tuple[str, str], int]:
     from openpyxl import load_workbook
 
     pairs = {p["row"]: (p["query_id"], p["arxiv_id"]) for p in json.loads(PAIRS_PATH.read_text())}
-    sheet = load_workbook(SHEET_PATH, read_only=True)["Grades"]
     grades = {}
-    for row in sheet.iter_rows(min_row=2, values_only=True):
-        number, grade = row[0], row[5]
-        if number is None or grade in (None, ""):
-            continue
-        if int(grade) not in (0, 1, 2):
-            raise ValueError(f"row {number}: grade must be 0, 1 or 2, not {grade!r}")
-        grades[pairs[int(number)]] = int(grade)
+    workbook = load_workbook(SHEET_PATH, read_only=True)
+    try:
+        for row in workbook["Grades"].iter_rows(min_row=2, values_only=True):
+            number, grade = row[0], row[5]
+            if number is None or grade in (None, ""):
+                continue
+            if isinstance(grade, bool) or grade not in (0, 1, 2, "0", "1", "2"):
+                raise ValueError(f"row {number}: grade must be 0, 1 or 2, not {grade!r}")
+            grades[pairs[int(number)]] = int(grade)
+    finally:
+        workbook.close()
     return grades
 
 
@@ -190,13 +193,18 @@ def build_report(queries: dict, papers: dict, split: dict) -> str:
     human = read_human_grades() if SHEET_PATH.exists() else {}
     out = [f"# Judge pilot (rubric {judge.RUBRIC_VERSION})", "",
            f"{len(pairs)} dev queries, {total} query-paper pairs. Human grades so far: {len(human)}.", "",
+           "Preliminary calibration on one person's pilot labels, not held-out validation. "
+           "Models with different coverage must be compared on the same pair subset. "
+           "OpenAI's human-only run intentionally grades 100 pairs, not all 266 pooled pairs.", "",
            "| Judge | Pairs graded | Calls | Mean s/call | Source papers graded 2 | Grade 0/1/2 shares |",
            "|---|---|---|---|---|---|"]
     for key, rows in graded.items():
         if not rows:
             out.append(f"| {key} | 0 / {total} | — | — | — | — |")
             continue
-        calls = {(r["query_id"], r["call_seconds"], r["batch_size"]): r["call_seconds"] for r in rows.values()}
+        calls = {r.get("usage", {}).get("request_id") or
+                 (r["query_id"], r["call_seconds"], r["batch_size"]): r["call_seconds"]
+                 for r in rows.values()}
         sources = [r["grade"] for (q, a), r in rows.items() if a == queries[q]["source_arxiv_id"]]
         shares = Counter(r["grade"] for r in rows.values())
         out.append(f"| {key} | {len(rows)} / {total} | {len(calls)} | {statistics.mean(calls.values()):.0f} | "
@@ -230,6 +238,37 @@ def build_report(queries: dict, papers: dict, split: dict) -> str:
                 by_type.append(f"{t} {sum(a[i] == b[i] for i in idx) / len(idx):.0%} (n={len(idx)})")
         tables.append(f"**{name_a} vs {name_b}**: exact agreement by type: {', '.join(by_type)}\n\n"
                       + confusion(a, b, name_a, name_b))
+    active = {k: v for k, v in graded.items() if set(v) & set(human)}
+    if len(active) > 1:
+        common = sorted(set(human).intersection(*(set(rows) for rows in active.values())))
+        out += ["", f"## Fair comparison: identical {len(common)} human-labeled pairs", "",
+                "| Judge | Exact | Quadratic kappa | Relevant agreement | 0-vs-2 errors |",
+                "|---|---|---|---|---|"]
+        if common:
+            for name, rows in active.items():
+                s = agreement([human[k] for k in common], [rows[k]["grade"] for k in common])
+                out.append(f"| {name} | {s['exact']:.1%} | {s['kappa_quadratic']:.3f} | "
+                           f"{s['relevant_agree']:.1%} | {s['opposite']} |")
+        else:
+            out.append("No common pairs yet.")
+    out += ["", "## API usage (successful cached responses)", "",
+            "Tokens are deduplicated by request ID where available. Older cache entries have "
+            "no request IDs; their calls are estimated from query, batch size and duration. "
+            "Gemma usage may omit failed API attempts; OpenAI's ledger separately accounts "
+            "for unknown attempts conservatively. Wall time includes retries.",
+            "", "| Judge | Input tokens | Output tokens | Thinking tokens (included where applicable) |",
+            "|---|---|---|---|"]
+    for name, rows in graded.items():
+        if not rows:
+            continue
+        usage_by_call = {}
+        for row in rows.values():
+            usage = row.get("usage", {})
+            call_id = usage.get("request_id") or (row["query_id"], row["call_seconds"], row["batch_size"])
+            usage_by_call[call_id] = usage
+        totals = [sum(u.get(field) or 0 for u in usage_by_call.values())
+                  for field in ("input_tokens", "output_tokens", "thinking_tokens")]
+        out.append(f"| {name} | {totals[0]:,} | {totals[1]:,} | {totals[2]:,} |")
     return "\n".join(out + [""] + ["\n\n".join(tables)]) + "\n"
 
 

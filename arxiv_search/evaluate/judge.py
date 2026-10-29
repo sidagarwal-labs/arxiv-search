@@ -19,6 +19,7 @@ How it works:
 Usage:
     python -m arxiv_search.evaluate.judge --judge gemma-31b --queries pilot
     python -m arxiv_search.evaluate.judge --judge gemma-31b --queries dev
+    python -m arxiv_search.evaluate.judge --judge openai-nano --queries human
 """
 
 from __future__ import annotations
@@ -166,7 +167,17 @@ def ollama_call(model: str) -> CallFn:
 
 def default_call(judge_key: str) -> CallFn:
     settings = config.JUDGES[judge_key]
-    return {"gemini": gemini_call, "ollama": ollama_call}[settings["backend"]](settings["model"])
+    return {"gemini": gemini_call, "ollama": ollama_call,
+            "openai": openai_call}[settings["backend"]](settings["model"])
+
+
+def openai_call(model: str) -> CallFn:
+    def call(prompt: str) -> tuple[Grades, dict]:
+        from arxiv_search import openai_api
+
+        answer, usage = openai_api.generate_json(model, prompt, judge_prompts.SYSTEM_INSTRUCTION)
+        return Grades.model_validate(answer), usage
+    return call
 
 
 # --- Cache -------------------------------------------------------------------
@@ -205,8 +216,9 @@ def judge_pairs(judge_key: str, pairs: dict[str, list[str]], queries: dict, pape
         query = queries[qid]
         todo = [papers[a] for a in ids if pair_key(judge_key, query["query"], papers[a]) not in cached]
         counts["cached"] += len(ids) - len(todo)
-        batch_limit = (config.GEMMA_JUDGE_MAX_PAPERS_PER_CALL
-                       if config.JUDGES[judge_key]["backend"] == "gemini"
+        backend = config.JUDGES[judge_key]["backend"]
+        batch_limit = (min(10, config.OPENAI_JUDGE_MAX_PAPERS_PER_CALL) if backend == "openai"
+                       else config.GEMMA_JUDGE_MAX_PAPERS_PER_CALL if backend == "gemini"
                        else config.JUDGE_MAX_PAPERS_PER_CALL)
         for start in range(0, len(todo), batch_limit):
             if max_calls is not None and counts["calls"] >= max_calls:
@@ -232,17 +244,39 @@ def load_inputs() -> tuple[dict, dict, dict]:
     return papers, queries, split
 
 
+def human_pairs() -> dict[str, list[str]]:
+    """Only graded sheet pairs, in sheet order; never forward grades or notes."""
+    from arxiv_search.evaluate.judge_pilot import PAIRS_PATH, read_human_grades
+
+    graded = read_human_grades()
+    pairs: dict[str, list[str]] = {}
+    sheet_pairs = json.loads(PAIRS_PATH.read_text())
+    if len(sheet_pairs) > 100:
+        raise ValueError("Human judging is limited to the 100-pair blind sheet")
+    for row in sheet_pairs:
+        qid, paper_id = row["query_id"], row["arxiv_id"]
+        if (qid, paper_id) in graded and paper_id not in pairs.get(qid, []):
+            pairs.setdefault(qid, []).append(paper_id)
+    return pairs
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--judge", choices=list(config.JUDGES), required=True)
-    parser.add_argument("--queries", choices=["pilot", "dev"], required=True)
+    parser.add_argument("--queries", choices=["pilot", "dev", "human"], required=True)
     parser.add_argument("--max-calls", type=int, default=None)
     args = parser.parse_args()
+    if config.JUDGES[args.judge]["backend"] == "openai" and args.queries != "human":
+        parser.error("OpenAI judging is restricted to --queries human")
+    if args.max_calls is not None and args.max_calls < 0:
+        parser.error("--max-calls must be nonnegative")
 
     papers, queries, split = load_inputs()
     if args.queries == "pilot":
         from arxiv_search.evaluate.judge_pilot import pilot_pairs
         pairs = pilot_pairs(queries, split)
+    elif args.queries == "human":
+        pairs = human_pairs()
     else:
         pairs = pool(split["dev"])
     print(f"{args.judge}: {sum(map(len, pairs.values()))} pairs over {len(pairs)} queries "

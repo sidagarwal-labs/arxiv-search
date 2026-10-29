@@ -1,0 +1,10 @@
+{
+  "system": "text-embedding-3-large",
+  "papers": 2000,
+  "queries": 100,
+  "dimensions": 3072,
+  "vector_bytes": 24576000,
+  "setup_seconds": 69.46,
+  "search_only_ms": 1.37,
+  "query_latency_note": "search_only_ms excludes query embedding; setup includes it"
+}

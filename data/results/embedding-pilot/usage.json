@@ -1,0 +1,16 @@
+{
+  "text-embedding-3-large": {
+    "requests": 34,
+    "accounted_tokens": 538881,
+    "accounted_usd": 0.07005453,
+    "complete_requests": 34,
+    "api_seconds": 68.06824290000259
+  },
+  "text-embedding-3-small": {
+    "requests": 34,
+    "accounted_tokens": 538881,
+    "accounted_usd": 0.01077762,
+    "complete_requests": 34,
+    "api_seconds": 62.3971079999983
+  }
+}

@@ -60,6 +60,12 @@ copy .env.example .env        # then paste your Gemini API key into .env
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge --judge gemma-31b --queries pilot
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge_pilot report   # agreement with human grades
 
+# OpenAI pilots: set OPENAI_API_KEY in .env first (never commit a key)
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge --judge openai-nano --queries human --max-calls 1
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge --judge openai-mini --queries human --max-calls 1
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.embedding_pilot       # offline token/cost preflight
+# Add --run only for the approved $0.25 total embedding pilot, not a full-corpus run
+
 # Run the tests
 .\.venv\Scripts\python.exe -m pytest -q
 ```

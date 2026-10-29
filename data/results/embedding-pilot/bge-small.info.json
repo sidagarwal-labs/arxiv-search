@@ -1,0 +1,10 @@
+{
+  "system": "bge-small",
+  "papers": 2000,
+  "queries": 100,
+  "dimensions": 384,
+  "vector_bytes": 3072000,
+  "setup_seconds": 4.5,
+  "search_only_ms": 0.61,
+  "query_latency_note": "search_only_ms excludes query embedding; setup includes it"
+}

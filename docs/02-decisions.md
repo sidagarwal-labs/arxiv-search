@@ -244,11 +244,11 @@ or tool charges are covered without checking current account terms.
 
 **Order and measurements (planned, not implemented):**
 
-1. **Independent relevance judge:** compare `gpt-4.1-mini` and `gpt-4.1-nano` on
+1. **Independent relevance judge:** compare `gpt-5.4-mini` and `gpt-5.4-nano` on
    the same 100 frozen human-labeled pairs. Use the same evidence and rubric as
    Gemma/Qwen. Measure exact agreement, quadratic kappa, relevant-vs-not agreement,
    0-vs-2 disagreements, per-query-type results, tokens, retries and wall time.
-   Use `gpt-4.1` on the same pilot only if the smaller models leave meaningful
+   Use `gpt-5.4` on the same pilot only if the smaller models leave meaningful
    quality gaps. Human grades remain authoritative; model consensus is not truth.
 2. **Reranking:** compare the winning affordable OpenAI candidate against no reranker
    and a local cross-encoder, using identical hybrid candidates at depths 20 and 50.
@@ -259,6 +259,11 @@ or tool charges are covered without checking current account terms.
    Start on the same small corpus for every model, then evaluate finalists on the
    full corpus. Measure quality, dimensions/storage, build cost and query latency.
    Reduced-corpus results are not directly comparable with full-corpus scores.
+   *Approved 2026-10-28:* $0.25 total for an initial 2,000-paper small/large
+   comparison, including the 100 dev query embeddings. Use default 1,536/3,072
+   dimensions first; compare cached GTE/BGE vectors on the exact same subset.
+   Keep every dev source paper, then add seeded random distractors. No full-corpus
+   OpenAI embedding run is authorized by this pilot approval.
 4. **Query rewriting:** test raw queries vs. one cached rewrite or multi-query
    retrieval, especially questions and paraphrases. Measure quality and added
    latency/tokens; check that rewriting does not lose known-item identifiers.
