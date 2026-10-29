@@ -154,6 +154,17 @@ grid before refining winners. No test tuning, fresh embeddings or automatic
 quota reset. Failure analysis is read-only and records evidence, not inferred
 root causes as fact. UI and grounded summaries follow retrieval experiments.
 
+**Fusion label budget approval (2026-10-29):** offline preflight found 333
+missing pairs in 95 query-specific batches. Estimated serialized input
+157,081 tokens plus about 10,323 output tokens (~167,000 total); expected
+5-8 minutes. At published GPT-5.4 mini standard rates ($0.75/million input,
+$4.50/million output), the estimate is about $0.16 if free eligibility does
+not apply, or $0 under the eligible shared allowance. No-retry output-cap
+scenario is about $0.99; neither estimate is a hard billing ceiling.
+Sid explicitly approved raising the effective local cumulative token cap
+from 1,350,000 to **1,600,000**, retaining all prior 1,202,890 tokens.
+No new embedding calls, quota reset, UI, RAG or held-out test run.
+
 OpenAI large leads the reduced-corpus pilot, but its advantage over OpenAI small
 has a paired interval crossing zero. The full-corpus OpenAI hybrid now scores
 0.653 MRR@10 vs. GTE's 0.635; the paired difference is +0.018

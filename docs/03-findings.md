@@ -616,3 +616,34 @@ not the older baseline nDCG denominator, for gain/regression comparisons.
 After confusion between token units and currency, additional API labeling is
 paused: 147,110 was remaining local **tokens**, not dollars. No spending-cap
 increase or quota reset was made.
+
+## 18. Complete bounded fusion experiment (2026-10-29)
+
+After explicit approval, effective cumulative token allowance was increased to
+1,600,000 without resetting usage. All 333 missing pairs were saved in 95
+successful calls; full pool **3,190/3,190**, retaining 100 human overrides.
+Additional actual usage: **153,596 tokens**, cumulative **1,356,486**;
+all 467 ledger attempts are completed. No new embeddings or held-out test runs.
+At standard rates the preflight estimated ~$0.16 absent free eligibility;
+actual token accounting does not verify provider billing/free eligibility.
+
+| Candidate | nDCG@10 | P@10 | Source MRR@10 |
+|---|---|---|---|
+| Frozen 50/50 RRF c=10, depth100, rescored | 0.664 | 0.633 | 0.653 |
+| 75% semantic RRF c=100, depth100 | **0.709** | **0.690** | 0.618 |
+| 75% semantic linear rank, depth100 | 0.707 | 0.685 | 0.624 |
+| 75% semantic RRF c=60, depth100 | 0.706 | 0.680 | 0.630 |
+
+Best observed nDCG candidate improves **+0.045 [0.028, 0.064]** paired
+against the frozen control: 67 queries improve, 30 regress, 3 tie.
+Mean nDCG improves across all four query types, but not every individual
+query; source-paper MRR decreases. Do not equate higher graded relevance
+with better exact-target retrieval. Nearby c=60/linear settings are close;
+the coarse grid does not establish a uniquely optimal constant.
+
+Expanded-pool nDCG for the unchanged control is 0.664 versus the original
+seven-system report's 0.686: extra relevant pool papers increase ideal DCG.
+Rankings and P@10 did not change. Compare candidates only within this snapshot.
+These 38-setting dev results and unadjusted intervals are exploratory; winner
+selection can inflate gains. Preserve the frozen baseline while reviewing the
+graded-relevance versus source-target tradeoff. UI/RAG/test remain deferred.

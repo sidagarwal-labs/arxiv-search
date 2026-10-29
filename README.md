@@ -133,8 +133,19 @@ copy .env.example .env        # then paste your Gemini API key into .env
 Fusion outputs live under `data/results/fusion-dev/`, separate from the frozen
 baseline. The first grid expands the pool from 2,857 to 3,190 pairs: **333
 additional pairs need labels**. Until then, reports are provisional and paired
-winner comparisons are withheld. Additional API labeling is paused pending
-budget clarification; offline experiments do not spend tokens or re-embed papers.
+winner comparisons are withheld. The additional labeling batch was approved
+after budget clarification: effective cumulative text-token cap 1,600,000,
+with existing usage retained. Offline experiments do not spend tokens or re-embed papers.
+
+The approved batch is complete: **3,190/3,190 pairs covered**, 333 added labels
+using 153,596 tokens. Best observed grid candidate: **75% semantic / 25%
+lexical, RRF c=100, depth=100**, nDCG@10 **0.709**, P@10 **0.690**.
+The unchanged baseline rescored on this expanded pool has nDCG **0.664**;
+paired gain **+0.045 [0.028, 0.064]**. Its original 0.686 used a smaller
+ideal-relevance pool and is not directly comparable. Source-paper MRR falls
+from **0.653 to 0.618**, so this is a quality tradeoff, not universal dominance.
+The candidate was selected on dev among 38 settings; selection uncertainty
+is not captured by its unadjusted interval. The original baseline stays frozen.
 
 ## Folders
 

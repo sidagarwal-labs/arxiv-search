@@ -1,9 +1,9 @@
 # Offline fusion dev experiment
 
 Fixed baseline: `baseline-original-equal-rrf-c10-d100` (saved original equal RRF, c=10, depth=100).
-Judge: `openai-mini`; rubric `b8b0c14a`; 2857/3190 pooled top-10 pairs judged; 100 human overrides.
+Judge: `openai-mini`; rubric `b8b0c14a`; 3190/3190 pooled top-10 pairs judged; 100 human overrides.
 
-**INCOMPLETE / PROVISIONAL: paired comparisons and winner claims withheld.**
+**COMPLETE**
 
 All systems use the same pooled labels plus human overrides for ideal DCG. Original graded.SYSTEMS top-10s remain in the pool. Unjudged gains are zero; nDCG with no positive labels is undefined. Source-paper metrics are separate. Candidate outputs contain up to 100 papers; a depth-20 union can be shorter.
 
@@ -13,2307 +13,2307 @@ Exploratory dev results, not held-out confirmation; no reranker. Judge calibrati
 
 | System | Type | Metric | n | Mean | Paired delta [95% CI] | Wins / regressions / ties |
 |---|---|---|---|---|---|---|
-| `baseline-original-equal-rrf-c10-d100` | all | ndcg@10 | 100 | 0.6856 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | all | precision@10 | 100 | 0.6330 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | ndcg@10 | 25 | 0.7225 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | precision@10 | 25 | 0.6920 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | ndcg@10 | 25 | 0.7180 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | precision@10 | 25 | 0.6040 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | ndcg@10 | 25 | 0.6161 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | precision@10 | 25 | 0.5760 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | ndcg@10 | 25 | 0.6857 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | precision@10 | 25 | 0.6600 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | ndcg@10 | 100 | 0.5775 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | precision@10 | 100 | 0.5360 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | judged@10 | 100 | 0.9980 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | ndcg@10 | 25 | 0.6710 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | precision@10 | 25 | 0.6280 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | ndcg@10 | 25 | 0.7065 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | precision@10 | 25 | 0.6080 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.4180 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | precision@10 | 25 | 0.4320 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | ndcg@10 | 25 | 0.5146 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | precision@10 | 25 | 0.4760 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | ndcg@10 | 100 | 0.5967 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | precision@10 | 100 | 0.5340 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | judged@10 | 100 | 0.9830 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | ndcg@10 | 25 | 0.6691 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | precision@10 | 25 | 0.6160 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | ndcg@10 | 25 | 0.7119 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | precision@10 | 25 | 0.6040 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.4524 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | precision@10 | 25 | 0.4240 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | ndcg@10 | 25 | 0.5534 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | precision@10 | 25 | 0.4920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | ndcg@10 | 100 | 0.5967 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | precision@10 | 100 | 0.5340 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | judged@10 | 100 | 0.9830 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | ndcg@10 | 25 | 0.6691 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | precision@10 | 25 | 0.6160 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | ndcg@10 | 25 | 0.7119 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | precision@10 | 25 | 0.6040 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.4524 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | precision@10 | 25 | 0.4240 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | ndcg@10 | 25 | 0.5534 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | precision@10 | 25 | 0.4920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | ndcg@10 | 100 | 0.5705 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | precision@10 | 100 | 0.5260 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | ndcg@10 | 25 | 0.6675 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | precision@10 | 25 | 0.6240 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | ndcg@10 | 25 | 0.7003 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | precision@10 | 25 | 0.5960 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | ndcg@10 | 25 | 0.4082 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | precision@10 | 25 | 0.4240 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | ndcg@10 | 25 | 0.5059 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | precision@10 | 25 | 0.4600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | ndcg@10 | 100 | 0.6639 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | precision@10 | 100 | 0.6070 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | judged@10 | 100 | 0.9890 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | ndcg@10 | 25 | 0.6981 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | precision@10 | 25 | 0.6520 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | judged@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | ndcg@10 | 25 | 0.7112 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | precision@10 | 25 | 0.5960 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.5824 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | precision@10 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | ndcg@10 | 25 | 0.6641 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | precision@10 | 25 | 0.6200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | ndcg@10 | 100 | 0.6606 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | precision@10 | 100 | 0.6060 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | judged@10 | 100 | 0.9840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | ndcg@10 | 25 | 0.6975 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | precision@10 | 25 | 0.6520 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | ndcg@10 | 25 | 0.7044 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | precision@10 | 25 | 0.5920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | judged@10 | 25 | 0.9760 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.5775 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | precision@10 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | ndcg@10 | 25 | 0.6630 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | precision@10 | 25 | 0.6200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | ndcg@10 | 100 | 0.6605 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | precision@10 | 100 | 0.6060 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | judged@10 | 100 | 0.9840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | ndcg@10 | 25 | 0.6976 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | precision@10 | 25 | 0.6520 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | ndcg@10 | 25 | 0.7044 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | precision@10 | 25 | 0.5920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | judged@10 | 25 | 0.9760 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.5775 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | precision@10 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | ndcg@10 | 25 | 0.6626 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | precision@10 | 25 | 0.6200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | ndcg@10 | 100 | 0.6559 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | precision@10 | 100 | 0.6050 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | judged@10 | 100 | 0.9990 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | ndcg@10 | 25 | 0.6892 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | precision@10 | 25 | 0.6520 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | ndcg@10 | 25 | 0.6982 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | precision@10 | 25 | 0.5920 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | ndcg@10 | 25 | 0.5783 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | precision@10 | 25 | 0.5680 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | ndcg@10 | 25 | 0.6579 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | precision@10 | 25 | 0.6080 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | ndcg@10 | 100 | 0.6985 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | precision@10 | 100 | 0.6450 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | judged@10 | 100 | 0.9990 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | ndcg@10 | 25 | 0.6983 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | precision@10 | 25 | 0.6880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | ndcg@10 | 25 | 0.6738 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | precision@10 | 25 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.6900 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | precision@10 | 25 | 0.6480 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | ndcg@10 | 25 | 0.7321 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | precision@10 | 25 | 0.7040 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | ndcg@10 | 100 | 0.6964 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | precision@10 | 100 | 0.6450 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | judged@10 | 100 | 0.9830 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | ndcg@10 | 25 | 0.7106 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | precision@10 | 25 | 0.6960 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | ndcg@10 | 25 | 0.6821 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | precision@10 | 25 | 0.5440 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.6659 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | precision@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | ndcg@10 | 25 | 0.7270 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | precision@10 | 25 | 0.7000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | ndcg@10 | 100 | 0.6964 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | precision@10 | 100 | 0.6450 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | judged@10 | 100 | 0.9830 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | ndcg@10 | 25 | 0.7104 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | precision@10 | 25 | 0.6960 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | ndcg@10 | 25 | 0.6822 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | precision@10 | 25 | 0.5440 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | judged@10 | 25 | 0.9720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.6659 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | precision@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | ndcg@10 | 25 | 0.7270 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | precision@10 | 25 | 0.7000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | ndcg@10 | 100 | 0.6915 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | precision@10 | 100 | 0.6360 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | ndcg@10 | 25 | 0.6893 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | precision@10 | 25 | 0.6760 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | ndcg@10 | 25 | 0.6577 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | precision@10 | 25 | 0.5200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | ndcg@10 | 25 | 0.6891 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | precision@10 | 25 | 0.6480 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | ndcg@10 | 25 | 0.7299 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | precision@10 | 25 | 0.7000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | ndcg@10 | 100 | 0.5871 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | precision@10 | 100 | 0.5520 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | judged@10 | 100 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | ndcg@10 | 25 | 0.6829 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | precision@10 | 25 | 0.6440 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | judged@10 | 25 | 0.9920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | ndcg@10 | 25 | 0.7091 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | precision@10 | 25 | 0.6120 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.4359 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | precision@10 | 25 | 0.4640 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | ndcg@10 | 25 | 0.5205 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | precision@10 | 25 | 0.4880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | ndcg@10 | 100 | 0.6167 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | precision@10 | 100 | 0.5520 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | judged@10 | 100 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | ndcg@10 | 25 | 0.6820 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | precision@10 | 25 | 0.6240 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | judged@10 | 25 | 0.9240 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | ndcg@10 | 25 | 0.7143 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | precision@10 | 25 | 0.5960 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | judged@10 | 25 | 0.9240 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.4745 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | precision@10 | 25 | 0.4320 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | judged@10 | 25 | 0.8920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | ndcg@10 | 25 | 0.5958 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | precision@10 | 25 | 0.5560 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | judged@10 | 25 | 0.9400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | ndcg@10 | 100 | 0.6186 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | precision@10 | 100 | 0.5420 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | judged@10 | 100 | 0.8720 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | ndcg@10 | 25 | 0.6658 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | precision@10 | 25 | 0.5960 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | judged@10 | 25 | 0.8760 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | ndcg@10 | 25 | 0.7132 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | precision@10 | 25 | 0.5880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | judged@10 | 25 | 0.8880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.4879 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | precision@10 | 25 | 0.4360 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | judged@10 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | ndcg@10 | 25 | 0.6077 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | precision@10 | 25 | 0.5480 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | judged@10 | 25 | 0.8840 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | ndcg@10 | 100 | 0.6048 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | precision@10 | 100 | 0.5460 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | judged@10 | 100 | 0.9840 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | ndcg@10 | 25 | 0.6885 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | precision@10 | 25 | 0.6320 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | judged@10 | 25 | 0.9760 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | ndcg@10 | 25 | 0.7128 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | precision@10 | 25 | 0.6080 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | ndcg@10 | 25 | 0.4609 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | precision@10 | 25 | 0.4440 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | judged@10 | 25 | 0.9840 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | ndcg@10 | 25 | 0.5572 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | precision@10 | 25 | 0.5000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | ndcg@10 | 100 | 0.6789 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | precision@10 | 100 | 0.6260 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | judged@10 | 100 | 0.9930 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | ndcg@10 | 25 | 0.7132 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | precision@10 | 25 | 0.6840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | ndcg@10 | 25 | 0.7147 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | precision@10 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | judged@10 | 25 | 0.9920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.6064 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | precision@10 | 25 | 0.5680 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | judged@10 | 25 | 0.9920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | ndcg@10 | 25 | 0.6813 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | precision@10 | 25 | 0.6520 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | judged@10 | 25 | 0.9920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | ndcg@10 | 100 | 0.6467 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | precision@10 | 100 | 0.5730 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | judged@10 | 100 | 0.8660 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | ndcg@10 | 25 | 0.6828 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | precision@10 | 25 | 0.6240 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | judged@10 | 25 | 0.8640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | ndcg@10 | 25 | 0.6947 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | precision@10 | 25 | 0.5640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | judged@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.5508 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | precision@10 | 25 | 0.4920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | judged@10 | 25 | 0.8240 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | ndcg@10 | 25 | 0.6584 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | precision@10 | 25 | 0.6120 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | judged@10 | 25 | 0.8960 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | ndcg@10 | 100 | 0.6440 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | precision@10 | 100 | 0.5700 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | judged@10 | 100 | 0.8620 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | ndcg@10 | 25 | 0.6782 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | precision@10 | 25 | 0.6160 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | judged@10 | 25 | 0.8560 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | ndcg@10 | 25 | 0.6935 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | precision@10 | 25 | 0.5640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | judged@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.5508 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | precision@10 | 25 | 0.4920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | judged@10 | 25 | 0.8240 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | ndcg@10 | 25 | 0.6537 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | precision@10 | 25 | 0.6080 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | judged@10 | 25 | 0.8880 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | ndcg@10 | 100 | 0.6625 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | precision@10 | 100 | 0.5980 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | judged@10 | 100 | 0.9250 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | ndcg@10 | 25 | 0.6976 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | precision@10 | 25 | 0.6520 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | judged@10 | 25 | 0.9240 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | ndcg@10 | 25 | 0.7041 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | precision@10 | 25 | 0.5800 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | judged@10 | 25 | 0.9320 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | ndcg@10 | 25 | 0.5783 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | precision@10 | 25 | 0.5280 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | judged@10 | 25 | 0.9120 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | ndcg@10 | 25 | 0.6700 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | precision@10 | 25 | 0.6320 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | judged@10 | 25 | 0.9320 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | ndcg@10 | 100 | 0.7009 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | precision@10 | 100 | 0.6480 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | judged@10 | 100 | 0.9970 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | ndcg@10 | 25 | 0.7088 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | precision@10 | 25 | 0.7000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | ndcg@10 | 25 | 0.6742 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | precision@10 | 25 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.6897 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | precision@10 | 25 | 0.6480 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | ndcg@10 | 25 | 0.7311 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | precision@10 | 25 | 0.7040 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | ndcg@10 | 100 | 0.6850 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | precision@10 | 100 | 0.6200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | judged@10 | 100 | 0.9150 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | ndcg@10 | 25 | 0.7032 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | precision@10 | 25 | 0.6680 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | judged@10 | 25 | 0.9080 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | ndcg@10 | 25 | 0.6897 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | precision@10 | 25 | 0.5520 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | judged@10 | 25 | 0.9320 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.6444 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | precision@10 | 25 | 0.5880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | judged@10 | 25 | 0.9000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | ndcg@10 | 25 | 0.7026 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | precision@10 | 25 | 0.6720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | judged@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | ndcg@10 | 100 | 0.6660 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | precision@10 | 100 | 0.5970 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | judged@10 | 100 | 0.8650 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | ndcg@10 | 25 | 0.6842 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | precision@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | judged@10 | 25 | 0.8680 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | ndcg@10 | 25 | 0.6957 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | precision@10 | 25 | 0.5560 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | judged@10 | 25 | 0.8880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.6004 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | precision@10 | 25 | 0.5440 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | judged@10 | 25 | 0.8360 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | ndcg@10 | 25 | 0.6836 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | precision@10 | 25 | 0.6480 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | judged@10 | 25 | 0.8680 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | ndcg@10 | 100 | 0.7031 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | precision@10 | 100 | 0.6480 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | judged@10 | 100 | 0.9780 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | ndcg@10 | 25 | 0.7174 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | precision@10 | 25 | 0.6960 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | judged@10 | 25 | 0.9760 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | ndcg@10 | 25 | 0.6885 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | precision@10 | 25 | 0.5520 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | judged@10 | 25 | 0.9760 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | ndcg@10 | 25 | 0.6749 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | precision@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | judged@10 | 25 | 0.9840 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | ndcg@10 | 25 | 0.7315 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | precision@10 | 25 | 0.7040 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | judged@10 | 25 | 0.9760 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | ndcg@10 | 100 | 0.5378 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | precision@10 | 100 | 0.5120 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | ndcg@10 | 25 | 0.6318 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | precision@10 | 25 | 0.5960 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | ndcg@10 | 25 | 0.6903 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | precision@10 | 25 | 0.5880 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.3805 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | precision@10 | 25 | 0.4120 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | ndcg@10 | 25 | 0.4486 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | precision@10 | 25 | 0.4520 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | ndcg@10 | 100 | 0.5874 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | precision@10 | 100 | 0.5520 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | judged@10 | 100 | 0.9920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | ndcg@10 | 25 | 0.6836 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | precision@10 | 25 | 0.6440 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | ndcg@10 | 25 | 0.7108 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | precision@10 | 25 | 0.6120 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | judged@10 | 25 | 0.9920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.4353 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | precision@10 | 25 | 0.4640 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | judged@10 | 25 | 0.9880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | ndcg@10 | 25 | 0.5199 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | precision@10 | 25 | 0.4880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | ndcg@10 | 100 | 0.6185 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | precision@10 | 100 | 0.5550 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | judged@10 | 100 | 0.9000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | ndcg@10 | 25 | 0.6871 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | precision@10 | 25 | 0.6320 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | judged@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | ndcg@10 | 25 | 0.7119 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | precision@10 | 25 | 0.5920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | judged@10 | 25 | 0.9120 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.4871 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | precision@10 | 25 | 0.4520 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | judged@10 | 25 | 0.8680 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | ndcg@10 | 25 | 0.5878 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | precision@10 | 25 | 0.5440 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | judged@10 | 25 | 0.9000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | ndcg@10 | 100 | 0.6216 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | precision@10 | 100 | 0.5480 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | judged@10 | 100 | 0.8410 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | ndcg@10 | 25 | 0.6792 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | precision@10 | 25 | 0.6200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | judged@10 | 25 | 0.8720 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | ndcg@10 | 25 | 0.7052 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | precision@10 | 25 | 0.5720 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | judged@10 | 25 | 0.8760 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.4964 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | precision@10 | 25 | 0.4480 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | judged@10 | 25 | 0.7880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | ndcg@10 | 25 | 0.6057 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | precision@10 | 25 | 0.5520 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | judged@10 | 25 | 0.8280 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | ndcg@10 | 100 | 0.6232 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | precision@10 | 100 | 0.5530 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | judged@10 | 100 | 0.9040 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | ndcg@10 | 25 | 0.6862 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | precision@10 | 25 | 0.6280 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | judged@10 | 25 | 0.9120 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | ndcg@10 | 25 | 0.7078 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | precision@10 | 25 | 0.5840 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | judged@10 | 25 | 0.9120 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | ndcg@10 | 25 | 0.5025 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | precision@10 | 25 | 0.4640 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | judged@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | ndcg@10 | 25 | 0.5964 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | precision@10 | 25 | 0.5360 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | judged@10 | 25 | 0.9120 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | ndcg@10 | 100 | 0.6856 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | precision@10 | 100 | 0.6330 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7225 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | precision@10 | 25 | 0.6920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | ndcg@10 | 25 | 0.7180 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | precision@10 | 25 | 0.6040 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.6161 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | precision@10 | 25 | 0.5760 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | ndcg@10 | 25 | 0.6857 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | precision@10 | 25 | 0.6600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | ndcg@10 | 100 | 0.6436 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | precision@10 | 100 | 0.5640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | judged@10 | 100 | 0.7970 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | ndcg@10 | 25 | 0.6769 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | precision@10 | 25 | 0.6120 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | judged@10 | 25 | 0.8160 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | ndcg@10 | 25 | 0.6933 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | precision@10 | 25 | 0.5560 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | judged@10 | 25 | 0.8440 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.5442 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | precision@10 | 25 | 0.4840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | judged@10 | 25 | 0.7440 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | ndcg@10 | 25 | 0.6599 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | precision@10 | 25 | 0.6040 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | judged@10 | 25 | 0.7840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | ndcg@10 | 100 | 0.6325 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | precision@10 | 100 | 0.5460 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | judged@10 | 100 | 0.7650 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | ndcg@10 | 25 | 0.6656 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | precision@10 | 25 | 0.5960 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | judged@10 | 25 | 0.7880 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | ndcg@10 | 25 | 0.6862 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | precision@10 | 25 | 0.5480 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | judged@10 | 25 | 0.8320 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.5346 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | precision@10 | 25 | 0.4640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | judged@10 | 25 | 0.7040 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | ndcg@10 | 25 | 0.6436 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | precision@10 | 25 | 0.5760 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | judged@10 | 25 | 0.7360 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | ndcg@10 | 100 | 0.6362 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | precision@10 | 100 | 0.5550 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | judged@10 | 100 | 0.7950 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | ndcg@10 | 25 | 0.6707 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | precision@10 | 25 | 0.6000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | judged@10 | 25 | 0.8080 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | ndcg@10 | 25 | 0.6907 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | precision@10 | 25 | 0.5560 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | judged@10 | 25 | 0.8360 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | ndcg@10 | 25 | 0.5357 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | precision@10 | 25 | 0.4720 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | judged@10 | 25 | 0.7360 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | ndcg@10 | 25 | 0.6477 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | precision@10 | 25 | 0.5920 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | judged@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | ndcg@10 | 100 | 0.7014 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | precision@10 | 100 | 0.6500 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | judged@10 | 100 | 0.9970 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7091 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | precision@10 | 25 | 0.7000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | ndcg@10 | 25 | 0.6714 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | precision@10 | 25 | 0.5360 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.6903 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | precision@10 | 25 | 0.6560 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | ndcg@10 | 25 | 0.7349 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | precision@10 | 25 | 0.7080 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | judged@10 | 25 | 0.9960 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | ndcg@10 | 100 | 0.6906 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | precision@10 | 100 | 0.6200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | judged@10 | 100 | 0.9070 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | ndcg@10 | 25 | 0.7082 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | precision@10 | 25 | 0.6640 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | judged@10 | 25 | 0.9080 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | ndcg@10 | 25 | 0.6921 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | precision@10 | 25 | 0.5520 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | judged@10 | 25 | 0.9160 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.6484 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | precision@10 | 25 | 0.5840 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | judged@10 | 25 | 0.8880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | ndcg@10 | 25 | 0.7138 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | precision@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | judged@10 | 25 | 0.9160 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | ndcg@10 | 100 | 0.6716 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | precision@10 | 100 | 0.5940 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | judged@10 | 100 | 0.8460 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | ndcg@10 | 25 | 0.6934 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | precision@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | judged@10 | 25 | 0.8600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | ndcg@10 | 25 | 0.6921 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | precision@10 | 25 | 0.5480 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | judged@10 | 25 | 0.8640 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.6092 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | precision@10 | 25 | 0.5440 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | judged@10 | 25 | 0.8200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | ndcg@10 | 25 | 0.6919 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | precision@10 | 25 | 0.6440 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | judged@10 | 25 | 0.8400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | ndcg@10 | 100 | 0.6837 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | precision@10 | 100 | 0.6140 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | judged@10 | 100 | 0.8960 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | ndcg@10 | 25 | 0.7015 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | precision@10 | 25 | 0.6560 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | judged@10 | 25 | 0.8920 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | ndcg@10 | 25 | 0.6938 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | precision@10 | 25 | 0.5560 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | judged@10 | 25 | 0.9120 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | ndcg@10 | 25 | 0.6373 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | precision@10 | 25 | 0.5800 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | judged@10 | 25 | 0.8840 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | ndcg@10 | 25 | 0.7022 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | precision@10 | 25 | 0.6640 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | judged@10 | 25 | 0.8960 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | ndcg@10 | 100 | 0.6678 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | precision@10 | 100 | 0.6370 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | ndcg@10 | 25 | 0.6681 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | precision@10 | 25 | 0.6760 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | ndcg@10 | 25 | 0.6199 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | precision@10 | 25 | 0.5160 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.6704 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | precision@10 | 25 | 0.6520 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | ndcg@10 | 25 | 0.7128 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | precision@10 | 25 | 0.7040 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | ndcg@10 | 100 | 0.5378 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | precision@10 | 100 | 0.5120 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | ndcg@10 | 25 | 0.6318 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | precision@10 | 25 | 0.5960 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | ndcg@10 | 25 | 0.6903 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | precision@10 | 25 | 0.5880 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | ndcg@10 | 25 | 0.3805 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | precision@10 | 25 | 0.4120 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | ndcg@10 | 25 | 0.4486 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | precision@10 | 25 | 0.4520 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-gte-small` | all | ndcg@10 | 100 | 0.6032 | withheld | withheld |
-| `dense-gte-small` | all | precision@10 | 100 | 0.5810 | withheld | withheld |
-| `dense-gte-small` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `dense-gte-small` | keyword | ndcg@10 | 25 | 0.6822 | withheld | withheld |
-| `dense-gte-small` | keyword | precision@10 | 25 | 0.6520 | withheld | withheld |
-| `dense-gte-small` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-gte-small` | known_item | ndcg@10 | 25 | 0.6003 | withheld | withheld |
-| `dense-gte-small` | known_item | precision@10 | 25 | 0.5200 | withheld | withheld |
-| `dense-gte-small` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-gte-small` | paraphrase | ndcg@10 | 25 | 0.5253 | withheld | withheld |
-| `dense-gte-small` | paraphrase | precision@10 | 25 | 0.5360 | withheld | withheld |
-| `dense-gte-small` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-gte-small` | question | ndcg@10 | 25 | 0.6049 | withheld | withheld |
-| `dense-gte-small` | question | precision@10 | 25 | 0.6160 | withheld | withheld |
-| `dense-gte-small` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-bge-small` | all | ndcg@10 | 100 | 0.5987 | withheld | withheld |
-| `dense-bge-small` | all | precision@10 | 100 | 0.5840 | withheld | withheld |
-| `dense-bge-small` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `dense-bge-small` | keyword | ndcg@10 | 25 | 0.6562 | withheld | withheld |
-| `dense-bge-small` | keyword | precision@10 | 25 | 0.6560 | withheld | withheld |
-| `dense-bge-small` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-bge-small` | known_item | ndcg@10 | 25 | 0.6439 | withheld | withheld |
-| `dense-bge-small` | known_item | precision@10 | 25 | 0.5600 | withheld | withheld |
-| `dense-bge-small` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-bge-small` | paraphrase | ndcg@10 | 25 | 0.4797 | withheld | withheld |
-| `dense-bge-small` | paraphrase | precision@10 | 25 | 0.4960 | withheld | withheld |
-| `dense-bge-small` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-bge-small` | question | ndcg@10 | 25 | 0.6150 | withheld | withheld |
-| `dense-bge-small` | question | precision@10 | 25 | 0.6240 | withheld | withheld |
-| `dense-bge-small` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6551 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | precision@10 | 100 | 0.6110 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7347 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | precision@10 | 25 | 0.6880 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.7264 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | precision@10 | 25 | 0.6040 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.5356 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | precision@10 | 25 | 0.5560 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.6237 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | precision@10 | 25 | 0.5960 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6517 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | precision@10 | 100 | 0.6140 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7223 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | precision@10 | 25 | 0.6920 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.7410 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | precision@10 | 25 | 0.6200 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.5000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | precision@10 | 25 | 0.5280 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.6435 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | precision@10 | 25 | 0.6160 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-openai-large` | all | ndcg@10 | 100 | 0.6678 | withheld | withheld |
-| `dense-openai-large` | all | precision@10 | 100 | 0.6370 | withheld | withheld |
-| `dense-openai-large` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `dense-openai-large` | keyword | ndcg@10 | 25 | 0.6681 | withheld | withheld |
-| `dense-openai-large` | keyword | precision@10 | 25 | 0.6760 | withheld | withheld |
-| `dense-openai-large` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-openai-large` | known_item | ndcg@10 | 25 | 0.6199 | withheld | withheld |
-| `dense-openai-large` | known_item | precision@10 | 25 | 0.5160 | withheld | withheld |
-| `dense-openai-large` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-openai-large` | paraphrase | ndcg@10 | 25 | 0.6704 | withheld | withheld |
-| `dense-openai-large` | paraphrase | precision@10 | 25 | 0.6520 | withheld | withheld |
-| `dense-openai-large` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `dense-openai-large` | question | ndcg@10 | 25 | 0.7128 | withheld | withheld |
-| `dense-openai-large` | question | precision@10 | 25 | 0.7040 | withheld | withheld |
-| `dense-openai-large` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6856 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | precision@10 | 100 | 0.6330 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | judged@10 | 100 | 1.0000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7225 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | precision@10 | 25 | 0.6920 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.7180 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | precision@10 | 25 | 0.6040 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.6161 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | precision@10 | 25 | 0.5760 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.6857 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | precision@10 | 25 | 0.6600 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | judged@10 | 25 | 1.0000 | withheld | withheld |
+| `baseline-original-equal-rrf-c10-d100` | all | ndcg@10 | 100 | 0.6641 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | all | precision@10 | 100 | 0.6330 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | ndcg@10 | 25 | 0.7001 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | precision@10 | 25 | 0.6920 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | ndcg@10 | 25 | 0.6948 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | precision@10 | 25 | 0.6040 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | ndcg@10 | 25 | 0.5940 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | precision@10 | 25 | 0.5760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | ndcg@10 | 25 | 0.6676 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | precision@10 | 25 | 0.6600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | ndcg@10 | 100 | 0.5606 | -0.1035 [-0.1298, -0.0762] | 15 / 82 / 3 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | precision@10 | 100 | 0.5380 | -0.0950 [-0.1270, -0.0610] | 17 / 58 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | ndcg@10 | 25 | 0.6529 | -0.0472 [-0.0884, -0.0080] | 6 / 18 / 1 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | precision@10 | 25 | 0.6320 | -0.0600 [-0.1160, -0.0079] | 6 / 10 / 9 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | ndcg@10 | 25 | 0.6843 | -0.0105 [-0.0428, +0.0222] | 6 / 17 / 2 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | precision@10 | 25 | 0.6080 | +0.0040 [-0.0480, +0.0600] | 6 / 9 / 10 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.4018 | -0.1922 [-0.2537, -0.1325] | 2 / 23 / 0 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | precision@10 | 25 | 0.4320 | -0.1440 [-0.2120, -0.0760] | 4 / 18 / 3 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | ndcg@10 | 25 | 0.5035 | -0.1641 [-0.1996, -0.1248] | 1 / 24 / 0 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | precision@10 | 25 | 0.4800 | -0.1800 [-0.2281, -0.1240] | 1 / 21 / 3 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | ndcg@10 | 100 | 0.5852 | -0.0789 [-0.1043, -0.0542] | 27 / 71 / 2 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | precision@10 | 100 | 0.5470 | -0.0860 [-0.1190, -0.0520] | 21 / 57 / 22 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | ndcg@10 | 25 | 0.6604 | -0.0397 [-0.0793, -0.0021] | 11 / 13 / 1 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | precision@10 | 25 | 0.6400 | -0.0520 [-0.1080, +0.0000] | 7 / 10 / 8 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | ndcg@10 | 25 | 0.7012 | +0.0064 [-0.0230, +0.0375] | 11 / 13 / 1 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | precision@10 | 25 | 0.6240 | +0.0200 [-0.0280, +0.0720] | 7 / 8 / 10 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.4344 | -0.1596 [-0.2100, -0.1125] | 3 / 22 / 0 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | precision@10 | 25 | 0.4240 | -0.1520 [-0.2120, -0.0920] | 4 / 20 / 1 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | ndcg@10 | 25 | 0.5449 | -0.1227 [-0.1621, -0.0776] | 2 / 23 / 0 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | precision@10 | 25 | 0.5000 | -0.1600 [-0.2200, -0.0960] | 3 / 19 / 3 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | ndcg@10 | 100 | 0.5852 | -0.0789 [-0.1043, -0.0542] | 27 / 71 / 2 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | precision@10 | 100 | 0.5470 | -0.0860 [-0.1190, -0.0520] | 21 / 57 / 22 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | ndcg@10 | 25 | 0.6604 | -0.0397 [-0.0793, -0.0021] | 11 / 13 / 1 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | precision@10 | 25 | 0.6400 | -0.0520 [-0.1080, +0.0000] | 7 / 10 / 8 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | ndcg@10 | 25 | 0.7012 | +0.0064 [-0.0230, +0.0375] | 11 / 13 / 1 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | precision@10 | 25 | 0.6240 | +0.0200 [-0.0280, +0.0720] | 7 / 8 / 10 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.4344 | -0.1596 [-0.2100, -0.1125] | 3 / 22 / 0 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | precision@10 | 25 | 0.4240 | -0.1520 [-0.2120, -0.0920] | 4 / 20 / 1 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | ndcg@10 | 25 | 0.5449 | -0.1227 [-0.1621, -0.0776] | 2 / 23 / 0 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | precision@10 | 25 | 0.5000 | -0.1600 [-0.2200, -0.0960] | 3 / 19 / 3 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | all | ndcg@10 | 100 | 0.5530 | -0.1111 [-0.1373, -0.0837] | 17 / 80 / 3 |
+| `fusion-linear+w=0.25+d=20` | all | precision@10 | 100 | 0.5260 | -0.1070 [-0.1400, -0.0750] | 14 / 61 / 25 |
+| `fusion-linear+w=0.25+d=20` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.25+d=20` | keyword | ndcg@10 | 25 | 0.6475 | -0.0526 [-0.0925, -0.0143] | 7 / 17 / 1 |
+| `fusion-linear+w=0.25+d=20` | keyword | precision@10 | 25 | 0.6240 | -0.0680 [-0.1240, -0.0160] | 4 / 10 / 11 |
+| `fusion-linear+w=0.25+d=20` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | known_item | ndcg@10 | 25 | 0.6783 | -0.0165 [-0.0475, +0.0150] | 8 / 15 / 2 |
+| `fusion-linear+w=0.25+d=20` | known_item | precision@10 | 25 | 0.5960 | -0.0080 [-0.0600, +0.0520] | 5 / 10 / 10 |
+| `fusion-linear+w=0.25+d=20` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | ndcg@10 | 25 | 0.3928 | -0.2012 [-0.2660, -0.1417] | 2 / 23 / 0 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | precision@10 | 25 | 0.4240 | -0.1520 [-0.2200, -0.0800] | 5 / 19 / 1 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | question | ndcg@10 | 25 | 0.4934 | -0.1742 [-0.2094, -0.1367] | 0 / 25 / 0 |
+| `fusion-linear+w=0.25+d=20` | question | precision@10 | 25 | 0.4600 | -0.2000 [-0.2440, -0.1480] | 0 / 22 / 3 |
+| `fusion-linear+w=0.25+d=20` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | ndcg@10 | 100 | 0.6472 | -0.0170 [-0.0267, -0.0069] | 37 / 54 / 9 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | precision@10 | 100 | 0.6150 | -0.0180 [-0.0320, -0.0040] | 12 / 27 / 61 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | ndcg@10 | 25 | 0.6830 | -0.0171 [-0.0361, -0.0008] | 10 / 12 / 3 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | precision@10 | 25 | 0.6680 | -0.0240 [-0.0520, +0.0040] | 2 / 6 / 17 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | ndcg@10 | 25 | 0.6932 | -0.0016 [-0.0168, +0.0157] | 10 / 10 / 5 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | precision@10 | 25 | 0.6040 | -0.0000 [-0.0240, +0.0240] | 4 / 4 / 17 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.5612 | -0.0328 [-0.0577, -0.0122] | 7 / 17 / 1 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | precision@10 | 25 | 0.5600 | -0.0160 [-0.0480, +0.0120] | 3 / 7 / 15 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | ndcg@10 | 25 | 0.6514 | -0.0162 [-0.0370, +0.0053] | 10 / 15 / 0 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | precision@10 | 25 | 0.6280 | -0.0320 [-0.0600, -0.0040] | 3 / 10 / 12 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | ndcg@10 | 100 | 0.6470 | -0.0172 [-0.0282, -0.0062] | 37 / 57 / 6 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | precision@10 | 100 | 0.6190 | -0.0140 [-0.0280, +0.0000] | 15 / 26 / 59 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | ndcg@10 | 25 | 0.6869 | -0.0132 [-0.0339, +0.0051] | 12 / 12 / 1 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | precision@10 | 25 | 0.6760 | -0.0160 [-0.0440, +0.0120] | 3 / 5 / 17 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | ndcg@10 | 25 | 0.6938 | -0.0010 [-0.0221, +0.0189] | 11 / 10 / 4 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | precision@10 | 25 | 0.6120 | +0.0080 [-0.0160, +0.0320] | 6 / 4 / 15 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.5565 | -0.0375 [-0.0571, -0.0200] | 4 / 20 / 1 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | precision@10 | 25 | 0.5600 | -0.0160 [-0.0480, +0.0120] | 3 / 7 / 15 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | ndcg@10 | 25 | 0.6507 | -0.0169 [-0.0400, +0.0075] | 10 / 15 / 0 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | precision@10 | 25 | 0.6280 | -0.0320 [-0.0600, -0.0040] | 3 / 10 / 12 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | ndcg@10 | 100 | 0.6469 | -0.0172 [-0.0282, -0.0063] | 37 / 57 / 6 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | precision@10 | 100 | 0.6190 | -0.0140 [-0.0280, +0.0000] | 15 / 26 / 59 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | ndcg@10 | 25 | 0.6870 | -0.0131 [-0.0337, +0.0053] | 12 / 12 / 1 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | precision@10 | 25 | 0.6760 | -0.0160 [-0.0440, +0.0120] | 3 / 5 / 17 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | ndcg@10 | 25 | 0.6938 | -0.0010 [-0.0221, +0.0189] | 11 / 10 / 4 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | precision@10 | 25 | 0.6120 | +0.0080 [-0.0160, +0.0320] | 6 / 4 / 15 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.5565 | -0.0375 [-0.0571, -0.0200] | 4 / 20 / 1 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | precision@10 | 25 | 0.5600 | -0.0160 [-0.0480, +0.0120] | 3 / 7 / 15 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | ndcg@10 | 25 | 0.6503 | -0.0173 [-0.0400, +0.0067] | 10 / 15 / 0 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | precision@10 | 25 | 0.6280 | -0.0320 [-0.0600, -0.0040] | 3 / 10 / 12 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | all | ndcg@10 | 100 | 0.6355 | -0.0286 [-0.0398, -0.0186] | 26 / 68 / 6 |
+| `fusion-linear+w=0.5+d=20` | all | precision@10 | 100 | 0.6050 | -0.0280 [-0.0430, -0.0120] | 10 / 35 / 55 |
+| `fusion-linear+w=0.5+d=20` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.5+d=20` | keyword | ndcg@10 | 25 | 0.6679 | -0.0322 [-0.0524, -0.0140] | 7 / 17 / 1 |
+| `fusion-linear+w=0.5+d=20` | keyword | precision@10 | 25 | 0.6520 | -0.0400 [-0.0680, -0.0120] | 1 / 9 / 15 |
+| `fusion-linear+w=0.5+d=20` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | known_item | ndcg@10 | 25 | 0.6761 | -0.0187 [-0.0383, +0.0007] | 7 / 14 / 4 |
+| `fusion-linear+w=0.5+d=20` | known_item | precision@10 | 25 | 0.5920 | -0.0120 [-0.0400, +0.0160] | 4 / 6 / 15 |
+| `fusion-linear+w=0.5+d=20` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | ndcg@10 | 25 | 0.5576 | -0.0364 [-0.0605, -0.0134] | 6 / 18 / 1 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | precision@10 | 25 | 0.5680 | -0.0080 [-0.0440, +0.0320] | 3 / 7 / 15 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | question | ndcg@10 | 25 | 0.6404 | -0.0272 [-0.0455, -0.0083] | 6 / 19 / 0 |
+| `fusion-linear+w=0.5+d=20` | question | precision@10 | 25 | 0.6080 | -0.0520 [-0.0800, -0.0240] | 2 / 13 / 10 |
+| `fusion-linear+w=0.5+d=20` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | ndcg@10 | 100 | 0.6767 | +0.0126 [-0.0096, +0.0353] | 59 / 40 / 1 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | precision@10 | 100 | 0.6450 | +0.0120 [-0.0180, +0.0410] | 37 / 31 / 32 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | ndcg@10 | 25 | 0.6750 | -0.0251 [-0.0728, +0.0198] | 11 / 13 / 1 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | precision@10 | 25 | 0.6880 | -0.0040 [-0.0680, +0.0561] | 7 / 11 / 7 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | ndcg@10 | 25 | 0.6530 | -0.0418 [-0.0772, -0.0088] | 11 / 14 / 0 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | precision@10 | 25 | 0.5400 | -0.0640 [-0.1161, -0.0120] | 5 / 11 / 9 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.6659 | +0.0719 [+0.0223, +0.1311] | 19 / 6 / 0 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | precision@10 | 25 | 0.6480 | +0.0720 [+0.0160, +0.1320] | 15 / 5 / 5 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | ndcg@10 | 25 | 0.7130 | +0.0454 [+0.0144, +0.0778] | 18 / 7 / 0 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | precision@10 | 25 | 0.7040 | +0.0440 [-0.0120, +0.1040] | 10 / 4 / 11 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | ndcg@10 | 100 | 0.6815 | +0.0174 [-0.0039, +0.0376] | 59 / 40 / 1 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | precision@10 | 100 | 0.6580 | +0.0250 [-0.0030, +0.0520] | 40 / 25 / 35 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | ndcg@10 | 25 | 0.6982 | -0.0019 [-0.0415, +0.0330] | 14 / 11 / 0 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | precision@10 | 25 | 0.7200 | +0.0280 [-0.0240, +0.0840] | 8 / 6 / 11 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | ndcg@10 | 25 | 0.6728 | -0.0220 [-0.0573, +0.0117] | 12 / 13 / 0 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | precision@10 | 25 | 0.5640 | -0.0400 [-0.0960, +0.0120] | 7 / 9 / 9 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.6422 | +0.0483 [-0.0013, +0.1012] | 15 / 9 / 1 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | precision@10 | 25 | 0.6400 | +0.0640 [+0.0080, +0.1200] | 14 / 5 / 6 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | ndcg@10 | 25 | 0.7128 | +0.0452 [+0.0119, +0.0781] | 18 / 7 / 0 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | precision@10 | 25 | 0.7080 | +0.0480 [-0.0040, +0.1041] | 11 / 5 / 9 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | ndcg@10 | 100 | 0.6815 | +0.0174 [-0.0040, +0.0376] | 59 / 40 / 1 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | precision@10 | 100 | 0.6580 | +0.0250 [-0.0030, +0.0520] | 40 / 25 / 35 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | ndcg@10 | 25 | 0.6980 | -0.0021 [-0.0420, +0.0329] | 14 / 11 / 0 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | precision@10 | 25 | 0.7200 | +0.0280 [-0.0240, +0.0840] | 8 / 6 / 11 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | ndcg@10 | 25 | 0.6729 | -0.0219 [-0.0571, +0.0119] | 12 / 13 / 0 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | precision@10 | 25 | 0.5640 | -0.0400 [-0.0960, +0.0120] | 7 / 9 / 9 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.6422 | +0.0483 [-0.0013, +0.1012] | 15 / 9 / 1 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | precision@10 | 25 | 0.6400 | +0.0640 [+0.0080, +0.1200] | 14 / 5 / 6 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | ndcg@10 | 25 | 0.7128 | +0.0452 [+0.0119, +0.0781] | 18 / 7 / 0 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | precision@10 | 25 | 0.7080 | +0.0480 [-0.0040, +0.1041] | 11 / 5 / 9 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=20` | all | ndcg@10 | 100 | 0.6700 | +0.0059 [-0.0185, +0.0295] | 58 / 41 / 1 |
+| `fusion-linear+w=0.75+d=20` | all | precision@10 | 100 | 0.6360 | +0.0030 [-0.0290, +0.0330] | 40 / 38 / 22 |
+| `fusion-linear+w=0.75+d=20` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.75+d=20` | keyword | ndcg@10 | 25 | 0.6663 | -0.0339 [-0.0822, +0.0156] | 11 / 13 / 1 |
+| `fusion-linear+w=0.75+d=20` | keyword | precision@10 | 25 | 0.6760 | -0.0160 [-0.0840, +0.0600] | 8 / 13 / 4 |
+| `fusion-linear+w=0.75+d=20` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=20` | known_item | ndcg@10 | 25 | 0.6379 | -0.0569 [-0.0943, -0.0203] | 9 / 16 / 0 |
+| `fusion-linear+w=0.75+d=20` | known_item | precision@10 | 25 | 0.5200 | -0.0840 [-0.1360, -0.0280] | 5 / 15 / 5 |
+| `fusion-linear+w=0.75+d=20` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | ndcg@10 | 25 | 0.6651 | +0.0711 [+0.0216, +0.1286] | 20 / 5 / 0 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | precision@10 | 25 | 0.6480 | +0.0720 [+0.0160, +0.1280] | 16 / 5 / 4 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=20` | question | ndcg@10 | 25 | 0.7108 | +0.0432 [+0.0084, +0.0783] | 18 / 7 / 0 |
+| `fusion-linear+w=0.75+d=20` | question | precision@10 | 25 | 0.7000 | +0.0400 [-0.0200, +0.1000] | 11 / 5 / 9 |
+| `fusion-linear+w=0.75+d=20` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | ndcg@10 | 100 | 0.5709 | -0.0932 [-0.1187, -0.0663] | 18 / 80 / 2 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | precision@10 | 100 | 0.5550 | -0.0780 [-0.1100, -0.0460] | 18 / 55 / 27 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | ndcg@10 | 25 | 0.6661 | -0.0340 [-0.0754, +0.0034] | 7 / 17 / 1 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | precision@10 | 25 | 0.6480 | -0.0440 [-0.0960, +0.0080] | 6 / 9 / 10 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | ndcg@10 | 25 | 0.6882 | -0.0066 [-0.0391, +0.0252] | 8 / 16 / 1 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | precision@10 | 25 | 0.6160 | +0.0120 [-0.0400, +0.0680] | 8 / 9 / 8 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.4220 | -0.1720 [-0.2338, -0.1141] | 3 / 22 / 0 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | precision@10 | 25 | 0.4680 | -0.1080 [-0.1720, -0.0480] | 4 / 16 / 5 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | ndcg@10 | 25 | 0.5075 | -0.1602 [-0.1928, -0.1262] | 0 / 25 / 0 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | precision@10 | 25 | 0.4880 | -0.1720 [-0.2200, -0.1240] | 0 / 21 / 4 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | ndcg@10 | 100 | 0.6297 | -0.0344 [-0.0544, -0.0132] | 36 / 61 / 3 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | precision@10 | 100 | 0.6040 | -0.0290 [-0.0530, -0.0030] | 24 / 43 / 33 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | ndcg@10 | 25 | 0.6917 | -0.0084 [-0.0384, +0.0199] | 14 / 10 / 1 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | precision@10 | 25 | 0.6800 | -0.0120 [-0.0520, +0.0280] | 7 / 9 / 9 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | ndcg@10 | 25 | 0.7200 | +0.0252 [-0.0059, +0.0569] | 12 / 11 / 2 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | precision@10 | 25 | 0.6400 | +0.0360 [-0.0080, +0.0801] | 8 / 5 / 12 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.5041 | -0.0899 [-0.1390, -0.0422] | 5 / 20 / 0 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | precision@10 | 25 | 0.5040 | -0.0720 [-0.1200, -0.0240] | 4 / 15 / 6 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | ndcg@10 | 25 | 0.6030 | -0.0646 [-0.0950, -0.0315] | 5 / 20 / 0 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | precision@10 | 25 | 0.5920 | -0.0680 [-0.1200, -0.0160] | 5 / 14 / 6 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | ndcg@10 | 100 | 0.6506 | -0.0135 [-0.0324, +0.0070] | 41 / 57 / 2 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | precision@10 | 100 | 0.6230 | -0.0100 [-0.0340, +0.0150] | 31 / 36 / 33 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | ndcg@10 | 25 | 0.6966 | -0.0035 [-0.0354, +0.0258] | 14 / 10 / 1 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | precision@10 | 25 | 0.6800 | -0.0120 [-0.0560, +0.0280] | 8 / 9 / 8 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | ndcg@10 | 25 | 0.7362 | +0.0414 [+0.0054, +0.0787] | 15 / 9 / 1 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | precision@10 | 25 | 0.6560 | +0.0520 [+0.0040, +0.1000] | 11 / 6 / 8 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.5389 | -0.0550 [-0.1064, -0.0059] | 6 / 19 / 0 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | precision@10 | 25 | 0.5400 | -0.0360 [-0.0880, +0.0121] | 7 / 12 / 6 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | ndcg@10 | 25 | 0.6306 | -0.0370 [-0.0624, -0.0106] | 6 / 19 / 0 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | precision@10 | 25 | 0.6160 | -0.0440 [-0.0880, +0.0040] | 5 / 9 / 11 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | all | ndcg@10 | 100 | 0.5920 | -0.0722 [-0.0974, -0.0483] | 23 / 75 / 2 |
+| `fusion-linear+w=0.25+d=50` | all | precision@10 | 100 | 0.5570 | -0.0760 [-0.1100, -0.0430] | 17 / 54 / 29 |
+| `fusion-linear+w=0.25+d=50` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.25+d=50` | keyword | ndcg@10 | 25 | 0.6779 | -0.0222 [-0.0609, +0.0168] | 9 / 15 / 1 |
+| `fusion-linear+w=0.25+d=50` | keyword | precision@10 | 25 | 0.6520 | -0.0400 [-0.0880, +0.0041] | 6 / 10 / 9 |
+| `fusion-linear+w=0.25+d=50` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | known_item | ndcg@10 | 25 | 0.6939 | -0.0009 [-0.0306, +0.0309] | 9 / 15 / 1 |
+| `fusion-linear+w=0.25+d=50` | known_item | precision@10 | 25 | 0.6160 | +0.0120 [-0.0360, +0.0640] | 6 / 9 / 10 |
+| `fusion-linear+w=0.25+d=50` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | ndcg@10 | 25 | 0.4478 | -0.1461 [-0.2015, -0.0978] | 4 / 21 / 0 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | precision@10 | 25 | 0.4520 | -0.1240 [-0.1880, -0.0640] | 3 / 17 / 5 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | question | ndcg@10 | 25 | 0.5482 | -0.1194 [-0.1576, -0.0774] | 1 / 24 / 0 |
+| `fusion-linear+w=0.25+d=50` | question | precision@10 | 25 | 0.5080 | -0.1520 [-0.2120, -0.0880] | 2 / 18 / 5 |
+| `fusion-linear+w=0.25+d=50` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | ndcg@10 | 100 | 0.6602 | -0.0039 [-0.0096, +0.0018] | 20 / 30 / 50 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | precision@10 | 100 | 0.6310 | -0.0020 [-0.0100, +0.0060] | 7 / 9 / 84 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | ndcg@10 | 25 | 0.6933 | -0.0068 [-0.0162, +0.0016] | 4 / 8 / 13 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | precision@10 | 25 | 0.6880 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | ndcg@10 | 25 | 0.6936 | -0.0012 [-0.0092, +0.0058] | 4 / 5 / 16 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | precision@10 | 25 | 0.6040 | -0.0000 [-0.0120, +0.0120] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.5891 | -0.0048 [-0.0196, +0.0092] | 6 / 7 / 12 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | precision@10 | 25 | 0.5760 | +0.0000 [-0.0200, +0.0200] | 3 / 3 / 19 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | ndcg@10 | 25 | 0.6650 | -0.0026 [-0.0137, +0.0094] | 6 / 10 / 9 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | precision@10 | 25 | 0.6560 | -0.0040 [-0.0240, +0.0160] | 3 / 4 / 18 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | ndcg@10 | 100 | 0.6822 | +0.0180 [+0.0043, +0.0332] | 62 / 35 / 3 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | precision@10 | 100 | 0.6600 | +0.0270 [+0.0100, +0.0450] | 36 / 14 / 50 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | ndcg@10 | 25 | 0.7240 | +0.0239 [+0.0000, +0.0464] | 17 / 7 / 1 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | precision@10 | 25 | 0.7240 | +0.0320 [-0.0000, +0.0641] | 9 / 2 / 14 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | ndcg@10 | 25 | 0.7264 | +0.0316 [-0.0001, +0.0677] | 15 / 8 / 2 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | precision@10 | 25 | 0.6440 | +0.0400 [+0.0039, +0.0800] | 8 / 3 / 14 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.6004 | +0.0064 [-0.0219, +0.0352] | 13 / 12 / 0 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | precision@10 | 25 | 0.6000 | +0.0240 [-0.0120, +0.0600] | 10 / 4 / 11 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | ndcg@10 | 25 | 0.6778 | +0.0102 [-0.0122, +0.0345] | 17 / 8 / 0 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | precision@10 | 25 | 0.6720 | +0.0120 [-0.0200, +0.0440] | 9 / 5 / 11 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | ndcg@10 | 100 | 0.6804 | +0.0163 [+0.0025, +0.0312] | 61 / 36 / 3 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | precision@10 | 100 | 0.6590 | +0.0260 [+0.0090, +0.0440] | 36 / 15 / 49 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | ndcg@10 | 25 | 0.7227 | +0.0225 [-0.0030, +0.0466] | 17 / 7 / 1 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | precision@10 | 25 | 0.7240 | +0.0320 [-0.0000, +0.0641] | 9 / 2 / 14 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | ndcg@10 | 25 | 0.7252 | +0.0304 [-0.0014, +0.0663] | 15 / 8 / 2 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | precision@10 | 25 | 0.6440 | +0.0400 [+0.0039, +0.0800] | 8 / 3 / 14 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.6006 | +0.0066 [-0.0218, +0.0353] | 13 / 12 / 0 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | precision@10 | 25 | 0.6000 | +0.0240 [-0.0120, +0.0600] | 10 / 4 / 11 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | ndcg@10 | 25 | 0.6733 | +0.0056 [-0.0183, +0.0307] | 16 / 9 / 0 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | precision@10 | 25 | 0.6680 | +0.0080 [-0.0240, +0.0400] | 9 / 6 / 10 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | all | ndcg@10 | 100 | 0.6769 | +0.0128 [+0.0006, +0.0249] | 55 / 38 / 7 |
+| `fusion-linear+w=0.5+d=50` | all | precision@10 | 100 | 0.6520 | +0.0190 [+0.0040, +0.0340] | 29 / 14 / 57 |
+| `fusion-linear+w=0.5+d=50` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.5+d=50` | keyword | ndcg@10 | 25 | 0.7154 | +0.0153 [-0.0054, +0.0357] | 15 / 8 / 2 |
+| `fusion-linear+w=0.5+d=50` | keyword | precision@10 | 25 | 0.7160 | +0.0240 [+0.0000, +0.0480] | 7 / 2 / 16 |
+| `fusion-linear+w=0.5+d=50` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | known_item | ndcg@10 | 25 | 0.7097 | +0.0149 [-0.0079, +0.0392] | 13 / 8 / 4 |
+| `fusion-linear+w=0.5+d=50` | known_item | precision@10 | 25 | 0.6240 | +0.0200 [-0.0001, +0.0440] | 6 / 2 / 17 |
+| `fusion-linear+w=0.5+d=50` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | ndcg@10 | 25 | 0.6047 | +0.0107 [-0.0177, +0.0399] | 12 / 12 / 1 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | precision@10 | 25 | 0.5920 | +0.0160 [-0.0160, +0.0480] | 7 / 5 / 13 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | question | ndcg@10 | 25 | 0.6778 | +0.0102 [-0.0162, +0.0334] | 15 / 10 / 0 |
+| `fusion-linear+w=0.5+d=50` | question | precision@10 | 25 | 0.6760 | +0.0160 [-0.0200, +0.0480] | 9 / 5 / 11 |
+| `fusion-linear+w=0.5+d=50` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | ndcg@10 | 100 | 0.6792 | +0.0151 [-0.0073, +0.0369] | 59 / 41 / 0 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | precision@10 | 100 | 0.6480 | +0.0150 [-0.0130, +0.0410] | 38 / 30 / 32 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | ndcg@10 | 25 | 0.6852 | -0.0149 [-0.0607, +0.0274] | 11 / 14 / 0 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | precision@10 | 25 | 0.7000 | +0.0080 [-0.0521, +0.0640] | 7 / 9 / 9 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | ndcg@10 | 25 | 0.6531 | -0.0417 [-0.0766, -0.0086] | 11 / 14 / 0 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | precision@10 | 25 | 0.5400 | -0.0640 [-0.1160, -0.0160] | 5 / 12 / 8 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.6666 | +0.0726 [+0.0231, +0.1306] | 18 / 7 / 0 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | precision@10 | 25 | 0.6480 | +0.0720 [+0.0200, +0.1240] | 15 / 4 / 6 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | ndcg@10 | 25 | 0.7120 | +0.0444 [+0.0137, +0.0777] | 19 / 6 / 0 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | precision@10 | 25 | 0.7040 | +0.0440 [-0.0120, +0.1040] | 11 / 5 / 9 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | ndcg@10 | 100 | 0.6988 | +0.0347 [+0.0188, +0.0511] | 64 / 33 / 3 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | precision@10 | 100 | 0.6760 | +0.0430 [+0.0210, +0.0660] | 41 / 17 / 42 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | ndcg@10 | 25 | 0.7265 | +0.0264 [-0.0002, +0.0578] | 14 / 9 / 2 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | precision@10 | 25 | 0.7360 | +0.0440 [+0.0040, +0.0881] | 7 / 3 / 15 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | ndcg@10 | 25 | 0.6900 | -0.0048 [-0.0366, +0.0226] | 14 / 10 / 1 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | precision@10 | 25 | 0.5880 | -0.0160 [-0.0600, +0.0200] | 7 / 7 / 11 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.6627 | +0.0687 [+0.0276, +0.1113] | 18 / 7 / 0 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | precision@10 | 25 | 0.6520 | +0.0760 [+0.0240, +0.1320] | 13 / 4 / 8 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | ndcg@10 | 25 | 0.7159 | +0.0483 [+0.0261, +0.0721] | 18 / 7 / 0 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | precision@10 | 25 | 0.7280 | +0.0680 [+0.0320, +0.1080] | 14 / 3 / 8 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | ndcg@10 | 100 | 0.7005 | +0.0364 [+0.0199, +0.0540] | 62 / 35 / 3 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | precision@10 | 100 | 0.6860 | +0.0530 [+0.0280, +0.0770] | 47 / 17 / 36 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | ndcg@10 | 25 | 0.7217 | +0.0215 [-0.0079, +0.0544] | 11 / 12 / 2 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | precision@10 | 25 | 0.7320 | +0.0400 [-0.0040, +0.0880] | 8 / 4 / 13 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | ndcg@10 | 25 | 0.7199 | +0.0251 [-0.0049, +0.0545] | 16 / 8 / 1 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | precision@10 | 25 | 0.6280 | +0.0240 [-0.0280, +0.0680] | 10 / 5 / 10 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.6447 | +0.0507 [+0.0134, +0.0924] | 17 / 8 / 0 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | precision@10 | 25 | 0.6440 | +0.0680 [+0.0160, +0.1201] | 14 / 5 / 6 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | ndcg@10 | 25 | 0.7157 | +0.0481 [+0.0174, +0.0779] | 18 / 7 / 0 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | precision@10 | 25 | 0.7400 | +0.0800 [+0.0320, +0.1240] | 15 / 3 / 7 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | all | ndcg@10 | 100 | 0.6903 | +0.0262 [+0.0081, +0.0442] | 66 / 31 / 3 |
+| `fusion-linear+w=0.75+d=50` | all | precision@10 | 100 | 0.6640 | +0.0310 [+0.0070, +0.0550] | 38 / 21 / 41 |
+| `fusion-linear+w=0.75+d=50` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.75+d=50` | keyword | ndcg@10 | 25 | 0.7079 | +0.0078 [-0.0269, +0.0415] | 14 / 9 / 2 |
+| `fusion-linear+w=0.75+d=50` | keyword | precision@10 | 25 | 0.7200 | +0.0280 [-0.0240, +0.0840] | 7 / 6 / 12 |
+| `fusion-linear+w=0.75+d=50` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | known_item | ndcg@10 | 25 | 0.6735 | -0.0213 [-0.0543, +0.0089] | 12 / 12 / 1 |
+| `fusion-linear+w=0.75+d=50` | known_item | precision@10 | 25 | 0.5640 | -0.0400 [-0.0880, +0.0040] | 5 / 9 / 11 |
+| `fusion-linear+w=0.75+d=50` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | ndcg@10 | 25 | 0.6590 | +0.0650 [+0.0207, +0.1102] | 21 / 4 / 0 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | precision@10 | 25 | 0.6520 | +0.0760 [+0.0280, +0.1280] | 15 / 3 / 7 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | question | ndcg@10 | 25 | 0.7208 | +0.0532 [+0.0271, +0.0822] | 19 / 6 / 0 |
+| `fusion-linear+w=0.75+d=50` | question | precision@10 | 25 | 0.7200 | +0.0600 [+0.0160, +0.1120] | 11 / 3 / 11 |
+| `fusion-linear+w=0.75+d=50` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0+d=100+c=10` | all | ndcg@10 | 100 | 0.5212 | -0.1429 [-0.1717, -0.1124] | 14 / 84 / 2 |
+| `fusion-rrf+w=0+d=100+c=10` | all | precision@10 | 100 | 0.5120 | -0.1210 [-0.1530, -0.0870] | 13 / 67 / 20 |
+| `fusion-rrf+w=0+d=100+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | ndcg@10 | 25 | 0.6130 | -0.0871 [-0.1278, -0.0463] | 4 / 20 / 1 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | precision@10 | 25 | 0.5960 | -0.0960 [-0.1560, -0.0440] | 4 / 14 / 7 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | ndcg@10 | 25 | 0.6684 | -0.0264 [-0.0598, +0.0112] | 7 / 17 / 1 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | precision@10 | 25 | 0.5880 | -0.0160 [-0.0720, +0.0440] | 5 / 11 / 9 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.3660 | -0.2279 [-0.2932, -0.1653] | 3 / 22 / 0 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | precision@10 | 25 | 0.4120 | -0.1640 [-0.2360, -0.0960] | 4 / 19 / 2 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0+d=100+c=10` | question | ndcg@10 | 25 | 0.4375 | -0.2301 [-0.2703, -0.1868] | 0 / 25 / 0 |
+| `fusion-rrf+w=0+d=100+c=10` | question | precision@10 | 25 | 0.4520 | -0.2080 [-0.2560, -0.1600] | 0 / 23 / 2 |
+| `fusion-rrf+w=0+d=100+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | ndcg@10 | 100 | 0.5721 | -0.0920 [-0.1174, -0.0649] | 20 / 78 / 2 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | precision@10 | 100 | 0.5570 | -0.0760 [-0.1090, -0.0430] | 20 / 55 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | ndcg@10 | 25 | 0.6684 | -0.0317 [-0.0716, +0.0058] | 8 / 16 / 1 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | precision@10 | 25 | 0.6520 | -0.0400 [-0.0921, +0.0120] | 7 / 9 / 9 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | ndcg@10 | 25 | 0.6918 | -0.0030 [-0.0385, +0.0320] | 8 / 16 / 1 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | precision@10 | 25 | 0.6200 | +0.0160 [-0.0400, +0.0720] | 8 / 9 / 8 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.4213 | -0.1727 [-0.2343, -0.1124] | 4 / 21 / 0 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | precision@10 | 25 | 0.4680 | -0.1080 [-0.1681, -0.0519] | 5 / 16 / 4 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | ndcg@10 | 25 | 0.5068 | -0.1608 [-0.1934, -0.1272] | 0 / 25 / 0 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | precision@10 | 25 | 0.4880 | -0.1720 [-0.2200, -0.1240] | 0 / 21 / 4 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | ndcg@10 | 100 | 0.6368 | -0.0273 [-0.0475, -0.0053] | 38 / 59 / 3 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | precision@10 | 100 | 0.6180 | -0.0150 [-0.0410, +0.0110] | 29 / 37 / 34 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | ndcg@10 | 25 | 0.6975 | -0.0026 [-0.0324, +0.0271] | 14 / 10 / 1 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | precision@10 | 25 | 0.6880 | -0.0040 [-0.0440, +0.0360] | 8 / 8 / 9 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | ndcg@10 | 25 | 0.7206 | +0.0258 [-0.0079, +0.0602] | 12 / 11 / 2 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | precision@10 | 25 | 0.6440 | +0.0400 [-0.0120, +0.0920] | 8 / 5 / 12 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.5215 | -0.0725 [-0.1262, -0.0228] | 8 / 17 / 0 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | precision@10 | 25 | 0.5360 | -0.0400 [-0.0881, +0.0120] | 8 / 12 / 5 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | ndcg@10 | 25 | 0.6077 | -0.0599 [-0.0906, -0.0288] | 4 / 21 / 0 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | precision@10 | 25 | 0.6040 | -0.0560 [-0.1001, -0.0080] | 5 / 12 / 8 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | ndcg@10 | 100 | 0.6633 | -0.0008 [-0.0181, +0.0175] | 44 / 53 / 3 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | precision@10 | 100 | 0.6460 | +0.0130 [-0.0110, +0.0380] | 31 / 29 / 40 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | ndcg@10 | 25 | 0.7091 | +0.0090 [-0.0217, +0.0395] | 13 / 10 / 2 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | precision@10 | 25 | 0.7080 | +0.0160 [-0.0280, +0.0640] | 9 / 7 / 9 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | ndcg@10 | 25 | 0.7336 | +0.0388 [+0.0038, +0.0755] | 16 / 8 / 1 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | precision@10 | 25 | 0.6480 | +0.0440 [-0.0040, +0.0961] | 9 / 5 / 11 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.5588 | -0.0352 [-0.0840, +0.0096] | 8 / 17 / 0 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | precision@10 | 25 | 0.5760 | +0.0000 [-0.0440, +0.0480] | 7 / 8 / 10 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | ndcg@10 | 25 | 0.6517 | -0.0159 [-0.0434, +0.0146] | 7 / 18 / 0 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | precision@10 | 25 | 0.6520 | -0.0080 [-0.0480, +0.0360] | 6 / 9 / 10 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | all | ndcg@10 | 100 | 0.6407 | -0.0234 [-0.0442, -0.0021] | 38 / 58 / 4 |
+| `fusion-linear+w=0.25+d=100` | all | precision@10 | 100 | 0.6140 | -0.0190 [-0.0460, +0.0070] | 30 / 39 / 31 |
+| `fusion-linear+w=0.25+d=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.25+d=100` | keyword | ndcg@10 | 25 | 0.7001 | -0.0001 [-0.0307, +0.0307] | 14 / 9 / 2 |
+| `fusion-linear+w=0.25+d=100` | keyword | precision@10 | 25 | 0.6920 | +0.0000 [-0.0400, +0.0400] | 9 / 8 / 8 |
+| `fusion-linear+w=0.25+d=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | known_item | ndcg@10 | 25 | 0.7185 | +0.0237 [-0.0101, +0.0592] | 12 / 11 / 2 |
+| `fusion-linear+w=0.25+d=100` | known_item | precision@10 | 25 | 0.6360 | +0.0320 [-0.0160, +0.0840] | 8 / 6 / 11 |
+| `fusion-linear+w=0.25+d=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | ndcg@10 | 25 | 0.5337 | -0.0603 [-0.1116, -0.0113] | 8 / 17 / 0 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | precision@10 | 25 | 0.5400 | -0.0360 [-0.0880, +0.0160] | 8 / 12 / 5 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | question | ndcg@10 | 25 | 0.6106 | -0.0570 [-0.0896, -0.0238] | 4 / 21 / 0 |
+| `fusion-linear+w=0.25+d=100` | question | precision@10 | 25 | 0.5880 | -0.0720 [-0.1240, -0.0160] | 5 / 13 / 7 |
+| `fusion-linear+w=0.25+d=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | ndcg@10 | 100 | 0.6641 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | precision@10 | 100 | 0.6330 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7001 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | precision@10 | 25 | 0.6920 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | ndcg@10 | 25 | 0.6948 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | precision@10 | 25 | 0.6040 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.5940 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | precision@10 | 25 | 0.5760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | ndcg@10 | 25 | 0.6676 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | precision@10 | 25 | 0.6600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | ndcg@10 | 100 | 0.6994 | +0.0353 [+0.0195, +0.0524] | 66 / 31 / 3 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | precision@10 | 100 | 0.6890 | +0.0560 [+0.0330, +0.0800] | 46 / 11 / 43 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | ndcg@10 | 25 | 0.7342 | +0.0341 [+0.0072, +0.0633] | 18 / 6 / 1 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | precision@10 | 25 | 0.7480 | +0.0560 [+0.0160, +0.1080] | 11 / 1 / 13 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | ndcg@10 | 25 | 0.7262 | +0.0314 [+0.0040, +0.0610] | 16 / 7 / 2 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | precision@10 | 25 | 0.6440 | +0.0400 [+0.0000, +0.0840] | 9 / 4 / 12 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.6216 | +0.0276 [-0.0051, +0.0585] | 13 / 12 / 0 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | precision@10 | 25 | 0.6440 | +0.0680 [+0.0280, +0.1120] | 14 / 4 / 7 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | ndcg@10 | 25 | 0.7155 | +0.0479 [+0.0139, +0.0864] | 19 / 6 / 0 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | precision@10 | 25 | 0.7200 | +0.0600 [+0.0080, +0.1080] | 12 / 2 / 11 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | ndcg@10 | 100 | 0.6966 | +0.0325 [+0.0162, +0.0500] | 64 / 33 / 3 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | precision@10 | 100 | 0.6890 | +0.0560 [+0.0310, +0.0810] | 44 / 12 / 44 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | ndcg@10 | 25 | 0.7310 | +0.0308 [+0.0023, +0.0602] | 18 / 6 / 1 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | precision@10 | 25 | 0.7520 | +0.0600 [+0.0160, +0.1120] | 11 / 1 / 13 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | ndcg@10 | 25 | 0.7232 | +0.0284 [-0.0018, +0.0587] | 16 / 7 / 2 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | precision@10 | 25 | 0.6440 | +0.0400 [+0.0000, +0.0840] | 9 / 4 / 12 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.6188 | +0.0248 [-0.0066, +0.0579] | 13 / 12 / 0 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | precision@10 | 25 | 0.6400 | +0.0640 [+0.0240, +0.1080] | 13 / 4 / 8 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | ndcg@10 | 25 | 0.7134 | +0.0458 [+0.0073, +0.0870] | 17 / 8 / 0 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | precision@10 | 25 | 0.7200 | +0.0600 [+0.0040, +0.1161] | 11 / 3 / 11 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | all | ndcg@10 | 100 | 0.6943 | +0.0301 [+0.0147, +0.0476] | 65 / 32 / 3 |
+| `fusion-linear+w=0.5+d=100` | all | precision@10 | 100 | 0.6840 | +0.0510 [+0.0280, +0.0730] | 43 / 13 / 44 |
+| `fusion-linear+w=0.5+d=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.5+d=100` | keyword | ndcg@10 | 25 | 0.7331 | +0.0329 [+0.0042, +0.0657] | 18 / 6 / 1 |
+| `fusion-linear+w=0.5+d=100` | keyword | precision@10 | 25 | 0.7440 | +0.0520 [+0.0080, +0.1040] | 11 / 2 / 12 |
+| `fusion-linear+w=0.5+d=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | known_item | ndcg@10 | 25 | 0.7256 | +0.0308 [-0.0016, +0.0642] | 16 / 7 / 2 |
+| `fusion-linear+w=0.5+d=100` | known_item | precision@10 | 25 | 0.6480 | +0.0440 [+0.0040, +0.0880] | 8 / 4 / 13 |
+| `fusion-linear+w=0.5+d=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | ndcg@10 | 25 | 0.6193 | +0.0254 [-0.0039, +0.0547] | 14 / 11 / 0 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | precision@10 | 25 | 0.6360 | +0.0600 [+0.0239, +0.1001] | 13 / 4 / 8 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | question | ndcg@10 | 25 | 0.6991 | +0.0315 [+0.0005, +0.0618] | 17 / 8 / 0 |
+| `fusion-linear+w=0.5+d=100` | question | precision@10 | 25 | 0.7080 | +0.0480 [+0.0080, +0.0880] | 11 / 3 / 11 |
+| `fusion-linear+w=0.5+d=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | ndcg@10 | 100 | 0.6803 | +0.0161 [-0.0070, +0.0380] | 59 / 41 / 0 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | precision@10 | 100 | 0.6510 | +0.0180 [-0.0110, +0.0460] | 37 / 29 / 34 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | ndcg@10 | 25 | 0.6856 | -0.0146 [-0.0604, +0.0280] | 11 / 14 / 0 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | precision@10 | 25 | 0.7000 | +0.0080 [-0.0521, +0.0640] | 7 / 9 / 9 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | ndcg@10 | 25 | 0.6503 | -0.0445 [-0.0786, -0.0115] | 10 / 15 / 0 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | precision@10 | 25 | 0.5360 | -0.0680 [-0.1200, -0.0199] | 5 / 13 / 7 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.6694 | +0.0754 [+0.0260, +0.1329] | 18 / 7 / 0 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | precision@10 | 25 | 0.6600 | +0.0840 [+0.0280, +0.1440] | 15 / 4 / 6 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | ndcg@10 | 25 | 0.7158 | +0.0482 [+0.0155, +0.0830] | 20 / 5 / 0 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | precision@10 | 25 | 0.7080 | +0.0480 [-0.0080, +0.1080] | 10 / 3 / 12 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | ndcg@10 | 100 | 0.7062 | +0.0420 [+0.0248, +0.0589] | 69 / 28 / 3 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | precision@10 | 100 | 0.6800 | +0.0470 [+0.0250, +0.0710] | 45 / 17 / 38 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | ndcg@10 | 25 | 0.7302 | +0.0301 [+0.0018, +0.0590] | 15 / 8 / 2 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | precision@10 | 25 | 0.7360 | +0.0440 [+0.0040, +0.0880] | 9 / 3 / 13 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | ndcg@10 | 25 | 0.6932 | -0.0016 [-0.0325, +0.0268] | 14 / 10 / 1 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | precision@10 | 25 | 0.5920 | -0.0120 [-0.0561, +0.0320] | 7 / 8 / 10 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.6738 | +0.0798 [+0.0399, +0.1219] | 20 / 5 / 0 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | precision@10 | 25 | 0.6560 | +0.0800 [+0.0280, +0.1360] | 14 / 4 / 7 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | ndcg@10 | 25 | 0.7274 | +0.0597 [+0.0365, +0.0814] | 20 / 5 / 0 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | precision@10 | 25 | 0.7360 | +0.0760 [+0.0400, +0.1121] | 15 / 2 / 8 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | ndcg@10 | 100 | 0.7095 | +0.0453 [+0.0279, +0.0636] | 67 / 30 / 3 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | precision@10 | 100 | 0.6900 | +0.0570 [+0.0330, +0.0830] | 48 / 17 / 35 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | ndcg@10 | 25 | 0.7347 | +0.0346 [+0.0040, +0.0642] | 16 / 7 / 2 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | precision@10 | 25 | 0.7440 | +0.0520 [+0.0079, +0.1000] | 11 / 3 / 11 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | ndcg@10 | 25 | 0.7137 | +0.0189 [-0.0173, +0.0559] | 16 / 8 / 1 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | precision@10 | 25 | 0.6200 | +0.0160 [-0.0440, +0.0760] | 8 / 7 / 10 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.6580 | +0.0640 [+0.0307, +0.0984] | 18 / 7 / 0 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | precision@10 | 25 | 0.6480 | +0.0720 [+0.0279, +0.1200] | 14 / 3 / 8 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | ndcg@10 | 25 | 0.7315 | +0.0639 [+0.0313, +0.0945] | 17 / 8 / 0 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | precision@10 | 25 | 0.7480 | +0.0880 [+0.0360, +0.1400] | 15 / 4 / 6 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | all | ndcg@10 | 100 | 0.7071 | +0.0430 [+0.0254, +0.0594] | 67 / 29 / 4 |
+| `fusion-linear+w=0.75+d=100` | all | precision@10 | 100 | 0.6850 | +0.0520 [+0.0280, +0.0750] | 45 / 16 / 39 |
+| `fusion-linear+w=0.75+d=100` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.75+d=100` | keyword | ndcg@10 | 25 | 0.7350 | +0.0349 [+0.0066, +0.0643] | 15 / 8 / 2 |
+| `fusion-linear+w=0.75+d=100` | keyword | precision@10 | 25 | 0.7440 | +0.0520 [+0.0120, +0.0960] | 9 / 2 / 14 |
+| `fusion-linear+w=0.75+d=100` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | known_item | ndcg@10 | 25 | 0.7007 | +0.0059 [-0.0260, +0.0358] | 15 / 8 / 2 |
+| `fusion-linear+w=0.75+d=100` | known_item | precision@10 | 25 | 0.6000 | -0.0040 [-0.0520, +0.0400] | 7 / 7 / 11 |
+| `fusion-linear+w=0.75+d=100` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | ndcg@10 | 25 | 0.6689 | +0.0749 [+0.0344, +0.1188] | 19 / 6 / 0 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | precision@10 | 25 | 0.6600 | +0.0840 [+0.0359, +0.1361] | 15 / 4 / 6 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | question | ndcg@10 | 25 | 0.7239 | +0.0563 [+0.0308, +0.0800] | 18 / 7 / 0 |
+| `fusion-linear+w=0.75+d=100` | question | precision@10 | 25 | 0.7360 | +0.0760 [+0.0360, +0.1160] | 14 / 3 / 8 |
+| `fusion-linear+w=0.75+d=100` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=1+d=100+c=10` | all | ndcg@10 | 100 | 0.6475 | -0.0167 [-0.0443, +0.0099] | 49 / 50 / 1 |
+| `fusion-rrf+w=1+d=100+c=10` | all | precision@10 | 100 | 0.6370 | +0.0040 [-0.0280, +0.0350] | 42 / 38 / 20 |
+| `fusion-rrf+w=1+d=100+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | ndcg@10 | 25 | 0.6457 | -0.0544 [-0.1126, +0.0033] | 11 / 14 / 0 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | precision@10 | 25 | 0.6760 | -0.0160 [-0.0840, +0.0600] | 9 / 13 / 3 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | ndcg@10 | 25 | 0.6019 | -0.0929 [-0.1379, -0.0489] | 6 / 19 / 0 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | precision@10 | 25 | 0.5160 | -0.0880 [-0.1401, -0.0360] | 5 / 15 / 5 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.6479 | +0.0539 [-0.0074, +0.1209] | 17 / 7 / 1 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | precision@10 | 25 | 0.6520 | +0.0760 [+0.0200, +0.1320] | 16 / 5 / 4 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=1+d=100+c=10` | question | ndcg@10 | 25 | 0.6944 | +0.0268 [-0.0126, +0.0673] | 15 / 10 / 0 |
+| `fusion-rrf+w=1+d=100+c=10` | question | precision@10 | 25 | 0.7040 | +0.0440 [-0.0160, +0.1040] | 12 / 5 / 8 |
+| `fusion-rrf+w=1+d=100+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | ndcg@10 | 100 | 0.5212 | -0.1429 [-0.1717, -0.1124] | 14 / 84 / 2 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | precision@10 | 100 | 0.5120 | -0.1210 [-0.1530, -0.0870] | 13 / 67 / 20 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | ndcg@10 | 25 | 0.6130 | -0.0871 [-0.1278, -0.0463] | 4 / 20 / 1 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | precision@10 | 25 | 0.5960 | -0.0960 [-0.1560, -0.0440] | 4 / 14 / 7 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | ndcg@10 | 25 | 0.6684 | -0.0264 [-0.0598, +0.0112] | 7 / 17 / 1 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | precision@10 | 25 | 0.5880 | -0.0160 [-0.0720, +0.0440] | 5 / 11 / 9 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | ndcg@10 | 25 | 0.3660 | -0.2279 [-0.2932, -0.1653] | 3 / 22 / 0 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | precision@10 | 25 | 0.4120 | -0.1640 [-0.2360, -0.0960] | 4 / 19 / 2 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | ndcg@10 | 25 | 0.4375 | -0.2301 [-0.2703, -0.1868] | 0 / 25 / 0 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | precision@10 | 25 | 0.4520 | -0.2080 [-0.2560, -0.1600] | 0 / 23 / 2 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-gte-small` | all | ndcg@10 | 100 | 0.5843 | -0.0799 [-0.1166, -0.0447] | 35 / 64 / 1 |
+| `dense-gte-small` | all | precision@10 | 100 | 0.5810 | -0.0520 [-0.0910, -0.0120] | 27 / 48 / 25 |
+| `dense-gte-small` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `dense-gte-small` | keyword | ndcg@10 | 25 | 0.6608 | -0.0393 [-0.1116, +0.0329] | 10 / 15 / 0 |
+| `dense-gte-small` | keyword | precision@10 | 25 | 0.6520 | -0.0400 [-0.1280, +0.0521] | 5 / 13 / 7 |
+| `dense-gte-small` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-gte-small` | known_item | ndcg@10 | 25 | 0.5821 | -0.1127 [-0.1949, -0.0415] | 9 / 16 / 0 |
+| `dense-gte-small` | known_item | precision@10 | 25 | 0.5200 | -0.0840 [-0.1600, -0.0119] | 7 / 12 / 6 |
+| `dense-gte-small` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-gte-small` | paraphrase | ndcg@10 | 25 | 0.5071 | -0.0869 [-0.1666, -0.0043] | 8 / 16 / 1 |
+| `dense-gte-small` | paraphrase | precision@10 | 25 | 0.5360 | -0.0400 [-0.1120, +0.0280] | 7 / 11 / 7 |
+| `dense-gte-small` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-gte-small` | question | ndcg@10 | 25 | 0.5870 | -0.0806 [-0.1476, -0.0204] | 8 / 17 / 0 |
+| `dense-gte-small` | question | precision@10 | 25 | 0.6160 | -0.0440 [-0.1200, +0.0321] | 8 / 12 / 5 |
+| `dense-gte-small` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-bge-small` | all | ndcg@10 | 100 | 0.5793 | -0.0848 [-0.1262, -0.0455] | 32 / 67 / 1 |
+| `dense-bge-small` | all | precision@10 | 100 | 0.5840 | -0.0490 [-0.0890, -0.0110] | 30 / 45 / 25 |
+| `dense-bge-small` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `dense-bge-small` | keyword | ndcg@10 | 25 | 0.6340 | -0.0661 [-0.1394, +0.0033] | 9 / 16 / 0 |
+| `dense-bge-small` | keyword | precision@10 | 25 | 0.6560 | -0.0360 [-0.1321, +0.0560] | 8 / 12 / 5 |
+| `dense-bge-small` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-bge-small` | known_item | ndcg@10 | 25 | 0.6220 | -0.0728 [-0.1390, -0.0095] | 8 / 16 / 1 |
+| `dense-bge-small` | known_item | precision@10 | 25 | 0.5600 | -0.0440 [-0.1120, +0.0240] | 9 / 10 / 6 |
+| `dense-bge-small` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-bge-small` | paraphrase | ndcg@10 | 25 | 0.4630 | -0.1310 [-0.2278, -0.0297] | 5 / 20 / 0 |
+| `dense-bge-small` | paraphrase | precision@10 | 25 | 0.4960 | -0.0800 [-0.1800, +0.0200] | 6 / 13 / 6 |
+| `dense-bge-small` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-bge-small` | question | ndcg@10 | 25 | 0.5982 | -0.0694 [-0.1307, -0.0071] | 10 / 15 / 0 |
+| `dense-bge-small` | question | precision@10 | 25 | 0.6240 | -0.0360 [-0.0880, +0.0160] | 7 / 10 / 8 |
+| `dense-bge-small` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6346 | -0.0296 [-0.0535, -0.0073] | 47 / 49 / 4 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | precision@10 | 100 | 0.6110 | -0.0220 [-0.0490, +0.0050] | 32 / 37 / 31 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7121 | +0.0119 [-0.0308, +0.0512] | 14 / 10 / 1 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | precision@10 | 25 | 0.6880 | -0.0040 [-0.0480, +0.0400] | 9 / 7 / 9 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.7033 | +0.0085 [-0.0237, +0.0411] | 16 / 7 / 2 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | precision@10 | 25 | 0.6040 | +0.0000 [-0.0560, +0.0520] | 9 / 9 / 7 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.5162 | -0.0778 [-0.1310, -0.0316] | 8 / 16 / 1 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | precision@10 | 25 | 0.5560 | -0.0200 [-0.0720, +0.0320] | 6 / 9 / 10 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.6068 | -0.0608 [-0.1034, -0.0167] | 9 / 16 / 0 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | precision@10 | 25 | 0.5960 | -0.0640 [-0.1240, -0.0040] | 8 / 12 / 5 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6313 | -0.0329 [-0.0591, -0.0084] | 36 / 61 / 3 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | precision@10 | 100 | 0.6140 | -0.0190 [-0.0510, +0.0080] | 31 / 38 / 31 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.6997 | -0.0005 [-0.0406, +0.0423] | 9 / 14 / 2 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | precision@10 | 25 | 0.6920 | +0.0000 [-0.0480, +0.0480] | 8 / 7 / 10 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.7171 | +0.0223 [-0.0134, +0.0574] | 15 / 9 / 1 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | precision@10 | 25 | 0.6200 | +0.0160 [-0.0360, +0.0680] | 8 / 8 / 9 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.4815 | -0.1125 [-0.1725, -0.0541] | 5 / 20 / 0 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | precision@10 | 25 | 0.5280 | -0.0480 [-0.1120, +0.0160] | 7 / 12 / 6 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.6268 | -0.0408 [-0.0838, +0.0055] | 7 / 18 / 0 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | precision@10 | 25 | 0.6160 | -0.0440 [-0.1080, +0.0120] | 8 / 11 / 6 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-openai-large` | all | ndcg@10 | 100 | 0.6475 | -0.0167 [-0.0443, +0.0099] | 49 / 50 / 1 |
+| `dense-openai-large` | all | precision@10 | 100 | 0.6370 | +0.0040 [-0.0280, +0.0350] | 42 / 38 / 20 |
+| `dense-openai-large` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `dense-openai-large` | keyword | ndcg@10 | 25 | 0.6457 | -0.0544 [-0.1126, +0.0033] | 11 / 14 / 0 |
+| `dense-openai-large` | keyword | precision@10 | 25 | 0.6760 | -0.0160 [-0.0840, +0.0600] | 9 / 13 / 3 |
+| `dense-openai-large` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-openai-large` | known_item | ndcg@10 | 25 | 0.6019 | -0.0929 [-0.1379, -0.0489] | 6 / 19 / 0 |
+| `dense-openai-large` | known_item | precision@10 | 25 | 0.5160 | -0.0880 [-0.1401, -0.0360] | 5 / 15 / 5 |
+| `dense-openai-large` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-openai-large` | paraphrase | ndcg@10 | 25 | 0.6479 | +0.0539 [-0.0074, +0.1209] | 17 / 7 / 1 |
+| `dense-openai-large` | paraphrase | precision@10 | 25 | 0.6520 | +0.0760 [+0.0200, +0.1320] | 16 / 5 / 4 |
+| `dense-openai-large` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-openai-large` | question | ndcg@10 | 25 | 0.6944 | +0.0268 [-0.0126, +0.0673] | 15 / 10 / 0 |
+| `dense-openai-large` | question | precision@10 | 25 | 0.7040 | +0.0440 [-0.0160, +0.1040] | 12 / 5 / 8 |
+| `dense-openai-large` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6641 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | precision@10 | 100 | 0.6330 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | judged@10 | 100 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7001 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | precision@10 | 25 | 0.6920 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.6948 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | precision@10 | 25 | 0.6040 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.5940 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | precision@10 | 25 | 0.5760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.6676 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | precision@10 | 25 | 0.6600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | judged@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
 ## Source metrics (overall and by query type)
 
 | System | Type | Metric | n | Mean | Paired delta [95% CI] | Wins / regressions / ties |
 |---|---|---|---|---|---|---|
-| `baseline-original-equal-rrf-c10-d100` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | all | recall@5 | 100 | 0.8000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | all | recall@20 | 100 | 0.9000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | all | mrr@10 | 100 | 0.6534 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | all | ndcg@10 | 100 | 0.6988 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | recall@5 | 25 | 0.9200 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | recall@10 | 25 | 0.9600 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | mrr@10 | 25 | 0.7167 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | ndcg@10 | 25 | 0.7754 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | keyword | judged@10 | 25 | 0.0960 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | recall@1 | 25 | 0.2400 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | recall@5 | 25 | 0.5200 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | mrr@10 | 25 | 0.3644 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | ndcg@10 | 25 | 0.4307 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | paraphrase | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | mrr@10 | 25 | 0.5527 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | ndcg@10 | 25 | 0.6039 | withheld | withheld |
-| `baseline-original-equal-rrf-c10-d100` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | recall@1 | 100 | 0.5500 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | recall@5 | 100 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | recall@10 | 100 | 0.7100 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | recall@20 | 100 | 0.7100 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | mrr@10 | 100 | 0.6053 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | ndcg@10 | 100 | 0.6309 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | all | judged@10 | 100 | 0.0710 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | mrr@10 | 25 | 0.7250 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | ndcg@10 | 25 | 0.7736 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | recall@5 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | recall@10 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | recall@20 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | mrr@10 | 25 | 0.1947 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.2155 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | judged@10 | 25 | 0.0280 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | recall@20 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | mrr@10 | 25 | 0.5217 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | ndcg@10 | 25 | 0.5493 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=10` | question | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | recall@5 | 100 | 0.6900 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | recall@10 | 100 | 0.7000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | recall@20 | 100 | 0.7100 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | mrr@10 | 100 | 0.6142 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | ndcg@10 | 100 | 0.6357 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | all | judged@10 | 100 | 0.0700 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | mrr@10 | 25 | 0.7167 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | ndcg@10 | 25 | 0.7582 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | recall@5 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | recall@10 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | recall@20 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | mrr@10 | 25 | 0.2267 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.2400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | judged@10 | 25 | 0.0280 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | recall@5 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | recall@20 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | mrr@10 | 25 | 0.5333 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | ndcg@10 | 25 | 0.5595 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=60` | question | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | recall@5 | 100 | 0.6900 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | recall@10 | 100 | 0.7000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | recall@20 | 100 | 0.7100 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | mrr@10 | 100 | 0.6142 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | ndcg@10 | 100 | 0.6357 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | all | judged@10 | 100 | 0.0700 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | mrr@10 | 25 | 0.7167 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | ndcg@10 | 25 | 0.7582 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | recall@5 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | recall@10 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | recall@20 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | mrr@10 | 25 | 0.2267 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.2400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | judged@10 | 25 | 0.0280 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | recall@5 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | recall@20 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | mrr@10 | 25 | 0.5333 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | ndcg@10 | 25 | 0.5595 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=20+c=100` | question | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | recall@5 | 100 | 0.6800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | recall@10 | 100 | 0.7100 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | recall@20 | 100 | 0.8700 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | mrr@10 | 100 | 0.6143 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | ndcg@10 | 100 | 0.6378 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | all | judged@10 | 100 | 0.0710 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | recall@1 | 25 | 0.6400 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | mrr@10 | 25 | 0.7590 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | ndcg@10 | 25 | 0.7995 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | recall@5 | 25 | 0.2400 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | recall@10 | 25 | 0.2800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | mrr@10 | 25 | 0.1933 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | ndcg@10 | 25 | 0.2142 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | paraphrase | judged@10 | 25 | 0.0280 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | recall@5 | 25 | 0.6000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | mrr@10 | 25 | 0.5250 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | ndcg@10 | 25 | 0.5523 | withheld | withheld |
-| `fusion-linear+w=0.25+d=20` | question | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | recall@5 | 100 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | mrr@10 | 100 | 0.6386 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | ndcg@10 | 100 | 0.6875 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | recall@5 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | mrr@10 | 25 | 0.7127 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | ndcg@10 | 25 | 0.7639 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | recall@5 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | mrr@10 | 25 | 0.3197 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.4063 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | mrr@10 | 25 | 0.5420 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | ndcg@10 | 25 | 0.5944 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=10` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | recall@1 | 100 | 0.5300 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | recall@5 | 100 | 0.7800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | mrr@10 | 100 | 0.6267 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | ndcg@10 | 100 | 0.6781 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | mrr@10 | 25 | 0.6963 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | ndcg@10 | 25 | 0.7506 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | mrr@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | ndcg@10 | 25 | 0.9705 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | mrr@10 | 25 | 0.3130 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.4006 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | mrr@10 | 25 | 0.5374 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | ndcg@10 | 25 | 0.5909 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=60` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | recall@1 | 100 | 0.5300 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | recall@5 | 100 | 0.7800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | mrr@10 | 100 | 0.6283 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | ndcg@10 | 100 | 0.6794 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | mrr@10 | 25 | 0.6963 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | ndcg@10 | 25 | 0.7506 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | mrr@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | ndcg@10 | 25 | 0.9705 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | mrr@10 | 25 | 0.3130 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.4006 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | mrr@10 | 25 | 0.5440 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | ndcg@10 | 25 | 0.5961 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=20+c=100` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | recall@1 | 100 | 0.5300 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | recall@5 | 100 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | mrr@10 | 100 | 0.6349 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | ndcg@10 | 100 | 0.6850 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | recall@5 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | mrr@10 | 25 | 0.7060 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | ndcg@10 | 25 | 0.7586 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | mrr@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | ndcg@10 | 25 | 0.9705 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | recall@5 | 25 | 0.6000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | mrr@10 | 25 | 0.3288 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | ndcg@10 | 25 | 0.4138 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | mrr@10 | 25 | 0.5450 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | ndcg@10 | 25 | 0.5970 | withheld | withheld |
-| `fusion-linear+w=0.5+d=20` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | recall@1 | 100 | 0.5700 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | recall@5 | 100 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | recall@10 | 100 | 0.8500 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | recall@20 | 100 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | mrr@10 | 100 | 0.6583 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | ndcg@10 | 100 | 0.7044 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | all | judged@10 | 100 | 0.0850 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | recall@20 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | mrr@10 | 25 | 0.6292 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | ndcg@10 | 25 | 0.6892 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | recall@5 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | mrr@10 | 25 | 0.9467 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | ndcg@10 | 25 | 0.9595 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | recall@1 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | mrr@10 | 25 | 0.4581 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.5201 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | mrr@10 | 25 | 0.5990 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | ndcg@10 | 25 | 0.6487 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=10` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | recall@1 | 100 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | recall@5 | 100 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | recall@10 | 100 | 0.8500 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | recall@20 | 100 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | mrr@10 | 100 | 0.6252 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | ndcg@10 | 100 | 0.6794 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | all | judged@10 | 100 | 0.0850 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | recall@20 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | mrr@10 | 25 | 0.6280 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | ndcg@10 | 25 | 0.6880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | mrr@10 | 25 | 0.9467 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | ndcg@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | mrr@10 | 25 | 0.3615 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.4475 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | recall@5 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | mrr@10 | 25 | 0.5648 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | ndcg@10 | 25 | 0.6221 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=60` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | recall@1 | 100 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | recall@5 | 100 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | recall@10 | 100 | 0.8500 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | recall@20 | 100 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | mrr@10 | 100 | 0.6252 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | ndcg@10 | 100 | 0.6794 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | all | judged@10 | 100 | 0.0850 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | recall@20 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | mrr@10 | 25 | 0.6280 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | ndcg@10 | 25 | 0.6880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | mrr@10 | 25 | 0.9467 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | ndcg@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | mrr@10 | 25 | 0.3615 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.4475 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | recall@5 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | mrr@10 | 25 | 0.5648 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | ndcg@10 | 25 | 0.6221 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=20+c=100` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | recall@1 | 100 | 0.5500 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | recall@5 | 100 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | recall@10 | 100 | 0.8200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | mrr@10 | 100 | 0.6420 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | ndcg@10 | 100 | 0.6855 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | all | judged@10 | 100 | 0.0820 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | mrr@10 | 25 | 0.6200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | ndcg@10 | 25 | 0.6647 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | keyword | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | recall@5 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | recall@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | mrr@10 | 25 | 0.9333 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | ndcg@10 | 25 | 0.9400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | known_item | judged@10 | 25 | 0.0960 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | recall@1 | 25 | 0.3200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | mrr@10 | 25 | 0.4357 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | ndcg@10 | 25 | 0.5035 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | paraphrase | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | mrr@10 | 25 | 0.5790 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | ndcg@10 | 25 | 0.6340 | withheld | withheld |
-| `fusion-linear+w=0.75+d=20` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | recall@5 | 100 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | recall@10 | 100 | 0.7300 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | recall@20 | 100 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | mrr@10 | 100 | 0.6026 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | ndcg@10 | 100 | 0.6332 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | all | judged@10 | 100 | 0.0730 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | mrr@10 | 25 | 0.7250 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | ndcg@10 | 25 | 0.7736 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | recall@5 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | recall@10 | 25 | 0.3200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | recall@20 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | mrr@10 | 25 | 0.1991 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.2275 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | judged@10 | 25 | 0.0320 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | mrr@10 | 25 | 0.5061 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | ndcg@10 | 25 | 0.5466 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=10` | question | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | recall@5 | 100 | 0.7100 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | recall@10 | 100 | 0.7400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | recall@20 | 100 | 0.7700 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | mrr@10 | 100 | 0.6261 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | ndcg@10 | 100 | 0.6542 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | all | judged@10 | 100 | 0.0740 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | recall@1 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | mrr@10 | 25 | 0.7400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | ndcg@10 | 25 | 0.7752 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | recall@5 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | recall@10 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | recall@20 | 25 | 0.4000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | mrr@10 | 25 | 0.2367 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.2677 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | judged@10 | 25 | 0.0360 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | recall@5 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | mrr@10 | 25 | 0.5478 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | ndcg@10 | 25 | 0.5888 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=60` | question | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | recall@5 | 100 | 0.7100 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | recall@10 | 100 | 0.7500 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | recall@20 | 100 | 0.7700 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | mrr@10 | 100 | 0.6300 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | ndcg@10 | 100 | 0.6594 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | all | judged@10 | 100 | 0.0750 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | recall@1 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | mrr@10 | 25 | 0.7378 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | ndcg@10 | 25 | 0.7730 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | recall@5 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | recall@10 | 25 | 0.4000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | recall@20 | 25 | 0.4000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | mrr@10 | 25 | 0.2511 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.2878 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | judged@10 | 25 | 0.0400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | recall@5 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | mrr@10 | 25 | 0.5511 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | ndcg@10 | 25 | 0.5915 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=50+c=100` | question | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | recall@5 | 100 | 0.6900 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | recall@10 | 100 | 0.7200 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | recall@20 | 100 | 0.7500 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | mrr@10 | 100 | 0.6179 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | ndcg@10 | 100 | 0.6429 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | all | judged@10 | 100 | 0.0720 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | recall@1 | 25 | 0.6400 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | mrr@10 | 25 | 0.7391 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | ndcg@10 | 25 | 0.7832 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | recall@5 | 25 | 0.2800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | recall@10 | 25 | 0.2800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | recall@20 | 25 | 0.3600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | mrr@10 | 25 | 0.2067 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | ndcg@10 | 25 | 0.2252 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | paraphrase | judged@10 | 25 | 0.0280 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | recall@5 | 25 | 0.6000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | mrr@10 | 25 | 0.5457 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | ndcg@10 | 25 | 0.5781 | withheld | withheld |
-| `fusion-linear+w=0.25+d=50` | question | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | recall@1 | 100 | 0.5500 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | recall@5 | 100 | 0.7800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | recall@20 | 100 | 0.9000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | mrr@10 | 100 | 0.6455 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | ndcg@10 | 100 | 0.6927 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | recall@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | mrr@10 | 25 | 0.7115 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | ndcg@10 | 25 | 0.7708 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | keyword | judged@10 | 25 | 0.0960 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | recall@5 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | mrr@10 | 25 | 0.3378 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.4107 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | mrr@10 | 25 | 0.5527 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | ndcg@10 | 25 | 0.6039 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=10` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | recall@5 | 100 | 0.7400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | recall@10 | 100 | 0.8300 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | mrr@10 | 100 | 0.6295 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | ndcg@10 | 100 | 0.6772 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | all | judged@10 | 100 | 0.0830 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | mrr@10 | 25 | 0.6960 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | ndcg@10 | 25 | 0.7491 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | mrr@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | ndcg@10 | 25 | 0.9705 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | recall@5 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | mrr@10 | 25 | 0.3140 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.3898 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | mrr@10 | 25 | 0.5481 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | ndcg@10 | 25 | 0.5996 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=60` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | recall@5 | 100 | 0.7400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | recall@10 | 100 | 0.8200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | mrr@10 | 100 | 0.6302 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | ndcg@10 | 100 | 0.6757 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | all | judged@10 | 100 | 0.0820 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | mrr@10 | 25 | 0.6920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | ndcg@10 | 25 | 0.7375 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | mrr@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | ndcg@10 | 25 | 0.9705 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | recall@5 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | mrr@10 | 25 | 0.3140 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.3898 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | mrr@10 | 25 | 0.5548 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | ndcg@10 | 25 | 0.6048 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=50+c=100` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | recall@5 | 100 | 0.7500 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | recall@10 | 100 | 0.8300 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | recall@20 | 100 | 0.9000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | mrr@10 | 100 | 0.6332 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | ndcg@10 | 100 | 0.6804 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | all | judged@10 | 100 | 0.0830 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | mrr@10 | 25 | 0.6930 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | ndcg@10 | 25 | 0.7386 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | mrr@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | ndcg@10 | 25 | 0.9705 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | recall@5 | 25 | 0.4400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | mrr@10 | 25 | 0.3296 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | ndcg@10 | 25 | 0.4108 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | recall@5 | 25 | 0.7200 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | mrr@10 | 25 | 0.5504 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | ndcg@10 | 25 | 0.6017 | withheld | withheld |
-| `fusion-linear+w=0.5+d=50` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | recall@1 | 100 | 0.5700 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | recall@5 | 100 | 0.7700 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | recall@10 | 100 | 0.8600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | mrr@10 | 100 | 0.6579 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | ndcg@10 | 100 | 0.7063 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | all | judged@10 | 100 | 0.0860 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | recall@5 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | mrr@10 | 25 | 0.6372 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | ndcg@10 | 25 | 0.7047 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | recall@5 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | mrr@10 | 25 | 0.9400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | ndcg@10 | 25 | 0.9542 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | recall@1 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | mrr@10 | 25 | 0.4581 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.5201 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | mrr@10 | 25 | 0.5963 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | ndcg@10 | 25 | 0.6463 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=10` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | recall@1 | 100 | 0.5300 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | recall@5 | 100 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | recall@10 | 100 | 0.8500 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | mrr@10 | 100 | 0.6262 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | ndcg@10 | 100 | 0.6797 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | all | judged@10 | 100 | 0.0850 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | recall@5 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | mrr@10 | 25 | 0.6397 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | ndcg@10 | 25 | 0.7068 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | mrr@10 | 25 | 0.9467 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | ndcg@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | recall@1 | 25 | 0.2400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | recall@5 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | mrr@10 | 25 | 0.3405 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.4192 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | mrr@10 | 25 | 0.5778 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | ndcg@10 | 25 | 0.6327 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=60` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | recall@1 | 100 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | recall@5 | 100 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | mrr@10 | 100 | 0.6169 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | ndcg@10 | 100 | 0.6705 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | recall@5 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | mrr@10 | 25 | 0.6357 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | ndcg@10 | 25 | 0.6953 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | mrr@10 | 25 | 0.9467 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | ndcg@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | recall@5 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | mrr@10 | 25 | 0.3167 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.4016 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | mrr@10 | 25 | 0.5687 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | ndcg@10 | 25 | 0.6252 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=50+c=100` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | recall@1 | 100 | 0.5300 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | recall@5 | 100 | 0.7800 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | recall@10 | 100 | 0.8700 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | mrr@10 | 100 | 0.6322 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | ndcg@10 | 100 | 0.6890 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | all | judged@10 | 100 | 0.0870 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | mrr@10 | 25 | 0.6311 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | ndcg@10 | 25 | 0.6995 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | mrr@10 | 25 | 0.9467 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | ndcg@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | recall@1 | 25 | 0.2400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | recall@5 | 25 | 0.6000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | mrr@10 | 25 | 0.3726 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | ndcg@10 | 25 | 0.4631 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | paraphrase | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | mrr@10 | 25 | 0.5783 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | ndcg@10 | 25 | 0.6333 | withheld | withheld |
-| `fusion-linear+w=0.75+d=50` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | recall@1 | 100 | 0.5100 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | recall@5 | 100 | 0.6600 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | recall@10 | 100 | 0.7100 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | recall@20 | 100 | 0.7100 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | mrr@10 | 100 | 0.5687 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | ndcg@10 | 100 | 0.6025 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | all | judged@10 | 100 | 0.0710 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | mrr@10 | 25 | 0.7100 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7619 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | recall@1 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | mrr@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | ndcg@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | recall@1 | 25 | 0.0800 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | recall@5 | 25 | 0.2400 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | recall@10 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | recall@20 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.1324 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.1675 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0280 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | recall@1 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | recall@5 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | recall@20 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | mrr@10 | 25 | 0.4324 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | ndcg@10 | 25 | 0.4805 | withheld | withheld |
-| `fusion-rrf+w=0+d=100+c=10` | question | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | recall@5 | 100 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | recall@10 | 100 | 0.7300 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | recall@20 | 100 | 0.7800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | mrr@10 | 100 | 0.6023 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | ndcg@10 | 100 | 0.6330 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | all | judged@10 | 100 | 0.0730 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | mrr@10 | 25 | 0.7250 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7736 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | recall@5 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | recall@10 | 25 | 0.3200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | recall@20 | 25 | 0.4000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.1991 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.2275 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0320 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | mrr@10 | 25 | 0.5052 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | ndcg@10 | 25 | 0.5457 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=10` | question | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | recall@5 | 100 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | recall@10 | 100 | 0.7400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | recall@20 | 100 | 0.7800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | mrr@10 | 100 | 0.6260 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | ndcg@10 | 100 | 0.6542 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | all | judged@10 | 100 | 0.0740 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | recall@1 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | mrr@10 | 25 | 0.7433 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | ndcg@10 | 25 | 0.7782 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | recall@5 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | recall@10 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | recall@20 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | mrr@10 | 25 | 0.2367 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.2677 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | judged@10 | 25 | 0.0360 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | recall@5 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | mrr@10 | 25 | 0.5440 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | ndcg@10 | 25 | 0.5855 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=60` | question | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | recall@5 | 100 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | recall@10 | 100 | 0.7500 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | recall@20 | 100 | 0.7900 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | mrr@10 | 100 | 0.6303 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | ndcg@10 | 100 | 0.6597 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | all | judged@10 | 100 | 0.0750 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | recall@1 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | mrr@10 | 25 | 0.7433 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | ndcg@10 | 25 | 0.7782 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | recall@1 | 25 | 0.1600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | recall@5 | 25 | 0.3600 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | recall@10 | 25 | 0.4000 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | recall@20 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | mrr@10 | 25 | 0.2507 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.2873 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | judged@10 | 25 | 0.0400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | recall@5 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | mrr@10 | 25 | 0.5473 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | ndcg@10 | 25 | 0.5883 | withheld | withheld |
-| `fusion-rrf+w=0.25+d=100+c=100` | question | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | recall@1 | 100 | 0.5700 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | recall@5 | 100 | 0.7200 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | recall@10 | 100 | 0.7400 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | recall@20 | 100 | 0.7700 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | mrr@10 | 100 | 0.6363 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | ndcg@10 | 100 | 0.6621 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | all | judged@10 | 100 | 0.0740 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | recall@1 | 25 | 0.6400 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | mrr@10 | 25 | 0.7413 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | ndcg@10 | 25 | 0.7764 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | recall@5 | 25 | 0.3600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | recall@10 | 25 | 0.3600 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | recall@20 | 25 | 0.4000 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | mrr@10 | 25 | 0.2667 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | ndcg@10 | 25 | 0.2905 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | paraphrase | judged@10 | 25 | 0.0360 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | recall@5 | 25 | 0.6400 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | mrr@10 | 25 | 0.5573 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | ndcg@10 | 25 | 0.5963 | withheld | withheld |
-| `fusion-linear+w=0.25+d=100` | question | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | recall@5 | 100 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | recall@20 | 100 | 0.9000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | mrr@10 | 100 | 0.6534 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | ndcg@10 | 100 | 0.6988 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | recall@5 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | recall@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | mrr@10 | 25 | 0.7167 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7754 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | keyword | judged@10 | 25 | 0.0960 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | recall@1 | 25 | 0.2400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | recall@5 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.3644 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.4307 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | mrr@10 | 25 | 0.5527 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | ndcg@10 | 25 | 0.6039 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=10` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | recall@5 | 100 | 0.7400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | recall@10 | 100 | 0.7800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | recall@20 | 100 | 0.8700 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | mrr@10 | 100 | 0.6260 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | ndcg@10 | 100 | 0.6637 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | all | judged@10 | 100 | 0.0780 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | mrr@10 | 25 | 0.6970 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | ndcg@10 | 25 | 0.7501 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | mrr@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | ndcg@10 | 25 | 0.9705 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | recall@5 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | recall@10 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | mrr@10 | 25 | 0.3044 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.3478 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | judged@10 | 25 | 0.0480 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | mrr@10 | 25 | 0.5424 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | ndcg@10 | 25 | 0.5863 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=60` | question | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | recall@5 | 100 | 0.7400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | recall@10 | 100 | 0.7700 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | recall@20 | 100 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | mrr@10 | 100 | 0.6266 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | ndcg@10 | 100 | 0.6621 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | all | judged@10 | 100 | 0.0770 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | mrr@10 | 25 | 0.6924 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | ndcg@10 | 25 | 0.7380 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | mrr@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | ndcg@10 | 25 | 0.9705 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | recall@5 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | recall@10 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | recall@20 | 25 | 0.6400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | mrr@10 | 25 | 0.3050 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.3483 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | judged@10 | 25 | 0.0480 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | mrr@10 | 25 | 0.5490 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | ndcg@10 | 25 | 0.5915 | withheld | withheld |
-| `fusion-rrf+w=0.5+d=100+c=100` | question | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | recall@5 | 100 | 0.7400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | recall@10 | 100 | 0.7900 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | recall@20 | 100 | 0.8800 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | mrr@10 | 100 | 0.6270 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | ndcg@10 | 100 | 0.6665 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | all | judged@10 | 100 | 0.0790 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | recall@10 | 25 | 0.8800 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | mrr@10 | 25 | 0.6920 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | ndcg@10 | 25 | 0.7375 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | keyword | judged@10 | 25 | 0.0880 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | mrr@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | ndcg@10 | 25 | 0.9705 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | recall@5 | 25 | 0.4400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | recall@10 | 25 | 0.5200 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | mrr@10 | 25 | 0.3028 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | ndcg@10 | 25 | 0.3551 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | paraphrase | judged@10 | 25 | 0.0520 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | mrr@10 | 25 | 0.5530 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | ndcg@10 | 25 | 0.6031 | withheld | withheld |
-| `fusion-linear+w=0.5+d=100` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | recall@5 | 100 | 0.7700 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | recall@10 | 100 | 0.8600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | recall@20 | 100 | 0.9000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | mrr@10 | 100 | 0.6537 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | ndcg@10 | 100 | 0.7032 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | all | judged@10 | 100 | 0.0860 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | recall@5 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | mrr@10 | 25 | 0.6439 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7099 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | recall@5 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | mrr@10 | 25 | 0.9400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | ndcg@10 | 25 | 0.9542 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | recall@1 | 25 | 0.3200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.4381 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.5053 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | mrr@10 | 25 | 0.5930 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | ndcg@10 | 25 | 0.6435 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=10` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | recall@5 | 100 | 0.7700 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | mrr@10 | 100 | 0.6304 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | ndcg@10 | 100 | 0.6807 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | mrr@10 | 25 | 0.6457 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | ndcg@10 | 25 | 0.7125 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | mrr@10 | 25 | 0.9433 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | ndcg@10 | 25 | 0.9572 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | recall@1 | 25 | 0.2800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | recall@5 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | mrr@10 | 25 | 0.3590 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.4326 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | mrr@10 | 25 | 0.5733 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | ndcg@10 | 25 | 0.6206 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=60` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | recall@1 | 100 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | recall@5 | 100 | 0.7700 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | mrr@10 | 100 | 0.6181 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | ndcg@10 | 100 | 0.6714 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | mrr@10 | 25 | 0.6437 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | ndcg@10 | 25 | 0.7108 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | mrr@10 | 25 | 0.9433 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | ndcg@10 | 25 | 0.9572 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | recall@5 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | mrr@10 | 25 | 0.3206 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.4041 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | mrr@10 | 25 | 0.5647 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | ndcg@10 | 25 | 0.6136 | withheld | withheld |
-| `fusion-rrf+w=0.75+d=100+c=100` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | recall@1 | 100 | 0.5300 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | recall@5 | 100 | 0.7500 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | recall@20 | 100 | 0.8900 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | mrr@10 | 100 | 0.6244 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | ndcg@10 | 100 | 0.6761 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | recall@5 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | mrr@10 | 25 | 0.6402 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | ndcg@10 | 25 | 0.7073 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | recall@1 | 25 | 0.9200 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | mrr@10 | 25 | 0.9467 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | ndcg@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | recall@1 | 25 | 0.2400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | recall@5 | 25 | 0.4400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | mrr@10 | 25 | 0.3475 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | ndcg@10 | 25 | 0.4244 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | paraphrase | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | mrr@10 | 25 | 0.5633 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | ndcg@10 | 25 | 0.6126 | withheld | withheld |
-| `fusion-linear+w=0.75+d=100` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | recall@1 | 100 | 0.5000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | recall@5 | 100 | 0.7400 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | recall@10 | 100 | 0.8200 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | recall@20 | 100 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | mrr@10 | 100 | 0.5993 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | ndcg@10 | 100 | 0.6520 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | all | judged@10 | 100 | 0.0820 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | recall@5 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | recall@20 | 25 | 0.8800 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | mrr@10 | 25 | 0.5773 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | ndcg@10 | 25 | 0.6314 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | keyword | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | recall@1 | 25 | 0.6800 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | recall@5 | 25 | 0.9200 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | recall@10 | 25 | 0.9600 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | mrr@10 | 25 | 0.7930 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | ndcg@10 | 25 | 0.8343 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | known_item | judged@10 | 25 | 0.0960 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | recall@1 | 25 | 0.4000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | recall@5 | 25 | 0.5200 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.4664 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.5241 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | recall@5 | 25 | 0.7200 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | mrr@10 | 25 | 0.5604 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | ndcg@10 | 25 | 0.6185 | withheld | withheld |
-| `fusion-rrf+w=1+d=100+c=10` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | recall@1 | 100 | 0.5100 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | recall@5 | 100 | 0.6600 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | recall@10 | 100 | 0.7100 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | recall@20 | 100 | 0.7100 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | mrr@10 | 100 | 0.5687 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | ndcg@10 | 100 | 0.6025 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | judged@10 | 100 | 0.0710 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | recall@5 | 25 | 0.8800 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | recall@10 | 25 | 0.9200 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | mrr@10 | 25 | 0.7100 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | ndcg@10 | 25 | 0.7619 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | judged@10 | 25 | 0.0920 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | recall@1 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | mrr@10 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | ndcg@10 | 25 | 1.0000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | recall@1 | 25 | 0.0800 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | recall@5 | 25 | 0.2400 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | recall@10 | 25 | 0.2800 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | recall@20 | 25 | 0.2800 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | mrr@10 | 25 | 0.1324 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | ndcg@10 | 25 | 0.1675 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | judged@10 | 25 | 0.0280 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | recall@1 | 25 | 0.3600 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | recall@5 | 25 | 0.5200 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | recall@20 | 25 | 0.6400 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | mrr@10 | 25 | 0.4324 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | ndcg@10 | 25 | 0.4805 | withheld | withheld |
-| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `dense-gte-small` | all | recall@1 | 100 | 0.4300 | withheld | withheld |
-| `dense-gte-small` | all | recall@5 | 100 | 0.6600 | withheld | withheld |
-| `dense-gte-small` | all | recall@10 | 100 | 0.7100 | withheld | withheld |
-| `dense-gte-small` | all | recall@20 | 100 | 0.7800 | withheld | withheld |
-| `dense-gte-small` | all | mrr@10 | 100 | 0.5254 | withheld | withheld |
-| `dense-gte-small` | all | ndcg@10 | 100 | 0.5704 | withheld | withheld |
-| `dense-gte-small` | all | judged@10 | 100 | 0.0710 | withheld | withheld |
-| `dense-gte-small` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `dense-gte-small` | keyword | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `dense-gte-small` | keyword | recall@10 | 25 | 0.8400 | withheld | withheld |
-| `dense-gte-small` | keyword | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `dense-gte-small` | keyword | mrr@10 | 25 | 0.6880 | withheld | withheld |
-| `dense-gte-small` | keyword | ndcg@10 | 25 | 0.7256 | withheld | withheld |
-| `dense-gte-small` | keyword | judged@10 | 25 | 0.0840 | withheld | withheld |
-| `dense-gte-small` | known_item | recall@1 | 25 | 0.5200 | withheld | withheld |
-| `dense-gte-small` | known_item | recall@5 | 25 | 0.8400 | withheld | withheld |
-| `dense-gte-small` | known_item | recall@10 | 25 | 0.8400 | withheld | withheld |
-| `dense-gte-small` | known_item | recall@20 | 25 | 0.8800 | withheld | withheld |
-| `dense-gte-small` | known_item | mrr@10 | 25 | 0.6327 | withheld | withheld |
-| `dense-gte-small` | known_item | ndcg@10 | 25 | 0.6839 | withheld | withheld |
-| `dense-gte-small` | known_item | judged@10 | 25 | 0.0840 | withheld | withheld |
-| `dense-gte-small` | paraphrase | recall@1 | 25 | 0.2800 | withheld | withheld |
-| `dense-gte-small` | paraphrase | recall@5 | 25 | 0.4400 | withheld | withheld |
-| `dense-gte-small` | paraphrase | recall@10 | 25 | 0.5200 | withheld | withheld |
-| `dense-gte-small` | paraphrase | recall@20 | 25 | 0.6400 | withheld | withheld |
-| `dense-gte-small` | paraphrase | mrr@10 | 25 | 0.3640 | withheld | withheld |
-| `dense-gte-small` | paraphrase | ndcg@10 | 25 | 0.4017 | withheld | withheld |
-| `dense-gte-small` | paraphrase | judged@10 | 25 | 0.0520 | withheld | withheld |
-| `dense-gte-small` | question | recall@1 | 25 | 0.3200 | withheld | withheld |
-| `dense-gte-small` | question | recall@5 | 25 | 0.5200 | withheld | withheld |
-| `dense-gte-small` | question | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `dense-gte-small` | question | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `dense-gte-small` | question | mrr@10 | 25 | 0.4170 | withheld | withheld |
-| `dense-gte-small` | question | ndcg@10 | 25 | 0.4702 | withheld | withheld |
-| `dense-gte-small` | question | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `dense-bge-small` | all | recall@1 | 100 | 0.4200 | withheld | withheld |
-| `dense-bge-small` | all | recall@5 | 100 | 0.6000 | withheld | withheld |
-| `dense-bge-small` | all | recall@10 | 100 | 0.7000 | withheld | withheld |
-| `dense-bge-small` | all | recall@20 | 100 | 0.7900 | withheld | withheld |
-| `dense-bge-small` | all | mrr@10 | 100 | 0.5056 | withheld | withheld |
-| `dense-bge-small` | all | ndcg@10 | 100 | 0.5518 | withheld | withheld |
-| `dense-bge-small` | all | judged@10 | 100 | 0.0700 | withheld | withheld |
-| `dense-bge-small` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `dense-bge-small` | keyword | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `dense-bge-small` | keyword | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `dense-bge-small` | keyword | recall@20 | 25 | 0.8800 | withheld | withheld |
-| `dense-bge-small` | keyword | mrr@10 | 25 | 0.6542 | withheld | withheld |
-| `dense-bge-small` | keyword | ndcg@10 | 25 | 0.6874 | withheld | withheld |
-| `dense-bge-small` | keyword | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `dense-bge-small` | known_item | recall@1 | 25 | 0.5600 | withheld | withheld |
-| `dense-bge-small` | known_item | recall@5 | 25 | 0.8000 | withheld | withheld |
-| `dense-bge-small` | known_item | recall@10 | 25 | 0.8400 | withheld | withheld |
-| `dense-bge-small` | known_item | recall@20 | 25 | 0.9200 | withheld | withheld |
-| `dense-bge-small` | known_item | mrr@10 | 25 | 0.6667 | withheld | withheld |
-| `dense-bge-small` | known_item | ndcg@10 | 25 | 0.7097 | withheld | withheld |
-| `dense-bge-small` | known_item | judged@10 | 25 | 0.0840 | withheld | withheld |
-| `dense-bge-small` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `dense-bge-small` | paraphrase | recall@5 | 25 | 0.3600 | withheld | withheld |
-| `dense-bge-small` | paraphrase | recall@10 | 25 | 0.4800 | withheld | withheld |
-| `dense-bge-small` | paraphrase | recall@20 | 25 | 0.6400 | withheld | withheld |
-| `dense-bge-small` | paraphrase | mrr@10 | 25 | 0.2840 | withheld | withheld |
-| `dense-bge-small` | paraphrase | ndcg@10 | 25 | 0.3305 | withheld | withheld |
-| `dense-bge-small` | paraphrase | judged@10 | 25 | 0.0480 | withheld | withheld |
-| `dense-bge-small` | question | recall@1 | 25 | 0.3200 | withheld | withheld |
-| `dense-bge-small` | question | recall@5 | 25 | 0.5600 | withheld | withheld |
-| `dense-bge-small` | question | recall@10 | 25 | 0.6800 | withheld | withheld |
-| `dense-bge-small` | question | recall@20 | 25 | 0.7200 | withheld | withheld |
-| `dense-bge-small` | question | mrr@10 | 25 | 0.4177 | withheld | withheld |
-| `dense-bge-small` | question | ndcg@10 | 25 | 0.4795 | withheld | withheld |
-| `dense-bge-small` | question | judged@10 | 25 | 0.0680 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | recall@1 | 100 | 0.5400 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | recall@5 | 100 | 0.7600 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | recall@10 | 100 | 0.8000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | recall@20 | 100 | 0.8400 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | mrr@10 | 100 | 0.6350 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6754 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | all | judged@10 | 100 | 0.0800 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | recall@5 | 25 | 0.9200 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | recall@10 | 25 | 0.9600 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | mrr@10 | 25 | 0.7280 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7851 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 0.0960 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | mrr@10 | 25 | 0.9733 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.9800 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | recall@1 | 25 | 0.2000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | recall@5 | 25 | 0.4800 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | recall@10 | 25 | 0.5200 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | recall@20 | 25 | 0.6400 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | mrr@10 | 25 | 0.3207 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.3697 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 0.0520 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | recall@1 | 25 | 0.4000 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | recall@5 | 25 | 0.6400 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | mrr@10 | 25 | 0.5180 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.5665 | withheld | withheld |
-| `hybrid-gte-small+rrf+w=0.5+c=10` | question | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | recall@1 | 100 | 0.5000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | recall@5 | 100 | 0.7700 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | recall@10 | 100 | 0.7900 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | recall@20 | 100 | 0.8500 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | mrr@10 | 100 | 0.6019 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6481 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | all | judged@10 | 100 | 0.0790 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | recall@1 | 25 | 0.5600 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | recall@5 | 25 | 0.9600 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | recall@10 | 25 | 0.9600 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | recall@20 | 25 | 0.9600 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | mrr@10 | 25 | 0.7093 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7719 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 0.0960 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | recall@1 | 25 | 0.8800 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | mrr@10 | 25 | 0.9300 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.9477 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | recall@1 | 25 | 0.1200 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | recall@5 | 25 | 0.4400 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | recall@10 | 25 | 0.4800 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | recall@20 | 25 | 0.6800 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | mrr@10 | 25 | 0.2320 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.2920 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 0.0480 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | recall@5 | 25 | 0.6800 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | recall@20 | 25 | 0.7600 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | mrr@10 | 25 | 0.5363 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.5810 | withheld | withheld |
-| `hybrid-bge-small+rrf+w=0.5+c=10` | question | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `dense-openai-large` | all | recall@1 | 100 | 0.5000 | withheld | withheld |
-| `dense-openai-large` | all | recall@5 | 100 | 0.7400 | withheld | withheld |
-| `dense-openai-large` | all | recall@10 | 100 | 0.8200 | withheld | withheld |
-| `dense-openai-large` | all | recall@20 | 100 | 0.8800 | withheld | withheld |
-| `dense-openai-large` | all | mrr@10 | 100 | 0.5993 | withheld | withheld |
-| `dense-openai-large` | all | ndcg@10 | 100 | 0.6520 | withheld | withheld |
-| `dense-openai-large` | all | judged@10 | 100 | 0.0820 | withheld | withheld |
-| `dense-openai-large` | keyword | recall@1 | 25 | 0.4800 | withheld | withheld |
-| `dense-openai-large` | keyword | recall@5 | 25 | 0.8000 | withheld | withheld |
-| `dense-openai-large` | keyword | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `dense-openai-large` | keyword | recall@20 | 25 | 0.8800 | withheld | withheld |
-| `dense-openai-large` | keyword | mrr@10 | 25 | 0.5773 | withheld | withheld |
-| `dense-openai-large` | keyword | ndcg@10 | 25 | 0.6314 | withheld | withheld |
-| `dense-openai-large` | keyword | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `dense-openai-large` | known_item | recall@1 | 25 | 0.6800 | withheld | withheld |
-| `dense-openai-large` | known_item | recall@5 | 25 | 0.9200 | withheld | withheld |
-| `dense-openai-large` | known_item | recall@10 | 25 | 0.9600 | withheld | withheld |
-| `dense-openai-large` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `dense-openai-large` | known_item | mrr@10 | 25 | 0.7930 | withheld | withheld |
-| `dense-openai-large` | known_item | ndcg@10 | 25 | 0.8343 | withheld | withheld |
-| `dense-openai-large` | known_item | judged@10 | 25 | 0.0960 | withheld | withheld |
-| `dense-openai-large` | paraphrase | recall@1 | 25 | 0.4000 | withheld | withheld |
-| `dense-openai-large` | paraphrase | recall@5 | 25 | 0.5200 | withheld | withheld |
-| `dense-openai-large` | paraphrase | recall@10 | 25 | 0.7200 | withheld | withheld |
-| `dense-openai-large` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `dense-openai-large` | paraphrase | mrr@10 | 25 | 0.4664 | withheld | withheld |
-| `dense-openai-large` | paraphrase | ndcg@10 | 25 | 0.5241 | withheld | withheld |
-| `dense-openai-large` | paraphrase | judged@10 | 25 | 0.0720 | withheld | withheld |
-| `dense-openai-large` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `dense-openai-large` | question | recall@5 | 25 | 0.7200 | withheld | withheld |
-| `dense-openai-large` | question | recall@10 | 25 | 0.8000 | withheld | withheld |
-| `dense-openai-large` | question | recall@20 | 25 | 0.8400 | withheld | withheld |
-| `dense-openai-large` | question | mrr@10 | 25 | 0.5604 | withheld | withheld |
-| `dense-openai-large` | question | ndcg@10 | 25 | 0.6185 | withheld | withheld |
-| `dense-openai-large` | question | judged@10 | 25 | 0.0800 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | recall@1 | 100 | 0.5600 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | recall@5 | 100 | 0.8000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | recall@10 | 100 | 0.8400 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | recall@20 | 100 | 0.9000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | mrr@10 | 100 | 0.6534 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6988 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | all | judged@10 | 100 | 0.0840 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | recall@1 | 25 | 0.6000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | recall@5 | 25 | 0.9200 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | recall@10 | 25 | 0.9600 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | mrr@10 | 25 | 0.7167 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7754 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 0.0960 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | recall@1 | 25 | 0.9600 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | recall@5 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | recall@10 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | recall@20 | 25 | 1.0000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | mrr@10 | 25 | 0.9800 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.9852 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 0.1000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | recall@1 | 25 | 0.2400 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | recall@5 | 25 | 0.5200 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | recall@10 | 25 | 0.6400 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | mrr@10 | 25 | 0.3644 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.4307 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 0.0640 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | recall@1 | 25 | 0.4400 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | recall@5 | 25 | 0.7600 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | recall@10 | 25 | 0.7600 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | recall@20 | 25 | 0.8000 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | mrr@10 | 25 | 0.5527 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.6039 | withheld | withheld |
-| `hybrid-openai-large+rrf+w=0.5+c=10` | question | judged@10 | 25 | 0.0760 | withheld | withheld |
+| `baseline-original-equal-rrf-c10-d100` | all | recall@1 | 100 | 0.5600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | all | recall@5 | 100 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | all | recall@10 | 100 | 0.8400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | all | recall@20 | 100 | 0.9000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | all | mrr@10 | 100 | 0.6534 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | all | ndcg@10 | 100 | 0.6988 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | all | judged@10 | 100 | 0.0840 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | recall@5 | 25 | 0.9200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | recall@10 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | mrr@10 | 25 | 0.7167 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | ndcg@10 | 25 | 0.7754 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | keyword | judged@10 | 25 | 0.0960 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | recall@1 | 25 | 0.2400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | recall@5 | 25 | 0.5200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | recall@10 | 25 | 0.6400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | mrr@10 | 25 | 0.3644 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | ndcg@10 | 25 | 0.4307 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | paraphrase | judged@10 | 25 | 0.0640 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | mrr@10 | 25 | 0.5527 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | ndcg@10 | 25 | 0.6039 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `baseline-original-equal-rrf-c10-d100` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | recall@1 | 100 | 0.5500 | -0.0100 [-0.0700, +0.0500] | 4 / 5 / 91 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | recall@5 | 100 | 0.6800 | -0.1200 [-0.1900, -0.0600] | 0 / 12 / 88 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | recall@10 | 100 | 0.7100 | -0.1300 [-0.2000, -0.0600] | 1 / 14 / 85 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | recall@20 | 100 | 0.7100 | -0.1900 [-0.2700, -0.1200] | 0 / 19 / 81 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | mrr@10 | 100 | 0.6053 | -0.0481 [-0.0941, -0.0059] | 7 / 21 / 72 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | ndcg@10 | 100 | 0.6309 | -0.0679 [-0.1173, -0.0227] | 7 / 21 / 72 |
+| `fusion-rrf+w=0.25+d=20+c=10` | all | judged@10 | 100 | 0.0710 | -0.0130 [-0.0200, -0.0060] | 1 / 14 / 85 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.1600, +0.1600] | 2 / 2 / 21 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | mrr@10 | 25 | 0.7250 | +0.0083 [-0.0830, +0.0927] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | ndcg@10 | 25 | 0.7736 | -0.0019 [-0.0831, +0.0747] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=10` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0160, +0.0080] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0410] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | recall@5 | 25 | 0.2800 | -0.2400 [-0.4000, -0.0800] | 0 / 6 / 19 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | recall@10 | 25 | 0.2800 | -0.3600 [-0.5200, -0.2000] | 0 / 9 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | recall@20 | 25 | 0.2800 | -0.5200 [-0.7200, -0.3600] | 0 / 13 / 12 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | mrr@10 | 25 | 0.1947 | -0.1698 [-0.3134, -0.0473] | 1 / 11 / 13 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.2155 | -0.2152 [-0.3537, -0.0919] | 1 / 11 / 13 |
+| `fusion-rrf+w=0.25+d=20+c=10` | paraphrase | judged@10 | 25 | 0.0280 | -0.0360 [-0.0520, -0.0200] | 0 / 9 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | recall@5 | 25 | 0.5600 | -0.2000 [-0.3600, -0.0400] | 0 / 5 / 20 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | recall@10 | 25 | 0.6400 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | recall@20 | 25 | 0.6400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | mrr@10 | 25 | 0.5217 | -0.0310 [-0.0840, +0.0267] | 1 / 6 / 18 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | ndcg@10 | 25 | 0.5493 | -0.0546 [-0.1197, +0.0084] | 1 / 6 / 18 |
+| `fusion-rrf+w=0.25+d=20+c=10` | question | judged@10 | 25 | 0.0640 | -0.0120 [-0.0240, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | recall@1 | 100 | 0.5600 | +0.0000 [-0.0600, +0.0502] | 4 / 4 / 92 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | recall@5 | 100 | 0.6900 | -0.1100 [-0.1800, -0.0500] | 0 / 11 / 89 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | recall@10 | 100 | 0.7000 | -0.1400 [-0.2100, -0.0800] | 0 / 14 / 86 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | recall@20 | 100 | 0.7100 | -0.1900 [-0.2700, -0.1200] | 0 / 19 / 81 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | mrr@10 | 100 | 0.6142 | -0.0393 [-0.0873, +0.0032] | 8 / 19 / 73 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | ndcg@10 | 100 | 0.6357 | -0.0631 [-0.1133, -0.0179] | 8 / 19 / 73 |
+| `fusion-rrf+w=0.25+d=20+c=60` | all | judged@10 | 100 | 0.0700 | -0.0140 [-0.0210, -0.0080] | 0 / 14 / 86 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | mrr@10 | 25 | 0.7167 | +0.0000 [-0.0633, +0.0673] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | ndcg@10 | 25 | 0.7582 | -0.0173 [-0.0781, +0.0418] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=60` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.2000, +0.1200] | 2 / 3 / 20 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | recall@5 | 25 | 0.2800 | -0.2400 [-0.4000, -0.0800] | 0 / 6 / 19 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | recall@10 | 25 | 0.2800 | -0.3600 [-0.5200, -0.2000] | 0 / 9 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | recall@20 | 25 | 0.2800 | -0.5200 [-0.7200, -0.3600] | 0 / 13 / 12 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | mrr@10 | 25 | 0.2267 | -0.1378 [-0.2945, -0.0044] | 2 / 10 / 13 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.2400 | -0.1907 [-0.3401, -0.0576] | 2 / 10 / 13 |
+| `fusion-rrf+w=0.25+d=20+c=60` | paraphrase | judged@10 | 25 | 0.0280 | -0.0360 [-0.0520, -0.0200] | 0 / 9 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | recall@5 | 25 | 0.6000 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | recall@10 | 25 | 0.6400 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | recall@20 | 25 | 0.6400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | mrr@10 | 25 | 0.5333 | -0.0193 [-0.0680, +0.0360] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | ndcg@10 | 25 | 0.5595 | -0.0444 [-0.1096, +0.0152] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.25+d=20+c=60` | question | judged@10 | 25 | 0.0640 | -0.0120 [-0.0240, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | recall@1 | 100 | 0.5600 | +0.0000 [-0.0600, +0.0502] | 4 / 4 / 92 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | recall@5 | 100 | 0.6900 | -0.1100 [-0.1800, -0.0500] | 0 / 11 / 89 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | recall@10 | 100 | 0.7000 | -0.1400 [-0.2100, -0.0800] | 0 / 14 / 86 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | recall@20 | 100 | 0.7100 | -0.1900 [-0.2700, -0.1200] | 0 / 19 / 81 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | mrr@10 | 100 | 0.6142 | -0.0393 [-0.0873, +0.0032] | 8 / 19 / 73 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | ndcg@10 | 100 | 0.6357 | -0.0631 [-0.1133, -0.0179] | 8 / 19 / 73 |
+| `fusion-rrf+w=0.25+d=20+c=100` | all | judged@10 | 100 | 0.0700 | -0.0140 [-0.0210, -0.0080] | 0 / 14 / 86 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | mrr@10 | 25 | 0.7167 | +0.0000 [-0.0633, +0.0673] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | ndcg@10 | 25 | 0.7582 | -0.0173 [-0.0781, +0.0418] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=100` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.2000, +0.1200] | 2 / 3 / 20 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | recall@5 | 25 | 0.2800 | -0.2400 [-0.4000, -0.0800] | 0 / 6 / 19 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | recall@10 | 25 | 0.2800 | -0.3600 [-0.5200, -0.2000] | 0 / 9 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | recall@20 | 25 | 0.2800 | -0.5200 [-0.7200, -0.3600] | 0 / 13 / 12 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | mrr@10 | 25 | 0.2267 | -0.1378 [-0.2945, -0.0044] | 2 / 10 / 13 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.2400 | -0.1907 [-0.3401, -0.0576] | 2 / 10 / 13 |
+| `fusion-rrf+w=0.25+d=20+c=100` | paraphrase | judged@10 | 25 | 0.0280 | -0.0360 [-0.0520, -0.0200] | 0 / 9 / 16 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | recall@5 | 25 | 0.6000 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | recall@10 | 25 | 0.6400 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | recall@20 | 25 | 0.6400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | mrr@10 | 25 | 0.5333 | -0.0193 [-0.0680, +0.0360] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | ndcg@10 | 25 | 0.5595 | -0.0444 [-0.1096, +0.0152] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.25+d=20+c=100` | question | judged@10 | 25 | 0.0640 | -0.0120 [-0.0240, +0.0000] | 0 / 3 / 22 |
+| `fusion-linear+w=0.25+d=20` | all | recall@1 | 100 | 0.5600 | +0.0000 [-0.0600, +0.0600] | 4 / 4 / 92 |
+| `fusion-linear+w=0.25+d=20` | all | recall@5 | 100 | 0.6800 | -0.1200 [-0.1900, -0.0600] | 0 / 12 / 88 |
+| `fusion-linear+w=0.25+d=20` | all | recall@10 | 100 | 0.7100 | -0.1300 [-0.2000, -0.0600] | 1 / 14 / 85 |
+| `fusion-linear+w=0.25+d=20` | all | recall@20 | 100 | 0.8700 | -0.0300 [-0.0700, +0.0000] | 0 / 3 / 97 |
+| `fusion-linear+w=0.25+d=20` | all | mrr@10 | 100 | 0.6143 | -0.0391 [-0.0861, +0.0027] | 9 / 20 / 71 |
+| `fusion-linear+w=0.25+d=20` | all | ndcg@10 | 100 | 0.6378 | -0.0610 [-0.1103, -0.0170] | 9 / 20 / 71 |
+| `fusion-linear+w=0.25+d=20` | all | judged@10 | 100 | 0.0710 | -0.0130 [-0.0200, -0.0060] | 1 / 14 / 85 |
+| `fusion-linear+w=0.25+d=20` | keyword | recall@1 | 25 | 0.6400 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-linear+w=0.25+d=20` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.25+d=20` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-linear+w=0.25+d=20` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | keyword | mrr@10 | 25 | 0.7590 | +0.0424 [-0.0323, +0.1201] | 7 / 3 / 15 |
+| `fusion-linear+w=0.25+d=20` | keyword | ndcg@10 | 25 | 0.7995 | +0.0241 [-0.0486, +0.0974] | 7 / 3 / 15 |
+| `fusion-linear+w=0.25+d=20` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0160, +0.0080] | 1 / 2 / 22 |
+| `fusion-linear+w=0.25+d=20` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0410] | 1 / 3 / 21 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | recall@5 | 25 | 0.2400 | -0.2800 [-0.4800, -0.1200] | 0 / 7 / 18 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | recall@10 | 25 | 0.2800 | -0.3600 [-0.5200, -0.2000] | 0 / 9 / 16 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | mrr@10 | 25 | 0.1933 | -0.1711 [-0.3144, -0.0489] | 1 / 11 / 13 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | ndcg@10 | 25 | 0.2142 | -0.2165 [-0.3547, -0.0931] | 1 / 11 / 13 |
+| `fusion-linear+w=0.25+d=20` | paraphrase | judged@10 | 25 | 0.0280 | -0.0360 [-0.0520, -0.0200] | 0 / 9 / 16 |
+| `fusion-linear+w=0.25+d=20` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-linear+w=0.25+d=20` | question | recall@5 | 25 | 0.6000 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-linear+w=0.25+d=20` | question | recall@10 | 25 | 0.6400 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `fusion-linear+w=0.25+d=20` | question | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.25+d=20` | question | mrr@10 | 25 | 0.5250 | -0.0277 [-0.0800, +0.0273] | 1 / 6 / 18 |
+| `fusion-linear+w=0.25+d=20` | question | ndcg@10 | 25 | 0.5523 | -0.0516 [-0.1168, +0.0091] | 1 / 6 / 18 |
+| `fusion-linear+w=0.25+d=20` | question | judged@10 | 25 | 0.0640 | -0.0120 [-0.0240, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0600, +0.0200] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | recall@5 | 100 | 0.8000 | +0.0000 [-0.0400, +0.0400] | 2 / 2 / 96 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | recall@10 | 100 | 0.8400 | +0.0000 [-0.0300, +0.0300] | 1 / 1 / 98 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | mrr@10 | 100 | 0.6386 | -0.0148 [-0.0442, +0.0108] | 8 / 8 / 84 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | ndcg@10 | 100 | 0.6875 | -0.0114 [-0.0356, +0.0095] | 8 / 8 / 84 |
+| `fusion-rrf+w=0.5+d=20+c=10` | all | judged@10 | 100 | 0.0840 | +0.0000 [-0.0030, +0.0030] | 1 / 1 / 98 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | recall@5 | 25 | 0.9200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | mrr@10 | 25 | 0.7127 | -0.0040 [-0.0140, +0.0040] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | ndcg@10 | 25 | 0.7639 | -0.0116 [-0.0382, +0.0035] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.5+d=20+c=10` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0400] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | recall@5 | 25 | 0.6000 | +0.0800 [+0.0000, +0.2000] | 2 / 0 / 23 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | mrr@10 | 25 | 0.3197 | -0.0448 [-0.1527, +0.0547] | 7 / 4 / 14 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.4063 | -0.0244 [-0.1089, +0.0554] | 7 / 4 / 14 |
+| `fusion-rrf+w=0.5+d=20+c=10` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | mrr@10 | 25 | 0.5420 | -0.0106 [-0.0296, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | ndcg@10 | 25 | 0.5944 | -0.0095 [-0.0264, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=20+c=10` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | recall@1 | 100 | 0.5300 | -0.0300 [-0.0800, +0.0100] | 1 / 4 / 95 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | recall@5 | 100 | 0.7800 | -0.0200 [-0.0700, +0.0200] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | recall@10 | 100 | 0.8400 | +0.0000 [-0.0300, +0.0300] | 1 / 1 / 98 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | mrr@10 | 100 | 0.6267 | -0.0268 [-0.0566, +0.0014] | 7 / 13 / 80 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | ndcg@10 | 100 | 0.6781 | -0.0207 [-0.0443, +0.0018] | 7 / 13 / 80 |
+| `fusion-rrf+w=0.5+d=20+c=60` | all | judged@10 | 100 | 0.0840 | +0.0000 [-0.0030, +0.0030] | 1 / 1 / 98 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | mrr@10 | 25 | 0.6963 | -0.0203 [-0.0423, -0.0010] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | ndcg@10 | 25 | 0.7506 | -0.0249 [-0.0539, -0.0017] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.5+d=20+c=60` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | mrr@10 | 25 | 0.9600 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | ndcg@10 | 25 | 0.9705 | -0.0148 [-0.0443, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0400] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | recall@5 | 25 | 0.5600 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | mrr@10 | 25 | 0.3130 | -0.0514 [-0.1587, +0.0458] | 5 / 5 / 15 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.4006 | -0.0301 [-0.1171, +0.0496] | 5 / 5 / 15 |
+| `fusion-rrf+w=0.5+d=20+c=60` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | mrr@10 | 25 | 0.5374 | -0.0153 [-0.0390, +0.0020] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | ndcg@10 | 25 | 0.5909 | -0.0130 [-0.0326, +0.0018] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.5+d=20+c=60` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | recall@1 | 100 | 0.5300 | -0.0300 [-0.0800, +0.0100] | 1 / 4 / 95 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | recall@5 | 100 | 0.7800 | -0.0200 [-0.0700, +0.0200] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | recall@10 | 100 | 0.8400 | +0.0000 [-0.0300, +0.0300] | 1 / 1 / 98 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | mrr@10 | 100 | 0.6283 | -0.0251 [-0.0551, +0.0027] | 8 / 13 / 79 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | ndcg@10 | 100 | 0.6794 | -0.0194 [-0.0434, +0.0035] | 8 / 13 / 79 |
+| `fusion-rrf+w=0.5+d=20+c=100` | all | judged@10 | 100 | 0.0840 | +0.0000 [-0.0030, +0.0030] | 1 / 1 / 98 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | mrr@10 | 25 | 0.6963 | -0.0203 [-0.0423, -0.0010] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | ndcg@10 | 25 | 0.7506 | -0.0249 [-0.0539, -0.0017] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.5+d=20+c=100` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | mrr@10 | 25 | 0.9600 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | ndcg@10 | 25 | 0.9705 | -0.0148 [-0.0443, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0400] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | recall@5 | 25 | 0.5600 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | mrr@10 | 25 | 0.3130 | -0.0514 [-0.1587, +0.0458] | 5 / 5 / 15 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.4006 | -0.0301 [-0.1171, +0.0496] | 5 / 5 / 15 |
+| `fusion-rrf+w=0.5+d=20+c=100` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | mrr@10 | 25 | 0.5440 | -0.0086 [-0.0347, +0.0154] | 2 / 3 / 20 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | ndcg@10 | 25 | 0.5961 | -0.0078 [-0.0295, +0.0118] | 2 / 3 / 20 |
+| `fusion-rrf+w=0.5+d=20+c=100` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | all | recall@1 | 100 | 0.5300 | -0.0300 [-0.0800, +0.0100] | 1 / 4 / 95 |
+| `fusion-linear+w=0.5+d=20` | all | recall@5 | 100 | 0.8000 | +0.0000 [-0.0400, +0.0400] | 2 / 2 / 96 |
+| `fusion-linear+w=0.5+d=20` | all | recall@10 | 100 | 0.8400 | +0.0000 [-0.0300, +0.0300] | 1 / 1 / 98 |
+| `fusion-linear+w=0.5+d=20` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-linear+w=0.5+d=20` | all | mrr@10 | 100 | 0.6349 | -0.0185 [-0.0495, +0.0092] | 10 / 11 / 79 |
+| `fusion-linear+w=0.5+d=20` | all | ndcg@10 | 100 | 0.6850 | -0.0138 [-0.0378, +0.0076] | 10 / 11 / 79 |
+| `fusion-linear+w=0.5+d=20` | all | judged@10 | 100 | 0.0840 | +0.0000 [-0.0030, +0.0030] | 1 / 1 / 98 |
+| `fusion-linear+w=0.5+d=20` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | keyword | recall@5 | 25 | 0.9200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=20` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | keyword | mrr@10 | 25 | 0.7060 | -0.0107 [-0.0280, +0.0020] | 1 / 3 / 21 |
+| `fusion-linear+w=0.5+d=20` | keyword | ndcg@10 | 25 | 0.7586 | -0.0168 [-0.0458, +0.0018] | 1 / 3 / 21 |
+| `fusion-linear+w=0.5+d=20` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=20` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=20` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | known_item | mrr@10 | 25 | 0.9600 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=20` | known_item | ndcg@10 | 25 | 0.9705 | -0.0148 [-0.0443, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=20` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0400] | 1 / 3 / 21 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | recall@5 | 25 | 0.6000 | +0.0800 [+0.0000, +0.2000] | 2 / 0 / 23 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | mrr@10 | 25 | 0.3288 | -0.0357 [-0.1418, +0.0639] | 7 / 4 / 14 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | ndcg@10 | 25 | 0.4138 | -0.0169 [-0.1000, +0.0659] | 7 / 4 / 14 |
+| `fusion-linear+w=0.5+d=20` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-linear+w=0.5+d=20` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=20` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=20` | question | mrr@10 | 25 | 0.5450 | -0.0077 [-0.0330, +0.0173] | 2 / 3 / 20 |
+| `fusion-linear+w=0.5+d=20` | question | ndcg@10 | 25 | 0.5970 | -0.0069 [-0.0278, +0.0133] | 2 / 3 / 20 |
+| `fusion-linear+w=0.5+d=20` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | recall@1 | 100 | 0.5700 | +0.0100 [-0.0500, +0.0700] | 5 / 4 / 91 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | recall@5 | 100 | 0.7600 | -0.0400 [-0.1000, +0.0200] | 3 / 7 / 90 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | recall@10 | 100 | 0.8500 | +0.0100 [-0.0500, +0.0600] | 4 / 3 / 93 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | recall@20 | 100 | 0.8800 | -0.0200 [-0.0700, +0.0200] | 2 / 4 / 94 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | mrr@10 | 100 | 0.6583 | +0.0048 [-0.0390, +0.0479] | 15 / 14 / 71 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | ndcg@10 | 100 | 0.7044 | +0.0056 [-0.0363, +0.0448] | 15 / 14 / 71 |
+| `fusion-rrf+w=0.75+d=20+c=10` | all | judged@10 | 100 | 0.0850 | +0.0010 [-0.0050, +0.0060] | 4 / 3 / 93 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | recall@5 | 25 | 0.7600 | -0.1600 [-0.2800, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | recall@20 | 25 | 0.8800 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | mrr@10 | 25 | 0.6292 | -0.0875 [-0.1623, -0.0235] | 2 / 7 / 16 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | ndcg@10 | 25 | 0.6892 | -0.0863 [-0.1579, -0.0227] | 2 / 7 / 16 |
+| `fusion-rrf+w=0.75+d=20+c=10` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | recall@5 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | mrr@10 | 25 | 0.9467 | -0.0333 [-0.1000, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | ndcg@10 | 25 | 0.9595 | -0.0258 [-0.0773, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | recall@1 | 25 | 0.3600 | +0.1200 [-0.0400, +0.2800] | 4 / 1 / 20 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | recall@5 | 25 | 0.5600 | +0.0400 [-0.1200, +0.2000] | 3 / 2 / 20 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | recall@10 | 25 | 0.7200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [-0.0800, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | mrr@10 | 25 | 0.4581 | +0.0937 [-0.0229, +0.2246] | 9 / 5 / 11 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | ndcg@10 | 25 | 0.5201 | +0.0894 [-0.0157, +0.1955] | 9 / 5 / 11 |
+| `fusion-rrf+w=0.75+d=20+c=10` | paraphrase | judged@10 | 25 | 0.0720 | +0.0080 [-0.0080, +0.0240] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | mrr@10 | 25 | 0.5990 | +0.0464 [-0.0033, +0.1232] | 4 / 1 / 20 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | ndcg@10 | 25 | 0.6487 | +0.0448 [-0.0010, +0.1122] | 4 / 1 / 20 |
+| `fusion-rrf+w=0.75+d=20+c=10` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | recall@1 | 100 | 0.5200 | -0.0400 [-0.0900, +0.0100] | 1 / 5 / 94 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | recall@5 | 100 | 0.7600 | -0.0400 [-0.1000, +0.0100] | 2 / 6 / 92 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | recall@10 | 100 | 0.8500 | +0.0100 [-0.0500, +0.0600] | 4 / 3 / 93 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | recall@20 | 100 | 0.8800 | -0.0200 [-0.0700, +0.0200] | 2 / 4 / 94 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | mrr@10 | 100 | 0.6252 | -0.0282 [-0.0637, +0.0034] | 11 / 17 / 72 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | ndcg@10 | 100 | 0.6794 | -0.0194 [-0.0542, +0.0110] | 11 / 17 / 72 |
+| `fusion-rrf+w=0.75+d=20+c=60` | all | judged@10 | 100 | 0.0850 | +0.0010 [-0.0050, +0.0060] | 4 / 3 / 93 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | recall@5 | 25 | 0.7600 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | recall@20 | 25 | 0.8800 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | mrr@10 | 25 | 0.6280 | -0.0886 [-0.1584, -0.0326] | 0 / 8 / 17 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | ndcg@10 | 25 | 0.6880 | -0.0875 [-0.1592, -0.0305] | 0 / 8 / 17 |
+| `fusion-rrf+w=0.75+d=20+c=60` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | mrr@10 | 25 | 0.9467 | -0.0333 [-0.0933, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | ndcg@10 | 25 | 0.9600 | -0.0252 [-0.0705, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=60` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | recall@5 | 25 | 0.5600 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | recall@10 | 25 | 0.7200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [-0.0800, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | mrr@10 | 25 | 0.3615 | -0.0030 [-0.1083, +0.0828] | 8 / 5 / 12 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | ndcg@10 | 25 | 0.4475 | +0.0168 [-0.0843, +0.0997] | 8 / 5 / 12 |
+| `fusion-rrf+w=0.75+d=20+c=60` | paraphrase | judged@10 | 25 | 0.0720 | +0.0080 [-0.0080, +0.0240] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | recall@5 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | mrr@10 | 25 | 0.5648 | +0.0121 [-0.0082, +0.0372] | 3 / 2 / 20 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | ndcg@10 | 25 | 0.6221 | +0.0182 [-0.0071, +0.0539] | 3 / 2 / 20 |
+| `fusion-rrf+w=0.75+d=20+c=60` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | recall@1 | 100 | 0.5200 | -0.0400 [-0.0900, +0.0100] | 1 / 5 / 94 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | recall@5 | 100 | 0.7600 | -0.0400 [-0.1000, +0.0100] | 2 / 6 / 92 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | recall@10 | 100 | 0.8500 | +0.0100 [-0.0500, +0.0600] | 4 / 3 / 93 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | recall@20 | 100 | 0.8800 | -0.0200 [-0.0700, +0.0200] | 2 / 4 / 94 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | mrr@10 | 100 | 0.6252 | -0.0282 [-0.0637, +0.0034] | 11 / 17 / 72 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | ndcg@10 | 100 | 0.6794 | -0.0194 [-0.0542, +0.0110] | 11 / 17 / 72 |
+| `fusion-rrf+w=0.75+d=20+c=100` | all | judged@10 | 100 | 0.0850 | +0.0010 [-0.0050, +0.0060] | 4 / 3 / 93 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | recall@5 | 25 | 0.7600 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | recall@20 | 25 | 0.8800 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | mrr@10 | 25 | 0.6280 | -0.0886 [-0.1584, -0.0326] | 0 / 8 / 17 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | ndcg@10 | 25 | 0.6880 | -0.0875 [-0.1592, -0.0305] | 0 / 8 / 17 |
+| `fusion-rrf+w=0.75+d=20+c=100` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | mrr@10 | 25 | 0.9467 | -0.0333 [-0.0933, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | ndcg@10 | 25 | 0.9600 | -0.0252 [-0.0705, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | recall@5 | 25 | 0.5600 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | recall@10 | 25 | 0.7200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [-0.0800, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | mrr@10 | 25 | 0.3615 | -0.0030 [-0.1083, +0.0828] | 8 / 5 / 12 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | ndcg@10 | 25 | 0.4475 | +0.0168 [-0.0843, +0.0997] | 8 / 5 / 12 |
+| `fusion-rrf+w=0.75+d=20+c=100` | paraphrase | judged@10 | 25 | 0.0720 | +0.0080 [-0.0080, +0.0240] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | recall@5 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | mrr@10 | 25 | 0.5648 | +0.0121 [-0.0082, +0.0372] | 3 / 2 / 20 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | ndcg@10 | 25 | 0.6221 | +0.0182 [-0.0071, +0.0539] | 3 / 2 / 20 |
+| `fusion-rrf+w=0.75+d=20+c=100` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-linear+w=0.75+d=20` | all | recall@1 | 100 | 0.5500 | -0.0100 [-0.0600, +0.0400] | 3 / 4 / 93 |
+| `fusion-linear+w=0.75+d=20` | all | recall@5 | 100 | 0.7600 | -0.0400 [-0.1000, +0.0200] | 3 / 7 / 90 |
+| `fusion-linear+w=0.75+d=20` | all | recall@10 | 100 | 0.8200 | -0.0200 [-0.0900, +0.0400] | 4 / 6 / 90 |
+| `fusion-linear+w=0.75+d=20` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-linear+w=0.75+d=20` | all | mrr@10 | 100 | 0.6420 | -0.0114 [-0.0550, +0.0300] | 15 / 15 / 70 |
+| `fusion-linear+w=0.75+d=20` | all | ndcg@10 | 100 | 0.6855 | -0.0133 [-0.0586, +0.0258] | 15 / 15 / 70 |
+| `fusion-linear+w=0.75+d=20` | all | judged@10 | 100 | 0.0820 | -0.0020 [-0.0090, +0.0040] | 4 / 6 / 90 |
+| `fusion-linear+w=0.75+d=20` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=20` | keyword | recall@5 | 25 | 0.7600 | -0.1600 [-0.2800, -0.0400] | 0 / 4 / 21 |
+| `fusion-linear+w=0.75+d=20` | keyword | recall@10 | 25 | 0.8000 | -0.1600 [-0.2800, -0.0400] | 0 / 4 / 21 |
+| `fusion-linear+w=0.75+d=20` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=20` | keyword | mrr@10 | 25 | 0.6200 | -0.0967 [-0.1740, -0.0253] | 2 / 7 / 16 |
+| `fusion-linear+w=0.75+d=20` | keyword | ndcg@10 | 25 | 0.6647 | -0.1107 [-0.1942, -0.0327] | 2 / 7 / 16 |
+| `fusion-linear+w=0.75+d=20` | keyword | judged@10 | 25 | 0.0800 | -0.0160 [-0.0280, -0.0040] | 0 / 4 / 21 |
+| `fusion-linear+w=0.75+d=20` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=20` | known_item | recall@5 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=20` | known_item | recall@10 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=20` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=20` | known_item | mrr@10 | 25 | 0.9333 | -0.0467 [-0.1333, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=20` | known_item | ndcg@10 | 25 | 0.9400 | -0.0452 [-0.1305, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=20` | known_item | judged@10 | 25 | 0.0960 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | recall@1 | 25 | 0.3200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | recall@5 | 25 | 0.5600 | +0.0400 [-0.1200, +0.2000] | 3 / 2 / 20 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | recall@10 | 25 | 0.7200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | mrr@10 | 25 | 0.4357 | +0.0713 [-0.0356, +0.1924] | 9 / 5 / 11 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | ndcg@10 | 25 | 0.5035 | +0.0728 [-0.0301, +0.1768] | 9 / 5 / 11 |
+| `fusion-linear+w=0.75+d=20` | paraphrase | judged@10 | 25 | 0.0720 | +0.0080 [-0.0080, +0.0240] | 3 / 1 / 21 |
+| `fusion-linear+w=0.75+d=20` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=20` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=20` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-linear+w=0.75+d=20` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=20` | question | mrr@10 | 25 | 0.5790 | +0.0264 [-0.0033, +0.0621] | 4 / 1 / 20 |
+| `fusion-linear+w=0.75+d=20` | question | ndcg@10 | 25 | 0.6340 | +0.0301 [-0.0010, +0.0720] | 4 / 1 / 20 |
+| `fusion-linear+w=0.75+d=20` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0802, +0.0400] | 4 / 6 / 90 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | recall@5 | 100 | 0.6800 | -0.1200 [-0.1900, -0.0600] | 0 / 12 / 88 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | recall@10 | 100 | 0.7300 | -0.1100 [-0.1800, -0.0500] | 1 / 12 / 87 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | recall@20 | 100 | 0.7600 | -0.1400 [-0.2100, -0.0800] | 0 / 14 / 86 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | mrr@10 | 100 | 0.6026 | -0.0509 [-0.1001, -0.0079] | 7 / 22 / 71 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | ndcg@10 | 100 | 0.6332 | -0.0656 [-0.1109, -0.0227] | 7 / 22 / 71 |
+| `fusion-rrf+w=0.25+d=50+c=10` | all | judged@10 | 100 | 0.0730 | -0.0110 [-0.0180, -0.0050] | 1 / 12 / 87 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.1600, +0.1600] | 2 / 2 / 21 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | mrr@10 | 25 | 0.7250 | +0.0083 [-0.0830, +0.0927] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | ndcg@10 | 25 | 0.7736 | -0.0019 [-0.0831, +0.0747] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=50+c=10` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0160, +0.0080] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0410] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | recall@5 | 25 | 0.2800 | -0.2400 [-0.4000, -0.0800] | 0 / 6 / 19 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | recall@10 | 25 | 0.3200 | -0.3200 [-0.4800, -0.1600] | 0 / 8 / 17 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | recall@20 | 25 | 0.3600 | -0.4400 [-0.6400, -0.2800] | 0 / 11 / 14 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | mrr@10 | 25 | 0.1991 | -0.1653 [-0.3051, -0.0473] | 1 / 11 / 13 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.2275 | -0.2032 [-0.3354, -0.0860] | 1 / 11 / 13 |
+| `fusion-rrf+w=0.25+d=50+c=10` | paraphrase | judged@10 | 25 | 0.0320 | -0.0320 [-0.0480, -0.0160] | 0 / 8 / 17 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | recall@1 | 25 | 0.4400 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | recall@5 | 25 | 0.5600 | -0.2000 [-0.3600, -0.0400] | 0 / 5 / 20 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | recall@10 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | mrr@10 | 25 | 0.5061 | -0.0466 [-0.1079, +0.0195] | 1 / 7 / 17 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | ndcg@10 | 25 | 0.5466 | -0.0573 [-0.1190, +0.0056] | 1 / 7 / 17 |
+| `fusion-rrf+w=0.25+d=50+c=10` | question | judged@10 | 25 | 0.0680 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | recall@1 | 100 | 0.5600 | +0.0000 [-0.0600, +0.0600] | 4 / 4 / 92 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | recall@5 | 100 | 0.7100 | -0.0900 [-0.1600, -0.0400] | 0 / 9 / 91 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | recall@10 | 100 | 0.7400 | -0.1000 [-0.1600, -0.0498] | 0 / 10 / 90 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | recall@20 | 100 | 0.7700 | -0.1300 [-0.2000, -0.0700] | 0 / 13 / 87 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | mrr@10 | 100 | 0.6261 | -0.0273 [-0.0673, +0.0091] | 8 / 17 / 75 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | ndcg@10 | 100 | 0.6542 | -0.0446 [-0.0844, -0.0097] | 8 / 17 / 75 |
+| `fusion-rrf+w=0.25+d=50+c=60` | all | judged@10 | 100 | 0.0740 | -0.0100 [-0.0160, -0.0050] | 0 / 10 / 90 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | recall@1 | 25 | 0.6400 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | mrr@10 | 25 | 0.7400 | +0.0233 [-0.0487, +0.0961] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | ndcg@10 | 25 | 0.7752 | -0.0003 [-0.0696, +0.0654] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=50+c=60` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0410] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | recall@5 | 25 | 0.3600 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | recall@10 | 25 | 0.3600 | -0.2800 [-0.4400, -0.1200] | 0 / 7 / 18 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | recall@20 | 25 | 0.4000 | -0.4000 [-0.5600, -0.2400] | 0 / 10 / 15 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | mrr@10 | 25 | 0.2367 | -0.1278 [-0.2512, -0.0233] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.2677 | -0.1630 [-0.2819, -0.0632] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.25+d=50+c=60` | paraphrase | judged@10 | 25 | 0.0360 | -0.0280 [-0.0440, -0.0120] | 0 / 7 / 18 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | recall@5 | 25 | 0.6400 | -0.1200 [-0.2410, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | recall@10 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | mrr@10 | 25 | 0.5478 | -0.0049 [-0.0462, +0.0487] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | ndcg@10 | 25 | 0.5888 | -0.0151 [-0.0619, +0.0329] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.25+d=50+c=60` | question | judged@10 | 25 | 0.0720 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | recall@1 | 100 | 0.5600 | +0.0000 [-0.0600, +0.0600] | 4 / 4 / 92 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | recall@5 | 100 | 0.7100 | -0.0900 [-0.1600, -0.0400] | 0 / 9 / 91 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | recall@10 | 100 | 0.7500 | -0.0900 [-0.1600, -0.0300] | 1 / 10 / 89 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | recall@20 | 100 | 0.7700 | -0.1300 [-0.2000, -0.0700] | 0 / 13 / 87 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | mrr@10 | 100 | 0.6300 | -0.0234 [-0.0631, +0.0114] | 9 / 17 / 74 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | ndcg@10 | 100 | 0.6594 | -0.0394 [-0.0771, -0.0048] | 9 / 17 / 74 |
+| `fusion-rrf+w=0.25+d=50+c=100` | all | judged@10 | 100 | 0.0750 | -0.0090 [-0.0160, -0.0030] | 1 / 10 / 89 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | recall@1 | 25 | 0.6400 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | mrr@10 | 25 | 0.7378 | +0.0211 [-0.0509, +0.0938] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | ndcg@10 | 25 | 0.7730 | -0.0025 [-0.0710, +0.0624] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=50+c=100` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0410] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | recall@5 | 25 | 0.3600 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | recall@10 | 25 | 0.4000 | -0.2400 [-0.4400, -0.0400] | 1 / 7 / 17 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | recall@20 | 25 | 0.4000 | -0.4000 [-0.5600, -0.2400] | 0 / 10 / 15 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | mrr@10 | 25 | 0.2511 | -0.1133 [-0.2300, -0.0122] | 3 / 9 / 13 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.2878 | -0.1430 [-0.2613, -0.0384] | 3 / 9 / 13 |
+| `fusion-rrf+w=0.25+d=50+c=100` | paraphrase | judged@10 | 25 | 0.0400 | -0.0240 [-0.0440, -0.0040] | 1 / 7 / 17 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | recall@5 | 25 | 0.6400 | -0.1200 [-0.2410, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | recall@10 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | mrr@10 | 25 | 0.5511 | -0.0016 [-0.0393, +0.0516] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | ndcg@10 | 25 | 0.5915 | -0.0124 [-0.0582, +0.0338] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.25+d=50+c=100` | question | judged@10 | 25 | 0.0720 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.25+d=50` | all | recall@1 | 100 | 0.5600 | +0.0000 [-0.0602, +0.0600] | 5 / 5 / 90 |
+| `fusion-linear+w=0.25+d=50` | all | recall@5 | 100 | 0.6900 | -0.1100 [-0.1800, -0.0500] | 0 / 11 / 89 |
+| `fusion-linear+w=0.25+d=50` | all | recall@10 | 100 | 0.7200 | -0.1200 [-0.1900, -0.0500] | 1 / 13 / 86 |
+| `fusion-linear+w=0.25+d=50` | all | recall@20 | 100 | 0.7500 | -0.1500 [-0.2300, -0.0900] | 0 / 15 / 85 |
+| `fusion-linear+w=0.25+d=50` | all | mrr@10 | 100 | 0.6179 | -0.0356 [-0.0867, +0.0100] | 10 / 19 / 71 |
+| `fusion-linear+w=0.25+d=50` | all | ndcg@10 | 100 | 0.6429 | -0.0559 [-0.1063, -0.0079] | 10 / 19 / 71 |
+| `fusion-linear+w=0.25+d=50` | all | judged@10 | 100 | 0.0720 | -0.0120 [-0.0190, -0.0050] | 1 / 13 / 86 |
+| `fusion-linear+w=0.25+d=50` | keyword | recall@1 | 25 | 0.6400 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-linear+w=0.25+d=50` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.25+d=50` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-linear+w=0.25+d=50` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.25+d=50` | keyword | mrr@10 | 25 | 0.7391 | +0.0224 [-0.0607, +0.1018] | 6 / 3 / 16 |
+| `fusion-linear+w=0.25+d=50` | keyword | ndcg@10 | 25 | 0.7832 | +0.0078 [-0.0704, +0.0807] | 6 / 3 / 16 |
+| `fusion-linear+w=0.25+d=50` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0160, +0.0080] | 1 / 2 / 22 |
+| `fusion-linear+w=0.25+d=50` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2800, +0.0800] | 2 / 4 / 19 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | recall@5 | 25 | 0.2800 | -0.2400 [-0.4000, -0.0800] | 0 / 6 / 19 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | recall@10 | 25 | 0.2800 | -0.3600 [-0.5200, -0.2000] | 0 / 9 / 16 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | recall@20 | 25 | 0.3600 | -0.4400 [-0.6400, -0.2800] | 0 / 11 / 14 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | mrr@10 | 25 | 0.2067 | -0.1578 [-0.3167, -0.0178] | 2 / 11 / 12 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | ndcg@10 | 25 | 0.2252 | -0.2055 [-0.3568, -0.0718] | 2 / 11 / 12 |
+| `fusion-linear+w=0.25+d=50` | paraphrase | judged@10 | 25 | 0.0280 | -0.0360 [-0.0520, -0.0200] | 0 / 9 / 16 |
+| `fusion-linear+w=0.25+d=50` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-linear+w=0.25+d=50` | question | recall@5 | 25 | 0.6000 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-linear+w=0.25+d=50` | question | recall@10 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.25+d=50` | question | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.25+d=50` | question | mrr@10 | 25 | 0.5457 | -0.0070 [-0.0529, +0.0467] | 2 / 5 / 18 |
+| `fusion-linear+w=0.25+d=50` | question | ndcg@10 | 25 | 0.5781 | -0.0258 [-0.0812, +0.0272] | 2 / 5 / 18 |
+| `fusion-linear+w=0.25+d=50` | question | judged@10 | 25 | 0.0680 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | recall@1 | 100 | 0.5500 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | recall@5 | 100 | 0.7800 | -0.0200 [-0.0500, +0.0000] | 0 / 2 / 98 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | recall@10 | 100 | 0.8400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | recall@20 | 100 | 0.9000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | mrr@10 | 100 | 0.6455 | -0.0080 [-0.0222, +0.0001] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | ndcg@10 | 100 | 0.6927 | -0.0062 [-0.0170, +0.0001] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=50+c=10` | all | judged@10 | 100 | 0.0840 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | recall@10 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | mrr@10 | 25 | 0.7115 | -0.0052 [-0.0141, +0.0009] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | ndcg@10 | 25 | 0.7708 | -0.0046 [-0.0127, +0.0010] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.5+d=50+c=10` | keyword | judged@10 | 25 | 0.0960 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | recall@5 | 25 | 0.5200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | recall@10 | 25 | 0.6400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | mrr@10 | 25 | 0.3378 | -0.0267 [-0.0800, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.4107 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=10` | paraphrase | judged@10 | 25 | 0.0640 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | mrr@10 | 25 | 0.5527 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | ndcg@10 | 25 | 0.6039 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=10` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0600, +0.0200] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | recall@5 | 100 | 0.7400 | -0.0600 [-0.1100, -0.0200] | 0 / 6 / 94 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | recall@10 | 100 | 0.8300 | -0.0100 [-0.0400, +0.0200] | 1 / 2 / 97 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | mrr@10 | 100 | 0.6295 | -0.0239 [-0.0497, +0.0013] | 4 / 15 / 81 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | ndcg@10 | 100 | 0.6772 | -0.0216 [-0.0439, +0.0016] | 4 / 15 / 81 |
+| `fusion-rrf+w=0.5+d=50+c=60` | all | judged@10 | 100 | 0.0830 | -0.0010 [-0.0040, +0.0020] | 1 / 2 / 97 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | mrr@10 | 25 | 0.6960 | -0.0207 [-0.0467, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | ndcg@10 | 25 | 0.7491 | -0.0264 [-0.0687, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.5+d=50+c=60` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | mrr@10 | 25 | 0.9600 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | ndcg@10 | 25 | 0.9705 | -0.0148 [-0.0443, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=60` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | recall@5 | 25 | 0.4400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | recall@10 | 25 | 0.6400 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | mrr@10 | 25 | 0.3140 | -0.0504 [-0.1445, +0.0383] | 2 / 8 / 15 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.3898 | -0.0409 [-0.1197, +0.0372] | 2 / 8 / 15 |
+| `fusion-rrf+w=0.5+d=50+c=60` | paraphrase | judged@10 | 25 | 0.0640 | +0.0000 [-0.0120, +0.0120] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | mrr@10 | 25 | 0.5481 | -0.0046 [-0.0266, +0.0154] | 2 / 3 / 20 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | ndcg@10 | 25 | 0.5996 | -0.0043 [-0.0221, +0.0118] | 2 / 3 / 20 |
+| `fusion-rrf+w=0.5+d=50+c=60` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0600, +0.0200] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | recall@5 | 100 | 0.7400 | -0.0600 [-0.1100, -0.0200] | 0 / 6 / 94 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | recall@10 | 100 | 0.8200 | -0.0200 [-0.0600, +0.0200] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | mrr@10 | 100 | 0.6302 | -0.0232 [-0.0503, +0.0013] | 5 / 16 / 79 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | ndcg@10 | 100 | 0.6757 | -0.0232 [-0.0468, -0.0002] | 5 / 16 / 79 |
+| `fusion-rrf+w=0.5+d=50+c=100` | all | judged@10 | 100 | 0.0820 | -0.0020 [-0.0060, +0.0020] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | mrr@10 | 25 | 0.6920 | -0.0247 [-0.0513, -0.0040] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | ndcg@10 | 25 | 0.7375 | -0.0379 [-0.0816, -0.0052] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.5+d=50+c=100` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | mrr@10 | 25 | 0.9600 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | ndcg@10 | 25 | 0.9705 | -0.0148 [-0.0443, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | recall@5 | 25 | 0.4400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | recall@10 | 25 | 0.6400 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | mrr@10 | 25 | 0.3140 | -0.0504 [-0.1445, +0.0383] | 2 / 8 / 15 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.3898 | -0.0409 [-0.1197, +0.0372] | 2 / 8 / 15 |
+| `fusion-rrf+w=0.5+d=50+c=100` | paraphrase | judged@10 | 25 | 0.0640 | +0.0000 [-0.0120, +0.0120] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | mrr@10 | 25 | 0.5548 | +0.0021 [-0.0203, +0.0268] | 3 / 3 / 19 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | ndcg@10 | 25 | 0.6048 | +0.0010 [-0.0179, +0.0210] | 3 / 3 / 19 |
+| `fusion-rrf+w=0.5+d=50+c=100` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0600, +0.0200] | 1 / 3 / 96 |
+| `fusion-linear+w=0.5+d=50` | all | recall@5 | 100 | 0.7500 | -0.0500 [-0.1000, -0.0100] | 0 / 5 / 95 |
+| `fusion-linear+w=0.5+d=50` | all | recall@10 | 100 | 0.8300 | -0.0100 [-0.0400, +0.0200] | 1 / 2 / 97 |
+| `fusion-linear+w=0.5+d=50` | all | recall@20 | 100 | 0.9000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-linear+w=0.5+d=50` | all | mrr@10 | 100 | 0.6332 | -0.0202 [-0.0445, +0.0038] | 4 / 15 / 81 |
+| `fusion-linear+w=0.5+d=50` | all | ndcg@10 | 100 | 0.6804 | -0.0184 [-0.0400, +0.0038] | 4 / 15 / 81 |
+| `fusion-linear+w=0.5+d=50` | all | judged@10 | 100 | 0.0830 | -0.0010 [-0.0040, +0.0020] | 1 / 2 / 97 |
+| `fusion-linear+w=0.5+d=50` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=50` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=50` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | keyword | mrr@10 | 25 | 0.6930 | -0.0237 [-0.0493, -0.0040] | 0 / 4 / 21 |
+| `fusion-linear+w=0.5+d=50` | keyword | ndcg@10 | 25 | 0.7386 | -0.0369 [-0.0800, -0.0052] | 0 / 4 / 21 |
+| `fusion-linear+w=0.5+d=50` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=50` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=50` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | known_item | mrr@10 | 25 | 0.9600 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=50` | known_item | ndcg@10 | 25 | 0.9705 | -0.0148 [-0.0443, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=50` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | recall@5 | 25 | 0.4400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | mrr@10 | 25 | 0.3296 | -0.0349 [-0.1212, +0.0474] | 2 / 7 / 16 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | ndcg@10 | 25 | 0.4108 | -0.0199 [-0.0909, +0.0468] | 2 / 7 / 16 |
+| `fusion-linear+w=0.5+d=50` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-linear+w=0.5+d=50` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | question | recall@5 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=50` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=50` | question | mrr@10 | 25 | 0.5504 | -0.0023 [-0.0223, +0.0170] | 2 / 3 / 20 |
+| `fusion-linear+w=0.5+d=50` | question | ndcg@10 | 25 | 0.6017 | -0.0021 [-0.0179, +0.0136] | 2 / 3 / 20 |
+| `fusion-linear+w=0.5+d=50` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | recall@1 | 100 | 0.5700 | +0.0100 [-0.0400, +0.0600] | 4 / 3 / 93 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | recall@5 | 100 | 0.7700 | -0.0300 [-0.1000, +0.0300] | 4 / 7 / 89 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | recall@10 | 100 | 0.8600 | +0.0200 [-0.0300, +0.0700] | 4 / 2 / 94 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0500, +0.0200] | 1 / 2 / 97 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | mrr@10 | 100 | 0.6579 | +0.0045 [-0.0358, +0.0420] | 14 / 14 / 72 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | ndcg@10 | 100 | 0.7063 | +0.0075 [-0.0295, +0.0421] | 14 / 14 / 72 |
+| `fusion-rrf+w=0.75+d=50+c=10` | all | judged@10 | 100 | 0.0860 | +0.0020 [-0.0030, +0.0070] | 4 / 2 / 94 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | recall@5 | 25 | 0.8000 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | mrr@10 | 25 | 0.6372 | -0.0795 [-0.1497, -0.0167] | 2 / 7 / 16 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | ndcg@10 | 25 | 0.7047 | -0.0708 [-0.1279, -0.0156] | 2 / 7 / 16 |
+| `fusion-rrf+w=0.75+d=50+c=10` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | recall@5 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | mrr@10 | 25 | 0.9400 | -0.0400 [-0.1133, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | ndcg@10 | 25 | 0.9542 | -0.0310 [-0.0877, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | recall@1 | 25 | 0.3600 | +0.1200 [+0.0000, +0.2800] | 3 / 0 / 22 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | recall@5 | 25 | 0.5600 | +0.0400 [-0.1200, +0.2000] | 3 / 2 / 20 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | recall@10 | 25 | 0.7200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | mrr@10 | 25 | 0.4581 | +0.0937 [-0.0029, +0.2064] | 9 / 4 / 12 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | ndcg@10 | 25 | 0.5201 | +0.0894 [-0.0054, +0.1907] | 9 / 4 / 12 |
+| `fusion-rrf+w=0.75+d=50+c=10` | paraphrase | judged@10 | 25 | 0.0720 | +0.0080 [-0.0080, +0.0240] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | mrr@10 | 25 | 0.5963 | +0.0437 [-0.0033, +0.1207] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | ndcg@10 | 25 | 0.6463 | +0.0424 [-0.0028, +0.1087] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=50+c=10` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | recall@1 | 100 | 0.5300 | -0.0300 [-0.0800, +0.0100] | 1 / 4 / 95 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | recall@5 | 100 | 0.7600 | -0.0400 [-0.0900, +0.0000] | 1 / 5 / 94 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | recall@10 | 100 | 0.8500 | +0.0100 [-0.0400, +0.0500] | 3 / 2 / 95 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0500, +0.0200] | 1 / 2 / 97 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | mrr@10 | 100 | 0.6262 | -0.0273 [-0.0542, -0.0017] | 9 / 16 / 75 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | ndcg@10 | 100 | 0.6797 | -0.0191 [-0.0472, +0.0048] | 9 / 16 / 75 |
+| `fusion-rrf+w=0.75+d=50+c=60` | all | judged@10 | 100 | 0.0850 | +0.0010 [-0.0040, +0.0050] | 3 / 2 / 95 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | recall@5 | 25 | 0.8000 | -0.1200 [-0.2800, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | mrr@10 | 25 | 0.6397 | -0.0770 [-0.1410, -0.0260] | 1 / 8 / 16 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | ndcg@10 | 25 | 0.7068 | -0.0686 [-0.1223, -0.0245] | 1 / 8 / 16 |
+| `fusion-rrf+w=0.75+d=50+c=60` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | mrr@10 | 25 | 0.9467 | -0.0333 [-0.0933, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | ndcg@10 | 25 | 0.9600 | -0.0252 [-0.0705, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=60` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | recall@1 | 25 | 0.2400 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | recall@5 | 25 | 0.4800 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [-0.0800, +0.2000] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | mrr@10 | 25 | 0.3405 | -0.0240 [-0.0980, +0.0447] | 4 / 6 / 15 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | ndcg@10 | 25 | 0.4192 | -0.0115 [-0.0976, +0.0625] | 4 / 6 / 15 |
+| `fusion-rrf+w=0.75+d=50+c=60` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [-0.0080, +0.0200] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | mrr@10 | 25 | 0.5778 | +0.0251 [+0.0020, +0.0558] | 4 / 0 / 21 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | ndcg@10 | 25 | 0.6327 | +0.0288 [+0.0018, +0.0616] | 4 / 0 / 21 |
+| `fusion-rrf+w=0.75+d=50+c=60` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | recall@1 | 100 | 0.5200 | -0.0400 [-0.0800, -0.0100] | 0 / 4 / 96 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | recall@5 | 100 | 0.7600 | -0.0400 [-0.0900, +0.0000] | 1 / 5 / 94 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | recall@10 | 100 | 0.8400 | +0.0000 [-0.0500, +0.0500] | 3 / 3 / 94 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0500, +0.0200] | 1 / 2 / 97 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | mrr@10 | 100 | 0.6169 | -0.0365 [-0.0654, -0.0140] | 8 / 18 / 74 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | ndcg@10 | 100 | 0.6705 | -0.0283 [-0.0541, -0.0050] | 8 / 18 / 74 |
+| `fusion-rrf+w=0.75+d=50+c=100` | all | judged@10 | 100 | 0.0840 | +0.0000 [-0.0050, +0.0050] | 3 / 3 / 94 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | recall@5 | 25 | 0.8000 | -0.1200 [-0.2800, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | mrr@10 | 25 | 0.6357 | -0.0810 [-0.1427, -0.0293] | 1 / 8 / 16 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | ndcg@10 | 25 | 0.6953 | -0.0802 [-0.1369, -0.0278] | 1 / 8 / 16 |
+| `fusion-rrf+w=0.75+d=50+c=100` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | mrr@10 | 25 | 0.9467 | -0.0333 [-0.0933, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | ndcg@10 | 25 | 0.9600 | -0.0252 [-0.0705, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=50+c=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | recall@5 | 25 | 0.4800 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | mrr@10 | 25 | 0.3167 | -0.0477 [-0.1191, +0.0063] | 3 / 7 / 15 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | ndcg@10 | 25 | 0.4016 | -0.0291 [-0.0984, +0.0354] | 3 / 7 / 15 |
+| `fusion-rrf+w=0.75+d=50+c=100` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [-0.0080, +0.0160] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | mrr@10 | 25 | 0.5687 | +0.0160 [+0.0000, +0.0347] | 4 / 1 / 20 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | ndcg@10 | 25 | 0.6252 | +0.0213 [+0.0000, +0.0486] | 4 / 1 / 20 |
+| `fusion-rrf+w=0.75+d=50+c=100` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-linear+w=0.75+d=50` | all | recall@1 | 100 | 0.5300 | -0.0300 [-0.0800, +0.0100] | 1 / 4 / 95 |
+| `fusion-linear+w=0.75+d=50` | all | recall@5 | 100 | 0.7800 | -0.0200 [-0.0800, +0.0300] | 3 / 5 / 92 |
+| `fusion-linear+w=0.75+d=50` | all | recall@10 | 100 | 0.8700 | +0.0300 [-0.0202, +0.0802] | 5 / 2 / 93 |
+| `fusion-linear+w=0.75+d=50` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0600, +0.0300] | 2 / 3 / 95 |
+| `fusion-linear+w=0.75+d=50` | all | mrr@10 | 100 | 0.6322 | -0.0213 [-0.0511, +0.0055] | 16 / 14 / 70 |
+| `fusion-linear+w=0.75+d=50` | all | ndcg@10 | 100 | 0.6890 | -0.0099 [-0.0387, +0.0174] | 16 / 14 / 70 |
+| `fusion-linear+w=0.75+d=50` | all | judged@10 | 100 | 0.0870 | +0.0030 [-0.0020, +0.0080] | 5 / 2 / 93 |
+| `fusion-linear+w=0.75+d=50` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=50` | keyword | recall@5 | 25 | 0.7600 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-linear+w=0.75+d=50` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=50` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=50` | keyword | mrr@10 | 25 | 0.6311 | -0.0856 [-0.1523, -0.0303] | 1 / 8 / 16 |
+| `fusion-linear+w=0.75+d=50` | keyword | ndcg@10 | 25 | 0.6995 | -0.0760 [-0.1302, -0.0273] | 1 / 8 / 16 |
+| `fusion-linear+w=0.75+d=50` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=50` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=50` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | known_item | mrr@10 | 25 | 0.9467 | -0.0333 [-0.0933, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=50` | known_item | ndcg@10 | 25 | 0.9600 | -0.0252 [-0.0705, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=50` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | recall@1 | 25 | 0.2400 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | recall@5 | 25 | 0.6000 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | recall@10 | 25 | 0.7600 | +0.1200 [-0.0400, +0.3200] | 4 / 1 / 20 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [-0.0800, +0.1200] | 1 / 1 / 23 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | mrr@10 | 25 | 0.3726 | +0.0082 [-0.0662, +0.0757] | 10 / 4 / 11 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | ndcg@10 | 25 | 0.4631 | +0.0324 [-0.0566, +0.1111] | 10 / 4 / 11 |
+| `fusion-linear+w=0.75+d=50` | paraphrase | judged@10 | 25 | 0.0760 | +0.0120 [-0.0040, +0.0320] | 4 / 1 / 20 |
+| `fusion-linear+w=0.75+d=50` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=50` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-linear+w=0.75+d=50` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-linear+w=0.75+d=50` | question | mrr@10 | 25 | 0.5783 | +0.0257 [+0.0050, +0.0507] | 5 / 0 / 20 |
+| `fusion-linear+w=0.75+d=50` | question | ndcg@10 | 25 | 0.6333 | +0.0294 [+0.0052, +0.0626] | 5 / 0 / 20 |
+| `fusion-linear+w=0.75+d=50` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0+d=100+c=10` | all | recall@1 | 100 | 0.5100 | -0.0500 [-0.1300, +0.0300] | 6 / 11 / 83 |
+| `fusion-rrf+w=0+d=100+c=10` | all | recall@5 | 100 | 0.6600 | -0.1400 [-0.2100, -0.0700] | 0 / 14 / 86 |
+| `fusion-rrf+w=0+d=100+c=10` | all | recall@10 | 100 | 0.7100 | -0.1300 [-0.2000, -0.0600] | 1 / 14 / 85 |
+| `fusion-rrf+w=0+d=100+c=10` | all | recall@20 | 100 | 0.7100 | -0.1900 [-0.2700, -0.1200] | 0 / 19 / 81 |
+| `fusion-rrf+w=0+d=100+c=10` | all | mrr@10 | 100 | 0.5687 | -0.0847 [-0.1455, -0.0285] | 8 / 30 / 62 |
+| `fusion-rrf+w=0+d=100+c=10` | all | ndcg@10 | 100 | 0.6025 | -0.0963 [-0.1516, -0.0456] | 8 / 30 / 62 |
+| `fusion-rrf+w=0+d=100+c=10` | all | judged@10 | 100 | 0.0710 | -0.0130 [-0.0200, -0.0060] | 1 / 14 / 85 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.2000, +0.1610] | 3 / 3 / 19 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | mrr@10 | 25 | 0.7100 | -0.0067 [-0.1308, +0.1133] | 5 / 6 / 14 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7619 | -0.0135 [-0.1208, +0.0845] | 5 / 6 / 14 |
+| `fusion-rrf+w=0+d=100+c=10` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0160, +0.0080] | 1 / 2 / 22 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | recall@1 | 25 | 1.0000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | mrr@10 | 25 | 1.0000 | +0.0200 [+0.0000, +0.0600] | 1 / 0 / 24 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | ndcg@10 | 25 | 1.0000 | +0.0148 [+0.0000, +0.0443] | 1 / 0 / 24 |
+| `fusion-rrf+w=0+d=100+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | recall@1 | 25 | 0.0800 | -0.1600 [-0.3200, +0.0000] | 1 / 5 / 19 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | recall@5 | 25 | 0.2400 | -0.2800 [-0.4800, -0.1200] | 0 / 7 / 18 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | recall@10 | 25 | 0.2800 | -0.3600 [-0.5200, -0.2000] | 0 / 9 / 16 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | recall@20 | 25 | 0.2800 | -0.5200 [-0.7200, -0.3600] | 0 / 13 / 12 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.1324 | -0.2320 [-0.3745, -0.0933] | 1 / 14 / 10 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.1675 | -0.2632 [-0.4034, -0.1297] | 1 / 14 / 10 |
+| `fusion-rrf+w=0+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0280 | -0.0360 [-0.0520, -0.0200] | 0 / 9 / 16 |
+| `fusion-rrf+w=0+d=100+c=10` | question | recall@1 | 25 | 0.3600 | -0.0800 [-0.2400, +0.0800] | 1 / 3 / 21 |
+| `fusion-rrf+w=0+d=100+c=10` | question | recall@5 | 25 | 0.5200 | -0.2400 [-0.4010, -0.0800] | 0 / 6 / 19 |
+| `fusion-rrf+w=0+d=100+c=10` | question | recall@10 | 25 | 0.6400 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0+d=100+c=10` | question | recall@20 | 25 | 0.6400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0+d=100+c=10` | question | mrr@10 | 25 | 0.4324 | -0.1202 [-0.2084, -0.0285] | 1 / 10 / 14 |
+| `fusion-rrf+w=0+d=100+c=10` | question | ndcg@10 | 25 | 0.4805 | -0.1234 [-0.2017, -0.0427] | 1 / 10 / 14 |
+| `fusion-rrf+w=0+d=100+c=10` | question | judged@10 | 25 | 0.0640 | -0.0120 [-0.0240, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0802, +0.0400] | 4 / 6 / 90 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | recall@5 | 100 | 0.6800 | -0.1200 [-0.1900, -0.0600] | 0 / 12 / 88 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | recall@10 | 100 | 0.7300 | -0.1100 [-0.1800, -0.0500] | 1 / 12 / 87 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | recall@20 | 100 | 0.7800 | -0.1200 [-0.1900, -0.0600] | 0 / 12 / 88 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | mrr@10 | 100 | 0.6023 | -0.0511 [-0.1003, -0.0079] | 7 / 22 / 71 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | ndcg@10 | 100 | 0.6330 | -0.0658 [-0.1110, -0.0229] | 7 / 22 / 71 |
+| `fusion-rrf+w=0.25+d=100+c=10` | all | judged@10 | 100 | 0.0730 | -0.0110 [-0.0180, -0.0050] | 1 / 12 / 87 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.1600, +0.1600] | 2 / 2 / 21 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | mrr@10 | 25 | 0.7250 | +0.0083 [-0.0830, +0.0927] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7736 | -0.0019 [-0.0831, +0.0747] | 5 / 4 / 16 |
+| `fusion-rrf+w=0.25+d=100+c=10` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0160, +0.0080] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0410] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | recall@5 | 25 | 0.2800 | -0.2400 [-0.4000, -0.0800] | 0 / 6 / 19 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | recall@10 | 25 | 0.3200 | -0.3200 [-0.4800, -0.1600] | 0 / 8 / 17 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | recall@20 | 25 | 0.4000 | -0.4000 [-0.6000, -0.2400] | 0 / 10 / 15 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.1991 | -0.1653 [-0.3051, -0.0473] | 1 / 11 / 13 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.2275 | -0.2032 [-0.3354, -0.0860] | 1 / 11 / 13 |
+| `fusion-rrf+w=0.25+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0320 | -0.0320 [-0.0480, -0.0160] | 0 / 8 / 17 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | recall@1 | 25 | 0.4400 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | recall@5 | 25 | 0.5600 | -0.2000 [-0.3600, -0.0400] | 0 / 5 / 20 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | recall@10 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | mrr@10 | 25 | 0.5052 | -0.0475 [-0.1086, +0.0192] | 1 / 7 / 17 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | ndcg@10 | 25 | 0.5457 | -0.0582 [-0.1199, +0.0056] | 1 / 7 / 17 |
+| `fusion-rrf+w=0.25+d=100+c=10` | question | judged@10 | 25 | 0.0680 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | recall@1 | 100 | 0.5600 | +0.0000 [-0.0600, +0.0600] | 4 / 4 / 92 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | recall@5 | 100 | 0.7200 | -0.0800 [-0.1400, -0.0300] | 0 / 8 / 92 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | recall@10 | 100 | 0.7400 | -0.1000 [-0.1600, -0.0498] | 0 / 10 / 90 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | recall@20 | 100 | 0.7800 | -0.1200 [-0.1900, -0.0600] | 0 / 12 / 88 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | mrr@10 | 100 | 0.6260 | -0.0274 [-0.0679, +0.0088] | 9 / 17 / 74 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | ndcg@10 | 100 | 0.6542 | -0.0447 [-0.0847, -0.0095] | 9 / 17 / 74 |
+| `fusion-rrf+w=0.25+d=100+c=60` | all | judged@10 | 100 | 0.0740 | -0.0100 [-0.0160, -0.0050] | 0 / 10 / 90 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | recall@1 | 25 | 0.6400 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | mrr@10 | 25 | 0.7433 | +0.0267 [-0.0447, +0.0993] | 6 / 3 / 16 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | ndcg@10 | 25 | 0.7782 | +0.0027 [-0.0644, +0.0712] | 6 / 3 / 16 |
+| `fusion-rrf+w=0.25+d=100+c=60` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0410] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | recall@5 | 25 | 0.3600 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | recall@10 | 25 | 0.3600 | -0.2800 [-0.4400, -0.1200] | 0 / 7 / 18 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | recall@20 | 25 | 0.4400 | -0.3600 [-0.5200, -0.2000] | 0 / 9 / 16 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | mrr@10 | 25 | 0.2367 | -0.1278 [-0.2512, -0.0233] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.2677 | -0.1630 [-0.2819, -0.0632] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.25+d=100+c=60` | paraphrase | judged@10 | 25 | 0.0360 | -0.0280 [-0.0440, -0.0120] | 0 / 7 / 18 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | recall@5 | 25 | 0.6400 | -0.1200 [-0.2410, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | recall@10 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | mrr@10 | 25 | 0.5440 | -0.0087 [-0.0500, +0.0460] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | ndcg@10 | 25 | 0.5855 | -0.0184 [-0.0665, +0.0300] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.25+d=100+c=60` | question | judged@10 | 25 | 0.0720 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | recall@1 | 100 | 0.5600 | +0.0000 [-0.0600, +0.0600] | 4 / 4 / 92 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | recall@5 | 100 | 0.7200 | -0.0800 [-0.1400, -0.0300] | 0 / 8 / 92 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | recall@10 | 100 | 0.7500 | -0.0900 [-0.1500, -0.0400] | 0 / 9 / 91 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | recall@20 | 100 | 0.7900 | -0.1100 [-0.1700, -0.0500] | 0 / 11 / 89 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | mrr@10 | 100 | 0.6303 | -0.0231 [-0.0619, +0.0103] | 9 / 17 / 74 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | ndcg@10 | 100 | 0.6597 | -0.0391 [-0.0735, -0.0054] | 9 / 17 / 74 |
+| `fusion-rrf+w=0.25+d=100+c=100` | all | judged@10 | 100 | 0.0750 | -0.0090 [-0.0150, -0.0040] | 0 / 9 / 91 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | recall@1 | 25 | 0.6400 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | mrr@10 | 25 | 0.7433 | +0.0267 [-0.0447, +0.0993] | 6 / 3 / 16 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | ndcg@10 | 25 | 0.7782 | +0.0027 [-0.0644, +0.0712] | 6 / 3 / 16 |
+| `fusion-rrf+w=0.25+d=100+c=100` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | recall@1 | 25 | 0.1600 | -0.0800 [-0.2400, +0.0410] | 1 / 3 / 21 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | recall@5 | 25 | 0.3600 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | recall@10 | 25 | 0.4000 | -0.2400 [-0.4000, -0.0800] | 0 / 6 / 19 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | recall@20 | 25 | 0.4400 | -0.3600 [-0.5200, -0.2000] | 0 / 9 / 16 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | mrr@10 | 25 | 0.2507 | -0.1138 [-0.2258, -0.0153] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.2873 | -0.1434 [-0.2456, -0.0550] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.25+d=100+c=100` | paraphrase | judged@10 | 25 | 0.0400 | -0.0240 [-0.0400, -0.0080] | 0 / 6 / 19 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | recall@5 | 25 | 0.6400 | -0.1200 [-0.2410, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | recall@10 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | mrr@10 | 25 | 0.5473 | -0.0053 [-0.0440, +0.0480] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | ndcg@10 | 25 | 0.5883 | -0.0156 [-0.0623, +0.0311] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.25+d=100+c=100` | question | judged@10 | 25 | 0.0720 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.25+d=100` | all | recall@1 | 100 | 0.5700 | +0.0100 [-0.0500, +0.0700] | 5 / 4 / 91 |
+| `fusion-linear+w=0.25+d=100` | all | recall@5 | 100 | 0.7200 | -0.0800 [-0.1400, -0.0300] | 0 / 8 / 92 |
+| `fusion-linear+w=0.25+d=100` | all | recall@10 | 100 | 0.7400 | -0.1000 [-0.1600, -0.0498] | 0 / 10 / 90 |
+| `fusion-linear+w=0.25+d=100` | all | recall@20 | 100 | 0.7700 | -0.1300 [-0.2000, -0.0700] | 0 / 13 / 87 |
+| `fusion-linear+w=0.25+d=100` | all | mrr@10 | 100 | 0.6363 | -0.0171 [-0.0592, +0.0217] | 9 / 16 / 75 |
+| `fusion-linear+w=0.25+d=100` | all | ndcg@10 | 100 | 0.6621 | -0.0367 [-0.0765, +0.0004] | 9 / 16 / 75 |
+| `fusion-linear+w=0.25+d=100` | all | judged@10 | 100 | 0.0740 | -0.0100 [-0.0160, -0.0050] | 0 / 10 / 90 |
+| `fusion-linear+w=0.25+d=100` | keyword | recall@1 | 25 | 0.6400 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-linear+w=0.25+d=100` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.25+d=100` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.25+d=100` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.25+d=100` | keyword | mrr@10 | 25 | 0.7413 | +0.0247 [-0.0474, +0.0974] | 5 / 3 / 17 |
+| `fusion-linear+w=0.25+d=100` | keyword | ndcg@10 | 25 | 0.7764 | +0.0010 [-0.0678, +0.0678] | 5 / 3 / 17 |
+| `fusion-linear+w=0.25+d=100` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.25+d=100` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.2000, +0.1200] | 2 / 3 / 20 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | recall@5 | 25 | 0.3600 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | recall@10 | 25 | 0.3600 | -0.2800 [-0.4400, -0.1200] | 0 / 7 / 18 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | recall@20 | 25 | 0.4000 | -0.4000 [-0.5600, -0.2400] | 0 / 10 / 15 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | mrr@10 | 25 | 0.2667 | -0.0978 [-0.2267, +0.0167] | 2 / 9 / 14 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | ndcg@10 | 25 | 0.2905 | -0.1402 [-0.2655, -0.0318] | 2 / 9 / 14 |
+| `fusion-linear+w=0.25+d=100` | paraphrase | judged@10 | 25 | 0.0360 | -0.0280 [-0.0440, -0.0120] | 0 / 7 / 18 |
+| `fusion-linear+w=0.25+d=100` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-linear+w=0.25+d=100` | question | recall@5 | 25 | 0.6400 | -0.1200 [-0.2410, +0.0000] | 0 / 3 / 22 |
+| `fusion-linear+w=0.25+d=100` | question | recall@10 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.25+d=100` | question | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.25+d=100` | question | mrr@10 | 25 | 0.5573 | +0.0047 [-0.0367, +0.0573] | 2 / 4 / 19 |
+| `fusion-linear+w=0.25+d=100` | question | ndcg@10 | 25 | 0.5963 | -0.0076 [-0.0556, +0.0380] | 2 / 4 / 19 |
+| `fusion-linear+w=0.25+d=100` | question | judged@10 | 25 | 0.0720 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | recall@1 | 100 | 0.5600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | recall@5 | 100 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | recall@10 | 100 | 0.8400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | recall@20 | 100 | 0.9000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | mrr@10 | 100 | 0.6534 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | ndcg@10 | 100 | 0.6988 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | all | judged@10 | 100 | 0.0840 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | recall@5 | 25 | 0.9200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | recall@10 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | mrr@10 | 25 | 0.7167 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7754 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | keyword | judged@10 | 25 | 0.0960 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | recall@1 | 25 | 0.2400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | recall@5 | 25 | 0.5200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | recall@10 | 25 | 0.6400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.3644 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.4307 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0640 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | mrr@10 | 25 | 0.5527 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | ndcg@10 | 25 | 0.6039 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=10` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0600, +0.0200] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | recall@5 | 100 | 0.7400 | -0.0600 [-0.1100, -0.0200] | 0 / 6 / 94 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | recall@10 | 100 | 0.7800 | -0.0600 [-0.1200, -0.0100] | 1 / 7 / 92 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | recall@20 | 100 | 0.8700 | -0.0300 [-0.0700, +0.0000] | 0 / 3 / 97 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | mrr@10 | 100 | 0.6260 | -0.0275 [-0.0522, -0.0030] | 4 / 16 / 80 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | ndcg@10 | 100 | 0.6637 | -0.0352 [-0.0615, -0.0083] | 4 / 16 / 80 |
+| `fusion-rrf+w=0.5+d=100+c=60` | all | judged@10 | 100 | 0.0780 | -0.0060 [-0.0120, -0.0010] | 1 / 7 / 92 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | mrr@10 | 25 | 0.6970 | -0.0197 [-0.0457, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | ndcg@10 | 25 | 0.7501 | -0.0253 [-0.0655, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=0.5+d=100+c=60` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | mrr@10 | 25 | 0.9600 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | ndcg@10 | 25 | 0.9705 | -0.0148 [-0.0443, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=60` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | recall@5 | 25 | 0.4400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | recall@10 | 25 | 0.4800 | -0.1600 [-0.3600, +0.0000] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | mrr@10 | 25 | 0.3044 | -0.0600 [-0.1411, +0.0256] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.3478 | -0.0830 [-0.1675, +0.0038] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.5+d=100+c=60` | paraphrase | judged@10 | 25 | 0.0480 | -0.0160 [-0.0360, +0.0000] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | recall@10 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | mrr@10 | 25 | 0.5424 | -0.0103 [-0.0400, +0.0134] | 2 / 3 / 20 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | ndcg@10 | 25 | 0.5863 | -0.0176 [-0.0604, +0.0105] | 2 / 3 / 20 |
+| `fusion-rrf+w=0.5+d=100+c=60` | question | judged@10 | 25 | 0.0720 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0600, +0.0200] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | recall@5 | 100 | 0.7400 | -0.0600 [-0.1100, -0.0200] | 0 / 6 / 94 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | recall@10 | 100 | 0.7700 | -0.0700 [-0.1300, -0.0200] | 1 / 8 / 91 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | recall@20 | 100 | 0.8400 | -0.0600 [-0.1100, -0.0200] | 0 / 6 / 94 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | mrr@10 | 100 | 0.6266 | -0.0268 [-0.0515, -0.0019] | 5 / 17 / 78 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | ndcg@10 | 100 | 0.6621 | -0.0367 [-0.0627, -0.0094] | 5 / 17 / 78 |
+| `fusion-rrf+w=0.5+d=100+c=100` | all | judged@10 | 100 | 0.0770 | -0.0070 [-0.0130, -0.0020] | 1 / 8 / 91 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | mrr@10 | 25 | 0.6924 | -0.0242 [-0.0504, -0.0040] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | ndcg@10 | 25 | 0.7380 | -0.0375 [-0.0806, -0.0052] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.5+d=100+c=100` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | mrr@10 | 25 | 0.9600 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | ndcg@10 | 25 | 0.9705 | -0.0148 [-0.0443, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | recall@5 | 25 | 0.4400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | recall@10 | 25 | 0.4800 | -0.1600 [-0.3600, +0.0000] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | recall@20 | 25 | 0.6400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | mrr@10 | 25 | 0.3050 | -0.0594 [-0.1400, +0.0256] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.3483 | -0.0824 [-0.1675, +0.0044] | 2 / 9 / 14 |
+| `fusion-rrf+w=0.5+d=100+c=100` | paraphrase | judged@10 | 25 | 0.0480 | -0.0160 [-0.0360, +0.0000] | 1 / 5 / 19 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | recall@10 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | mrr@10 | 25 | 0.5490 | -0.0036 [-0.0350, +0.0261] | 3 / 3 / 19 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | ndcg@10 | 25 | 0.5915 | -0.0124 [-0.0552, +0.0192] | 3 / 3 / 19 |
+| `fusion-rrf+w=0.5+d=100+c=100` | question | judged@10 | 25 | 0.0720 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=100` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0600, +0.0200] | 1 / 3 / 96 |
+| `fusion-linear+w=0.5+d=100` | all | recall@5 | 100 | 0.7400 | -0.0600 [-0.1100, -0.0200] | 0 / 6 / 94 |
+| `fusion-linear+w=0.5+d=100` | all | recall@10 | 100 | 0.7900 | -0.0500 [-0.1000, +0.0000] | 1 / 6 / 93 |
+| `fusion-linear+w=0.5+d=100` | all | recall@20 | 100 | 0.8800 | -0.0200 [-0.0500, +0.0000] | 0 / 2 / 98 |
+| `fusion-linear+w=0.5+d=100` | all | mrr@10 | 100 | 0.6270 | -0.0265 [-0.0528, -0.0014] | 5 / 17 / 78 |
+| `fusion-linear+w=0.5+d=100` | all | ndcg@10 | 100 | 0.6665 | -0.0323 [-0.0578, -0.0051] | 5 / 17 / 78 |
+| `fusion-linear+w=0.5+d=100` | all | judged@10 | 100 | 0.0790 | -0.0050 [-0.0100, +0.0000] | 1 / 6 / 93 |
+| `fusion-linear+w=0.5+d=100` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=100` | keyword | recall@10 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=100` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | keyword | mrr@10 | 25 | 0.6920 | -0.0247 [-0.0513, -0.0040] | 0 / 4 / 21 |
+| `fusion-linear+w=0.5+d=100` | keyword | ndcg@10 | 25 | 0.7375 | -0.0379 [-0.0816, -0.0052] | 0 / 4 / 21 |
+| `fusion-linear+w=0.5+d=100` | keyword | judged@10 | 25 | 0.0880 | -0.0080 [-0.0200, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=100` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | known_item | mrr@10 | 25 | 0.9600 | -0.0200 [-0.0600, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=100` | known_item | ndcg@10 | 25 | 0.9705 | -0.0148 [-0.0443, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.5+d=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | recall@5 | 25 | 0.4400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | recall@10 | 25 | 0.5200 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | recall@20 | 25 | 0.7200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | mrr@10 | 25 | 0.3028 | -0.0617 [-0.1522, +0.0284] | 2 / 9 / 14 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | ndcg@10 | 25 | 0.3551 | -0.0756 [-0.1649, +0.0099] | 2 / 9 / 14 |
+| `fusion-linear+w=0.5+d=100` | paraphrase | judged@10 | 25 | 0.0520 | -0.0120 [-0.0280, +0.0040] | 1 / 4 / 20 |
+| `fusion-linear+w=0.5+d=100` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.5+d=100` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.5+d=100` | question | mrr@10 | 25 | 0.5530 | +0.0004 [-0.0247, +0.0267] | 3 / 3 / 19 |
+| `fusion-linear+w=0.5+d=100` | question | ndcg@10 | 25 | 0.6031 | -0.0008 [-0.0218, +0.0209] | 3 / 3 / 19 |
+| `fusion-linear+w=0.5+d=100` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | recall@1 | 100 | 0.5600 | +0.0000 [-0.0600, +0.0500] | 4 / 4 / 92 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | recall@5 | 100 | 0.7700 | -0.0300 [-0.1000, +0.0300] | 4 / 7 / 89 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | recall@10 | 100 | 0.8600 | +0.0200 [-0.0300, +0.0700] | 4 / 2 / 94 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | recall@20 | 100 | 0.9000 | +0.0000 [-0.0300, +0.0300] | 1 / 1 / 98 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | mrr@10 | 100 | 0.6537 | +0.0003 [-0.0417, +0.0428] | 14 / 16 / 70 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | ndcg@10 | 100 | 0.7032 | +0.0044 [-0.0344, +0.0417] | 14 / 16 / 70 |
+| `fusion-rrf+w=0.75+d=100+c=10` | all | judged@10 | 100 | 0.0860 | +0.0020 [-0.0030, +0.0070] | 4 / 2 / 94 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | recall@5 | 25 | 0.8000 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | mrr@10 | 25 | 0.6439 | -0.0728 [-0.1438, -0.0042] | 2 / 7 / 16 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | ndcg@10 | 25 | 0.7099 | -0.0656 [-0.1254, -0.0090] | 2 / 7 / 16 |
+| `fusion-rrf+w=0.75+d=100+c=10` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | recall@5 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | mrr@10 | 25 | 0.9400 | -0.0400 [-0.1133, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | ndcg@10 | 25 | 0.9542 | -0.0310 [-0.0877, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | recall@1 | 25 | 0.3200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | recall@5 | 25 | 0.5600 | +0.0400 [-0.1200, +0.2000] | 3 / 2 / 20 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | recall@10 | 25 | 0.7200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.4381 | +0.0737 [-0.0343, +0.1938] | 9 / 5 / 11 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.5053 | +0.0746 [-0.0274, +0.1763] | 9 / 5 / 11 |
+| `fusion-rrf+w=0.75+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0720 | +0.0080 [-0.0080, +0.0240] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | recall@1 | 25 | 0.4800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | mrr@10 | 25 | 0.5930 | +0.0403 [-0.0083, +0.1160] | 3 / 2 / 20 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | ndcg@10 | 25 | 0.6435 | +0.0396 [-0.0055, +0.1059] | 3 / 2 / 20 |
+| `fusion-rrf+w=0.75+d=100+c=10` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0600, +0.0100] | 1 / 3 / 96 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | recall@5 | 100 | 0.7700 | -0.0300 [-0.0800, +0.0100] | 1 / 4 / 95 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | recall@10 | 100 | 0.8400 | +0.0000 [-0.0400, +0.0400] | 2 / 2 / 96 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | mrr@10 | 100 | 0.6304 | -0.0231 [-0.0508, +0.0024] | 8 / 14 / 78 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | ndcg@10 | 100 | 0.6807 | -0.0181 [-0.0437, +0.0057] | 8 / 14 / 78 |
+| `fusion-rrf+w=0.75+d=100+c=60` | all | judged@10 | 100 | 0.0840 | +0.0000 [-0.0040, +0.0040] | 2 / 2 / 96 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | mrr@10 | 25 | 0.6457 | -0.0710 [-0.1323, -0.0187] | 1 / 7 / 17 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | ndcg@10 | 25 | 0.7125 | -0.0629 [-0.1160, -0.0179] | 1 / 7 / 17 |
+| `fusion-rrf+w=0.75+d=100+c=60` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | mrr@10 | 25 | 0.9433 | -0.0367 [-0.1033, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | ndcg@10 | 25 | 0.9572 | -0.0280 [-0.0788, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=60` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | recall@1 | 25 | 0.2800 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | recall@5 | 25 | 0.4800 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [-0.0800, +0.2000] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | mrr@10 | 25 | 0.3590 | -0.0054 [-0.0710, +0.0563] | 4 / 5 / 16 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | ndcg@10 | 25 | 0.4326 | +0.0019 [-0.0706, +0.0706] | 4 / 5 / 16 |
+| `fusion-rrf+w=0.75+d=100+c=60` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [-0.0080, +0.0200] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | mrr@10 | 25 | 0.5733 | +0.0207 [+0.0000, +0.0500] | 3 / 0 / 22 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | ndcg@10 | 25 | 0.6206 | +0.0168 [+0.0000, +0.0405] | 3 / 0 / 22 |
+| `fusion-rrf+w=0.75+d=100+c=60` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | recall@1 | 100 | 0.5200 | -0.0400 [-0.0800, -0.0100] | 0 / 4 / 96 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | recall@5 | 100 | 0.7700 | -0.0300 [-0.0800, +0.0100] | 1 / 4 / 95 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | recall@10 | 100 | 0.8400 | +0.0000 [-0.0400, +0.0400] | 2 / 2 / 96 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0300, +0.0000] | 0 / 1 / 99 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | mrr@10 | 100 | 0.6181 | -0.0354 [-0.0627, -0.0136] | 7 / 18 / 75 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | ndcg@10 | 100 | 0.6714 | -0.0274 [-0.0512, -0.0065] | 7 / 18 / 75 |
+| `fusion-rrf+w=0.75+d=100+c=100` | all | judged@10 | 100 | 0.0840 | +0.0000 [-0.0040, +0.0040] | 2 / 2 / 96 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | mrr@10 | 25 | 0.6437 | -0.0730 [-0.1347, -0.0216] | 1 / 8 / 16 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | ndcg@10 | 25 | 0.7108 | -0.0647 [-0.1173, -0.0202] | 1 / 8 / 16 |
+| `fusion-rrf+w=0.75+d=100+c=100` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | mrr@10 | 25 | 0.9433 | -0.0367 [-0.1033, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | ndcg@10 | 25 | 0.9572 | -0.0280 [-0.0788, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=0.75+d=100+c=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | recall@5 | 25 | 0.4800 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [-0.0800, +0.1600] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | mrr@10 | 25 | 0.3206 | -0.0438 [-0.1035, +0.0028] | 3 / 7 / 15 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | ndcg@10 | 25 | 0.4041 | -0.0266 [-0.0893, +0.0332] | 3 / 7 / 15 |
+| `fusion-rrf+w=0.75+d=100+c=100` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [-0.0080, +0.0160] | 2 / 1 / 22 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | mrr@10 | 25 | 0.5647 | +0.0120 [-0.0020, +0.0293] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | ndcg@10 | 25 | 0.6136 | +0.0098 [-0.0018, +0.0241] | 3 / 1 / 21 |
+| `fusion-rrf+w=0.75+d=100+c=100` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | all | recall@1 | 100 | 0.5300 | -0.0300 [-0.0800, +0.0100] | 1 / 4 / 95 |
+| `fusion-linear+w=0.75+d=100` | all | recall@5 | 100 | 0.7500 | -0.0500 [-0.1000, +0.0000] | 1 / 6 / 93 |
+| `fusion-linear+w=0.75+d=100` | all | recall@10 | 100 | 0.8400 | +0.0000 [-0.0400, +0.0400] | 2 / 2 / 96 |
+| `fusion-linear+w=0.75+d=100` | all | recall@20 | 100 | 0.8900 | -0.0100 [-0.0500, +0.0200] | 1 / 2 / 97 |
+| `fusion-linear+w=0.75+d=100` | all | mrr@10 | 100 | 0.6244 | -0.0290 [-0.0569, -0.0051] | 9 / 17 / 74 |
+| `fusion-linear+w=0.75+d=100` | all | ndcg@10 | 100 | 0.6761 | -0.0227 [-0.0489, +0.0004] | 9 / 17 / 74 |
+| `fusion-linear+w=0.75+d=100` | all | judged@10 | 100 | 0.0840 | +0.0000 [-0.0040, +0.0040] | 2 / 2 / 96 |
+| `fusion-linear+w=0.75+d=100` | keyword | recall@1 | 25 | 0.5200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=100` | keyword | recall@5 | 25 | 0.8000 | -0.1200 [-0.2800, +0.0000] | 0 / 3 / 22 |
+| `fusion-linear+w=0.75+d=100` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=100` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=100` | keyword | mrr@10 | 25 | 0.6402 | -0.0765 [-0.1406, -0.0255] | 1 / 8 / 16 |
+| `fusion-linear+w=0.75+d=100` | keyword | ndcg@10 | 25 | 0.7073 | -0.0681 [-0.1218, -0.0245] | 1 / 8 / 16 |
+| `fusion-linear+w=0.75+d=100` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=100` | known_item | recall@1 | 25 | 0.9200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-linear+w=0.75+d=100` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | known_item | mrr@10 | 25 | 0.9467 | -0.0333 [-0.0933, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=100` | known_item | ndcg@10 | 25 | 0.9600 | -0.0252 [-0.0705, +0.0000] | 0 / 2 / 23 |
+| `fusion-linear+w=0.75+d=100` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | recall@1 | 25 | 0.2400 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | recall@5 | 25 | 0.4400 | -0.0800 [-0.2400, +0.0400] | 1 / 3 / 21 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | recall@10 | 25 | 0.6800 | +0.0400 [-0.0800, +0.2000] | 2 / 1 / 22 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | mrr@10 | 25 | 0.3475 | -0.0170 [-0.0901, +0.0529] | 5 / 7 / 13 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | ndcg@10 | 25 | 0.4244 | -0.0063 [-0.0906, +0.0699] | 5 / 7 / 13 |
+| `fusion-linear+w=0.75+d=100` | paraphrase | judged@10 | 25 | 0.0680 | +0.0040 [-0.0080, +0.0200] | 2 / 1 / 22 |
+| `fusion-linear+w=0.75+d=100` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-linear+w=0.75+d=100` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-linear+w=0.75+d=100` | question | mrr@10 | 25 | 0.5633 | +0.0107 [+0.0000, +0.0240] | 3 / 0 / 22 |
+| `fusion-linear+w=0.75+d=100` | question | ndcg@10 | 25 | 0.6126 | +0.0087 [+0.0000, +0.0193] | 3 / 0 / 22 |
+| `fusion-linear+w=0.75+d=100` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=1+d=100+c=10` | all | recall@1 | 100 | 0.5000 | -0.0600 [-0.1500, +0.0300] | 7 / 13 / 80 |
+| `fusion-rrf+w=1+d=100+c=10` | all | recall@5 | 100 | 0.7400 | -0.0600 [-0.1400, +0.0200] | 5 / 11 / 84 |
+| `fusion-rrf+w=1+d=100+c=10` | all | recall@10 | 100 | 0.8200 | -0.0200 [-0.0900, +0.0400] | 4 / 6 / 90 |
+| `fusion-rrf+w=1+d=100+c=10` | all | recall@20 | 100 | 0.8800 | -0.0200 [-0.0700, +0.0200] | 2 / 4 / 94 |
+| `fusion-rrf+w=1+d=100+c=10` | all | mrr@10 | 100 | 0.5993 | -0.0542 [-0.1177, +0.0084] | 14 / 29 / 57 |
+| `fusion-rrf+w=1+d=100+c=10` | all | ndcg@10 | 100 | 0.6520 | -0.0468 [-0.1007, +0.0066] | 14 / 29 / 57 |
+| `fusion-rrf+w=1+d=100+c=10` | all | judged@10 | 100 | 0.0820 | -0.0020 [-0.0090, +0.0040] | 4 / 6 / 90 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | recall@1 | 25 | 0.4800 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | recall@5 | 25 | 0.8000 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | recall@10 | 25 | 0.8000 | -0.1600 [-0.2800, -0.0400] | 0 / 4 / 21 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | recall@20 | 25 | 0.8800 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | mrr@10 | 25 | 0.5773 | -0.1393 [-0.2507, -0.0193] | 2 / 11 / 12 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | ndcg@10 | 25 | 0.6314 | -0.1441 [-0.2479, -0.0372] | 2 / 11 / 12 |
+| `fusion-rrf+w=1+d=100+c=10` | keyword | judged@10 | 25 | 0.0800 | -0.0160 [-0.0280, -0.0040] | 0 / 4 / 21 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | recall@1 | 25 | 0.6800 | -0.2800 [-0.4410, -0.1200] | 0 / 7 / 18 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | recall@5 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | recall@10 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | mrr@10 | 25 | 0.7930 | -0.1870 [-0.3080, -0.0800] | 0 / 8 / 17 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | ndcg@10 | 25 | 0.8343 | -0.1510 [-0.2562, -0.0591] | 0 / 8 / 17 |
+| `fusion-rrf+w=1+d=100+c=10` | known_item | judged@10 | 25 | 0.0960 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | recall@1 | 25 | 0.4000 | +0.1600 [+0.0000, +0.3600] | 5 / 1 / 19 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | recall@5 | 25 | 0.5200 | +0.0000 [-0.2000, +0.2400] | 4 / 4 / 17 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | recall@10 | 25 | 0.7200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [-0.0800, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | mrr@10 | 25 | 0.4664 | +0.1019 [-0.0259, +0.2448] | 9 / 5 / 11 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | ndcg@10 | 25 | 0.5241 | +0.0934 [-0.0245, +0.2117] | 9 / 5 / 11 |
+| `fusion-rrf+w=1+d=100+c=10` | paraphrase | judged@10 | 25 | 0.0720 | +0.0080 [-0.0080, +0.0240] | 3 / 1 / 21 |
+| `fusion-rrf+w=1+d=100+c=10` | question | recall@1 | 25 | 0.4400 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `fusion-rrf+w=1+d=100+c=10` | question | recall@5 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `fusion-rrf+w=1+d=100+c=10` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=1+d=100+c=10` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `fusion-rrf+w=1+d=100+c=10` | question | mrr@10 | 25 | 0.5604 | +0.0077 [-0.0713, +0.0940] | 3 / 5 / 17 |
+| `fusion-rrf+w=1+d=100+c=10` | question | ndcg@10 | 25 | 0.6185 | +0.0146 [-0.0497, +0.0886] | 3 / 5 / 17 |
+| `fusion-rrf+w=1+d=100+c=10` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | recall@1 | 100 | 0.5100 | -0.0500 [-0.1300, +0.0300] | 6 / 11 / 83 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | recall@5 | 100 | 0.6600 | -0.1400 [-0.2100, -0.0700] | 0 / 14 / 86 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | recall@10 | 100 | 0.7100 | -0.1300 [-0.2000, -0.0600] | 1 / 14 / 85 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | recall@20 | 100 | 0.7100 | -0.1900 [-0.2700, -0.1200] | 0 / 19 / 81 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | mrr@10 | 100 | 0.5687 | -0.0847 [-0.1455, -0.0285] | 8 / 30 / 62 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | ndcg@10 | 100 | 0.6025 | -0.0963 [-0.1516, -0.0456] | 8 / 30 / 62 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | all | judged@10 | 100 | 0.0710 | -0.0130 [-0.0200, -0.0060] | 1 / 14 / 85 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.2000, +0.1610] | 3 / 3 / 19 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | recall@5 | 25 | 0.8800 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | recall@10 | 25 | 0.9200 | -0.0400 [-0.1600, +0.0800] | 1 / 2 / 22 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | mrr@10 | 25 | 0.7100 | -0.0067 [-0.1308, +0.1133] | 5 / 6 / 14 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | ndcg@10 | 25 | 0.7619 | -0.0135 [-0.1208, +0.0845] | 5 / 6 / 14 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | keyword | judged@10 | 25 | 0.0920 | -0.0040 [-0.0160, +0.0080] | 1 / 2 / 22 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | recall@1 | 25 | 1.0000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | mrr@10 | 25 | 1.0000 | +0.0200 [+0.0000, +0.0600] | 1 / 0 / 24 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | ndcg@10 | 25 | 1.0000 | +0.0148 [+0.0000, +0.0443] | 1 / 0 / 24 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | recall@1 | 25 | 0.0800 | -0.1600 [-0.3200, +0.0000] | 1 / 5 / 19 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | recall@5 | 25 | 0.2400 | -0.2800 [-0.4800, -0.1200] | 0 / 7 / 18 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | recall@10 | 25 | 0.2800 | -0.3600 [-0.5200, -0.2000] | 0 / 9 / 16 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | recall@20 | 25 | 0.2800 | -0.5200 [-0.7200, -0.3600] | 0 / 13 / 12 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | mrr@10 | 25 | 0.1324 | -0.2320 [-0.3745, -0.0933] | 1 / 14 / 10 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | ndcg@10 | 25 | 0.1675 | -0.2632 [-0.4034, -0.1297] | 1 / 14 / 10 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | paraphrase | judged@10 | 25 | 0.0280 | -0.0360 [-0.0520, -0.0200] | 0 / 9 / 16 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | recall@1 | 25 | 0.3600 | -0.0800 [-0.2400, +0.0800] | 1 / 3 / 21 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | recall@5 | 25 | 0.5200 | -0.2400 [-0.4010, -0.0800] | 0 / 6 / 19 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | recall@10 | 25 | 0.6400 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | recall@20 | 25 | 0.6400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | mrr@10 | 25 | 0.4324 | -0.1202 [-0.2084, -0.0285] | 1 / 10 / 14 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | ndcg@10 | 25 | 0.4805 | -0.1234 [-0.2017, -0.0427] | 1 / 10 / 14 |
+| `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | question | judged@10 | 25 | 0.0640 | -0.0120 [-0.0240, +0.0000] | 0 / 3 / 22 |
+| `dense-gte-small` | all | recall@1 | 100 | 0.4300 | -0.1300 [-0.2400, -0.0200] | 9 / 22 / 69 |
+| `dense-gte-small` | all | recall@5 | 100 | 0.6600 | -0.1400 [-0.2202, -0.0600] | 3 / 17 / 80 |
+| `dense-gte-small` | all | recall@10 | 100 | 0.7100 | -0.1300 [-0.2200, -0.0500] | 3 / 16 / 81 |
+| `dense-gte-small` | all | recall@20 | 100 | 0.7800 | -0.1200 [-0.2000, -0.0400] | 3 / 15 / 82 |
+| `dense-gte-small` | all | mrr@10 | 100 | 0.5254 | -0.1280 [-0.2049, -0.0490] | 15 / 37 / 48 |
+| `dense-gte-small` | all | ndcg@10 | 100 | 0.5704 | -0.1285 [-0.1985, -0.0541] | 15 / 37 / 48 |
+| `dense-gte-small` | all | judged@10 | 100 | 0.0710 | -0.0130 [-0.0220, -0.0050] | 3 / 16 / 81 |
+| `dense-gte-small` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.2400, +0.2400] | 4 / 4 / 17 |
+| `dense-gte-small` | keyword | recall@5 | 25 | 0.8400 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `dense-gte-small` | keyword | recall@10 | 25 | 0.8400 | -0.1200 [-0.2800, +0.0000] | 0 / 3 / 22 |
+| `dense-gte-small` | keyword | recall@20 | 25 | 0.8400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `dense-gte-small` | keyword | mrr@10 | 25 | 0.6880 | -0.0287 [-0.1774, +0.1108] | 5 / 8 / 12 |
+| `dense-gte-small` | keyword | ndcg@10 | 25 | 0.7256 | -0.0498 [-0.1709, +0.0712] | 5 / 8 / 12 |
+| `dense-gte-small` | keyword | judged@10 | 25 | 0.0840 | -0.0120 [-0.0280, +0.0000] | 0 / 3 / 22 |
+| `dense-gte-small` | known_item | recall@1 | 25 | 0.5200 | -0.4400 [-0.6400, -0.2400] | 0 / 11 / 14 |
+| `dense-gte-small` | known_item | recall@5 | 25 | 0.8400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `dense-gte-small` | known_item | recall@10 | 25 | 0.8400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `dense-gte-small` | known_item | recall@20 | 25 | 0.8800 | -0.1200 [-0.2800, +0.0000] | 0 / 3 / 22 |
+| `dense-gte-small` | known_item | mrr@10 | 25 | 0.6327 | -0.3473 [-0.5034, -0.2073] | 0 / 12 / 13 |
+| `dense-gte-small` | known_item | ndcg@10 | 25 | 0.6839 | -0.3014 [-0.4449, -0.1666] | 0 / 12 / 13 |
+| `dense-gte-small` | known_item | judged@10 | 25 | 0.0840 | -0.0160 [-0.0320, -0.0040] | 0 / 4 / 21 |
+| `dense-gte-small` | paraphrase | recall@1 | 25 | 0.2800 | +0.0400 [-0.1600, +0.2410] | 4 / 3 / 18 |
+| `dense-gte-small` | paraphrase | recall@5 | 25 | 0.4400 | -0.0800 [-0.2810, +0.1210] | 3 / 5 / 17 |
+| `dense-gte-small` | paraphrase | recall@10 | 25 | 0.5200 | -0.1200 [-0.3200, +0.0800] | 2 / 5 / 18 |
+| `dense-gte-small` | paraphrase | recall@20 | 25 | 0.6400 | -0.1600 [-0.3600, +0.0400] | 2 / 6 / 17 |
+| `dense-gte-small` | paraphrase | mrr@10 | 25 | 0.3640 | -0.0004 [-0.1682, +0.1691] | 8 / 7 / 10 |
+| `dense-gte-small` | paraphrase | ndcg@10 | 25 | 0.4017 | -0.0290 [-0.1932, +0.1327] | 8 / 7 / 10 |
+| `dense-gte-small` | paraphrase | judged@10 | 25 | 0.0520 | -0.0120 [-0.0320, +0.0080] | 2 / 5 / 18 |
+| `dense-gte-small` | question | recall@1 | 25 | 0.3200 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `dense-gte-small` | question | recall@5 | 25 | 0.5200 | -0.2400 [-0.4000, -0.0800] | 0 / 6 / 19 |
+| `dense-gte-small` | question | recall@10 | 25 | 0.6400 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `dense-gte-small` | question | recall@20 | 25 | 0.7600 | -0.0400 [-0.1610, +0.0800] | 1 / 2 / 22 |
+| `dense-gte-small` | question | mrr@10 | 25 | 0.4170 | -0.1356 [-0.2656, -0.0222] | 2 / 10 / 13 |
+| `dense-gte-small` | question | ndcg@10 | 25 | 0.4702 | -0.1336 [-0.2609, -0.0218] | 2 / 10 / 13 |
+| `dense-gte-small` | question | judged@10 | 25 | 0.0640 | -0.0120 [-0.0280, +0.0040] | 1 / 4 / 20 |
+| `dense-bge-small` | all | recall@1 | 100 | 0.4200 | -0.1400 [-0.2500, -0.0400] | 7 / 21 / 72 |
+| `dense-bge-small` | all | recall@5 | 100 | 0.6000 | -0.2000 [-0.3000, -0.1100] | 4 / 24 / 72 |
+| `dense-bge-small` | all | recall@10 | 100 | 0.7000 | -0.1400 [-0.2402, -0.0500] | 7 / 21 / 72 |
+| `dense-bge-small` | all | recall@20 | 100 | 0.7900 | -0.1100 [-0.1900, -0.0300] | 4 / 15 / 81 |
+| `dense-bge-small` | all | mrr@10 | 100 | 0.5056 | -0.1478 [-0.2331, -0.0623] | 18 / 37 / 45 |
+| `dense-bge-small` | all | ndcg@10 | 100 | 0.5518 | -0.1470 [-0.2272, -0.0712] | 18 / 37 / 45 |
+| `dense-bge-small` | all | judged@10 | 100 | 0.0700 | -0.0140 [-0.0240, -0.0050] | 7 / 21 / 72 |
+| `dense-bge-small` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.2400, +0.2000] | 4 / 4 / 17 |
+| `dense-bge-small` | keyword | recall@5 | 25 | 0.6800 | -0.2400 [-0.4000, -0.0800] | 0 / 6 / 19 |
+| `dense-bge-small` | keyword | recall@10 | 25 | 0.8000 | -0.1600 [-0.3600, +0.0000] | 1 / 5 / 19 |
+| `dense-bge-small` | keyword | recall@20 | 25 | 0.8800 | -0.1200 [-0.2800, +0.0000] | 0 / 3 / 22 |
+| `dense-bge-small` | keyword | mrr@10 | 25 | 0.6542 | -0.0625 [-0.2486, +0.1090] | 6 / 8 / 11 |
+| `dense-bge-small` | keyword | ndcg@10 | 25 | 0.6874 | -0.0880 [-0.2532, +0.0619] | 6 / 8 / 11 |
+| `dense-bge-small` | keyword | judged@10 | 25 | 0.0800 | -0.0160 [-0.0360, +0.0000] | 1 / 5 / 19 |
+| `dense-bge-small` | known_item | recall@1 | 25 | 0.5600 | -0.4000 [-0.6000, -0.2400] | 0 / 10 / 15 |
+| `dense-bge-small` | known_item | recall@5 | 25 | 0.8000 | -0.2000 [-0.3600, -0.0800] | 0 / 5 / 20 |
+| `dense-bge-small` | known_item | recall@10 | 25 | 0.8400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `dense-bge-small` | known_item | recall@20 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `dense-bge-small` | known_item | mrr@10 | 25 | 0.6667 | -0.3133 [-0.4634, -0.1833] | 0 / 11 / 14 |
+| `dense-bge-small` | known_item | ndcg@10 | 25 | 0.7097 | -0.2756 [-0.4184, -0.1531] | 0 / 11 / 14 |
+| `dense-bge-small` | known_item | judged@10 | 25 | 0.0840 | -0.0160 [-0.0320, -0.0040] | 0 / 4 / 21 |
+| `dense-bge-small` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.2000, +0.1200] | 2 / 3 / 20 |
+| `dense-bge-small` | paraphrase | recall@5 | 25 | 0.3600 | -0.1600 [-0.4000, +0.1200] | 4 / 8 / 13 |
+| `dense-bge-small` | paraphrase | recall@10 | 25 | 0.4800 | -0.1600 [-0.4400, +0.1600] | 5 / 9 / 11 |
+| `dense-bge-small` | paraphrase | recall@20 | 25 | 0.6400 | -0.1600 [-0.4000, +0.0800] | 3 / 7 / 15 |
+| `dense-bge-small` | paraphrase | mrr@10 | 25 | 0.2840 | -0.0804 [-0.2645, +0.1007] | 8 / 9 / 8 |
+| `dense-bge-small` | paraphrase | ndcg@10 | 25 | 0.3305 | -0.1002 [-0.2902, +0.0989] | 8 / 9 / 8 |
+| `dense-bge-small` | paraphrase | judged@10 | 25 | 0.0480 | -0.0160 [-0.0440, +0.0160] | 5 / 9 / 11 |
+| `dense-bge-small` | question | recall@1 | 25 | 0.3200 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `dense-bge-small` | question | recall@5 | 25 | 0.5600 | -0.2000 [-0.3600, -0.0800] | 0 / 5 / 20 |
+| `dense-bge-small` | question | recall@10 | 25 | 0.6800 | -0.0800 [-0.2400, +0.0800] | 1 / 3 / 21 |
+| `dense-bge-small` | question | recall@20 | 25 | 0.7200 | -0.0800 [-0.2400, +0.0800] | 1 / 3 / 21 |
+| `dense-bge-small` | question | mrr@10 | 25 | 0.4177 | -0.1350 [-0.2807, -0.0085] | 4 / 9 / 12 |
+| `dense-bge-small` | question | ndcg@10 | 25 | 0.4795 | -0.1243 [-0.2614, -0.0091] | 4 / 9 / 12 |
+| `dense-bge-small` | question | judged@10 | 25 | 0.0680 | -0.0080 [-0.0240, +0.0080] | 1 / 3 / 21 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | recall@1 | 100 | 0.5400 | -0.0200 [-0.0900, +0.0402] | 5 / 7 / 88 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | recall@5 | 100 | 0.7600 | -0.0400 [-0.1000, +0.0200] | 3 / 7 / 90 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | recall@10 | 100 | 0.8000 | -0.0400 [-0.1000, +0.0100] | 2 / 6 / 92 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | recall@20 | 100 | 0.8400 | -0.0600 [-0.1200, -0.0100] | 1 / 7 / 92 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | mrr@10 | 100 | 0.6350 | -0.0184 [-0.0646, +0.0280] | 12 / 20 / 68 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6754 | -0.0235 [-0.0664, +0.0191] | 12 / 20 / 68 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | all | judged@10 | 100 | 0.0800 | -0.0040 [-0.0100, +0.0010] | 2 / 6 / 92 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [-0.2000, +0.2000] | 3 / 3 / 19 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | recall@5 | 25 | 0.9200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | recall@10 | 25 | 0.9600 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | mrr@10 | 25 | 0.7280 | +0.0113 [-0.0980, +0.1180] | 6 / 7 / 12 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7851 | +0.0097 [-0.0789, +0.0901] | 6 / 7 / 12 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 0.0960 | +0.0000 [-0.0120, +0.0120] | 1 / 1 / 23 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | mrr@10 | 25 | 0.9733 | -0.0067 [-0.0200, +0.0000] | 0 / 1 / 24 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.9800 | -0.0052 [-0.0157, +0.0000] | 0 / 1 / 24 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | recall@1 | 25 | 0.2000 | -0.0400 [-0.2000, +0.1200] | 2 / 3 / 20 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | recall@5 | 25 | 0.4800 | -0.0400 [-0.2400, +0.1600] | 3 / 4 / 18 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | recall@10 | 25 | 0.5200 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | recall@20 | 25 | 0.6400 | -0.1600 [-0.3200, -0.0400] | 0 / 4 / 21 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | mrr@10 | 25 | 0.3207 | -0.0438 [-0.1789, +0.0936] | 5 / 7 / 13 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.3697 | -0.0610 [-0.1896, +0.0751] | 5 / 7 / 13 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 0.0520 | -0.0120 [-0.0280, +0.0040] | 1 / 4 / 20 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | recall@1 | 25 | 0.4000 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | recall@5 | 25 | 0.6400 | -0.1200 [-0.2410, +0.0000] | 0 / 3 / 22 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | recall@10 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | recall@20 | 25 | 0.7600 | -0.0400 [-0.2000, +0.0800] | 1 / 2 / 22 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | mrr@10 | 25 | 0.5180 | -0.0347 [-0.0840, +0.0033] | 1 / 5 / 19 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.5665 | -0.0373 [-0.0857, +0.0010] | 1 / 5 / 19 |
+| `hybrid-gte-small+rrf+w=0.5+c=10` | question | judged@10 | 25 | 0.0720 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | recall@1 | 100 | 0.5000 | -0.0600 [-0.1300, +0.0100] | 4 / 10 / 86 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | recall@5 | 100 | 0.7700 | -0.0300 [-0.1000, +0.0300] | 4 / 7 / 89 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | recall@10 | 100 | 0.7900 | -0.0500 [-0.1100, +0.0100] | 3 / 8 / 89 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | recall@20 | 100 | 0.8500 | -0.0500 [-0.1000, +0.0000] | 1 / 6 / 93 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | mrr@10 | 100 | 0.6019 | -0.0515 [-0.1039, +0.0008] | 11 / 23 / 66 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6481 | -0.0507 [-0.0988, -0.0048] | 11 / 23 / 66 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | all | judged@10 | 100 | 0.0790 | -0.0050 [-0.0110, +0.0010] | 3 / 8 / 89 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | recall@1 | 25 | 0.5600 | -0.0400 [-0.2400, +0.1600] | 3 / 4 / 18 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | recall@5 | 25 | 0.9600 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | recall@10 | 25 | 0.9600 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | recall@20 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | mrr@10 | 25 | 0.7093 | -0.0073 [-0.1547, +0.1294] | 6 / 7 / 12 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7719 | -0.0036 [-0.1215, +0.1088] | 6 / 7 / 12 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 0.0960 | +0.0000 [-0.0120, +0.0120] | 1 / 1 / 23 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | recall@1 | 25 | 0.8800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | mrr@10 | 25 | 0.9300 | -0.0500 [-0.1100, +0.0000] | 0 / 3 / 22 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.9477 | -0.0375 [-0.0818, +0.0000] | 0 / 3 / 22 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | recall@1 | 25 | 0.1200 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | recall@5 | 25 | 0.4400 | -0.0800 [-0.3200, +0.1600] | 3 / 5 / 17 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | recall@10 | 25 | 0.4800 | -0.1600 [-0.3610, +0.0400] | 2 / 6 / 17 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | recall@20 | 25 | 0.6800 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | mrr@10 | 25 | 0.2320 | -0.1324 [-0.2722, -0.0135] | 4 / 8 / 13 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.2920 | -0.1387 [-0.2835, -0.0103] | 4 / 8 / 13 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 0.0480 | -0.0160 [-0.0361, +0.0040] | 2 / 6 / 17 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | recall@1 | 25 | 0.4400 | +0.0000 [-0.1200, +0.0810] | 1 / 1 / 23 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | recall@5 | 25 | 0.6800 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | recall@10 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | recall@20 | 25 | 0.7600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | mrr@10 | 25 | 0.5363 | -0.0163 [-0.0817, +0.0520] | 1 / 5 / 19 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.5810 | -0.0229 [-0.0781, +0.0355] | 1 / 5 / 19 |
+| `hybrid-bge-small+rrf+w=0.5+c=10` | question | judged@10 | 25 | 0.0720 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `dense-openai-large` | all | recall@1 | 100 | 0.5000 | -0.0600 [-0.1500, +0.0300] | 7 / 13 / 80 |
+| `dense-openai-large` | all | recall@5 | 100 | 0.7400 | -0.0600 [-0.1400, +0.0200] | 5 / 11 / 84 |
+| `dense-openai-large` | all | recall@10 | 100 | 0.8200 | -0.0200 [-0.0900, +0.0400] | 4 / 6 / 90 |
+| `dense-openai-large` | all | recall@20 | 100 | 0.8800 | -0.0200 [-0.0700, +0.0200] | 2 / 4 / 94 |
+| `dense-openai-large` | all | mrr@10 | 100 | 0.5993 | -0.0542 [-0.1177, +0.0084] | 14 / 29 / 57 |
+| `dense-openai-large` | all | ndcg@10 | 100 | 0.6520 | -0.0468 [-0.1007, +0.0066] | 14 / 29 / 57 |
+| `dense-openai-large` | all | judged@10 | 100 | 0.0820 | -0.0020 [-0.0090, +0.0040] | 4 / 6 / 90 |
+| `dense-openai-large` | keyword | recall@1 | 25 | 0.4800 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `dense-openai-large` | keyword | recall@5 | 25 | 0.8000 | -0.1200 [-0.2800, +0.0400] | 1 / 4 / 20 |
+| `dense-openai-large` | keyword | recall@10 | 25 | 0.8000 | -0.1600 [-0.2800, -0.0400] | 0 / 4 / 21 |
+| `dense-openai-large` | keyword | recall@20 | 25 | 0.8800 | -0.1200 [-0.2400, +0.0000] | 0 / 3 / 22 |
+| `dense-openai-large` | keyword | mrr@10 | 25 | 0.5773 | -0.1393 [-0.2507, -0.0193] | 2 / 11 / 12 |
+| `dense-openai-large` | keyword | ndcg@10 | 25 | 0.6314 | -0.1441 [-0.2479, -0.0372] | 2 / 11 / 12 |
+| `dense-openai-large` | keyword | judged@10 | 25 | 0.0800 | -0.0160 [-0.0280, -0.0040] | 0 / 4 / 21 |
+| `dense-openai-large` | known_item | recall@1 | 25 | 0.6800 | -0.2800 [-0.4410, -0.1200] | 0 / 7 / 18 |
+| `dense-openai-large` | known_item | recall@5 | 25 | 0.9200 | -0.0800 [-0.2000, +0.0000] | 0 / 2 / 23 |
+| `dense-openai-large` | known_item | recall@10 | 25 | 0.9600 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `dense-openai-large` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `dense-openai-large` | known_item | mrr@10 | 25 | 0.7930 | -0.1870 [-0.3080, -0.0800] | 0 / 8 / 17 |
+| `dense-openai-large` | known_item | ndcg@10 | 25 | 0.8343 | -0.1510 [-0.2562, -0.0591] | 0 / 8 / 17 |
+| `dense-openai-large` | known_item | judged@10 | 25 | 0.0960 | -0.0040 [-0.0120, +0.0000] | 0 / 1 / 24 |
+| `dense-openai-large` | paraphrase | recall@1 | 25 | 0.4000 | +0.1600 [+0.0000, +0.3600] | 5 / 1 / 19 |
+| `dense-openai-large` | paraphrase | recall@5 | 25 | 0.5200 | +0.0000 [-0.2000, +0.2400] | 4 / 4 / 17 |
+| `dense-openai-large` | paraphrase | recall@10 | 25 | 0.7200 | +0.0800 [-0.0800, +0.2400] | 3 / 1 / 21 |
+| `dense-openai-large` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [-0.0800, +0.1200] | 1 / 1 / 23 |
+| `dense-openai-large` | paraphrase | mrr@10 | 25 | 0.4664 | +0.1019 [-0.0259, +0.2448] | 9 / 5 / 11 |
+| `dense-openai-large` | paraphrase | ndcg@10 | 25 | 0.5241 | +0.0934 [-0.0245, +0.2117] | 9 / 5 / 11 |
+| `dense-openai-large` | paraphrase | judged@10 | 25 | 0.0720 | +0.0080 [-0.0080, +0.0240] | 3 / 1 / 21 |
+| `dense-openai-large` | question | recall@1 | 25 | 0.4400 | +0.0000 [-0.1200, +0.1200] | 1 / 1 / 23 |
+| `dense-openai-large` | question | recall@5 | 25 | 0.7200 | -0.0400 [-0.1200, +0.0000] | 0 / 1 / 24 |
+| `dense-openai-large` | question | recall@10 | 25 | 0.8000 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `dense-openai-large` | question | recall@20 | 25 | 0.8400 | +0.0400 [+0.0000, +0.1200] | 1 / 0 / 24 |
+| `dense-openai-large` | question | mrr@10 | 25 | 0.5604 | +0.0077 [-0.0713, +0.0940] | 3 / 5 / 17 |
+| `dense-openai-large` | question | ndcg@10 | 25 | 0.6185 | +0.0146 [-0.0497, +0.0886] | 3 / 5 / 17 |
+| `dense-openai-large` | question | judged@10 | 25 | 0.0800 | +0.0040 [+0.0000, +0.0120] | 1 / 0 / 24 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | recall@1 | 100 | 0.5600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | recall@5 | 100 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | recall@10 | 100 | 0.8400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | recall@20 | 100 | 0.9000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | mrr@10 | 100 | 0.6534 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | ndcg@10 | 100 | 0.6988 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | all | judged@10 | 100 | 0.0840 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 100 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | recall@1 | 25 | 0.6000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | recall@5 | 25 | 0.9200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | recall@10 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | mrr@10 | 25 | 0.7167 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | ndcg@10 | 25 | 0.7754 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | keyword | judged@10 | 25 | 0.0960 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | recall@1 | 25 | 0.9600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | recall@5 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | recall@10 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | recall@20 | 25 | 1.0000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | mrr@10 | 25 | 0.9800 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | ndcg@10 | 25 | 0.9852 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | known_item | judged@10 | 25 | 0.1000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | recall@1 | 25 | 0.2400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | recall@5 | 25 | 0.5200 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | recall@10 | 25 | 0.6400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | mrr@10 | 25 | 0.3644 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | ndcg@10 | 25 | 0.4307 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | paraphrase | judged@10 | 25 | 0.0640 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | recall@1 | 25 | 0.4400 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | recall@5 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | recall@10 | 25 | 0.7600 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | recall@20 | 25 | 0.8000 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | mrr@10 | 25 | 0.5527 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | ndcg@10 | 25 | 0.6039 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |
+| `hybrid-openai-large+rrf+w=0.5+c=10` | question | judged@10 | 25 | 0.0760 | +0.0000 [+0.0000, +0.0000] | 0 / 0 / 25 |

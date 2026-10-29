@@ -572,8 +572,9 @@ snapshot; original baseline files are not overwritten. Outputs include config/
 ranking fingerprints, source and graded per-query metrics, overall/type paired
 differences and win/tie/regression counts when coverage is complete.
 An explicit `--label --max-calls N` can fill missing pairs using the existing
-shared token ledger, but additional labeling is currently paused after budget
-clarification. No automatic cap increase or daily reset is allowed.
+shared token ledger. After budget clarification, Sid approved the 333-pair
+batch and an effective cumulative cap of 1,600,000 tokens, without resetting
+usage. No automatic cap increase or daily reset is allowed.
 
 `evaluate/failure_analysis.py` is also offline. It verifies the frozen snapshot's
 rubric, workbook and ranking fingerprints, then saves segment comparisons and
