@@ -13,7 +13,7 @@ Every design choice is decided by **measuring** it on a test set of queries, not
  (raw pages)         (corpus.jsonl)      find top papers       score each method    using top papers
 ```
 
-## Current working baseline (selected 2026-10-28)
+## Current working baseline (updated 2026-10-29)
 
 This is our chosen direction, not yet a fully measured end-to-end configuration.
 GPT-5.4 mini grades results offline; it is not part of the live search path.
@@ -23,8 +23,8 @@ GPT-5.4 mini grades results offline; it is not part of the live search path.
 | Corpus | 23,304 arXiv papers; title + abstract | Indexed with local models and OpenAI large |
 | Keyword retrieval | BM25 exact+stems, authors, title x2; k1=0.8, b=0.75; no stopword removal | Measured on full corpus |
 | Embeddings | OpenAI `text-embedding-3-large`, 3,072 dimensions; normalized vectors | Full-corpus vectors cached; new run cost $0.7439 under separate $1.25 cap |
-| Hybrid fusion | Equal-weight RRF, c=10, top 100 from each retriever | Full-corpus dev measured; improvement over GTE uncertain |
-| Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29; all 2,857 dev pool pairs covered; fresh-human validation deferred |
+| Hybrid fusion | **55% semantic / 45% lexical, RRF c=30**, top 100 from each retriever | User-approved working baseline after cached finalist review |
+| Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29; expanded 3,190-pair dev pool covered; fresh-human validation deferred |
 | Evaluation | 100 dev / 300 held-out test queries; source-paper MRR/recall plus graded nDCG and judgment coverage | Full-dev evaluation complete; held-out test untouched |
 | Vector storage | Offline NumPy arrays + paper-ID metadata; exact cosine search | Hosted Postgres/pgvector planned, not deployed |
 | Reranker / RAG | None yet | Next phases, not baseline components |
@@ -36,8 +36,9 @@ GPT-5.4 mini grades results offline; it is not part of the live search path.
 | Full-corpus retrieval reference | BM25 + **GTE-small**, RRF 0.5/0.5, c=10; 23,304 papers, 100 dev queries | MRR@10 **0.635** [0.56, 0.72]; R@1 **0.54**, R@10 **0.80**, R@20 **0.84**; one warm run **26.4 ms/query** |
 | Selected embedding pilot | OpenAI large **alone**; 2,000 papers, same 100 dev queries | MRR@10 **0.844** [0.784, 0.902]; R@10 **0.95**, R@20 **0.98**; embedding cost **$0.0701** including queries |
 | Selected judge calibration | GPT-5.4 mini vs. 100 human-labeled pairs from 12 dev searches | Exact agreement **77%**; quadratic kappa **0.802**; relevant/not agreement **84%**; **0** opposite 0-vs-2 errors |
-| New full-corpus baseline | BM25 + **OpenAI large**, equal-weight RRF c=10; 23,304 papers, 100 dev queries | MRR@10 **0.653** [0.572, 0.737]; R@1 **0.56**, R@10 **0.84**, R@20 **0.90** |
-| Complete graded dev baseline | Same OpenAI hybrid; GPT-5.4 mini with 100 human overrides, all seven systems' top 10 fully judged | nDCG@10 **0.686** [0.659, 0.712]; P@10 **0.633** [0.595, 0.673]; judged@10 **100%** |
+| Original OpenAI hybrid control | BM25 + **OpenAI large**, equal-weight RRF c=10; 23,304 papers, 100 dev queries | MRR@10 **0.653** [0.572, 0.737]; R@1 **0.56**, R@10 **0.84**, R@20 **0.90** |
+| Original seven-system graded snapshot | Original OpenAI hybrid; GPT-5.4 mini with 100 human overrides | nDCG@10 **0.686** [0.659, 0.712]; P@10 **0.633** [0.595, 0.673]; judged@10 **100%** |
+| **Current working baseline** | **55% semantic / 45% lexical, RRF c=30, depth100**; 100 dev queries, expanded 3,190-pair snapshot | **nDCG@10 0.7106; P@10 0.689; source MRR@10 0.6459; R@1 0.55; R@10 0.86; known-item MRR 0.980** |
 | Full-corpus semantic retrieval | OpenAI large alone; same corpus and dev queries | MRR@10 **0.599** [0.518, 0.679]; R@10 **0.82**, R@20 **0.88** |
 
 The pilot has fewer distractors and cannot be compared directly with the full-corpus
@@ -54,7 +55,7 @@ hybrid is **+0.030 nDCG** [0.007, 0.055] under these labels; the gain over
 OpenAI dense alone is uncertain (+0.018 [-0.011, 0.046]).
 
 Full experiment tables, confidence intervals, usage and caveats: [Results](docs/05-results.md).
-Selection rationale and next milestones: [Decision 34](docs/02-decisions.md#34-working-baseline-selected-2026-10-28).
+Current selection rationale: [Decision 35](docs/02-decisions.md#35-working-fusion-baseline-promoted-2026-10-29).
 The label-collection UI is deferred; the existing 100 human labels remain our
 calibration set. A separate reranker is deferred; the next experiments tune
 lexical/semantic fusion and candidate depth using cached dev rankings.
@@ -63,7 +64,7 @@ lexical/semantic fusion and candidate depth using cached dev rankings.
 
 - [x] 1. Download papers from arXiv
 - [x] 2. Clean up into one file of 23,304 papers
-- [x] 3. Search: BM25 baseline → BM25 variants → local/OpenAI embeddings → hybrid (dev MRR: 0.653)
+- [x] 3. Search: BM25 baseline → BM25 variants → local/OpenAI embeddings → tuned hybrid (working dev nDCG: 0.7106; source MRR: 0.6459)
 - [ ] 4. Test: scoring metrics ✅, 400 test queries ✅, results table ✅, GPT-5.4 mini selected ✅, full-dev graded evaluation ✅; fresh-human validation deferred; final held-out test untouched
 - [ ] 5. Answer: RAG with an LLM
 - [ ] 6. Website: database, API, web page, deploy
@@ -149,8 +150,8 @@ from **0.653 to 0.618**, so this is a quality tradeoff, not universal dominance.
 The candidate was selected on dev among 38 settings; selection uncertainty
 is not captured by its unadjusted interval. The original baseline stays frozen.
 
-The finer cached review favors **55% semantic / 45% lexical, RRF c=30,
-depth=100** as a balanced candidate, **not yet a promoted baseline**.
+The finer cached review led to user approval of **55% semantic / 45% lexical,
+RRF c=30, depth=100** as the **new working baseline on 2026-10-29**.
 It preserves every original known-item target rank (MRR 0.980), with overall
 nDCG 0.7106, P@10 0.689 and source MRR 0.6459. Keyword source MRR still
 decreases versus the original control, despite improved keyword graded relevance.
@@ -160,6 +161,12 @@ Reproducible scorecards, paired intervals, all source-rank changes and largest
 gain/loss evidence are in `data/results/fusion-review-dev/`.
 See [the pre-promotion findings](docs/03-findings.md#20-pre-promotion-review-of-the-55c30-candidate)
 for the remaining tradeoffs; no held-out test evaluation has been run.
+
+The selected profile is versioned as `WORKING_BASELINE_*` in `arxiv_search/config.py`;
+`fuse_working_baseline` applies it to best-BM25/OpenAI-large rankings.
+Generic `fuse` defaults and historical experiment controls stay unchanged.
+The saved pre-promotion report remains a historical review, not a mutable
+promotion record. Approval is recorded in Decision35; live serving is not deployed.
 
 ## Folders
 

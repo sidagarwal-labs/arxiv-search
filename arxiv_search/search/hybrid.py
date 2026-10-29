@@ -2,6 +2,19 @@
 
 import math
 
+from arxiv_search import config
+
+
+def fuse_working_baseline(
+    lexical: list[str], semantic: list[str], *, k: int = config.RUN_DEPTH,
+) -> list[str]:
+    """Fuse best-BM25/OpenAI-large rankings using the approved working profile."""
+    return fuse(
+        lexical, semantic, method=config.WORKING_BASELINE_METHOD,
+        semantic_weight=config.WORKING_BASELINE_SEMANTIC_WEIGHT,
+        c=config.WORKING_BASELINE_RRF_C, depth=config.WORKING_BASELINE_DEPTH, k=k,
+    )
+
 
 def fuse(
     lexical: list[str], semantic: list[str], *, method: str = "rrf",

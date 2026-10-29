@@ -140,7 +140,7 @@ Sid selected **Gemma as relevance judge and OpenAI large as the embedding model*
 The judge selection was updated to **GPT-5.4 mini on 2026-10-29** after
 the four-OpenAI-model human calibration below; Gemma caches are retained.
 Keep the best BM25 recipe and start hybrid testing with equal-weight RRF c=10.
-The [README summary](../README.md#current-working-baseline-selected-2026-10-28)
+The [README summary](../README.md#current-working-baseline-updated-2026-10-29)
 tracks the selected configuration alongside the best measured scores and their scopes.
 This does not rename or overwrite the original `bm25-baseline` control.
 
@@ -373,6 +373,37 @@ the public-data research project. Send public arXiv material and synthetic queri
 only, not secrets, private documents or identifiable human notes. Keep the key in
 the Git-ignored `.env` as `OPENAI_API_KEY`, server-side only. Adding the key does
 not start any calls; the OpenAI adapter and quota controls still need implementation.
+
+---
+
+## #35 Working fusion baseline promoted (2026-10-29)
+
+Sid approved **55% semantic / 45% lexical, weighted RRF c=30, depth100**
+after the pre-promotion review. This is now the working retrieval baseline:
+
+- Lexical: BM25 exact+stems, authors, title x2, k1=0.8, b=0.75, no stopword removal.
+- Semantic: OpenAI `text-embedding-3-large`, 3,072 dimensions, normalized
+  title/abstract vectors, cosine similarity.
+- Fuse top100 from each input, with stable lexical-first tie handling.
+- Judge: GPT-5.4 mini, cached labels with human overrides. No reranker.
+
+On100 dev queries using the same expanded3,190-pair snapshot: nDCG@10
+0.7106, P@10 0.689, source MRR@10 0.6459, source R@10 0.86.
+All25 known-item source ranks match the original equal-weight control
+(MRR0.980). Accepted tradeoffs include lower keyword source MRR and some
+individual question/list-quality regressions. See [review findings](03-findings.md#20-pre-promotion-review-of-the-55c30-candidate).
+
+`WORKING_BASELINE_*` in config records the approved profile;
+`search.hybrid.fuse_working_baseline` applies it. The system registry exposes
+its identity with an explicit cached-review execution path; it does not
+silently invoke embedding APIs or pretend live serving is deployed.
+
+Keep `BASELINE_SYSTEM="bm25-baseline"` as the historical experiment-table
+control, and keep the original50%/c10 fusion control and all frozen snapshots.
+Do not reinterpret historical deltas or rewrite the pre-promotion report.
+The approval changes the working selection, not the label pool or rubric.
+No new API calls, embeddings, or held-out test evaluation are authorized
+or required by this promotion. The300 test queries remain untouched.
 
 ---
 

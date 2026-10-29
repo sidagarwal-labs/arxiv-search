@@ -61,6 +61,19 @@ def register_systems(registry: dict, system_factory) -> None:
         "offline query embeddings; latency excludes API",
         {**factors, "hybrid": True, "method": "rrf", "semantic_weight": 0.5, "c": 10})
 
+    def build_working(_corpus):
+        raise RuntimeError(
+            "The working baseline is evaluated from cached rankings with "
+            "python -m arxiv_search.evaluate.fusion_review; live serving is not deployed"
+        )
+
+    registry[config.WORKING_BASELINE_SYSTEM] = system_factory(
+        build_working, "Working baseline: best BM25 + OpenAI large, "
+        "55% semantic / 45% lexical RRF c=30, depth=100; cached dev review",
+        {**factors, "hybrid": True, "method": config.WORKING_BASELINE_METHOD,
+         "semantic_weight": config.WORKING_BASELINE_SEMANTIC_WEIGHT,
+         "c": config.WORKING_BASELINE_RRF_C, "depth": config.WORKING_BASELINE_DEPTH})
+
 
 class EmbeddingError(RuntimeError):
     """Sanitized failure; never expose credentials, input text or provider bodies."""

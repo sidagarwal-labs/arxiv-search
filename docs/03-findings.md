@@ -793,7 +793,7 @@ improves0.8126 to0.8810 despite source demotion; popularity-query nDCG slips
   GraphER known-item search also loses supporting-list relevance versus60%
   and75%, although the exact GraphER paper stays first.
 
-### Recommendation, pending user confirmation
+### Pre-promotion recommendation (subsequently approved)
 
 55%/c30 is the preferred **balanced dev candidate**, not a statistically
 unique optimum or universally dominant system. It restores all known-item
@@ -801,8 +801,13 @@ target ranks, retains broad relevance gains, and improves source MRR over
 the other two finalists. Accepting it means explicitly accepting remaining
 keyword/source-rank and individual question/list-quality tradeoffs.
 
-No automatic promotion was made. Keep the original frozen control for future
+No automatic promotion was made during the review. Keep the original frozen control for future
 comparisons even if the user approves a new working baseline. Held-out test
 remains untouched; independent generalization and fresh-human validation
 remain unproven. Full rankings, aligned per-query scores, paired intervals
 and diagnostic abstracts/reasons are reproducible with the review command.
+
+**Promotion update, 2026-10-29:** Sid approved55% semantic /45% lexical,
+RRF c=30, depth100 as the new working baseline (Decision35). The approved
+profile is now versioned in config with a dedicated fusion helper. Original
+controls, pre-promotion artifacts, labels and held-out test remain unchanged.

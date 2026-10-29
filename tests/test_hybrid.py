@@ -3,6 +3,35 @@ import pytest
 from arxiv_search.search.hybrid import fuse
 
 
+def test_approved_working_baseline_profile():
+    from arxiv_search import config
+    from arxiv_search.search.hybrid import fuse_working_baseline
+
+    assert config.BASELINE_SYSTEM == "bm25-baseline"
+    assert config.WORKING_BASELINE_SYSTEM == "fusion-rrf+w=0.55+d=100+c=30"
+    lexical = [f"p{i}" for i in range(120)]
+    semantic = lexical[::-1]
+    assert fuse_working_baseline(lexical, semantic) == fuse(
+        lexical, semantic, method="rrf", semantic_weight=0.55, c=30, depth=100, k=100)
+    assert fuse_working_baseline(lexical, semantic, k=10) == fuse_working_baseline(
+        lexical, semantic)[:10]
+
+
+def test_working_baseline_registered_without_replacing_controls():
+    from arxiv_search import config
+    from arxiv_search.evaluate import experiments as e
+    from arxiv_search.evaluate.openai_full import HYBRID_NAME
+
+    assert config.BASELINE_SYSTEM in e.SYSTEMS
+    assert e.SYSTEMS[HYBRID_NAME].factors["semantic_weight"] == 0.5
+    selected = e.SYSTEMS[config.WORKING_BASELINE_SYSTEM]
+    assert selected.factors["semantic_weight"] == 0.55
+    assert selected.factors["c"] == 30
+    assert selected.factors["depth"] == 100
+    with pytest.raises(RuntimeError, match="fusion_review"):
+        selected.build([])
+
+
 def test_rrf_rewards_agreement():
     # C gets 1/12 from each list, beating A's 1/11 from just one.
     assert fuse(["A", "C"], ["B", "C"], c=10) == ["C", "A", "B"]

@@ -215,11 +215,17 @@ def test_dry_run_never_embeds_test_queries_or_creates_ledger(tmp_path, monkeypat
 def test_registration_is_metadata_only_and_explicit_about_offline_timing():
     registry = {}
     full.register_systems(registry, ex.System)
-    assert set(registry) == {full.DENSE_NAME, full.HYBRID_NAME}
-    for system in registry.values():
+    assert set(registry) == {full.DENSE_NAME, full.HYBRID_NAME, full.config.WORKING_BASELINE_SYSTEM}
+    for name in (full.DENSE_NAME, full.HYBRID_NAME):
+        system = registry[name]
         assert "latency excludes API" in system.description
         assert system.factors["dimensions"] == 3072
         with pytest.raises(RuntimeError, match="dry preflight"):
             system.build([])
     assert registry[full.HYBRID_NAME].factors["semantic_weight"] == 0.5
+    working = registry[full.config.WORKING_BASELINE_SYSTEM]
+    assert working.factors["semantic_weight"] == 0.55
+    assert working.factors["dimensions"] == 3072
+    with pytest.raises(RuntimeError, match="fusion_review"):
+        working.build([])
     assert full.TIMING_SCOPE == "sequential_search_excludes_offline_query_embedding"

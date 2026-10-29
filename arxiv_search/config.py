@@ -56,7 +56,16 @@ BOOTSTRAP_SAMPLES = 1_000  # resamples for 95% confidence intervals
 # --- Experiments (Decisions 26-27) ----------------------------------------
 RESULTS_DIR = DATA_DIR / "results"  # rankings + per-query scores of every system run
 RUN_DEPTH = 100  # papers kept per query: enough for Recall@20 and for a reranker / judge later
-BASELINE_SYSTEM = "bm25-baseline"  # every other system is compared against this one
+BASELINE_SYSTEM = "bm25-baseline"  # historical experiment-table control; never renamed
+
+# --- Working retrieval baseline (Decision 35; approved 2026-10-29) ----------
+WORKING_BASELINE_SYSTEM = "fusion-rrf+w=0.55+d=100+c=30"
+WORKING_BASELINE_LEXICAL = "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75"
+WORKING_BASELINE_SEMANTIC = "dense-openai-large"
+WORKING_BASELINE_METHOD = "rrf"
+WORKING_BASELINE_SEMANTIC_WEIGHT = 0.55
+WORKING_BASELINE_RRF_C = 30
+WORKING_BASELINE_DEPTH = 100
 
 # --- Relevance judge (Decision 33) -----------------------------------------
 DEFAULT_JUDGE = "openai-mini"  # GPT-5.4 mini; selected against 100 human pairs
