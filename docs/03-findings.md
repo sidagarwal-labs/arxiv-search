@@ -811,3 +811,122 @@ and diagnostic abstracts/reasons are reproducible with the review command.
 RRF c=30, depth100 as the new working baseline (Decision35). The approved
 profile is now versioned in config with a dedicated fusion helper. Original
 controls, pre-promotion artifacts, labels and held-out test remain unchanged.
+
+## 21. Score-based fusion, top-rank bonuses and candidate depth
+
+Ran16 bounded dev experiments plus the approved working control:
+
+- 12 score settings: max or minmax normalization, semantic weights0.35/0.55/0.75,
+ depths100/500.
+- 2 depth-only controls: existing55%/c30 RRF at depths200/500.
+- 2 top-rank protection settings: existing RRF plus10%/25% of each retriever's
+ weighted rank-one RRF contribution, added only to its first result.
+
+Each scored input is truncated before per-query normalization. Max divides
+scores by that list's maximum; minmax subtracts its minimum and divides by
+its range. A missing-list score contributes zero. Equal positive scores
+receive equal unit values; zero lists receive zero. Ties are lexical-first.
+Score weights are not interchangeable with rank-fusion weights.
+
+BM25 scores and cosine similarities were recomputed using existing full-corpus
+vectors and cached100 dev query vectors. **Every recomputed source top100
+exactly matches its frozen ranking**, and the working helper reproduces all
+approved rankings. No paper or query was re-embedded; no test query was scored.
+The scorer explicitly refuses a missing or invalid cache rather than making
+an API repair call.
+
+### Complete shared labeling and budget
+
+Initial cached grid had104 new query-paper pairs across46 query-specific
+batches. Sid approved judging those pairs within the existing effective
+1,600,000-token cumulative cap; no cap increase or reset.
+Estimated total was about66,000 tokens, about$0.06 at previously recorded
+standard rates absent free coverage; no-retry output-cap estimate about$0.47,
+not a hard billing ceiling.
+
+Actual job: **104 new labels,46 successful calls,55,489 tokens**.
+Ledger total is1,411,975 tokens over513 attempts, leaving188,025 under the
+local effective cap. These are token counts, not currency charges; account
+free eligibility/billing is not verified by this ledger.
+
+An additive3,294-pair snapshot preserves every original3,190 grade including
+human overrides. All16 settings' top10s and the working control are fully
+judged. Original reports/snapshots remain frozen. Main scorecard rescoring
+uses the expanded snapshot for every saved system, never mixes denominators.
+
+The unchanged working baseline's nDCG is now0.7064 versus earlier0.7106:
+additional relevant papers increased idealDCG. This is **not a ranking
+regression**; P@10 remains0.689 and source MRR0.6459.
+
+### Main results (same3,294-pair snapshot)
+
+| System | nDCG@10 | P@10 | Source MRR@10 | Known-item MRR | Source R@10 |
+|---|---|---|---|---|---|
+| Approved RRF55%, c30, d100 | 0.7064 | 0.689 | 0.6459 | 0.980 | 0.86 |
+| **Max-score75%, d500** | **0.7197** | **0.697** | **0.6916** | **0.980** | **0.82** |
+| Max-score75%, d100 | 0.7111 | 0.686 | 0.6682 | 0.980 | 0.82 |
+| Minmax-score55%, d500 | 0.7030 | 0.674 | 0.6842 | 0.980 | 0.84 |
+| Minmax-score55%, d100 | 0.6853 | 0.647 | 0.6897 | 0.980 | 0.85 |
+| RRF55%, c30, d200 | 0.7058 | 0.691 | 0.6390 | 0.980 | 0.84 |
+| RRF55%, c30, d500 | 0.7035 | 0.690 | 0.6402 | 0.980 | 0.84 |
+| RRF plus10% top1 bonus | 0.7048 | 0.689 | 0.6530 | 0.980 | 0.85 |
+| RRF plus25% top1 bonus | 0.7022 | 0.687 | 0.6527 | 0.980 | 0.85 |
+
+Best observed max-score75%/d500 versus working RRF:
+nDCG **+0.0133 [0.0015,0.0251]**,56 wins38 losses6 ties.
+This is exploratory, selected from16 settings after earlier dev tuning;
+the unadjusted interval is not independent confirmation.
+It improves first-relevant-target placement on average but **loses four
+top10 source hits**,82/100 versus86/100. Higher MRR can coexist with lower
+recall: some hits move toward first while other targets fall out of top10.
+
+| Segment | Working / max-score nDCG | Working / max-score source MRR | Working / max-score source R@10 |
+|---|---|---|---|
+| Keyword | 0.7333 / 0.7324 | 0.6632 / 0.7157 | 0.96 / 0.92 |
+| Known-item | 0.7132 / 0.7262 | 0.9800 / 0.9800 | 1.00 / 1.00 |
+| Paraphrase | 0.6622 / 0.6951 | 0.3823 / 0.4873 | 0.72 / 0.64 |
+| Question | 0.7169 / 0.7252 | 0.5580 / 0.5833 | 0.76 / 0.72 |
+
+### Failure-driven conclusions
+
+- Nordic power-market battery/electrolyser query: source **9 to1**,
+  nDCG0.3443 to0.5596. Score fusion recovers the strong dense result.
+- Vanilla GNNs on unseen knowledge graphs: source **6 to1**,
+  nDCG0.4610 to0.6986. Another intended fusion failure improves.
+- BL19 benchmark: source **2 to1**, nDCG0.3543 to0.4731.
+- Output-length prediction: source **10 to92** despite slightly improved
+  list nDCG0.3206 to0.3669. Score fusion does not fix a dense list that
+  itself favors token-price/output distractors. This is an important
+  candidate regression, not a reason to cherry-pick only successful cases.
+- All three targets absent from the original top100 union are present
+  within top500. Poisoned-result defense is dense116; summary-tree
+  retrieval is dense259. Neither reaches the best candidate's top100
+  fused output: deeper retrieval alone does not ensure useful final ranks.
+- Depth-only RRF and the tested top1 bonuses do not improve mean nDCG
+  versus the working profile. Do not expand these grids without a new
+  hypothesis.
+
+**Keep approved RRF baseline unchanged.** Max-score75%/d500 is promising
+but needs loss-case review and explicit recall tradeoff approval before
+promotion. The low-output-length and missing-top100 cases motivate later
+query/document representation experiments rather than endless fusion grids.
+
+### Results table visibility fixed
+
+The previous top table was driven by the experiment registry and omitted
+fusion runs stored in separate experiment folders; those appeared only far
+down in appended reports. A new unified scorecard discovers saved dev run
+files independently of registry membership across all experiment folders.
+All24 earlier fine rank-weight/constant settings are now persisted, not just
+the two finalists previously saved. Any fine setting exposing additional
+unjudged pairs remains explicitly provisional; the approved104-pair batch
+was for the16 new score/depth/bonus experiments, not unlimited relabeling.
+It displays source MRR/R@1/5/10/20, graded nDCG/P@10/coverage, known-item
+MRR and paired nDCG versus the approved working profile. Per-type metrics
+and snapshot provenance are saved in the catalog JSON; historical tables,
+BM25 tuning and reduced-corpus pilots remain separately scoped.
+
+Reproduce the cache-only experiments with
+`python -m arxiv_search.evaluate.score_fusion_experiment`, then regenerate
+the central results using `experiments.write_results_doc()`. Do not rerun
+the full experiment CLI without selectors just to refresh documentation.

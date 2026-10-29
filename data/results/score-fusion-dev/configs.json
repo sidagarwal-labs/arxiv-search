@@ -1,0 +1,100 @@
+{
+  "fusion-rrf+w=0.55+d=200+c=30": {
+    "c": 30,
+    "depth": 200,
+    "k": 100,
+    "method": "rrf",
+    "semantic_weight": 0.55
+  },
+  "fusion-rrf+w=0.55+d=500+c=30": {
+    "c": 30,
+    "depth": 500,
+    "k": 100,
+    "method": "rrf",
+    "semantic_weight": 0.55
+  },
+  "fusion-top1bonus+b=0.1+w=0.55+d=100+c=30": {
+    "bonus": 0.1,
+    "depth": 100,
+    "k": 100,
+    "method": "rrf-top1bonus"
+  },
+  "fusion-top1bonus+b=0.25+w=0.55+d=100+c=30": {
+    "bonus": 0.25,
+    "depth": 100,
+    "k": 100,
+    "method": "rrf-top1bonus"
+  },
+  "score-max+w=0.35+d=100": {
+    "depth": 100,
+    "k": 100,
+    "normalization": "max",
+    "semantic_weight": 0.35
+  },
+  "score-max+w=0.35+d=500": {
+    "depth": 500,
+    "k": 100,
+    "normalization": "max",
+    "semantic_weight": 0.35
+  },
+  "score-max+w=0.55+d=100": {
+    "depth": 100,
+    "k": 100,
+    "normalization": "max",
+    "semantic_weight": 0.55
+  },
+  "score-max+w=0.55+d=500": {
+    "depth": 500,
+    "k": 100,
+    "normalization": "max",
+    "semantic_weight": 0.55
+  },
+  "score-max+w=0.75+d=100": {
+    "depth": 100,
+    "k": 100,
+    "normalization": "max",
+    "semantic_weight": 0.75
+  },
+  "score-max+w=0.75+d=500": {
+    "depth": 500,
+    "k": 100,
+    "normalization": "max",
+    "semantic_weight": 0.75
+  },
+  "score-minmax+w=0.35+d=100": {
+    "depth": 100,
+    "k": 100,
+    "normalization": "minmax",
+    "semantic_weight": 0.35
+  },
+  "score-minmax+w=0.35+d=500": {
+    "depth": 500,
+    "k": 100,
+    "normalization": "minmax",
+    "semantic_weight": 0.35
+  },
+  "score-minmax+w=0.55+d=100": {
+    "depth": 100,
+    "k": 100,
+    "normalization": "minmax",
+    "semantic_weight": 0.55
+  },
+  "score-minmax+w=0.55+d=500": {
+    "depth": 500,
+    "k": 100,
+    "normalization": "minmax",
+    "semantic_weight": 0.55
+  },
+  "score-minmax+w=0.75+d=100": {
+    "depth": 100,
+    "k": 100,
+    "normalization": "minmax",
+    "semantic_weight": 0.75
+  },
+  "score-minmax+w=0.75+d=500": {
+    "depth": 500,
+    "k": 100,
+    "normalization": "minmax",
+    "semantic_weight": 0.75
+  }
+}

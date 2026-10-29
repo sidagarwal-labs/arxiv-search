@@ -24,7 +24,7 @@ GPT-5.4 mini grades results offline; it is not part of the live search path.
 | Keyword retrieval | BM25 exact+stems, authors, title x2; k1=0.8, b=0.75; no stopword removal | Measured on full corpus |
 | Embeddings | OpenAI `text-embedding-3-large`, 3,072 dimensions; normalized vectors | Full-corpus vectors cached; new run cost $0.7439 under separate $1.25 cap |
 | Hybrid fusion | **55% semantic / 45% lexical, RRF c=30**, top 100 from each retriever | User-approved working baseline after cached finalist review |
-| Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29; expanded 3,190-pair dev pool covered; fresh-human validation deferred |
+| Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29; expanded 3,294-pair dev pool covered for finalists; older exploratory rows may be provisional; fresh-human validation deferred |
 | Evaluation | 100 dev / 300 held-out test queries; source-paper MRR/recall plus graded nDCG and judgment coverage | Full-dev evaluation complete; held-out test untouched |
 | Vector storage | Offline NumPy arrays + paper-ID metadata; exact cosine search | Hosted Postgres/pgvector planned, not deployed |
 | Reranker / RAG | None yet | Next phases, not baseline components |
@@ -38,7 +38,7 @@ GPT-5.4 mini grades results offline; it is not part of the live search path.
 | Selected judge calibration | GPT-5.4 mini vs. 100 human-labeled pairs from 12 dev searches | Exact agreement **77%**; quadratic kappa **0.802**; relevant/not agreement **84%**; **0** opposite 0-vs-2 errors |
 | Original OpenAI hybrid control | BM25 + **OpenAI large**, equal-weight RRF c=10; 23,304 papers, 100 dev queries | MRR@10 **0.653** [0.572, 0.737]; R@1 **0.56**, R@10 **0.84**, R@20 **0.90** |
 | Original seven-system graded snapshot | Original OpenAI hybrid; GPT-5.4 mini with 100 human overrides | nDCG@10 **0.686** [0.659, 0.712]; P@10 **0.633** [0.595, 0.673]; judged@10 **100%** |
-| **Current working baseline** | **55% semantic / 45% lexical, RRF c=30, depth100**; 100 dev queries, expanded 3,190-pair snapshot | **nDCG@10 0.7106; P@10 0.689; source MRR@10 0.6459; R@1 0.55; R@10 0.86; known-item MRR 0.980** |
+| **Current working baseline** | **55% semantic / 45% lexical, RRF c=30, depth100**; 100 dev queries, expanded 3,294-pair snapshot | **nDCG@10 0.7064; P@10 0.689; source MRR@10 0.6459; R@1 0.55; R@10 0.86; known-item MRR 0.980** |
 | Full-corpus semantic retrieval | OpenAI large alone; same corpus and dev queries | MRR@10 **0.599** [0.518, 0.679]; R@10 **0.82**, R@20 **0.88** |
 
 The pilot has fewer distractors and cannot be compared directly with the full-corpus
@@ -56,6 +56,11 @@ OpenAI dense alone is uncertain (+0.018 [-0.011, 0.046]).
 
 Full experiment tables, confidence intervals, usage and caveats: [Results](docs/05-results.md).
 Current selection rationale: [Decision 35](docs/02-decisions.md#35-working-fusion-baseline-promoted-2026-10-29).
+
+**All experiments in one table:** [Unified dev scorecard](docs/05-results.md#unified-dev-scorecard).
+It includes saved BM25, dense, hybrid, rank-fusion, score-fusion and depth experiments
+regardless of registry membership, with source and graded metrics on one shared
+label snapshot. Historical tables and smaller-corpus pilots remain separately scoped.
 The label-collection UI is deferred; the existing 100 human labels remain our
 calibration set. A separate reranker is deferred; the next experiments tune
 lexical/semantic fusion and candidate depth using cached dev rankings.
@@ -64,7 +69,7 @@ lexical/semantic fusion and candidate depth using cached dev rankings.
 
 - [x] 1. Download papers from arXiv
 - [x] 2. Clean up into one file of 23,304 papers
-- [x] 3. Search: BM25 baseline → BM25 variants → local/OpenAI embeddings → tuned hybrid (working dev nDCG: 0.7106; source MRR: 0.6459)
+- [x] 3. Search: BM25 baseline → BM25 variants → local/OpenAI embeddings → tuned hybrid (working dev nDCG: 0.7064 on current label pool; source MRR: 0.6459)
 - [ ] 4. Test: scoring metrics ✅, 400 test queries ✅, results table ✅, GPT-5.4 mini selected ✅, full-dev graded evaluation ✅; fresh-human validation deferred; final held-out test untouched
 - [ ] 5. Answer: RAG with an LLM
 - [ ] 6. Website: database, API, web page, deploy
@@ -131,6 +136,10 @@ copy .env.example .env        # then paste your Gemini API key into .env
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.failure_analysis
 # Pre-promotion review of 55%/c30 versus original, 75%/c100 and 60%/c60; no API calls
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.fusion_review
+# Score-based fusion, top-rank bonuses and top500 retrieval; cached embeddings, no API calls
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.score_fusion_experiment
+# Persist all24 finer rank-fusion settings for the unified scorecard, no API calls
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.fusion_refinement
 ```
 
 Fusion outputs live under `data/results/fusion-dev/`, separate from the frozen
@@ -167,6 +176,16 @@ The selected profile is versioned as `WORKING_BASELINE_*` in `arxiv_search/confi
 Generic `fuse` defaults and historical experiment controls stay unchanged.
 The saved pre-promotion report remains a historical review, not a mutable
 promotion record. Approval is recorded in Decision35; live serving is not deployed.
+
+The next16 experiments are complete, including104 approved additional GPT-5.4-mini
+judgments (55,489 tokens; unchanged1,600,000 cumulative cap). The shared pool now
+has3,294 pairs. On this larger denominator, unchanged working-baseline nDCG is
+0.7064 (previously0.7106); rankings, P@10 and source metrics did not change.
+Best observed new candidate is **max-normalized score fusion,75% semantic,
+depth500**: nDCG0.7197, P@10 0.697, source MRR0.6916, known-item MRR0.980.
+Source R@10 falls0.86 to0.82, so it is **not promoted**. See
+[score/depth findings](docs/03-findings.md#21-score-based-fusion-top-rank-bonuses-and-candidate-depth)
+and the unified scorecard before comparing numbers from different snapshots.
 
 ## Folders
 
