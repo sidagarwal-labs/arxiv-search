@@ -48,7 +48,16 @@ def test_charts_use_same_snapshot_and_real_milestones_not_provisional_scores():
     assert "line [0.5000, 0.5200, 0.5400, 0.5600, 0.5800, 0.6000, 0.6200]" in text
     assert "**APPROVED BASELINE**" in text
     assert "0.7800" in text
-    assert "y-axis \"nDCG@10 (higher is better)\" 0 --> 1" in text
+    assert 'y-axis "nDCG@10 (zoomed, higher is better)" 0.5 --> 0.75' in text
+    assert "Zoomed linear y-axis: 0.50-0.75, not zero-based." in text
+    assert "0.5000 to 0.6200 (+0.1200 nDCG, +24.0% relative)" in text
+    assert 'y-axis "nDCG@10" 0 --> 1' in text
+    assert "whose graded coverage is incomplete" in text
+    # Future milestones must expand the zoom window rather than being clipped.
+    systems[promotion.MILESTONES[0][1]]["all"]["ndcg@10"]["mean"] = .42
+    systems[promotion.MILESTONES[-1][1]]["all"]["ndcg@10"]["mean"] = .81
+    expanded = promotion.render_charts(report, diagnosis)
+    assert 'y-axis "nDCG@10 (zoomed, higher is better)" 0.4 --> 0.85' in expanded
     systems[promotion.MILESTONES[0][1]]["top10_fully_judged"] = False
     with pytest.raises(ValueError, match="provisional"):
         promotion.render_charts(report, diagnosis)

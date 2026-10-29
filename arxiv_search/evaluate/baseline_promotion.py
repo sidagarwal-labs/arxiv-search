@@ -6,6 +6,7 @@ python -m arxiv_search.evaluate.baseline_promotion
 from __future__ import annotations
 
 import json
+import math
 
 from arxiv_search import config
 from arxiv_search.evaluate import fusion_experiment as fusion, judge, metrics, results_catalog
@@ -69,6 +70,10 @@ def render_charts(report: dict, diagnosis: dict) -> str:
             f"{result['all']['source_recall@10']['mean']:.0%} |")
         previous = score
     scores = [systems[n]["all"]["ndcg@10"]["mean"] for _, n in MILESTONES]
+    lower = min(0.5, math.floor(min(scores) * 20) / 20)
+    upper = max(0.75, math.ceil(max(scores) * 20) / 20)
+    current = systems[report["working_baseline"]]["all"]["ndcg@10"]["mean"]
+    gain = current - scores[0]
     latest = report["leaderboard"]["ranked"][:5]
     lines = [
         "# Search quality charts", "",
@@ -77,12 +82,20 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         "Every point is rescored against the **same frozen 3,294-pair dev label snapshot**, "
         "100 dev queries, 23,304 searchable papers. These are selected milestones, not "
         "every trial, independent experiments, or equally spaced dates. The x-axis is "
-        "milestone order. The y-axis starts at zero to avoid exaggerating small gains. "
+        f"milestone order. **Zoomed linear y-axis: {lower:.2f}-{upper:.2f}, not zero-based.** "
+        "This focuses on score changes, not their magnitude relative to zero. "
         "All plotted top10s are fully judged; no pilot/test scores are mixed in.",
+        "",
+        f"**First plotted baseline to current: {scores[0]:.4f} to {current:.4f} "
+        f"({gain:+.4f} nDCG, {gain / scores[0]:+.1%} relative).** "
+        "The first point is tuned BM25, not the original plain-BM25 control, "
+        "whose graded coverage is incomplete. "
+        "Use a linear scale: nDCG is a bounded relevance score, not a quantity spanning "
+        "orders of magnitude; a log axis would obscure additive improvements.",
         "", "```mermaid", "xychart-beta",
         '    title "Hill climbing: graded relevance nDCG@10"',
         "    x-axis [" + ", ".join(f'\"{label}\"' for label, _ in MILESTONES) + "]",
-        '    y-axis "nDCG@10 (higher is better)" 0 --> 1',
+        f'    y-axis "nDCG@10 (zoomed, higher is better)" {lower:g} --> {upper:g}',
         "    line [" + ", ".join(f"{v:.4f}" for v in scores) + "]",
         "```", "",
         "| Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |",
@@ -95,7 +108,9 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         "causal effects of one feature.", "",
         "## Latest fully judged leaderboard leaders", "",
         "Labels L1-L5 below are chart keys, not separate system names. Highest nDCG "
-        "does not automatically mean best balanced baseline.", "",
+        "does not automatically mean best balanced baseline. "
+        "Unlike the milestone line, these bars keep a zero baseline so their lengths "
+        "do not exaggerate small differences; use the table for exact scores.", "",
         "```mermaid", "xychart-beta", '    title "Latest dev leaderboard nDCG@10"',
         "    x-axis [L1, L2, L3, L4, L5]",
         '    y-axis "nDCG@10" 0 --> 1',

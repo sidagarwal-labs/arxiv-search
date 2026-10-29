@@ -4,13 +4,15 @@
 
 ## Hill climbing: major comparable milestones
 
-Every point is rescored against the **same frozen 3,294-pair dev label snapshot**, 100 dev queries, 23,304 searchable papers. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order. The y-axis starts at zero to avoid exaggerating small gains. All plotted top10s are fully judged; no pilot/test scores are mixed in.
+Every point is rescored against the **same frozen 3,294-pair dev label snapshot**, 100 dev queries, 23,304 searchable papers. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order. **Zoomed linear y-axis: 0.50-0.75, not zero-based.** This focuses on score changes, not their magnitude relative to zero. All plotted top10s are fully judged; no pilot/test scores are mixed in.
+
+**First plotted baseline to current: 0.5187 to 0.7176 (+0.1988 nDCG, +38.3% relative).** The first point is tuned BM25, not the original plain-BM25 control, whose graded coverage is incomplete. Use a linear scale: nDCG is a bounded relevance score, not a quantity spanning orders of magnitude; a log axis would obscure additive improvements.
 
 ```mermaid
 xychart-beta
     title "Hill climbing: graded relevance nDCG@10"
     x-axis ["Tuned BM25", "GTE dense", "GTE hybrid", "OpenAI hybrid", "RRF75 c100", "RRF55 c30", "Shortlist scores"]
-    y-axis "nDCG@10 (higher is better)" 0 --> 1
+    y-axis "nDCG@10 (zoomed, higher is better)" 0.5 --> 0.75
     line [0.5187, 0.5811, 0.6312, 0.6604, 0.7052, 0.7064, 0.7176]
 ```
 
@@ -28,7 +30,7 @@ xychart-beta
 
 ## Latest fully judged leaderboard leaders
 
-Labels L1-L5 below are chart keys, not separate system names. Highest nDCG does not automatically mean best balanced baseline.
+Labels L1-L5 below are chart keys, not separate system names. Highest nDCG does not automatically mean best balanced baseline. Unlike the milestone line, these bars keep a zero baseline so their lengths do not exaggerate small differences; use the table for exact scores.
 
 ```mermaid
 xychart-beta
