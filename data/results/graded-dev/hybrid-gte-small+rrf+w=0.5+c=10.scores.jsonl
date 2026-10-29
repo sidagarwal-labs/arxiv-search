@@ -1,3 +1,4 @@
+{"query_id": "q-keyword-004", "query_type": "keyword", "ndcg@10": 0.8391243008012831, "precision@10": 0.6, "judged@10": 0.8}
 {"query_id": "q-keyword-017", "query_type": "keyword", "ndcg@10": 0.8452665624263446, "precision@10": 0.9, "judged@10": 1.0}
 {"query_id": "q-keyword-022", "query_type": "keyword", "ndcg@10": 0.8188876057235305, "precision@10": 0.7, "judged@10": 1.0}
 {"query_id": "q-keyword-053", "query_type": "keyword", "ndcg@10": 0.8501757982870085, "precision@10": 0.9, "judged@10": 1.0}
@@ -10,7 +11,6 @@
 {"query_id": "q-question-002", "query_type": "question", "ndcg@10": 0.7940652093481186, "precision@10": 0.9, "judged@10": 1.0}
 {"query_id": "q-question-050", "query_type": "question", "ndcg@10": 0.6823469645591614, "precision@10": 0.6, "judged@10": 1.0}
 {"query_id": "q-question-053", "query_type": "question", "ndcg@10": 0.6003538543906135, "precision@10": 0.5, "judged@10": 1.0}
-{"query_id": "q-keyword-004", "query_type": "keyword", "ndcg@10": null, "precision@10": 0.0, "judged@10": 0.0}
 {"query_id": "q-keyword-005", "query_type": "keyword", "ndcg@10": null, "precision@10": 0.0, "judged@10": 0.0}
 {"query_id": "q-keyword-007", "query_type": "keyword", "ndcg@10": null, "precision@10": 0.0, "judged@10": 0.0}
 {"query_id": "q-keyword-008", "query_type": "keyword", "ndcg@10": null, "precision@10": 0.0, "judged@10": 0.0}

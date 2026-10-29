@@ -224,6 +224,8 @@ def judge_pairs(judge_key: str, pairs: dict[str, list[str]], queries: dict, pape
             if max_calls is not None and counts["calls"] >= max_calls:
                 return counts
             batch = todo[start:start + batch_limit]
+            print(f"  {qid}: judging {len(batch)} papers "
+                  f"({counts['judged']} newly saved so far)", flush=True)
             rows = judge_query(judge_key, query, batch, call)
             for row in rows:
                 append_jsonl(path, row)  # saved immediately: a crash loses at most one call

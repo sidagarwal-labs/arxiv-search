@@ -409,6 +409,15 @@ we expect BM25 to win on high-overlap queries and embeddings on low-overlap ones
 Each query type is exactly 25 dev / 75 test; specificity and category are within a query or
 two of 1/4. The split uses the fixed seed, so it's the same every time.
 
+Here **dev means development/validation**, not a subset of a training split.
+We do not currently train or fine-tune an embedding model, so there is no
+supervised training set and no third, separate validation split. All 23,304
+papers are searchable in both evaluations; the 400 queries, not the corpus,
+are split into dev and test. The 100 human judgments calibrate the judge on
+dev queries; they are pair labels, not another 100-query split. If we later
+train a reranker, define a training/validation protocol using development data
+or new labels without consuming the frozen 300-query test set.
+
 ---
 
 ## Step 4c: Experiments (`evaluate/experiments.py`)
@@ -472,6 +481,18 @@ paper a system returns, so we can compute nDCG@10 (Decision 33).
 3. **Cache** (`judge_pairs`): each grade is appended to `data/eval/judgments/<judge>.jsonl`,
    keyed by (judge, rubric version, search text, paper text). Re-runs skip cached pairs;
    editing the rubric changes its version, so everything is re-graded.
+
+**API reliability:** `llm.py` owns bounded retries; SDK retries are disabled to
+avoid nested retry loops. It respects both numeric/HTTP-date `Retry-After`
+headers and fractional Google `retryDelay` seconds, never shortening exponential
+backoff. Daily quota errors stop immediately. UTC timestamps, a local request
+ID, prompt character count, HTTP status, attempt duration and token usage
+are logged without prompts, keys, response bodies or headers. Successful
+labels retain the attempt history and retry-wait time in usage metadata.
+The local ID correlates our logs; it is not a Google support request ID.
+No automatic model fallback, rubric change or abstract truncation is used.
+The current process must be restarted to load wrapper changes; saved labels
+are reused and at most an in-flight batch needs to be repeated.
 
 **The pilot** (`judge_pilot.py`) picks which judge to trust: 12 dev queries (3 per type),
 266 pairs (including source-paper checks, also used by the pilot CLI). Sid grades

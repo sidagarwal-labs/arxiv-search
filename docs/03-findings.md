@@ -485,3 +485,21 @@ systems and 100 queries**. Initially 266 pairs had cached/human judgments.
 Gemma labeling is resumable; its report stays explicitly provisional until all
 pooled top-10 results are judged. Existing 100 human grades override Gemma.
 They remain calibration data, not fresh independent validation.
+
+**Gemma reliability follow-up (2026-10-29):** the expanded run saved its first
+10 new labels after HTTP 500/503 retries (128.6 seconds for that batch), then
+encountered repeated 500s on the next batch. This is not yet a throughput
+estimate. A successful request with the same configuration argues against a
+universally unsupported parameter, but does not rule out input-specific errors.
+[Google recommends bounded exponential backoff and jitter](https://ai.google.dev/gemini-api/docs/troubleshooting).
+A [Google forum report](https://discuss.ai.google.dev/t/constant-500s-on-gemma-4/140940)
+describes intermittent 31B failures; it is corroborating anecdotal evidence,
+not proof of the cause of our failures.
+
+We found and fixed two retry-delivery gaps: the wrapper ignored HTTP
+`Retry-After` headers and truncated fractional `retryDelay` values. Provider
+delays now respect an exponential-backoff floor. Per-attempt status/timing
+logs and saved usage histories let us separate API time from retry waiting.
+The run was resumed from its cache with the same model, rubric, full abstracts
+and 10-paper cap. These changes improve observability and retry compliance;
+they do not establish that Google's 500/503 error rate is reduced.
