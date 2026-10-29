@@ -59,6 +59,7 @@ RUN_DEPTH = 100  # papers kept per query: enough for Recall@20 and for a reranke
 BASELINE_SYSTEM = "bm25-baseline"  # every other system is compared against this one
 
 # --- Relevance judge (Decision 33) -----------------------------------------
+DEFAULT_JUDGE = "openai-mini"  # GPT-5.4 mini; selected against 100 human pairs
 # Pilot: both judges grade the same pairs; the user's blind grades decide which to keep.
 JUDGES = {
     "gemma-31b": {"backend": "gemini", "model": "gemma-4-31b-it"},  # API; same model wrote the queries

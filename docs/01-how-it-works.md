@@ -532,7 +532,7 @@ usage. Unknown failures retain their conservative reservations. Mini/nano share
 one allowance; the configured ceilings are 1.5 million mini/nano and 150,000 large
 tokens with additional reservation headroom. There is deliberately **no automatic
 reset**: limits remain conservative across restarts and dates, pending verification
-of account reset rules. Only the two approved mini/nano models are enabled.
+of account reset rules. Only the four explicitly approved mini/nano models are enabled.
 Other projects' usage is not visible to this ledger, so verify account usage too.
 
 Run `judge_pilot report`, then `evaluate.experiments` to refresh both the detailed
@@ -541,7 +541,8 @@ agreement remain separate: a better judge does not itself improve search ranking
 
 **Full-dev graded retrieval** (`evaluate/graded.py`): pools the top 10 from the
 five original finalists plus OpenAI large dense/hybrid results, all on the same
-100 dev queries. It reuses current-rubric Gemma labels, skips API calls for
+100 dev queries. It defaults to GPT-5.4 mini (`DEFAULT_JUDGE = "openai-mini"`),
+reuses only that judge's current-rubric labels, skips API calls for
 human-graded pairs and applies human labels last (including grade 0). The default
 command only scores cached labels. `--label --max-calls 20` grades up to 20
 successful batches then publishes progress; API/validation failures also publish
@@ -555,6 +556,11 @@ counted explicitly. Until every compared top 10 is judged, the table is marked
 provisional and must not be used to select a winner. Source-paper metrics remain
 unchanged in the original retrieval table. Adding pool papers can change ideal
 DCG, so rebuild all graded rows together rather than comparing stale snapshots.
+Once coverage is complete, the report adds planned paired nDCG/P@10 differences
+for OpenAI hybrid against GTE hybrid, OpenAI dense and BM25. Queries are aligned
+by ID, and undefined nDCG values are omitted explicitly. These exploratory
+intervals describe query uncertainty conditional on labels, not judge accuracy;
+they are not multiple-testing-adjusted.
 
 ---
 

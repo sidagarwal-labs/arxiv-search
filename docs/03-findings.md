@@ -535,3 +535,42 @@ uses **GPT-5.4 mini only**, with human overrides. It must not reuse Gemma's
 missing-pair labels as though they came from OpenAI. Raw caches remain
 separate; the selected graded report records its judge identity and stays
 provisional until full coverage. The 300 held-out test queries remain unused.
+
+## 16. Complete graded dev baseline (2026-10-29)
+
+All **2,857/2,857** pooled pairs are covered, using GPT-5.4 mini plus 100
+human overrides. All seven systems have 100% judged@10 and defined nDCG on
+all 100 queries. These are dev results under a calibration-selected judge,
+not independent human validation or held-out test performance.
+
+| System | nDCG@10 | P@10 |
+|---|---|---|
+| Best BM25 | 0.538 | 0.512 |
+| GTE-small dense | 0.603 | 0.581 |
+| BGE-small dense | 0.599 | 0.584 |
+| BM25 + GTE RRF | 0.655 | 0.611 |
+| BM25 + BGE RRF | 0.652 | 0.614 |
+| OpenAI large dense | 0.668 | 0.637 |
+| **BM25 + OpenAI large RRF** | **0.686** | **0.633** |
+
+OpenAI hybrid minus GTE hybrid: **+0.030 nDCG** [0.007, 0.055].
+OpenAI hybrid minus OpenAI dense: +0.018 [-0.011, 0.046], uncertain.
+Dense OpenAI has slightly higher P@10, but hybrid minus dense precision is
+-0.004 [-0.035, 0.028], also uncertain. Keep the chosen hybrid as the working
+baseline; do not claim it dominates dense retrieval on every metric.
+Intervals are exploratory paired query bootstraps, conditional on the
+same label snapshot, and not adjusted for multiple comparisons.
+
+The expanded job saved 2,757 new labels in 320 successful requests; the
+100-pair mini pilot was already cached. It consumed **1,048,487** input/output
+tokens. All successful cached mini calls used one HTTP attempt. Across all
+four OpenAI pilots and expanded labeling, the shared ledger records
+**1,202,890 tokens**, all completed, below the local 1.35-million ceiling.
+The mini cache contains 2,857 raw labels; human labels still take priority.
+Local accounting is not verification of organization-wide free eligibility.
+
+Next: serve the unchanged baseline through a search API/UI and measure
+actual query embedding plus retrieval latency. Then compare a separate
+reranker on fixed hybrid candidates (top 20, then 50 if warranted), measuring
+quality, latency and token/cost budgets. New candidates outside the current
+pool need additional judgments. Freeze final choices before using held-out test.

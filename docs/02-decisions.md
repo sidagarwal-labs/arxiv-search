@@ -181,6 +181,10 @@ no automatic paid fallback and no guarantee of free usage from local counts.
    judgments, apply human overrides, and report nDCG@10, P@10 and judged@10
    separately from source-paper MRR/recall. Do not interpret low-coverage nDCG
    as a fair comparison. Judge model changes do not change retrieval rankings.
+   **Completed 2026-10-29 with the updated GPT-5.4 mini judge:** all
+   2,857 pooled pairs covered; OpenAI hybrid nDCG@10 0.686, P@10 0.633,
+   100% judged@10. Paired nDCG improvement over GTE hybrid +0.030
+   [0.007, 0.055]; improvement over OpenAI dense remains uncertain.
 4. Build the hosted search UI with server-side keys. **Label-collection UI is
    deferred per Sid's request**: retain the existing 100 human labels for now.
    Record that the judge has not been validated on fresh human labels; do not

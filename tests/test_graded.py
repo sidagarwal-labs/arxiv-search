@@ -60,6 +60,9 @@ def test_publish_partial_coverage_is_explicit(tmp_path, monkeypatch):
     snapshot = json.loads((graded.OUT / "labels.json").read_text())
     assert snapshot["pool_judged"] == 1 and snapshot["pool_pairs"] == 2
     assert snapshot["human_overrides"] == 1
+    assert snapshot["complete"] is False
+    assert snapshot["judge"] == "openai-mini"
+    assert "Withheld until" in report
 
 
 def test_results_register_openai_and_label_cached_query_timing():
@@ -94,3 +97,17 @@ def test_selected_judge_is_not_mixed_with_gemma(tmp_path, monkeypatch):
     assert snapshot["judge"] == "openai-4.1-mini"
     assert snapshot["model"] == "gpt-4.1-mini"
     assert "gpt-4.1-mini" in report
+
+
+def test_paired_comparisons_align_queries_and_skip_undefined(monkeypatch):
+    monkeypatch.setattr(graded, "COMPARISONS", [("a", "b")])
+    a = [{"query_id": "q2", "ndcg@10": None, "precision@10": 0.1},
+         {"query_id": "q1", "ndcg@10": 0.2, "precision@10": 0.2}]
+    b = [{"query_id": "q1", "ndcg@10": 0.7, "precision@10": 0.4},
+         {"query_id": "q2", "ndcg@10": None, "precision@10": 0.3}]
+    text = "\n".join(graded.paired_comparisons({"a": a, "b": b}, True))
+    assert "ndcg@10 | 1 | +0.500" in text
+    assert "precision@10 | 2 | +0.200" in text
+    assert "Withheld" in "\n".join(graded.paired_comparisons({"a": a}, False))
+    with pytest.raises(ValueError, match="identical query IDs"):
+        graded.paired_comparisons({"a": a, "b": b[:1]}, True)

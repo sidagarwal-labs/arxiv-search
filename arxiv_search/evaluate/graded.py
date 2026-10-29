@@ -24,6 +24,11 @@ SYSTEMS = [
     "hybrid-openai-large+rrf+w=0.5+c=10",
 ]
 OUT = config.RESULTS_DIR / "graded-dev"
+COMPARISONS = [
+    ("hybrid-gte-small+rrf+w=0.5+c=10", "hybrid-openai-large+rrf+w=0.5+c=10"),
+    ("dense-openai-large", "hybrid-openai-large+rrf+w=0.5+c=10"),
+    (config.JUDGE_POOL_SYSTEMS[0], "hybrid-openai-large+rrf+w=0.5+c=10"),
+]
 
 
 def load_runs(names: list[str], qids: list[str], papers: dict) -> dict:
@@ -46,7 +51,7 @@ def pooled_pairs(runs: dict, qids: list[str], depth: int = config.NDCG_K) -> dic
 
 
 def merged_labels(pairs: dict, queries: dict, papers: dict, human: dict,
-                  judge_key: str = "gemma-31b") -> tuple[dict, int]:
+                  judge_key: str = config.DEFAULT_JUDGE) -> tuple[dict, int]:
     labels = judge.grades_for(judge_key, pairs, queries, papers)
     for qid in pairs:
         labels.setdefault(qid, {})
@@ -82,13 +87,45 @@ def summarize_rows(rows: list[dict], field: str) -> str:
     return f"{mean:.3f} [{low:.3f}, {high:.3f}]"
 
 
+def paired_comparisons(all_rows: dict, complete: bool) -> list[str]:
+    lines = ["", "## Planned paired comparisons", ""]
+    if not complete:
+        return lines + ["Withheld until all pooled top-10 results have judgments."]
+    lines += [
+        "Differences are B minus A on identical query IDs. Intervals describe query "
+        "sampling uncertainty conditional on these labels, not judge accuracy. "
+        "These exploratory dev comparisons are not adjusted for multiple testing.",
+        "", "| A | B | Metric | Queries | Difference [95% CI] |",
+        "|---|---|---|---|---|",
+    ]
+    for a, b in COMPARISONS:
+        if a not in all_rows or b not in all_rows:
+            continue
+        left = {r["query_id"]: r for r in all_rows[a]}
+        right = {r["query_id"]: r for r in all_rows[b]}
+        if left.keys() != right.keys():
+            raise ValueError("Paired comparison needs identical query IDs")
+        for field in (f"ndcg@{config.NDCG_K}", f"precision@{config.NDCG_K}"):
+            qids = sorted(q for q in left if left[q][field] is not None
+                          and right[q][field] is not None)
+            if qids:
+                diff, low, high = metrics.paired_diff_ci(
+                    [left[q][field] for q in qids], [right[q][field] for q in qids])
+                value = f"{diff:+.3f} [{low:+.3f}, {high:+.3f}]"
+            else:
+                value = "undefined"
+            lines.append(f"| `{a}` | `{b}` | {field} | {len(qids)} | {value} |")
+    return lines
+
+
 def publish(runs: dict, labels: dict, pairs: dict, queries: dict, overrides: int,
-            judge_key: str = "gemma-31b") -> str:
+            judge_key: str = config.DEFAULT_JUDGE) -> str:
     OUT.mkdir(parents=True, exist_ok=True)
     k = config.NDCG_K
     total = sum(len(p) for p in pairs.values())
     covered = sum(p in labels[q] for q, ids in pairs.items() for p in ids)
     snapshot = {"judge": judge_key, "model": config.JUDGES[judge_key]["model"],
+                "complete": covered == total,
                 "rubric_version": judge.RUBRIC_VERSION,
                 "systems": list(runs), "depth": k, "query_ids": list(pairs),
                 "pool_pairs": total, "pool_judged": covered, "human_overrides": overrides,
@@ -124,6 +161,7 @@ def publish(runs: dict, labels: dict, pairs: dict, queries: dict, overrides: int
         judged = sum(r[f"judged@{k}"] for r in rows) / len(rows)
         lines.append(f"| `{name}` | {summarize_rows(rows, f'ndcg@{k}')} | {n}/{len(rows)} | "
                      f"{summarize_rows(rows, f'precision@{k}')} | {judged:.1%} |")
+    lines += paired_comparisons(all_rows, covered == total)
     lines += ["", "## By query type", "",
               "| System | Type | Queries | nDCG@10 [95% CI] | P@10 [95% CI] | judged@10 |",
               "|---|---|---|---|---|---|"]
@@ -141,7 +179,7 @@ def publish(runs: dict, labels: dict, pairs: dict, queries: dict, overrides: int
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--judge", choices=list(config.JUDGES), default="gemma-31b")
+    parser.add_argument("--judge", choices=list(config.JUDGES), default=config.DEFAULT_JUDGE)
     parser.add_argument("--label", action="store_true", help="call the selected judge for missing pairs")
     parser.add_argument("--max-calls", type=int, default=20, help="successful batches per invocation")
     args = parser.parse_args()
