@@ -134,6 +134,43 @@ not a confirmed test winner. Offline grid timings exclude source retrieval.
 
 ---
 
+## #34 Working baseline selected (2026-10-28)
+
+Sid selected **Gemma as relevance judge and OpenAI large as the embedding model**.
+Keep the best BM25 recipe and start hybrid testing with equal-weight RRF c=10.
+The [README summary](../README.md#current-working-baseline-selected-2026-10-28)
+tracks the selected configuration alongside the best measured scores and their scopes.
+This does not rename or overwrite the original `bm25-baseline` control.
+
+OpenAI large leads the reduced-corpus pilot, but its advantage over OpenAI small
+has a paired interval crossing zero. The full-corpus OpenAI hybrid has not been
+measured. Gemma leads exact human agreement by only two percentage points over
+OpenAI mini; this is a working selection, not a statistically established judge
+winner. Gemma also wrote the queries, so independent human audits and occasional
+mini cross-checks remain important.
+
+**Next milestones, in order:**
+1. Approve a separate full-corpus embedding budget (the existing $0.25 approval
+   covered only the pilot). Estimate approximately $0.81 for all large-model
+   paper embeddings at checked prices; estimate incremental cached reuse before
+   requesting approval. Do not incur that cost automatically.
+2. Measure OpenAI large alone and with BM25 on the same 23,304 papers and 100 dev
+   queries. Start with fixed RRF c=10, equal weights; compare against the GTE
+   hybrid and report paired intervals and query-type tradeoffs. Cache vectors.
+3. Extend the Gemma dev pool to cover the new systems' top 10 results, reuse cached
+   judgments, apply human overrides, and report nDCG@10, P@10 and judged@10
+   separately from source-paper MRR/recall. Do not interpret low-coverage nDCG
+   as a fair comparison. Judge model changes do not change retrieval rankings.
+4. Build the hosted search and blind label-collection UI, with server-side keys,
+   persistent human labels and fresh-human agreement checks. Measure hosted
+   latency, memory, storage and cost before selecting the serving setup.
+5. Test reranking the frozen hybrid top 20, then 50 if worthwhile; compare a local
+   cross-encoder and an affordable LLM using quality, latency and token budgets.
+6. Freeze finalists, evaluate once on held-out test queries, and then add RAG
+   answer evaluation. Full-paper indexing remains a separate later pilot.
+
+---
+
 ## How we test
 
 **#14 Four kinds of test queries, equal numbers of each:**
