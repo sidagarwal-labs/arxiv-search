@@ -930,3 +930,116 @@ Reproduce the cache-only experiments with
 `python -m arxiv_search.evaluate.score_fusion_experiment`, then regenerate
 the central results using `experiments.write_results_doc()`. Do not rerun
 the full experiment CLI without selectors just to refresh documentation.
+
+## 22. Leaderboard and score-fusion challenger loss review
+
+The generated [leaderboard](05-results.md#unified-dev-scorecard) now ranks fully
+judged runs by descending **nDCG@10**, our existing primary success metric,
+not a new composite score. Exact ties use stable experiment IDs; sorting uses
+unrounded means. There are **76 eligible and52 unranked diagnostic runs**,
+128 saved identities total (including aliases, not128 independent algorithms).
+The approved RRF baseline appears at its actual position, **fourth**, rather
+than being pinned first. Provisional runs cannot win. Separate keyword,
+embedding and ranker/fusion columns explain the methods, with original IDs
+in expandable details and machine-readable descriptions/ranks.
+
+### Same-snapshot comparison
+
+| Metric | Working RRF55%, c30, d100 | Max-score75%, d500 | Paired difference [95% CI] |
+|---|---|---|---|
+| nDCG@10 | 0.7064 | 0.7197 | +0.0133 [0.0015,0.0251] |
+| P@10 | 0.689 | 0.697 | +0.008 [-0.006,0.023] |
+| Source MRR@10 | 0.6459 | 0.6916 | +0.0457 [0.0093,0.0909] |
+| Source R@1 | 0.55 | 0.61 | +0.06 [0.01,0.12] |
+| Source R@10 | 0.86 | 0.82 | -0.04 [-0.08,-0.01] |
+| Source R@20 | 0.89 | 0.84 | -0.05 [-0.09,-0.01] |
+
+Across100 dev queries:56 nDCG wins,38 losses,6 ties. Grade0 first results
+decrease6 to4. **All25 known-item source ranks are individually unchanged**,
+not just their mean MRR. These are exploratory label-conditional intervals
+after repeated dev tuning, not multiplicity-adjusted or held-out confirmation.
+
+### Every lost top10 target, not just net recall
+
+| Intent | Working source rank | Challenger source rank | List nDCG change |
+|---|---|---|---|
+| Graph learning for chemical reactions | 9 | 12 | -0.0531 |
+| Recommendation debiasing through unlearning | 5 | 34 | +0.0594 |
+| Heavy-tailed output-length prediction | 10 | 92 | +0.0462 |
+| Compute scaling for recommender systems | 5 | 55 | -0.0667 |
+
+There are **four lost hits and zero newly gained hits**, not four net losses
+concealing offsetting gains. Two lost-target queries improve list nDCG:
+useful alternative papers do count, but finding the original specific paper
+is a different objective.
+
+### Why score fusion loses them
+
+Saved raw scores reproduce the challenger exactly for all inspected cases.
+The key failure is **overlap advantage under max-normalized scores**, not
+simply "the dense retriever failed." Cosine scores can be tightly clustered;
+weak lexical support then outweighs a strong semantic-only hit.
+
+- **Output length:** the grade2 target is semantic6, absent from lexical500.
+  Its score is0.75 x0.90193 = **0.67645**, with no lexical contribution.
+  Of91 documents above it,90 have lexical support. The same75% score blend
+  at depth100 ranks it18; depth500 worsens it to92. A legitimate alternative,
+  *How Much is Left?*, rises6 to2 with lexical173 and semantic2, while
+  token-value and lottery-number distractors remain near the top. Hence the
+  small nDCG gain does not solve the specific heavy-tailed-length intent.
+- **Compute scaling:** the source is semantic2, absent lexical500, scoring
+  **0.73199**. Of54 papers above it,53 have lexical support. Depth100 score
+  fusion already drops it to12; depth500 drops it55. This is a fusion
+  failure despite an excellent dense target rank, compounded by a vague
+  synthetic query ("suggesting systems" rather than "recommender systems").
+- **Debiasing/unlearning:** the target is semantic4, absent lexical500,
+  scoring **0.74646**. It ranks7 under depth100 score fusion and34 at500.
+  The candidate instead places a grade2 CRAGRU recommendation-unlearning
+  alternative first, helping list nDCG while losing the exact source hit.
+- **Chemical reactions:** the target has lexical35/semantic5. Its
+  contributions0.1429 +0.6800 put it12 rather than9; the score margin and
+  other documents' overlap matter, not just the rank5 semantic position.
+
+### Largest list-quality regressions
+
+The two largest nDCG losses do **not** lose their exact targets:
+
+- *Ko decoupling content delivery medical qa*: source remains1;
+  nDCG0.8444 to0.6659. A grade0 memory/knowledge-fusion QA paper rises13 to3,
+  while a grade1 medical-QA evaluation paper falls10 to18. The first
+  result is protected, but the rest of the answer list is not.
+- *Video watch time mixture model*: source remains1;
+  nDCG0.8120 to0.6715. The grade2 RQ-Reg continuous-value prediction paper
+  falls10 to12. Exact-target success does not imply supporting-list success.
+
+The next losses concern activation inspection (-0.0981), repeated
+pretraining data (-0.0937), and multimodal decoding (-0.0793). Their targets
+move15 to13,2 to2, and27 to23 respectively: nDCG losses can come from the
+other results even when the target rank improves. Known-item alternative
+grades can be ambiguous under our rubric; this review leaves all frozen
+human/model labels unchanged rather than relabeling to favor a system.
+
+### Decision and next hypothesis
+
+**Keep approved RRF55%/c30/depth100 as working baseline. Retain
+max-score75%/depth500 as the strongest graded-relevance challenger.**
+Promotion would explicitly accept worse source R@10 and R@20, despite
+better first-position hits/MRR and average graded relevance. That tradeoff
+has not been approved; leaderboard position alone does not make the decision.
+
+The next focused hypothesis should distinguish *candidate discovery* from
+*how much weak lexical overlap is allowed to boost an otherwise weak semantic
+match*, with explicit source-recall guardrails. Merely shrinking depth is not
+a complete fix (the output-length target is still18 at depth100), and blindly
+increasing semantic weight does not remove compressed cosine-score margins.
+Do not add query-specific exceptions. Representation/query wording changes
+are another justified future direction, not an already demonstrated fix.
+
+[Reproducible loss report](../data/results/score-candidate-review-dev/report.md),
+[all query changes and segment CIs](../data/results/score-candidate-review-dev/report.json),
+and [case abstracts, grades and score components](../data/results/score-candidate-review-dev/cases.json)
+are generated by `python -m arxiv_search.evaluate.score_candidate_review`.
+The command validates frozen snapshot/run fingerprints and recomputes case
+rankings from saved scores; it has no API path. No new labels, embeddings,
+spending or test-query scoring were needed. Decision35 and baseline config
+remain unchanged.

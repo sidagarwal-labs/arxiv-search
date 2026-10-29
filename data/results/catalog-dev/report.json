@@ -20,6 +20,8 @@
     "graded-dev/report.md",
     "refinement-dev/configs.json",
     "refinement-dev/report.md",
+    "score-candidate-review-dev/report.json",
+    "score-candidate-review-dev/report.md",
     "score-fusion-dev/configs.json",
     "score-fusion-dev/report.json",
     "score-fusion-dev/report.md"
@@ -35,6 +37,143 @@
     "original_snapshot_sha256": "6db231efe4be72b7ac4f633093cdafaa096d631537009bed0512afe1820b7d41"
   },
   "label_snapshot_sha256": "9ea51e45ea7c5329a90f3021516fd143049894440c47b50cdafbc6eb543fc32a",
+  "leaderboard": {
+    "direction": "descending",
+    "metric": "ndcg@10",
+    "ranked": [
+      "score-max+w=0.75+d=500",
+      "score-max+w=0.75+d=100",
+      "fusion-rrf+w=0.6+d=100+c=60",
+      "fusion-rrf+w=0.55+d=100+c=30",
+      "fusion-rrf+w=0.65+d=100+c=60",
+      "fusion-rrf+w=0.55+d=200+c=30",
+      "fusion-rrf+w=0.75+d=100+c=100",
+      "fusion-rrf+w=0.7+d=100+c=60",
+      "fusion-top1bonus+b=0.1+w=0.55+d=100+c=30",
+      "fusion-rrf+w=0.6+d=100+c=30",
+      "fusion-rrf+w=0.55+d=100+c=60",
+      "fusion-rrf+w=0.55+d=500+c=30",
+      "fusion-rrf+w=0.65+d=100+c=30",
+      "score-minmax+w=0.55+d=500",
+      "fusion-linear+w=0.75+d=100",
+      "fusion-top1bonus+b=0.25+w=0.55+d=100+c=30",
+      "fusion-rrf+w=0.75+d=100+c=60",
+      "score-max+w=0.55+d=100",
+      "fusion-rrf+w=0.7+d=100+c=30",
+      "fusion-rrf+w=0.75+d=50+c=100",
+      "score-minmax+w=0.75+d=500",
+      "fusion-rrf+w=0.5+d=100+c=60",
+      "fusion-rrf+w=0.75+d=50+c=60",
+      "fusion-rrf+w=0.75+d=100+c=30",
+      "fusion-rrf+w=0.5+d=100+c=100",
+      "fusion-rrf+w=0.5+d=100+c=30",
+      "fusion-linear+w=0.5+d=100",
+      "score-max+w=0.55+d=500",
+      "fusion-rrf+w=0.6+d=100+c=10",
+      "fusion-linear+w=0.75+d=50",
+      "score-minmax+w=0.55+d=100",
+      "fusion-rrf+w=0.65+d=100+c=10",
+      "fusion-rrf+w=0.7+d=100+c=10",
+      "fusion-rrf+w=0.55+d=100+c=10",
+      "score-minmax+w=0.75+d=100",
+      "fusion-rrf+w=0.5+d=50+c=60",
+      "fusion-rrf+w=0.75+d=20+c=60",
+      "fusion-rrf+w=0.75+d=20+c=100",
+      "fusion-rrf+w=0.5+d=50+c=100",
+      "fusion-rrf+w=0.75+d=100+c=10",
+      "fusion-rrf+w=0.75+d=50+c=10",
+      "score-max+w=0.35+d=100",
+      "fusion-linear+w=0.5+d=50",
+      "fusion-rrf+w=0.75+d=20+c=10",
+      "fusion-linear+w=0.75+d=20",
+      "baseline-original-equal-rrf-c10-d100",
+      "fusion-rrf+w=0.5+d=100+c=10",
+      "hybrid-openai-large+rrf+w=0.5+c=10",
+      "fusion-rrf+w=0.25+d=100+c=100",
+      "fusion-rrf+w=0.5+d=50+c=10",
+      "fusion-rrf+w=0.25+d=50+c=100",
+      "score-minmax+w=0.35+d=500",
+      "dense-openai-large",
+      "fusion-rrf+w=1+d=100+c=10",
+      "fusion-rrf+w=0.5+d=20+c=10",
+      "fusion-rrf+w=0.5+d=20+c=60",
+      "fusion-rrf+w=0.5+d=20+c=100",
+      "score-max+w=0.35+d=500",
+      "fusion-linear+w=0.25+d=100",
+      "fusion-rrf+w=0.25+d=100+c=60",
+      "fusion-linear+w=0.5+d=20",
+      "hybrid-gte-small+rrf+w=0.5+c=10",
+      "hybrid-bge-small+rrf+w=0.5+c=10",
+      "fusion-rrf+w=0.25+d=50+c=60",
+      "score-minmax+w=0.35+d=100",
+      "fusion-linear+w=0.25+d=50",
+      "fusion-rrf+w=0.25+d=20+c=100",
+      "fusion-rrf+w=0.25+d=20+c=60",
+      "dense-gte-small",
+      "dense-bge-small",
+      "fusion-rrf+w=0.25+d=100+c=10",
+      "fusion-rrf+w=0.25+d=50+c=10",
+      "fusion-rrf+w=0.25+d=20+c=10",
+      "fusion-linear+w=0.25+d=20",
+      "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75",
+      "fusion-rrf+w=0+d=100+c=10"
+    ],
+    "tie_breaker": "stable system ID (unrounded nDCG is used)",
+    "unranked": [
+      "fusion-rrf+w=0.7+d=100+c=100",
+      "fusion-rrf+w=0.6+d=100+c=100",
+      "fusion-rrf+w=0.65+d=100+c=100",
+      "fusion-rrf+w=0.55+d=100+c=100",
+      "hybrid-gte-small+rrf+w=0.75+c=60",
+      "hybrid-gte-small+rrf+w=0.75+c=100",
+      "hybrid-gte-small+linear+w=0.75",
+      "hybrid-gte-small+rrf+w=0.5+c=60",
+      "hybrid-gte-small+linear+w=0.5",
+      "hybrid-bge-small+rrf+w=0.5+c=60",
+      "hybrid-bge-small+linear+w=0.75",
+      "hybrid-gte-small+rrf+w=0.5+c=100",
+      "hybrid-bge-small+rrf+w=0.75+c=60",
+      "hybrid-bge-small+linear+w=0.5",
+      "hybrid-bge-small+rrf+w=0.5+c=100",
+      "hybrid-bge-small+rrf+w=0.75+c=100",
+      "hybrid-gte-small+rrf+w=0.75+c=10",
+      "hybrid-bge-small+rrf+w=0.25+c=100",
+      "hybrid-gte-small+rrf+w=0.25+c=100",
+      "hybrid-bge-small+rrf+w=0.75+c=10",
+      "hybrid-bge-small+linear+w=0.25",
+      "hybrid-gte-small+rrf+w=0.25+c=60",
+      "hybrid-gte-small+linear+w=0.25",
+      "hybrid-bge-small+rrf+w=0.25+c=60",
+      "hybrid-gte-small+rrf+w=0.25+c=10",
+      "hybrid-bge-small+rrf+w=0.25+c=10",
+      "bm25+stop+exact+stems+authors+title2x",
+      "bm25+stop+exact+stems+title2x",
+      "bm25+exact+stems+title2x",
+      "bm25+exact+stems+authors",
+      "bm25+stop+exact+stems+authors",
+      "bm25+exact+stems+authors+title2x",
+      "bm25+exact+stems",
+      "bm25+stop+exact+stems",
+      "bm25+stop+authors+title2x",
+      "bm25+authors",
+      "bm25+stop+authors",
+      "bm25+stop+title2x",
+      "bm25+authors+title2x",
+      "bm25+title2x",
+      "bm25+stop+stem+authors+title2x",
+      "bm25+stop",
+      "bm25-baseline",
+      "bm25+stem+authors+title2x",
+      "bm25+stop+stem+authors",
+      "bm25+stop+stem+title2x",
+      "bm25+stem+title2x",
+      "bm25+stem+authors",
+      "bm25+stop+stem",
+      "bm25+stem",
+      "dense-minilm",
+      "dense-e5-small"
+    ]
+  },
   "model": "gpt-5.4-mini",
   "rubric_version": "b8b0c14a",
   "scope": "dev only; full current corpus; saved rankings; no retrieval or API calls",
@@ -217,10 +356,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Original hybrid control",
+        "ranker": "RRF c=10; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 46,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -1724,10 +1870,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact terms; authors; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+authors.info.json": {
           "build_seconds": 4.6,
@@ -3137,10 +3290,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact terms; authors; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+authors+title2x.info.json": {
           "build_seconds": 4.6,
@@ -4550,10 +4710,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact + stems; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8733333333333333,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+exact+stems.info.json": {
           "build_seconds": 7.3,
@@ -5963,10 +6130,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact + stems; authors; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+exact+stems+authors.info.json": {
           "build_seconds": 8.8,
@@ -7376,10 +7550,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact + stems; authors; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+exact+stems+authors+title2x.info.json": {
           "build_seconds": 9.1,
@@ -8789,10 +8970,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact + stems; authors; title x2; k1=0.8,b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": 75,
       "metadata": {
         "dev/bm25+exact+stems+authors+title2x+k1=0.8,b=0.75.info.json": {
           "build_seconds": 15.4,
@@ -10314,10 +10502,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact + stems; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.94,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+exact+stems+title2x.info.json": {
           "build_seconds": 7.8,
@@ -11727,10 +11922,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: stems only; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.7483333333333333,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stem.info.json": {
           "build_seconds": 5.2,
@@ -13140,10 +13342,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: stems only; authors; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stem+authors.info.json": {
           "build_seconds": 5.2,
@@ -14553,10 +14762,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: stems only; authors; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stem+authors+title2x.info.json": {
           "build_seconds": 5.4,
@@ -15966,10 +16182,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: stems only; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.83,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stem+title2x.info.json": {
           "build_seconds": 4.6,
@@ -17379,10 +17602,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact terms; remove stopwords; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9066666666666667,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop.info.json": {
           "build_seconds": 3.2,
@@ -18792,10 +19022,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact terms; remove stopwords; authors; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+authors.info.json": {
           "build_seconds": 3.7,
@@ -20205,10 +20442,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact terms; remove stopwords; authors; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+authors+title2x.info.json": {
           "build_seconds": 4.0,
@@ -21618,10 +21862,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact + stems; remove stopwords; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8733333333333333,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+exact+stems.info.json": {
           "build_seconds": 16.5,
@@ -23031,10 +23282,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact + stems; remove stopwords; authors; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+exact+stems+authors.info.json": {
           "build_seconds": 19.8,
@@ -24444,10 +24702,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact + stems; remove stopwords; authors; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+exact+stems+authors+title2x.info.json": {
           "build_seconds": 28.8,
@@ -25857,10 +26122,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact + stems; remove stopwords; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.94,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+exact+stems+title2x.info.json": {
           "build_seconds": 21.9,
@@ -27270,10 +27542,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: stems only; remove stopwords; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.7457777777777779,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+stem.info.json": {
           "build_seconds": 5.1,
@@ -28683,10 +28962,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: stems only; remove stopwords; authors; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+stem+authors.info.json": {
           "build_seconds": 15.9,
@@ -30096,10 +30382,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: stems only; remove stopwords; authors; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+stem+authors+title2x.info.json": {
           "build_seconds": 13.2,
@@ -31509,10 +31802,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: stems only; remove stopwords; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.83,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+stem+title2x.info.json": {
           "build_seconds": 5.4,
@@ -32922,10 +33222,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact terms; remove stopwords; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.94,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+stop+title2x.info.json": {
           "build_seconds": 3.4,
@@ -34335,10 +34642,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact terms; title x2; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.94,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25+title2x.info.json": {
           "build_seconds": 4.1,
@@ -35748,10 +36062,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None",
+        "lexical": "BM25: exact terms; k1=1.2, b=0.75",
+        "name": "Keyword search",
+        "ranker": "BM25 score"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9066666666666667,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/bm25-baseline.info.json": {
           "build_seconds": 4.0,
@@ -37161,10 +37482,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "None",
+        "name": "Embedding search",
+        "ranker": "Cosine similarity"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.6666666666666667,
         "n": 25
       },
+      "leaderboard_rank": 70,
       "metadata": {
         "dev/dense-bge-small.info.json": {
           "build_seconds": 7077.4,
@@ -38681,10 +39009,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "E5-small",
+        "lexical": "None",
+        "name": "Embedding search",
+        "ranker": "Cosine similarity"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.6263333333333333,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/dense-e5-small.info.json": {
           "build_seconds": 2701.2,
@@ -40091,10 +40426,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "None",
+        "name": "Embedding search",
+        "ranker": "Cosine similarity"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.6326666666666667,
         "n": 25
       },
+      "leaderboard_rank": 69,
       "metadata": {
         "dev/dense-gte-small.info.json": {
           "build_seconds": 2975.4,
@@ -41611,10 +41953,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "MiniLM-L6-v2",
+        "lexical": "None",
+        "name": "Embedding search",
+        "ranker": "Cosine similarity"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.5493333333333333,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/dense-minilm.info.json": {
           "build_seconds": 1813.9,
@@ -43021,10 +43370,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "None",
+        "name": "Embedding search",
+        "ranker": "Cosine similarity"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.7929999999999999,
         "n": 25
       },
+      "leaderboard_rank": 53,
       "metadata": {
         "dev/dense-openai-large.info.json": {
           "bm25_initialization_seconds": 9.764211099998647,
@@ -44568,10 +44924,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 59,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -46074,10 +46437,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 25% semantic / 75% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 74,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -47580,10 +47950,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 25% semantic / 75% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 66,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -49086,10 +49463,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 27,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -50592,10 +50976,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 50% semantic / 50% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 61,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -52098,10 +52489,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 50% semantic / 50% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 43,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -53604,10 +54002,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9466666666666668,
         "n": 25
       },
+      "leaderboard_rank": 15,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -55110,10 +55515,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 75% semantic / 25% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9333333333333332,
         "n": 25
       },
+      "leaderboard_rank": 45,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -56616,10 +57028,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 75% semantic / 25% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9466666666666668,
         "n": 25
       },
+      "leaderboard_rank": 30,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -58122,10 +58541,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "None (0% weight)",
+        "lexical": "Tuned BM25",
+        "name": "Lexical-only fusion control",
+        "ranker": "RRF c=10; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": 76,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -59628,10 +60054,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 71,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -61134,10 +61567,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 49,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -62640,10 +63080,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 60,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -64146,10 +64593,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 25% semantic / 75% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 73,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -65652,10 +66106,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 25% semantic / 75% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 67,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -67158,10 +67619,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 25% semantic / 75% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 68,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -68664,10 +69132,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 25% semantic / 75% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 72,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -70170,10 +70645,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 25% semantic / 75% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 51,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -71676,10 +72158,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 25% semantic / 75% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 64,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -73182,10 +73671,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 47,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -74689,10 +75185,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 25,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -76196,10 +76699,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 26,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -77702,10 +78212,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 22,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -79209,10 +79726,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 50% semantic / 50% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 55,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -80715,10 +81239,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 50% semantic / 50% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 57,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -82221,10 +82752,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 50% semantic / 50% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 56,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -83727,10 +84265,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 50% semantic / 50% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 50,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -85233,10 +85778,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 50% semantic / 50% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 39,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -86739,10 +87291,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 50% semantic / 50% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 36,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -88245,10 +88804,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 55% semantic / 45% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 34,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -89751,10 +90317,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 55% semantic / 45% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": null,
       "paired_withheld_reason": "both runs must have all dev top-10 positions present and judged",
@@ -91148,10 +91721,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30; 55% semantic / 45% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 4,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": null,
       "paired_withheld_reason": "working baseline itself",
@@ -92547,10 +93127,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 55% semantic / 45% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 11,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -94053,10 +94640,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30; 55% semantic / 45% lexical; depth 200"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 6,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -95559,10 +96153,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30; 55% semantic / 45% lexical; depth 500"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 12,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -97065,10 +97666,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 60% semantic / 40% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9533333333333333,
         "n": 25
       },
+      "leaderboard_rank": 29,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -98571,10 +99179,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 60% semantic / 40% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9533333333333333,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": null,
       "paired_withheld_reason": "both runs must have all dev top-10 positions present and judged",
@@ -99968,10 +100583,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30; 60% semantic / 40% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9533333333333333,
         "n": 25
       },
+      "leaderboard_rank": 10,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -101474,10 +102096,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 60% semantic / 40% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9533333333333333,
         "n": 25
       },
+      "leaderboard_rank": 3,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -102981,10 +103610,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 65% semantic / 35% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9533333333333333,
         "n": 25
       },
+      "leaderboard_rank": 32,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -104487,10 +105123,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 65% semantic / 35% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9533333333333333,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": null,
       "paired_withheld_reason": "both runs must have all dev top-10 positions present and judged",
@@ -105884,10 +106527,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30; 65% semantic / 35% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9533333333333333,
         "n": 25
       },
+      "leaderboard_rank": 13,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -107390,10 +108040,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 65% semantic / 35% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9533333333333333,
         "n": 25
       },
+      "leaderboard_rank": 5,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -108896,10 +109553,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 70% semantic / 30% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.95,
         "n": 25
       },
+      "leaderboard_rank": 33,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -110402,10 +111066,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 70% semantic / 30% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9466666666666668,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": null,
       "paired_withheld_reason": "both runs must have all dev top-10 positions present and judged",
@@ -111799,10 +112470,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30; 70% semantic / 30% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.95,
         "n": 25
       },
+      "leaderboard_rank": 19,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -113305,10 +113983,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 70% semantic / 30% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.95,
         "n": 25
       },
+      "leaderboard_rank": 8,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -114811,10 +115496,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.94,
         "n": 25
       },
+      "leaderboard_rank": 40,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -116318,10 +117010,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9433333333333332,
         "n": 25
       },
+      "leaderboard_rank": 7,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -117826,10 +118525,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9433333333333332,
         "n": 25
       },
+      "leaderboard_rank": 24,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -119332,10 +120038,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9433333333333332,
         "n": 25
       },
+      "leaderboard_rank": 17,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -120839,10 +121552,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 75% semantic / 25% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9466666666666668,
         "n": 25
       },
+      "leaderboard_rank": 44,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -122345,10 +123065,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 75% semantic / 25% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9466666666666668,
         "n": 25
       },
+      "leaderboard_rank": 38,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -123851,10 +124578,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 75% semantic / 25% lexical; depth 20"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9466666666666668,
         "n": 25
       },
+      "leaderboard_rank": 37,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -125357,10 +126091,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 75% semantic / 25% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.94,
         "n": 25
       },
+      "leaderboard_rank": 41,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -126863,10 +127604,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 75% semantic / 25% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9466666666666668,
         "n": 25
       },
+      "leaderboard_rank": 20,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -128369,10 +129117,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 75% semantic / 25% lexical; depth 50"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9466666666666668,
         "n": 25
       },
+      "leaderboard_rank": 23,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -129875,10 +130630,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "None (0% weight)",
+        "name": "Semantic-only fusion control",
+        "ranker": "RRF c=10; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.7929999999999999,
         "n": 25
       },
+      "leaderboard_rank": 54,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -131381,10 +132143,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30 + 10% top-1 bonus; 55% semantic / 45% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 9,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -132887,10 +133656,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=30 + 25% top-1 bonus; 55% semantic / 45% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 16,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -134393,10 +135169,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.948,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+linear+w=0.25.info.json": {
           "build_seconds": 0,
@@ -135808,10 +136591,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8911111111111112,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+linear+w=0.5.info.json": {
           "build_seconds": 0,
@@ -137223,10 +138013,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8557142857142856,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+linear+w=0.75.info.json": {
           "build_seconds": 0,
@@ -138638,10 +139435,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+rrf+w=0.25+c=10.info.json": {
           "build_seconds": 0,
@@ -140053,10 +140857,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+rrf+w=0.25+c=100.info.json": {
           "build_seconds": 0,
@@ -141468,10 +142279,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+rrf+w=0.25+c=60.info.json": {
           "build_seconds": 0,
@@ -142883,10 +143701,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.93,
         "n": 25
       },
+      "leaderboard_rank": 63,
       "metadata": {
         "dev/hybrid-bge-small+rrf+w=0.5+c=10.info.json": {
           "build_seconds": 0,
@@ -144408,10 +145233,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8911111111111112,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+rrf+w=0.5+c=100.info.json": {
           "build_seconds": 0,
@@ -145823,10 +146655,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8923809523809524,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+rrf+w=0.5+c=60.info.json": {
           "build_seconds": 0,
@@ -147238,10 +148077,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.7973809523809524,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+rrf+w=0.75+c=10.info.json": {
           "build_seconds": 0,
@@ -148653,10 +149499,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8557142857142856,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+rrf+w=0.75+c=100.info.json": {
           "build_seconds": 0,
@@ -150068,10 +150921,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "BGE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8557142857142856,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-bge-small+rrf+w=0.75+c=60.info.json": {
           "build_seconds": 0,
@@ -151483,10 +152343,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+linear+w=0.25.info.json": {
           "build_seconds": 0,
@@ -152898,10 +153765,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.92,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+linear+w=0.5.info.json": {
           "build_seconds": 0,
@@ -154313,10 +155187,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "Linear rank fusion; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8011111111111111,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+linear+w=0.75.info.json": {
           "build_seconds": 0,
@@ -155728,10 +156609,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+rrf+w=0.25+c=10.info.json": {
           "build_seconds": 0,
@@ -157143,10 +158031,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+rrf+w=0.25+c=100.info.json": {
           "build_seconds": 0,
@@ -158558,10 +159453,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 25% semantic / 75% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+rrf+w=0.25+c=60.info.json": {
           "build_seconds": 0,
@@ -159973,10 +160875,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.9733333333333333,
         "n": 25
       },
+      "leaderboard_rank": 62,
       "metadata": {
         "dev/hybrid-gte-small+rrf+w=0.5+c=10.info.json": {
           "build_seconds": 69.0,
@@ -161497,10 +162406,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.92,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+rrf+w=0.5+c=100.info.json": {
           "build_seconds": 0,
@@ -162912,10 +163828,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.92,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+rrf+w=0.5+c=60.info.json": {
           "build_seconds": 0,
@@ -164327,10 +165250,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.7655555555555555,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+rrf+w=0.75+c=10.info.json": {
           "build_seconds": 0,
@@ -165742,10 +166672,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=100; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8051111111111111,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+rrf+w=0.75+c=100.info.json": {
           "build_seconds": 0,
@@ -167157,10 +168094,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "GTE-small",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=60; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.8061111111111111,
         "n": 25
       },
+      "leaderboard_rank": null,
       "metadata": {
         "dev/hybrid-gte-small+rrf+w=0.75+c=60.info.json": {
           "build_seconds": 0,
@@ -168572,10 +169516,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid rank fusion",
+        "ranker": "RRF c=10; 50% semantic / 50% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 48,
       "metadata": {
         "dev/hybrid-openai-large+rrf+w=0.5+c=10.info.json": {
           "bm25_initialization_seconds": 9.764211099998647,
@@ -170123,10 +171074,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Max-normalized scores; 35% semantic / 65% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": 42,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -171629,10 +172587,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Max-normalized scores; 35% semantic / 65% lexical; depth 500"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": 58,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -173135,10 +174100,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Max-normalized scores; 55% semantic / 45% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 18,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -174641,10 +175613,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Max-normalized scores; 55% semantic / 45% lexical; depth 500"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 28,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -176147,10 +177126,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Max-normalized scores; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 2,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -177653,10 +178639,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Max-normalized scores; 75% semantic / 25% lexical; depth 500"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 1,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -179159,10 +180152,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Min-max-normalized scores; 35% semantic / 65% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": 65,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -180665,10 +181665,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Min-max-normalized scores; 35% semantic / 65% lexical; depth 500"
+      },
       "known_item_source_mrr@10": {
         "mean": 1.0,
         "n": 25
       },
+      "leaderboard_rank": 52,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -182171,10 +183178,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Min-max-normalized scores; 55% semantic / 45% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 31,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -183677,10 +184691,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Min-max-normalized scores; 55% semantic / 45% lexical; depth 500"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.98,
         "n": 25
       },
+      "leaderboard_rank": 14,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -185183,10 +186204,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Min-max-normalized scores; 75% semantic / 25% lexical; depth 100"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.95,
         "n": 25
       },
+      "leaderboard_rank": 35,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [
@@ -186689,10 +187717,17 @@
           }
         }
       },
+      "description": {
+        "embedding": "OpenAI text-embedding-3-large",
+        "lexical": "Tuned BM25",
+        "name": "Hybrid score fusion",
+        "ranker": "Min-max-normalized scores; 75% semantic / 25% lexical; depth 500"
+      },
       "known_item_source_mrr@10": {
         "mean": 0.96,
         "n": 25
       },
+      "leaderboard_rank": 21,
       "metadata": {},
       "paired_ndcg_vs_working_baseline": {
         "ci95": [

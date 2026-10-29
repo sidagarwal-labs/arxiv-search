@@ -57,10 +57,22 @@ OpenAI dense alone is uncertain (+0.018 [-0.011, 0.046]).
 Full experiment tables, confidence intervals, usage and caveats: [Results](docs/05-results.md).
 Current selection rationale: [Decision 35](docs/02-decisions.md#35-working-fusion-baseline-promoted-2026-10-29).
 
-**All experiments in one table:** [Unified dev scorecard](docs/05-results.md#unified-dev-scorecard).
+**All experiments in one leaderboard:** [Dev leaderboard](docs/05-results.md#unified-dev-scorecard).
 It includes saved BM25, dense, hybrid, rank-fusion, score-fusion and depth experiments
 regardless of registry membership, with source and graded metrics on one shared
-label snapshot. Historical tables and smaller-corpus pilots remain separately scoped.
+label snapshot. Fully judged runs rank by descending **nDCG@10**, our primary success
+metric; incomplete runs are separate, unranked diagnostics. Readable keyword-retrieval,
+embedding-model and ranker/fusion columns explain each technique; original IDs remain
+in expandable details and machine reports. Historical tables and smaller-corpus pilots
+remain separately scoped.
+
+**Challenger review:** max-normalized score fusion (75% semantic, depth500) leads
+at nDCG0.7197 and source MRR0.6916, but source R@10 falls0.86 to0.82
+(four lost targets, no gained targets), and R@20 falls0.89 to0.84.
+All25 known-item target ranks stay unchanged. **Keep the approved RRF baseline**
+for now; a leaderboard win does not automatically accept that recall tradeoff.
+[Loss review](data/results/score-candidate-review-dev/report.md) and
+[explanation](docs/03-findings.md#22-leaderboard-and-score-fusion-challenger-loss-review).
 The label-collection UI is deferred; the existing 100 human labels remain our
 calibration set. A separate reranker is deferred; the next experiments tune
 lexical/semantic fusion and candidate depth using cached dev rankings.

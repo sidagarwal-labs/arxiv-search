@@ -69,8 +69,8 @@ def test_automatic_discovery_dedup_and_current_baseline(inputs):
         "dev/legacy.run.json", "fusion-dev/legacy.run.json"]
     assert systems["legacy"]["metadata"]["dev/legacy.info.json"]["ms_per_query"] == 12.5
     assert systems["unregistered-new-score-fusion"]["metadata"] == {}
-    assert "**`current-baseline` (WORKING BASELINE)**" in text
-    assert "**`baseline-original-alias` (WORKING BASELINE)**" not in text
+    assert "**current-baseline (WORKING BASELINE)**" in text
+    assert "**baseline-original-alias (WORKING BASELINE)**" not in text
     assert systems["legacy"]["paired_ndcg_vs_working_baseline"]["difference"] == 0
     for system in systems.values():
         assert set(system["by_query_type"]) == set(catalog.QUERY_TYPES)
@@ -318,3 +318,60 @@ def test_refinement_runs_discovered_with_coverage_gate_inventory_and_readme_anch
     assert "refinement-dev/report.json" in report["inventory"]
     assert "refinement-dev/report.json" in text
     assert '<a id="unified-dev-scorecard"></a>' in text
+
+
+@pytest.mark.parametrize("name, expected", [
+    ("score-max+w=0.75+d=500", {
+        "name": "Hybrid score fusion", "embedding": "OpenAI text-embedding-3-large",
+        "ranker": "Max-normalized scores; 75% semantic / 25% lexical; depth 500"}),
+    ("score-minmax+w=0.55+d=100", {
+        "ranker": "Min-max-normalized scores; 55% semantic / 45% lexical; depth 100"}),
+    ("hybrid-gte-small+rrf+w=0.5+c=10", {
+        "embedding": "GTE-small", "ranker": "RRF c=10; 50% semantic / 50% lexical; depth 100"}),
+    ("hybrid-bge-small+linear+w=0.25", {
+        "embedding": "BGE-small", "ranker": "Linear rank fusion; 25% semantic / 75% lexical; depth 100"}),
+    ("fusion-top1bonus+b=0.1+w=0.55+d=100+c=30", {
+        "ranker": "RRF c=30 + 10% top-1 bonus; 55% semantic / 45% lexical; depth 100"}),
+    ("dense-openai-large", {"name": "Embedding search", "lexical": "None", "ranker": "Cosine similarity"}),
+    ("bm25+stop+stem+authors+title2x", {
+        "lexical": "BM25: stems only; remove stopwords; authors; title x2; k1=1.2, b=0.75",
+        "embedding": "None"}),
+    ("bm25+exact+stems+authors+title2x+k1=0.8,b=0.75", {
+        "lexical": "BM25: exact + stems; authors; title x2; k1=0.8,b=0.75"}),
+    ("fusion-rrf+w=0+d=100+c=10", {"name": "Lexical-only fusion control"}),
+    ("fusion-rrf+w=1+d=100+c=10", {"name": "Semantic-only fusion control"}),
+    ("baseline-original-equal-rrf-c10-d100", {"name": "Original hybrid control"}),
+])
+def test_readable_technique_labels_preserve_parameters(name, expected):
+    description = catalog.describe_system(name)
+    assert all(description[k] == v for k, v in expected.items())
+
+
+def test_leaderboard_descending_unrounded_not_baseline_first_and_provisional_unranked(inputs):
+    root, _, _, _, _, run = inputs
+    # Source remains first; ordering the other relevant paper changes nDCG.
+    worse = {q: [ps[0], *ps[2:10], ps[1], *ps[10:]] for q, ps in run.items()}
+    save(root / "fusion-review-dev" / "current-baseline.run.json", worse)
+    save(root / "score-fusion-dev" / "z-covered-winner.run.json", run)
+    save(root / "score-fusion-dev" / "a-covered-tie.run.json", run)
+    provisional = copy.deepcopy(run)
+    for q in provisional:
+        provisional[q][9] = "p20"
+    save(root / "score-fusion-dev" / "provisional-high.run.json", provisional)
+    text = catalog.write_catalog()
+    report = json.loads((root / "catalog-dev" / "report.json").read_text())
+    board = report["leaderboard"]
+    assert board["ranked"] == ["a-covered-tie", "z-covered-winner", "current-baseline"]
+    assert board["unranked"] == ["provisional-high"]
+    assert report["systems"]["current-baseline"]["leaderboard_rank"] == 3
+    assert report["systems"]["provisional-high"]["leaderboard_rank"] is None
+    assert text.index("| 1 | a-covered-tie") < text.index("| 3 | **current-baseline")
+    assert text.index("### Unranked diagnostics") < text.index("| - | provisional-high")
+    assert "| Original system ID |" in text
+    systems = copy.deepcopy(report["systems"])
+    systems["z-covered-winner"]["all"]["ndcg@10"]["mean"] = 0.9000001
+    systems["a-covered-tie"]["all"]["ndcg@10"]["mean"] = 0.9000000
+    systems["current-baseline"]["all"]["ndcg@10"]["mean"] = None
+    ranked, unranked = catalog.leaderboard_order(systems)
+    assert ranked == ["z-covered-winner", "a-covered-tie"]
+    assert "current-baseline" in unranked

@@ -193,26 +193,107 @@ def _value(summary: dict, field: str) -> str:
     return "undefined (n=0)" if value is None else f"{value:.3f}"
 
 
+def describe_system(name: str) -> dict[str, str]:
+    """Translate saved experiment identities without renaming runs or rankings."""
+    models = {
+        "openai-large": "OpenAI text-embedding-3-large",
+        "gte-small": "GTE-small", "bge-small": "BGE-small",
+        "e5-small": "E5-small", "minilm": "MiniLM-L6-v2",
+    }
+    if name.startswith("bm25"):
+        options = ["exact + stems" if "+exact+stems" in name else
+                   "stems only" if "+stem" in name else "exact terms"]
+        options += [label for token, label in (
+            ("+stop", "remove stopwords"), ("+authors", "authors"),
+            ("+title2x", "title x2")) if token in name]
+        options.append("k1=" + name.split("+k1=")[1]
+                       if "+k1=" in name else "k1=1.2, b=0.75")
+        return {"name": "Keyword search", "lexical": "BM25: " + "; ".join(options),
+                "embedding": "None", "ranker": "BM25 score"}
+    if name.startswith("dense-"):
+        return {"name": "Embedding search", "lexical": "None",
+                "embedding": models.get(name.removeprefix("dense-"), name.removeprefix("dense-")),
+                "ranker": "Cosine similarity"}
+    original = name == "baseline-original-equal-rrf-c10-d100"
+    if original or name.startswith(("hybrid-", "fusion-", "score-")):
+        parts = name.split("+")
+        opts = dict(p.split("=", 1) for p in parts[1:] if "=" in p)
+        weight = float(opts.get("w", "0.5"))
+        method = parts[0]
+        model = "openai-large"
+        if method.startswith("hybrid-"):
+            model, method = method.removeprefix("hybrid-"), parts[1]
+        depth = opts.get("d", "100")
+        weights = f"{weight:.0%} semantic / {1 - weight:.0%} lexical"
+        if "top1bonus" in method:
+            ranker = f"RRF c={opts['c']} + {float(opts['b']):.0%} top-1 bonus"
+        elif method.startswith("score-"):
+            ranker = ("Max-normalized scores" if method == "score-max"
+                      else "Min-max-normalized scores")
+        elif "linear" in method:
+            ranker = "Linear rank fusion"
+        else:
+            ranker = f"RRF c={opts.get('c', '10')}"
+        if weight == 0:
+            return {"name": "Lexical-only fusion control", "lexical": "Tuned BM25",
+                    "embedding": "None (0% weight)", "ranker": f"{ranker}; depth {depth}"}
+        if weight == 1:
+            return {"name": "Semantic-only fusion control", "lexical": "None (0% weight)",
+                    "embedding": models[model], "ranker": f"{ranker}; depth {depth}"}
+        return {
+            "name": "Original hybrid control" if original else
+                    "Hybrid score fusion" if method.startswith("score-") else "Hybrid rank fusion",
+            "lexical": "Tuned BM25", "embedding": models.get(model, model),
+            "ranker": f"{ranker}; {weights}; depth {depth}",
+        }
+    return {"name": name, "lexical": "See saved metadata", "embedding": "See saved metadata",
+            "ranker": "See saved metadata"}
+
+
+def leaderboard_order(systems: dict) -> tuple[list[str], list[str]]:
+    """Only fully judged systems with defined nDCG receive leaderboard positions."""
+    def key(name: str) -> tuple[float, str]:
+        value = systems[name]["all"]["ndcg@10"]["mean"]
+        return (-value if value is not None else float("inf"), name)
+    ranked = [n for n, r in systems.items()
+              if r["top10_fully_judged"] and r["all"]["ndcg@10"]["mean"] is not None]
+    ranked = sorted(ranked, key=key)
+    return ranked, sorted(set(systems) - set(ranked), key=key)
+
+
 def _table(systems: dict) -> str:
-    lines = [
-        "| System | Status | nDCG@10 (n) | P@10 | judged@10 | Source MRR@10 | "
+    ranked, unranked = leaderboard_order(systems)
+    header = [
+        "| Rank | System | Keyword retrieval | Embedding | Ranker / fusion | "
+        "Status | Success: nDCG@10 (n) | P@10 | judged@10 | Source MRR@10 | "
         "R@1 | R@5 | R@10 | R@20 | Known-item MRR@10 | Δ nDCG vs working baseline [95% CI] |",
-        "|" + "---|" * 12,
+        "|" + "---|" * 16,
     ]
-    for name in sorted(systems, key=lambda n: (not systems[n]["working_baseline"], n)):
-        result = systems[name]
-        summary = result["all"]
-        title = f"**`{name}` (WORKING BASELINE)**" if result["working_baseline"] else f"`{name}`"
-        ndcg = f"{_value(summary, 'ndcg@10')} ({summary['ndcg@10']['n']})"
-        cells = [title, result["status"], ndcg]
-        cells += [_value(summary, field) for field in FIELDS[1:]]
-        known = result["known_item_source_mrr@10"]["mean"]
-        cells.append(f"{known:.3f}" if known is not None else "undefined (n=0)")
-        paired = result["paired_ndcg_vs_working_baseline"]
-        cells.append(f"{paired['difference']:+.3f} "
-                     f"[{paired['ci95'][0]:+.3f}, {paired['ci95'][1]:+.3f}]"
-                     if paired else f"withheld: {result['paired_withheld_reason']}")
-        lines.append("| " + " | ".join(cells) + " |")
+    lines = ["### Ranked leaderboard (fully judged)", "", *header]
+    for names, eligible in ((ranked, True), (unranked, False)):
+        if not eligible:
+            lines += ["", "### Unranked diagnostics (incomplete judgments or undefined nDCG)", "",
+                      "Sorted by diagnostic nDCG only; these runs are not eligible to win.", "", *header]
+        for index, name in enumerate(names, 1):
+            result = systems[name]
+            summary = result["all"]
+            description = describe_system(name)
+            title = description["name"]
+            if result["working_baseline"]:
+                title = f"**{title} (WORKING BASELINE)**"
+            score = summary["ndcg@10"]
+            ndcg = "undefined (n=0)" if score["mean"] is None else f"{score['mean']:.4f} ({score['n']})"
+            cells = [str(index) if eligible else "-", title,
+                     description["lexical"], description["embedding"], description["ranker"],
+                     result["status"], ndcg]
+            cells += [_value(summary, field) for field in FIELDS[1:]]
+            known = result["known_item_source_mrr@10"]["mean"]
+            cells.append(f"{known:.3f}" if known is not None else "undefined (n=0)")
+            paired = result["paired_ndcg_vs_working_baseline"]
+            cells.append(f"{paired['difference']:+.3f} "
+                         f"[{paired['ci95'][0]:+.3f}, {paired['ci95'][1]:+.3f}]"
+                         if paired else f"withheld: {result['paired_withheld_reason']}")
+            lines.append("| " + " | ".join(cells) + " |")
     return "\n".join(lines)
 
 
@@ -225,7 +306,7 @@ def write_catalog() -> str:
         if (root / "score-fusion-dev" / "labels.json").exists():
             raise ValueError("Cannot validate expanded labels without original fusion-dev snapshot")
         return ('<a id="unified-dev-scorecard"></a>\n\n'
-                "## Unified all-experiment dev scorecard\n\n"
+                "## Dev leaderboard: all experiments\n\n"
                 "Unavailable: frozen `fusion-dev/labels.json` has not been saved yet.")
     snapshot_path, raw_snapshot, snapshot, provenance = load_snapshot(root)
     papers, queries, splits = judge.load_inputs()
@@ -233,6 +314,10 @@ def write_catalog() -> str:
         raise ValueError("Dev/test query overlap")
     systems = score_catalog(discover_runs(root), snapshot, papers, queries,
                             splits["dev"], config.WORKING_BASELINE_SYSTEM)
+    ranked, unranked = leaderboard_order(systems)
+    for name, result in systems.items():
+        result["description"] = describe_system(name)
+        result["leaderboard_rank"] = ranked.index(name) + 1 if name in ranked else None
     out.mkdir(parents=True, exist_ok=True)
     inventory = sorted({
         path for path in root.rglob("*")
@@ -256,14 +341,27 @@ def write_catalog() -> str:
         "graded_labels_sha256": _fingerprint(snapshot["labels"]),
         "inventory": [p.relative_to(root).as_posix() for p in inventory],
         "systems": systems,
+        "leaderboard": {"metric": "ndcg@10", "direction": "descending",
+                        "tie_breaker": "stable system ID (unrounded nDCG is used)",
+                        "ranked": ranked, "unranked": unranked},
     }
     (out / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n",
                                     encoding="utf-8")
     caveats = (
         f"{len(systems)} distinct saved systems; {len(splits['dev'])} dev queries; "
         f"current corpus: {len(papers):,} papers. **Working baseline: "
-        f"`{config.WORKING_BASELINE_SYSTEM}`**. Rows are alphabetical after the baseline, "
-        "not a winner ranking.\n\n"
+        f"`{config.WORKING_BASELINE_SYSTEM}`**. **Success score = nDCG@10**, descending "
+        "using unrounded means; exact ties use stable system ID. Only fully judged runs "
+        "with defined nDCG receive positions. The baseline stays at its actual position, "
+        "not pinned first. Provisional runs appear separately, unranked. "
+        "A leaderboard lead is not automatic baseline promotion.\n\n"
+        "**Technique guide:** Embedding identifies the vector model; Ranker / fusion "
+        "identifies how retrieval results are ordered, not a separate LLM reranker. "
+        "Tuned BM25 means exact terms + stems, authors, title x2, k1=0.8, b=0.75, "
+        "no stopword removal. RRF uses reciprocal ranks; score fusion combines normalized "
+        "BM25/cosine values. Depth is candidates per retriever, not final results. "
+        "Frozen aliases can represent identical rankings under different experiment IDs. "
+        "Readable names are presentation only: original IDs and files are preserved below.\n\n"
         f"All graded scores are recomputed from the **same immutable "
         f"`{report['label_snapshot']}`**, "
         f"including its {report['human_overrides']} frozen human overrides. "
@@ -305,7 +403,7 @@ def write_catalog() -> str:
                  " — BM25 tuning, source-paper objective" if "/tuning/" in relative else
                  " — historical report/configuration; original scope")
         inventory_lines.append(f"- [{relative}]({_link(path, out)}){scope}")
-    lines = ["# Unified all-experiment dev catalog", "", caveats, "", table, "",
+    lines = ["# Dev leaderboard: all-experiment catalog", "", caveats, "", table, "",
              "## Every run by query type", "",
              "| System | Type | Queries | nDCG@10 (n) | P@10 | judged@10 | "
              "Source MRR@10 | R@1 | R@5 | R@10 | R@20 |",
@@ -316,15 +414,22 @@ def write_catalog() -> str:
                      f"{_value(summary, 'ndcg@10')} ({summary['ndcg@10']['n']})"]
             cells += [_value(summary, field) for field in FIELDS[1:]]
             lines.append("| " + " | ".join(cells) + " |")
-    lines += ["", "## Report inventory (separate historical scopes)", "", *inventory_lines]
+    identities = ["<details>", "<summary>Readable techniques and original system IDs</summary>", "",
+                  "| Original system ID | System | Keyword retrieval | Embedding | Ranker / fusion |",
+                  "|" + "---|" * 5]
+    for name in ranked + unranked:
+        d = describe_system(name)
+        identities.append(f"| `{name}` | {d['name']} | {d['lexical']} | {d['embedding']} | {d['ranker']} |")
+    identities += ["", "</details>"]
+    lines += ["", *identities, "", "## Report inventory (separate historical scopes)", "", *inventory_lines]
     (out / "report.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
     docs = config.PROJECT_ROOT / "docs"
     docs_inventory = [
         f"- [{p.relative_to(root).as_posix()}]({_link(p, docs)})" for p in inventory
     ]
     return "\n\n".join([
-        '<a id="unified-dev-scorecard"></a>\n\n## Unified all-experiment dev scorecard',
-        caveats, table,
+        '<a id="unified-dev-scorecard"></a>\n\n## Dev leaderboard: all experiments',
+        caveats, table, "\n".join(identities),
         f"[Per-type results for EVERY run]({_link(out / 'report.md', docs)}) · "
         f"[Machine report, coverage, provenance and saved timing/cost metadata]"
         f"({_link(out / 'report.json', docs)}) · "
