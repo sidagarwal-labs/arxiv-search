@@ -1,7 +1,7 @@
 """Restricted Responses API relevance judging with durable, fail-closed accounting.
 
 The ledger is a *lifetime* local allowance, not a provider quota service. Its
-creation/attempt days use UTC for audit only; midnight never resets usage. Both
+creation/attempt days use UTC for audit only; midnight never resets usage. All
 allowlisted models share the mini allowance. Other programs, organizational
 traffic, pricing changes, and provider tokenization are outside this guard's
 control, so it cannot guarantee free organizational usage. Only manually start a
@@ -33,7 +33,12 @@ from pydantic import BaseModel, ConfigDict, field_validator
 from arxiv_search import config
 
 ENDPOINT = "https://api.openai.com/v1/responses"
-MODEL_TIERS = {"gpt-5.4-nano": "mini", "gpt-5.4-mini": "mini"}
+MODEL_TIERS = {
+    "gpt-5.4-nano": "mini",
+    "gpt-5.4-mini": "mini",
+    "gpt-4.1-mini": "mini",
+    "gpt-4o-mini": "mini",
+}
 
 
 class OpenAIError(RuntimeError):
@@ -180,11 +185,13 @@ def generate_json(model: str, prompt: str, system_instruction: str) -> tuple[dic
     schema["$defs"]["_PaperGrade"]["properties"]["paper"]["enum"] = labels
     payload = {
         "model": model, "instructions": system_instruction, "input": prompt,
-        "store": False, "reasoning": {"effort": "none"},
+        "store": False,
         "max_output_tokens": config.OPENAI_MAX_OUTPUT_TOKENS,
         "text": {"format": {"type": "json_schema", "name": "relevance_grades",
                             "strict": True, "schema": schema}},
     }
+    if model in {"gpt-5.4-nano", "gpt-5.4-mini"}:
+        payload["reasoning"] = {"effort": "none"}
     encoded = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     reserved_input = len(encoded) + config.OPENAI_INPUT_OVERHEAD_TOKENS
     if config.OPENAI_INPUT_OVERHEAD_TOKENS < 4096:

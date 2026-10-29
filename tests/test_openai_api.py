@@ -13,6 +13,7 @@ from arxiv_search.evaluate import judge, judge_pilot
 
 
 MODEL = "gpt-5.4-nano"
+MODELS = [MODEL, "gpt-5.4-mini", "gpt-4.1-mini", "gpt-4o-mini"]
 PROMPT = "SEARCH: private search\n\n[P1] Private title\nAbstract: private abstract"
 
 
@@ -70,9 +71,10 @@ def transport(monkeypatch, replies):
     return calls
 
 
-def test_strict_payload_actual_usage_and_no_sensitive_ledger(monkeypatch):
+@pytest.mark.parametrize("model", MODELS)
+def test_strict_payload_actual_usage_and_no_sensitive_ledger(monkeypatch, model):
     calls = transport(monkeypatch, [response()])
-    answer, usage = api.generate_json(MODEL, PROMPT, "private system")
+    answer, usage = api.generate_json(model, PROMPT, "private system")
     assert answer["grades"][0]["grade"] == 2
     url, options = calls[0]
     assert url == "https://api.openai.com/v1/responses"
@@ -81,8 +83,11 @@ def test_strict_payload_actual_usage_and_no_sensitive_ledger(monkeypatch):
     assert options["headers"]["Authorization"] == "Bearer fake-test-key"
     payload = json.loads(options["content"])
     assert "fake-test-key" not in options["content"].decode()
-    assert payload["model"] == MODEL and payload["store"] is False
-    assert payload["reasoning"] == {"effort": "none"}
+    assert payload["model"] == model and payload["store"] is False
+    if model in {"gpt-4.1-mini", "gpt-4o-mini"}:
+        assert "reasoning" not in payload
+    else:
+        assert payload["reasoning"] == {"effort": "none"}
     assert payload["max_output_tokens"] == 2048
     fmt = payload["text"]["format"]
     assert fmt["strict"] is True and fmt["type"] == "json_schema"
@@ -94,6 +99,7 @@ def test_strict_payload_actual_usage_and_no_sensitive_ledger(monkeypatch):
     assert properties["paper"]["enum"] == ["P1"] and properties["grade"]["enum"] == [0, 1, 2]
     attempt = rows()[0]
     assert attempt["status"] == "completed" and attempt["latency_seconds"] >= 0
+    assert attempt["model"] == model and attempt["tier"] == "mini"
     assert attempt["reserved_input"] == len(options["content"]) + 4096
     assert attempt["reserved_output"] == 2048
     assert attempt["accounted_tokens"] == 105  # reasoning isn't added twice
@@ -108,7 +114,8 @@ def test_strict_payload_actual_usage_and_no_sensitive_ledger(monkeypatch):
         assert sensitive not in serialized
 
 
-def test_reservations_persist_share_mini_tier_and_never_reset(monkeypatch):
+@pytest.mark.parametrize("model", MODELS)
+def test_reservations_persist_share_mini_tier_and_never_reset(monkeypatch, model):
     monkeypatch.setattr(config, "OPENAI_TOKEN_LIMITS", {"mini": 100, "large": 150_000})
     monkeypatch.setattr(config, "OPENAI_BUDGET_FRACTION", 1)
     request_id = api.Ledger().reserve(MODEL, 60, 10)
@@ -116,9 +123,12 @@ def test_reservations_persist_share_mini_tier_and_never_reset(monkeypatch):
         db.execute("UPDATE attempts SET started_utc = '2000-01-01T00:00:00+00:00'")
     second = api.Ledger()
     with pytest.raises(api.BudgetExceeded):
-        second.reserve("gpt-5.4-mini", 21, 10)
+        second.reserve(model, 21, 10)
     assert rows()[0]["accounted_tokens"] == 70 and rows()[0]["request_id"] == request_id
-    assert second.reserve("gpt-5.4-mini", 20, 10)
+    assert second.reserve(model, 20, 10)
+    with pytest.raises(api.BudgetExceeded):
+        api.Ledger().reserve(MODEL, 1, 1)
+    assert sum(row["accounted_tokens"] for row in rows()) == 100
 
 
 def test_atomic_concurrent_reservations(monkeypatch):
@@ -145,7 +155,10 @@ def test_quota_preflight_prevents_http(monkeypatch):
     assert rows() == []
 
 
-@pytest.mark.parametrize("model", ["gpt-5.4", "gpt-5.4-pro", "text-embedding-3-small", "other"])
+@pytest.mark.parametrize("model", [
+    "gpt-5.4", "gpt-5.4-pro", "text-embedding-3-small", "other",
+    "gpt-4.1", "gpt-4o", "gpt-4.1-mini-2025-04-14", "gpt-4o-mini-2024-07-18",
+])
 def test_allowlist_rejection_before_any_work(model):
     with pytest.raises(api.OpenAIError, match="allowlisted"):
         api.generate_json(model, PROMPT, "system")
@@ -161,7 +174,8 @@ def test_batch_validation_before_http(prompt):
         api.generate_json(MODEL, prompt, "system")
 
 
-def test_unknown_failure_reserves_before_http_and_keeps_all_tokens(monkeypatch):
+@pytest.mark.parametrize("model", MODELS)
+def test_unknown_failure_reserves_before_http_and_keeps_all_tokens(monkeypatch, model):
     monkeypatch.setattr(config, "OPENAI_MAX_ATTEMPTS", 1)
 
     def timeout(url, **kwargs):
@@ -170,14 +184,14 @@ def test_unknown_failure_reserves_before_http_and_keeps_all_tokens(monkeypatch):
 
     monkeypatch.setattr(api.httpx, "post", timeout)
     with pytest.raises(api.OpenAIError, match="transport failed") as error:
-        api.generate_json(MODEL, PROMPT, "system")
+        api.generate_json(model, PROMPT, "system")
     assert "fake-test-key" not in str(error.value)
     row = rows()[0]
     assert row["status"] == "unknown_transport"
     assert row["accounted_tokens"] == row["reserved_input"] + row["reserved_output"]
     monkeypatch.setattr(config, "OPENAI_TOKEN_LIMITS", {"mini": row["accounted_tokens"], "large": 1})
     with pytest.raises(api.BudgetExceeded):
-        api.generate_json(MODEL, PROMPT, "system")
+        api.generate_json(model, PROMPT, "system")
     assert len(rows()) == 1
 
 
@@ -264,12 +278,13 @@ def test_incomplete_refused_or_missing_output_explicit_actual_usage(monkeypatch,
     {"grades": []},
     {"grades": [{"paper": "P1", "reason": "r", "grade": 1}] * 2},
 ])
-def test_strict_answer_rejection_records_actual_usage(monkeypatch, answer):
+@pytest.mark.parametrize("model", MODELS)
+def test_strict_answer_rejection_records_actual_usage(monkeypatch, answer, model):
     data = body()
     data["output"][0]["content"][0]["text"] = answer if isinstance(answer, str) else json.dumps(answer)
     transport(monkeypatch, [response(data)])
     with pytest.raises(api.OpenAIError, match="invalid_answer"):
-        api.generate_json(MODEL, PROMPT, "system")
+        api.generate_json(model, PROMPT, "system")
     assert rows()[0]["status"] == "invalid_answer" and rows()[0]["accounted_tokens"] == 105
 
 

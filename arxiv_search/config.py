@@ -65,6 +65,8 @@ JUDGES = {
     "qwen2.5-7b": {"backend": "ollama", "model": "qwen2.5:7b"},  # local; independent of the writer
     "openai-nano": {"backend": "openai", "model": "gpt-5.4-nano"},
     "openai-mini": {"backend": "openai", "model": "gpt-5.4-mini"},
+    "openai-4.1-mini": {"backend": "openai", "model": "gpt-4.1-mini"},
+    "openai-4o-mini": {"backend": "openai", "model": "gpt-4o-mini"},
 }
 OPENAI_LEDGER_PATH = DATA_DIR / "openai" / "usage.sqlite3"
 # Local, cumulative reservations, NOT provider billing quotas or rolling daily counters.

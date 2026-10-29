@@ -10,6 +10,8 @@ Preliminary calibration on one person's pilot labels, not held-out validation. M
 | qwen2.5-7b | 263 / 266 | 12 | 625 | 5 / 9 | 44% / 51% / 5% |
 | openai-nano | 100 / 266 | 13 | 3 | 11 / 12 | 29% / 46% / 25% |
 | openai-mini | 100 / 266 | 13 | 3 | 11 / 12 | 42% / 35% / 23% |
+| openai-4.1-mini | 100 / 266 | 13 | 3 | 12 / 12 | 25% / 40% / 35% |
+| openai-4o-mini | 100 / 266 | 13 | 3 | 10 / 12 | 29% / 49% / 22% |
 
 **Exact** = same grade. **κ** = Cohen's kappa (1 perfect, 0 chance; quadratic: 0-vs-2 costs most). **Relevant** = agree on 0 vs 1-or-2. **Opposite** = one said 0, the other 2.
 
@@ -19,6 +21,8 @@ Preliminary calibration on one person's pilot labels, not held-out validation. M
 | qwen2.5-7b vs human | 97 | 59% | 0.43 | 67% | 0.32 | 3 |
 | openai-nano vs human | 100 | 65% | 0.66 | 77% | 0.51 | 1 |
 | openai-mini vs human | 100 | 77% | 0.80 | 84% | 0.67 | 0 |
+| openai-4.1-mini vs human | 100 | 57% | 0.58 | 71% | 0.37 | 3 |
+| openai-4o-mini vs human | 100 | 57% | 0.49 | 71% | 0.38 | 4 |
 | gemma-31b vs qwen2.5-7b | 263 | 51% | 0.28 | 58% | 0.16 | 5 |
 
 ## Fair comparison: identical 97 human-labeled pairs
@@ -29,6 +33,8 @@ Preliminary calibration on one person's pilot labels, not held-out validation. M
 | qwen2.5-7b | 58.8% | 0.432 | 67.0% | 3 |
 | openai-nano | 63.9% | 0.635 | 76.3% | 1 |
 | openai-mini | 76.3% | 0.785 | 83.5% | 0 |
+| openai-4.1-mini | 55.7% | 0.559 | 70.1% | 3 |
+| openai-4o-mini | 56.7% | 0.465 | 70.1% | 4 |
 
 ## API usage (successful cached responses)
 
@@ -40,6 +46,8 @@ Tokens are deduplicated by request ID where available. Older cache entries have 
 | qwen2.5-7b | 85,263 | 7,841 | 0 |
 | openai-nano | 35,638 | 3,022 | 0 |
 | openai-mini | 35,638 | 2,973 | 0 |
+| openai-4.1-mini | 35,664 | 3,142 | 0 |
+| openai-4o-mini | 35,664 | 2,662 | 0 |
 
 **gemma-31b vs human**: exact agreement by type: keyword 80% (n=25), question 88% (n=25), paraphrase 72% (n=25), known_item 76% (n=25)
 
@@ -72,6 +80,22 @@ Tokens are deduplicated by request ID where available. Older cache entries have 
 | 0 | 34 | 8 | 0 |
 | 1 | 8 | 26 | 1 |
 | 2 | 0 | 6 | 17 |
+
+**openai-4.1-mini vs human**: exact agreement by type: keyword 56% (n=25), question 60% (n=25), paraphrase 56% (n=25), known_item 56% (n=25)
+
+| openai-4.1-mini ↓ / human → | 0 | 1 | 2 |
+|---|---|---|---|
+| 0 | 19 | 6 | 0 |
+| 1 | 20 | 20 | 0 |
+| 2 | 3 | 14 | 18 |
+
+**openai-4o-mini vs human**: exact agreement by type: keyword 40% (n=25), question 68% (n=25), paraphrase 56% (n=25), known_item 64% (n=25)
+
+| openai-4o-mini ↓ / human → | 0 | 1 | 2 |
+|---|---|---|---|
+| 0 | 21 | 7 | 1 |
+| 1 | 18 | 25 | 6 |
+| 2 | 3 | 8 | 11 |
 
 **gemma-31b vs qwen2.5-7b**: exact agreement by type: keyword 58% (n=71), question 51% (n=63), paraphrase 33% (n=67), known_item 61% (n=62)
 

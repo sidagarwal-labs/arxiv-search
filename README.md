@@ -16,7 +16,7 @@ Every design choice is decided by **measuring** it on a test set of queries, not
 ## Current working baseline (selected 2026-10-28)
 
 This is our chosen direction, not yet a fully measured end-to-end configuration.
-Gemma grades results offline; it is not part of the live search path.
+GPT-5.4 mini grades results offline; it is not part of the live search path.
 
 | Component | Selected configuration | Status |
 |---|---|---|
@@ -24,7 +24,7 @@ Gemma grades results offline; it is not part of the live search path.
 | Keyword retrieval | BM25 exact+stems, authors, title x2; k1=0.8, b=0.75; no stopword removal | Measured on full corpus |
 | Embeddings | OpenAI `text-embedding-3-large`, 3,072 dimensions; normalized vectors | Full-corpus vectors cached; new run cost $0.7439 under separate $1.25 cap |
 | Hybrid fusion | Equal-weight RRF, c=10, top 100 from each retriever | Full-corpus dev measured; improvement over GTE uncertain |
-| Relevance judge | Gemma `gemma-4-31b-it`; blind 0/1/2 pair labels; human labels override | Selected after human calibration; fresh-human validation pending |
+| Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29 from four OpenAI pilots; full-dev labeling started; fresh-human validation deferred |
 | Evaluation | 100 dev / 300 held-out test queries; source-paper MRR/recall plus graded nDCG and judgment coverage | Dev experiments only; full-dev graded evaluation pending |
 | Vector storage | Offline NumPy arrays + paper-ID metadata; exact cosine search | Hosted Postgres/pgvector planned, not deployed |
 | Reranker / RAG | None yet | Next phases, not baseline components |
@@ -36,7 +36,7 @@ Gemma grades results offline; it is not part of the live search path.
 | Full-corpus retrieval reference | BM25 + **GTE-small**, RRF 0.5/0.5, c=10; 23,304 papers, 100 dev queries | MRR@10 **0.635** [0.56, 0.72]; R@1 **0.54**, R@10 **0.80**, R@20 **0.84**; one warm run **26.4 ms/query** |
 | Selected embedding pilot | OpenAI large **alone**; 2,000 papers, same 100 dev queries | MRR@10 **0.844** [0.784, 0.902]; R@10 **0.95**, R@20 **0.98**; embedding cost **$0.0701** including queries |
 | Selected judge calibration | Gemma vs. 100 human-labeled pairs from 12 dev searches | Exact agreement **79%**; quadratic kappa **0.81**; relevant/not agreement **83%**; **0** opposite 0-vs-2 errors |
-| New full-corpus baseline | BM25 + **OpenAI large**, equal-weight RRF c=10; 23,304 papers, 100 dev queries | MRR@10 **0.653** [0.572, 0.737]; R@1 **0.56**, R@10 **0.84**, R@20 **0.90**; Gemma-graded scores pending |
+| New full-corpus baseline | BM25 + **OpenAI large**, equal-weight RRF c=10; 23,304 papers, 100 dev queries | MRR@10 **0.653** [0.572, 0.737]; R@1 **0.56**, R@10 **0.84**, R@20 **0.90**; graded scores pending |
 | Full-corpus semantic retrieval | OpenAI large alone; same corpus and dev queries | MRR@10 **0.599** [0.518, 0.679]; R@10 **0.82**, R@20 **0.88** |
 
 The pilot has fewer distractors and cannot be compared directly with the full-corpus
@@ -112,6 +112,7 @@ copy .env.example .env        # then paste your Gemini API key into .env
 # openai_full --run uses a separate approved $1.25 lifetime cap; completed inputs are cached
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.graded                # score cached dev labels only
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.graded --label --max-calls 20  # Gemma, resumable
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.graded --judge openai-mini --label --max-calls 20  # selected GPT-5.4 mini, shared token cap
 
 # Run the tests
 .\.venv\Scripts\python.exe -m pytest -q

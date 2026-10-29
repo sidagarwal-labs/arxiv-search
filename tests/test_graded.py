@@ -73,3 +73,24 @@ def test_results_register_openai_and_label_cached_query_timing():
             "timing_scope": "sequential_search_excludes_offline_query_embedding",
             "build_seconds": 0, "ms_per_query": 5.3})})
     assert "5.3 (cached vector; embedding API excluded)" in report
+
+
+def test_selected_judge_is_not_mixed_with_gemma(tmp_path, monkeypatch):
+    seen = []
+    def grades_for(key, *args):
+        seen.append(key)
+        return {"q": {"a": 1}}
+    monkeypatch.setattr(graded.judge, "grades_for", grades_for)
+    labels, count = graded.merged_labels(
+        {"q": ["a"]}, {}, {"a": {}}, {}, "openai-4.1-mini")
+    assert seen == ["openai-4.1-mini"]
+    monkeypatch.setattr(graded, "OUT", tmp_path / "out")
+    workbook = tmp_path / "human.xlsx"
+    workbook.write_bytes(b"fingerprint")
+    monkeypatch.setattr(graded, "SHEET_PATH", workbook)
+    report = graded.publish({"s": {"q": ["a"]}}, labels, {"q": ["a"]},
+                            {"q": {"query_type": "keyword"}}, count, "openai-4.1-mini")
+    snapshot = json.loads((graded.OUT / "labels.json").read_text())
+    assert snapshot["judge"] == "openai-4.1-mini"
+    assert snapshot["model"] == "gpt-4.1-mini"
+    assert "gpt-4.1-mini" in report

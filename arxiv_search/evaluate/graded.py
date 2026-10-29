@@ -1,7 +1,8 @@
-"""Score dev retrieval with cached Gemma relevance labels and human overrides.
+"""Score dev retrieval with one selected judge's cached labels and human overrides.
 
 python -m arxiv_search.evaluate.graded             # no API calls; publish coverage
 python -m arxiv_search.evaluate.graded --label --max-calls 20
+python -m arxiv_search.evaluate.graded --judge openai-mini --label --max-calls 20
 
 Source-paper MRR/recall stay separate in experiments.py. This report uses graded
 relevance and a shared pool of seven finalists, not the held-out test queries.
@@ -44,8 +45,9 @@ def pooled_pairs(runs: dict, qids: list[str], depth: int = config.NDCG_K) -> dic
             for q in qids}
 
 
-def merged_labels(pairs: dict, queries: dict, papers: dict, human: dict) -> tuple[dict, int]:
-    labels = judge.grades_for("gemma-31b", pairs, queries, papers)
+def merged_labels(pairs: dict, queries: dict, papers: dict, human: dict,
+                  judge_key: str = "gemma-31b") -> tuple[dict, int]:
+    labels = judge.grades_for(judge_key, pairs, queries, papers)
     for qid in pairs:
         labels.setdefault(qid, {})
     overrides = 0
@@ -80,12 +82,14 @@ def summarize_rows(rows: list[dict], field: str) -> str:
     return f"{mean:.3f} [{low:.3f}, {high:.3f}]"
 
 
-def publish(runs: dict, labels: dict, pairs: dict, queries: dict, overrides: int) -> str:
+def publish(runs: dict, labels: dict, pairs: dict, queries: dict, overrides: int,
+            judge_key: str = "gemma-31b") -> str:
     OUT.mkdir(parents=True, exist_ok=True)
     k = config.NDCG_K
     total = sum(len(p) for p in pairs.values())
     covered = sum(p in labels[q] for q, ids in pairs.items() for p in ids)
-    snapshot = {"judge": "gemma-31b", "rubric_version": judge.RUBRIC_VERSION,
+    snapshot = {"judge": judge_key, "model": config.JUDGES[judge_key]["model"],
+                "rubric_version": judge.RUBRIC_VERSION,
                 "systems": list(runs), "depth": k, "query_ids": list(pairs),
                 "pool_pairs": total, "pool_judged": covered, "human_overrides": overrides,
                 "human_workbook_sha256": hashlib.sha256(SHEET_PATH.read_bytes()).hexdigest(),
@@ -95,10 +99,12 @@ def publish(runs: dict, labels: dict, pairs: dict, queries: dict, overrides: int
     (OUT / "labels.json").write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
     all_rows = {}
     lines = ["# Graded dev retrieval", "",
-             f"Judge: Gemma; rubric `{judge.RUBRIC_VERSION}`. {len(pairs)} dev queries, "
+             f"Judge: `{judge_key}` (`{config.JUDGES[judge_key]['model']}`); "
+             f"rubric `{judge.RUBRIC_VERSION}`. {len(pairs)} dev queries, "
              f"{covered}/{total} pooled pairs judged; {overrides} human pair labels take priority.",
              "", "**Calibration limitation:** one person's 100 pilot labels, no fresh-human "
-             "validation. Gemma also wrote the queries. No held-out test scores here.",
+             "validation. Selecting the judge on these labels is calibration, not independent "
+             "confirmation. Gemma wrote the queries. No held-out test scores here.",
              "", "**Metric definitions:** linear-gain nDCG@10; P@10 counts grades 1 and 2 as "
              "relevant; unjudged papers count as zero. Ideal DCG uses the same pooled labels "
              "plus human overrides for every system. nDCG is undefined if no relevant label "
@@ -135,7 +141,8 @@ def publish(runs: dict, labels: dict, pairs: dict, queries: dict, overrides: int
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--label", action="store_true", help="make Gemma calls for missing pairs")
+    parser.add_argument("--judge", choices=list(config.JUDGES), default="gemma-31b")
+    parser.add_argument("--label", action="store_true", help="call the selected judge for missing pairs")
     parser.add_argument("--max-calls", type=int, default=20, help="successful batches per invocation")
     args = parser.parse_args()
     if args.max_calls < 0:
@@ -149,11 +156,11 @@ def main() -> None:
     missing_human = {q: [p for p in ids if (q, p) not in human] for q, ids in pairs.items()}
     try:
         if args.label:
-            print(judge.judge_pairs("gemma-31b", missing_human, queries, papers,
+            print(judge.judge_pairs(args.judge, missing_human, queries, papers,
                                     max_calls=args.max_calls), flush=True)
     finally:
-        labels, overrides = merged_labels(pairs, queries, papers, human)
-        print(publish(runs, labels, pairs, queries, overrides))
+        labels, overrides = merged_labels(pairs, queries, papers, human, args.judge)
+        print(publish(runs, labels, pairs, queries, overrides, args.judge))
         from arxiv_search.evaluate.experiments import write_results_doc
         write_results_doc()
 

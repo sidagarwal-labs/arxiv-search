@@ -503,3 +503,35 @@ logs and saved usage histories let us separate API time from retry waiting.
 The run was resumed from its cache with the same model, rubric, full abstracts
 and 10-paper cap. These changes improve observability and retry compliance;
 they do not establish that Google's 500/503 error rate is reduced.
+
+## 15. Four OpenAI judges against the same human labels (2026-10-29)
+
+GPT-4.1 mini and GPT-4o mini each graded exactly the same 100 frozen human
+pairs, without seeing human grades, notes or reasoning. Full title/authors/
+abstract evidence, rubric and 10-paper limit match the earlier OpenAI pilots.
+Each new pilot completed 13 successful HTTP requests with no retries.
+
+| Model | Exact | Quadratic kappa | Relevant agreement | Opposite 0-vs-2 | Mean s/call | Input + output tokens |
+|---|---|---|---|---|---|---|
+| GPT-5.4 mini | 77% | 0.802 | 84% | 0 | 2.72 | 38,611 |
+| GPT-5.4 nano | 65% | 0.661 | 77% | 1 | 3.33 | 38,660 |
+| GPT-4.1 mini | 57% | 0.583 | 71% | 3 | 2.98 | 38,806 |
+| GPT-4o mini | 57% | 0.489 | 71% | 4 | 3.22 | 38,326 |
+
+GPT-5.4 mini is the best supported OpenAI choice on this calibration sample;
+the older minis are not improvements. Gemma scored 79% exact, kappa 0.809,
+83% relevant agreement and zero opposites on these same 100 pairs, but has
+intermittent 500/503 failures and shares the query-writer family.
+No statistical superiority over Gemma is established.
+
+All four OpenAI pilots account for **154,403 tokens**, cumulatively, in our
+shared mini ledger. The two new pilots used 77,132 tokens. The user reports
+2.5 million eligible shared tokens per day; we retain the stricter local
+1.35-million effective cumulative ceiling and do not infer a provider reset
+or available organization-wide allowance. Embeddings are billed separately.
+
+Gemma was paused with its saved progress intact. Expanded dev labeling now
+uses **GPT-5.4 mini only**, with human overrides. It must not reuse Gemma's
+missing-pair labels as though they came from OpenAI. Raw caches remain
+separate; the selected graded report records its judge identity and stays
+provisional until full coverage. The 300 held-out test queries remain unused.

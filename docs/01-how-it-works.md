@@ -494,6 +494,17 @@ No automatic model fallback, rubric change or abstract truncation is used.
 The current process must be restarted to load wrapper changes; saved labels
 are reused and at most an in-flight batch needs to be repeated.
 
+OpenAI calibration also supports `openai-4.1-mini` and `openai-4o-mini`
+alongside the original `openai-mini` (GPT-5.4 mini) and nano. All use the
+same persistent shared mini-pool ledger; there is no automatic daily reset.
+Calibrate with `judge --judge <key> --queries human`. Then
+`graded --judge <key> --label --max-calls 20` labels the expanded dev pool
+with that one model, not a mixture with Gemma. Human overrides still apply.
+The published graded snapshot identifies the selected judge and model;
+raw per-model caches remain separate even when the displayed report changes.
+The original judge CLI remains restricted to human-only OpenAI pilots;
+expanded labeling is explicit through the graded CLI.
+
 **The pilot** (`judge_pilot.py`) picks which judge to trust: 12 dev queries (3 per type),
 266 pairs (including source-paper checks, also used by the pilot CLI). Sid grades
 100 of them blind in `human_grades.xlsx` (25 per type), then the report

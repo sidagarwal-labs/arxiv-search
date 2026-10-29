@@ -137,6 +137,8 @@ not a confirmed test winner. Offline grid timings exclude source retrieval.
 ## #34 Working baseline selected (2026-10-28)
 
 Sid selected **Gemma as relevance judge and OpenAI large as the embedding model**.
+The judge selection was updated to **GPT-5.4 mini on 2026-10-29** after
+the four-OpenAI-model human calibration below; Gemma caches are retained.
 Keep the best BM25 recipe and start hybrid testing with equal-weight RRF c=10.
 The [README summary](../README.md#current-working-baseline-selected-2026-10-28)
 tracks the selected configuration alongside the best measured scores and their scopes.
@@ -149,6 +151,20 @@ has a paired interval crossing zero. The full-corpus OpenAI hybrid now scores
 OpenAI mini; this is a working selection, not a statistically established judge
 winner. Gemma also wrote the queries, so independent human audits and occasional
 mini cross-checks remain important.
+
+**OpenAI judge follow-up (2026-10-29):** Sid approved GPT-4.1 mini and
+GPT-4o mini blind pilots on the same 100 human pairs, followed by labeling
+with the best supported OpenAI model. Both completed 100/100. GPT-5.4 mini
+remains best among tested OpenAI models: 77% exact agreement, quadratic
+kappa 0.802, 84% relevant agreement, zero opposite-grade errors. GPT-4.1
+mini and GPT-4o mini each scored 57% exact, with 3 and 4 opposite errors.
+Select GPT-5.4 mini for expanded dev labeling, not either older mini.
+This is calibration-selected, not independently validated superiority.
+Gemma is paused; the selected report must use one judge's labels plus human
+overrides, never fill gaps from another model. Keep the same rubric and
+full abstracts. Cache labels by model/rubric/content and preserve human grades.
+All four OpenAI models share the existing cumulative mini ledger: no reset,
+no automatic paid fallback and no guarantee of free usage from local counts.
 
 **Next milestones, in order:**
 1. Full-corpus embedding budget **approved: $1.25 lifetime total** for the
