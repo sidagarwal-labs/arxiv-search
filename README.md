@@ -27,7 +27,7 @@ GPT-5.4 mini grades results offline; it is not part of the live search path.
 | Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29; expanded 3,294-pair dev pool covered for finalists; older exploratory rows may be provisional; fresh-human validation deferred |
 | Evaluation | 100 dev / 300 held-out test queries; source-paper MRR/recall plus graded nDCG and judgment coverage | Full-dev evaluation complete; held-out test untouched |
 | Vector storage | Offline NumPy arrays + paper-ID metadata; exact cosine search | Hosted Postgres/pgvector planned, not deployed |
-| Reranker / RAG | None yet | Next phases, not baseline components |
+| Reranker / RAG | Local MiniLM cross-encoder and title/abstract ablations tested; no winner; RAG not implemented | Experiments only; not baseline components |
 
 ### Best measured scores (keep benchmark scopes separate)
 
@@ -79,9 +79,19 @@ the previous RRF control and reports.
 [Loss review](data/results/score-candidate-review-dev/report.md) and
 [explanation](docs/03-findings.md#22-leaderboard-and-score-fusion-challenger-loss-review).
 The label-collection UI is deferred; the existing 100 human labels remain our
-calibration set. A separate reranker is deferred; the next experiments tune
-candidate selection and representations; repeated global fusion tuning is showing
-diminishing returns. See the [experiment/promotion findings](docs/03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline).
+calibration set. Sid has now approved local cross-encoder and title/abstract
+field-score experiments to test new relevance signals; the working baseline
+remains unchanged. **All16 new settings completed locally; no improvement
+warranted promotion.** The fully judged cross-encoder top10 test regresses
+nDCG0.7176->0.7021; pure semantic title/abstract ordering and independent
+lexical field mixtures also underperform. Broader-pool graded scores remain
+coverage-gated; no new paid calls were made.
+See the [cross-encoder findings](docs/03-findings.md#24-query-document-interaction-first-local-cross-encoder)
+and [field-score findings](docs/03-findings.md#25-separate-titleabstract-field-scores).
+LLM reranking and a new dev set are later steps.
+Repeated global fusion tuning is showing diminishing returns.
+See the [experiment/promotion findings](docs/03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
+and [interaction experiment design](docs/02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).
 
 ## Progress
 

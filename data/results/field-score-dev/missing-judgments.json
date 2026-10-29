@@ -1,0 +1,10 @@
+[
+  {
+    "arxiv_id": "2512.20578",
+    "query_id": "q-keyword-085",
+    "systems": [
+      "field-lexical+t=0.5",
+      "field-lexical+t=0.75"
+    ]
+  }
+]

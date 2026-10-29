@@ -54,6 +54,7 @@ def test_automatic_discovery_dedup_and_current_baseline(inputs):
         ("dev", "legacy"), ("fusion-dev", "legacy"),
         ("fusion-dev", "baseline-original-alias"),
         ("score-fusion-dev", "unregistered-new-score-fusion"),
+        ("cross-encoder-dev", "cross-minilm-l6+pool=baseline+d=10"),
     ):
         save(root / folder / f"{name}.run.json", run)
     save(root / "dev" / "legacy.info.json", {
@@ -64,7 +65,8 @@ def test_automatic_discovery_dedup_and_current_baseline(inputs):
     report = json.loads((root / "catalog-dev" / "report.json").read_text())
     systems = report["systems"]
     assert set(systems) == {
-        "current-baseline", "legacy", "baseline-original-alias", "unregistered-new-score-fusion"}
+        "current-baseline", "legacy", "baseline-original-alias", "unregistered-new-score-fusion",
+        "cross-minilm-l6+pool=baseline+d=10"}
     assert systems["legacy"]["paths"] == [
         "dev/legacy.run.json", "fusion-dev/legacy.run.json"]
     assert systems["legacy"]["metadata"]["dev/legacy.info.json"]["ms_per_query"] == 12.5
@@ -77,6 +79,27 @@ def test_automatic_discovery_dedup_and_current_baseline(inputs):
         assert system["known_item_source_mrr@10"] == {"mean": 1.0, "n": 1}
         assert system["all"]["source_recall@20"]["mean"] == 1.0
     assert report["working_baseline"] == "current-baseline"
+
+
+def test_cross_encoder_friendly_names_distinguish_candidate_selection_and_ordering():
+    prefix = catalog.describe_system("cross-minilm-l6+pool=baseline+d=10")
+    union = catalog.describe_system("cross-minilm-l6+pool=union100+w=0.5")
+    assert "OpenAI" in prefix["embedding"]
+    assert "cross-encoder" in prefix["ranker"]
+    assert "top10 only" in prefix["ranker"]
+    assert "RRF c30" in union["ranker"]
+    assert "lexical100, semantic100" in union["ranker"]
+
+
+def test_field_score_names_distinguish_model_and_field_ablation():
+    lexical = catalog.describe_system("field-lexical+t=0.25")
+    assert "10% authors" in lexical["lexical"]
+    assert "title 25% / abstract 75%" in lexical["ranker"]
+    assert "GTE" not in lexical["embedding"]
+    separate = catalog.describe_system("field-order-gte-separate+t=0.5")
+    assert "GTE-small" in separate["embedding"]
+    assert "top10 only" in separate["ranker"]
+    assert "31/(30+rank)" in catalog.describe_system("field-gte-concat")["ranker"]
 
 
 def test_duplicate_conflict_is_an_explicit_error(inputs):

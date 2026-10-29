@@ -39,6 +39,42 @@ produces. Read this before the code.
 
 ---
 
+## Experimental reranking: what new information does it use?
+
+An embedding model represents a paper without knowing the user's current query.
+A cross-encoder instead reads the query **together with** the paper text.
+It can learn interactions between their words: for example, matching the
+language but missing the requested application should not be enough.
+This is a hypothesis about why it may help, not a guarantee of better results.
+
+[`rerank.py`](../arxiv_search/search/rerank.py) only orders a supplied pool.
+[`cross_encoder_experiment.py`](../arxiv_search/evaluate/cross_encoder_experiment.py)
+supplies the frozen dev candidates, runs MiniLM locally on CPU, and caches
+one raw logit per query-paper pair. It never uses the source paper ID or
+relevance grades to choose candidates or compute scores.
+
+- **Rerank top10:** only changes order. It cannot change Precision@10 or
+  source Recall@10/20 because membership stays the same.
+- **Rerank top30/100 or a retriever union:** can replace a weak top10 result.
+  New selected papers may lack labels, so graded quality cannot yet be
+  compared fairly even when source-paper recall is measurable.
+- **Blend ranks:** gives the baseline and cross-encoder a vote without
+  pretending raw neural logits and BM25/cosine scores share a scale.
+
+The model sees title plus abstract, not full text or author names. Its512-token
+pair limit can cut off abstract endings; the experiment records how often.
+The model and tokenizer are revision-pinned; changing texts, candidates or
+settings cannot silently reuse old scores. Cached reruns make later rank
+comparisons cheap, but do not make first-time inference free of compute.
+
+Run `python -m arxiv_search.evaluate.cross_encoder_experiment`.
+Results, missing judgments, runtime and case evidence are saved under
+[`data/results/cross-encoder-dev`](../data/results/cross-encoder-dev).
+No model API, new embeddings API, or relevance-labeling API is called.
+These are experiments; the approved live-search direction remains Decision36.
+
+---
+
 ## Step 1: Download (`download.py`)
 
 **What it does:** asks arXiv for paper information, one page at a time, and saves each page as-is.

@@ -449,6 +449,38 @@ cached artifacts only; no new API calls, labels or spending.
 
 ---
 
+## #37 Local query-document interaction and field-score experiments (2026-10-29)
+
+Sid approved testing a cross-encoder and separate title/abstract matching signals,
+before considering a fresh dev set or an LLM reranker. This authorizes experiments,
+not automatic baseline promotion. Decision36 stays frozen.
+
+The first cross-encoder is `cross-encoder/ms-marco-MiniLM-L6-v2`, an Apache-2.0
+MS MARCO passage ranker, pinned to a model revision. It reads each query together
+with a paper's title and abstract and produces a raw relevance logit. This is
+different from scoring independently embedded texts. We run locally on CPU;
+no abstract or query is sent to a hosted reranking service.
+
+Five settings are fixed before results: rerank baseline prefixes10/30/100, rank
+the lexical100/semantic100/baseline100 union directly, and blend union
+cross-encoder ranks with baseline ranks using equal-weight RRF c30. The top10-only
+setting isolates ordering and needs no new labels. Broader settings can select
+new papers and require judgment-coverage checks. Scores are cached by exact
+query/document text, model revision and tokenization settings. A512-token
+pair limit preserves the query and truncates only the document; truncations
+are counted, not hidden.
+
+Field experiments separate title and abstract evidence rather than treating
+title repetition as an independent title score. "Body" here means the abstract,
+not full text. Local GTE semantic field tests include a same-model concatenated
+control, so changing embedding models is not mistaken for a field-separation
+gain. They are candidate-reranking ablations, not a new full-corpus index.
+
+All work uses the100 dev queries; the300 held-out queries and human grades stay
+untouched. Incomplete top10s remain unranked diagnostics with graded comparisons
+withheld. Paid embeddings or extra relevance labeling need a separate cost
+estimate and approval. LLM reranking and a new dev set remain later decisions.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

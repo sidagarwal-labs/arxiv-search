@@ -1182,3 +1182,238 @@ are verified; changed plans/inputs require a new experiment identity.
 helper, refreshes the leaderboard and regenerates [hill-climbing charts](06-charts.md)
 and the machine-readable headroom audit. All work used cached scores and
 labels: zero new API calls, embeddings, labels or spending.
+
+## 24. Query-document interaction: first local cross-encoder
+
+Sid approved a new signal family rather than another global fusion grid
+([Decision37](02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29)).
+Decision36 stays the control; nothing is promoted automatically.
+
+### Hypothesis and experiment
+
+Query-document interaction may distinguish a complete intent match from a paper
+that mentions only some concepts. The first model is
+`cross-encoder/ms-marco-MiniLM-L6-v2`, revision
+`233902d25c440f23af6f7d6e94d2946bac0bee0a` (Apache-2.0), trained for MS MARCO
+passage ranking. It scores query + title/abstract locally, using CPU float32.
+No labels or source IDs enter its candidate selection or scoring.
+
+Five settings were fixed before outcomes: reorder baseline top10/30/100;
+rerank the lexical100/semantic100/baseline100 union; and blend its ranks with
+baseline ranks at50/50 using RRF c30. The fixed100-query dev scope,
+revision-pinned model, token budget, candidate order, input hashes and cache
+validation are persisted. Held-out test and human grades are unchanged.
+
+### Fully judged ordering test: a regression
+
+Top10-only reranking changes no membership and needs no new labels.
+
+| Metric | Decision36 baseline | Cross-encoder top10 |
+|---|---:|---:|
+| nDCG@10 | 0.7176 | 0.7021 |
+| Precision@10 | 0.6890 | 0.6890 |
+| Source MRR@10 | 0.6967 | 0.6593 |
+| Source Recall@10 | 0.86 | 0.86 |
+| Source Recall@20 | 0.89 | 0.89 |
+| Grade0 first results | 4 | 7 |
+
+Paired nDCG delta: **-0.01549**, exploratory95% CI
+**[-0.02783, -0.00371]**, with38 wins /57 losses /5 ties.
+MRR delta is-0.03742, CI[-0.09935, +0.01939]; that interval includes zero.
+Two known-item target ranks regress, despite both staying within the top10.
+
+| Segment (25 queries each) | Baseline nDCG | Cross-encoder nDCG | Mean delta |
+|---|---:|---:|---:|
+| Keyword | 0.7385 | 0.7453 | +0.0068 |
+| Known item | 0.7183 | 0.7097 | -0.0086 |
+| Paraphrase | 0.6858 | 0.6420 | -0.0438 |
+| Question | 0.7277 | 0.7113 | -0.0164 |
+
+The paraphrase drop has CI[-0.07437,-0.01394]. The keyword increase's interval
+includes zero; it is not evidence for deploying query-type routing.
+
+### Broader pools: source regressions, graded comparison incomplete
+
+| Setting | Source MRR10 | R10 | R20 | Judged top10 positions |
+|---|---:|---:|---:|---:|
+| Baseline | 0.6967 | 0.86 | 0.89 | 100% |
+| Cross-encoder, baseline30 | 0.6201 | 0.79 | 0.85 | 90.4% |
+| Cross-encoder, baseline100 | 0.6046 | 0.74 | 0.82 | 73.3% |
+| Cross-encoder, union100 | 0.6041 | 0.74 | 0.79 | 68.6% |
+| 50/50 rank blend, union100 | 0.6875 | 0.84 | 0.85 | 93.4% |
+
+There are **392 unique unjudged top10 pairs** across these settings. Their
+diagnostic nDCG values must not be interpreted as measured graded quality or
+compared to the fully judged control. The leaderboard keeps them unranked and
+withholds graded paired intervals. Source metrics remain complete.
+
+Pure baseline100 reranking loses13 previously found source top10s and gains1;
+the blend loses3 and gains1. All five configurations fail the prespecified
+screen. Additional labels could change the graded verdict for broad-pool
+settings, but cannot repair their measured source-recall guardrail failures.
+No new judging calls were made.
+
+### Concrete failures and one useful recovery
+
+- **Author-bearing lookup:** "Bekkers equivariant neural fields" has the source
+  1->3 under top10 reranking,1->8 under baseline100, and1->2 with the blend.
+  The top10 reranker promotes two grade0 papers above the grade2 target.
+  The cross-encoder does not receive authors, unlike our lexical retriever;
+  that missing evidence is a plausible contributor, not a proven sole cause.
+- **Output-length paraphrase:** source10->77 with baseline100 and10->29 with
+  the blend. The grade2 remaining-output-length alternative stays at rank2
+  in the blend, while a grade0 token-value paper remains first. This is not
+  just a case of choosing a different relevant source.
+- **Diverse self-training:** source1->7 even within the selected top10, and
+  1->12 with the blend. The promoted rank1 alternative is also grade2;
+  source MRR alone would overstate the quality of that particular loss.
+- **Multimodal decoding keyword:** source27->2 with baseline100 and27->6
+  with the blend. There are genuine recoveries; they do not offset the losses.
+
+### Compute, caching and interpretation
+
+We scored **17,849 query-paper pairs**, taking **2,714 seconds (45.2 minutes)**
+of aggregate per-query tokenization/inference time on the Snapdragon CPU.
+Model load/download is excluded; another local embedding experiment ran
+concurrently. This is offline throughput, not a production latency benchmark.
+Only56 pairs exceeded the512-token budget (0.31%); query text is preserved
+and document endings are truncated. This small overall rate does not exclude
+individual truncation failures.
+
+The complete score cache was replayed without loading a model or making
+inference/API requests. No new paid embeddings, judgments or spending occurred.
+
+**Decision: retain Decision36.** This particular small, web-passage-trained
+cross-encoder is not a win on our benchmark. It does not show that all
+query-document interaction models fail. Domain fit, author input and stronger
+models remain hypotheses; none has been measured here. An LLM reranker is not
+automatically justified by these results.
+
+Reproduce with `python -m arxiv_search.evaluate.cross_encoder_experiment`.
+See the [full report](../data/results/cross-encoder-dev/report.md), its
+machine-readable segment/paired results and case evidence alongside it.
+
+### Cost boundary for OpenAI title/abstract separation
+
+The local field experiment does not silently replace OpenAI with newly billed
+vectors. A separate exact-token dry estimate at the repository's stored
+`text-embedding-3-large` rate ($0.13 per million tokens) found:
+
+| Scope | Input tokens | Estimated new embedding charge before cache reuse |
+|---|---:|---:|
+| All23,304 titles | 389,197 | $0.0506 |
+| All23,304 abstracts | 5,873,208 | $0.7635 |
+| Both full-corpus fields | 6,262,405 | $0.8141 |
+| Both fields for7,644 unique baseline100 candidates only | 2,081,960 | $0.2707 |
+
+These are estimated dollars, not token allowances or measured charges. Existing
+query embeddings could be reused; the estimate concerns document fields.
+The full-corpus option does not fit the remaining approximately$0.5061 under
+the separate$1.25 full-run embedding cap. Even a candidate-only option needs
+explicit approval before paid requests; it would test reranking, not a new
+full-corpus retriever.
+
+The text-judge ledger is unchanged at1,411,975 accounted tokens over513 attempts,
+leaving188,025 under its effective1,600,000 cumulative cap. This is separate
+from the embedding-dollar cap and does not reset daily. None of these estimates
+triggered a request, reservation, labeling job, or budget increase.
+
+## 25. Separate title/abstract field scores
+
+The first bounded field experiment holds Decision36's100 candidates per query
+fixed and changes only their ordering. "Body" here is the abstract; no full text
+was downloaded. Settings and input hashes were saved before outcomes.
+
+### Independent lexical fields: no improvement
+
+Build separate full-corpus BM25 indexes for title, abstract and authors, using
+exact+stem tokens, k1=.8 and b=.75. Divide each field's scores by its maximum
+among the query's100 candidates, then form:
+
+`F = .9 * [t * title + (1-t) * abstract] + .1 * authors`.
+
+The final score is `.75 * 31/(30+baseline_rank) + .25 * F`, not an average of raw
+BM25 and cosine scores. The author channel is explicit so author-bearing
+queries do not silently lose all author evidence. These choices test this
+particular normalization and mixture, not every possible fielded BM25 recipe.
+
+| Title share t (of title/abstract channel) | nDCG10 | Source MRR10 | R10 | R20 | Judgments |
+|---|---:|---:|---:|---:|---|
+| Baseline | 0.7176 | 0.6967 | 0.86 | 0.89 | Complete |
+| 25% | 0.7056 | 0.6697 | 0.85 | 0.88 | Complete |
+| 50% | 0.6960 | 0.6466 | 0.85 | 0.87 | Provisional |
+| 75% | 0.6800 | 0.6064 | 0.84 | 0.88 | Provisional |
+
+The fully judged25% setting's paired nDCG interval is[-0.023295,-0.001640].
+Grade0 first results increase from4 to7/8/8. The75% setting also worsens one
+known-item target from1->2. Missing pair `q-keyword-085 / 2512.20578` affects
+the50% and75% settings; their graded comparisons remain withheld.
+
+### Semantic fields: conservative first-stage results are inconclusive
+
+Use the local GTE-small model, revision
+`17e1f347d17fe144873b1201da91788898c639cd`, to embed query, title, abstract and
+concatenated title+abstract independently. Candidate document vectors are cached,
+normalized and validated against IDs, text and model revision. No OpenAI field
+embedding calls were made.
+
+The same-model concat control has `F=(cos(query,title+abstract)+1)/2`.
+Separate fields use `F=[t*cos(query,title)+(1-t)*cos(query,abstract)+1]/2`
+for t=.25/.5/.75. All use the same75% baseline rank /25% field mixture
+as the lexical test.
+
+All four semantic settings have **exactly the baseline top10 order**:
+nDCG0.717568396, MRR0.696734127, R10/20 .86/.89. Their lower-ranked tails do
+change on all100 queries, so the scores are not constant or ignored.
+The field signals range .85747-.97954, while the baseline term's adjacent-rank
+gaps dominate the differences at the top10. The minimum surviving boundary/
+top10 score margins are positive for every configuration.
+
+**This is a no-op at the measured cutoff, not proof that title/abstract
+separation is useless or equivalent.** The mixture is too conservative to
+test a meaningful top10 change on this snapshot. These are valid reproducible
+experiments, but not four independent improvements despite tied leaderboard
+positions.
+
+All seven initial settings finished. Cumulative local field-experiment runtime
+was4,410.056 seconds (73.5 minutes) over four resumable invocations, including
+overlap with cross-encoder inference. It is not a production latency estimate.
+See the [field report](../data/results/field-score-dev/report.md).
+
+### Cached follow-up: isolate the semantic ordering signal
+
+After observing the conservative semantic no-op, preregister a separate
+follow-up identity rather than changing the completed experiment. Remove the
+baseline contribution and sort **only the existing top10** by each of the
+four semantic field signals (concat and title weights25/50/75%). Preserve
+positions11+ and use baseline order for ties. This directly compares
+same-model field representations without adding unjudged papers, extra
+inference or paid calls. It cannot change Precision10 or Recall10/20.
+
+| Pure ordering signal | nDCG10 | Paired delta vs baseline [95% CI] | Source MRR10 | Grade0 first |
+|---|---:|---|---:|---:|
+| Baseline | 0.7176 | Reference | 0.6967 | 4 |
+| GTE concat | 0.7057 | -0.01183 [-0.02354,-0.00019] | 0.6216 | 7 |
+| GTE separate,25% title | 0.7038 | -0.01379 [-0.02589,-0.00205] | 0.6207 | 8 |
+| GTE separate,50% title | 0.6952 | -0.02240 [-0.03548,-0.00979] | 0.5988 | 9 |
+| GTE separate,75% title | 0.6767 | -0.04089 [-0.05619,-0.02552] | 0.5269 | 14 |
+
+All four top10s are fully judged, Precision10 stays.689 and Recall10/20 stays
+.86/.89 by construction. Individual known-item target ranks regress for
+8/9/7/8 queries respectively. Increasing title weight is not a recovery on
+this benchmark. Compared with the same-model concat control, separate25%
+has nDCG delta-0.00196 with an interval crossing zero;50% and75% have mean
+deltas-0.01057 and-0.02906. Separating fields does not demonstrate a gain.
+
+The follow-up took2.034 seconds using the cached scores, with no new model
+inference. Parent text/label fingerprints, top10 membership and exact tails
+were verified. See the [pure field ordering report](../data/results/field-signal-dev/report.md).
+
+**Combined conclusion:** keep Decision36. Neither this MiniLM cross-encoder
+nor these lexical/local-semantic field recipes improves our chosen success
+metric. This does not disprove field-aware matching with OpenAI embeddings:
+we explicitly measured local GTE fields, not separate OpenAI fields. Do not
+silently promote a tied no-op or proceed to an LLM reranker as though the
+cross-encoder had shown a general win. A targeted author-input/domain-fit
+follow-up or an independent dev set are reasonable next decisions, not
+results established by this experiment.

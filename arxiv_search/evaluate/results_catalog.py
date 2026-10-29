@@ -17,7 +17,8 @@ from arxiv_search import config
 from arxiv_search.evaluate import graded, judge, metrics
 
 RUN_FOLDERS = ("dev", "fusion-dev", "fusion-review-dev", "score-fusion-dev", "refinement-dev",
-               "rank-score-dev", "shortlist-score-dev")
+               "rank-score-dev", "shortlist-score-dev", "cross-encoder-dev", "field-score-dev",
+               "field-signal-dev")
 QUERY_TYPES = ("keyword", "question", "paraphrase", "known_item")
 FIELDS = ("ndcg@10", "precision@10", "judged@10", "source_mrr@10",
           "source_recall@1", "source_recall@5", "source_recall@10", "source_recall@20")
@@ -201,6 +202,37 @@ def describe_system(name: str) -> dict[str, str]:
         "gte-small": "GTE-small", "bge-small": "BGE-small",
         "e5-small": "E5-small", "minilm": "MiniLM-L6-v2",
     }
+    if name.startswith("field-"):
+        opts = dict(p.split("=", 1) for p in name.split("+")[1:])
+        lexical = name.startswith("field-lexical")
+        ordering_only = name.startswith("field-order-")
+        title = float(opts["t"]) if "t" in opts else None
+        fields = ("concatenated title + abstract control" if title is None else
+                  f"separate title {title:.0%} / abstract {1 - title:.0%}")
+        return {
+            "name": "Lexical field-score ablation" if lexical else "Local semantic field-score ablation",
+            "lexical": ("Independent BM25 fields; 10% authors" if lexical
+                        else "Tuned BM25 candidate retrieval"),
+            "embedding": ("OpenAI large candidate retrieval" if lexical
+                          else "GTE-small field scoring; OpenAI large candidate retrieval"),
+            "ranker": f"{fields}; " + (
+                "pure semantic field score; reorder baseline top10 only, preserve tail"
+                if ordering_only else
+                "75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100"),
+        }
+    if name.startswith("cross-minilm-l6+"):
+        opts = dict(p.split("=", 1) for p in name.split("+")[1:])
+        prefix = opts["pool"] == "baseline"
+        weight = float(opts.get("w", "1"))
+        method = ("MiniLM-L6 cross-encoder raw logits" if weight == 1
+                  else "50% cross-encoder rank + 50% baseline rank, RRF c30")
+        return {
+            "name": "Local cross-encoder reranking", "lexical": "Tuned BM25 candidate retrieval",
+            "embedding": models["openai-large"] + " candidate retrieval",
+            "ranker": method + (
+                f"; reorder current baseline top{opts['d']} only, preserve tail" if prefix
+                else "; union of lexical100, semantic100 and baseline100"),
+        }
     if name.startswith(("fusion-rankscore+", "fusion-shortlist+")):
         opts = dict(p.split("=", 1) for p in name.split("+")[1:])
         shortlist = name.startswith("fusion-shortlist+")

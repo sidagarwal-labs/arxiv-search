@@ -53,6 +53,10 @@ def test_charts_use_same_snapshot_and_real_milestones_not_provisional_scores():
     assert "0.5000 to 0.6200 (+0.1200 nDCG, +24.0% relative)" in text
     assert 'y-axis "nDCG@10" 0 --> 1' in text
     assert "whose graded coverage is incomplete" in text
+    report["leaderboard"]["ranked"] = list(systems)
+    with_baseline = promotion.render_charts(report, diagnosis)
+    assert "x-axis [L1, L2, L3, L4, L5, L6]" in with_baseline
+    assert "**APPROVED BASELINE**" in with_baseline
     # Future milestones must expand the zoom window rather than being clipped.
     systems[promotion.MILESTONES[0][1]]["all"]["ndcg@10"]["mean"] = .42
     systems[promotion.MILESTONES[-1][1]]["all"]["ndcg@10"]["mean"] = .81

@@ -1,0 +1,54 @@
+[
+  {
+    "blocker": "Budget exhausted at concat/3968; rerun to resume",
+    "cached_texts": 0,
+    "encoded_texts": 4068,
+    "lexical_seconds": 10.321,
+    "max_tokens": 512,
+    "semantic_seconds": 1210.214,
+    "semantic_status": "budget exceeded; partial cache resumable",
+    "torch_threads": 4,
+    "total_seconds": 1232.529
+  },
+  {
+    "blocker": "Budget exhausted at title/1120; rerun to resume",
+    "cached_texts": 4068,
+    "cumulative_total_seconds": 2470.859,
+    "encoded_texts": 4796,
+    "lexical_seconds": 18.363,
+    "max_tokens": 512,
+    "prior_invocations": 1,
+    "prior_total_seconds": 1232.529,
+    "semantic_seconds": 1200.104,
+    "semantic_status": "budget exceeded; partial cache resumable",
+    "torch_threads": 4,
+    "total_seconds": 1238.33
+  },
+  {
+    "blocker": "Budget exhausted at abstract/5216; rerun to resume",
+    "cached_texts": 8864,
+    "cumulative_total_seconds": 3768.08,
+    "encoded_texts": 11740,
+    "lexical_seconds": 15.372,
+    "max_tokens": 512,
+    "prior_invocations": 2,
+    "prior_total_seconds": 2470.859,
+    "semantic_seconds": 1207.128,
+    "semantic_status": "budget exceeded; partial cache resumable",
+    "torch_threads": 4,
+    "total_seconds": 1297.221
+  },
+  {
+    "cached_texts": 20604,
+    "cumulative_total_seconds": 4410.056,
+    "encoded_texts": 2428,
+    "lexical_seconds": 11.376,
+    "max_tokens": 512,
+    "prior_invocations": 3,
+    "prior_total_seconds": 3768.08,
+    "semantic_seconds": 582.608,
+    "semantic_status": "completed",
+    "torch_threads": 4,
+    "total_seconds": 641.976
+  }
+]

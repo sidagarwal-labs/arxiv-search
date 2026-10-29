@@ -1,0 +1,12 @@
+{
+  "baseline": "fusion-shortlist+a=1+d=500",
+  "exploratory": true,
+  "model": "thenlper/gte-small",
+  "no_new_inference": true,
+  "ranker": "Pure field cosine within fixed baseline top10; preserve tail",
+  "revision": "17e1f347d17fe144873b1201da91788898c639cd",
+  "setting": {
+    "family": "semantic-separate",
+    "title_weight": 0.5
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "automatic_promotion": false,
+  "baseline": "fusion-shortlist+a=1+d=500",
+  "body_definition": "Abstract only; no full text.",
+  "candidate_policy": "Exactly Decision36 top100 per dev query; no routing or retrieval.",
+  "hypothesis": "Explicit title/abstract scores improve fixed-candidate ordering.",
+  "interpretation": "Dev exploratory ablation, not baseline promotion; lexical and semantic families are separate interventions. Concat vs separate controls model change. Original baseline retains OpenAI semantic/author evidence.",
+  "labels": "Frozen score-fusion-dev/labels.json unchanged including human overrides",
+  "lexical": {
+    "author_weight": 0.1,
+    "b": 0.75,
+    "formula": ".9*(t*title+(1-t)*abstract)+.1*authors",
+    "k1": 0.8,
+    "normalization": "Each field divided by its maximum over fixed candidates",
+    "statistics": "Independent title/abstract/author BM25 indexes on full corpus",
+    "tokens": "exact plus marked English stems"
+  },
+  "missing_labels": "Unjudged zero is provisional; withhold graded paired intervals.",
+  "no_paid_calls": true,
+  "no_test_evaluation": true,
+  "primary_metric": "ndcg@10",
+  "reranking": ".75*31/(30+baseline_rank)+.25*field_signal; stable baseline ties",
+  "semantic": {
+    "authors": "Inherited baseline signal only; identical for all GTE settings",
+    "batch_size": 32,
+    "budget_seconds": 1200,
+    "concat_recipe": "title + single space + abstract; same GTE/query encoding",
+    "device": "cpu",
+    "dtype": "float32",
+    "model": "thenlper/gte-small",
+    "normalization": "Unit vectors; cosine mapped to [0,1] via (cos+1)/2",
+    "revision": "17e1f347d17fe144873b1201da91788898c639cd",
+    "scope": "Candidate-unique documents only; queries dev only",
+    "separate_recipe": "t*title_cosine+(1-t)*abstract_cosine",
+    "threads": 4
+  },
+  "settings": {
+    "field-gte-concat": {
+      "family": "semantic-concat"
+    },
+    "field-gte-separate+t=0.25": {
+      "family": "semantic-separate",
+      "title_weight": 0.25
+    },
+    "field-gte-separate+t=0.5": {
+      "family": "semantic-separate",
+      "title_weight": 0.5
+    },
+    "field-gte-separate+t=0.75": {
+      "family": "semantic-separate",
+      "title_weight": 0.75
+    },
+    "field-lexical+t=0.25": {
+      "family": "lexical",
+      "title_weight": 0.25
+    },
+    "field-lexical+t=0.5": {
+      "family": "lexical",
+      "title_weight": 0.5
+    },
+    "field-lexical+t=0.75": {
+      "family": "lexical",
+      "title_weight": 0.75
+    }
+  },
+  "split": "dev"
+}

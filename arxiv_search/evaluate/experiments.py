@@ -519,6 +519,9 @@ def write_results_doc() -> None:
                           ("score-candidate-review-dev", "Score-fusion challenger loss review"),
                           ("rank-score-dev", "Rank/score interpolation experiments"),
                           ("shortlist-score-dev", "Fixed-shortlist score-ordering experiments"),
+                          ("cross-encoder-dev", "Local cross-encoder experiments (baseline frozen)"),
+                          ("field-score-dev", "Title/abstract field-score experiments"),
+                          ("field-signal-dev", "Pure semantic field ordering (cached follow-up)"),
                           ("failure-analysis", "Frozen baseline failure analysis")):
         report = config.RESULTS_DIR / folder / "report.md"
         if report.exists():

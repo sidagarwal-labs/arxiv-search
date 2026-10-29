@@ -1,0 +1,49 @@
+{
+  "automatic_promotion": false,
+  "baseline": "fusion-shortlist+a=1+d=500",
+  "blend": "50/50 RRF c30 of cross-encoder pool ranking and frozen baseline top100; absent baseline papers contribute zero",
+  "hypothesis": "Query-document interaction rejects partial intent matches and promotes relevant candidates that global lexical/semantic scores miss.",
+  "inference": {
+    "device": "cpu",
+    "dtype": "float32",
+    "max_length": 512,
+    "output": "raw logit; not a probability",
+    "truncation": "only_second"
+  },
+  "input": "query paired with title + abstract; no authors or labels",
+  "license": "Apache-2.0",
+  "model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+  "paid_calls": false,
+  "pool": "Current baseline top100, then lexical top100, then semantic top100; deduplicated in that order. Never inject the source paper.",
+  "primary_metric": "ndcg@10",
+  "revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "scope": "100 dev queries only; held-out test untouched; exploratory after dev tuning",
+  "screen": [
+    "Both top10s fully judged; positive paired nDCG lower CI endpoint",
+    "Source Recall10/20 no lower; no individual known-item rank regression",
+    "No query-type nDCG mean loss; grade0 first results do not increase"
+  ],
+  "settings": {
+    "cross-minilm-l6+pool=baseline+d=10": {
+      "depth": 10,
+      "pool": "baseline"
+    },
+    "cross-minilm-l6+pool=baseline+d=100": {
+      "depth": 100,
+      "pool": "baseline"
+    },
+    "cross-minilm-l6+pool=baseline+d=30": {
+      "depth": 30,
+      "pool": "baseline"
+    },
+    "cross-minilm-l6+pool=union100+w=0.5": {
+      "cross_weight": 0.5,
+      "pool": "union100"
+    },
+    "cross-minilm-l6+pool=union100+w=1": {
+      "cross_weight": 1.0,
+      "pool": "union100"
+    }
+  },
+  "training_domain": "MS MARCO passage ranking; not tuned on this dev set"
+}

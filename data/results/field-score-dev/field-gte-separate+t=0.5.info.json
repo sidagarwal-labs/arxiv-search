@@ -1,0 +1,10 @@
+{
+  "baseline": "fusion-shortlist+a=1+d=500",
+  "experiment": "field-score-dev",
+  "preregistration": "preregistration.json",
+  "provenance": "input-provenance.json",
+  "setting": {
+    "family": "semantic-separate",
+    "title_weight": 0.5
+  }
+}

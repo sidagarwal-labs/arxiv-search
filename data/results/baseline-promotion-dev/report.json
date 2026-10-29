@@ -4,7 +4,7 @@
   "decision": 36,
   "exact_rankings_verified": 100,
   "label_snapshot_sha256": "9ea51e45ea7c5329a90f3021516fd143049894440c47b50cdafbc6eb543fc32a",
-  "leaderboard_rank": 2,
+  "leaderboard_rank": 6,
   "oracle_ndcg_with_fixed_top10": 0.7789699776637573,
   "oracle_scope": "Exact best permutation of current top10 under frozen labels; not an achievable model estimate or full-corpus upper bound.",
   "queries": 100,

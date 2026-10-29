@@ -1,0 +1,32 @@
+{
+  "automatic_promotion": false,
+  "baseline": "fusion-shortlist+a=1+d=500",
+  "exploratory": true,
+  "formula": "Concat: (cos(q,title+space+abstract)+1)/2; separate: (t*cos(q,title)+(1-t)*cos(q,abstract)+1)/2",
+  "model": "thenlper/gte-small",
+  "motivation": "Follow-up to conservative field-score-dev semantic top10 no-op; remove base-rank dominance. Post-outcome exploratory, not confirmatory.",
+  "new_inference_calls": 0,
+  "paid_calls": 0,
+  "primary_metric": "ndcg@10",
+  "ranking": "Sort Decision36 top10 by descending field signal only; stable baseline ties; preserve tail exactly. No query/label-dependent routing.",
+  "revision": "17e1f347d17fe144873b1201da91788898c639cd",
+  "settings": {
+    "field-order-gte-concat": {
+      "family": "semantic-concat"
+    },
+    "field-order-gte-separate+t=0.25": {
+      "family": "semantic-separate",
+      "title_weight": 0.25
+    },
+    "field-order-gte-separate+t=0.5": {
+      "family": "semantic-separate",
+      "title_weight": 0.5
+    },
+    "field-order-gte-separate+t=0.75": {
+      "family": "semantic-separate",
+      "title_weight": 0.75
+    }
+  },
+  "source": "Existing field-score-dev/raw-field-scores.json only",
+  "split": "dev"
+}
