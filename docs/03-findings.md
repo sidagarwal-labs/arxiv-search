@@ -1534,3 +1534,130 @@ labeling, and repeated dev selection limits generalization claims.
 
 Reports: [pure semantic fields](../data/results/openai-field-dev/report.md)
 and [field-aware hybrid](../data/results/openai-field-hybrid-dev/report.md).
+
+## 27. Field-aware challenger: investigation before promotion
+
+Sid requested a loss investigation and would consider promotion if it checks
+out. We froze `oai-field-hybrid+text=title25+d=10`: no new weights, query-type
+routing, embedding calls, label changes or held-out test. The complete
+[review](../data/results/openai-field-review-dev/report.md) and its
+[all100-query evidence](../data/results/openai-field-review-dev/cases.json)
+are reproducible with `python -m arxiv_search.evaluate.openai_field_review`.
+
+### Integrity and safety: passes
+
+Every one of the100 saved rankings reproduces exactly from the cached lexical,
+title and abstract contributions. All top10 sets and positions11+ are identical
+to Decision36. All top10 grades are present, all25 known-item source ranks
+are unchanged, and human overrides are untouched. No source or label is used
+to score documents. This is a real ordering change, not a coverage mismatch,
+metric bug, source injection or a changed evaluation pool.
+
+Overall nDCG improves.717568->.720371, source MRR.696734->.704651,
+and grade0 first results4->3. The last improvement comes from the compute
+requirements question `q-question-027`: a relevant profiling paper replaces
+an irrelevant first result. Grade2 first results increase84->85.
+
+### The source-MRR alarm is substantially overstated
+
+The largest source loss is `q-paraphrase-073`, about stopping wordy,
+repetitive on-policy distillation. Its source, **Demystifying OPD**, moves
+1->4, producing a reciprocal-rank drop of.75. However, the candidate's first
+four papers all have grade2. **When EOS Tokens Disagree** moves2->1 and
+directly studies length inflation in on-policy distillation. The source is
+still visible at4; query nDCG actually improves by+.001406.
+
+That single query accounts for about97% of the *net* paraphrase source-MRR
+decline (not97% of gross losses). Excluding it changes the remaining24-query
+paraphrase source-MRR delta from the full segment's-.03095 to about-.00099.
+This deletion is diagnostic, not permission to remove the query from evaluation.
+
+Using the first **any-grade1-or2 relevant paper**, rather than only the original
+source, MRR is unchanged on every paraphrase query. Across all100 it improves
+.980->.985, because the compute question's first relevant hit moves2->1.
+This binary metric does not distinguish grade1 from grade2 or catch deeper
+ordering losses. It complements nDCG; it does not replace it.
+
+### But several paraphrase losses are real
+
+The segment still has16 nDCG losses versus9 gains, mean delta-.004650,
+95% CI[-.015027,+.006883]. Both the loss and the overall improvement remain
+uncertain on this small, repeatedly tuned dev sample.
+
+| Query / intent | Observed change | Interpretation |
+|---|---|---|
+| `q-paraphrase-088`: programmable code for agent reasoning/tools | **The Bitter Lesson of Tool Calling**, grade2, falls1->10; **DOCUEVAL**, grade0, moves3->2 | Genuine intent mismatch; nDCG-.053884. The programmatic-tool-calling abstract is directly relevant even though its title is less explicit. |
+| `q-paraphrase-008`: partially observed multi-platform delivery dispatch | Source **Partially Observable Learning for Multi-Platform Dispatch Optimization**, grade2, falls2->4; a UAV medical-delivery MARL paper, grade1, moves3->2 | Broader delivery/RL topical similarity displaces the platform/observability constraints. nDCG-.040250. |
+| `q-paraphrase-096`: hierarchical summaries for retrieval | Medical multi-document summarization, grade0, moves4->2 above legal document retrieval, grade1,2->5 | Hierarchy/summarization resemblance is not the requested retrieval task. nDCG-.037319. Bridge-RAG, the source, is outside the saved candidate100 in both systems; this reranker cannot recover it. |
+| `q-paraphrase-087`: training-free evidence subgraphs over black-box graphs | A grade1 subgraph-generation paper moves3->1 above a grade2 retrieval paper1->2 | Source BubbleRAG actually improves9->7, yet nDCG falls-.036937: an example where source MRR conceals a relevance loss. |
+
+These are frozen judge grades, supported by reading the actual abstracts;
+the four cases above have no existing human-reviewed pairs. We have not
+silently treated this inspection as a new human judgment or changed any label.
+Some grade2 alternatives, especially the distillation examples, merit a
+blinded human check before interpreting tiny score differences as definitive.
+
+### What causes the losses?
+
+Among624 reversed top10 document pairs,190 favor a higher frozen grade,
+144 favor a lower grade, and290 are equal-grade rearrangements.
+Paraphrases differ from the other segments:42 helpful reversals versus52
+harmful ones. Pair counts are correlated and unweighted by rank; they are
+mechanism diagnostics, not significance tests or DCG attribution.
+
+Title contribution is decisive in27 of the52 harmful paraphrase reversals:
+removing just that contribution reverses the pair's score margin while
+holding the original candidate normalization fixed. It is not decisive in
+the other25, so "titles are the whole problem" would be incorrect.
+
+Concrete score decompositions support two mechanisms:
+
+- **Title/topic attraction:** in the hierarchical-summary query, the medical
+  summarization paper's weighted title contribution is.20655 versus.13310
+  for legal retrieval. Abstract contributions are almost equal (.53709 versus
+  .53469). The title signal overcomes its lexical disadvantage.
+- **Lexical plus representation interaction:** in the delivery query, the
+  relevant source actually has stronger title and abstract contributions than
+  the UAV paper. But the UAV paper's lexical contribution is.25000 versus
+  .12242. That outweighs its semantic disadvantage. Not every regression is
+  an added-title mistake; replacing combined embeddings changes semantic
+  score spacing against the fixed lexical term too.
+- **Small margins can change intent ordering:** DOCUEVAL beats the agent-harness
+  source by just.00172 in total score. Its title term is needed to overcome
+  the source's stronger abstract term. Such margins are not calibrated
+  relevance probabilities.
+
+The largest gains are also understandable: the actor-critic concentration
+bound moves2->1 (+.091833 nDCG), and the transformer-popularity-bias target
+moves3->1 (+.090195). Field separation can match a specific technical title
+well; it is not uniformly better at handling indirect descriptions.
+
+### Robustness: promising, not a clean promotion
+
+The overall nDCG gain stays positive after removing *any single* query:
+leave-one-out deltas range+.001904 to+.003376. Thus no one lucky query creates
+the entire mean improvement. However, excluding the three largest gains
+leaves only+.000081; excluding the five largest turns it into-.001342.
+These adversarial exclusions are descriptive, not new independent tests.
+
+A separate hypothetical annotation sensitivity changes at most one top10
+label per query by one grade step and recomputes both systems' pool IDCG.
+The three most unfavorable changes almost erase the mean gain (+.000100);
+five can reverse it (-.001335). This does **not** show those labels are wrong,
+estimate annotation error or justify changing them. It shows the measured
+advantage is small relative to plausible label ambiguity. All real labels
+and human overrides remain unchanged.
+
+**Recommendation: keep this as the leading challenger, not the approved baseline
+yet.** The investigation clears implementation integrity, membership/known-item
+safety and much of the source-MRR concern. It does not clear our existing
+promotion rules: the overall nDCG interval includes zero and the paraphrase
+mean regresses. We should not retroactively relax those rules simply because
+the leaderboard's highest row is attractive.
+
+The next evidence should be a blinded human comparison of a fixed,
+balanced set of gains/losses (with label corrections versioned separately),
+then fresh development evaluation of this frozen challenger versus Decision36.
+Neither fresh data nor a paid judge is automatically authorized here.
+Promotion now would be an explicit exploratory tradeoff/policy exception,
+not a claim that the established checks passed.

@@ -96,6 +96,10 @@ follow-up with25% title /75% abstract semantic weights reaches mean
 membership. Its nDCG gain interval crosses zero and paraphrase quality regresses:
 **challenger only; Decision36 remains approved**. Higher title weights hurt.
 See the [same-model field findings](docs/03-findings.md#26-openai-large-titleabstract-candidate-experiment).
+The [promotion investigation](docs/03-findings.md#27-field-aware-challenger-investigation-before-promotion)
+verified all100 rankings and found that much of the paraphrase source-MRR
+drop is alternate relevant answers, but genuine graded losses and uncertainty
+remain. The challenger is frozen; promotion is still pending.
 Repeated global fusion tuning is showing diminishing returns.
 See the [experiment/promotion findings](docs/03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](docs/02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).
