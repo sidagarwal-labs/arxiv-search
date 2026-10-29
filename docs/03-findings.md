@@ -1745,3 +1745,232 @@ provide a useful stabilizing signal while separate-field weighting can help
 indirect queries. It does not show all losses are solved or that these dev
 gains generalize. Next: review the changed question results and paraphrase
 wins blindly, then compare frozen candidates on fresh development queries.
+
+## 29. Question audit and the next substantial quality improvement
+
+Sid asked us to inspect the50% combined-anchor challenger's questions, form
+a hypothesis, and compare label improvement, a new dev set and stronger
+mini/nano reranking. This is an investigation and proposal, **not approval
+for paid inference, relabeling, new evaluation data or promotion**.
+The176-system leaderboard, Decision36 and all frozen labels stay unchanged.
+
+### What happens in the question segment?
+
+We inspected all25 question queries in the saved recovery report, all seven
+graded losses, the two source-rank losses and representative gains. We
+checked title/abstract evidence, cached judge explanations and actual
+lexical/semantic score contributions, rather than inferring relevance from
+titles alone.
+
+| Question-segment measure | Decision36 | 50% combined-anchor challenger |
+|---|---:|---:|
+| Mean nDCG10 | .7277 | .7301 |
+| Source MRR10 | .5883 | .5650 |
+| MRR of first grade1-or2 paper | .9800 | 1.0000 |
+| Grade2 first results | 21/25 | 20/25 |
+| Source recall10 /20 | .76 /.80 | .76 /.80 |
+
+There are12 nDCG wins,7 losses and6 ties. Mean nDCG delta is+.002366,
+CI[-.003656,+.009289]. The positive mean is concentrated: removing the
+largest gain, `q-question-027`, leaves a remaining24-query mean delta
+of-.000137. This is descriptive sensitivity, not permission to exclude it.
+
+**Only two original-source ranks change**, both adversely; the other23
+are identical. The source-MRR difference is exactly
+`((1/2-1)+(1/4-1/3))/25 = -.023333`. Unlike the previous distillation
+example, both inversions place a grade1 result above a grade2 result.
+They are not simply equal-grade alternative answers.
+
+| Query / intent | Evidence | Interpretation |
+|---|---|---|
+| `q-question-077`: standard GNNs for link prediction on unknown knowledge graphs | **Reification as a Transferable Vocabulary**, grade2,1->2; **GravityGraphSAGE**, grade1,2->1. nDCG-.039690. | The first paper explicitly demonstrates vanilla GNN transfer to unseen KGs. The second addresses directed attributed graphs, not that transfer requirement. This accounts for86% of the net question source-MRR loss. |
+| `q-question-085`: one person's writing-style drift over time or genres | **When Writing Style Drifts**, grade2,3->4; **Interpretable Stylistic Variation**, grade1,4->3. nDCG-.003236. | Genre/style overlap wins over the individual-author and temporal-shift focus. The source remains visible and the first two results stay unchanged. |
+| `q-question-056`: LLM-suggested materials experiments without model training | The source stays1; **LacMaterial**, grade2,2->3, below a broader LLM/materials review, grade1,3->2. nDCG-.021566. | A direct hypothesis-generation method loses to broad topical coverage. No source-MRR alarm captures this change. |
+| `q-question-019`: repeated data during pretraining | Both first results stay; **Scale Dependent Data Duplication**, grade2,6->10, while a synthetic pre-pretraining paper, grade0,8->5. nDCG-.016303. | Pretraining/repetition specificity matters beyond shared training terminology. |
+| `q-question-089`: early-stage dementia detection | The source stays1; a Bangla speech detection/completion paper, grade1,6->4, above more direct grade2 early-decline papers. nDCG-.012679. | The abstract really includes dementia detection, despite a misleadingly generic title. The issue is degree of task/early-stage fit, not a wholly unrelated result. |
+| `q-question-027`: compute requirements for large-scale recommendation | **Component Benchmark**, grade1,3->1, replaces a discrete-diffusion scaling paper, grade0,1->3. nDCG+.062451. | A genuine recovery of a useful answer, but not a newly recovered source: the original target remains8. The generated phrase "suggesting systems" is also a query-quality audit candidate. |
+
+The remaining small graded losses, `q-question-036` and`q-question-050`,
+occur below the first result; their source ranks remain1 and2. The gain on
+date-aware retrieval, `q-question-039`, promotes a grade2 temporal-validity
+paper7->4, but cannot recover its source at31 because this experiment only
+permutes the first10.
+
+### Hypothesis: topical similarity is not constraint satisfaction
+
+The failure pattern crosses questions and paraphrases: the ranker recognizes
+the subject, but can prefer a document that does not answer the complete
+request. Important distinctions include ordinary GNNs **on unseen graphs**,
+experiment suggestion **without training**, **early-stage** detection, and
+**retrieval** rather than summarization.
+
+This is not just excessive title weight. In the GNN case, the source's
+combined cosine is slightly better (.59517 versus.59472), but the broader
+paper's abstract cosine is larger (.61784 versus.58867). After normalization,
+the broader paper's weighted abstract advantage is+.01367, more than enough
+to overcome its lexical disadvantage. The original total favored the source
+by.00598; the anchored total favors the broader paper by.00902.
+
+The style query similarly favors the source on combined and title cosines,
+but favors the broader alternative on abstract cosine. Its weighted abstract
+advantage of.01670 flips the pair. Removing titles alone is therefore not a
+general cure. These are verified score mechanisms; the explanation that a
+joint reader can better enforce intent is a **testable hypothesis**, not an
+observed LLM-reranker result.
+
+Prediction: a query-document reader asked to distinguish task match,
+explicit constraints and supporting abstract evidence should improve
+these pairs more consistently than another global cosine-weight sweep.
+It must demonstrate that on blinded comparisons and broader candidates.
+
+### Larger headroom comes from changing which papers enter the top10
+
+Every recent shortlist experiment holds top10 membership fixed. Therefore
+P10 stays.689, the311 grade0 query-paper results cannot be removed, and
+source recall10 stays.86. Even perfect ordering of those same10 reaches
+only **.778970 nDCG** under the frozen labels, versus current.717568.
+This is an exact same-set ordering oracle, not a model performance forecast.
+
+We inspected deeper saved candidates without new retrieval or labeling:
+
+| Candidate pool | Query-paper pairs | Already judged | Source present /100 | Question source present /25 |
+|---|---:|---:|---:|---:|
+| Baseline top10 | 1,000 | 1,000 | 86 | 19 |
+| Baseline top20 | 2,000 | 1,800 | 89 | 20 |
+| Baseline top50 | 5,000 | 2,576 | 94 | 23 |
+| Baseline top100 | 10,000 | 2,786 | 95 | 23 |
+| Union of lexical100 and semantic100 | 17,849 | 2,913 | 97 | 24 |
+| Union of lexical500 and semantic500 | 85,613 | 3,183 | 100 | 25 |
+
+Positions11-50 contain **766 additional known-relevant query-paper pairs,
+including133 grade2 pairs across58 queries**. We do not need to assume
+unjudged documents are good to establish selection headroom. These counts
+are query-paper pairs, not unique corpus documents, and candidate source
+coverage is not achieved top10 recall.
+
+For questions, the temporal-retrieval source is31, the low-overhead
+model-observability source15, and the fine-grained recommendation-intent
+source41. Their semantic retrieval ranks are17,7 and24, respectively.
+A deeper reranker can select them; no top10-only blend can. The RecThinker
+source is semantic88 but outside baseline100, illustrating candidate-set
+truncation. The context-learning benchmark source requires deeper inputs
+(lexical226/semantic168); making the reranker stronger cannot recover a
+paper it never receives.
+
+Only about52% of top50 candidates currently have grades. Any new selected
+top10 must be fully judged before comparable nDCG/P10 claims. A near-perfect
+oracle constructed from only known deeper labels would be conditional on a
+selected, incomplete pool, not a trustworthy full-pool ceiling.
+
+### Labels, fresh dev data and a stronger ranker solve different problems
+
+1. **Label review improves measurement, not retrieval by itself.** The selected
+   judge achieved77% exact agreement on100 calibration pairs, not independent
+   validation. We found plausible grades as well as ambiguity: the style query
+   gives grade2 to personal-style post-editing studies, but grade1 to cross-genre
+   variation. That may be defensible, or too broad; a blind human review must
+   decide. Do not "correct" labels to make the preferred system win.
+
+   Review a fixed, balanced sample of wins, losses and unchanged results with
+   system names/ranks hidden. Clarify direct versus background relevance and
+   whether all important constraints must be supported. Also clarify the
+   rubric's "one specific paper by contents" clause: a hidden synthetic source
+   does not necessarily mean the user only wants that paper. Any corrections
+   or rubric changes get a new label version; rescore all compared systems on
+   that same version, preserve the old leaderboard, and never compare v1/v2
+   headline scores as retrieval gains.
+
+2. **A new dev set tests generalization, not a shortcut to a higher score.**
+   The100 queries have supported176 system identities, including controls
+   and repeated follow-ups. A new seeded split of these same examined queries
+   is not fresh evidence. Keep them as a regression suite and collect new,
+   source/topic-separated queries with real human wording, ambiguity,
+   multi-constraint questions and author queries. Include source-free search
+   intents with multiple valid answers. Freeze finalists before reading new
+   results. The existing300 held-out queries remain for the final locked test.
+
+3. **A stronger ranker over a deeper pool is the direct quality intervention.**
+   The failed MiniLM cross-encoder was one small web-passage-trained model,
+   not evidence that query-document interaction cannot work here. It also
+   lacked author input. Start with a capable mini model using complete
+   title/authors/abstract, rather than adding a lossy nano selection stage
+   before we know a stronger reader can help.
+
+### Proposed next experiment, not yet run
+
+- Freeze a20-query balanced pilot (5 per segment), chosen by deterministic
+  query-ID hashing rather than by observed wins. Its existing dev status
+  makes it exploratory, not fresh validation.
+- Use a fixed mini model/prompt in **top10 ordering-only** and **top50
+  selection** arms. The latter must be allowed to replace weak top10 results;
+  preserve only the unreranked tail, not the old top10 membership. Both arms
+  use the same query sample and approved baseline candidates.
+- Ask for task/constraint-aware ordering from supplied evidence. No source
+  labels, saved judge grades, source-paper flags or external tools. Keep full
+  author metadata. Treat paper contents as data, not instructions. Validate
+  exact candidate-ID permutations and expose failures; no silent success
+  fallback. Freeze/shuffle candidate presentation and measure order sensitivity
+  in a separately budgeted check.
+- Cache by exact model snapshot, prompt, documents and presentation order.
+  Reserve input/output budget before calls, cap outputs, make no automatic
+  retries, retain reservations for unknown outcomes, and report cost,
+  latency and failure rates separately from retrieval.
+- Grade new top10 entries only after pooling outputs. **Never use the reranker's
+  own scores/reasons as evaluation labels.** Because our current judge is
+  GPT-5.4 mini too, its scores alone could reward shared model preferences.
+  Add blind human adjudication and an independently selected judge check.
+- A useful result should improve candidate selection/P10 and deliver a
+  materially larger nDCG effect (for example+.02, a proposed practical target),
+  with known-item safety and source-recall guardrails. A positive20-query
+  result only justifies a larger experiment, not promotion. Freeze the design
+  before expansion to all100 and then fresh development evaluation.
+
+Nano is a later efficiency comparison, not the starting bottleneck. On our
+existing calibration, GPT-5.4 mini scored77% exact agreement and nano65%;
+this does not prove a reranking advantage, but favors mini for the first
+capability test. A nano100->mini20 cascade introduces an irreversible
+candidate-loss stage and extra variables before that test is established.
+
+### Offline cost sketch and current budget
+
+Using actual title, complete authors and abstract texts, `o200k_base` and a
+draft evidence-only ranking prompt, a20-query balanced sample costs61,808
+prompt-text tokens for top10 and304,241 for top50: **366,049 combined input
+tokens across40 calls**. At100 dev queries the top50 arm alone is1,525,836
+prompt-text tokens. These exclude API/schema framing, output and any
+reasoning, repeats or new judging; they are a planning estimate, not a
+serialized-request reservation or provider bill.
+
+The proposed20-query sample uses SHA256 of
+`mini-pilot-proposal-v1:<query_id>`, selecting the lowest five hashes within
+each segment. No query outcomes determine membership. The final approved
+prompt/model/candidate order must receive a fresh preflight.
+
+Verified [official GPT-5.4 mini documentation](https://developers.openai.com/api/docs/models/gpt-5.4-mini)
+lists standard uncached input/output rates of **$0.75/$4.50 per million
+tokens**, structured output support and a snapshot ID
+`gpt-5.4-mini-2026-03-17`. At those rates, allowing10% input overhead and
+roughly400-2,000 output tokens per call gives about **$0.37-$0.67** for the
+two-arm20-query reranker pilot alone, assuming reasoning is disabled.
+A practical planning range is
+$0.4-$0.7, **excluding independent judging and presentation-order repeats**.
+No caching/Batch discount or free allowance is assumed.
+
+The [official GPT-5.4 nano page](https://developers.openai.com/api/docs/models/gpt-5.4-nano)
+lists$0.20/$1.25 standard rates but currently marks the model deprecated;
+verify a supported small-model choice and account availability before any
+nano experiment. These are standard rates from the direct official model
+pages, not discounted Batch rates.
+
+The unchanged shared mini ledger contains1,411,975 accounted tokens in513
+attempts against the1,600,000 effective cumulative cap, leaving188,025.
+The proposed two-arm pilot's input alone exceeds that remainder. It needs
+explicit new authorization and a preserved cumulative ledger, not a reset
+or a silent separate spending route. Embedding spending is unrelated and
+unchanged. No model API calls were made for this investigation.
+
+**Recommendation:** stop expanding the fusion grid. Pair a small blinded
+label/intent audit with a cost-approved mini top10-versus-top50 pilot; use a
+fresh dev set to validate a frozen promising design. Cleaner labels establish
+what "better" means, deeper intent-aware reranking attempts to make results
+better, and fresh evaluation establishes whether the improvement generalizes.

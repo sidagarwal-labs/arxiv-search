@@ -104,6 +104,11 @@ The [cached paraphrase-recovery experiment](docs/03-findings.md#28-recovering-pa
 finds a50% combined-text anchor with nDCG.7202 and all four segment mean
 nDCGs above baseline. A10%-title variant reaches.7214 but regresses question
 nDCG. Neither passes promotion; uncertainty and source-MRR tradeoffs remain.
+The [question audit and next-step hypothesis](docs/03-findings.md#29-question-audit-and-the-next-substantial-quality-improvement)
+identify task/constraint matching and deeper candidate selection as the next
+quality targets:133 known highly relevant query-paper pairs sit in positions11-50.
+A blinded label audit and mini-LLM top10/top50 pilot are proposed, not yet
+approved or run; the baseline, labels and paid budgets remain unchanged.
 Repeated global fusion tuning is showing diminishing returns.
 See the [experiment/promotion findings](docs/03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](docs/02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).
