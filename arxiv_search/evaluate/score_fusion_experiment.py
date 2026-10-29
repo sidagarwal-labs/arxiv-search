@@ -15,7 +15,7 @@ import numpy as np
 from arxiv_search import config
 from arxiv_search.evaluate import fusion_experiment as fusion, fusion_review as review
 from arxiv_search.evaluate import graded, judge, metrics, openai_full as full
-from arxiv_search.search.hybrid import fuse, fuse_working_baseline
+from arxiv_search.search.hybrid import fuse, fuse_rrf_baseline
 from arxiv_search.search.score_fusion import fuse_scores, fuse_top1_bonus
 from arxiv_search.search.text import paper_text
 
@@ -128,8 +128,8 @@ def main(argv: list[str] | None = None) -> None:
             raise ValueError(f"{qid}: recomputed source top100 differs from frozen experiment")
         scored[qid] = {"lexical": lex, "semantic": sem}
     runs, settings = build_runs(scored)
-    baseline = config.WORKING_BASELINE_SYSTEM
-    runs[baseline] = {q: fuse_working_baseline(list(s["lexical"]), list(s["semantic"]))
+    baseline = config.RRF_BASELINE_SYSTEM
+    runs[baseline] = {q: fuse_rrf_baseline(list(s["lexical"]), list(s["semantic"]))
                       for q, s in scored.items()}
     frozen = json.loads((review.OUT / f"{baseline}.run.json").read_text())
     if runs[baseline] != frozen:

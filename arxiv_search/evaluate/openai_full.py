@@ -64,15 +64,20 @@ def register_systems(registry: dict, system_factory) -> None:
     def build_working(_corpus):
         raise RuntimeError(
             "The working baseline is evaluated from cached rankings with "
-            "python -m arxiv_search.evaluate.fusion_review; live serving is not deployed"
+            "python -m arxiv_search.evaluate.rank_score_experiment --family shortlist; "
+            "use search.hybrid.fuse_working_baseline with raw scores; live serving is not deployed"
         )
 
     registry[config.WORKING_BASELINE_SYSTEM] = system_factory(
         build_working, "Working baseline: best BM25 + OpenAI large, "
-        "55% semantic / 45% lexical RRF c=30, depth=100; cached dev review",
+        "RRF55%/c30/depth100 top10, reordered by max-score75% using depth500 inputs; "
+        "tail unchanged; cached dev review",
         {**factors, "hybrid": True, "method": config.WORKING_BASELINE_METHOD,
          "semantic_weight": config.WORKING_BASELINE_SEMANTIC_WEIGHT,
-         "c": config.WORKING_BASELINE_RRF_C, "depth": config.WORKING_BASELINE_DEPTH})
+         "c": config.WORKING_BASELINE_RRF_C, "depth": config.WORKING_BASELINE_DEPTH,
+         "score_semantic_weight": config.WORKING_BASELINE_SCORE_SEMANTIC_WEIGHT,
+         "score_depth": config.WORKING_BASELINE_SCORE_DEPTH,
+         "shortlist_size": config.WORKING_BASELINE_SHORTLIST_SIZE})
 
 
 class EmbeddingError(RuntimeError):

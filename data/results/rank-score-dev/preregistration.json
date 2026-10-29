@@ -1,0 +1,58 @@
+{
+  "automatic_api_calls": false,
+  "baseline": "fusion-rrf+w=0.55+d=100+c=30",
+  "challenger": "score-max+w=0.75+d=500",
+  "hypothesis": "Interpolating rank evidence with max-score fusion reduces weak-overlap boosting while retaining graded-relevance gains.",
+  "no_query_specific_rules": true,
+  "primary_metric": "ndcg@10",
+  "rank_recipe": {
+    "c": 30,
+    "depth": 100,
+    "normalization": "divide by theoretical maximum 1/31",
+    "semantic_weight": 0.55
+  },
+  "scope": "100 dev queries; full corpus; no held-out test; exploratory not confirmatory",
+  "score_recipe": {
+    "normalization": "max",
+    "semantic_weight": 0.75
+  },
+  "screening_rules": [
+    "All dev top10 positions judged in candidate and baseline",
+    "Mean nDCG improves and paired bootstrap lower endpoint exceeds zero",
+    "Source R@10 and R@20 at least baseline; known-item target ranks never worsen",
+    "No query-type mean nDCG regression; grade0 first count does not increase"
+  ],
+  "selection_policy": "Among passing settings, highest mean nDCG; stable ID breaks exact ties. No passing setting means retain baseline. No automatic promotion.",
+  "settings": {
+    "fusion-rankscore+a=0.25+d=100": {
+      "depth": 100,
+      "k": 100,
+      "score_fraction": 0.25
+    },
+    "fusion-rankscore+a=0.25+d=500": {
+      "depth": 500,
+      "k": 100,
+      "score_fraction": 0.25
+    },
+    "fusion-rankscore+a=0.5+d=100": {
+      "depth": 100,
+      "k": 100,
+      "score_fraction": 0.5
+    },
+    "fusion-rankscore+a=0.5+d=500": {
+      "depth": 500,
+      "k": 100,
+      "score_fraction": 0.5
+    },
+    "fusion-rankscore+a=0.75+d=100": {
+      "depth": 100,
+      "k": 100,
+      "score_fraction": 0.75
+    },
+    "fusion-rankscore+a=0.75+d=500": {
+      "depth": 500,
+      "k": 100,
+      "score_fraction": 0.75
+    }
+  }
+}

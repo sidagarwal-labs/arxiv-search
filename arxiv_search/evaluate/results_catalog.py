@@ -16,7 +16,8 @@ from urllib.parse import quote
 from arxiv_search import config
 from arxiv_search.evaluate import graded, judge, metrics
 
-RUN_FOLDERS = ("dev", "fusion-dev", "fusion-review-dev", "score-fusion-dev", "refinement-dev")
+RUN_FOLDERS = ("dev", "fusion-dev", "fusion-review-dev", "score-fusion-dev", "refinement-dev",
+               "rank-score-dev", "shortlist-score-dev")
 QUERY_TYPES = ("keyword", "question", "paraphrase", "known_item")
 FIELDS = ("ndcg@10", "precision@10", "judged@10", "source_mrr@10",
           "source_recall@1", "source_recall@5", "source_recall@10", "source_recall@20")
@@ -200,6 +201,25 @@ def describe_system(name: str) -> dict[str, str]:
         "gte-small": "GTE-small", "bge-small": "BGE-small",
         "e5-small": "E5-small", "minilm": "MiniLM-L6-v2",
     }
+    if name.startswith(("fusion-rankscore+", "fusion-shortlist+")):
+        opts = dict(p.split("=", 1) for p in name.split("+")[1:])
+        shortlist = name.startswith("fusion-shortlist+")
+        if shortlist and float(opts["a"]) == 1:
+            return {
+                "name": "Fixed-shortlist score ordering", "lexical": "Tuned BM25",
+                "embedding": models["openai-large"],
+                "ranker": "RRF55%/c30/depth100 selects top10; order by max-score "
+                          f"75% semantic / 25% lexical at depth {opts['d']}; preserve tail",
+            }
+        return {
+            "name": "Fixed-shortlist score ordering" if shortlist else "Rank + score interpolation",
+            "lexical": "Tuned BM25", "embedding": models["openai-large"],
+            "ranker": (
+                f"{float(opts['a']):.0%} max-score75% + "
+                f"{1 - float(opts['a']):.0%} normalized RRF55%/c30/d100; "
+                f"score depth {opts['d']}"
+                + ("; reorder baseline top10 only, preserve tail" if shortlist else "")),
+        }
     if name.startswith("bm25"):
         options = ["exact + stems" if "+exact+stems" in name else
                    "stems only" if "+stem" in name else "exact terms"]

@@ -1,0 +1,32 @@
+{
+  "fusion-rankscore+a=0.25+d=100": {
+    "depth": 100,
+    "k": 100,
+    "score_fraction": 0.25
+  },
+  "fusion-rankscore+a=0.25+d=500": {
+    "depth": 500,
+    "k": 100,
+    "score_fraction": 0.25
+  },
+  "fusion-rankscore+a=0.5+d=100": {
+    "depth": 100,
+    "k": 100,
+    "score_fraction": 0.5
+  },
+  "fusion-rankscore+a=0.5+d=500": {
+    "depth": 500,
+    "k": 100,
+    "score_fraction": 0.5
+  },
+  "fusion-rankscore+a=0.75+d=100": {
+    "depth": 100,
+    "k": 100,
+    "score_fraction": 0.75
+  },
+  "fusion-rankscore+a=0.75+d=500": {
+    "depth": 500,
+    "k": 100,
+    "score_fraction": 0.75
+  }
+}

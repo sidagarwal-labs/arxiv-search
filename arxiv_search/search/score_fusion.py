@@ -9,6 +9,19 @@ def fuse_scores(
     lexical: dict[str, float], semantic: dict[str, float], *,
     normalization: str, semantic_weight: float, depth: int, k: int = 100,
 ) -> list[str]:
+    """Rank the union by independently normalized, weighted retrieval scores."""
+    if k < 0:
+        raise ValueError("k must be nonnegative")
+    scores = normalized_fusion_scores(
+        lexical, semantic, normalization=normalization,
+        semantic_weight=semantic_weight, depth=depth)
+    return sorted(scores, key=lambda p: -scores[p])[:k]
+
+
+def normalized_fusion_scores(
+    lexical: dict[str, float], semantic: dict[str, float], *,
+    normalization: str, semantic_weight: float, depth: int,
+) -> dict[str, float]:
     """Normalize each top-depth list independently; an absent paper contributes zero.
 
     max: score / maximum. minmax: (score - minimum) / (maximum - minimum).
@@ -20,8 +33,8 @@ def fuse_scores(
         raise ValueError("normalization must be max or minmax")
     if not math.isfinite(semantic_weight) or not 0 <= semantic_weight <= 1:
         raise ValueError("semantic_weight must be between zero and one")
-    if depth <= 0 or k < 0:
-        raise ValueError("depth must be positive and k nonnegative")
+    if depth <= 0:
+        raise ValueError("depth must be positive")
     combined: dict[str, float] = {}
     for scores, weight in ((lexical, 1 - semantic_weight), (semantic, semantic_weight)):
         values = list(scores.values())
@@ -43,7 +56,7 @@ def fuse_scores(
             else:
                 scaled = (value - low) / (high - low)
             combined[pid] = combined.get(pid, 0.0) + weight * scaled
-    return sorted(combined, key=lambda p: -combined[p])[:k]
+    return combined
 
 
 def fuse_top1_bonus(

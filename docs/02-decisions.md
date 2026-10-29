@@ -393,8 +393,9 @@ All25 known-item source ranks match the original equal-weight control
 (MRR0.980). Accepted tradeoffs include lower keyword source MRR and some
 individual question/list-quality regressions. See [review findings](03-findings.md#20-pre-promotion-review-of-the-55c30-candidate).
 
-`WORKING_BASELINE_*` in config records the approved profile;
-`search.hybrid.fuse_working_baseline` applies it. The system registry exposes
+At promotion, `WORKING_BASELINE_*` recorded this profile. Decision36 supersedes
+the working selection; `RRF_BASELINE_SYSTEM` and
+`search.hybrid.fuse_rrf_baseline` preserve this immutable control. The system registry exposes
 its identity with an explicit cached-review execution path; it does not
 silently invoke embedding APIs or pretend live serving is deployed.
 
@@ -404,6 +405,47 @@ Do not reinterpret historical deltas or rewrite the pre-promotion report.
 The approval changes the working selection, not the label pool or rubric.
 No new API calls, embeddings, or held-out test evaluation are authorized
 or required by this promotion. The300 test queries remain untouched.
+
+## #36 Recall-preserving shortlist-score baseline promoted (2026-10-29)
+
+Sid approved `fusion-shortlist+a=1+d=500` after reviewing segment metrics and
+individual losses. It is now the working baseline, replacing Decision35's
+ordering but preserving its top10 membership:
+
+1. Select the top10 using the frozen Decision35 RRF55%/c30/depth100 recipe.
+2. Obtain raw descending top500 BM25 and cosine scores from the same retrievers.
+3. Reorder only those ten by `0.25 * BM25/max(BM25) + 0.75 * cosine/max(cosine)`.
+   An absent list score contributes zero. Equal combined scores retain
+   the original RRF shortlist order.
+4. Leave positions11 onward unchanged. All output cutoffs are slices of this
+   same ordering, including when a caller requests fewer than10 results.
+
+The score and rank weights are different quantities. This is deterministic
+retrieval-score ordering, not a new learned/LLM reranker. The helper
+`search.hybrid.fuse_working_baseline` now explicitly requires raw score
+mappings; rank-only input raises rather than silently returning the old baseline.
+Live serving is still not deployed. The generic `fuse` defaults are unchanged.
+
+On the shared3,294-pair snapshot: nDCG0.7064 to**0.7176**
+(delta+0.0112, exploratory paired95% CI[0.0041,0.0186]); source MRR0.6459
+to**0.6967**. P@10 remains0.689, source R@10/20 remain0.86/0.89 by
+construction. All25 known-item target ranks are unchanged; mean nDCG improves
+in every query segment. Grade0 first results decrease6 to4.
+
+Accepted tradeoffs:49 query nDCG gains,37 losses,14 ties; six source ranks
+worsen within the top10, including compute requirements5 to8. Multimodal
+decoding gets a new grade0 first result. Exact-target preservation is not
+universal list-quality improvement. The held-out300 queries remain untouched.
+
+Historical experiment scripts are pinned to `RRF_BASELINE_SYSTEM`, not the
+moving working selection, so regeneration cannot silently change their
+controls or reinterpret old deltas. The unified leaderboard compares against
+Decision36 and preserves every prior run. Frozen reports remain as-of-experiment
+records, including their pre-approval "not promoted" status.
+
+See [findings](03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
+and [charts](06-charts.md). Promotion, exact100-query replay and charts use
+cached artifacts only; no new API calls, labels or spending.
 
 ---
 

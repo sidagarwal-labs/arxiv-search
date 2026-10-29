@@ -321,6 +321,12 @@ def test_refinement_runs_discovered_with_coverage_gate_inventory_and_readme_anch
 
 
 @pytest.mark.parametrize("name, expected", [
+    ("fusion-rankscore+a=0.25+d=500", {
+        "name": "Rank + score interpolation",
+        "ranker": "25% max-score75% + 75% normalized RRF55%/c30/d100; score depth 500"}),
+    ("fusion-shortlist+a=1+d=500", {
+        "name": "Fixed-shortlist score ordering",
+        "ranker": "RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail"}),
     ("score-max+w=0.75+d=500", {
         "name": "Hybrid score fusion", "embedding": "OpenAI text-embedding-3-large",
         "ranker": "Max-normalized scores; 75% semantic / 25% lexical; depth 500"}),
@@ -375,3 +381,15 @@ def test_leaderboard_descending_unrounded_not_baseline_first_and_provisional_unr
     ranked, unranked = catalog.leaderboard_order(systems)
     assert ranked == ["z-covered-winner", "a-covered-tie"]
     assert "current-baseline" in unranked
+
+
+def test_new_rank_score_families_automatically_reach_leaderboard(inputs):
+    root, _, _, _, _, run = inputs
+    for folder, name in (("rank-score-dev", "fusion-rankscore+a=0.25+d=100"),
+                         ("shortlist-score-dev", "fusion-shortlist+a=1+d=500")):
+        save(root / folder / f"{name}.run.json", run)
+    text = catalog.write_catalog()
+    report = json.loads((root / "catalog-dev" / "report.json").read_text())
+    assert len(report["leaderboard"]["ranked"]) == 3
+    assert "Fixed-shortlist score ordering" in text
+    assert "Rank + score interpolation" in text

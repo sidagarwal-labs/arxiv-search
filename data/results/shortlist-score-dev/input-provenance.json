@@ -1,0 +1,31 @@
+{
+  "corpus_and_query_fingerprints": {
+    "dimensions": 3072,
+    "model": "text-embedding-3-large",
+    "paper_text_sha256": "bf3317677af34919619feaf17eb6f3d506e95249b425007ebe05b5ce59be112f",
+    "query_text_sha256": "03b3687cc892b0a05905202ddfe75dc0da883307aed2279a83873c4fe507ece4",
+    "run_fingerprints": {
+      "fusion-rrf+w=0.55+d=100+c=30": "3f53a4e11fc6adaea7d380ffa94e59a238d78ee214a539b78ce461d7abc16d23",
+      "fusion-rrf+w=0.55+d=200+c=30": "ac7cd23143bae6b667defe256b0c31d600cd1544f613fe820c9cf9ac552edf53",
+      "fusion-rrf+w=0.55+d=500+c=30": "b95272599045b1e98c418a9a4a749dadafc70c3147af7a342c225192474152b3",
+      "fusion-top1bonus+b=0.1+w=0.55+d=100+c=30": "105019801797fc14494e5850d26df5c70734acc5e84245adae1d2ce4ae99afca",
+      "fusion-top1bonus+b=0.25+w=0.55+d=100+c=30": "f25e618624088894bcf9269e806254c5c30d9f1ba0e13b042620da047ed26b20",
+      "score-max+w=0.35+d=100": "1facc475952f5c166cccdc3cbd2af26a50c1d880d2316358729c2f5f98e4ab65",
+      "score-max+w=0.35+d=500": "0dd15c2fadfc39e6e3a0af6b86d535c218c45c2e3d221721d2c6016b0b3fcd42",
+      "score-max+w=0.55+d=100": "505634964c84aefc0244942f2e6fcee52c295c7a143178758e45e04fd18946cd",
+      "score-max+w=0.55+d=500": "530f4a3ca528c5dbb18a48586d4ecf15a103f56e83d041fa07c86bda3201aace",
+      "score-max+w=0.75+d=100": "6502980b69501577b9bd511777b792244cd902b4a4d3617fcb547295e6559a80",
+      "score-max+w=0.75+d=500": "971c8e6f9440b676b171f80bad3d35d323c40d29294e6387bec869c00333be97",
+      "score-minmax+w=0.35+d=100": "610f4251a30e405954f9162fbc5ecc6f9eabc4194daa6ae19547990b460d6979",
+      "score-minmax+w=0.35+d=500": "96d5751292d4b8b33fe5db8d3cbcac70f1aae616c75ce7f0117a71573b82249c",
+      "score-minmax+w=0.55+d=100": "cfa555fe5126301adaa5466a469841a57fb2ebbbcd340e2fa081c234ea506237",
+      "score-minmax+w=0.55+d=500": "ecd49eff16af6a697738c3beddf3e69194c7757afc83182a2549cc4f8aeba30e",
+      "score-minmax+w=0.75+d=100": "06d539168a31f55c6f613c3c239c45f7bb41abd7a6a37fa59552541016852592",
+      "score-minmax+w=0.75+d=500": "847c939cb69cb6790b9b2cbe241c6ac43caeeae1a379b49c1a60123ac1534dbc"
+    },
+    "source_top100_verified": true
+  },
+  "input_scores_sha256": "f8c4ea47d4a37b2beab2f6ae03af0ae71d8c93995f2f5436fe42241a60f9d828",
+  "parent_report_sha256": "5337adc9536f254511e33ad2d4d3d172a28d8a529c03c2090a415973aa0d49c8",
+  "parent_snapshot_sha256": "9ea51e45ea7c5329a90f3021516fd143049894440c47b50cdafbc6eb543fc32a"
+}

@@ -5,16 +5,23 @@ from arxiv_search.search.hybrid import fuse
 
 def test_approved_working_baseline_profile():
     from arxiv_search import config
-    from arxiv_search.search.hybrid import fuse_working_baseline
+    from arxiv_search.search.hybrid import fuse_rrf_baseline, fuse_working_baseline
+    from arxiv_search.search.rank_score import rescore_shortlist
 
     assert config.BASELINE_SYSTEM == "bm25-baseline"
-    assert config.WORKING_BASELINE_SYSTEM == "fusion-rrf+w=0.55+d=100+c=30"
+    assert config.WORKING_BASELINE_SYSTEM == "fusion-shortlist+a=1+d=500"
     lexical = [f"p{i}" for i in range(120)]
     semantic = lexical[::-1]
-    assert fuse_working_baseline(lexical, semantic) == fuse(
+    assert fuse_rrf_baseline(lexical, semantic) == fuse(
         lexical, semantic, method="rrf", semantic_weight=0.55, c=30, depth=100, k=100)
-    assert fuse_working_baseline(lexical, semantic, k=10) == fuse_working_baseline(
-        lexical, semantic)[:10]
+    lex_scores = {p: 120. - i for i, p in enumerate(lexical)}
+    sem_scores = {p: 1. - i / 200 for i, p in enumerate(semantic)}
+    assert fuse_working_baseline(lex_scores, sem_scores) == rescore_shortlist(
+        lex_scores, sem_scores, score_fraction=1, depth=500)
+    assert fuse_working_baseline(lex_scores, sem_scores, k=10) == fuse_working_baseline(
+        lex_scores, sem_scores)[:10]
+    with pytest.raises(TypeError, match="raw score mappings"):
+        fuse_working_baseline(lexical, semantic)
 
 
 def test_working_baseline_registered_without_replacing_controls():
@@ -28,7 +35,10 @@ def test_working_baseline_registered_without_replacing_controls():
     assert selected.factors["semantic_weight"] == 0.55
     assert selected.factors["c"] == 30
     assert selected.factors["depth"] == 100
-    with pytest.raises(RuntimeError, match="fusion_review"):
+    assert selected.factors["score_depth"] == 500
+    assert selected.factors["score_semantic_weight"] == .75
+    assert selected.factors["shortlist_size"] == 10
+    with pytest.raises(RuntimeError, match="rank_score_experiment"):
         selected.build([])
 
 

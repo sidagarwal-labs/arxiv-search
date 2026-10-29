@@ -45,7 +45,7 @@ def test_offline_review_validates_frozen_evidence_and_does_not_promote(tmp_path,
     out = root / "score-candidate-review-dev"
     monkeypatch.setattr(review.config, "RESULTS_DIR", root)
     monkeypatch.setattr(review, "OUT", out)
-    baseline = review.config.WORKING_BASELINE_SYSTEM
+    baseline = review.config.RRF_BASELINE_SYSTEM
     papers = {f"p{i}": {"title": f"Paper {i}", "authors": ["Author"], "abstract": "Abstract"}
               for i in range(100)}
     queries = {f"q{i}": {"query": kind, "query_type": kind, "source_arxiv_id": "p0"}

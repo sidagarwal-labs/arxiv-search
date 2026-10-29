@@ -23,7 +23,7 @@ GPT-5.4 mini grades results offline; it is not part of the live search path.
 | Corpus | 23,304 arXiv papers; title + abstract | Indexed with local models and OpenAI large |
 | Keyword retrieval | BM25 exact+stems, authors, title x2; k1=0.8, b=0.75; no stopword removal | Measured on full corpus |
 | Embeddings | OpenAI `text-embedding-3-large`, 3,072 dimensions; normalized vectors | Full-corpus vectors cached; new run cost $0.7439 under separate $1.25 cap |
-| Hybrid fusion | **55% semantic / 45% lexical, RRF c=30**, top 100 from each retriever | User-approved working baseline after cached finalist review |
+| Hybrid selection + ordering | **RRF55% semantic /45% lexical, c=30, depth100 selects top10; max-normalized score75% semantic /25% lexical using depth500 reorders those ten; tail unchanged** | User-approved Decision36; deterministic, no learned/LLM reranker |
 | Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29; expanded 3,294-pair dev pool covered for finalists; older exploratory rows may be provisional; fresh-human validation deferred |
 | Evaluation | 100 dev / 300 held-out test queries; source-paper MRR/recall plus graded nDCG and judgment coverage | Full-dev evaluation complete; held-out test untouched |
 | Vector storage | Offline NumPy arrays + paper-ID metadata; exact cosine search | Hosted Postgres/pgvector planned, not deployed |
@@ -38,7 +38,7 @@ GPT-5.4 mini grades results offline; it is not part of the live search path.
 | Selected judge calibration | GPT-5.4 mini vs. 100 human-labeled pairs from 12 dev searches | Exact agreement **77%**; quadratic kappa **0.802**; relevant/not agreement **84%**; **0** opposite 0-vs-2 errors |
 | Original OpenAI hybrid control | BM25 + **OpenAI large**, equal-weight RRF c=10; 23,304 papers, 100 dev queries | MRR@10 **0.653** [0.572, 0.737]; R@1 **0.56**, R@10 **0.84**, R@20 **0.90** |
 | Original seven-system graded snapshot | Original OpenAI hybrid; GPT-5.4 mini with 100 human overrides | nDCG@10 **0.686** [0.659, 0.712]; P@10 **0.633** [0.595, 0.673]; judged@10 **100%** |
-| **Current working baseline** | **55% semantic / 45% lexical, RRF c=30, depth100**; 100 dev queries, expanded 3,294-pair snapshot | **nDCG@10 0.7064; P@10 0.689; source MRR@10 0.6459; R@1 0.55; R@10 0.86; known-item MRR 0.980** |
+| **Current working baseline** | **RRF shortlist + max-score75% ordering, score depth500**; 100 dev queries, same 3,294-pair snapshot | **nDCG@10 0.7176; P@10 0.689; source MRR@10 0.6967; R@1 0.61; R@10 0.86; R@20 0.89; known-item MRR 0.980** |
 | Full-corpus semantic retrieval | OpenAI large alone; same corpus and dev queries | MRR@10 **0.599** [0.518, 0.679]; R@10 **0.82**, R@20 **0.88** |
 
 The pilot has fewer distractors and cannot be compared directly with the full-corpus
@@ -55,7 +55,8 @@ hybrid is **+0.030 nDCG** [0.007, 0.055] under these labels; the gain over
 OpenAI dense alone is uncertain (+0.018 [-0.011, 0.046]).
 
 Full experiment tables, confidence intervals, usage and caveats: [Results](docs/05-results.md).
-Current selection rationale: [Decision 35](docs/02-decisions.md#35-working-fusion-baseline-promoted-2026-10-29).
+Current selection rationale: [Decision 36](docs/02-decisions.md#36-recall-preserving-shortlist-score-baseline-promoted-2026-10-29).
+Progress visualization: [Hill-climbing charts and latest scores](docs/06-charts.md).
 
 **All experiments in one leaderboard:** [Dev leaderboard](docs/05-results.md#unified-dev-scorecard).
 It includes saved BM25, dense, hybrid, rank-fusion, score-fusion and depth experiments
@@ -69,19 +70,24 @@ remain separately scoped.
 **Challenger review:** max-normalized score fusion (75% semantic, depth500) leads
 at nDCG0.7197 and source MRR0.6916, but source R@10 falls0.86 to0.82
 (four lost targets, no gained targets), and R@20 falls0.89 to0.84.
-All25 known-item target ranks stay unchanged. **Keep the approved RRF baseline**
-for now; a leaderboard win does not automatically accept that recall tradeoff.
+All25 known-item target ranks stay unchanged. **Unrestricted score fusion remains
+a challenger.** Sid instead approved the recall-preserving shortlist-score baseline:
+nDCG0.7176 and MRR0.6967 with R@10/20 unchanged from RRF. All25 known-paper
+target ranks are individually unchanged. The new helper requires descending raw
+BM25/cosine score mappings, not just ranks. Frozen historical experiments retain
+the previous RRF control and reports.
 [Loss review](data/results/score-candidate-review-dev/report.md) and
 [explanation](docs/03-findings.md#22-leaderboard-and-score-fusion-challenger-loss-review).
 The label-collection UI is deferred; the existing 100 human labels remain our
 calibration set. A separate reranker is deferred; the next experiments tune
-lexical/semantic fusion and candidate depth using cached dev rankings.
+candidate selection and representations; repeated global fusion tuning is showing
+diminishing returns. See the [experiment/promotion findings](docs/03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline).
 
 ## Progress
 
 - [x] 1. Download papers from arXiv
 - [x] 2. Clean up into one file of 23,304 papers
-- [x] 3. Search: BM25 baseline → BM25 variants → local/OpenAI embeddings → tuned hybrid (working dev nDCG: 0.7064 on current label pool; source MRR: 0.6459)
+- [x] 3. Search: BM25 baseline → BM25 variants → local/OpenAI embeddings → tuned hybrid + shortlist ordering (working dev nDCG: 0.7176; source MRR: 0.6967)
 - [ ] 4. Test: scoring metrics ✅, 400 test queries ✅, results table ✅, GPT-5.4 mini selected ✅, full-dev graded evaluation ✅; fresh-human validation deferred; final held-out test untouched
 - [ ] 5. Answer: RAG with an LLM
 - [ ] 6. Website: database, API, web page, deploy
@@ -95,6 +101,7 @@ lexical/semantic fusion and candidate depth using cached dev rankings.
 | [Findings](docs/03-findings.md) | Measurements behind the decisions |
 | [Glossary](docs/04-glossary.md) | What BM25, embedding, MRR, etc. mean |
 | [Results](docs/05-results.md) | One table comparing every search system we've tried |
+| [Charts](docs/06-charts.md) | Hill-climbing milestones, latest leaderboard leaders and measured remaining headroom |
 
 ## Run it
 

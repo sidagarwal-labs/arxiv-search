@@ -1043,3 +1043,142 @@ The command validates frozen snapshot/run fingerprints and recomputes case
 rankings from saved scores; it has no API path. No new labels, embeddings,
 spending or test-query scoring were needed. Decision35 and baseline config
 remain unchanged.
+
+## 23. Rank/score experiments and recall-preserving baseline
+
+### First hypothesis: rank evidence offsets weak-overlap score boosts
+
+Prespecified six interpolations of max-score75% with normalized
+RRF55%/c30/depth100: score fractions25/50/75%, score depths100/500.
+RRF values are divided by their theoretical maximum1/31, not fitted to
+query outcomes. No source IDs, query-type routing, or labels enter ranking.
+
+The conservative screening policy requires fully judged top10s, a positive
+paired nDCG lower endpoint, no mean segment nDCG regression, no loss of mean
+source R@10/20, no known-item rank regression, and no increase in grade0
+first results. These are exploratory dev checks, not formal noninferiority
+or held-out guarantees.
+
+**Result: zero of six pass.** Interpolation recovers many of the unrestricted
+score challenger's lost sources, but every setting still loses the
+output-length target from top10. Source R@10 ranges0.84-0.85 versus0.86.
+Five settings are fully judged; the75%/depth500 setting has one unjudged
+pair (`q-question-064`, `2602.05471`) and is explicitly provisional.
+No new judgment was purchased: its source-recall failure cannot be fixed by
+changing that paper's relevance grade. Fully covered nDCG ranges0.7050-0.7108,
+with no paired interval excluding zero versus RRF.
+
+### Second hypothesis: change ordering without changing membership
+
+After that result, prespecified four fixed-shortlist experiments: score
+fractions50/100%, score depths100/500. RRF selects the ten; score evidence
+orders only those ten; the tail stays identical. This is a general
+architecture rule, not exceptions for individual queries.
+
+All four need **zero new labels**. Both pure-score ordering settings pass;
+the50% interpolations do not. Best passing setting:
+`fusion-shortlist+a=1+d=500`.
+
+| Metric | Previous RRF baseline | Approved shortlist baseline | Paired difference [95% CI] |
+|---|---|---|---|
+| nDCG@10 | 0.7064 | 0.7176 | +0.0112 [0.0041,0.0186] |
+| P@10 | 0.689 | 0.689 | 0, same selected papers |
+| Source MRR@10 | 0.6459 | 0.6967 | +0.0509 [0.0148,0.0956] |
+| Source R@1 | 0.55 | 0.61 | +0.06 [0.01,0.12] |
+| Source R@5 | 0.76 | 0.80 | +0.04 [-0.01,0.10] |
+| Source R@10 | 0.86 | 0.86 | 0, preserved by construction |
+| Source R@20 | 0.89 | 0.89 | 0, preserved by construction |
+
+| Segment (25 queries each) | Previous / new nDCG | Previous / new source MRR | Source R@10, unchanged |
+|---|---|---|---|
+| Keyword | 0.7333 / 0.7385 | 0.6632 / 0.7202 | 0.96 |
+| Known-item | 0.7132 / 0.7183 | 0.9800 / 0.9800 | 1.00 |
+| Paraphrase | 0.6622 / 0.6858 | 0.3823 / 0.4984 | 0.72 |
+| Question | 0.7169 / 0.7277 | 0.5580 / 0.5883 | 0.76 |
+
+Each segment mean nDCG improves, but only the paraphrase segment's paired
+interval excludes zero; do not claim independent improvements for all four.
+All25 known-item source ranks are individually unchanged. Overall49 nDCG
+wins,37 losses,14 ties; source MRR has12 wins,6 losses,82 ties. Grade0
+first results decrease6 to4, though a new grade0 first result is introduced
+on the multimodal decoding query.
+
+Versus unrestricted score fusion, the shortlist candidate has0.0021 lower
+nDCG (paired interval[-0.0123,0.0075], unresolved),0.0051 higher source MRR,
+and preserves four additional top10 target hits and five top20 hits.
+
+### Loss review and accepted limitations
+
+- **Multimodal decoding:** nDCG-0.0793. *Modality Collapse as Mismatched
+  Decoding* rises2 to1 (cached model grade0); a grade2 parallel-decoding
+  paper drops1 to2. The model reason distinguishes theoretical mismatched
+  decoding from decoding strategies; this boundary is worth future human
+  audit, not post-hoc relabeling to favor the candidate.
+- **Regional language/social media:** nDCG-0.0488. A grade0 Bengali
+  regional speech corpus rises7 to2; its abstract concerns dialects/ASR,
+  not social media. This is a real intent mismatch supported by the abstract.
+- **Compute requirements for recommenders:** nDCG-0.0426; source5 to8,
+  rather than55 under unrestricted fusion. A grade1 data-scaling paper
+  rises6 to2 while a grade2 behavioral compute-scaling paper drops3 to7.
+- **Output-length prediction:** source stays10 rather than92; nDCG
+  improves0.0860 over RRF by moving a grade2 remaining-length alternative6
+  to2. Grade0 distractors remain. This is recovery of coverage, not a fully
+  solved query.
+- Other source-rank losses: popularity bias2 to3, debiasing/unlearning5
+  to6, shared-network communication3 to4, evidence subgraphs8 to9, and
+  programmable-script assistant survey1 to2. No source leaves top10.
+
+Sid explicitly approved promotion after the segment summary (Decision36).
+The working helper reproduces all100 saved candidate top100 rankings exactly;
+the leaderboard now highlights this identity and recomputes paired deltas
+against it. The unrestricted score challenger remains first by raw nDCG;
+the approved baseline is second. Original RRF and historical reports remain
+frozen, not overwritten.
+
+### Why further fusion tuning is yielding smaller gains
+
+We are mostly reshuffling the **same representations and candidates**.
+The approved top10 contains311 grade0,423 grade1 and266 grade2 results
+across100 queries. Even a perfect label-aware permutation of those same
+ten papers reaches only **nDCG0.7790**, versus current0.7176. That leaves
+about0.0614 of within-shortlist ordering headroom on this fixed snapshot;
+it is an oracle bound, not a predicted gain from a model.
+
+The current shortlist contains the source in86/100 queries. The raw
+lexical/semantic union contains it in97/100 at depth100 per retriever and
+100/100 at depth500. Thus a lot of the remaining exact-source problem is
+**candidate selection/ranking**, not simply failure to retrieve anything.
+Presence at500 does not mean a practical ranker can recognize the target.
+
+Larger gains need a changed information signal:
+
+1. **Query-document interaction**, evaluated on a broader candidate pool,
+   could distinguish "regional speech" from "social media" and reasoning
+   about compute from generic data scaling. A cross-encoder/LLM reranker
+   would add this signal, unlike another weighted sum. This is a future
+   option, not approved/deployed in this experiment.
+2. **Better query/document representations:** controlled query expansion
+   for awkward paraphrases, separate title/abstract representations,
+   explicit author/identifier handling, and eventually passage-level
+   evidence if abstracts omit the answer. Each changes the candidate
+   signal and needs its own cost/coverage checks.
+3. **More trustworthy evaluation:** synthetic Gemma wording, a calibrated
+   LLM judge, only25 queries per segment, and repeated dev selection limit
+   confidence. Fresh-human loss audits and a larger independent dev set
+   would distinguish actual product gains from fitting this benchmark.
+   The300 held-out queries remain untouched until the approach is frozen.
+
+Do not treat nDCG1.0 or finding the synthetic source as guaranteed user
+success. Broad questions can have multiple right papers, and some relevance
+grades are ambiguous. A larger measured jump needs evidence, not just
+more tuning parameters.
+
+Reproduce the two offline experiments with
+`python -m arxiv_search.evaluate.rank_score_experiment` and
+`python -m arxiv_search.evaluate.rank_score_experiment --family shortlist`.
+Their plans are saved before outcomes; input fingerprints and controls
+are verified; changed plans/inputs require a new experiment identity.
+`python -m arxiv_search.evaluate.baseline_promotion` verifies the promoted
+helper, refreshes the leaderboard and regenerates [hill-climbing charts](06-charts.md)
+and the machine-readable headroom audit. All work used cached scores and
+labels: zero new API calls, embeddings, labels or spending.

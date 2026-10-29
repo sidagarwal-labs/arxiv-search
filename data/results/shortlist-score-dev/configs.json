@@ -1,0 +1,22 @@
+{
+  "fusion-shortlist+a=0.5+d=100": {
+    "depth": 100,
+    "k": 100,
+    "score_fraction": 0.5
+  },
+  "fusion-shortlist+a=0.5+d=500": {
+    "depth": 500,
+    "k": 100,
+    "score_fraction": 0.5
+  },
+  "fusion-shortlist+a=1+d=100": {
+    "depth": 100,
+    "k": 100,
+    "score_fraction": 1.0
+  },
+  "fusion-shortlist+a=1+d=500": {
+    "depth": 500,
+    "k": 100,
+    "score_fraction": 1.0
+  }
+}

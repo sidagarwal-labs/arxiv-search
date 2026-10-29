@@ -1,0 +1,24 @@
+{
+  "api_calls": 0,
+  "approved": true,
+  "decision": 36,
+  "exact_rankings_verified": 100,
+  "label_snapshot_sha256": "9ea51e45ea7c5329a90f3021516fd143049894440c47b50cdafbc6eb543fc32a",
+  "leaderboard_rank": 2,
+  "oracle_ndcg_with_fixed_top10": 0.7789699776637573,
+  "oracle_scope": "Exact best permutation of current top10 under frozen labels; not an achievable model estimate or full-corpus upper bound.",
+  "queries": 100,
+  "ranking_sha256": "df2f96e135cbfa216b6ea2aa14aae484ecc6cbec07ca5676a4fefc594b488135",
+  "source_hits_current_top10": 86,
+  "source_hits_in_retriever_union": {
+    "10": 89,
+    "100": 97,
+    "500": 100
+  },
+  "top10_grade_counts": {
+    "0": 311,
+    "1": 423,
+    "2": 266
+  },
+  "working_baseline": "fusion-shortlist+a=1+d=500"
+}

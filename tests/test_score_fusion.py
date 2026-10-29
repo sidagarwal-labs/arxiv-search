@@ -7,7 +7,7 @@ import numpy as np
 import pytest
 
 from arxiv_search.search.score_fusion import fuse_scores, fuse_top1_bonus
-from arxiv_search.search.hybrid import fuse_working_baseline
+from arxiv_search.search.hybrid import fuse_rrf_baseline
 from arxiv_search.evaluate import score_fusion_experiment as ex
 
 
@@ -52,7 +52,7 @@ def test_invalid_options(options):
 def test_bonus_zero_reproduces_baseline_and_bounded_boost():
     lex = [f"p{i}" for i in range(120)]
     sem = lex[::-1]
-    assert fuse_top1_bonus(lex, sem, bonus=0) == fuse_working_baseline(lex, sem)
+    assert fuse_top1_bonus(lex, sem, bonus=0) == fuse_rrf_baseline(lex, sem)
     with pytest.raises(ValueError):
         fuse_top1_bonus(lex, sem, bonus=math.nan)
 
@@ -82,7 +82,7 @@ def test_historical_refinement_grid_includes_approved_profile():
 
     settings = grid()
     assert len(settings) == 24
-    assert settings[ex.config.WORKING_BASELINE_SYSTEM] == {
+    assert settings[ex.config.RRF_BASELINE_SYSTEM] == {
         "semantic_weight": 0.55, "c": 30, "depth": 100, "k": 100}
 
 
@@ -116,7 +116,7 @@ def test_offline_cli_shared_snapshot_and_no_network(tmp_path, monkeypatch):
     run = {"q": ids}
     for name in (ex.fusion.LEXICAL, ex.fusion.SEMANTIC):
         (tmp_path / "dev" / f"{name}.run.json").write_text(json.dumps(run))
-    (tmp_path / "review" / f"{ex.config.WORKING_BASELINE_SYSTEM}.run.json").write_text(json.dumps(run))
+    (tmp_path / "review" / f"{ex.config.RRF_BASELINE_SYSTEM}.run.json").write_text(json.dumps(run))
     snapshot = {
         "complete": True, "labels": {"q": dict.fromkeys(ids, 1)}, "query_ids": ["q"],
         "human_workbook_sha256": hashlib.sha256(sheet.read_bytes()).hexdigest(),

@@ -60,7 +60,7 @@ def score_components(pid: str, inputs: dict) -> dict:
 
 def main() -> None:
     root = config.RESULTS_DIR / "score-fusion-dev"
-    baseline = config.WORKING_BASELINE_SYSTEM
+    baseline = config.RRF_BASELINE_SYSTEM
     snapshot_path, raw, snapshot, _ = results_catalog.load_snapshot(config.RESULTS_DIR)
     if snapshot_path != root / "labels.json" or not snapshot["complete"]:
         raise ValueError("Review requires the completed score-fusion label snapshot")

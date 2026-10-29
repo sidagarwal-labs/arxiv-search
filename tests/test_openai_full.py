@@ -226,6 +226,7 @@ def test_registration_is_metadata_only_and_explicit_about_offline_timing():
     working = registry[full.config.WORKING_BASELINE_SYSTEM]
     assert working.factors["semantic_weight"] == 0.55
     assert working.factors["dimensions"] == 3072
-    with pytest.raises(RuntimeError, match="fusion_review"):
+    assert working.factors["score_depth"] == 500
+    with pytest.raises(RuntimeError, match="rank_score_experiment"):
         working.build([])
     assert full.TIMING_SCOPE == "sequential_search_excludes_offline_query_embedding"

@@ -6,13 +6,28 @@ from arxiv_search import config
 
 
 def fuse_working_baseline(
+    lexical: dict[str, float], semantic: dict[str, float], *, k: int = config.RUN_DEPTH,
+) -> list[str]:
+    """Apply Decision36 to descending raw top500 BM25/cosine score mappings.
+
+    Rank-only inputs cannot reproduce score ordering and are explicitly rejected.
+    """
+    from arxiv_search.search.rank_score import rescore_shortlist
+
+    if not isinstance(lexical, dict) or not isinstance(semantic, dict):
+        raise TypeError("Working baseline requires descending raw score mappings, not rankings")
+    return rescore_shortlist(lexical, semantic, score_fraction=1,
+                             depth=config.WORKING_BASELINE_SCORE_DEPTH, k=k,
+                             score_semantic_weight=config.WORKING_BASELINE_SCORE_SEMANTIC_WEIGHT,
+                             shortlist_size=config.WORKING_BASELINE_SHORTLIST_SIZE)
+
+
+def fuse_rrf_baseline(
     lexical: list[str], semantic: list[str], *, k: int = config.RUN_DEPTH,
 ) -> list[str]:
-    """Fuse best-BM25/OpenAI-large rankings using the approved working profile."""
+    """Reproduce the immutable Decision35 shortlist/control, not current ordering."""
     return fuse(
-        lexical, semantic, method=config.WORKING_BASELINE_METHOD,
-        semantic_weight=config.WORKING_BASELINE_SEMANTIC_WEIGHT,
-        c=config.WORKING_BASELINE_RRF_C, depth=config.WORKING_BASELINE_DEPTH, k=k,
+        lexical, semantic, method="rrf", semantic_weight=0.55, c=30, depth=100, k=k,
     )
 
 
