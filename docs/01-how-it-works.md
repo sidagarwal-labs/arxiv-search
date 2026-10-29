@@ -562,6 +562,23 @@ by ID, and undefined nDCG values are omitted explicitly. These exploratory
 intervals describe query uncertainty conditional on labels, not judge accuracy;
 they are not multiple-testing-adjusted.
 
+**Cached fusion loop** (`evaluate/fusion_experiment.py`): the default CLI makes
+no network calls. It combines saved BM25/OpenAI top-100 rankings into 38
+candidates: two pure endpoints plus three mixed semantic weights (0.25, 0.5,
+0.75), four methods/settings (RRF c=10/60/100 or linear rank fusion), and
+three candidate depths (20/50/100). It also includes the frozen baseline and
+original pool systems as controls. All systems use a common expanded label
+snapshot; original baseline files are not overwritten. Outputs include config/
+ranking fingerprints, source and graded per-query metrics, overall/type paired
+differences and win/tie/regression counts when coverage is complete.
+An explicit `--label --max-calls N` can fill missing pairs using the existing
+shared token ledger, but additional labeling is currently paused after budget
+clarification. No automatic cap increase or daily reset is allowed.
+
+`evaluate/failure_analysis.py` is also offline. It verifies the frozen snapshot's
+rubric, workbook and ranking fingerprints, then saves segment comparisons and
+largest gains/regressions with full abstracts, ranks, grades and label provenance.
+
 ---
 
 ## Settings (`config.py`)

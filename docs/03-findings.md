@@ -574,3 +574,45 @@ actual query embedding plus retrieval latency. Then compare a separate
 reranker on fixed hybrid candidates (top 20, then 50 if warranted), measuring
 quality, latency and token/cost budgets. New candidates outside the current
 pool need additional judgments. Freeze final choices before using held-out test.
+
+## 17. Baseline failure-analysis leads (2026-10-29)
+
+Before tuning fusion, freeze the original complete seven-system label snapshot
+and inspect per-query evidence. Hybrid minus OpenAI dense paired nDCG:
+known-item +0.098 [0.052, 0.146]; keyword +0.054 [-0.004, 0.114];
+paraphrase -0.054 [-0.123, 0.010]; question -0.027 [-0.068, 0.013].
+With 25 queries per type these are exploratory, not routing rules.
+
+Low query/source word overlap (<0.5; 30 queries) shows -0.067
+[-0.120, -0.013], versus +0.054 [0.020, 0.088] for higher overlap
+(70 queries). Source overlap requires knowing the target paper, so it is
+an offline diagnostic, not information available to a live query router.
+These comparisons are not adjusted for multiple testing.
+
+Concrete saved examples:
+
+- `q-paraphrase-030`: dense places the grade-2 prerequisite-aware location
+  recommendation paper first; hybrid moves a grade-0 creativity paper above
+  it and introduces other irrelevant top results. nDCG falls 0.819 to 0.426.
+- `q-paraphrase-062`: predicting LLM output length; dense has a grade-2
+  remaining-output-length paper second, while hybrid's first three are all
+  grade 0. Both systems also have an irrelevant first result, so not every
+  failure is caused by fusion.
+- `q-known_item-054`: adding lexical retrieval promotes the grade-2 Tannenbaum
+  conversation-context paper from dense rank 2 to hybrid rank 1.
+
+Full abstracts, grades, label provenance, model reasons and per-system ranks
+are saved in `data/results/failure-analysis/cases.json`. Reasons are model
+explanations, not verified causes. No labels were changed. This supports
+testing semantic-heavy weights, not assuming they will solve every failure.
+Sid deferred reranking and approved bounded fusion/depth experiments first.
+
+**Offline grid preflight:** 38 candidate fusion configurations plus baseline/
+pool controls produce 3,190 unique top-10 pairs. Existing cache and human
+overrides cover 2,857; **333 pairs are missing**. No additional labeling calls
+were made. Graded comparisons are withheld until coverage is complete. A wider
+pool can change ideal DCG, so use the rescored frozen control inside the grid,
+not the older baseline nDCG denominator, for gain/regression comparisons.
+After confusion between token units and currency, additional API labeling is
+paused: 147,110 was remaining local **tokens**, not dollars. No spending-cap
+increase or quota reset was made.

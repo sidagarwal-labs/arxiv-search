@@ -502,6 +502,11 @@ def write_results_doc() -> None:
         parts += ["", "## Graded full-corpus dev retrieval", "",
                   graded_report.read_text(encoding="utf-8").replace(
                       "# Graded dev retrieval", "### Graded dev retrieval", 1)]
+    for folder, title in (("fusion-dev", "Cached OpenAI fusion experiments"),
+                          ("failure-analysis", "Frozen baseline failure analysis")):
+        report = config.RESULTS_DIR / folder / "report.md"
+        if report.exists():
+            parts += ["", f"## {title}", "", report.read_text(encoding="utf-8")]
     (config.PROJECT_ROOT / "docs" / "05-results.md").write_text(
         "\n".join(parts).rstrip() + "\n", encoding="utf-8")
 

@@ -1,0 +1,341 @@
+{
+  "baseline": "baseline-original-equal-rrf-c10-d100",
+  "lexical": "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75",
+  "score_depth": 10,
+  "semantic": "dense-openai-large",
+  "source_depth": 100,
+  "sources": {
+    "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75": {
+      "file_sha256": "8459343e2189e36ca9c8f9b35be97f41d1eb4e231fcdac7138c94638c2ac79c8",
+      "path": "C:\\Users\\sidagarwal\\college\\DSBA 6188\\arxiv-search\\data\\results\\dev\\bm25+exact+stems+authors+title2x+k1=0.8,b=0.75.run.json",
+      "ranking_sha256": "658c4da78f4dee082e4575ce4e7324cc9aa3b137d646a36d2de88acee063b1a1"
+    },
+    "dense-bge-small": {
+      "file_sha256": "0ba3b2641a2adc04aaa12445e37a098d42a2369279bb2f59c1a72460b99992e4",
+      "path": "C:\\Users\\sidagarwal\\college\\DSBA 6188\\arxiv-search\\data\\results\\dev\\dense-bge-small.run.json",
+      "ranking_sha256": "cb35746441866f9be49f65952c7698b6f3ac35167e5ab530ea113d6507bffc3e"
+    },
+    "dense-gte-small": {
+      "file_sha256": "218efae8b9114bace58fbc1407550612f6645d3fdbbac94523671f0e335a5b4d",
+      "path": "C:\\Users\\sidagarwal\\college\\DSBA 6188\\arxiv-search\\data\\results\\dev\\dense-gte-small.run.json",
+      "ranking_sha256": "d6a5c163ff5eb733833bb442923bfda6641c246b73fca0c066b994878d204bc8"
+    },
+    "dense-openai-large": {
+      "file_sha256": "031510ab29475af1bfe694c51f6014079a2249dccfea4f0e9652e47fdae5435a",
+      "path": "C:\\Users\\sidagarwal\\college\\DSBA 6188\\arxiv-search\\data\\results\\dev\\dense-openai-large.run.json",
+      "ranking_sha256": "39419e592c5439ec6186dbfdafae3858287d25b126f7402b0970a8407a13db2a"
+    },
+    "hybrid-bge-small+rrf+w=0.5+c=10": {
+      "file_sha256": "a9cd0e50b41035358ef31fc258bf8bafc34ac542bd99c1c307446ff51c6b2774",
+      "path": "C:\\Users\\sidagarwal\\college\\DSBA 6188\\arxiv-search\\data\\results\\dev\\hybrid-bge-small+rrf+w=0.5+c=10.run.json",
+      "ranking_sha256": "93be821eb4a795d57690f0a243b81227de23c00d933b4cc0995008e79e7a54d2"
+    },
+    "hybrid-gte-small+rrf+w=0.5+c=10": {
+      "file_sha256": "a7cf549ba1c91d05c3921b578f427a14412a79b5fb2a54e40397bb1e914673cb",
+      "path": "C:\\Users\\sidagarwal\\college\\DSBA 6188\\arxiv-search\\data\\results\\dev\\hybrid-gte-small+rrf+w=0.5+c=10.run.json",
+      "ranking_sha256": "2fc2b0c4388d2b175362c155d01f30f8669c2940b9fc36bc336234812f67a26a"
+    },
+    "hybrid-openai-large+rrf+w=0.5+c=10": {
+      "file_sha256": "29e6a8fdcad354e1bdedc1f8b0749b0cd86c135bf39c572e5f676e45ef045136",
+      "path": "C:\\Users\\sidagarwal\\college\\DSBA 6188\\arxiv-search\\data\\results\\dev\\hybrid-openai-large+rrf+w=0.5+c=10.run.json",
+      "ranking_sha256": "7178a5d1639097c32a01a6e416856a5ed95a351effdbd145cd978cb7cd4a9126"
+    }
+  },
+  "systems": {
+    "baseline-original-equal-rrf-c10-d100": {
+      "c": 10,
+      "depth": 100,
+      "frozen_from": "hybrid-openai-large+rrf+w=0.5+c=10",
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75": {
+      "original_pool_member": true
+    },
+    "dense-bge-small": {
+      "original_pool_member": true
+    },
+    "dense-gte-small": {
+      "original_pool_member": true
+    },
+    "dense-openai-large": {
+      "original_pool_member": true
+    },
+    "fusion-linear+w=0.25+d=100": {
+      "c": 60,
+      "depth": 100,
+      "k": 100,
+      "method": "linear",
+      "semantic_weight": 0.25
+    },
+    "fusion-linear+w=0.25+d=20": {
+      "c": 60,
+      "depth": 20,
+      "k": 100,
+      "method": "linear",
+      "semantic_weight": 0.25
+    },
+    "fusion-linear+w=0.25+d=50": {
+      "c": 60,
+      "depth": 50,
+      "k": 100,
+      "method": "linear",
+      "semantic_weight": 0.25
+    },
+    "fusion-linear+w=0.5+d=100": {
+      "c": 60,
+      "depth": 100,
+      "k": 100,
+      "method": "linear",
+      "semantic_weight": 0.5
+    },
+    "fusion-linear+w=0.5+d=20": {
+      "c": 60,
+      "depth": 20,
+      "k": 100,
+      "method": "linear",
+      "semantic_weight": 0.5
+    },
+    "fusion-linear+w=0.5+d=50": {
+      "c": 60,
+      "depth": 50,
+      "k": 100,
+      "method": "linear",
+      "semantic_weight": 0.5
+    },
+    "fusion-linear+w=0.75+d=100": {
+      "c": 60,
+      "depth": 100,
+      "k": 100,
+      "method": "linear",
+      "semantic_weight": 0.75
+    },
+    "fusion-linear+w=0.75+d=20": {
+      "c": 60,
+      "depth": 20,
+      "k": 100,
+      "method": "linear",
+      "semantic_weight": 0.75
+    },
+    "fusion-linear+w=0.75+d=50": {
+      "c": 60,
+      "depth": 50,
+      "k": 100,
+      "method": "linear",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=0+d=100+c=10": {
+      "c": 10,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.0
+    },
+    "fusion-rrf+w=0.25+d=100+c=10": {
+      "c": 10,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.25
+    },
+    "fusion-rrf+w=0.25+d=100+c=100": {
+      "c": 100,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.25
+    },
+    "fusion-rrf+w=0.25+d=100+c=60": {
+      "c": 60,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.25
+    },
+    "fusion-rrf+w=0.25+d=20+c=10": {
+      "c": 10,
+      "depth": 20,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.25
+    },
+    "fusion-rrf+w=0.25+d=20+c=100": {
+      "c": 100,
+      "depth": 20,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.25
+    },
+    "fusion-rrf+w=0.25+d=20+c=60": {
+      "c": 60,
+      "depth": 20,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.25
+    },
+    "fusion-rrf+w=0.25+d=50+c=10": {
+      "c": 10,
+      "depth": 50,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.25
+    },
+    "fusion-rrf+w=0.25+d=50+c=100": {
+      "c": 100,
+      "depth": 50,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.25
+    },
+    "fusion-rrf+w=0.25+d=50+c=60": {
+      "c": 60,
+      "depth": 50,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.25
+    },
+    "fusion-rrf+w=0.5+d=100+c=10": {
+      "c": 10,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "fusion-rrf+w=0.5+d=100+c=100": {
+      "c": 100,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "fusion-rrf+w=0.5+d=100+c=60": {
+      "c": 60,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "fusion-rrf+w=0.5+d=20+c=10": {
+      "c": 10,
+      "depth": 20,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "fusion-rrf+w=0.5+d=20+c=100": {
+      "c": 100,
+      "depth": 20,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "fusion-rrf+w=0.5+d=20+c=60": {
+      "c": 60,
+      "depth": 20,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "fusion-rrf+w=0.5+d=50+c=10": {
+      "c": 10,
+      "depth": 50,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "fusion-rrf+w=0.5+d=50+c=100": {
+      "c": 100,
+      "depth": 50,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "fusion-rrf+w=0.5+d=50+c=60": {
+      "c": 60,
+      "depth": 50,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.5
+    },
+    "fusion-rrf+w=0.75+d=100+c=10": {
+      "c": 10,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=0.75+d=100+c=100": {
+      "c": 100,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=0.75+d=100+c=60": {
+      "c": 60,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=0.75+d=20+c=10": {
+      "c": 10,
+      "depth": 20,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=0.75+d=20+c=100": {
+      "c": 100,
+      "depth": 20,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=0.75+d=20+c=60": {
+      "c": 60,
+      "depth": 20,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=0.75+d=50+c=10": {
+      "c": 10,
+      "depth": 50,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=0.75+d=50+c=100": {
+      "c": 100,
+      "depth": 50,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=0.75+d=50+c=60": {
+      "c": 60,
+      "depth": 50,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 0.75
+    },
+    "fusion-rrf+w=1+d=100+c=10": {
+      "c": 10,
+      "depth": 100,
+      "k": 100,
+      "method": "rrf",
+      "semantic_weight": 1.0
+    },
+    "hybrid-bge-small+rrf+w=0.5+c=10": {
+      "original_pool_member": true
+    },
+    "hybrid-gte-small+rrf+w=0.5+c=10": {
+      "original_pool_member": true
+    },
+    "hybrid-openai-large+rrf+w=0.5+c=10": {
+      "original_pool_member": true
+    }
+  }
+}

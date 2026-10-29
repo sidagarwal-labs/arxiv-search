@@ -144,6 +144,16 @@ The [README summary](../README.md#current-working-baseline-selected-2026-10-28)
 tracks the selected configuration alongside the best measured scores and their scopes.
 This does not rename or overwrite the original `bm25-baseline` control.
 
+**2026-10-29 experiment-loop update:** Sid explicitly deferred the separate
+reranker. First explore lexical/semantic fusion and candidate depth using
+cached dev rankings, add only missing GPT-5.4 mini pair labels, then compare
+all candidates with the same expanded label snapshot. Keep the existing
+equal-weight RRF c=10 as a fixed reference; do not overwrite its original
+seven-system report when the experiment pool expands. Run a bounded coarse
+grid before refining winners. No test tuning, fresh embeddings or automatic
+quota reset. Failure analysis is read-only and records evidence, not inferred
+root causes as fact. UI and grounded summaries follow retrieval experiments.
+
 OpenAI large leads the reduced-corpus pilot, but its advantage over OpenAI small
 has a paired interval crossing zero. The full-corpus OpenAI hybrid now scores
 0.653 MRR@10 vs. GTE's 0.635; the paired difference is +0.018

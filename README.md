@@ -56,8 +56,8 @@ OpenAI dense alone is uncertain (+0.018 [-0.011, 0.046]).
 Full experiment tables, confidence intervals, usage and caveats: [Results](docs/05-results.md).
 Selection rationale and next milestones: [Decision 34](docs/02-decisions.md#34-working-baseline-selected-2026-10-28).
 The label-collection UI is deferred; the existing 100 human labels remain our
-calibration set. A separate reranker comes after full-corpus retrieval and graded
-evaluation, not before.
+calibration set. A separate reranker is deferred; the next experiments tune
+lexical/semantic fusion and candidate depth using cached dev rankings.
 
 ## Progress
 
@@ -120,6 +120,21 @@ copy .env.example .env        # then paste your Gemini API key into .env
 # Run the tests
 .\.venv\Scripts\python.exe -m pytest -q
 ```
+
+### Quick offline experiment loop
+
+```powershell
+# Cached rankings only: 38 lexical/semantic fusion settings, no API calls
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.fusion_experiment
+# Frozen-baseline segment comparisons and concrete failure evidence, no API calls
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.failure_analysis
+```
+
+Fusion outputs live under `data/results/fusion-dev/`, separate from the frozen
+baseline. The first grid expands the pool from 2,857 to 3,190 pairs: **333
+additional pairs need labels**. Until then, reports are provisional and paired
+winner comparisons are withheld. Additional API labeling is paused pending
+budget clarification; offline experiments do not spend tokens or re-embed papers.
 
 ## Folders
 
