@@ -112,6 +112,14 @@ This module has no embedding or judging execution path. Its plan is saved
 after observing the pure-semantic outcomes, so it is exploratory, not a second
 independent confirmation. Run `python -m arxiv_search.evaluate.openai_field_hybrid`.
 
+[`openai_field_recovery.py`](../arxiv_search/evaluate/openai_field_recovery.py)
+tests six fixed global recipes to diagnose paraphrase recovery: abstract-only,
+lower title weighting and anchoring field scores to the original combined-text
+cosine, with duplicate controls. It only reorders baseline top10 and has no
+query-type routing or paid API path. It reports recovery against both the
+approved baseline and the previous25%-title challenger, without relaxing
+promotion rules. Run `python -m arxiv_search.evaluate.openai_field_recovery`.
+
 ---
 
 ## Step 1: Download (`download.py`)

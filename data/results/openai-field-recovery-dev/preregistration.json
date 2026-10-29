@@ -1,0 +1,48 @@
+{
+  "automatic_embedding_calls": false,
+  "automatic_promotion": false,
+  "baseline": "fusion-shortlist+a=1+d=500",
+  "challenger": "oai-field-hybrid+text=title25+d=10",
+  "hypothesis": "Less title emphasis or anchoring semantic scores to original concat cosines reduces paraphrase intent drift without losing other-segment gains.",
+  "interpretation": "Post-investigation exploratory experiment, no multiple-testing correction. Freeze plan before scoring; do not extend grid after outcomes.",
+  "recovery_rules": [
+    "Paraphrase nDCG and source MRR at least approved baseline.",
+    "Other segment nDCG at least both baseline and field25 challenger; other segment source MRR at least baseline.",
+    "Existing baseline promotion screen must pass for promotion eligibility."
+  ],
+  "scope": "100 dev queries, frozen labels/candidate100/score caches. Held-out untouched.",
+  "scoring": "semantic = a*concat + (1-a)*(t*title+(1-t)*abstract); then 25% candidate100-max BM25 +75% candidate100-max semantic. Stable baseline ties; reorder baseline top10 only, preserve positions11+. No query routing.",
+  "setting_description": "Six fixed settings: concat control, abstract-only,10% title, 25% title control, and25% title anchored50/75% to concat. ",
+  "settings": {
+    "oai-field-recovery+text=abstract+anchor=0+d=10": {
+      "concat_fraction": 0.0,
+      "depth": 10,
+      "title_weight": 0.0
+    },
+    "oai-field-recovery+text=concat+anchor=1+d=10": {
+      "concat_fraction": 1.0,
+      "depth": 10,
+      "title_weight": null
+    },
+    "oai-field-recovery+text=title10+anchor=0+d=10": {
+      "concat_fraction": 0.0,
+      "depth": 10,
+      "title_weight": 0.1
+    },
+    "oai-field-recovery+text=title25+anchor=0+d=10": {
+      "concat_fraction": 0.0,
+      "depth": 10,
+      "title_weight": 0.25
+    },
+    "oai-field-recovery+text=title25+anchor=0.5+d=10": {
+      "concat_fraction": 0.5,
+      "depth": 10,
+      "title_weight": 0.25
+    },
+    "oai-field-recovery+text=title25+anchor=0.75+d=10": {
+      "concat_fraction": 0.75,
+      "depth": 10,
+      "title_weight": 0.25
+    }
+  }
+}

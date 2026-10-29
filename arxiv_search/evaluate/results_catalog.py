@@ -18,7 +18,8 @@ from arxiv_search.evaluate import graded, judge, metrics
 
 RUN_FOLDERS = ("dev", "fusion-dev", "fusion-review-dev", "score-fusion-dev", "refinement-dev",
                "rank-score-dev", "shortlist-score-dev", "cross-encoder-dev", "field-score-dev",
-               "field-signal-dev", "openai-field-dev", "openai-field-hybrid-dev")
+               "field-signal-dev", "openai-field-dev", "openai-field-hybrid-dev",
+               "openai-field-recovery-dev")
 QUERY_TYPES = ("keyword", "question", "paraphrase", "known_item")
 FIELDS = ("ndcg@10", "precision@10", "judged@10", "source_mrr@10",
           "source_recall@1", "source_recall@5", "source_recall@10", "source_recall@20")
@@ -202,6 +203,21 @@ def describe_system(name: str) -> dict[str, str]:
         "gte-small": "GTE-small", "bge-small": "BGE-small",
         "e5-small": "E5-small", "minilm": "MiniLM-L6-v2",
     }
+    if name.startswith("oai-field-recovery+"):
+        opts = dict(p.split("=", 1) for p in name.split("+")[1:])
+        recipe = opts["text"]
+        field = ("combined title + abstract" if recipe == "concat" else
+                 "abstract only" if recipe == "abstract" else
+                 f"{recipe.removeprefix('title')}% title / "
+                 f"{100 - int(recipe.removeprefix('title'))}% abstract")
+        return {
+            "name": "OpenAI-large paraphrase recovery",
+            "lexical": "Tuned BM25 including authors/title2x",
+            "embedding": models["openai-large"],
+            "ranker": f"25% lexical / 75% semantic; {field}; "
+                      f"{float(opts['anchor']):.0%} combined-text anchor; candidate-max "
+                      f"normalization; reorder baseline top{opts['d']} only, preserve tail",
+        }
     if name.startswith(("oai-field+", "oai-field-hybrid+")):
         opts = dict(p.split("=", 1) for p in name.split("+")[1:])
         recipe = opts["text"]

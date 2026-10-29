@@ -55,7 +55,8 @@ def test_capped_ledger_reuses_shared_guard_and_no_call_when_task_exceeded(tmp_pa
 
 
 @pytest.mark.parametrize("hybrid", [False, True])
-def test_incomplete_grades_are_withheld_with_same_model_controls(tmp_path, hybrid):
+@pytest.mark.parametrize("single_depth", [False, True])
+def test_incomplete_grades_are_withheld_with_same_model_controls(tmp_path, hybrid, single_depth):
     from arxiv_search.evaluate import openai_field_hybrid
     from arxiv_search.evaluate.results_catalog import QUERY_TYPES
 
@@ -68,15 +69,21 @@ def test_incomplete_grades_are_withheld_with_same_model_controls(tmp_path, hybri
     raw = {q: {"candidate_ids": base[q], "concat": list(range(100)),
                "title": list(range(100)), "abstract": list(range(100))} for q in qids}
     experiment = openai_field_hybrid.plan() if hybrid else fields.plan()
+    if single_depth:
+        experiment["settings"] = {n: v for n, v in experiment["settings"].items()
+                                  if v["depth"] == 10}
     prefix = "oai-field-hybrid" if hybrid else "oai-field"
     runs = fields.build_runs(base, raw, experiment["settings"])
     snapshot = {"labels": {q: {f"p{i}": 2 if i == 0 else 0 for i in range(10)}
                             for q in qids}, "query_ids": qids}
     report = fields.publish(tmp_path, runs, snapshot, papers, queries, qids, experiment, {})
     assert report["systems"][f"{prefix}+text=title25+d=10"]["top10_fully_judged"]
-    assert not report["systems"][f"{prefix}+text=title25+d=100"]["top10_fully_judged"]
-    assert report["summary"][f"{prefix}+text=title25+d=100"]["all"]["ndcg@10"][
-        "paired_vs_working"] is None
+    if not single_depth:
+        assert not report["systems"][f"{prefix}+text=title25+d=100"]["top10_fully_judged"]
+        assert report["summary"][f"{prefix}+text=title25+d=100"]["all"]["ndcg@10"][
+            "paired_vs_working"] is None
+    else:
+        assert set(report["same_model_concat_comparisons"]) == {"10"}
     same = report["same_model_concat_comparisons"]["10"][f"{prefix}+text=title25+d=10"]
     assert same["all"]["ndcg@10"]["paired_vs_working"]["difference"] == 0
     assert json.loads((tmp_path / "report.json").read_text())["judge_api_calls"] == 0

@@ -118,7 +118,7 @@ def publish(out: Path, runs: dict, snapshot: dict, papers: dict, queries: dict,
     rows = {n: r["per_query"] for n, r in results.items()}
     summary = summarize(rows, BASELINE)
     same_model = {}
-    for depth in (10, 100):
+    for depth in sorted({v["depth"] for v in experiment["settings"].values()}):
         control = next(n for n, options in experiment["settings"].items()
                        if options["depth"] == depth and options["title_weight"] is None)
         same_model[str(depth)] = summarize(
@@ -168,8 +168,9 @@ def publish(out: Path, runs: dict, snapshot: dict, papers: dict, queries: dict,
              else "OpenAI-large candidate title/abstract experiment")
     lines = [
         f"# {title}", "",
-        "Eight prespecified settings: concatenated control and separate25/50/75% title "
-        "at baseline prefixes10/100. "
+        experiment.get("setting_description",
+                       "Eight prespecified settings: concatenated control and separate25/50/75% title "
+                       "at baseline prefixes10/100. ") +
         f"Scoring recipe: {experiment['scoring']} "
         "Exactly the same OpenAI-large model,3072 dimensions and cached query vectors. "
         "Body means abstract. Candidate-only; no new full-corpus retrieval. "

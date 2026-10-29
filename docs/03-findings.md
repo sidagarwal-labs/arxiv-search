@@ -1661,3 +1661,87 @@ then fresh development evaluation of this frozen challenger versus Decision36.
 Neither fresh data nor a paid judge is automatically authorized here.
 Promotion now would be an explicit exploratory tradeoff/policy exception,
 not a claim that the established checks passed.
+
+## 28. Recovering paraphrases without query-type routing
+
+Sid requested paraphrase improvements while preserving the other segments.
+We fixed six global recipes before scoring: combined-text control,
+abstract-only,10% title,25% title control, and25%-title field scores anchored
+50% or75% to the original combined-text cosine. No evaluation query type,
+source ID or grade enters scoring. No new models, embeddings, paid calls,
+labels, held-out evaluation or adaptive follow-up grid.
+
+Let `C`, `T` and `A` be the cached combined-text, title and abstract cosine
+scores. Semantic score is `a*C+(1-a)*(t*T+(1-t)*A)`, then the unchanged
+25% lexical /75% semantic magnitude blend. Both inputs use candidate100
+maximum normalization. Only the original baseline top10 is reordered.
+Thus source recall, P10 and membership are fixed; all top10 grades are known.
+The plan, inputs, runs and [report](../data/results/openai-field-recovery-dev/report.md)
+are persisted. Reproduce with
+`python -m arxiv_search.evaluate.openai_field_recovery`.
+
+### Results: a real tradeoff, not a universal recovery
+
+| Global semantic recipe | Overall nDCG | Keyword | Question | Paraphrase | Known item | Source MRR |
+|---|---:|---:|---:|---:|---:|---:|
+| Approved baseline | .7176 | .7385 | .7277 | .6858 | .7183 | .6967 |
+| Previous25%-title challenger | .7204 | .7449 | .7317 | .6811 | .7237 | .7047 |
+| Abstract only | .7210 | .7392 | .7260 | .6955 | .7232 | .6799 |
+| 10% title /90% abstract | **.7214** | .7390 | .7258 | **.6965** | **.7244** | .6985 |
+| 50% original combined +50% previous field signal | .7202 | .7410 | .7301 | .6866 | .7232 | .6940 |
+| 75% original combined +25% previous field signal | .7191 | .7397 | .7271 | .6874 | .7221 | .7036 |
+
+The same-recipe combined control reproduces the earlier.7175 result, and the
+25%-title control reproduces its earlier ranking exactly. These two duplicate
+control identities are retained rather than advertised as independent gains.
+All25 known-item target ranks are unchanged for every setting.
+
+**Reducing title weight to10%** recovers paraphrase mean nDCG by+.015439
+versus the previous field25 challenger (CI[+.002953,+.032321]).
+Versus approved baseline, paraphrase delta+.010789 has
+CI[-.003927,+.027683]; overall delta+.003853 has
+CI[-.000836,+.009176]. Question nDCG drops-.001951 below baseline.
+Grade0 first results improve4->2, but paraphrase source MRR is.4884,
+still below baseline.4984. Higher mean nDCG is not enough for promotion.
+
+The largest paraphrase recovery is `q-paraphrase-062` (output-length
+prediction), +.179070 versus field25, followed by feedback communication
+`q-paraphrase-020`, +.053521 and code/tool reasoning `q-paraphrase-088`,
++.053248. These are exploratory observed recoveries, not independent
+confirmation or guaranteed improvements on future queries.
+
+**The50% combined anchor is the balanced nDCG option.** It achieves an
+observed mean nDCG increase over the approved baseline in **all four segments**.
+Overall delta+.002649, CI[-.000226,+.005757],49 wins/25 losses/26 ties.
+This passes every existing promotion screen except a strictly positive
+overall nDCG interval. Grade0 first results decrease4->3.
+
+Paraphrase nDCG is.6866 and source MRR.5022, both slightly above baseline,
+although neither establishes an independent reliable improvement. Relative
+to the field25 challenger, paraphrase nDCG delta+.005492 has
+CI[+.001526,+.010212]. The black-box graph query `q-paraphrase-087`
+recovers+.039322 nDCG, and the agent-code query recovers+.016814.
+
+However, it gives back some previous keyword/question gains. Question
+source MRR falls from baseline.5883 to.5650, despite question nDCG rising
+.7277->.7301. Overall source MRR is.6940 versus baseline.6967.
+No known-item target falls, but other target positions can worsen.
+
+### Decision and next step
+
+No recipe meets the stricter recovery objective of retaining the previous
+challenger's non-paraphrase nDCG gains *and* baseline source MRR across
+segments. No recipe clears the existing baseline promotion screen either.
+Mean comparisons are not non-inferiority/equivalence tests, and all intervals
+are exploratory after repeated dev selection.
+
+Keep Decision36 approved. Freeze the50% combined-anchor recipe as the more
+balanced nDCG challenger, with10%-title as the higher-mean alternative and
+its question regression explicit. Do not silently route known evaluation
+paraphrases to a favored setting or keep sweeping weights to chase this set.
+
+The evidence supports the hypothesis that original combined-text scores
+provide a useful stabilizing signal while separate-field weighting can help
+indirect queries. It does not show all losses are solved or that these dev
+gains generalize. Next: review the changed question results and paraphrase
+wins blindly, then compare frozen candidates on fresh development queries.
