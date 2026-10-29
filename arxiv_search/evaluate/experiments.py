@@ -503,6 +503,7 @@ def write_results_doc() -> None:
                   graded_report.read_text(encoding="utf-8").replace(
                       "# Graded dev retrieval", "### Graded dev retrieval", 1)]
     for folder, title in (("fusion-dev", "Cached OpenAI fusion experiments"),
+                          ("fusion-review-dev", "Pre-promotion fusion review"),
                           ("failure-analysis", "Frozen baseline failure analysis")):
         report = config.RESULTS_DIR / folder / "report.md"
         if report.exists():

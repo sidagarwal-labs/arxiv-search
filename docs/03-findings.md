@@ -697,3 +697,112 @@ Next targeted tests, if needed: author/title-aware lexical protection,
 explicit user-selected exact-paper mode, or bounded query-dependent fusion.
 Do not route on synthetic `query_type`, source overlap or known source IDs:
 those are evaluation metadata, not available live intent signals.
+
+## 20. Pre-promotion review of the 55%/c30 candidate
+
+Ran `python -m arxiv_search.evaluate.fusion_review` against the immutable
+fusion label snapshot. Four finalists, all 100 dev queries, all top-10
+results judged; identical 3,190-pair ideal-DCG denominator and human overrides.
+No labeling, embeddings, API calls, held-out test scoring, or baseline changes.
+The review validates rubric, workbook and source-ranking fingerprints before
+scoring and refuses any unjudged top-10 pair. Outputs are isolated under
+`data/results/fusion-review-dev/`; original reports are preserved.
+
+### Overall scorecard
+
+| Semantic weight / c | nDCG@10 | P@10 | Source MRR@10 | Source R@1 | Source R@10 |
+|---|---|---|---|---|---|
+| Original 50% / 10 | 0.6641 | 0.633 | 0.6534 | 0.56 | 0.84 |
+| Candidate 55% / 30 | 0.7106 | 0.689 | 0.6459 | 0.55 | 0.86 |
+| Alternative 60% / 60 | 0.7139 | 0.700 | 0.6302 | 0.53 | 0.83 |
+| Previous 75% / 100 | 0.7095 | 0.690 | 0.6181 | 0.52 | 0.84 |
+
+Candidate versus original nDCG: **+0.0465 [0.0311, 0.0628]**, 70 wins,
+26 losses, four ties. P@10: +0.056 [0.0360, 0.0780].
+Source MRR: -0.0076 [-0.0330, 0.0162], eight wins, 13 losses, 79 ties.
+This is not a claim of source-MRR equivalence or noninferiority.
+
+Candidate versus75%: nDCG +0.0011 [-0.0104, 0.0125], 41 wins, 52 losses,
+seven ties; similar means do not mean identical lists. Source MRR improves
+**+0.0278 [0.0077, 0.0550]**, 12 wins, six losses, 82 ties.
+Candidate versus60%: nDCG -0.0033 [-0.0123, 0.0056], source MRR
+**+0.0156 [0.0024, 0.0353]**. These intervals are conditional on fixed labels
+and exploratory dev selection, without multiplicity adjustment.
+
+### All query types, original versus candidate
+
+Each segment contains25 queries.
+
+| Type | Original / candidate nDCG | Original / candidate source MRR | Candidate-minus-original nDCG CI |
+|---|---|---|---|
+| Keyword | 0.7001 / 0.7373 | 0.7167 / 0.6632 | [0.0113, 0.0633] |
+| Known-item | 0.6948 / 0.7156 | 0.9800 / 0.9800 | [-0.0050, 0.0484] |
+| Paraphrase | 0.5940 / 0.6662 | 0.3644 / 0.3823 | [0.0360, 0.1083] |
+| Question | 0.6676 / 0.7234 | 0.5527 / 0.5580 | [0.0290, 0.0824] |
+
+Every known-item source rank, not just mean MRR, is unchanged versus original.
+Known-item first hits remain24/25 and top-10 hits25/25.
+Paraphrase top-10 source hits rise16/25 to18/25.
+
+The remaining clear segment tradeoff is keyword source MRR:
+**-0.0535 [-0.1125, -0.0090]**, five losses and one gain.
+Top-10 keyword source recall stays24/25, but first hits fall15/25 to13/25.
+Two large reciprocal-rank losses are rank1 to2 swaps:
+
+- `q-keyword-009`, automated community clustering/topic models: the support-group
+  formation source moves1 to2, and TopiCLEAR moves2 to1. Both are grade2.
+  Abstracts show the source is more community-specific, while TopiCLEAR covers
+  embedding-based topic discovery. This is a useful alternative, but may weaken
+  the community intent. Graded nDCG improves0.8817 to0.8890.
+- `q-keyword-062`, GNN proxy for SDP relaxations: the Max-Cut-specific neural
+  proxy moves1 to2 behind a general GNN/linear-SDP surrogate paper. Both full
+  abstracts directly address the query and both are grade2. **The nDCG loss
+  0.7819 to0.6736 is not caused by swapping two grade2 papers**: lower ranks
+  lose grade1 papers and introduce grade0 GNN papers. This is a genuine
+  relevance-list regression under the fixed labels, shared by75% and60%.
+
+Other keyword source losses: clinical knowledge graphs4 to7, parameter
+importance/freezing5 to8, popularity prediction2 to3. Clinical-query nDCG
+improves0.8126 to0.8810 despite source demotion; popularity-query nDCG slips
+0.6332 to0.6287. All source-rank changes, including beyond top10, are saved.
+
+### Concrete gains and remaining losses
+
+- Biggest gain over original: `q-paraphrase-030`, prerequisite-aware places to
+  visit, nDCG **0.4265 to0.7391**. The intended recommendation paper moves2 to1;
+  unrelated creativity and retrieval-blind-spot papers fall. It also improves
+  over both other finalists (0.5823).
+- Chip-design documentation grouping, `q-paraphrase-093`: **0.6057 to0.8672**.
+  Source stays first; structure-aware technical-document retrieval and
+  chunking papers replace logical-QA/contextual-help distractors.
+- A known-item nDCG loss does not necessarily mean a lost target:
+  `q-known_item-062` (Flek physics/adversarial attacks) stays first but nDCG
+  falls0.6141 to0.5164. A different Flek-authored physics/adversarial paper,
+  graded2, falls7 to22. Its authors and full abstract support topical overlap;
+  this short query is ambiguous. Whether a second grade2 fits the rubric's
+  specific-paper clause needs human interpretation. Do not silently rewrite
+  its label or count the nDCG drop as an exact-target failure.
+- Largest nDCG loss versus75%: `q-question-077`, vanilla GNNs on unseen
+  knowledge graphs, **0.5519 to0.4610**. The directly relevant zero-shot source
+  moves3 to6. Both settings still put grade0 distractors above it: the candidate
+  favors temporal KG category forecasting, while75% favors traffic forecasting.
+  The candidate is not a universal improvement in question understanding.
+- Repeated-pretraining-data question, `q-question-019`: **0.7487 to0.6604**
+  versus75%, though still better than original0.5266. The candidate promotes
+  grade0 pre-pretraining material and demotes grade2 duplication/retention papers.
+  GraphER known-item search also loses supporting-list relevance versus60%
+  and75%, although the exact GraphER paper stays first.
+
+### Recommendation, pending user confirmation
+
+55%/c30 is the preferred **balanced dev candidate**, not a statistically
+unique optimum or universally dominant system. It restores all known-item
+target ranks, retains broad relevance gains, and improves source MRR over
+the other two finalists. Accepting it means explicitly accepting remaining
+keyword/source-rank and individual question/list-quality tradeoffs.
+
+No automatic promotion was made. Keep the original frozen control for future
+comparisons even if the user approves a new working baseline. Held-out test
+remains untouched; independent generalization and fresh-human validation
+remain unproven. Full rankings, aligned per-query scores, paired intervals
+and diagnostic abstracts/reasons are reproducible with the review command.

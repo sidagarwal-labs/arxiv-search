@@ -128,6 +128,8 @@ copy .env.example .env        # then paste your Gemini API key into .env
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.fusion_experiment
 # Frozen-baseline segment comparisons and concrete failure evidence, no API calls
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.failure_analysis
+# Pre-promotion review of 55%/c30 versus original, 75%/c100 and 60%/c60; no API calls
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.fusion_review
 ```
 
 Fusion outputs live under `data/results/fusion-dev/`, separate from the frozen
@@ -146,6 +148,18 @@ ideal-relevance pool and is not directly comparable. Source-paper MRR falls
 from **0.653 to 0.618**, so this is a quality tradeoff, not universal dominance.
 The candidate was selected on dev among 38 settings; selection uncertainty
 is not captured by its unadjusted interval. The original baseline stays frozen.
+
+The finer cached review favors **55% semantic / 45% lexical, RRF c=30,
+depth=100** as a balanced candidate, **not yet a promoted baseline**.
+It preserves every original known-item target rank (MRR 0.980), with overall
+nDCG 0.7106, P@10 0.689 and source MRR 0.6459. Keyword source MRR still
+decreases versus the original control, despite improved keyword graded relevance.
+The 60%/c60 option has slightly higher nDCG but weaker exact-target performance.
+All four finalists have complete top-10 coverage on the same frozen snapshot.
+Reproducible scorecards, paired intervals, all source-rank changes and largest
+gain/loss evidence are in `data/results/fusion-review-dev/`.
+See [the pre-promotion findings](docs/03-findings.md#20-pre-promotion-review-of-the-55c30-candidate)
+for the remaining tradeoffs; no held-out test evaluation has been run.
 
 ## Folders
 
