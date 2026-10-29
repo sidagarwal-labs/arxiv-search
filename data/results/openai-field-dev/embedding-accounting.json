@@ -1,0 +1,14 @@
+{
+  "candidate_documents": 7644,
+  "dimensions": 3072,
+  "embedding_tokens_estimate": 2081960,
+  "field_inputs": 15288,
+  "judge_calls": 0,
+  "model": "text-embedding-3-large",
+  "new_accounted_usd": 0.2706548,
+  "shared_lifetime_accounting": {
+    "accounted_usd": 1.01450596,
+    "api_seconds": 1047.239601600084,
+    "requests": 605
+  }
+}

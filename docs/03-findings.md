@@ -1417,3 +1417,120 @@ silently promote a tied no-op or proceed to an LLM reranker as though the
 cross-encoder had shown a general win. A targeted author-input/domain-fit
 follow-up or an independent dev set are reasonable next decisions, not
 results established by this experiment.
+
+## 26. OpenAI-large title/abstract candidate experiment
+
+Sid approved the candidate-only embedding cost after correctly distinguishing
+our local GTE field test from a test of the selected OpenAI representation
+([Decision38](02-decisions.md#38-openai-large-candidate-field-embeddings-approved-2026-10-29)).
+All7,644 unique papers in the frozen Decision36 top100 were embedded twice:
+title alone and abstract alone. Queries and combined-title/abstract vectors
+were reused from the original full-run cache. Same `text-embedding-3-large`,
+3072 normalized dimensions,100 dev queries, no full text or held-out test.
+
+### Pure semantic test: field separation helps a weaker control
+
+Eight settings were fixed before outcomes: combined-text cosine and separate
+25/50/75% title cosine weights, each reordering the existing top10 or all100.
+There is no rank blend to hide top10 changes. Candidate membership is fixed.
+
+| Existing top10 ordering signal | nDCG10 | Source MRR10 | R10 / R20 |
+|---|---:|---:|---|
+| Approved lexical/semantic baseline | 0.7176 | 0.6967 | .86 / .89 |
+| Combined-text OpenAI cosine | 0.6903 | 0.6088 | .86 / .89 |
+| Separate fields,25% title | 0.7011 | 0.6303 | .86 / .89 |
+| Separate fields,50% title | 0.6903 | 0.6039 | .86 / .89 |
+| Separate fields,75% title | 0.6808 | 0.5720 | .86 / .89 |
+
+These are fully judged comparisons. The25%-title setting improves nDCG over
+the same-model combined-text control by**+0.0108**, CI[+0.0013,+0.0203].
+It still trails the stronger approved hybrid baseline by-0.0165,
+CI[-0.0287,-0.0038]. This distinction matters: better field representation
+does not mean discarding lexical evidence improves the full system.
+
+Pure combined cosine over100 is fully judged at nDCG.6438, MRR.5993 and
+R10/20 .82/.88. The three separate-field top100 settings have397 unique
+missing top10 judgments collectively, so their graded conclusions and paired
+intervals remain withheld. Their source R10s are.81/.81/.79; none passes
+the frozen.86 recall guardrail. No labeling was purchased.
+
+### Cached hybrid follow-up: a small challenger, not a promotion
+
+The pure-semantic results prompted a distinct, preregistered cached follow-up
+rather than changing the completed experiment. Restore the selected
+**25% lexical /75% semantic** magnitude blend, substitute the same four
+semantic field recipes, and test the same10/100 prefixes.
+
+Each input is divided by its maximum over the frozen100 candidates. Original
+BM25 includes author and title2x evidence; absence from its saved positive
+top500 input contributes0. Cosine fields are scored for every candidate.
+This is not exactly the historical depth500 score-fusion control: candidate
+normalization and the absence of semantic top500 truncation can change scores.
+The same-recipe combined control is therefore included, not assumed equal.
+It changes just one query's top10 order and no source ranks.
+
+| Hybrid ordering recipe, top10 only | nDCG10 | Source MRR10 | Grade0 first |
+|---|---:|---:|---:|
+| Approved baseline | 0.7176 | 0.6967 | 4 |
+| Combined-text control | 0.7175 | 0.6967 | 4 |
+| Separate fields,25% title | **0.7204** | **0.7047** | **3** |
+| Separate fields,50% title | 0.7126 | 0.6789 | 5 |
+| Separate fields,75% title | 0.7025 | 0.6551 | 7 |
+
+All top10-only recipes are fully judged; P10 remains.689 and R10/20 remains
+.86/.89 by construction. The25%-title hybrid is the highest mean nDCG
+challenger in the refreshed leaderboard, but fails promotion screening:
+
+- nDCG delta**+0.002803**, CI**[-0.001905,+0.007803]** crosses zero:
+  47 wins /40 losses /13 ties.
+- Source MRR delta+0.007917, CI[-0.023975,+0.036971] also crosses zero:
+  7 wins /9 losses /84 ties.
+- All25 known-item source ranks are individually unchanged.
+- Paraphrase mean nDCG and MRR decline even though the other segments improve.
+- Grade0 first results decrease4->3. This is measured, not a guaranteed property.
+
+| Segment | Baseline nDCG | Challenger nDCG | Baseline source MRR | Challenger source MRR |
+|---|---:|---:|---:|---:|
+| Keyword | .7385 | .7449 | .7202 | .7461 |
+| Known item | .7183 | .7237 | .9800 | .9800 |
+| Paraphrase | .6858 | .6811 | .4984 | .4675 |
+| Question | .7277 | .7317 | .5883 | .6250 |
+
+Over100 candidates, the25%-title hybrid has source MRR.7012 and R10/20
+.83/.84, versus baseline.86/.89. It has incomplete graded coverage.
+Across the hybrid family,141 unique new top10 pairs need judgments. These
+overlap the pure-semantic label gaps; do not add the two counts as a unique
+labeling budget. No new grades were collected or silently assigned.
+
+**Decision: keep Decision36.** Separate OpenAI fields do show a useful
+same-model semantic effect, and a modest mean gain when lexical evidence is
+retained. They do not establish an overall reliable improvement under our
+screening rules. Higher title weights are not a recovery. Do not promote
+solely because this row sorts first by mean nDCG.
+
+### Cost, caching and reproducibility
+
+- New document-field input tokens: **2,081,960**.
+- New embedding requests: **240**; no automatic retries.
+- Local accounted cost at the stored$0.13/M rate: **$0.2706548**,
+  below the$0.30 task ceiling. This is not a guarantee of provider billing.
+- Shared full-run embedding ledger: **$1.01450596 / $1.25**,
+  leaving approximately**$0.23549**; pilot spending is separate.
+- First embedding/scoring invocation took435.8 seconds (about7.3 minutes).
+  Full cached replay took2.9 seconds, with the paid request function disabled
+  and ledger totals verified unchanged.
+- Hybrid follow-up uses cached scalar scores only: **zero new embedding or
+  judge requests**. No OpenAI text-judge tokens were consumed.
+
+The baseline, candidate texts, query vectors, label bytes and human overrides
+remain frozen. Plans and provenance refuse changed inputs under the same
+identity. Completed field experiments refuse silent paid cache repair.
+Reproduce the preflight with
+`python -m arxiv_search.evaluate.openai_field_experiment`; add `--run` to
+replay cached vectors or execute explicitly approved missing embeddings.
+Run `python -m arxiv_search.evaluate.openai_field_hybrid` for the cached
+follow-up. Broader-pool metrics remain provisional until separately approved
+labeling, and repeated dev selection limits generalization claims.
+
+Reports: [pure semantic fields](../data/results/openai-field-dev/report.md)
+and [field-aware hybrid](../data/results/openai-field-hybrid-dev/report.md).

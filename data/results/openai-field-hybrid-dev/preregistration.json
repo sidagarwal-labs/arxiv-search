@@ -1,0 +1,57 @@
+{
+  "automatic_embedding_calls": false,
+  "automatic_promotion": false,
+  "baseline": "fusion-shortlist+a=1+d=500",
+  "budget": {
+    "ledger": "data/openai/embedding-full-large.sqlite3",
+    "maximum_new_accounted_usd": 0.3,
+    "no_retries": true,
+    "shared_lifetime_usd": 1.25,
+    "unknown_attempts_keep_reservations": true
+  },
+  "candidates": "Exactly frozen Decision36 top100 per dev query; no retrieval/source injection.",
+  "controls": "Same OpenAI model/dimensions/query vectors for concat and separate; concat document vectors and dev query vectors reused from full-run cache.",
+  "dimensions": 3072,
+  "followup": "Prespecified after pure-semantic outcomes; distinct experiment identity. Exploratory cached-score follow-up, not independent confirmation.",
+  "hypothesis": "Field separation can help same-model semantic ordering; retaining lexical evidence may close the gap to the current hybrid baseline.",
+  "interpretation": "Candidate reranking, not field-specific full-corpus retrieval. Exploratory dev results conditional on current labels.",
+  "labels": "Frozen shared snapshot including human overrides; no judge API calls. Incomplete graded comparisons withheld; source comparisons remain valid.",
+  "model": "text-embedding-3-large",
+  "primary_metric": "ndcg@10",
+  "scope": "100 dev queries only; body=abstract, no full text; no held-out test.",
+  "scoring": "25% candidate-max-normalized original BM25 (including authors/title2x) +75% candidate-max-normalized semantic score, where semantic is concat cosine or t*title_cosine+(1-t)*abstract_cosine. Same candidate100 normalization for every setting, fixed weights, baseline ties. Reorder prefixes10/100.",
+  "settings": {
+    "oai-field-hybrid+text=concat+d=10": {
+      "depth": 10,
+      "title_weight": null
+    },
+    "oai-field-hybrid+text=concat+d=100": {
+      "depth": 100,
+      "title_weight": null
+    },
+    "oai-field-hybrid+text=title25+d=10": {
+      "depth": 10,
+      "title_weight": 0.25
+    },
+    "oai-field-hybrid+text=title25+d=100": {
+      "depth": 100,
+      "title_weight": 0.25
+    },
+    "oai-field-hybrid+text=title50+d=10": {
+      "depth": 10,
+      "title_weight": 0.5
+    },
+    "oai-field-hybrid+text=title50+d=100": {
+      "depth": 100,
+      "title_weight": 0.5
+    },
+    "oai-field-hybrid+text=title75+d=10": {
+      "depth": 10,
+      "title_weight": 0.75
+    },
+    "oai-field-hybrid+text=title75+d=100": {
+      "depth": 100,
+      "title_weight": 0.75
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "automatic_promotion": false,
+  "baseline": "fusion-shortlist+a=1+d=500",
+  "budget": {
+    "ledger": "data/openai/embedding-full-large.sqlite3",
+    "maximum_new_accounted_usd": 0.3,
+    "no_retries": true,
+    "shared_lifetime_usd": 1.25,
+    "unknown_attempts_keep_reservations": true
+  },
+  "candidates": "Exactly frozen Decision36 top100 per dev query; no retrieval/source injection.",
+  "controls": "Same OpenAI model/dimensions/query vectors for concat and separate; concat document vectors and dev query vectors reused from full-run cache.",
+  "dimensions": 3072,
+  "hypothesis": "Separate OpenAI-large title/abstract representations improve candidate ordering compared with same-model concatenated document embeddings.",
+  "interpretation": "Candidate reranking, not field-specific full-corpus retrieval. Exploratory dev results conditional on current labels.",
+  "labels": "Frozen shared snapshot including human overrides; no judge API calls. Incomplete graded comparisons withheld; source comparisons remain valid.",
+  "model": "text-embedding-3-large",
+  "primary_metric": "ndcg@10",
+  "scope": "100 dev queries only; body=abstract, no full text; no held-out test.",
+  "scoring": "Pure cosine for concat; t*cos(query,title)+(1-t)*cos(query,abstract) for fields. Unit3072vectors, no baseline blending, stable baseline ties.",
+  "settings": {
+    "oai-field+text=concat+d=10": {
+      "depth": 10,
+      "title_weight": null
+    },
+    "oai-field+text=concat+d=100": {
+      "depth": 100,
+      "title_weight": null
+    },
+    "oai-field+text=title25+d=10": {
+      "depth": 10,
+      "title_weight": 0.25
+    },
+    "oai-field+text=title25+d=100": {
+      "depth": 100,
+      "title_weight": 0.25
+    },
+    "oai-field+text=title50+d=10": {
+      "depth": 10,
+      "title_weight": 0.5
+    },
+    "oai-field+text=title50+d=100": {
+      "depth": 100,
+      "title_weight": 0.5
+    },
+    "oai-field+text=title75+d=10": {
+      "depth": 10,
+      "title_weight": 0.75
+    },
+    "oai-field+text=title75+d=100": {
+      "depth": 100,
+      "title_weight": 0.75
+    }
+  }
+}

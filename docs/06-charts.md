@@ -37,17 +37,17 @@ xychart-beta
     title "Latest dev leaderboard nDCG@10"
     x-axis [L1, L2, L3, L4, L5, L6]
     y-axis "nDCG@10" 0 --> 1
-    bar [0.7197, 0.7176, 0.7176, 0.7176, 0.7176, 0.7176]
+    bar [0.7204, 0.7197, 0.7192, 0.7176, 0.7176, 0.7176]
 ```
 
 | Chart key / rank | Ranker | nDCG@10 | Source MRR@10 | R@10 | Status |
 |---|---|---|---|---|---|
-| L1 / #1 | Max-normalized scores; 75% semantic / 25% lexical; depth 500 | 0.7197 | 0.6916 | 82% | experiment / control |
-| L2 / #2 | concatenated title + abstract control; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | 0.7176 | 0.6967 | 86% | experiment / control |
-| L3 / #3 | separate title 25% / abstract 75%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | 0.7176 | 0.6967 | 86% | experiment / control |
-| L4 / #4 | separate title 50% / abstract 50%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | 0.7176 | 0.6967 | 86% | experiment / control |
-| L5 / #5 | separate title 75% / abstract 25%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | 0.7176 | 0.6967 | 86% | experiment / control |
-| L6 / #6 | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail | 0.7176 | 0.6967 | 86% | **APPROVED BASELINE** |
+| L1 / #1 | separate title 25% / abstract 75%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail | 0.7204 | 0.7047 | 86% | experiment / control |
+| L2 / #2 | Max-normalized scores; 75% semantic / 25% lexical; depth 500 | 0.7197 | 0.6916 | 82% | experiment / control |
+| L3 / #3 | concatenated title + abstract control; max-score25% lexical / 75% field semantic; reorder baseline top100 only, preserve tail | 0.7192 | 0.6916 | 82% | experiment / control |
+| L4 / #4 | concatenated title + abstract control; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | 0.7176 | 0.6967 | 86% | experiment / control |
+| L5 / #5 | separate title 25% / abstract 75%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | 0.7176 | 0.6967 | 86% | experiment / control |
+| L6 / #8 | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail | 0.7176 | 0.6967 | 86% | **APPROVED BASELINE** |
 
 ## Where the next big jump would have to come from
 

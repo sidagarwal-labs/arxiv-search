@@ -481,6 +481,39 @@ untouched. Incomplete top10s remain unranked diagnostics with graded comparisons
 withheld. Paid embeddings or extra relevance labeling need a separate cost
 estimate and approval. LLM reranking and a new dev set remain later decisions.
 
+## #38 OpenAI-large candidate field embeddings approved (2026-10-29)
+
+Sid approved the candidate-only follow-up after the local GTE experiment:
+embed titles and abstracts separately for the7,644 unique papers in
+Decision36's100 candidates per dev query. This tests the selected embedding
+model directly rather than extrapolating from a cheaper local model.
+
+Use the same `text-embedding-3-large`,3072 dimensions, normalized vectors and
+cached dev query vectors. The combined-title/abstract control reuses original
+full-run vectors. Eight settings are frozen before outcomes: combined control
+and25/50/75% title cosine weights, each reordering only baseline top10 or top100.
+No baseline-rank blend masks the field effect. Papers outside those100 cannot
+enter; source IDs and relevance labels do not affect scoring.
+
+The approved estimate is about$0.27. A$0.30 task ceiling and the existing shared
+$1.25 lifetime embedding ledger both apply. The preflight reserves about$0.287
+including conservative token headroom; unknown attempts retain reservations and
+there are no automatic retries. Text, model and dimensions identify cached
+vectors; reruns reuse them.
+
+This approval does not include full-corpus field retrieval or new relevance
+judging. Top10-only comparisons already have complete labels; broader top100
+selection may be provisional. Human overrides and held-out300 remain unchanged.
+Decision36 stays the baseline unless a later explicit promotion is approved.
+
+After seeing the pure-semantic outcomes, a distinct cached-only follow-up
+retains the25% lexical /75% semantic blend and substitutes the field cosines,
+with candidate100 max normalization and the same top10/100 scopes. It has
+separate identities, plan and input provenance; no further embedding/judging
+spend. Its25%-title top10 variant is a challenger, not a promotion:
+mean nDCG improves but its paired interval crosses zero and paraphrase
+quality declines. See [the complete findings](03-findings.md#26-openai-large-titleabstract-candidate-experiment).
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

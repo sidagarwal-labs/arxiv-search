@@ -1,0 +1,9 @@
+{
+  "baseline_sha256": "df2f96e135cbfa216b6ea2aa14aae484ecc6cbec07ca5676a4fefc594b488135",
+  "label_snapshot": "score-fusion-dev/labels.json",
+  "labels_bytes_sha256": "9ea51e45ea7c5329a90f3021516fd143049894440c47b50cdafbc6eb543fc32a",
+  "lexical_inputs_sha256": "f8c4ea47d4a37b2beab2f6ae03af0ae71d8c93995f2f5436fe42241a60f9d828",
+  "parent_manifest_sha256": "7e2ad1118b490bcc670305278ae8cb506d81c4d83d6ad47ed4c8e1855e0024ca",
+  "parent_report_sha256": "283f3d46dd5835df7a0aee23f8208b008f146b5f3379877dee5959982baac953",
+  "raw_field_scores_sha256": "25eaa8cb0d4294543539c33a48594b82f098606a04bb47d0886ecb611db3b1b8"
+}

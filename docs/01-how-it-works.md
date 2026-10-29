@@ -73,6 +73,45 @@ Results, missing judgments, runtime and case evidence are saved under
 No model API, new embeddings API, or relevance-labeling API is called.
 These are experiments; the approved live-search direction remains Decision36.
 
+### OpenAI-large field experiment
+
+[`openai_field_experiment.py`](../arxiv_search/evaluate/openai_field_experiment.py)
+tests whether separating title and abstract helps our selected embedding model.
+It is **not a cross-encoder**: it compares independent query/title/abstract vectors.
+The first experiment used GTE locally; this follow-up keeps the model fixed
+to OpenAI-large,3072 dimensions, including the combined-text control.
+
+Only7,644 papers already present in the frozen baseline100 candidates are
+embedded in two fields. Existing query and combined-document caches are
+read-only. A field score is
+`t*cos(query,title)+(1-t)*cos(query,abstract)`, with title shares25/50/75%.
+One setting uses the original combined-document cosine instead. Each recipe
+reorders either the existing top10 or all100 candidates, with stable baseline
+tie order. This isolates field separation without a conservative baseline-score
+blend hiding changes. No candidate can enter from outside the frozen100.
+
+The CLI defaults to dry-run. `python -m arxiv_search.evaluate.openai_field_experiment`
+validates inputs/caches and reports cost; add `--run` only for approved calls.
+Its$0.30 task ceiling shares the existing$1.25 lifetime embedding ledger.
+Failed or unknown requests keep their reservation; there are no automatic retries.
+Caches bind exact texts, model and dimensions, and completed experiments refuse
+automatic paid repair of missing vectors.
+
+No relevance judging is performed. The top10-only recipes have complete grades;
+top100 recipes can select unjudged papers and must keep graded conclusions
+provisional. Compare separate fields against the same-depth, same-model combined
+control, as well as against Decision36. A gain over pure combined cosine alone
+is not necessarily a gain over the stronger lexical/semantic working baseline.
+
+[`openai_field_hybrid.py`](../arxiv_search/evaluate/openai_field_hybrid.py)
+is a separate cached-score follow-up that keeps lexical evidence:
+25% normalized BM25 +75% normalized semantic field score. It uses the same
+top10/top100 scopes and combined-text controls. Each score is normalized by
+its candidate100 maximum; absent saved lexical-top500 scores contribute zero.
+This module has no embedding or judging execution path. Its plan is saved
+after observing the pure-semantic outcomes, so it is exploratory, not a second
+independent confirmation. Run `python -m arxiv_search.evaluate.openai_field_hybrid`.
+
 ---
 
 ## Step 1: Download (`download.py`)

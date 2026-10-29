@@ -522,6 +522,8 @@ def write_results_doc() -> None:
                           ("cross-encoder-dev", "Local cross-encoder experiments (baseline frozen)"),
                           ("field-score-dev", "Title/abstract field-score experiments"),
                           ("field-signal-dev", "Pure semantic field ordering (cached follow-up)"),
+                          ("openai-field-dev", "OpenAI-large candidate title/abstract experiment"),
+                          ("openai-field-hybrid-dev", "OpenAI field-aware hybrid (cached follow-up)"),
                           ("failure-analysis", "Frozen baseline failure analysis")):
         report = config.RESULTS_DIR / folder / "report.md"
         if report.exists():

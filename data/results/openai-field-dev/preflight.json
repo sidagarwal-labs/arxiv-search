@@ -1,0 +1,21 @@
+{
+  "candidate_documents": 7644,
+  "field_inputs": 15288,
+  "new_reserved_tokens": {
+    "abstract": 0,
+    "title": 0
+  },
+  "new_reserved_usd": 0.0,
+  "run_enabled": true,
+  "shared_accounting_before": {
+    "accounted_usd": 1.01450596,
+    "api_seconds": 1047.239601600084,
+    "requests": 605
+  },
+  "task_already_accounted_usd": 0.2706548,
+  "task_cap_usd": 0.3,
+  "tokens": {
+    "abstract": 1954724,
+    "title": 127236
+  }
+}

@@ -100,6 +100,11 @@ def test_field_score_names_distinguish_model_and_field_ablation():
     assert "GTE-small" in separate["embedding"]
     assert "top10 only" in separate["ranker"]
     assert "31/(30+rank)" in catalog.describe_system("field-gte-concat")["ranker"]
+    oai = catalog.describe_system("oai-field+text=title25+d=10")
+    assert "OpenAI text-embedding-3-large" in oai["embedding"]
+    assert "title 25% / abstract 75%" in oai["ranker"]
+    assert "top10 only" in oai["ranker"]
+    assert "concatenated" in catalog.describe_system("oai-field+text=concat+d=100")["ranker"]
 
 
 def test_duplicate_conflict_is_an_explicit_error(inputs):

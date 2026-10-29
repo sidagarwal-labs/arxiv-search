@@ -18,7 +18,7 @@ from arxiv_search.evaluate import graded, judge, metrics
 
 RUN_FOLDERS = ("dev", "fusion-dev", "fusion-review-dev", "score-fusion-dev", "refinement-dev",
                "rank-score-dev", "shortlist-score-dev", "cross-encoder-dev", "field-score-dev",
-               "field-signal-dev")
+               "field-signal-dev", "openai-field-dev", "openai-field-hybrid-dev")
 QUERY_TYPES = ("keyword", "question", "paraphrase", "known_item")
 FIELDS = ("ndcg@10", "precision@10", "judged@10", "source_mrr@10",
           "source_recall@1", "source_recall@5", "source_recall@10", "source_recall@20")
@@ -202,6 +202,20 @@ def describe_system(name: str) -> dict[str, str]:
         "gte-small": "GTE-small", "bge-small": "BGE-small",
         "e5-small": "E5-small", "minilm": "MiniLM-L6-v2",
     }
+    if name.startswith(("oai-field+", "oai-field-hybrid+")):
+        opts = dict(p.split("=", 1) for p in name.split("+")[1:])
+        recipe = opts["text"]
+        fields = ("concatenated title + abstract control" if recipe == "concat" else
+                  f"separate title {int(recipe.removeprefix('title'))}% / "
+                  f"abstract {100 - int(recipe.removeprefix('title'))}%")
+        return {
+            "name": "OpenAI-large semantic field ablation",
+            "lexical": "Tuned BM25 candidate retrieval",
+            "embedding": models["openai-large"] + "; same-model query/concat control",
+            "ranker": f"{fields}; " + (
+                "max-score25% lexical / 75% field semantic" if name.startswith("oai-field-hybrid+")
+                else "pure cosine") + f"; reorder baseline top{opts['d']} only, preserve tail",
+        }
     if name.startswith("field-"):
         opts = dict(p.split("=", 1) for p in name.split("+")[1:])
         lexical = name.startswith("field-lexical")

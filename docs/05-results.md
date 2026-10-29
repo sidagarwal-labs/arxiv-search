@@ -8,7 +8,7 @@
 
 ## Dev leaderboard: all experiments
 
-154 distinct saved systems; 100 dev queries; current corpus: 23,304 papers. **Working baseline: `fusion-shortlist+a=1+d=500`**. **Success score = nDCG@10**, descending using unrounded means; exact ties use stable system ID. Only fully judged runs with defined nDCG receive positions. The baseline stays at its actual position, not pinned first. Provisional runs appear separately, unranked. A leaderboard lead is not automatic baseline promotion.
+170 distinct saved systems; 100 dev queries; current corpus: 23,304 papers. **Working baseline: `fusion-shortlist+a=1+d=500`**. **Success score = nDCG@10**, descending using unrounded means; exact ties use stable system ID. Only fully judged runs with defined nDCG receive positions. The baseline stays at its actual position, not pinned first. Provisional runs appear separately, unranked. A leaderboard lead is not automatic baseline promotion.
 
 **Technique guide:** Embedding identifies the vector model; Ranker / fusion identifies how retrieval results are ordered, not a separate LLM reranker. Tuned BM25 means exact terms + stems, authors, title x2, k1=0.8, b=0.75, no stopword removal. RRF uses reciprocal ranks; score fusion combines normalized BM25/cosine values. Depth is candidates per retriever, not final results. Frozen aliases can represent identical rankings under different experiment IDs. Readable names are presentation only: original IDs and files are preserved below.
 
@@ -22,101 +22,111 @@ All graded scores are recomputed from the **same immutable `score-fusion-dev/lab
 
 | Rank | System | Keyword retrieval | Embedding | Ranker / fusion | Status | Success: nDCG@10 (n) | P@10 | judged@10 | Source MRR@10 | R@1 | R@5 | R@10 | R@20 | Known-item MRR@10 | Δ nDCG vs working baseline [95% CI] |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 75% semantic / 25% lexical; depth 500 | covered | 0.7197 (100) | 0.697 | 1.000 | 0.692 | 0.610 | 0.800 | 0.820 | 0.840 | 0.980 | +0.002 [-0.007, +0.012] |
-| 2 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | concatenated title + abstract control; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | +0.000 [+0.000, +0.000] |
-| 3 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 25% / abstract 75%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | +0.000 [+0.000, +0.000] |
-| 4 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 50% / abstract 50%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | +0.000 [+0.000, +0.000] |
-| 5 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 75% / abstract 25%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | +0.000 [+0.000, +0.000] |
-| 6 | **Fixed-shortlist score ordering (WORKING BASELINE)** | Tuned BM25 | OpenAI text-embedding-3-large | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | withheld: working baseline itself |
-| 7 | Fixed-shortlist score ordering | Tuned BM25 | OpenAI text-embedding-3-large | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 100; preserve tail | covered | 0.7138 (100) | 0.689 | 1.000 | 0.674 | 0.590 | 0.770 | 0.860 | 0.890 | 0.980 | -0.004 [-0.010, +0.001] |
-| 8 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 75% semantic / 25% lexical; depth 100 | covered | 0.7111 (100) | 0.686 | 1.000 | 0.668 | 0.590 | 0.760 | 0.820 | 0.870 | 0.980 | -0.006 [-0.018, +0.005] |
-| 9 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 75% max-score75% + 25% normalized RRF55%/c30/d100; score depth 100 | covered | 0.7108 (100) | 0.691 | 1.000 | 0.665 | 0.580 | 0.760 | 0.840 | 0.870 | 0.980 | -0.007 [-0.018, +0.004] |
-| 10 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 60% semantic / 40% lexical; depth 100 | covered | 0.7097 (100) | 0.700 | 1.000 | 0.630 | 0.530 | 0.760 | 0.830 | 0.870 | 0.953 | -0.008 [-0.019, +0.005] |
-| 11 | Fixed-shortlist score ordering | Tuned BM25 | OpenAI text-embedding-3-large | 50% max-score75% + 50% normalized RRF55%/c30/d100; score depth 500; reorder baseline top10 only, preserve tail | covered | 0.7071 (100) | 0.689 | 1.000 | 0.652 | 0.550 | 0.770 | 0.860 | 0.890 | 0.980 | -0.010 [-0.017, -0.004] |
-| 12 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 25% max-score75% + 75% normalized RRF55%/c30/d100; score depth 100 | covered | 0.7071 (100) | 0.692 | 1.000 | 0.646 | 0.550 | 0.770 | 0.850 | 0.880 | 0.980 | -0.010 [-0.019, -0.002] |
-| 13 | Fixed-shortlist score ordering | Tuned BM25 | OpenAI text-embedding-3-large | 50% max-score75% + 50% normalized RRF55%/c30/d100; score depth 100; reorder baseline top10 only, preserve tail | covered | 0.7070 (100) | 0.689 | 1.000 | 0.650 | 0.550 | 0.770 | 0.860 | 0.890 | 0.980 | -0.011 [-0.018, -0.004] |
-| 14 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 50% max-score75% + 50% normalized RRF55%/c30/d100; score depth 500 | covered | 0.7067 (100) | 0.690 | 1.000 | 0.650 | 0.550 | 0.770 | 0.850 | 0.870 | 0.980 | -0.011 [-0.021, -0.002] |
-| 15 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 50% max-score75% + 50% normalized RRF55%/c30/d100; score depth 100 | covered | 0.7066 (100) | 0.691 | 1.000 | 0.649 | 0.550 | 0.770 | 0.850 | 0.880 | 0.980 | -0.011 [-0.020, -0.001] |
-| 16 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 55% semantic / 45% lexical; depth 100 | covered | 0.7064 (100) | 0.689 | 1.000 | 0.646 | 0.550 | 0.760 | 0.860 | 0.890 | 0.980 | -0.011 [-0.019, -0.004] |
-| 17 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 65% semantic / 35% lexical; depth 100 | covered | 0.7063 (100) | 0.694 | 1.000 | 0.626 | 0.520 | 0.770 | 0.840 | 0.890 | 0.953 | -0.011 [-0.024, +0.001] |
-| 18 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 55% semantic / 45% lexical; depth 200 | covered | 0.7058 (100) | 0.691 | 1.000 | 0.639 | 0.540 | 0.750 | 0.840 | 0.880 | 0.980 | -0.012 [-0.021, -0.003] |
-| 19 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | concatenated title + abstract control; pure semantic field score; reorder baseline top10 only, preserve tail | covered | 0.7057 (100) | 0.689 | 1.000 | 0.622 | 0.510 | 0.780 | 0.860 | 0.890 | 0.801 | -0.012 [-0.024, -0.000] |
-| 20 | Lexical field-score ablation | Independent BM25 fields; 10% authors | OpenAI large candidate retrieval | separate title 25% / abstract 75%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7056 (100) | 0.686 | 1.000 | 0.670 | 0.580 | 0.810 | 0.850 | 0.880 | 0.980 | -0.012 [-0.023, -0.002] |
-| 21 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 75% semantic / 25% lexical; depth 100 | covered | 0.7052 (100) | 0.690 | 1.000 | 0.618 | 0.520 | 0.770 | 0.840 | 0.890 | 0.943 | -0.012 [-0.025, -0.000] |
-| 22 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 70% semantic / 30% lexical; depth 100 | covered | 0.7051 (100) | 0.687 | 1.000 | 0.627 | 0.530 | 0.760 | 0.840 | 0.890 | 0.950 | -0.012 [-0.023, -0.001] |
-| 23 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 25% max-score75% + 75% normalized RRF55%/c30/d100; score depth 500 | covered | 0.7050 (100) | 0.690 | 1.000 | 0.646 | 0.550 | 0.760 | 0.850 | 0.880 | 0.980 | -0.013 [-0.021, -0.005] |
-| 24 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30 + 10% top-1 bonus; 55% semantic / 45% lexical; depth 100 | covered | 0.7048 (100) | 0.689 | 1.000 | 0.653 | 0.560 | 0.790 | 0.850 | 0.890 | 0.980 | -0.013 [-0.020, -0.005] |
-| 25 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 60% semantic / 40% lexical; depth 100 | covered | 0.7041 (100) | 0.688 | 1.000 | 0.636 | 0.530 | 0.790 | 0.860 | 0.890 | 0.953 | -0.013 [-0.023, -0.005] |
-| 26 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 55% semantic / 45% lexical; depth 100 | covered | 0.7039 (100) | 0.695 | 1.000 | 0.627 | 0.530 | 0.740 | 0.820 | 0.870 | 0.960 | -0.014 [-0.027, +0.000] |
-| 27 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 25% / abstract 75%; pure semantic field score; reorder baseline top10 only, preserve tail | covered | 0.7038 (100) | 0.689 | 1.000 | 0.621 | 0.510 | 0.780 | 0.860 | 0.890 | 0.781 | -0.014 [-0.026, -0.002] |
-| 28 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 55% semantic / 45% lexical; depth 500 | covered | 0.7035 (100) | 0.690 | 1.000 | 0.640 | 0.540 | 0.760 | 0.840 | 0.880 | 0.980 | -0.014 [-0.024, -0.004] |
-| 29 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 65% semantic / 35% lexical; depth 100 | covered | 0.7031 (100) | 0.685 | 1.000 | 0.640 | 0.540 | 0.780 | 0.850 | 0.890 | 0.953 | -0.014 [-0.026, -0.004] |
-| 30 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 55% semantic / 45% lexical; depth 500 | covered | 0.7030 (100) | 0.674 | 1.000 | 0.684 | 0.590 | 0.790 | 0.840 | 0.880 | 0.980 | -0.015 [-0.025, -0.005] |
-| 31 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 75% semantic / 25% lexical; depth 100 | covered | 0.7028 (100) | 0.685 | 1.000 | 0.624 | 0.530 | 0.750 | 0.840 | 0.890 | 0.947 | -0.015 [-0.026, -0.003] |
-| 32 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30 + 25% top-1 bonus; 55% semantic / 45% lexical; depth 100 | covered | 0.7022 (100) | 0.687 | 1.000 | 0.653 | 0.560 | 0.790 | 0.850 | 0.890 | 0.980 | -0.015 [-0.024, -0.006] |
-| 33 | Local cross-encoder reranking | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large candidate retrieval | MiniLM-L6 cross-encoder raw logits; reorder current baseline top10 only, preserve tail | covered | 0.7021 (100) | 0.689 | 1.000 | 0.659 | 0.570 | 0.790 | 0.860 | 0.890 | 0.933 | -0.015 [-0.028, -0.004] |
-| 34 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 75% semantic / 25% lexical; depth 100 | covered | 0.7019 (100) | 0.680 | 1.000 | 0.630 | 0.540 | 0.770 | 0.840 | 0.890 | 0.943 | -0.016 [-0.027, -0.004] |
-| 35 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 55% semantic / 45% lexical; depth 100 | covered | 0.6994 (100) | 0.686 | 1.000 | 0.656 | 0.570 | 0.760 | 0.790 | 0.860 | 0.980 | -0.018 [-0.034, -0.001] |
-| 36 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 70% semantic / 30% lexical; depth 100 | covered | 0.6969 (100) | 0.676 | 1.000 | 0.642 | 0.540 | 0.800 | 0.860 | 0.900 | 0.950 | -0.021 [-0.035, -0.007] |
-| 37 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 75% semantic / 25% lexical; depth 50 | covered | 0.6963 (100) | 0.686 | 1.000 | 0.617 | 0.520 | 0.760 | 0.840 | 0.890 | 0.947 | -0.021 [-0.036, -0.008] |
-| 38 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 75% semantic / 25% lexical; depth 500 | covered | 0.6962 (100) | 0.668 | 1.000 | 0.684 | 0.600 | 0.810 | 0.860 | 0.900 | 0.960 | -0.021 [-0.039, -0.006] |
-| 39 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 50% semantic / 50% lexical; depth 100 | covered | 0.6953 (100) | 0.689 | 1.000 | 0.626 | 0.540 | 0.740 | 0.780 | 0.870 | 0.960 | -0.022 [-0.039, -0.005] |
-| 40 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 50% / abstract 50%; pure semantic field score; reorder baseline top10 only, preserve tail | covered | 0.6952 (100) | 0.689 | 1.000 | 0.599 | 0.480 | 0.790 | 0.860 | 0.890 | 0.830 | -0.022 [-0.035, -0.010] |
-| 41 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 75% semantic / 25% lexical; depth 50 | covered | 0.6946 (100) | 0.676 | 1.000 | 0.626 | 0.530 | 0.760 | 0.850 | 0.890 | 0.947 | -0.023 [-0.037, -0.010] |
-| 42 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 75% semantic / 25% lexical; depth 100 | covered | 0.6937 (100) | 0.668 | 1.000 | 0.644 | 0.550 | 0.810 | 0.870 | 0.900 | 0.943 | -0.024 [-0.040, -0.008] |
-| 43 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 50% semantic / 50% lexical; depth 100 | covered | 0.6924 (100) | 0.689 | 1.000 | 0.627 | 0.540 | 0.740 | 0.770 | 0.840 | 0.960 | -0.025 [-0.042, -0.008] |
-| 44 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 50% semantic / 50% lexical; depth 100 | covered | 0.6917 (100) | 0.673 | 1.000 | 0.646 | 0.560 | 0.740 | 0.840 | 0.890 | 0.980 | -0.026 [-0.039, -0.013] |
-| 45 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 50% semantic / 50% lexical; depth 100 | covered | 0.6902 (100) | 0.684 | 1.000 | 0.627 | 0.540 | 0.740 | 0.790 | 0.880 | 0.960 | -0.027 [-0.042, -0.012] |
-| 46 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 55% semantic / 45% lexical; depth 500 | covered | 0.6874 (100) | 0.670 | 1.000 | 0.657 | 0.570 | 0.760 | 0.810 | 0.840 | 0.980 | -0.030 [-0.049, -0.012] |
-| 47 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 60% semantic / 40% lexical; depth 100 | covered | 0.6868 (100) | 0.661 | 1.000 | 0.655 | 0.540 | 0.820 | 0.870 | 0.890 | 0.953 | -0.031 [-0.047, -0.016] |
-| 48 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 75% semantic / 25% lexical; depth 50 | covered | 0.6861 (100) | 0.664 | 1.000 | 0.632 | 0.530 | 0.780 | 0.870 | 0.890 | 0.947 | -0.031 [-0.049, -0.014] |
-| 49 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 55% semantic / 45% lexical; depth 100 | covered | 0.6853 (100) | 0.647 | 1.000 | 0.690 | 0.590 | 0.820 | 0.850 | 0.900 | 0.980 | -0.032 [-0.048, -0.018] |
-| 50 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 65% semantic / 35% lexical; depth 100 | covered | 0.6843 (100) | 0.662 | 1.000 | 0.648 | 0.540 | 0.800 | 0.870 | 0.890 | 0.953 | -0.033 [-0.052, -0.017] |
-| 51 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 70% semantic / 30% lexical; depth 100 | covered | 0.6804 (100) | 0.656 | 1.000 | 0.647 | 0.540 | 0.790 | 0.860 | 0.900 | 0.950 | -0.037 [-0.057, -0.020] |
-| 52 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 55% semantic / 45% lexical; depth 100 | covered | 0.6803 (100) | 0.652 | 1.000 | 0.658 | 0.550 | 0.820 | 0.860 | 0.900 | 0.980 | -0.037 [-0.052, -0.024] |
-| 53 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 75% semantic / 25% lexical; depth 100 | covered | 0.6791 (100) | 0.651 | 1.000 | 0.671 | 0.590 | 0.810 | 0.860 | 0.900 | 0.950 | -0.039 [-0.059, -0.019] |
-| 54 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 50% semantic / 50% lexical; depth 50 | covered | 0.6781 (100) | 0.660 | 1.000 | 0.630 | 0.540 | 0.740 | 0.830 | 0.890 | 0.960 | -0.039 [-0.055, -0.024] |
-| 55 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 75% semantic / 25% lexical; depth 20 | covered | 0.6775 (100) | 0.658 | 1.000 | 0.625 | 0.520 | 0.760 | 0.850 | 0.880 | 0.947 | -0.040 [-0.061, -0.021] |
-| 56 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 75% semantic / 25% lexical; depth 20 | covered | 0.6775 (100) | 0.658 | 1.000 | 0.625 | 0.520 | 0.760 | 0.850 | 0.880 | 0.947 | -0.040 [-0.061, -0.021] |
-| 57 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 75% / abstract 25%; pure semantic field score; reorder baseline top10 only, preserve tail | covered | 0.6767 (100) | 0.689 | 1.000 | 0.527 | 0.390 | 0.760 | 0.860 | 0.890 | 0.791 | -0.041 [-0.056, -0.026] |
-| 58 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 50% semantic / 50% lexical; depth 50 | covered | 0.6764 (100) | 0.659 | 1.000 | 0.630 | 0.540 | 0.740 | 0.820 | 0.890 | 0.960 | -0.041 [-0.057, -0.026] |
-| 59 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 75% semantic / 25% lexical; depth 100 | covered | 0.6762 (100) | 0.651 | 1.000 | 0.654 | 0.560 | 0.770 | 0.860 | 0.900 | 0.940 | -0.041 [-0.063, -0.022] |
-| 60 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 75% semantic / 25% lexical; depth 50 | covered | 0.6752 (100) | 0.648 | 1.000 | 0.658 | 0.570 | 0.770 | 0.860 | 0.890 | 0.940 | -0.042 [-0.064, -0.022] |
-| 61 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 35% semantic / 65% lexical; depth 100 | covered | 0.6742 (100) | 0.670 | 1.000 | 0.636 | 0.560 | 0.730 | 0.750 | 0.780 | 1.000 | -0.043 [-0.065, -0.023] |
-| 62 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 50% semantic / 50% lexical; depth 50 | covered | 0.6729 (100) | 0.652 | 1.000 | 0.633 | 0.540 | 0.750 | 0.830 | 0.900 | 0.960 | -0.045 [-0.061, -0.030] |
-| 63 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 75% semantic / 25% lexical; depth 20 | covered | 0.6728 (100) | 0.645 | 1.000 | 0.658 | 0.570 | 0.760 | 0.850 | 0.880 | 0.947 | -0.045 [-0.067, -0.025] |
-| 64 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 75% semantic / 25% lexical; depth 20 | covered | 0.6661 (100) | 0.636 | 1.000 | 0.642 | 0.550 | 0.760 | 0.820 | 0.890 | 0.933 | -0.052 [-0.076, -0.029] |
-| 65 | Original hybrid control | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6604 (100) | 0.633 | 1.000 | 0.653 | 0.560 | 0.800 | 0.840 | 0.900 | 0.980 | -0.057 [-0.074, -0.041] |
-| 66 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6604 (100) | 0.633 | 1.000 | 0.653 | 0.560 | 0.800 | 0.840 | 0.900 | 0.980 | -0.057 [-0.074, -0.041] |
-| 67 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6604 (100) | 0.633 | 1.000 | 0.653 | 0.560 | 0.800 | 0.840 | 0.900 | 0.980 | -0.057 [-0.074, -0.041] |
-| 68 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 25% semantic / 75% lexical; depth 100 | covered | 0.6594 (100) | 0.646 | 1.000 | 0.630 | 0.560 | 0.720 | 0.750 | 0.790 | 0.980 | -0.058 [-0.082, -0.034] |
-| 69 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 50 | covered | 0.6565 (100) | 0.631 | 1.000 | 0.645 | 0.550 | 0.780 | 0.840 | 0.900 | 0.980 | -0.061 [-0.078, -0.045] |
-| 70 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 25% semantic / 75% lexical; depth 50 | covered | 0.6469 (100) | 0.623 | 1.000 | 0.630 | 0.560 | 0.710 | 0.750 | 0.770 | 0.980 | -0.071 [-0.096, -0.045] |
-| 71 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 35% semantic / 65% lexical; depth 500 | covered | 0.6449 (100) | 0.626 | 1.000 | 0.631 | 0.540 | 0.750 | 0.790 | 0.830 | 1.000 | -0.073 [-0.098, -0.048] |
-| 72 | Embedding search | None | OpenAI text-embedding-3-large | Cosine similarity | covered | 0.6438 (100) | 0.637 | 1.000 | 0.599 | 0.500 | 0.740 | 0.820 | 0.880 | 0.793 | -0.074 [-0.101, -0.048] |
-| 73 | Semantic-only fusion control | None (0% weight) | OpenAI text-embedding-3-large | RRF c=10; depth 100 | covered | 0.6438 (100) | 0.637 | 1.000 | 0.599 | 0.500 | 0.740 | 0.820 | 0.880 | 0.793 | -0.074 [-0.101, -0.048] |
-| 74 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 20 | covered | 0.6437 (100) | 0.615 | 1.000 | 0.639 | 0.540 | 0.800 | 0.840 | 0.890 | 0.980 | -0.074 [-0.094, -0.054] |
-| 75 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 50% semantic / 50% lexical; depth 20 | covered | 0.6435 (100) | 0.619 | 1.000 | 0.627 | 0.530 | 0.780 | 0.840 | 0.890 | 0.960 | -0.074 [-0.095, -0.054] |
-| 76 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 50% semantic / 50% lexical; depth 20 | covered | 0.6435 (100) | 0.619 | 1.000 | 0.628 | 0.530 | 0.780 | 0.840 | 0.890 | 0.960 | -0.074 [-0.095, -0.054] |
-| 77 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 35% semantic / 65% lexical; depth 500 | covered | 0.6373 (100) | 0.635 | 1.000 | 0.619 | 0.540 | 0.720 | 0.770 | 0.800 | 1.000 | -0.080 [-0.110, -0.052] |
-| 78 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 25% semantic / 75% lexical; depth 100 | covered | 0.6371 (100) | 0.614 | 1.000 | 0.636 | 0.570 | 0.720 | 0.740 | 0.770 | 0.980 | -0.080 [-0.108, -0.054] |
-| 79 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 25% semantic / 75% lexical; depth 100 | covered | 0.6332 (100) | 0.618 | 1.000 | 0.626 | 0.560 | 0.720 | 0.740 | 0.780 | 0.980 | -0.084 [-0.112, -0.057] |
-| 80 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 50% semantic / 50% lexical; depth 20 | covered | 0.6321 (100) | 0.605 | 1.000 | 0.635 | 0.530 | 0.800 | 0.840 | 0.890 | 0.960 | -0.085 [-0.107, -0.066] |
-| 81 | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6312 (100) | 0.611 | 1.000 | 0.635 | 0.540 | 0.760 | 0.800 | 0.840 | 0.973 | -0.086 [-0.116, -0.056] |
-| 82 | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6280 (100) | 0.614 | 1.000 | 0.602 | 0.500 | 0.770 | 0.790 | 0.850 | 0.930 | -0.090 [-0.123, -0.061] |
-| 83 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 25% semantic / 75% lexical; depth 50 | covered | 0.6262 (100) | 0.604 | 1.000 | 0.626 | 0.560 | 0.710 | 0.740 | 0.770 | 0.980 | -0.091 [-0.119, -0.064] |
-| 84 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 35% semantic / 65% lexical; depth 100 | covered | 0.6100 (100) | 0.577 | 1.000 | 0.626 | 0.540 | 0.720 | 0.790 | 0.860 | 1.000 | -0.108 [-0.135, -0.083] |
-| 85 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 25% semantic / 75% lexical; depth 50 | covered | 0.5892 (100) | 0.557 | 1.000 | 0.618 | 0.560 | 0.690 | 0.720 | 0.750 | 0.980 | -0.128 [-0.162, -0.094] |
-| 86 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 25% semantic / 75% lexical; depth 20 | covered | 0.5825 (100) | 0.547 | 1.000 | 0.614 | 0.560 | 0.690 | 0.700 | 0.710 | 0.980 | -0.135 [-0.169, -0.099] |
-| 87 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 25% semantic / 75% lexical; depth 20 | covered | 0.5825 (100) | 0.547 | 1.000 | 0.614 | 0.560 | 0.690 | 0.700 | 0.710 | 0.980 | -0.135 [-0.169, -0.099] |
-| 88 | Embedding search | None | GTE-small | Cosine similarity | covered | 0.5811 (100) | 0.581 | 1.000 | 0.525 | 0.430 | 0.660 | 0.710 | 0.780 | 0.633 | -0.136 [-0.175, -0.101] |
-| 89 | Embedding search | None | BGE-small | Cosine similarity | covered | 0.5763 (100) | 0.584 | 1.000 | 0.506 | 0.420 | 0.600 | 0.700 | 0.790 | 0.667 | -0.141 [-0.180, -0.107] |
-| 90 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 25% semantic / 75% lexical; depth 100 | covered | 0.5693 (100) | 0.557 | 1.000 | 0.602 | 0.540 | 0.680 | 0.730 | 0.780 | 0.980 | -0.148 [-0.183, -0.111] |
-| 91 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 25% semantic / 75% lexical; depth 50 | covered | 0.5682 (100) | 0.555 | 1.000 | 0.603 | 0.540 | 0.680 | 0.730 | 0.760 | 0.980 | -0.149 [-0.185, -0.113] |
-| 92 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 25% semantic / 75% lexical; depth 20 | covered | 0.5580 (100) | 0.538 | 1.000 | 0.605 | 0.550 | 0.680 | 0.710 | 0.710 | 0.980 | -0.160 [-0.196, -0.122] |
-| 93 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 25% semantic / 75% lexical; depth 20 | covered | 0.5504 (100) | 0.526 | 1.000 | 0.614 | 0.560 | 0.680 | 0.710 | 0.870 | 0.980 | -0.167 [-0.204, -0.129] |
-| 94 | Keyword search | BM25: exact + stems; authors; title x2; k1=0.8,b=0.75 | None | BM25 score | covered | 0.5187 (100) | 0.512 | 1.000 | 0.569 | 0.510 | 0.660 | 0.710 | 0.710 | 1.000 | -0.199 [-0.239, -0.160] |
-| 95 | Lexical-only fusion control | Tuned BM25 | None (0% weight) | RRF c=10; depth 100 | covered | 0.5187 (100) | 0.512 | 1.000 | 0.569 | 0.510 | 0.660 | 0.710 | 0.710 | 1.000 | -0.199 [-0.239, -0.160] |
+| 1 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 25% / abstract 75%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail | covered | 0.7204 (100) | 0.689 | 1.000 | 0.705 | 0.640 | 0.780 | 0.860 | 0.890 | 0.980 | +0.003 [-0.002, +0.008] |
+| 2 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 75% semantic / 25% lexical; depth 500 | covered | 0.7197 (100) | 0.697 | 1.000 | 0.692 | 0.610 | 0.800 | 0.820 | 0.840 | 0.980 | +0.002 [-0.007, +0.012] |
+| 3 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | concatenated title + abstract control; max-score25% lexical / 75% field semantic; reorder baseline top100 only, preserve tail | covered | 0.7192 (100) | 0.697 | 1.000 | 0.692 | 0.610 | 0.800 | 0.820 | 0.840 | 0.980 | +0.002 [-0.008, +0.012] |
+| 4 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | concatenated title + abstract control; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | +0.000 [+0.000, +0.000] |
+| 5 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 25% / abstract 75%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | +0.000 [+0.000, +0.000] |
+| 6 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 50% / abstract 50%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | +0.000 [+0.000, +0.000] |
+| 7 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 75% / abstract 25%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | +0.000 [+0.000, +0.000] |
+| 8 | **Fixed-shortlist score ordering (WORKING BASELINE)** | Tuned BM25 | OpenAI text-embedding-3-large | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail | covered | 0.7176 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | withheld: working baseline itself |
+| 9 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | concatenated title + abstract control; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail | covered | 0.7175 (100) | 0.689 | 1.000 | 0.697 | 0.610 | 0.800 | 0.860 | 0.890 | 0.980 | -0.000 [-0.000, +0.000] |
+| 10 | Fixed-shortlist score ordering | Tuned BM25 | OpenAI text-embedding-3-large | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 100; preserve tail | covered | 0.7138 (100) | 0.689 | 1.000 | 0.674 | 0.590 | 0.770 | 0.860 | 0.890 | 0.980 | -0.004 [-0.010, +0.001] |
+| 11 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 50% / abstract 50%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail | covered | 0.7126 (100) | 0.689 | 1.000 | 0.679 | 0.600 | 0.760 | 0.860 | 0.890 | 0.980 | -0.005 [-0.014, +0.003] |
+| 12 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 75% semantic / 25% lexical; depth 100 | covered | 0.7111 (100) | 0.686 | 1.000 | 0.668 | 0.590 | 0.760 | 0.820 | 0.870 | 0.980 | -0.006 [-0.018, +0.005] |
+| 13 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 75% max-score75% + 25% normalized RRF55%/c30/d100; score depth 100 | covered | 0.7108 (100) | 0.691 | 1.000 | 0.665 | 0.580 | 0.760 | 0.840 | 0.870 | 0.980 | -0.007 [-0.018, +0.004] |
+| 14 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 60% semantic / 40% lexical; depth 100 | covered | 0.7097 (100) | 0.700 | 1.000 | 0.630 | 0.530 | 0.760 | 0.830 | 0.870 | 0.953 | -0.008 [-0.019, +0.005] |
+| 15 | Fixed-shortlist score ordering | Tuned BM25 | OpenAI text-embedding-3-large | 50% max-score75% + 50% normalized RRF55%/c30/d100; score depth 500; reorder baseline top10 only, preserve tail | covered | 0.7071 (100) | 0.689 | 1.000 | 0.652 | 0.550 | 0.770 | 0.860 | 0.890 | 0.980 | -0.010 [-0.017, -0.004] |
+| 16 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 25% max-score75% + 75% normalized RRF55%/c30/d100; score depth 100 | covered | 0.7071 (100) | 0.692 | 1.000 | 0.646 | 0.550 | 0.770 | 0.850 | 0.880 | 0.980 | -0.010 [-0.019, -0.002] |
+| 17 | Fixed-shortlist score ordering | Tuned BM25 | OpenAI text-embedding-3-large | 50% max-score75% + 50% normalized RRF55%/c30/d100; score depth 100; reorder baseline top10 only, preserve tail | covered | 0.7070 (100) | 0.689 | 1.000 | 0.650 | 0.550 | 0.770 | 0.860 | 0.890 | 0.980 | -0.011 [-0.018, -0.004] |
+| 18 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 50% max-score75% + 50% normalized RRF55%/c30/d100; score depth 500 | covered | 0.7067 (100) | 0.690 | 1.000 | 0.650 | 0.550 | 0.770 | 0.850 | 0.870 | 0.980 | -0.011 [-0.021, -0.002] |
+| 19 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 50% max-score75% + 50% normalized RRF55%/c30/d100; score depth 100 | covered | 0.7066 (100) | 0.691 | 1.000 | 0.649 | 0.550 | 0.770 | 0.850 | 0.880 | 0.980 | -0.011 [-0.020, -0.001] |
+| 20 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 55% semantic / 45% lexical; depth 100 | covered | 0.7064 (100) | 0.689 | 1.000 | 0.646 | 0.550 | 0.760 | 0.860 | 0.890 | 0.980 | -0.011 [-0.019, -0.004] |
+| 21 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 65% semantic / 35% lexical; depth 100 | covered | 0.7063 (100) | 0.694 | 1.000 | 0.626 | 0.520 | 0.770 | 0.840 | 0.890 | 0.953 | -0.011 [-0.024, +0.001] |
+| 22 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 55% semantic / 45% lexical; depth 200 | covered | 0.7058 (100) | 0.691 | 1.000 | 0.639 | 0.540 | 0.750 | 0.840 | 0.880 | 0.980 | -0.012 [-0.021, -0.003] |
+| 23 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | concatenated title + abstract control; pure semantic field score; reorder baseline top10 only, preserve tail | covered | 0.7057 (100) | 0.689 | 1.000 | 0.622 | 0.510 | 0.780 | 0.860 | 0.890 | 0.801 | -0.012 [-0.024, -0.000] |
+| 24 | Lexical field-score ablation | Independent BM25 fields; 10% authors | OpenAI large candidate retrieval | separate title 25% / abstract 75%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | covered | 0.7056 (100) | 0.686 | 1.000 | 0.670 | 0.580 | 0.810 | 0.850 | 0.880 | 0.980 | -0.012 [-0.023, -0.002] |
+| 25 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 75% semantic / 25% lexical; depth 100 | covered | 0.7052 (100) | 0.690 | 1.000 | 0.618 | 0.520 | 0.770 | 0.840 | 0.890 | 0.943 | -0.012 [-0.025, -0.000] |
+| 26 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 70% semantic / 30% lexical; depth 100 | covered | 0.7051 (100) | 0.687 | 1.000 | 0.627 | 0.530 | 0.760 | 0.840 | 0.890 | 0.950 | -0.012 [-0.023, -0.001] |
+| 27 | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 25% max-score75% + 75% normalized RRF55%/c30/d100; score depth 500 | covered | 0.7050 (100) | 0.690 | 1.000 | 0.646 | 0.550 | 0.760 | 0.850 | 0.880 | 0.980 | -0.013 [-0.021, -0.005] |
+| 28 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30 + 10% top-1 bonus; 55% semantic / 45% lexical; depth 100 | covered | 0.7048 (100) | 0.689 | 1.000 | 0.653 | 0.560 | 0.790 | 0.850 | 0.890 | 0.980 | -0.013 [-0.020, -0.005] |
+| 29 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 60% semantic / 40% lexical; depth 100 | covered | 0.7041 (100) | 0.688 | 1.000 | 0.636 | 0.530 | 0.790 | 0.860 | 0.890 | 0.953 | -0.013 [-0.023, -0.005] |
+| 30 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 55% semantic / 45% lexical; depth 100 | covered | 0.7039 (100) | 0.695 | 1.000 | 0.627 | 0.530 | 0.740 | 0.820 | 0.870 | 0.960 | -0.014 [-0.027, +0.000] |
+| 31 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 25% / abstract 75%; pure semantic field score; reorder baseline top10 only, preserve tail | covered | 0.7038 (100) | 0.689 | 1.000 | 0.621 | 0.510 | 0.780 | 0.860 | 0.890 | 0.781 | -0.014 [-0.026, -0.002] |
+| 32 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 55% semantic / 45% lexical; depth 500 | covered | 0.7035 (100) | 0.690 | 1.000 | 0.640 | 0.540 | 0.760 | 0.840 | 0.880 | 0.980 | -0.014 [-0.024, -0.004] |
+| 33 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 65% semantic / 35% lexical; depth 100 | covered | 0.7031 (100) | 0.685 | 1.000 | 0.640 | 0.540 | 0.780 | 0.850 | 0.890 | 0.953 | -0.014 [-0.026, -0.004] |
+| 34 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 55% semantic / 45% lexical; depth 500 | covered | 0.7030 (100) | 0.674 | 1.000 | 0.684 | 0.590 | 0.790 | 0.840 | 0.880 | 0.980 | -0.015 [-0.025, -0.005] |
+| 35 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 75% semantic / 25% lexical; depth 100 | covered | 0.7028 (100) | 0.685 | 1.000 | 0.624 | 0.530 | 0.750 | 0.840 | 0.890 | 0.947 | -0.015 [-0.026, -0.003] |
+| 36 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 75% / abstract 25%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail | covered | 0.7025 (100) | 0.689 | 1.000 | 0.655 | 0.570 | 0.760 | 0.860 | 0.890 | 0.953 | -0.015 [-0.027, -0.004] |
+| 37 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30 + 25% top-1 bonus; 55% semantic / 45% lexical; depth 100 | covered | 0.7022 (100) | 0.687 | 1.000 | 0.653 | 0.560 | 0.790 | 0.850 | 0.890 | 0.980 | -0.015 [-0.024, -0.006] |
+| 38 | Local cross-encoder reranking | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large candidate retrieval | MiniLM-L6 cross-encoder raw logits; reorder current baseline top10 only, preserve tail | covered | 0.7021 (100) | 0.689 | 1.000 | 0.659 | 0.570 | 0.790 | 0.860 | 0.890 | 0.933 | -0.015 [-0.028, -0.004] |
+| 39 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 75% semantic / 25% lexical; depth 100 | covered | 0.7019 (100) | 0.680 | 1.000 | 0.630 | 0.540 | 0.770 | 0.840 | 0.890 | 0.943 | -0.016 [-0.027, -0.004] |
+| 40 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 25% / abstract 75%; pure cosine; reorder baseline top10 only, preserve tail | covered | 0.7011 (100) | 0.689 | 1.000 | 0.630 | 0.520 | 0.740 | 0.860 | 0.890 | 0.873 | -0.016 [-0.029, -0.004] |
+| 41 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 55% semantic / 45% lexical; depth 100 | covered | 0.6994 (100) | 0.686 | 1.000 | 0.656 | 0.570 | 0.760 | 0.790 | 0.860 | 0.980 | -0.018 [-0.034, -0.001] |
+| 42 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 70% semantic / 30% lexical; depth 100 | covered | 0.6969 (100) | 0.676 | 1.000 | 0.642 | 0.540 | 0.800 | 0.860 | 0.900 | 0.950 | -0.021 [-0.035, -0.007] |
+| 43 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 75% semantic / 25% lexical; depth 50 | covered | 0.6963 (100) | 0.686 | 1.000 | 0.617 | 0.520 | 0.760 | 0.840 | 0.890 | 0.947 | -0.021 [-0.036, -0.008] |
+| 44 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 75% semantic / 25% lexical; depth 500 | covered | 0.6962 (100) | 0.668 | 1.000 | 0.684 | 0.600 | 0.810 | 0.860 | 0.900 | 0.960 | -0.021 [-0.039, -0.006] |
+| 45 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 50% semantic / 50% lexical; depth 100 | covered | 0.6953 (100) | 0.689 | 1.000 | 0.626 | 0.540 | 0.740 | 0.780 | 0.870 | 0.960 | -0.022 [-0.039, -0.005] |
+| 46 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 50% / abstract 50%; pure semantic field score; reorder baseline top10 only, preserve tail | covered | 0.6952 (100) | 0.689 | 1.000 | 0.599 | 0.480 | 0.790 | 0.860 | 0.890 | 0.830 | -0.022 [-0.035, -0.010] |
+| 47 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 75% semantic / 25% lexical; depth 50 | covered | 0.6946 (100) | 0.676 | 1.000 | 0.626 | 0.530 | 0.760 | 0.850 | 0.890 | 0.947 | -0.023 [-0.037, -0.010] |
+| 48 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 75% semantic / 25% lexical; depth 100 | covered | 0.6937 (100) | 0.668 | 1.000 | 0.644 | 0.550 | 0.810 | 0.870 | 0.900 | 0.943 | -0.024 [-0.040, -0.008] |
+| 49 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 50% semantic / 50% lexical; depth 100 | covered | 0.6924 (100) | 0.689 | 1.000 | 0.627 | 0.540 | 0.740 | 0.770 | 0.840 | 0.960 | -0.025 [-0.042, -0.008] |
+| 50 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 50% semantic / 50% lexical; depth 100 | covered | 0.6917 (100) | 0.673 | 1.000 | 0.646 | 0.560 | 0.740 | 0.840 | 0.890 | 0.980 | -0.026 [-0.039, -0.013] |
+| 51 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | concatenated title + abstract control; pure cosine; reorder baseline top10 only, preserve tail | covered | 0.6903 (100) | 0.689 | 1.000 | 0.609 | 0.500 | 0.750 | 0.860 | 0.890 | 0.802 | -0.027 [-0.040, -0.015] |
+| 52 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 50% / abstract 50%; pure cosine; reorder baseline top10 only, preserve tail | covered | 0.6903 (100) | 0.689 | 1.000 | 0.604 | 0.480 | 0.760 | 0.860 | 0.890 | 0.830 | -0.027 [-0.043, -0.013] |
+| 53 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 50% semantic / 50% lexical; depth 100 | covered | 0.6902 (100) | 0.684 | 1.000 | 0.627 | 0.540 | 0.740 | 0.790 | 0.880 | 0.960 | -0.027 [-0.042, -0.012] |
+| 54 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 55% semantic / 45% lexical; depth 500 | covered | 0.6874 (100) | 0.670 | 1.000 | 0.657 | 0.570 | 0.760 | 0.810 | 0.840 | 0.980 | -0.030 [-0.049, -0.012] |
+| 55 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 60% semantic / 40% lexical; depth 100 | covered | 0.6868 (100) | 0.661 | 1.000 | 0.655 | 0.540 | 0.820 | 0.870 | 0.890 | 0.953 | -0.031 [-0.047, -0.016] |
+| 56 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 75% semantic / 25% lexical; depth 50 | covered | 0.6861 (100) | 0.664 | 1.000 | 0.632 | 0.530 | 0.780 | 0.870 | 0.890 | 0.947 | -0.031 [-0.049, -0.014] |
+| 57 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 55% semantic / 45% lexical; depth 100 | covered | 0.6853 (100) | 0.647 | 1.000 | 0.690 | 0.590 | 0.820 | 0.850 | 0.900 | 0.980 | -0.032 [-0.048, -0.018] |
+| 58 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 65% semantic / 35% lexical; depth 100 | covered | 0.6843 (100) | 0.662 | 1.000 | 0.648 | 0.540 | 0.800 | 0.870 | 0.890 | 0.953 | -0.033 [-0.052, -0.017] |
+| 59 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 75% / abstract 25%; pure cosine; reorder baseline top10 only, preserve tail | covered | 0.6808 (100) | 0.689 | 1.000 | 0.572 | 0.440 | 0.740 | 0.860 | 0.890 | 0.798 | -0.037 [-0.052, -0.022] |
+| 60 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 70% semantic / 30% lexical; depth 100 | covered | 0.6804 (100) | 0.656 | 1.000 | 0.647 | 0.540 | 0.790 | 0.860 | 0.900 | 0.950 | -0.037 [-0.057, -0.020] |
+| 61 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 55% semantic / 45% lexical; depth 100 | covered | 0.6803 (100) | 0.652 | 1.000 | 0.658 | 0.550 | 0.820 | 0.860 | 0.900 | 0.980 | -0.037 [-0.052, -0.024] |
+| 62 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 75% semantic / 25% lexical; depth 100 | covered | 0.6791 (100) | 0.651 | 1.000 | 0.671 | 0.590 | 0.810 | 0.860 | 0.900 | 0.950 | -0.039 [-0.059, -0.019] |
+| 63 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 50% semantic / 50% lexical; depth 50 | covered | 0.6781 (100) | 0.660 | 1.000 | 0.630 | 0.540 | 0.740 | 0.830 | 0.890 | 0.960 | -0.039 [-0.055, -0.024] |
+| 64 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 75% semantic / 25% lexical; depth 20 | covered | 0.6775 (100) | 0.658 | 1.000 | 0.625 | 0.520 | 0.760 | 0.850 | 0.880 | 0.947 | -0.040 [-0.061, -0.021] |
+| 65 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 75% semantic / 25% lexical; depth 20 | covered | 0.6775 (100) | 0.658 | 1.000 | 0.625 | 0.520 | 0.760 | 0.850 | 0.880 | 0.947 | -0.040 [-0.061, -0.021] |
+| 66 | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 75% / abstract 25%; pure semantic field score; reorder baseline top10 only, preserve tail | covered | 0.6767 (100) | 0.689 | 1.000 | 0.527 | 0.390 | 0.760 | 0.860 | 0.890 | 0.791 | -0.041 [-0.056, -0.026] |
+| 67 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 50% semantic / 50% lexical; depth 50 | covered | 0.6764 (100) | 0.659 | 1.000 | 0.630 | 0.540 | 0.740 | 0.820 | 0.890 | 0.960 | -0.041 [-0.057, -0.026] |
+| 68 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 75% semantic / 25% lexical; depth 100 | covered | 0.6762 (100) | 0.651 | 1.000 | 0.654 | 0.560 | 0.770 | 0.860 | 0.900 | 0.940 | -0.041 [-0.063, -0.022] |
+| 69 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 75% semantic / 25% lexical; depth 50 | covered | 0.6752 (100) | 0.648 | 1.000 | 0.658 | 0.570 | 0.770 | 0.860 | 0.890 | 0.940 | -0.042 [-0.064, -0.022] |
+| 70 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 35% semantic / 65% lexical; depth 100 | covered | 0.6742 (100) | 0.670 | 1.000 | 0.636 | 0.560 | 0.730 | 0.750 | 0.780 | 1.000 | -0.043 [-0.065, -0.023] |
+| 71 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 50% semantic / 50% lexical; depth 50 | covered | 0.6729 (100) | 0.652 | 1.000 | 0.633 | 0.540 | 0.750 | 0.830 | 0.900 | 0.960 | -0.045 [-0.061, -0.030] |
+| 72 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 75% semantic / 25% lexical; depth 20 | covered | 0.6728 (100) | 0.645 | 1.000 | 0.658 | 0.570 | 0.760 | 0.850 | 0.880 | 0.947 | -0.045 [-0.067, -0.025] |
+| 73 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 75% semantic / 25% lexical; depth 20 | covered | 0.6661 (100) | 0.636 | 1.000 | 0.642 | 0.550 | 0.760 | 0.820 | 0.890 | 0.933 | -0.052 [-0.076, -0.029] |
+| 74 | Original hybrid control | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6604 (100) | 0.633 | 1.000 | 0.653 | 0.560 | 0.800 | 0.840 | 0.900 | 0.980 | -0.057 [-0.074, -0.041] |
+| 75 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6604 (100) | 0.633 | 1.000 | 0.653 | 0.560 | 0.800 | 0.840 | 0.900 | 0.980 | -0.057 [-0.074, -0.041] |
+| 76 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6604 (100) | 0.633 | 1.000 | 0.653 | 0.560 | 0.800 | 0.840 | 0.900 | 0.980 | -0.057 [-0.074, -0.041] |
+| 77 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 25% semantic / 75% lexical; depth 100 | covered | 0.6594 (100) | 0.646 | 1.000 | 0.630 | 0.560 | 0.720 | 0.750 | 0.790 | 0.980 | -0.058 [-0.082, -0.034] |
+| 78 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 50 | covered | 0.6565 (100) | 0.631 | 1.000 | 0.645 | 0.550 | 0.780 | 0.840 | 0.900 | 0.980 | -0.061 [-0.078, -0.045] |
+| 79 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 25% semantic / 75% lexical; depth 50 | covered | 0.6469 (100) | 0.623 | 1.000 | 0.630 | 0.560 | 0.710 | 0.750 | 0.770 | 0.980 | -0.071 [-0.096, -0.045] |
+| 80 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 35% semantic / 65% lexical; depth 500 | covered | 0.6449 (100) | 0.626 | 1.000 | 0.631 | 0.540 | 0.750 | 0.790 | 0.830 | 1.000 | -0.073 [-0.098, -0.048] |
+| 81 | Embedding search | None | OpenAI text-embedding-3-large | Cosine similarity | covered | 0.6438 (100) | 0.637 | 1.000 | 0.599 | 0.500 | 0.740 | 0.820 | 0.880 | 0.793 | -0.074 [-0.101, -0.048] |
+| 82 | Semantic-only fusion control | None (0% weight) | OpenAI text-embedding-3-large | RRF c=10; depth 100 | covered | 0.6438 (100) | 0.637 | 1.000 | 0.599 | 0.500 | 0.740 | 0.820 | 0.880 | 0.793 | -0.074 [-0.101, -0.048] |
+| 83 | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | concatenated title + abstract control; pure cosine; reorder baseline top100 only, preserve tail | covered | 0.6438 (100) | 0.637 | 1.000 | 0.599 | 0.500 | 0.740 | 0.820 | 0.880 | 0.793 | -0.074 [-0.101, -0.048] |
+| 84 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 20 | covered | 0.6437 (100) | 0.615 | 1.000 | 0.639 | 0.540 | 0.800 | 0.840 | 0.890 | 0.980 | -0.074 [-0.094, -0.054] |
+| 85 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 50% semantic / 50% lexical; depth 20 | covered | 0.6435 (100) | 0.619 | 1.000 | 0.627 | 0.530 | 0.780 | 0.840 | 0.890 | 0.960 | -0.074 [-0.095, -0.054] |
+| 86 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 50% semantic / 50% lexical; depth 20 | covered | 0.6435 (100) | 0.619 | 1.000 | 0.628 | 0.530 | 0.780 | 0.840 | 0.890 | 0.960 | -0.074 [-0.095, -0.054] |
+| 87 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 35% semantic / 65% lexical; depth 500 | covered | 0.6373 (100) | 0.635 | 1.000 | 0.619 | 0.540 | 0.720 | 0.770 | 0.800 | 1.000 | -0.080 [-0.110, -0.052] |
+| 88 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 25% semantic / 75% lexical; depth 100 | covered | 0.6371 (100) | 0.614 | 1.000 | 0.636 | 0.570 | 0.720 | 0.740 | 0.770 | 0.980 | -0.080 [-0.108, -0.054] |
+| 89 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 25% semantic / 75% lexical; depth 100 | covered | 0.6332 (100) | 0.618 | 1.000 | 0.626 | 0.560 | 0.720 | 0.740 | 0.780 | 0.980 | -0.084 [-0.112, -0.057] |
+| 90 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 50% semantic / 50% lexical; depth 20 | covered | 0.6321 (100) | 0.605 | 1.000 | 0.635 | 0.530 | 0.800 | 0.840 | 0.890 | 0.960 | -0.085 [-0.107, -0.066] |
+| 91 | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6312 (100) | 0.611 | 1.000 | 0.635 | 0.540 | 0.760 | 0.800 | 0.840 | 0.973 | -0.086 [-0.116, -0.056] |
+| 92 | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=10; 50% semantic / 50% lexical; depth 100 | covered | 0.6280 (100) | 0.614 | 1.000 | 0.602 | 0.500 | 0.770 | 0.790 | 0.850 | 0.930 | -0.090 [-0.123, -0.061] |
+| 93 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 25% semantic / 75% lexical; depth 50 | covered | 0.6262 (100) | 0.604 | 1.000 | 0.626 | 0.560 | 0.710 | 0.740 | 0.770 | 0.980 | -0.091 [-0.119, -0.064] |
+| 94 | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 35% semantic / 65% lexical; depth 100 | covered | 0.6100 (100) | 0.577 | 1.000 | 0.626 | 0.540 | 0.720 | 0.790 | 0.860 | 1.000 | -0.108 [-0.135, -0.083] |
+| 95 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 25% semantic / 75% lexical; depth 50 | covered | 0.5892 (100) | 0.557 | 1.000 | 0.618 | 0.560 | 0.690 | 0.720 | 0.750 | 0.980 | -0.128 [-0.162, -0.094] |
+| 96 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 25% semantic / 75% lexical; depth 20 | covered | 0.5825 (100) | 0.547 | 1.000 | 0.614 | 0.560 | 0.690 | 0.700 | 0.710 | 0.980 | -0.135 [-0.169, -0.099] |
+| 97 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 25% semantic / 75% lexical; depth 20 | covered | 0.5825 (100) | 0.547 | 1.000 | 0.614 | 0.560 | 0.690 | 0.700 | 0.710 | 0.980 | -0.135 [-0.169, -0.099] |
+| 98 | Embedding search | None | GTE-small | Cosine similarity | covered | 0.5811 (100) | 0.581 | 1.000 | 0.525 | 0.430 | 0.660 | 0.710 | 0.780 | 0.633 | -0.136 [-0.175, -0.101] |
+| 99 | Embedding search | None | BGE-small | Cosine similarity | covered | 0.5763 (100) | 0.584 | 1.000 | 0.506 | 0.420 | 0.600 | 0.700 | 0.790 | 0.667 | -0.141 [-0.180, -0.107] |
+| 100 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 25% semantic / 75% lexical; depth 100 | covered | 0.5693 (100) | 0.557 | 1.000 | 0.602 | 0.540 | 0.680 | 0.730 | 0.780 | 0.980 | -0.148 [-0.183, -0.111] |
+| 101 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 25% semantic / 75% lexical; depth 50 | covered | 0.5682 (100) | 0.555 | 1.000 | 0.603 | 0.540 | 0.680 | 0.730 | 0.760 | 0.980 | -0.149 [-0.185, -0.113] |
+| 102 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 25% semantic / 75% lexical; depth 20 | covered | 0.5580 (100) | 0.538 | 1.000 | 0.605 | 0.550 | 0.680 | 0.710 | 0.710 | 0.980 | -0.160 [-0.196, -0.122] |
+| 103 | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 25% semantic / 75% lexical; depth 20 | covered | 0.5504 (100) | 0.526 | 1.000 | 0.614 | 0.560 | 0.680 | 0.710 | 0.870 | 0.980 | -0.167 [-0.204, -0.129] |
+| 104 | Keyword search | BM25: exact + stems; authors; title x2; k1=0.8,b=0.75 | None | BM25 score | covered | 0.5187 (100) | 0.512 | 1.000 | 0.569 | 0.510 | 0.660 | 0.710 | 0.710 | 1.000 | -0.199 [-0.239, -0.160] |
+| 105 | Lexical-only fusion control | Tuned BM25 | None (0% weight) | RRF c=10; depth 100 | covered | 0.5187 (100) | 0.512 | 1.000 | 0.569 | 0.510 | 0.660 | 0.710 | 0.710 | 1.000 | -0.199 [-0.239, -0.160] |
 
 ### Unranked diagnostics (incomplete judgments or undefined nDCG)
 
@@ -124,14 +134,17 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 
 | Rank | System | Keyword retrieval | Embedding | Ranker / fusion | Status | Success: nDCG@10 (n) | P@10 | judged@10 | Source MRR@10 | R@1 | R@5 | R@10 | R@20 | Known-item MRR@10 | Δ nDCG vs working baseline [95% CI] |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| - | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 25% / abstract 75%; max-score25% lexical / 75% field semantic; reorder baseline top100 only, preserve tail | PROVISIONAL | 0.7184 (100) | 0.687 | 0.962 | 0.701 | 0.640 | 0.780 | 0.830 | 0.840 | 0.980 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 75% max-score75% + 25% normalized RRF55%/c30/d100; score depth 500 | PROVISIONAL | 0.7168 (100) | 0.696 | 0.999 | 0.678 | 0.590 | 0.800 | 0.840 | 0.860 | 0.980 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 70% semantic / 30% lexical; depth 100 | PROVISIONAL | 0.7073 (100) | 0.695 | 0.997 | 0.618 | 0.520 | 0.740 | 0.840 | 0.870 | 0.947 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 60% semantic / 40% lexical; depth 100 | PROVISIONAL | 0.7055 (100) | 0.693 | 0.999 | 0.627 | 0.530 | 0.750 | 0.810 | 0.870 | 0.953 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 65% semantic / 35% lexical; depth 100 | PROVISIONAL | 0.7041 (100) | 0.693 | 0.997 | 0.621 | 0.520 | 0.750 | 0.820 | 0.870 | 0.953 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 55% semantic / 45% lexical; depth 100 | PROVISIONAL | 0.7022 (100) | 0.693 | 0.998 | 0.620 | 0.520 | 0.740 | 0.800 | 0.860 | 0.960 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Lexical field-score ablation | Independent BM25 fields; 10% authors | OpenAI large candidate retrieval | separate title 50% / abstract 50%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | PROVISIONAL | 0.6960 (100) | 0.682 | 0.999 | 0.647 | 0.530 | 0.810 | 0.850 | 0.870 | 0.980 | withheld: both runs must have all dev top-10 positions present and judged |
+| - | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 50% / abstract 50%; max-score25% lexical / 75% field semantic; reorder baseline top100 only, preserve tail | PROVISIONAL | 0.6935 (100) | 0.665 | 0.937 | 0.677 | 0.600 | 0.770 | 0.820 | 0.840 | 0.980 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Lexical field-score ablation | Independent BM25 fields; 10% authors | OpenAI large candidate retrieval | separate title 75% / abstract 25%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 | PROVISIONAL | 0.6800 (100) | 0.674 | 0.999 | 0.606 | 0.490 | 0.800 | 0.840 | 0.880 | 0.960 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Local cross-encoder reranking | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large candidate retrieval | 50% cross-encoder rank + 50% baseline rank, RRF c30; union of lexical100, semantic100 and baseline100 | PROVISIONAL | 0.6777 (100) | 0.645 | 0.934 | 0.687 | 0.610 | 0.780 | 0.840 | 0.850 | 0.960 | withheld: both runs must have all dev top-10 positions present and judged |
+| - | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 75% / abstract 25%; max-score25% lexical / 75% field semantic; reorder baseline top100 only, preserve tail | PROVISIONAL | 0.6533 (100) | 0.615 | 0.884 | 0.656 | 0.580 | 0.760 | 0.810 | 0.820 | 0.953 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=60; 75% semantic / 25% lexical; depth 100 | PROVISIONAL | 0.6450 (100) | 0.627 | 0.949 | 0.586 | 0.490 | 0.720 | 0.770 | 0.840 | 0.806 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=100; 75% semantic / 25% lexical; depth 100 | PROVISIONAL | 0.6405 (100) | 0.619 | 0.910 | 0.578 | 0.480 | 0.690 | 0.770 | 0.830 | 0.805 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | GTE-small | Linear rank fusion; 75% semantic / 25% lexical; depth 100 | PROVISIONAL | 0.6379 (100) | 0.621 | 0.947 | 0.570 | 0.460 | 0.710 | 0.760 | 0.830 | 0.801 | withheld: both runs must have all dev top-10 positions present and judged |
@@ -142,6 +155,7 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | - | Hybrid rank fusion | Tuned BM25 | BGE-small | Linear rank fusion; 75% semantic / 25% lexical; depth 100 | PROVISIONAL | 0.6290 (100) | 0.612 | 0.939 | 0.559 | 0.470 | 0.690 | 0.740 | 0.830 | 0.856 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=100; 50% semantic / 50% lexical; depth 100 | PROVISIONAL | 0.6287 (100) | 0.591 | 0.854 | 0.601 | 0.510 | 0.720 | 0.770 | 0.810 | 0.920 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=60; 75% semantic / 25% lexical; depth 100 | PROVISIONAL | 0.6275 (100) | 0.614 | 0.942 | 0.561 | 0.480 | 0.700 | 0.750 | 0.840 | 0.856 | withheld: both runs must have all dev top-10 positions present and judged |
+| - | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 25% / abstract 75%; pure cosine; reorder baseline top100 only, preserve tail | PROVISIONAL | 0.6275 (100) | 0.577 | 0.856 | 0.618 | 0.520 | 0.740 | 0.810 | 0.890 | 0.866 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | BGE-small | Linear rank fusion; 50% semantic / 50% lexical; depth 100 | PROVISIONAL | 0.6272 (100) | 0.601 | 0.889 | 0.569 | 0.470 | 0.690 | 0.790 | 0.830 | 0.891 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=100; 50% semantic / 50% lexical; depth 100 | PROVISIONAL | 0.6266 (100) | 0.594 | 0.857 | 0.578 | 0.490 | 0.720 | 0.770 | 0.820 | 0.891 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=100; 75% semantic / 25% lexical; depth 100 | PROVISIONAL | 0.6258 (100) | 0.604 | 0.894 | 0.563 | 0.480 | 0.690 | 0.760 | 0.850 | 0.856 | withheld: both runs must have all dev top-10 positions present and judged |
@@ -153,10 +167,12 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | - | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=60; 25% semantic / 75% lexical; depth 100 | PROVISIONAL | 0.6062 (100) | 0.586 | 0.957 | 0.588 | 0.500 | 0.720 | 0.730 | 0.760 | 0.980 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | GTE-small | Linear rank fusion; 25% semantic / 75% lexical; depth 100 | PROVISIONAL | 0.6056 (100) | 0.584 | 0.956 | 0.588 | 0.490 | 0.720 | 0.740 | 0.760 | 0.980 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=60; 25% semantic / 75% lexical; depth 100 | PROVISIONAL | 0.6046 (100) | 0.587 | 0.959 | 0.585 | 0.480 | 0.720 | 0.740 | 0.760 | 0.960 | withheld: both runs must have all dev top-10 positions present and judged |
+| - | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 50% / abstract 50%; pure cosine; reorder baseline top100 only, preserve tail | PROVISIONAL | 0.5980 (100) | 0.549 | 0.799 | 0.599 | 0.480 | 0.780 | 0.810 | 0.840 | 0.821 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Local cross-encoder reranking | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large candidate retrieval | MiniLM-L6 cross-encoder raw logits; reorder current baseline top100 only, preserve tail | PROVISIONAL | 0.5639 (100) | 0.511 | 0.733 | 0.605 | 0.540 | 0.690 | 0.740 | 0.820 | 0.905 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=10; 25% semantic / 75% lexical; depth 100 | PROVISIONAL | 0.5591 (100) | 0.547 | 0.999 | 0.579 | 0.500 | 0.670 | 0.720 | 0.770 | 0.980 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=10; 25% semantic / 75% lexical; depth 100 | PROVISIONAL | 0.5568 (100) | 0.545 | 0.996 | 0.581 | 0.490 | 0.680 | 0.730 | 0.760 | 0.960 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Local cross-encoder reranking | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large candidate retrieval | MiniLM-L6 cross-encoder raw logits; union of lexical100, semantic100 and baseline100 | PROVISIONAL | 0.5448 (100) | 0.487 | 0.686 | 0.604 | 0.540 | 0.690 | 0.740 | 0.790 | 0.905 | withheld: both runs must have all dev top-10 positions present and judged |
+| - | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 75% / abstract 25%; pure cosine; reorder baseline top100 only, preserve tail | PROVISIONAL | 0.5421 (100) | 0.497 | 0.723 | 0.541 | 0.440 | 0.690 | 0.790 | 0.800 | 0.765 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Keyword search | BM25: exact + stems; remove stopwords; authors; title x2; k1=1.2, b=0.75 | None | BM25 score | PROVISIONAL | 0.5217 (100) | 0.515 | 0.936 | 0.559 | 0.500 | 0.650 | 0.700 | 0.730 | 1.000 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Keyword search | BM25: exact + stems; remove stopwords; title x2; k1=1.2, b=0.75 | None | BM25 score | PROVISIONAL | 0.5189 (100) | 0.515 | 0.912 | 0.544 | 0.470 | 0.660 | 0.710 | 0.730 | 0.940 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Keyword search | BM25: exact + stems; title x2; k1=1.2, b=0.75 | None | BM25 score | PROVISIONAL | 0.5186 (100) | 0.518 | 0.934 | 0.545 | 0.470 | 0.670 | 0.710 | 0.720 | 0.940 | withheld: both runs must have all dev top-10 positions present and judged |
@@ -189,13 +205,17 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 
 | Original system ID | System | Keyword retrieval | Embedding | Ranker / fusion |
 |---|---|---|---|---|
+| `oai-field-hybrid+text=title25+d=10` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 25% / abstract 75%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail |
 | `score-max+w=0.75+d=500` | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 75% semantic / 25% lexical; depth 500 |
+| `oai-field-hybrid+text=concat+d=100` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | concatenated title + abstract control; max-score25% lexical / 75% field semantic; reorder baseline top100 only, preserve tail |
 | `field-gte-concat` | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | concatenated title + abstract control; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 |
 | `field-gte-separate+t=0.25` | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 25% / abstract 75%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 |
 | `field-gte-separate+t=0.5` | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 50% / abstract 50%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 |
 | `field-gte-separate+t=0.75` | Local semantic field-score ablation | Tuned BM25 candidate retrieval | GTE-small field scoring; OpenAI large candidate retrieval | separate title 75% / abstract 25%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 |
 | `fusion-shortlist+a=1+d=500` | Fixed-shortlist score ordering | Tuned BM25 | OpenAI text-embedding-3-large | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail |
+| `oai-field-hybrid+text=concat+d=10` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | concatenated title + abstract control; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail |
 | `fusion-shortlist+a=1+d=100` | Fixed-shortlist score ordering | Tuned BM25 | OpenAI text-embedding-3-large | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 100; preserve tail |
+| `oai-field-hybrid+text=title50+d=10` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 50% / abstract 50%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail |
 | `score-max+w=0.75+d=100` | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 75% semantic / 25% lexical; depth 100 |
 | `fusion-rankscore+a=0.75+d=100` | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 75% max-score75% + 25% normalized RRF55%/c30/d100; score depth 100 |
 | `fusion-rrf+w=0.6+d=100+c=60` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 60% semantic / 40% lexical; depth 100 |
@@ -220,9 +240,11 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | `fusion-rrf+w=0.65+d=100+c=30` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 65% semantic / 35% lexical; depth 100 |
 | `score-minmax+w=0.55+d=500` | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 55% semantic / 45% lexical; depth 500 |
 | `fusion-linear+w=0.75+d=100` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 75% semantic / 25% lexical; depth 100 |
+| `oai-field-hybrid+text=title75+d=10` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 75% / abstract 25%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail |
 | `fusion-top1bonus+b=0.25+w=0.55+d=100+c=30` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30 + 25% top-1 bonus; 55% semantic / 45% lexical; depth 100 |
 | `cross-minilm-l6+pool=baseline+d=10` | Local cross-encoder reranking | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large candidate retrieval | MiniLM-L6 cross-encoder raw logits; reorder current baseline top10 only, preserve tail |
 | `fusion-rrf+w=0.75+d=100+c=60` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 75% semantic / 25% lexical; depth 100 |
+| `oai-field+text=title25+d=10` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 25% / abstract 75%; pure cosine; reorder baseline top10 only, preserve tail |
 | `score-max+w=0.55+d=100` | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 55% semantic / 45% lexical; depth 100 |
 | `fusion-rrf+w=0.7+d=100+c=30` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 70% semantic / 30% lexical; depth 100 |
 | `fusion-rrf+w=0.75+d=50+c=100` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 75% semantic / 25% lexical; depth 50 |
@@ -233,12 +255,15 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | `fusion-rrf+w=0.75+d=100+c=30` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 75% semantic / 25% lexical; depth 100 |
 | `fusion-rrf+w=0.5+d=100+c=100` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 50% semantic / 50% lexical; depth 100 |
 | `fusion-rrf+w=0.5+d=100+c=30` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=30; 50% semantic / 50% lexical; depth 100 |
+| `oai-field+text=concat+d=10` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | concatenated title + abstract control; pure cosine; reorder baseline top10 only, preserve tail |
+| `oai-field+text=title50+d=10` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 50% / abstract 50%; pure cosine; reorder baseline top10 only, preserve tail |
 | `fusion-linear+w=0.5+d=100` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 50% semantic / 50% lexical; depth 100 |
 | `score-max+w=0.55+d=500` | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Max-normalized scores; 55% semantic / 45% lexical; depth 500 |
 | `fusion-rrf+w=0.6+d=100+c=10` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 60% semantic / 40% lexical; depth 100 |
 | `fusion-linear+w=0.75+d=50` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 75% semantic / 25% lexical; depth 50 |
 | `score-minmax+w=0.55+d=100` | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 55% semantic / 45% lexical; depth 100 |
 | `fusion-rrf+w=0.65+d=100+c=10` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 65% semantic / 35% lexical; depth 100 |
+| `oai-field+text=title75+d=10` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 75% / abstract 25%; pure cosine; reorder baseline top10 only, preserve tail |
 | `fusion-rrf+w=0.7+d=100+c=10` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 70% semantic / 30% lexical; depth 100 |
 | `fusion-rrf+w=0.55+d=100+c=10` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 55% semantic / 45% lexical; depth 100 |
 | `score-minmax+w=0.75+d=100` | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 75% semantic / 25% lexical; depth 100 |
@@ -262,6 +287,7 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | `score-minmax+w=0.35+d=500` | Hybrid score fusion | Tuned BM25 | OpenAI text-embedding-3-large | Min-max-normalized scores; 35% semantic / 65% lexical; depth 500 |
 | `dense-openai-large` | Embedding search | None | OpenAI text-embedding-3-large | Cosine similarity |
 | `fusion-rrf+w=1+d=100+c=10` | Semantic-only fusion control | None (0% weight) | OpenAI text-embedding-3-large | RRF c=10; depth 100 |
+| `oai-field+text=concat+d=100` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | concatenated title + abstract control; pure cosine; reorder baseline top100 only, preserve tail |
 | `fusion-rrf+w=0.5+d=20+c=10` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=10; 50% semantic / 50% lexical; depth 20 |
 | `fusion-rrf+w=0.5+d=20+c=60` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=60; 50% semantic / 50% lexical; depth 20 |
 | `fusion-rrf+w=0.5+d=20+c=100` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 50% semantic / 50% lexical; depth 20 |
@@ -284,14 +310,17 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | `fusion-linear+w=0.25+d=20` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | Linear rank fusion; 25% semantic / 75% lexical; depth 20 |
 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | Keyword search | BM25: exact + stems; authors; title x2; k1=0.8,b=0.75 | None | BM25 score |
 | `fusion-rrf+w=0+d=100+c=10` | Lexical-only fusion control | Tuned BM25 | None (0% weight) | RRF c=10; depth 100 |
+| `oai-field-hybrid+text=title25+d=100` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 25% / abstract 75%; max-score25% lexical / 75% field semantic; reorder baseline top100 only, preserve tail |
 | `fusion-rankscore+a=0.75+d=500` | Rank + score interpolation | Tuned BM25 | OpenAI text-embedding-3-large | 75% max-score75% + 25% normalized RRF55%/c30/d100; score depth 500 |
 | `fusion-rrf+w=0.7+d=100+c=100` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 70% semantic / 30% lexical; depth 100 |
 | `fusion-rrf+w=0.6+d=100+c=100` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 60% semantic / 40% lexical; depth 100 |
 | `fusion-rrf+w=0.65+d=100+c=100` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 65% semantic / 35% lexical; depth 100 |
 | `fusion-rrf+w=0.55+d=100+c=100` | Hybrid rank fusion | Tuned BM25 | OpenAI text-embedding-3-large | RRF c=100; 55% semantic / 45% lexical; depth 100 |
 | `field-lexical+t=0.5` | Lexical field-score ablation | Independent BM25 fields; 10% authors | OpenAI large candidate retrieval | separate title 50% / abstract 50%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 |
+| `oai-field-hybrid+text=title50+d=100` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 50% / abstract 50%; max-score25% lexical / 75% field semantic; reorder baseline top100 only, preserve tail |
 | `field-lexical+t=0.75` | Lexical field-score ablation | Independent BM25 fields; 10% authors | OpenAI large candidate retrieval | separate title 75% / abstract 25%; 75% baseline 31/(30+rank) + 25% field signal; reorder frozen baseline100 |
 | `cross-minilm-l6+pool=union100+w=0.5` | Local cross-encoder reranking | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large candidate retrieval | 50% cross-encoder rank + 50% baseline rank, RRF c30; union of lexical100, semantic100 and baseline100 |
+| `oai-field-hybrid+text=title75+d=100` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 75% / abstract 25%; max-score25% lexical / 75% field semantic; reorder baseline top100 only, preserve tail |
 | `hybrid-gte-small+rrf+w=0.75+c=60` | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=60; 75% semantic / 25% lexical; depth 100 |
 | `hybrid-gte-small+rrf+w=0.75+c=100` | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=100; 75% semantic / 25% lexical; depth 100 |
 | `hybrid-gte-small+linear+w=0.75` | Hybrid rank fusion | Tuned BM25 | GTE-small | Linear rank fusion; 75% semantic / 25% lexical; depth 100 |
@@ -302,6 +331,7 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | `hybrid-bge-small+linear+w=0.75` | Hybrid rank fusion | Tuned BM25 | BGE-small | Linear rank fusion; 75% semantic / 25% lexical; depth 100 |
 | `hybrid-gte-small+rrf+w=0.5+c=100` | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=100; 50% semantic / 50% lexical; depth 100 |
 | `hybrid-bge-small+rrf+w=0.75+c=60` | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=60; 75% semantic / 25% lexical; depth 100 |
+| `oai-field+text=title25+d=100` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 25% / abstract 75%; pure cosine; reorder baseline top100 only, preserve tail |
 | `hybrid-bge-small+linear+w=0.5` | Hybrid rank fusion | Tuned BM25 | BGE-small | Linear rank fusion; 50% semantic / 50% lexical; depth 100 |
 | `hybrid-bge-small+rrf+w=0.5+c=100` | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=100; 50% semantic / 50% lexical; depth 100 |
 | `hybrid-bge-small+rrf+w=0.75+c=100` | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=100; 75% semantic / 25% lexical; depth 100 |
@@ -313,10 +343,12 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | `hybrid-gte-small+rrf+w=0.25+c=60` | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=60; 25% semantic / 75% lexical; depth 100 |
 | `hybrid-gte-small+linear+w=0.25` | Hybrid rank fusion | Tuned BM25 | GTE-small | Linear rank fusion; 25% semantic / 75% lexical; depth 100 |
 | `hybrid-bge-small+rrf+w=0.25+c=60` | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=60; 25% semantic / 75% lexical; depth 100 |
+| `oai-field+text=title50+d=100` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 50% / abstract 50%; pure cosine; reorder baseline top100 only, preserve tail |
 | `cross-minilm-l6+pool=baseline+d=100` | Local cross-encoder reranking | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large candidate retrieval | MiniLM-L6 cross-encoder raw logits; reorder current baseline top100 only, preserve tail |
 | `hybrid-gte-small+rrf+w=0.25+c=10` | Hybrid rank fusion | Tuned BM25 | GTE-small | RRF c=10; 25% semantic / 75% lexical; depth 100 |
 | `hybrid-bge-small+rrf+w=0.25+c=10` | Hybrid rank fusion | Tuned BM25 | BGE-small | RRF c=10; 25% semantic / 75% lexical; depth 100 |
 | `cross-minilm-l6+pool=union100+w=1` | Local cross-encoder reranking | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large candidate retrieval | MiniLM-L6 cross-encoder raw logits; union of lexical100, semantic100 and baseline100 |
+| `oai-field+text=title75+d=100` | OpenAI-large semantic field ablation | Tuned BM25 candidate retrieval | OpenAI text-embedding-3-large; same-model query/concat control | separate title 75% / abstract 25%; pure cosine; reorder baseline top100 only, preserve tail |
 | `bm25+stop+exact+stems+authors+title2x` | Keyword search | BM25: exact + stems; remove stopwords; authors; title x2; k1=1.2, b=0.75 | None | BM25 score |
 | `bm25+stop+exact+stems+title2x` | Keyword search | BM25: exact + stems; remove stopwords; title x2; k1=1.2, b=0.75 | None | BM25 score |
 | `bm25+exact+stems+title2x` | Keyword search | BM25: exact + stems; title x2; k1=1.2, b=0.75 | None | BM25 score |
@@ -368,6 +400,10 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 - [fusion-review-dev/report.json](../data/results/fusion-review-dev/report.json)
 - [fusion-review-dev/report.md](../data/results/fusion-review-dev/report.md)
 - [graded-dev/report.md](../data/results/graded-dev/report.md)
+- [openai-field-dev/report.json](../data/results/openai-field-dev/report.json)
+- [openai-field-dev/report.md](../data/results/openai-field-dev/report.md)
+- [openai-field-hybrid-dev/report.json](../data/results/openai-field-hybrid-dev/report.json)
+- [openai-field-hybrid-dev/report.md](../data/results/openai-field-hybrid-dev/report.md)
 - [rank-score-dev/configs.json](../data/results/rank-score-dev/configs.json)
 - [rank-score-dev/report.json](../data/results/rank-score-dev/report.json)
 - [rank-score-dev/report.md](../data/results/rank-score-dev/report.md)
@@ -3649,6 +3685,180 @@ Query-type metrics, paired comparisons to same-model concat, known-item rank cha
 Model `thenlper/gte-small`, revision `17e1f347d17fe144873b1201da91788898c639cd`. Cache-only runtime 2.034s; original cumulative encoding/experiment runtime 4410.056s. Fingerprints in input-provenance.json.
 
 No automatic promotion. Follow-up selection is post-outcome exploratory.
+
+
+## OpenAI-large candidate title/abstract experiment
+
+# OpenAI-large candidate title/abstract experiment
+
+Eight prespecified settings: concatenated control and separate25/50/75% title at baseline prefixes10/100. Scoring recipe: Pure cosine for concat; t*cos(query,title)+(1-t)*cos(query,abstract) for fields. Unit3072vectors, no baseline blending, stable baseline ties. Exactly the same OpenAI-large model,3072 dimensions and cached query vectors. Body means abstract. Candidate-only; no new full-corpus retrieval. The approved Decision36 baseline remains unchanged.
+
+Embedding workload/cost: `{"candidate_documents": 7644, "dimensions": 3072, "embedding_tokens_estimate": 2081960, "field_inputs": 15288, "judge_calls": 0, "model": "text-embedding-3-large", "new_accounted_usd": 0.2706548, "shared_lifetime_accounting": {"accounted_usd": 1.01450596, "api_seconds": 1047.239601600084, "requests": 605}}`
+
+Unjudged new top10 pairs: **397**. No judging calls. Incomplete nDCG/P10 are diagnostic, not comparable winner evidence; graded paired intervals withheld. Adding labels can revise ideal DCG. Source metrics remain complete.
+
+| System | nDCG10 | P10 | Judged10 | Source MRR10 | R10 | R20 | Coverage |
+|---|---|---|---|---|---|---|---|
+| `fusion-shortlist+a=1+d=500` | 0.7176 | 0.6890 | 1.0000 | 0.6967 | 0.8600 | 0.8900 | complete |
+| `oai-field+text=concat+d=10` | 0.6903 | 0.6890 | 1.0000 | 0.6088 | 0.8600 | 0.8900 | complete |
+| `oai-field+text=concat+d=100` | 0.6438 | 0.6370 | 1.0000 | 0.5993 | 0.8200 | 0.8800 | complete |
+| `oai-field+text=title25+d=10` | 0.7011 | 0.6890 | 1.0000 | 0.6303 | 0.8600 | 0.8900 | complete |
+| `oai-field+text=title25+d=100` | 0.6275 | 0.5770 | 0.8560 | 0.6185 | 0.8100 | 0.8900 | PROVISIONAL |
+| `oai-field+text=title50+d=10` | 0.6903 | 0.6890 | 1.0000 | 0.6039 | 0.8600 | 0.8900 | complete |
+| `oai-field+text=title50+d=100` | 0.5980 | 0.5490 | 0.7990 | 0.5992 | 0.8100 | 0.8400 | PROVISIONAL |
+| `oai-field+text=title75+d=10` | 0.6808 | 0.6890 | 1.0000 | 0.5720 | 0.8600 | 0.8900 | complete |
+| `oai-field+text=title75+d=100` | 0.5421 | 0.4970 | 0.7230 | 0.5405 | 0.7900 | 0.8000 | PROVISIONAL |
+
+## Paired nDCG comparisons
+
+| Setting | Versus baseline delta [95% CI] | Versus same-depth concat [95% CI] |
+|---|---|---|
+| `oai-field+text=concat+d=10` | -0.0273 [-0.0395,-0.0150] | +0.0000 [+0.0000,+0.0000] |
+| `oai-field+text=title25+d=10` | -0.0165 [-0.0287,-0.0038] | +0.0108 [+0.0013,+0.0203] |
+| `oai-field+text=title50+d=10` | -0.0273 [-0.0426,-0.0134] | -0.0001 [-0.0118,+0.0107] |
+| `oai-field+text=title75+d=10` | -0.0367 [-0.0520,-0.0216] | -0.0095 [-0.0217,+0.0024] |
+| `oai-field+text=concat+d=100` | -0.0738 [-0.1015,-0.0477] | +0.0000 [+0.0000,+0.0000] |
+| `oai-field+text=title25+d=100` | withheld | withheld |
+| `oai-field+text=title50+d=100` | withheld | withheld |
+| `oai-field+text=title75+d=100` | withheld | withheld |
+
+## Segments
+
+| Setting | Segment | nDCG10 (diagnostic if incomplete) | Source MRR10 | R10 | R20 |
+|---|---|---|---|---|---|
+| `fusion-shortlist+a=1+d=500` | keyword | 0.7385 | 0.7202 | 0.9600 | 0.9600 |
+| `fusion-shortlist+a=1+d=500` | question | 0.7277 | 0.5883 | 0.7600 | 0.8000 |
+| `fusion-shortlist+a=1+d=500` | paraphrase | 0.6858 | 0.4984 | 0.7200 | 0.8000 |
+| `fusion-shortlist+a=1+d=500` | known_item | 0.7183 | 0.9800 | 1.0000 | 1.0000 |
+| `oai-field+text=concat+d=10` | keyword | 0.7163 | 0.6064 | 0.9600 | 0.9600 |
+| `oai-field+text=concat+d=10` | question | 0.7100 | 0.5580 | 0.7600 | 0.8000 |
+| `oai-field+text=concat+d=10` | paraphrase | 0.6578 | 0.4690 | 0.7200 | 0.8000 |
+| `oai-field+text=concat+d=10` | known_item | 0.6772 | 0.8017 | 1.0000 | 1.0000 |
+| `oai-field+text=title25+d=10` | keyword | 0.7185 | 0.6038 | 0.9600 | 0.9600 |
+| `oai-field+text=title25+d=10` | question | 0.7127 | 0.6067 | 0.7600 | 0.8000 |
+| `oai-field+text=title25+d=10` | paraphrase | 0.6726 | 0.4376 | 0.7200 | 0.8000 |
+| `oai-field+text=title25+d=10` | known_item | 0.7006 | 0.8733 | 1.0000 | 1.0000 |
+| `oai-field+text=title50+d=10` | keyword | 0.7186 | 0.6107 | 0.9600 | 0.9600 |
+| `oai-field+text=title50+d=10` | question | 0.7012 | 0.5367 | 0.7600 | 0.8000 |
+| `oai-field+text=title50+d=10` | paraphrase | 0.6492 | 0.4383 | 0.7200 | 0.8000 |
+| `oai-field+text=title50+d=10` | known_item | 0.6919 | 0.8300 | 1.0000 | 1.0000 |
+| `oai-field+text=title75+d=10` | keyword | 0.7232 | 0.5972 | 0.9600 | 0.9600 |
+| `oai-field+text=title75+d=10` | question | 0.6865 | 0.4547 | 0.7600 | 0.8000 |
+| `oai-field+text=title75+d=10` | paraphrase | 0.6315 | 0.4383 | 0.7200 | 0.8000 |
+| `oai-field+text=title75+d=10` | known_item | 0.6820 | 0.7978 | 1.0000 | 1.0000 |
+| `oai-field+text=concat+d=100` | keyword | 0.6424 | 0.5773 | 0.8000 | 0.8800 |
+| `oai-field+text=concat+d=100` | question | 0.6881 | 0.5604 | 0.8000 | 0.8400 |
+| `oai-field+text=concat+d=100` | paraphrase | 0.6444 | 0.4664 | 0.7200 | 0.8000 |
+| `oai-field+text=concat+d=100` | known_item | 0.6002 | 0.7930 | 0.9600 | 1.0000 |
+| `oai-field+text=title25+d=100` | keyword | 0.6310 | 0.5683 | 0.8000 | 0.9200 |
+| `oai-field+text=title25+d=100` | question | 0.6804 | 0.6124 | 0.8000 | 0.8800 |
+| `oai-field+text=title25+d=100` | paraphrase | 0.5944 | 0.4269 | 0.6400 | 0.7600 |
+| `oai-field+text=title25+d=100` | known_item | 0.6040 | 0.8663 | 1.0000 | 1.0000 |
+| `oai-field+text=title50+d=100` | keyword | 0.6133 | 0.5890 | 0.8000 | 0.8000 |
+| `oai-field+text=title50+d=100` | question | 0.6327 | 0.5540 | 0.8400 | 0.8800 |
+| `oai-field+text=title50+d=100` | paraphrase | 0.5505 | 0.4324 | 0.6000 | 0.6800 |
+| `oai-field+text=title50+d=100` | known_item | 0.5956 | 0.8213 | 1.0000 | 1.0000 |
+| `oai-field+text=title75+d=100` | keyword | 0.5610 | 0.5204 | 0.7200 | 0.7200 |
+| `oai-field+text=title75+d=100` | question | 0.5508 | 0.4633 | 0.8800 | 0.8800 |
+| `oai-field+text=title75+d=100` | paraphrase | 0.4822 | 0.4137 | 0.6000 | 0.6400 |
+| `oai-field+text=title75+d=100` | known_item | 0.5746 | 0.7647 | 0.9600 | 0.9600 |
+
+## Reproducibility and cautions
+
+- Dry-run default; --run explicitly enables missing embeddings, not judging.
+- Parent embeddings use the shared $1.25 lifetime ledger plus $0.30 task ceiling. No automatic retries; unknown outcomes retain reservations.
+- Reported cost is local accounting at the stored $0.13/M token price, not a guarantee about provider billing/free credits.
+- Input/label hashes and plan frozen; cached document vectors bind exact text, model and dimensions. Query/concat caches are read-only; missing cache aborts.
+- `raw-field-scores.json`: aligned cosine signals; `cases.json`: wins/losses.
+- `report.json`: screening, paired source intervals and same-model controls.
+- Held-out300 untouched; human overrides preserved. Exploratory dev comparisons are not corrected for repeated selection or multiple testing.
+
+
+## OpenAI field-aware hybrid (cached follow-up)
+
+# OpenAI field-aware hybrid (cached follow-up)
+
+Eight prespecified settings: concatenated control and separate25/50/75% title at baseline prefixes10/100. Scoring recipe: 25% candidate-max-normalized original BM25 (including authors/title2x) +75% candidate-max-normalized semantic score, where semantic is concat cosine or t*title_cosine+(1-t)*abstract_cosine. Same candidate100 normalization for every setting, fixed weights, baseline ties. Reorder prefixes10/100. Exactly the same OpenAI-large model,3072 dimensions and cached query vectors. Body means abstract. Candidate-only; no new full-corpus retrieval. The approved Decision36 baseline remains unchanged.
+
+Embedding workload/cost: `{"judge_calls": 0, "new_accounted_usd": 0.0, "new_embedding_api_calls": 0, "parent_embedding_accounted_usd": 0.2706548, "source": "Existing frozen OpenAI field cosine and lexical score caches only"}`
+
+Unjudged new top10 pairs: **141**. No judging calls. Incomplete nDCG/P10 are diagnostic, not comparable winner evidence; graded paired intervals withheld. Adding labels can revise ideal DCG. Source metrics remain complete.
+
+| System | nDCG10 | P10 | Judged10 | Source MRR10 | R10 | R20 | Coverage |
+|---|---|---|---|---|---|---|---|
+| `fusion-shortlist+a=1+d=500` | 0.7176 | 0.6890 | 1.0000 | 0.6967 | 0.8600 | 0.8900 | complete |
+| `oai-field-hybrid+text=concat+d=10` | 0.7175 | 0.6890 | 1.0000 | 0.6967 | 0.8600 | 0.8900 | complete |
+| `oai-field-hybrid+text=concat+d=100` | 0.7192 | 0.6970 | 1.0000 | 0.6916 | 0.8200 | 0.8400 | complete |
+| `oai-field-hybrid+text=title25+d=10` | 0.7204 | 0.6890 | 1.0000 | 0.7047 | 0.8600 | 0.8900 | complete |
+| `oai-field-hybrid+text=title25+d=100` | 0.7184 | 0.6870 | 0.9620 | 0.7012 | 0.8300 | 0.8400 | PROVISIONAL |
+| `oai-field-hybrid+text=title50+d=10` | 0.7126 | 0.6890 | 1.0000 | 0.6789 | 0.8600 | 0.8900 | complete |
+| `oai-field-hybrid+text=title50+d=100` | 0.6935 | 0.6650 | 0.9370 | 0.6768 | 0.8200 | 0.8400 | PROVISIONAL |
+| `oai-field-hybrid+text=title75+d=10` | 0.7025 | 0.6890 | 1.0000 | 0.6551 | 0.8600 | 0.8900 | complete |
+| `oai-field-hybrid+text=title75+d=100` | 0.6533 | 0.6150 | 0.8840 | 0.6563 | 0.8100 | 0.8200 | PROVISIONAL |
+
+## Paired nDCG comparisons
+
+| Setting | Versus baseline delta [95% CI] | Versus same-depth concat [95% CI] |
+|---|---|---|
+| `oai-field-hybrid+text=concat+d=10` | -0.0001 [-0.0002,+0.0000] | +0.0000 [+0.0000,+0.0000] |
+| `oai-field-hybrid+text=title25+d=10` | +0.0028 [-0.0019,+0.0078] | +0.0029 [-0.0019,+0.0078] |
+| `oai-field-hybrid+text=title50+d=10` | -0.0050 [-0.0141,+0.0033] | -0.0049 [-0.0140,+0.0034] |
+| `oai-field-hybrid+text=title75+d=10` | -0.0150 [-0.0271,-0.0041] | -0.0150 [-0.0271,-0.0041] |
+| `oai-field-hybrid+text=concat+d=100` | +0.0016 [-0.0078,+0.0117] | +0.0000 [+0.0000,+0.0000] |
+| `oai-field-hybrid+text=title25+d=100` | withheld | withheld |
+| `oai-field-hybrid+text=title50+d=100` | withheld | withheld |
+| `oai-field-hybrid+text=title75+d=100` | withheld | withheld |
+
+## Segments
+
+| Setting | Segment | nDCG10 (diagnostic if incomplete) | Source MRR10 | R10 | R20 |
+|---|---|---|---|---|---|
+| `fusion-shortlist+a=1+d=500` | keyword | 0.7385 | 0.7202 | 0.9600 | 0.9600 |
+| `fusion-shortlist+a=1+d=500` | question | 0.7277 | 0.5883 | 0.7600 | 0.8000 |
+| `fusion-shortlist+a=1+d=500` | paraphrase | 0.6858 | 0.4984 | 0.7200 | 0.8000 |
+| `fusion-shortlist+a=1+d=500` | known_item | 0.7183 | 0.9800 | 1.0000 | 1.0000 |
+| `oai-field-hybrid+text=concat+d=10` | keyword | 0.7385 | 0.7202 | 0.9600 | 0.9600 |
+| `oai-field-hybrid+text=concat+d=10` | question | 0.7277 | 0.5883 | 0.7600 | 0.8000 |
+| `oai-field-hybrid+text=concat+d=10` | paraphrase | 0.6855 | 0.4984 | 0.7200 | 0.8000 |
+| `oai-field-hybrid+text=concat+d=10` | known_item | 0.7183 | 0.9800 | 1.0000 | 1.0000 |
+| `oai-field-hybrid+text=title25+d=10` | keyword | 0.7449 | 0.7461 | 0.9600 | 0.9600 |
+| `oai-field-hybrid+text=title25+d=10` | question | 0.7317 | 0.6250 | 0.7600 | 0.8000 |
+| `oai-field-hybrid+text=title25+d=10` | paraphrase | 0.6811 | 0.4675 | 0.7200 | 0.8000 |
+| `oai-field-hybrid+text=title25+d=10` | known_item | 0.7237 | 0.9800 | 1.0000 | 1.0000 |
+| `oai-field-hybrid+text=title50+d=10` | keyword | 0.7493 | 0.7294 | 0.9600 | 0.9600 |
+| `oai-field-hybrid+text=title50+d=10` | question | 0.7230 | 0.5717 | 0.7600 | 0.8000 |
+| `oai-field-hybrid+text=title50+d=10` | paraphrase | 0.6587 | 0.4344 | 0.7200 | 0.8000 |
+| `oai-field-hybrid+text=title50+d=10` | known_item | 0.7193 | 0.9800 | 1.0000 | 1.0000 |
+| `oai-field-hybrid+text=title75+d=10` | keyword | 0.7357 | 0.6644 | 0.9600 | 0.9600 |
+| `oai-field-hybrid+text=title75+d=10` | question | 0.7138 | 0.5750 | 0.7600 | 0.8000 |
+| `oai-field-hybrid+text=title75+d=10` | paraphrase | 0.6512 | 0.4278 | 0.7200 | 0.8000 |
+| `oai-field-hybrid+text=title75+d=10` | known_item | 0.7094 | 0.9533 | 1.0000 | 1.0000 |
+| `oai-field-hybrid+text=concat+d=100` | keyword | 0.7324 | 0.7157 | 0.9200 | 0.9600 |
+| `oai-field-hybrid+text=concat+d=100` | question | 0.7252 | 0.5833 | 0.7200 | 0.7600 |
+| `oai-field-hybrid+text=concat+d=100` | paraphrase | 0.6931 | 0.4873 | 0.6400 | 0.6400 |
+| `oai-field-hybrid+text=concat+d=100` | known_item | 0.7262 | 0.9800 | 1.0000 | 1.0000 |
+| `oai-field-hybrid+text=title25+d=100` | keyword | 0.7363 | 0.7417 | 0.9200 | 0.9600 |
+| `oai-field-hybrid+text=title25+d=100` | question | 0.7288 | 0.6250 | 0.7600 | 0.7600 |
+| `oai-field-hybrid+text=title25+d=100` | paraphrase | 0.6757 | 0.4581 | 0.6400 | 0.6400 |
+| `oai-field-hybrid+text=title25+d=100` | known_item | 0.7331 | 0.9800 | 1.0000 | 1.0000 |
+| `oai-field-hybrid+text=title50+d=100` | keyword | 0.7273 | 0.7244 | 0.9200 | 0.9600 |
+| `oai-field-hybrid+text=title50+d=100` | question | 0.7065 | 0.5867 | 0.7600 | 0.7600 |
+| `oai-field-hybrid+text=title50+d=100` | paraphrase | 0.6164 | 0.4161 | 0.6000 | 0.6400 |
+| `oai-field-hybrid+text=title50+d=100` | known_item | 0.7239 | 0.9800 | 1.0000 | 1.0000 |
+| `oai-field-hybrid+text=title75+d=100` | keyword | 0.6701 | 0.6574 | 0.9200 | 0.9200 |
+| `oai-field-hybrid+text=title75+d=100` | question | 0.6500 | 0.6100 | 0.7600 | 0.7600 |
+| `oai-field-hybrid+text=title75+d=100` | paraphrase | 0.5978 | 0.4044 | 0.5600 | 0.6000 |
+| `oai-field-hybrid+text=title75+d=100` | known_item | 0.6954 | 0.9533 | 1.0000 | 1.0000 |
+
+## Reproducibility and cautions
+
+- Cached scores only; no embedding/judging API execution path.
+- Parent embeddings use the shared $1.25 lifetime ledger plus $0.30 task ceiling. No automatic retries; unknown outcomes retain reservations.
+- Reported cost is local accounting at the stored $0.13/M token price, not a guarantee about provider billing/free credits.
+- Input/label hashes and plan frozen; cached document vectors bind exact text, model and dimensions. Query/concat caches are read-only; missing cache aborts.
+- `../openai-field-dev/raw-field-scores.json`: frozen parent cosine signals; `cases.json`: wins/losses.
+- `report.json`: screening, paired source intervals and same-model controls.
+- Held-out300 untouched; human overrides preserved. Exploratory dev comparisons are not corrected for repeated selection or multiple testing.
 
 
 ## Frozen baseline failure analysis

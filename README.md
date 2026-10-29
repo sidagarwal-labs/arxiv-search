@@ -89,6 +89,13 @@ coverage-gated; no new paid calls were made.
 See the [cross-encoder findings](docs/03-findings.md#24-query-document-interaction-first-local-cross-encoder)
 and [field-score findings](docs/03-findings.md#25-separate-titleabstract-field-scores).
 LLM reranking and a new dev set are later steps.
+The subsequent **OpenAI-large field test** used separate title/abstract vectors
+for7,644 candidate papers, costing an accounted**$0.2707**. A cached hybrid
+follow-up with25% title /75% abstract semantic weights reaches mean
+**nDCG0.7204, MRR0.7047**, retaining lexical evidence and the existing top10
+membership. Its nDCG gain interval crosses zero and paraphrase quality regresses:
+**challenger only; Decision36 remains approved**. Higher title weights hurt.
+See the [same-model field findings](docs/03-findings.md#26-openai-large-titleabstract-candidate-experiment).
 Repeated global fusion tuning is showing diminishing returns.
 See the [experiment/promotion findings](docs/03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](docs/02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).
