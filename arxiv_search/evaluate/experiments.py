@@ -32,6 +32,7 @@ from typing import Callable
 
 from arxiv_search import config
 from arxiv_search.evaluate import metrics
+from arxiv_search.evaluate.openai_full import register_systems
 from arxiv_search.evaluate.make_queries import load_jsonl
 from arxiv_search.search import dense
 from arxiv_search.search.bm25 import BM25, DEFAULT_B, DEFAULT_K1
@@ -180,6 +181,8 @@ def hybrid_system(settings: dict) -> System:
 
 for name, settings in HYBRID_GRID.items():
     SYSTEMS[name] = hybrid_system(settings)
+
+register_systems(SYSTEMS, System)
 
 
 # --- Running ---------------------------------------------------------------
@@ -334,8 +337,14 @@ def main_table(results: dict) -> str:
         cells += [f"{_mean([r[MRR] for r in rows if r['query_type'] == t]):.3f}" for t in QUERY_TYPES]
         cells += [f"{_mean([r[MRR] for r in rows if r['specificity'] == s]):.3f}" for s in ("specific", "broad")]
         fusion_only = info.get("timing_scope") == "fusion_only"
+        cached_query = info.get("timing_scope") == "sequential_search_excludes_offline_query_embedding"
+        latency = str(info["ms_per_query"])
+        if fusion_only:
+            latency += " (fusion only)"
+        elif cached_query:
+            latency += " (cached vector; embedding API excluded)"
         cells += ["—" if fusion_only else str(info["build_seconds"]),
-                  f"{info['ms_per_query']} (fusion only)" if fusion_only else str(info["ms_per_query"])]
+                  latency]
         lines.append("| " + " | ".join(cells) + " |")
     return "\n".join(lines)
 
@@ -488,6 +497,11 @@ def write_results_doc() -> None:
     if embedding_report.exists():
         parts += ["", "## Embedding pilot (reduced corpus; separate benchmark)", "",
                   embedding_report.read_text(encoding="utf-8")]
+    graded_report = config.RESULTS_DIR / "graded-dev" / "report.md"
+    if graded_report.exists():
+        parts += ["", "## Graded full-corpus dev retrieval", "",
+                  graded_report.read_text(encoding="utf-8").replace(
+                      "# Graded dev retrieval", "### Graded dev retrieval", 1)]
     (config.PROJECT_ROOT / "docs" / "05-results.md").write_text(
         "\n".join(parts).rstrip() + "\n", encoding="utf-8")
 

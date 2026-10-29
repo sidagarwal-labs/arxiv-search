@@ -507,6 +507,23 @@ Run `judge_pilot report`, then `evaluate.experiments` to refresh both the detail
 agreement report and the central results page. Retrieval scores and judge
 agreement remain separate: a better judge does not itself improve search ranking.
 
+**Full-dev graded retrieval** (`evaluate/graded.py`): pools the top 10 from the
+five original finalists plus OpenAI large dense/hybrid results, all on the same
+100 dev queries. It reuses current-rubric Gemma labels, skips API calls for
+human-graded pairs and applies human labels last (including grade 0). The default
+command only scores cached labels. `--label --max-calls 20` grades up to 20
+successful batches then publishes progress; API/validation failures also publish
+the saved partial coverage before propagating the error.
+
+Outputs in `data/results/graded-dev/` include the merged label snapshot, rubric
+version, human-workbook fingerprint, ranking fingerprints, per-query graded
+scores and a report. nDCG uses linear gains from the shared pool, P@10 treats
+grades 1/2 as relevant, and judged@10 shows coverage. Undefined nDCG queries are
+counted explicitly. Until every compared top 10 is judged, the table is marked
+provisional and must not be used to select a winner. Source-paper metrics remain
+unchanged in the original retrieval table. Adding pool papers can change ideal
+DCG, so rebuild all graded rows together rather than comparing stale snapshots.
+
 ---
 
 ## Settings (`config.py`)

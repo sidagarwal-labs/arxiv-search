@@ -453,4 +453,35 @@ contains 6,259,638 `cl100k_base` tokens. At
 and [$0.13/million for large](https://developers.openai.com/api/docs/models/text-embedding-3-large),
 embedding all papers once would be about **$0.1252 / $0.8138**, respectively,
 excluding future queries, retries and taxes. No full-corpus OpenAI embedding run
-was made. Paper vectors stay offline; the paid API is needed to embed new queries.
+was made at that pilot checkpoint. Paper vectors stay offline; the paid API is needed to embed new queries.
+
+## 14. Full-corpus OpenAI large (2026-10-29)
+
+All 23,304 title/abstract paper vectors and 100 dev query vectors are cached.
+The new job reused 2,000 pilot papers and all dev queries; the pilot cache and
+budget were left unchanged. A separate transactional lifetime ledger records
+365 successful requests, 5,721,932 billed tokens and **$0.74385116** against
+the newly approved **$1.25** cap. Unknown attempts retain reservations and are
+not automatically retried. No held-out query embeddings were requested.
+
+| System | MRR@10 [95% CI] | R@1 | R@5 | R@10 | R@20 |
+|---|---|---|---|---|---|
+| OpenAI large alone | 0.599 [0.518, 0.679] | 0.50 | 0.74 | 0.82 | 0.88 |
+| Best BM25 + OpenAI large, equal RRF c=10 | 0.653 [0.572, 0.737] | 0.56 | 0.80 | 0.84 | 0.90 |
+
+Compared with GTE hybrid's 0.635, the paired MRR difference is +0.018
+[-0.028, +0.065]: not an established improvement. The 2,000-paper pilot was
+much easier because it had fewer distractors; its 0.844 dense MRR must not be
+presented as a full-corpus result.
+
+Normalized float32 paper vectors occupy 286,359,552 bytes. Search with cached
+query vectors took 5.3 ms/query dense and 8.0 ms/query hybrid in one sequential
+warm run; **query embedding API latency is excluded**, not a serving estimate.
+BM25 initialization took 9.76 seconds; embedding/cache preparation took
+635.82 seconds. These stages are recorded separately in saved metadata.
+
+The expanded graded dev pool contains **2,857 unique pairs across seven
+systems and 100 queries**. Initially 266 pairs had cached/human judgments.
+Gemma labeling is resumable; its report stays explicitly provisional until all
+pooled top-10 results are judged. Existing 100 human grades override Gemma.
+They remain calibration data, not fresh independent validation.

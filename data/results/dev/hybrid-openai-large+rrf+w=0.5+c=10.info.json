@@ -1,0 +1,43 @@
+{
+  "system": "hybrid-openai-large+rrf+w=0.5+c=10",
+  "description": "Hybrid: best BM25 + OpenAI large, equal RRF c=10; offline query embeddings; latency excludes API",
+  "factors": {
+    "model": "openai-large",
+    "dimensions": 3072,
+    "full_corpus": true,
+    "hybrid": true,
+    "method": "rrf",
+    "semantic_weight": 0.5,
+    "c": 10
+  },
+  "split": "dev",
+  "queries": 100,
+  "mrr@10": 0.6534,
+  "build_seconds": 9.8,
+  "ms_per_query": 8.0,
+  "timing_scope": "sequential_search_excludes_offline_query_embedding",
+  "papers": 23304,
+  "dimensions": 3072,
+  "vector_bytes": 286359552,
+  "paper_embedding_and_cache_seconds": 635.8240877000007,
+  "offline_batched_query_embedding_and_cache_seconds": 0.032109800000398536,
+  "dense_index_initialization_seconds": 1.1699999959091656e-05,
+  "bm25_initialization_seconds": 9.764211099998647,
+  "preflight": {
+    "papers": 23304,
+    "dev_queries": 100,
+    "paper_tokens": 6259638,
+    "dev_query_tokens": 1175,
+    "cached_papers": 2000,
+    "cached_queries": 100,
+    "reserved_remaining_usd": 0.76600732,
+    "accounted_usd": 0,
+    "lifetime_cap_usd": 1.25,
+    "price_usd_per_million": 0.13
+  },
+  "embedding_ledger": {
+    "requests": 365,
+    "accounted_usd": 0.74385116,
+    "api_seconds": 622.0682144999864
+  }
+}

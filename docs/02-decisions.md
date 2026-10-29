@@ -143,26 +143,32 @@ tracks the selected configuration alongside the best measured scores and their s
 This does not rename or overwrite the original `bm25-baseline` control.
 
 OpenAI large leads the reduced-corpus pilot, but its advantage over OpenAI small
-has a paired interval crossing zero. The full-corpus OpenAI hybrid has not been
-measured. Gemma leads exact human agreement by only two percentage points over
+has a paired interval crossing zero. The full-corpus OpenAI hybrid now scores
+0.653 MRR@10 vs. GTE's 0.635; the paired difference is +0.018
+[-0.028, +0.065], also uncertain. Gemma leads exact human agreement by only two percentage points over
 OpenAI mini; this is a working selection, not a statistically established judge
 winner. Gemma also wrote the queries, so independent human audits and occasional
 mini cross-checks remain important.
 
 **Next milestones, in order:**
-1. Approve a separate full-corpus embedding budget (the existing $0.25 approval
-   covered only the pilot). Estimate approximately $0.81 for all large-model
-   paper embeddings at checked prices; estimate incremental cached reuse before
-   requesting approval. Do not incur that cost automatically.
+1. Full-corpus embedding budget **approved: $1.25 lifetime total** for the
+   large-model corpus plus dev queries (2026-10-28). The earlier $0.25 approval
+   remains a separate pilot budget. Estimate approximately $0.81 before cached
+   reuse. Reserve against the new cap before every request; no full test run.
 2. Measure OpenAI large alone and with BM25 on the same 23,304 papers and 100 dev
    queries. Start with fixed RRF c=10, equal weights; compare against the GTE
    hybrid and report paired intervals and query-type tradeoffs. Cache vectors.
+   **Completed 2026-10-29:** 23,304 paper vectors and 100 dev queries cached,
+   reusing 2,000 pilot papers and all dev query vectors. New spending $0.74385116
+   under the separate $1.25 cap; dense MRR 0.599, hybrid 0.653.
 3. Extend the Gemma dev pool to cover the new systems' top 10 results, reuse cached
    judgments, apply human overrides, and report nDCG@10, P@10 and judged@10
    separately from source-paper MRR/recall. Do not interpret low-coverage nDCG
    as a fair comparison. Judge model changes do not change retrieval rankings.
-4. Build the hosted search and blind label-collection UI, with server-side keys,
-   persistent human labels and fresh-human agreement checks. Measure hosted
+4. Build the hosted search UI with server-side keys. **Label-collection UI is
+   deferred per Sid's request**: retain the existing 100 human labels for now.
+   Record that the judge has not been validated on fresh human labels; do not
+   present calibration agreement as independent confirmation. Measure hosted
    latency, memory, storage and cost before selecting the serving setup.
 5. Test reranking the frozen hybrid top 20, then 50 if worthwhile; compare a local
    cross-encoder and an affordable LLM using quality, latency and token budgets.
