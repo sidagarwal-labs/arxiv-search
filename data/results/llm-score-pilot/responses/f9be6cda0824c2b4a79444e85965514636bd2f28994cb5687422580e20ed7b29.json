@@ -1,0 +1,44 @@
+{
+  "answer": {
+    "P1": 2,
+    "P10": 1,
+    "P2": 1,
+    "P3": 3,
+    "P4": 0,
+    "P5": 1,
+    "P6": 4,
+    "P7": 3,
+    "P8": 0,
+    "P9": 2
+  },
+  "answer_sha256": "bc1c4bbcd14dd52b1cdf7a955a957035aa8131744becc5eb35b8b65ef346d051",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2602.06348",
+    "2606.27909",
+    "2604.05476",
+    "2609.39045",
+    "2510.18821",
+    "2606.23348",
+    "2511.07312",
+    "2510.16774",
+    "2608.09128",
+    "2601.05633"
+  ],
+  "request_key": "f9be6cda0824c2b4a79444e85965514636bd2f28994cb5687422580e20ed7b29",
+  "usage": {
+    "accounted_tokens": 3655,
+    "input_tokens": 3596,
+    "latency_seconds": 2.342158399987966,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 59,
+    "provider_request_id": "req_52dc95a7ec0341868e04b8dcb2c33a24",
+    "reasoning_tokens": 0,
+    "request_id": "c8d9aabc-7360-4229-a228-492082160c33",
+    "reserved_input": 22392,
+    "reserved_output": 1024,
+    "started_utc": "2026-10-30T17:41:44.863778+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

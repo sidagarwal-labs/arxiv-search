@@ -1,0 +1,6 @@
+{
+  "automatic_retries": false,
+  "resume_after_failure": "Investigate before any more paid requests; no automatic continuation.",
+  "scope": "User amendment before the first v2 request; applies beyond the smoke gate too.",
+  "stop_on_any_failure": true
+}

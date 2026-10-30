@@ -81,7 +81,10 @@ def plan(qids: list[str]) -> dict:
     }
 
 
-def read_cached(path: Path, encoded: bytes, presented: list[str]) -> tuple[dict, dict] | None:
+def read_cached(path: Path, encoded: bytes, presented: list[str], *,
+                version: str = "list-v1") -> tuple[dict, dict] | None:
+    if version not in ("list-v1", "scores-v2"):
+        raise ValueError("Unknown response-cache version")
     if not path.exists():
         return None
     value = json.loads(path.read_text(encoding="utf-8"))
@@ -89,7 +92,8 @@ def read_cached(path: Path, encoded: bytes, presented: list[str]) -> tuple[dict,
             or value.get("presented_ids") != presented or value.get("model") != client.MODEL
             or value.get("answer_sha256") != fusion.fingerprint(value.get("answer"))):
         raise ValueError("Reranker cache provenance/checksum mismatch")
-    answer = client.validate_answer(value["answer"], len(presented)).model_dump()
+    answer = (client.validate_answer(value["answer"], len(presented)).model_dump()
+              if version == "list-v1" else client.validate_scores(value["answer"], len(presented)))
     usage = value["usage"]
     if usage["status"] != "completed" or usage["model"] != client.MODEL:
         raise ValueError("Reranker cache has no successful accounted request")
@@ -97,8 +101,8 @@ def read_cached(path: Path, encoded: bytes, presented: list[str]) -> tuple[dict,
 
 
 def cached_call(path: Path, encoded: bytes, presented: list[str], ledger: client.PilotLedger,
-                *, run: bool) -> tuple[dict, dict]:
-    cached = read_cached(path, encoded, presented)
+                *, run: bool, failure_output_path: Path | None = None) -> tuple[dict, dict]:
+    cached = read_cached(path, encoded, presented, version=ledger.version)
     if cached is not None:
         return cached
     if not run:
@@ -107,7 +111,8 @@ def cached_call(path: Path, encoded: bytes, presented: list[str], ledger: client
         raise api.OpenAIError("Request already attempted; no retry or paid cache repair")
     answer, usage = client.call_once(
         encoded, len(presented), ledger,
-        failure_output_path=OUT / "failures" / f"{client.request_key(encoded)}.json")
+        failure_output_path=(failure_output_path if failure_output_path is not None
+                             else OUT / "failures" / f"{client.request_key(encoded)}.json"))
     value = {"request_key": client.request_key(encoded), "model": client.MODEL,
              "presented_ids": presented, "answer": answer, "usage": usage,
              "answer_sha256": fusion.fingerprint(answer)}

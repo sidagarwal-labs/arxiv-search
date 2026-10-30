@@ -1,0 +1,52 @@
+{
+  "automatic_promotion": false,
+  "automatic_retries": false,
+  "baseline": "fusion-shortlist+a=1+d=500",
+  "budget": {
+    "input_usd_per_million": 0.75,
+    "ledger": "data/openai/usage.sqlite3",
+    "max_output_tokens": 1024,
+    "maximum_combined_v1_v2_usd": 1.0,
+    "new_requests_maximum": 40,
+    "no_reset": true,
+    "output_usd_per_million": 4.5,
+    "reasoning_effort": "none"
+  },
+  "contract": "Flat JSON with every supplied P-label required exactly once, integer0-4, no additional keys. Reject duplicate raw JSON keys. No explanations.",
+  "depths": [
+    10,
+    50
+  ],
+  "evaluation": "Paired same20-query baseline comparison when complete; otherwise explicit matched-success scope. Withhold incomplete graded comparisons. Compare v1 only on identical successfully ranked queries.",
+  "execution": "First sorted sample query at each depth is a two-request smoke gate. Stop on any invalid smoke response. No retries; cached valid results are reused. Subsequent invalid answers are explicit, not fallback ranks.",
+  "hypothesis": "Required fixed paper keys eliminate generated-permutation and note-ID errors; bounded usefulness scores enable deterministic client sorting.",
+  "interpretation": "New scoring/tie contract, not an isolated output-format-only ablation. Scores are ranking signals, never evaluation grades or probabilities.",
+  "judge_api_calls": 0,
+  "model": "gpt-5.4-mini-2026-03-17",
+  "prompt_sha256": "b1b98306ad91185acfe5e4f9a62109b3b166f108f6da1a07f320628965562ee1",
+  "query_ids": [
+    "q-keyword-005",
+    "q-keyword-008",
+    "q-keyword-017",
+    "q-keyword-079",
+    "q-keyword-081",
+    "q-known_item-017",
+    "q-known_item-019",
+    "q-known_item-031",
+    "q-known_item-042",
+    "q-known_item-048",
+    "q-paraphrase-020",
+    "q-paraphrase-043",
+    "q-paraphrase-063",
+    "q-paraphrase-077",
+    "q-paraphrase-096",
+    "q-question-040",
+    "q-question-056",
+    "q-question-077",
+    "q-question-088",
+    "q-question-095"
+  ],
+  "ranking": "Descending model score; equal scores retain approved baseline order. Rerank only the supplied prefix and preserve the rest of the100 results.",
+  "scope": "Exactly v1's20 queries, same baseline candidate10/50 and presentation order; full public title/authors/abstract. No extra queries, labels or held-out test.",
+  "version": "scores-v2"
+}

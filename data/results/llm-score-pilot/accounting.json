@@ -1,0 +1,15 @@
+{
+  "combined_v1_v2_usd": 0.708294,
+  "v2": {
+    "accounted_nanodollars": 332622000,
+    "accounted_tokens": 411696,
+    "accounted_usd": 0.332622,
+    "api_seconds": 83.07812089999788,
+    "input_tokens": 405336,
+    "output_tokens": 6360,
+    "reasoning_tokens": 0,
+    "requests": 40,
+    "shared_accounted_tokens": 2244267,
+    "unknown_reserved_tokens": 0
+  }
+}

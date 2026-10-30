@@ -149,6 +149,26 @@ Unjudged new top10 entries withhold comparable graded scores; source metrics
 remain visible. New judging, more queries and independent validation require
 separate decisions. See [Decision39](02-decisions.md#39-mini-llm-reranker-pilot-approved-2026-10-30).
 
+The [fixed-key v2 pilot](../arxiv_search/evaluate/llm_score_pilot.py) reuses the
+same frozen input sample but requests one required integer0-4 score per
+paper ID. It rejects duplicate raw JSON keys, missing/extra IDs, booleans,
+floats and out-of-range scores. Client sorting retains the approved baseline
+order on ties. The model emits neither permutations nor explanation arrays.
+
+```powershell
+python -m arxiv_search.evaluate.llm_score_pilot              # offline preflight
+python -m arxiv_search.evaluate.llm_score_pilot --run --smoke # only two new requests
+python -m arxiv_search.evaluate.llm_score_pilot --run         # reuse smoke/cache; finish approved40
+```
+
+Versioned request tags preserve the v1 ledger entries and enforce the same
+combined dollar ceiling across both pilots. A separate report records v2
+reliability, quality, ties and same-query comparisons with v1. Neither pilot
+is a100-query leaderboard entry. V2 stops on **any** failed request and blocks
+further paid execution pending investigation, including after the smoke gate.
+See
+[Decision40](02-decisions.md#40-fixed-key-reranker-v2-approved-2026-10-30).
+
 ---
 
 ## Step 1: Download (`download.py`)

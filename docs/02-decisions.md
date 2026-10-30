@@ -560,6 +560,50 @@ exact full permutations rejected for bad evidence notes, but must not relabel
 them as successful primary responses or repair missing/duplicate ranking IDs.
 No new inference or changed prompt is allowed for that diagnostic.
 
+## #40 Fixed-key reranker v2 approved (2026-10-30)
+
+Sid requested the output-contract fixes and a rerun. Keep the same20 dev
+queries, baseline top10/top50 candidates, hash presentation order, full
+title/authors/abstract and pinned `gpt-5.4-mini-2026-03-17` snapshot.
+Preserve v1's successes, failures and primary report as historical evidence.
+
+Replace the generated permutation and parallel explanation list with a flat
+JSON object. Every supplied paper label is a required key with an integer
+usefulness score0-4; extra keys, duplicate raw JSON keys and invalid values
+are rejected. Sort scores descending in code, retain baseline order for ties
+and preserve the tail outside the reranked prefix. No explanation output.
+Scores are ranking signals, never evaluation grades or calibrated probabilities.
+This changes scoring and tie behavior as well as output format.
+
+Use reasoning `none`, a1,024-token output cap, no retries and at most40 new
+requests. First run the first sampled query at each depth as a two-request
+smoke gate; stop if either fails. Successful smoke responses are reused,
+not repeated during the full run. Before any v2 calls, Sid additionally
+required investigating any failure before spending more tokens. **Stop on
+the first failure at any point**, not just during smoke; block subsequent
+paid execution while a prior attempt lacks a valid cache. Preserve this
+stricter policy in a separate execution-policy amendment to the frozen plan.
+No new judging, embeddings, query generation or held-out evaluation.
+
+Offline preflight:434,064 serialized input-token estimate;518,430 estimated
+tokens with10% input headroom and the full output cap; approximately$0.5424
+at that conservative usage assumption. The old367,429 remaining tokens were
+insufficient. Sid explicitly approved increasing the effective cumulative
+mini cap from2,200,000 to **2,500,000**, preserving1,832,571 tokens already
+accounted. There is no reset or new spending ledger.
+
+The original **$1.00 combined v1+v2 ceiling** still applies, including v1's
+$0.375672. A version column tags requests in the existing ledger; old entries
+are preserved as `list-v1`, new entries as `scores-v2`. Per-version40-request
+caps and the combined dollar guard share the same atomic reservation with
+the cumulative token guard. Unknown outcomes keep their reservations.
+
+Evaluate the v2 arms on the identical20 queries, or explicit matched-success
+subsets if needed. Compare v1 only on identical successfully ranked queries;
+do not compare its7-query primary score directly to v2's full sample.
+Missing labels withhold graded comparisons, existing human grades remain
+frozen, and the same-family judge caveat remains. No automatic promotion.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

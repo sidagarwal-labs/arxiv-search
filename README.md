@@ -112,6 +112,11 @@ A blinded label audit is still pending. The subsequently approved
 attempted40 requests for an accounted$0.3757 with no retries. Only23 responses
 passed the strict output contract, leaving7 matched queries; top50 graded
 quality is incomplete. It is not a new baseline or a100-query leaderboard entry.
+The [fixed-key v2 rerun](docs/03-findings.md#31-fixed-key-reranker-v2-reliable-output-and-pilot-quality)
+then passed **40/40** responses with no retries. On the same20-query pilot,
+top10 nDCG improves.7055->.7194; top50 still loses one source hit and has34
+unjudged selected pairs. V2 costs an accounted$0.3326, keeping both pilots
+at$0.7083 combined. Decision36 remains approved.
 Repeated global fusion tuning is showing diminishing returns.
 See the [experiment/promotion findings](docs/03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](docs/02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).

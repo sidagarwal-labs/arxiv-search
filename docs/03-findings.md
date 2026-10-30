@@ -2135,3 +2135,150 @@ known-item safety review and fresh dev validation. The current judge is the
 same model family as this reranker, so even complete frozen-label gains would
 not independently establish better human relevance. We have conserved the
 remaining367,429 shared tokens rather than retrying, labeling or expanding.
+
+## 31. Fixed-key reranker v2: reliable output and pilot quality
+
+Sid requested the output fixes and a rerun, then required investigating any
+failure before spending on further requests. Before inference, the new policy
+was frozen: **stop on any failure**, both inside and after the two-request
+smoke gate; block subsequent paid runs while a prior attempt has no valid
+cache. Offline tests verify both immediate and post-smoke stops and blocked
+resumes. There were no live failures to investigate in v2.
+
+### Fix: make the model score, let code order
+
+V2 retains v1's same20 queries, model snapshot, full title/authors/abstract,
+candidate prefixes10/50 and hash presentation order. Its strict JSON Schema
+requires every supplied paper label as an object key with one integer0-4
+usefulness score, rejects extra keys, and no longer asks for a generated
+permutation or parallel explanation array. The client also rejects duplicate
+raw JSON keys, booleans, floats, missing IDs and out-of-range values.
+
+The client sorts scores descending, using approved-baseline order for ties,
+and preserves the unreranked tail. Scores are **ranking signals, not labels
+or probabilities**. The0-4 usefulness rubric and baseline tie treatment
+change scoring behavior too, so this is not an isolated format-only ablation.
+All v1 artifacts remain unchanged; v2 has its own identity and caches.
+
+### Reliability and cost
+
+Both10/50-candidate smoke requests succeeded and were reused in the full
+run, not repeated. Every request used reasoning `none`, a1,024-token output
+cap, no tools and no automatic retries.
+
+| Measure | v1 | Fixed-key v2 |
+|---|---:|---:|
+| Strictly valid top10 responses | 16/20 | **20/20** |
+| Strictly valid top50 responses | 7/20 | **20/20** |
+| Requests attempted | 40 | **40**, including the reused smoke pair |
+| Output tokens | 16,060 | **6,360** |
+| Total input+output tokens | 420,596 | **411,696** |
+| New accounted cost | $0.375672 | **$0.332622** |
+| Reasoning tokens / retries | 0 /0 | **0 /0** |
+
+V2 input tokens total405,336. Removing explanation output reduces output
+tokens by about60%, but total tokens only about2.1% because document input
+dominates. Sum of v2 API latency is83.1seconds; this is not end-to-end search
+latency or elapsed development time.
+
+Sid approved raising the effective shared cumulative cap to2,500,000, without
+resetting usage. Shared usage after v2 is **2,244,267**, leaving **255,733**
+tokens. The **same$1 combined ceiling** applies across both versions;
+their total accounted cost is **$0.708294**. No new judgments, embeddings,
+held-out requests or additional smoke calls were made.
+
+### Primary comparison: all20 queries now available
+
+Unlike v1's seven-query primary intersection, v2 has complete valid rankings
+for all20 planned queries (five per segment). Both arms are compared with
+the approved baseline on these exact20 queries; neither is ranked against
+the100-query leaderboard.
+
+| Same20-query comparison | nDCG10 | P10 | Source MRR10 | R10 | R20 | Judged10 |
+|---|---:|---:|---:|---:|---:|---:|
+| Approved baseline | .7055 | .6750 | .8375 | .9000 | .9000 | 100% |
+| Fixed-key top10 | **.7194** | .6750 | **.8417** | .9000 | .9000 | 100% |
+| Fixed-key top50 | **withheld** | **withheld** | .6875 | .8500 | .9000 | 83% |
+
+Top10 nDCG delta is **+.013889**, exploratory paired bootstrap
+CI**[+.000327,+.027808]**:13 wins,4 losses,3 ties. Source MRR delta+.004167
+has CI[-.116771,+.116875]. This is a promising small-sample ordering signal,
+not independent proof of a production improvement or our hoped-for large
+selection gain; it is below the proposed+.02 practical improvement target.
+The primary metric uses labels mostly supplied by the same
+model family, and the sample is drawn from already-examined dev queries.
+
+Top10 membership/P10/source recall cannot change by construction.
+All five known-item targets and all five question targets retain their
+original first positions. Two keyword sources worsen, one keyword source
+improves, and the feedback-communication paraphrase source improves4->1.
+
+| Segment,5 queries each | Baseline nDCG | V2 top10 nDCG | Baseline source MRR | V2 top10 source MRR |
+|---|---:|---:|---:|---:|
+| Keyword | .7255 | .7561 | .9000 | .7667 |
+| Question | .7463 | .7584 | 1.0000 | 1.0000 |
+| Paraphrase | .6639 | .6858 | .4500 | .6000 |
+| Known item | .6863 | .6770 | 1.0000 | 1.0000 |
+
+Every one of the five question queries improves in graded nDCG. Known-item
+target safety improves relative to v1's matched Jiang regression, but that
+segment's other result ordering still regresses on average. Five queries per
+segment are insufficient for broad guarantees. We do not promote v2.
+
+### Top50 is still not ready
+
+Top50 selects **34 unjudged query-paper pairs** into its top10s, so comparable
+nDCG/P10 and their paired intervals remain withheld. No model scores or
+unjudged entries were converted into evaluation labels.
+
+Source MRR falls.8375->.6875 and source recall10 falls.90->.85. The
+"regional language social media" source moves1->15. The Jiang known-item
+source moves1->2, workflow-reuse question source1->2, and atmospheric
+general-purpose model source1->6. These complete source metrics fail the
+existing safety screen; they do not prove all promoted alternatives are
+irrelevant. Independent labels would be needed to evaluate those alternatives.
+
+The deeper arm has not demonstrated the intended recall/selection benefit,
+even though its output is now structurally reliable. We stopped after the
+approved40 requests rather than spending on labels or tuning more variants.
+
+### Cached diagnosis: scores change with candidate context
+
+For the200 query-paper pairs common to both arms, **102 scores differ**,
+across19 of20 queries, despite identical paper/query text and rubric.
+For example:
+
+| Source query | Source score in top10 context | Source score in top50 context |
+|---|---:|---:|
+| Jiang personalized dense retrieval | 4 | 2 |
+| General-purpose atmospheric model | 4 | 2 |
+| Standard GNNs on unknown graphs | 4 | 3 |
+| Feedback-free shared neural architectures | 3 | 2 |
+
+This warns against treating these small integer scores as calibrated,
+context-invariant relevance probabilities. Candidate context, changed label
+positions and normal model sampling may all contribute; one run per arm
+cannot separate them. Ties also mean the deterministic baseline remains
+an important ordering prior. We have not run additional probes to resolve
+these mechanisms.
+
+### Comparing with v1 fairly
+
+The report includes per-arm v1 comparisons only on identical successful
+queries. On v1's16 valid top10 queries, v2's nDCG is lower by.001307;
+we cannot claim the reliability fix made the model uniformly better at
+ranking. On v1's7 valid top50 queries, source MRR improves by.095238,
+but graded comparisons remain incomplete. Neither comparison is an
+independent sample, and v1's7-query headline must not be compared directly
+with v2's20-query headline.
+
+**Decision:** retain the approved baseline; keep v2 top10 as a promising
+pilot, and do not promote or expand top50 on current evidence. The output
+contract issue is fixed in this observed run. Remaining work concerns
+ranking quality, candidate-context stability, author/constraint safety and
+independent evaluation, not another automatic paid retry.
+
+The [v2 report](../data/results/llm-score-pilot/report.md), exact score caches,
+input manifest, execution-policy amendment and same-query comparisons are
+persisted. Replays use only saved responses and must leave all accounting,
+frozen labels and historical rankings unchanged.
