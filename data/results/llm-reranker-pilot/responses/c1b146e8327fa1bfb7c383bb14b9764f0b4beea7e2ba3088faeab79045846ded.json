@@ -1,0 +1,168 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Direct LLM causal reasoning with counterfactual consistency; no time series focus.",
+        "paper": "P1"
+      },
+      {
+        "note": "LLM-based time series forecasting with causal intervention and confounding mitigation.",
+        "paper": "P8"
+      },
+      {
+        "note": "LLM extracts symbolic causal rules from multivariate time series via counterfactuals.",
+        "paper": "P10"
+      },
+      {
+        "note": "Causality-aware multivariate time series anomaly detection using structural causal consistency.",
+        "paper": "P4"
+      },
+      {
+        "note": "Causal discovery for temporal graphs; uses probabilistic causal generator and unseen edges.",
+        "paper": "P2"
+      },
+      {
+        "note": "Time series causal discovery with large causal models; pretrained neural architectures.",
+        "paper": "P43"
+      },
+      {
+        "note": "Temporal causal discovery from irregular time series; no LLM component.",
+        "paper": "P16"
+      },
+      {
+        "note": "Time series causal discovery using best-order score search; not LLM-based.",
+        "paper": "P21"
+      },
+      {
+        "note": "LLM-forcing causal discovery with trust calibration and ensemble statistics.",
+        "paper": "P13"
+      },
+      {
+        "note": "Causal discovery in event sequences using a frozen autoregressive backbone.",
+        "paper": "P23"
+      }
+    ],
+    "ranking": [
+      "P1",
+      "P8",
+      "P10",
+      "P4",
+      "P2",
+      "P43",
+      "P16",
+      "P21",
+      "P13",
+      "P23",
+      "P31",
+      "P46",
+      "P50",
+      "P11",
+      "P38",
+      "P24",
+      "P12",
+      "P25",
+      "P39",
+      "P19",
+      "P45",
+      "P40",
+      "P36",
+      "P33",
+      "P3",
+      "P5",
+      "P15",
+      "P17",
+      "P18",
+      "P20",
+      "P22",
+      "P26",
+      "P27",
+      "P28",
+      "P29",
+      "P30",
+      "P32",
+      "P34",
+      "P35",
+      "P37",
+      "P41",
+      "P42",
+      "P44",
+      "P47",
+      "P48",
+      "P49",
+      "P6",
+      "P7",
+      "P9",
+      "P14"
+    ]
+  },
+  "answer_sha256": "be7541a7a44808b0e19b2fd67c35148369affdd66a3ca38c82de35f5f359abd5",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2602.16787",
+    "2606.28225",
+    "2605.26171",
+    "2607.08555",
+    "2512.13286",
+    "2604.09418",
+    "2601.03149",
+    "2606.08262",
+    "2610.05501",
+    "2602.17829",
+    "2601.10137",
+    "2607.13048",
+    "2606.03602",
+    "2608.17063",
+    "2609.22409",
+    "2607.18226",
+    "2606.12689",
+    "2610.02839",
+    "2605.19805",
+    "2609.29530",
+    "2603.05370",
+    "2605.05893",
+    "2609.31801",
+    "2606.27199",
+    "2607.24892",
+    "2512.03428",
+    "2601.15050",
+    "2605.26823",
+    "2606.17449",
+    "2604.21253",
+    "2605.09870",
+    "2607.14940",
+    "2603.27062",
+    "2510.13320",
+    "2510.09472",
+    "2606.27599",
+    "2608.17103",
+    "2601.13614",
+    "2603.00636",
+    "2601.05391",
+    "2512.12620",
+    "2602.23610",
+    "2602.18662",
+    "2604.04270",
+    "2605.16069",
+    "2602.02161",
+    "2511.08392",
+    "2606.22430",
+    "2511.04469",
+    "2510.22711"
+  ],
+  "request_key": "c1b146e8327fa1bfb7c383bb14b9764f0b4beea7e2ba3088faeab79045846ded",
+  "usage": {
+    "accounted_tokens": 15541,
+    "input_tokens": 15152,
+    "latency_seconds": 3.680763400014257,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 389,
+    "provider_request_id": "req_fd3fc50d95404e14bbd01873a68c5977",
+    "reasoning_tokens": 0,
+    "request_id": "4ad79cce-5f44-4a13-a680-c9e14c77ade1",
+    "reserved_input": 82447,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:25:13.838854+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

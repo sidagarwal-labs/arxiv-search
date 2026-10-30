@@ -1,0 +1,12 @@
+{
+  "accounted_nanodollars": 375672000,
+  "accounted_tokens": 420596,
+  "accounted_usd": 0.375672,
+  "api_seconds": 161.23458630006644,
+  "input_tokens": 404536,
+  "output_tokens": 16060,
+  "reasoning_tokens": 0,
+  "requests": 40,
+  "shared_accounted_tokens": 1832571,
+  "unknown_reserved_tokens": 0
+}

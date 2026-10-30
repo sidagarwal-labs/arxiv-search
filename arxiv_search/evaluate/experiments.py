@@ -525,6 +525,7 @@ def write_results_doc() -> None:
                           ("openai-field-dev", "OpenAI-large candidate title/abstract experiment"),
                           ("openai-field-hybrid-dev", "OpenAI field-aware hybrid (cached follow-up)"),
                           ("openai-field-recovery-dev", "OpenAI paraphrase recovery (cached global recipes)"),
+                          ("llm-reranker-pilot", "Mini LLM reranker pilot (20 queries; separate benchmark)"),
                           ("failure-analysis", "Frozen baseline failure analysis")):
         report = config.RESULTS_DIR / folder / "report.md"
         if report.exists():

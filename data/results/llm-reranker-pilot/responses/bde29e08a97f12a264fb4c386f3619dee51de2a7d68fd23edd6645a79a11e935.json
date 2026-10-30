@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly about regional-language social media; analyzes Arabic job announcements from X with regional variation.",
+        "paper": "P3"
+      },
+      {
+        "note": "Direct social media focus on regional language variation in New Zealand Reddit communities, though not necessarily a specific regional language task.",
+        "paper": "P5"
+      },
+      {
+        "note": "Social media text in regional code-mixed Tulu; directly relevant but narrow to hope-speech detection.",
+        "paper": "P1"
+      },
+      {
+        "note": "Studies social media in regional African languages and code-switching, relevant to language usage in digital spaces.",
+        "paper": "P10"
+      },
+      {
+        "note": "Multilingual social media analysis, but centered on cross-lingual topic filtering rather than regional language specifically.",
+        "paper": "P4"
+      },
+      {
+        "note": "Hinglish tweet sentiment analysis; relevant to social media and regional-language code-mixing, but task-specific.",
+        "paper": "P6"
+      },
+      {
+        "note": "Bengali regional dialect corpus for speech, not social media and not text-based online discourse.",
+        "paper": "P7"
+      },
+      {
+        "note": "Regional bias in LLMs; related to regions but not social media language use.",
+        "paper": "P2"
+      },
+      {
+        "note": "Uses social media language across age groups, but not regional language focus.",
+        "paper": "P8"
+      },
+      {
+        "note": "About Indian regional oral traditions in LLMs, not social media usage.",
+        "paper": "P9"
+      }
+    ],
+    "ranking": [
+      "P3",
+      "P5",
+      "P1",
+      "P10",
+      "P4",
+      "P6",
+      "P7",
+      "P2",
+      "P8",
+      "P9"
+    ]
+  },
+  "answer_sha256": "edf97c58ff0366f9d314537899132b9b24d9fa3ba22339d82a61879ed624b39f",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2605.09795",
+    "2607.27022",
+    "2605.20960",
+    "2602.17051",
+    "2604.15744",
+    "2601.05091",
+    "2510.24096",
+    "2606.30957",
+    "2608.26123",
+    "2512.01557"
+  ],
+  "request_key": "bde29e08a97f12a264fb4c386f3619dee51de2a7d68fd23edd6645a79a11e935",
+  "usage": {
+    "accounted_tokens": 3669,
+    "input_tokens": 3361,
+    "latency_seconds": 3.771514800027944,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 308,
+    "provider_request_id": "req_43f1385024864c4fa63b0ed9c0a943b1",
+    "reasoning_tokens": 0,
+    "request_id": "187dda18-a944-4620-bfbb-d7d96068ceb8",
+    "reserved_input": 21827,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:19:00.577176+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

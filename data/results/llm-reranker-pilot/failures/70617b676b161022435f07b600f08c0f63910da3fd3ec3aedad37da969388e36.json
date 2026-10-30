@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-mini-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"evidence\":[{\"note\":\"Directly reduces communication by skipping ineffective updates and error-feedback sparse exchange.\",\"paper\":\"P5\"},{\"note\":\"Explicitly cuts split-learning communication by removing backward gradient exchange between client and server.\",\"paper\":\"P47\"},{\"note\":\"Federated critic exchange is communication-efficient, but focuses on RAN control, not error propagation avoidance.\",\"paper\":\"P11\"},{\"note\":\"Shares KV caches across heterogeneous LLMs; reduces repeated prefill, but not error signal propagation.\",\"paper\":\"P18\"},{\"note\":\"Layer-wise exchange shares representations and adjoints across clients; close to reducing data exchange in GNNs.\",\"paper\":\"P24\"},{\"note\":\"Communication-efficient distributed RL with weight synchronization sparsification and error feedback, somewhat related.\",\"paper\":\"P5\"},{\"note\":\"Federated compression with adaptive sparsification and error feedback reduces exchanged bytes, but broader FL setting.\",\"paper\":\"P41\"},{\"note\":\"DReLU sharing across channels/layers reduces nonlinear computations, not data exchange or error propagation.\",\"paper\":\"P12\"},{\"note\":\"Local proxy networks reduce backprop memory and approximate gradients, but not shared-architecture communication.\",\"paper\":\"P36\"},{\"note\":\"Optical in-network computing removes server communication overhead in distributed learning, but not error-signal propagation specifically.\",\"paper\":\"P2\"}],\"ranking\":[\"P5\",\"P47\",\"P11\",\"P18\",\"P24\",\"P41\",\"P36\",\"P12\",\"P2\",\"P14\",\"P19\",\"P33\",\"P26\",\"P30\",\"P21\",\"P48\",\"P44\",\"P17\",\"P23\",\"P7\",\"P35\",\"P39\",\"P38\",\"P14\",\"P41\",\"P29\",\"P4\",\"P31\",\"P49\",\"P13\",\"P22\",\"P8\",\"P9\",\"P6\",\"P34\",\"P10\",\"P27\",\"P46\",\"P42\",\"P32\",\"P37\",\"P45\",\"P25\",\"P40\",\"P20\",\"P3\",\"P15\",\"P16\",\"P28\",\"P50\"]}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_05252099c29b0e02016ae4d31acc4887d29c8a9d9deca3a579",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "70617b676b161022435f07b600f08c0f63910da3fd3ec3aedad37da969388e36",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 15849,
+    "output_tokens": 422,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Expected an exact candidate permutation"
+}

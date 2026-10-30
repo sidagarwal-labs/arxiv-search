@@ -1,0 +1,168 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly targets long-context recall and linear-time sequence modeling with improved associative recall.",
+        "paper": "P3"
+      },
+      {
+        "note": "Strong long-context recall focus; compares against linear baselines and emphasizes recall robustness.",
+        "paper": "P4"
+      },
+      {
+        "note": "Explicitly about long-context recall in linear-time models; retrieval benchmarks and efficiency gains.",
+        "paper": "P37"
+      },
+      {
+        "note": "Addresses in-context associative recall with linear attention and linear-time efficiency.",
+        "paper": "P1"
+      },
+      {
+        "note": "Long-context recall benchmark improvements and retrieval-specific claims; not specifically linear-time method detail.",
+        "paper": "P40"
+      },
+      {
+        "note": "Recall-centric linear attention with sparse memory routing; relevant to long-context recall.",
+        "paper": "P39"
+      },
+      {
+        "note": "Directly improves long-context understanding and recall, though broader than recall alone.",
+        "paper": "P18"
+      },
+      {
+        "note": "Associative recurrent memory for long-context processing and recall; efficiency-focused.",
+        "paper": "P43"
+      },
+      {
+        "note": "Linear-time sparse attention with zero-shot length extrapolation; recall relevance is indirect.",
+        "paper": "P30"
+      },
+      {
+        "note": "Dynamic linear attention for multi-state memory and long sequences; relevant but less recall-specific.",
+        "paper": "P9"
+      }
+    ],
+    "ranking": [
+      "P3",
+      "P4",
+      "P37",
+      "P1",
+      "P40",
+      "P39",
+      "P18",
+      "P43",
+      "P30",
+      "P9",
+      "P7",
+      "P45",
+      "P33",
+      "P29",
+      "P41",
+      "P47",
+      "P24",
+      "P50",
+      "P21",
+      "P5",
+      "P8",
+      "P11",
+      "P6",
+      "P13",
+      "P12",
+      "P14",
+      "P15",
+      "P16",
+      "P20",
+      "P22",
+      "P23",
+      "P25",
+      "P27",
+      "P28",
+      "P31",
+      "P32",
+      "P34",
+      "P35",
+      "P36",
+      "P38",
+      "P42",
+      "P44",
+      "P46",
+      "P48",
+      "P2",
+      "P10",
+      "P17",
+      "P19",
+      "P26",
+      "P49"
+    ]
+  },
+  "answer_sha256": "8b4e41799cf3a9b6a57d4446ecb3410e83c1fc24f2190d886f5777f906e2586b",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2605.13473",
+    "2603.04814",
+    "2605.08587",
+    "2511.05313",
+    "2512.23824",
+    "2601.13734",
+    "2602.01744",
+    "2609.16183",
+    "2606.10650",
+    "2610.16137",
+    "2609.33093",
+    "2609.33226",
+    "2606.30562",
+    "2610.25919",
+    "2609.12354",
+    "2511.03475",
+    "2610.24187",
+    "2609.26718",
+    "2606.26105",
+    "2609.40118",
+    "2606.09659",
+    "2511.05850",
+    "2607.10441",
+    "2602.01766",
+    "2610.17686",
+    "2609.32119",
+    "2609.22101",
+    "2610.20633",
+    "2609.36259",
+    "2610.17191",
+    "2607.07740",
+    "2605.15690",
+    "2607.17419",
+    "2610.21165",
+    "2605.04897",
+    "2605.10268",
+    "2607.25357",
+    "2610.08300",
+    "2510.20787",
+    "2604.09494",
+    "2605.06946",
+    "2606.11213",
+    "2607.11614",
+    "2601.17702",
+    "2607.27692",
+    "2606.15405",
+    "2609.35664",
+    "2605.09877",
+    "2609.26143",
+    "2512.23675"
+  ],
+  "request_key": "07d28bf678a9e48e56b987815683443ada0343730312f56e4a54385657185b4c",
+  "usage": {
+    "accounted_tokens": 17351,
+    "input_tokens": 16956,
+    "latency_seconds": 4.146172800014028,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 395,
+    "provider_request_id": "req_bdfe3c0fcfcc43418c712eea7c86423e",
+    "reasoning_tokens": 0,
+    "request_id": "4ec3ef39-8cc6-4b50-ad2b-d4e53a006565",
+    "reserved_input": 89291,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:25:17.541469+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

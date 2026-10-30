@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Exact match: Yang-authored GraDE paper on frequent subgraph discovery.",
+        "paper": "P2"
+      },
+      {
+        "note": "Uses frequent subgraph mining, but focuses on memorization diagnostics, not discovery method.",
+        "paper": "P8"
+      },
+      {
+        "note": "Subgraph mining, but discriminative graph embeddings; not frequent subgraph discovery.",
+        "paper": "P1"
+      },
+      {
+        "note": "Retrieval over subgraphs for QA; broad subgraph use, unrelated to discovery task.",
+        "paper": "P6"
+      },
+      {
+        "note": "Generates external subgraphs for reasoning; not about frequent subgraph discovery.",
+        "paper": "P4"
+      },
+      {
+        "note": "Subgraph importance estimation, not mining frequent subgraphs.",
+        "paper": "P9"
+      },
+      {
+        "note": "Subgraph pattern detection in AML, but federated learning setting differs from discovery query.",
+        "paper": "P7"
+      },
+      {
+        "note": "Retrieval-time graph refinement; no frequent subgraph discovery focus.",
+        "paper": "P10"
+      },
+      {
+        "note": "Boundary-aware subgraph mixing for pre-training; topical overlap only.",
+        "paper": "P3"
+      },
+      {
+        "note": "Federated recommendation on client subgraphs; unrelated to frequent pattern discovery.",
+        "paper": "P5"
+      }
+    ],
+    "ranking": [
+      "P2",
+      "P8",
+      "P1",
+      "P6",
+      "P4",
+      "P9",
+      "P7",
+      "P10",
+      "P3",
+      "P5"
+    ]
+  },
+  "answer_sha256": "f814b74afbab1ae0e7b079f00786215c99b4d932a533b191c254b008f364ca17",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2511.17419",
+    "2602.03257",
+    "2605.25771",
+    "2606.04454",
+    "2603.20338",
+    "2603.07179",
+    "2605.06433",
+    "2605.06239",
+    "2605.12009",
+    "2601.18579"
+  ],
+  "request_key": "0088d81fc13806b49228d4bb0d8e4cdaa42dddff0dc0f8250576da7207cf6663",
+  "usage": {
+    "accounted_tokens": 3468,
+    "input_tokens": 3201,
+    "latency_seconds": 3.401110400009202,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 267,
+    "provider_request_id": "req_e2975f63b7e84971b0924428508415f8",
+    "reasoning_tokens": 0,
+    "request_id": "3badcbe0-7ffc-496c-8404-7180939271a2",
+    "reserved_input": 21418,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:20.218930+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

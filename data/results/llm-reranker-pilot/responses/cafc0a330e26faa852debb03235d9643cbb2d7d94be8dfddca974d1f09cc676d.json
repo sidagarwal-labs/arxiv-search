@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly reduces backward error propagation by decoupling client-server training and removing gradient exchange.",
+        "paper": "P9"
+      },
+      {
+        "note": "Uses local error routing to avoid transported weights/random feedback; shared architecture and error-signal handling are central.",
+        "paper": "P5"
+      },
+      {
+        "note": "Explicitly shares one DReLU across many neurons/layers to cut costly nonlinearity computation in shared channels.",
+        "paper": "P3"
+      },
+      {
+        "note": "Federated learning compression with error feedback reduces communication overhead, but not specifically shared neural architectures.",
+        "paper": "P8"
+      },
+      {
+        "note": "Predictive coding uses highway error propagation to manage error flow in very deep networks; still propagates errors rather than avoiding them.",
+        "paper": "P10"
+      },
+      {
+        "note": "Modular experts isolate pathways and signals, but focus is robustness/efficiency rather than avoiding error-signal propagation.",
+        "paper": "P2"
+      },
+      {
+        "note": "Neuron merging/compression via activation mapping and clustering; no clear error-signal propagation reduction.",
+        "paper": "P1"
+      },
+      {
+        "note": "Low-rank modular neuronal communication and information sharing, but not about error propagation or data exchange.",
+        "paper": "P7"
+      },
+      {
+        "note": "Approximate convolution reduces MACs for inference, unrelated to error signal propagation or shared architectures.",
+        "paper": "P6"
+      },
+      {
+        "note": "Operator learning with kernel corrections; no relevant shared-architecture error exchange mechanism.",
+        "paper": "P4"
+      }
+    ],
+    "ranking": [
+      "P9",
+      "P5",
+      "P3",
+      "P8",
+      "P10",
+      "P2",
+      "P1",
+      "P7",
+      "P6",
+      "P4"
+    ]
+  },
+  "answer_sha256": "91572a05b23092d1597b6ddfe8c111e5db74083715a32a0298b56146912b4fb2",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2610.02559",
+    "2608.08317",
+    "2512.17398",
+    "2609.00389",
+    "2606.31700",
+    "2603.10100",
+    "2510.16851",
+    "2511.05591",
+    "2601.19261",
+    "2606.22744"
+  ],
+  "request_key": "cafc0a330e26faa852debb03235d9643cbb2d7d94be8dfddca974d1f09cc676d",
+  "usage": {
+    "accounted_tokens": 3837,
+    "input_tokens": 3521,
+    "latency_seconds": 4.03762899999856,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 316,
+    "provider_request_id": "req_76170d7c44b641fdac0ac8abee4b07b1",
+    "reasoning_tokens": 0,
+    "request_id": "1dc8957d-90d3-428b-b35d-92b211186ca5",
+    "reserved_input": 22432,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:36.321938+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

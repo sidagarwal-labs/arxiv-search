@@ -1,0 +1,108 @@
+{
+  "llm-mini-pilot+d=10": {
+    "q-keyword-081": {
+      "accounted_tokens": 3645,
+      "request_id": "bad4b658-25aa-427d-a965-e3dd9fdf8df5",
+      "request_key": "2d1d80f9501a835f24c133ba0f534a0540668bf7cc2325e1414308731eef6e05",
+      "status": "invalid_answer"
+    },
+    "q-paraphrase-077": {
+      "accounted_tokens": 4268,
+      "request_id": "397359d2-29b9-497f-9413-27a73fb40689",
+      "request_key": "16b2686b24c8f5934d41345b17608b4be20d0f5705ff003fd3d8c73a31bbe67f",
+      "status": "invalid_answer"
+    },
+    "q-question-077": {
+      "accounted_tokens": 3748,
+      "request_id": "42477e0e-91f0-42bf-a98d-2c7f635c968b",
+      "request_key": "bb462fafbc5e9e74f38092b41feb94aefccfda62cb9267960eac246ffb930399",
+      "status": "invalid_answer"
+    },
+    "q-question-088": {
+      "accounted_tokens": 3911,
+      "request_id": "d1655f03-3ed4-4639-aba2-1fac1e46a0ed",
+      "request_key": "7f1379703654dc9379039dadc9f458703e089215768829459873bacc2abd75a4",
+      "status": "invalid_answer"
+    }
+  },
+  "llm-mini-pilot+d=50": {
+    "q-keyword-079": {
+      "accounted_tokens": 15880,
+      "request_id": "5d45702e-52f2-44b2-8ecb-f62470b6a86b",
+      "request_key": "3d67b8c5343656d92def56ffe9726085265756a8935034089c650dd6aa38294e",
+      "status": "invalid_answer"
+    },
+    "q-keyword-081": {
+      "accounted_tokens": 16859,
+      "request_id": "682f0d06-aac7-4de6-8029-5b59c4d7451f",
+      "request_key": "8460a423e3d8baecfc7a29b5b79524da15291030e64b5c57847783d0c5f21609",
+      "status": "invalid_answer"
+    },
+    "q-known_item-019": {
+      "accounted_tokens": 16384,
+      "request_id": "217f144c-1411-4d33-a94b-b84cb2a06699",
+      "request_key": "03173c0698fa1c12e4a2c60cb4e4588c7dfc3592f93698a42065cbcc936d3180",
+      "status": "invalid_answer"
+    },
+    "q-known_item-031": {
+      "accounted_tokens": 17499,
+      "request_id": "4049626a-557d-438f-9f10-b569836b45f1",
+      "request_key": "dee597b329ba1b2d762abbd4f989684ec7ecf954379c7ed6ff58b102b09bd01a",
+      "status": "invalid_answer"
+    },
+    "q-paraphrase-020": {
+      "accounted_tokens": 16271,
+      "request_id": "14967299-22b4-4b4d-a638-4a929e766126",
+      "request_key": "70617b676b161022435f07b600f08c0f63910da3fd3ec3aedad37da969388e36",
+      "status": "invalid_answer"
+    },
+    "q-paraphrase-043": {
+      "accounted_tokens": 17156,
+      "request_id": "aea67456-78df-4071-8ac5-1eca2ea53861",
+      "request_key": "768e86253d00227e74db3aa74a8da2de145722b0cf608a9ae2e60a3bf387cbd0",
+      "status": "invalid_answer"
+    },
+    "q-paraphrase-063": {
+      "accounted_tokens": 17943,
+      "request_id": "db854dbd-6b0c-4f89-a14c-067ad2e84c6d",
+      "request_key": "bc19df30ab00c7591a128a5c3215c63d3016cc9b2ab6324a2f001c56f7c055ac",
+      "status": "invalid_answer"
+    },
+    "q-paraphrase-077": {
+      "accounted_tokens": 18003,
+      "request_id": "1727a71d-b4a0-4e17-8b34-5de17090b8cc",
+      "request_key": "27e4010525a21310deeccc27e2306838cdfed8ac04093a94899281098cfe2800",
+      "status": "invalid_answer"
+    },
+    "q-question-040": {
+      "accounted_tokens": 18440,
+      "request_id": "61ab85ba-1ad7-4aa5-892c-5f6a66555178",
+      "request_key": "4a2914ecaed6088553190cb05cc536c34b7b49380ac11e65d209418d8b26b7c9",
+      "status": "invalid_answer"
+    },
+    "q-question-056": {
+      "accounted_tokens": 17921,
+      "request_id": "98ab70ed-1790-4691-8ce6-02ab597ef97d",
+      "request_key": "14e25f9dbfda47d0d124fc864d5f548c0b9c6b40ed92807782f4804e670785ee",
+      "status": "invalid_answer"
+    },
+    "q-question-077": {
+      "accounted_tokens": 16326,
+      "request_id": "75b7fe4e-429f-4209-81bd-9c1ced56e1d4",
+      "request_key": "3b525d2cb820f38fb16cfdd59c0b0dc40834545db85cd065471d632bb4881b0b",
+      "status": "invalid_answer"
+    },
+    "q-question-088": {
+      "accounted_tokens": 17080,
+      "request_id": "3f86e1db-5162-468e-b6ab-d3f2354196fd",
+      "request_key": "71653f25ff50f0b3de6097f57394a0ea60219e2217c5aa252eb87a62dbb2a9bf",
+      "status": "invalid_answer"
+    },
+    "q-question-095": {
+      "accounted_tokens": 17882,
+      "request_id": "e7ca723b-1af8-446c-bb56-8474202c72db",
+      "request_key": "dedeb4e622357a4f08de1bc8f6a66fa62fe7944900251d9d93157bc6f8562a4f",
+      "status": "invalid_answer"
+    }
+  }
+}

@@ -120,6 +120,35 @@ query-type routing or paid API path. It reports recovery against both the
 approved baseline and the previous25%-title challenger, without relaxing
 promotion rules. Run `python -m arxiv_search.evaluate.openai_field_recovery`.
 
+### Mini LLM reranker pilot
+
+[`llm_reranker_pilot.py`](../arxiv_search/evaluate/llm_reranker_pilot.py)
+freezes20 dev queries and two candidate-prefix arms (10/50). It loads the
+approved saved baseline, hash-shuffles candidates, sends full title/authors/
+abstract to a pinned mini snapshot, validates an exact permutation and
+preserves the tail outside that prefix. Reranker notes are never labels.
+
+[`openai_rerank.py`](../arxiv_search/openai_rerank.py) uses the existing
+shared token ledger plus atomic pilot dollar/request guards. Unknown failures
+stay charged; no automatic retries or paid cache repair. No model, source
+rank or prompt tuning occurs after the plan is frozen.
+
+```powershell
+python -m arxiv_search.evaluate.llm_reranker_pilot        # offline preflight
+python -m arxiv_search.evaluate.llm_reranker_pilot --run  # approved missing requests, then cache replay
+```
+
+The report is a separate20-query benchmark. It never pads the other80 queries
+with baseline results or enters this pilot in the100-query leaderboard.
+After Sid's no-retry decision, invalid answers are recorded and only unattempted
+requests continue. Missing success caches for previously attempted inputs never
+trigger another paid call. Primary quality metrics use the same successful-query
+intersection for both arms and baseline; the reported count can therefore be
+less than20 and is subject to failure-selection bias.
+Unjudged new top10 entries withhold comparable graded scores; source metrics
+remain visible. New judging, more queries and independent validation require
+separate decisions. See [Decision39](02-decisions.md#39-mini-llm-reranker-pilot-approved-2026-10-30).
+
 ---
 
 ## Step 1: Download (`download.py`)

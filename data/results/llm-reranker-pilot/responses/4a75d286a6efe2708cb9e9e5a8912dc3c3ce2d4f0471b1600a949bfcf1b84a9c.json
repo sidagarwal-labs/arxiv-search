@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly studies how much preceding conversational context is needed; includes turn-count saturation and sentence-starting markers.",
+        "paper": "P10"
+      },
+      {
+        "note": "Closest on previous-turn necessity, but about answer quality in chats, not mood or sentence starters.",
+        "paper": "P2"
+      },
+      {
+        "note": "Uses multi-turn dialogue context, but predicts next utterance rather than speaker mood.",
+        "paper": "P3"
+      },
+      {
+        "note": "Broad conversation-history filtering study; relevant to needed turns, but not mood or sentence starters.",
+        "paper": "P6"
+      },
+      {
+        "note": "Focuses on context over pauses and recall in speech conversations, not mood identification.",
+        "paper": "P4"
+      },
+      {
+        "note": "Examines discourse threading in dialogue; only indirect overlap with turn-history needs.",
+        "paper": "P8"
+      },
+      {
+        "note": "Looks at assistant/persona representations and emotion text, but not context-length or sentence starters.",
+        "paper": "P5"
+      },
+      {
+        "note": "Speaker consistency across dialogues; unrelated to mood or sentence starters.",
+        "paper": "P1"
+      },
+      {
+        "note": "Conversation starter recommendation; about first-message generation, not identifying mood from prior turns.",
+        "paper": "P9"
+      },
+      {
+        "note": "Conversation starter recommendation; not about mood inference or context length.",
+        "paper": "P7"
+      }
+    ],
+    "ranking": [
+      "P10",
+      "P2",
+      "P3",
+      "P6",
+      "P4",
+      "P8",
+      "P5",
+      "P1",
+      "P9",
+      "P7"
+    ]
+  },
+  "answer_sha256": "4e300d7f9f47a95014e0fcd5a23a055055c20db63949bb6afc8df457389c4f31",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2601.04029",
+    "2608.02556",
+    "2601.04436",
+    "2610.12802",
+    "2608.07852",
+    "2602.24287",
+    "2605.05855",
+    "2510.22844",
+    "2604.18375",
+    "2601.00181"
+  ],
+  "request_key": "4a75d286a6efe2708cb9e9e5a8912dc3c3ce2d4f0471b1600a949bfcf1b84a9c",
+  "usage": {
+    "accounted_tokens": 4153,
+    "input_tokens": 3872,
+    "latency_seconds": 3.3241953999968246,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 281,
+    "provider_request_id": "req_43a8f2f8a17d48c5a58af4ab85baa083",
+    "reasoning_tokens": 0,
+    "request_id": "6bf5f9f0-3c40-4ca9-bf5e-f3cf847b8839",
+    "reserved_input": 24034,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:40.393578+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

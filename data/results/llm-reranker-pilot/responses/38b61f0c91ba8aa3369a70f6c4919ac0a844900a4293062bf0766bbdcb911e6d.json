@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly about Boyd coauthored clinical provenance categorization and sentence-level provenance in hospital notes.",
+        "paper": "P4"
+      },
+      {
+        "note": "Clinical provenance classification, but focuses on redundancy/provenance in generated corpus rather than Boyd-specific categorization.",
+        "paper": "P7"
+      },
+      {
+        "note": "Related provenance/genealogy task in medical verification; less direct than sentence-level categorization.",
+        "paper": "P8"
+      },
+      {
+        "note": "Clinical AI provenance gap and citation traceability; broader than provenance categorization.",
+        "paper": "P9"
+      },
+      {
+        "note": "Clinical provenance-aware stress tests for physiological models; only topical overlap.",
+        "paper": "P5"
+      },
+      {
+        "note": "Substance category classification in child welfare records; not provenance-related.",
+        "paper": "P10"
+      },
+      {
+        "note": "Eligibility criteria ontology for AD trials; unrelated to Boyd/provenance categorization.",
+        "paper": "P2"
+      },
+      {
+        "note": "Psychiatric reasoning with reinforcement learning; unrelated to provenance categorization.",
+        "paper": "P3"
+      },
+      {
+        "note": "LLM metacognitive validity scaling; unrelated to clinical provenance.",
+        "paper": "P1"
+      },
+      {
+        "note": "Inpatient reasoning rubric framework; no provenance categorization focus.",
+        "paper": "P6"
+      }
+    ],
+    "ranking": [
+      "P4",
+      "P7",
+      "P8",
+      "P9",
+      "P5",
+      "P10",
+      "P2",
+      "P3",
+      "P1",
+      "P6"
+    ]
+  },
+  "answer_sha256": "95226492ae7aa91c72decb982b6ddf28ecd2223c204fb0ef86b48cdcb22fdecf",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2604.17707",
+    "2511.21724",
+    "2602.06449",
+    "2606.02487",
+    "2609.34466",
+    "2605.09584",
+    "2606.29605",
+    "2610.23721",
+    "2604.17114",
+    "2603.06836"
+  ],
+  "request_key": "38b61f0c91ba8aa3369a70f6c4919ac0a844900a4293062bf0766bbdcb911e6d",
+  "usage": {
+    "accounted_tokens": 4660,
+    "input_tokens": 4388,
+    "latency_seconds": 3.0132940000039525,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 272,
+    "provider_request_id": "req_b7bfa8c7b4bb46a9a901dfb5351c96a8",
+    "reasoning_tokens": 0,
+    "request_id": "026a528d-c8d7-4c46-81ee-5a62b42c2fbf",
+    "reserved_input": 25658,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:27.155810+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

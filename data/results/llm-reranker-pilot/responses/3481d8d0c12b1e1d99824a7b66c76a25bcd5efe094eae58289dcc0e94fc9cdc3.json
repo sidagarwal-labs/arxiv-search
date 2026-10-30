@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Direct match: evaluates AI alignment across sociodemographic groups in LLM news-framing judgments.",
+        "paper": "P2"
+      },
+      {
+        "note": "Broadly relevant differential-alignment framing, but no sociodemographic focus or Shani-Narkiss authorship.",
+        "paper": "P8"
+      },
+      {
+        "note": "Related demographic/group alignment and sycophancy, but about alignment-induced behavior, not sociodemographic evaluation.",
+        "paper": "P5"
+      },
+      {
+        "note": "Uses human privacy norms and annotations for agent alignment; not sociodemographic alignment specifically.",
+        "paper": "P6"
+      },
+      {
+        "note": "Alignment in multi-agent populations with adversarial capture; unrelated to sociodemographic groups.",
+        "paper": "P9"
+      },
+      {
+        "note": "Studies identity-dependent conformity in multi-agent systems; not about sociodeomographic alignment evaluation.",
+        "paper": "P1"
+      },
+      {
+        "note": "Psychometric audit of model tendencies across developer organizations; no sociodemographic alignment angle.",
+        "paper": "P7"
+      },
+      {
+        "note": "Naturalistic social norms alignment in dilemmas; culturally grounded, but not sociodemographic subgroup analysis.",
+        "paper": "P4"
+      },
+      {
+        "note": "General edge-case alignment agenda; no sociodemographic or author-specific match.",
+        "paper": "P3"
+      },
+      {
+        "note": "Normative recommender alignment via label shift; different domain and no sociodemographic evaluation.",
+        "paper": "P10"
+      }
+    ],
+    "ranking": [
+      "P2",
+      "P8",
+      "P5",
+      "P6",
+      "P9",
+      "P1",
+      "P7",
+      "P4",
+      "P3",
+      "P10"
+    ]
+  },
+  "answer_sha256": "653ed37b4f032c5663f8427de30d8de55a7198f06d8f6ceb33608515d8e19e59",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2609.33495",
+    "2607.27232",
+    "2602.20042",
+    "2605.23420",
+    "2608.11528",
+    "2606.21710",
+    "2602.17127",
+    "2604.27624",
+    "2608.22444",
+    "2607.10915"
+  ],
+  "request_key": "3481d8d0c12b1e1d99824a7b66c76a25bcd5efe094eae58289dcc0e94fc9cdc3",
+  "usage": {
+    "accounted_tokens": 3959,
+    "input_tokens": 3640,
+    "latency_seconds": 3.491417800018098,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 319,
+    "provider_request_id": "req_62558d28959c4061afc73375807e81db",
+    "reasoning_tokens": 0,
+    "request_id": "49e0e584-7bc6-48c5-acf2-9d292f60020f",
+    "reserved_input": 22859,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:23.641237+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

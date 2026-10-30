@@ -1,0 +1,168 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly about RL self-play in strategy games; superhuman Generals.io via self-play RL.",
+        "paper": "P20"
+      },
+      {
+        "note": "Self-play reinforcement learning for an asymmetric board game; clear strategy-game fit.",
+        "paper": "P11"
+      },
+      {
+        "note": "Evaluates self-play RL in poker variants and games; analyzes collapse under perturbations.",
+        "paper": "P8"
+      },
+      {
+        "note": "Self-play RL for imperfect-information strategy games; superhuman Stratego and Hanabi.",
+        "paper": "P32"
+      },
+      {
+        "note": "Multi-agent self-play RL in social deduction games, explicitly strategy gameplay.",
+        "paper": "P43"
+      },
+      {
+        "note": "Self-play RL for social deduction games with role inference and vote steering.",
+        "paper": "P13"
+      },
+      {
+        "note": "Self-play in Werewolf-style strategy game with multi-agent theory of mind.",
+        "paper": "P4"
+      },
+      {
+        "note": "Game-focused self-play RL with objective benchmark across social strategy games.",
+        "paper": "P44"
+      },
+      {
+        "note": "Self-play RL for strategic chess-like play; compares searchless chess strength and exploration.",
+        "paper": "P46"
+      },
+      {
+        "note": "Competitive game self-play RL with bandit feedback and maximin regret analysis.",
+        "paper": "P2"
+      }
+    ],
+    "ranking": [
+      "P20",
+      "P11",
+      "P8",
+      "P32",
+      "P43",
+      "P13",
+      "P4",
+      "P44",
+      "P46",
+      "P2",
+      "P6",
+      "P25",
+      "P49",
+      "P31",
+      "P37",
+      "P45",
+      "P27",
+      "P38",
+      "P39",
+      "P30",
+      "P7",
+      "P10",
+      "P23",
+      "P35",
+      "P3",
+      "P5",
+      "P17",
+      "P19",
+      "P21",
+      "P24",
+      "P26",
+      "P42",
+      "P14",
+      "P47",
+      "P48",
+      "P1",
+      "P12",
+      "P15",
+      "P16",
+      "P18",
+      "P22",
+      "P28",
+      "P29",
+      "P33",
+      "P34",
+      "P36",
+      "P40",
+      "P41",
+      "P50",
+      "P9"
+    ]
+  },
+  "answer_sha256": "8804208220a25d68e55bced7577e895230f3f3ce00518ed1d95034cfd6e9a7f3",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2607.22529",
+    "2602.06348",
+    "2512.00351",
+    "2606.27909",
+    "2604.20209",
+    "2605.00347",
+    "2604.00076",
+    "2605.16315",
+    "2603.02128",
+    "2510.01764",
+    "2604.05476",
+    "2609.39045",
+    "2610.04261",
+    "2606.12780",
+    "2605.00226",
+    "2610.24952",
+    "2510.18821",
+    "2610.04441",
+    "2511.00602",
+    "2606.23348",
+    "2608.19197",
+    "2601.10122",
+    "2602.12124",
+    "2601.03715",
+    "2605.06642",
+    "2610.02425",
+    "2606.08656",
+    "2601.19720",
+    "2511.09219",
+    "2603.19167",
+    "2608.25246",
+    "2511.07312",
+    "2510.16774",
+    "2607.10169",
+    "2601.18292",
+    "2606.28669",
+    "2510.10930",
+    "2604.10812",
+    "2603.15907",
+    "2601.04611",
+    "2610.20294",
+    "2604.14877",
+    "2602.03109",
+    "2608.09128",
+    "2510.11184",
+    "2608.27757",
+    "2609.14858",
+    "2604.20051",
+    "2601.05633",
+    "2601.07820"
+  ],
+  "request_key": "9373dd60a7485f9dda70d80e8f82cf59dcc734ac22eaa505937f79e2b902ec40",
+  "usage": {
+    "accounted_tokens": 17500,
+    "input_tokens": 17105,
+    "latency_seconds": 3.9446318999980576,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 395,
+    "provider_request_id": "req_f4a413e0ff414aae8155a29189ee58dd",
+    "reasoning_tokens": 0,
+    "request_id": "dbeb8b32-ae9e-4fa2-b0b2-b9c3efad3f77",
+    "reserved_input": 89653,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:25:09.866553+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -25,6 +25,8 @@
     "fusion-review-dev/report.json",
     "fusion-review-dev/report.md",
     "graded-dev/report.md",
+    "llm-reranker-pilot/report.json",
+    "llm-reranker-pilot/report.md",
     "openai-field-dev/report.json",
     "openai-field-dev/report.md",
     "openai-field-hybrid-dev/report.json",

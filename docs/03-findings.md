@@ -1974,3 +1974,164 @@ label/intent audit with a cost-approved mini top10-versus-top50 pilot; use a
 fresh dev set to validate a frozen promising design. Cleaner labels establish
 what "better" means, deeper intent-aware reranking attempts to make results
 better, and fresh evaluation establishes whether the improvement generalizes.
+
+## 30. Mini LLM pilot results and output reliability
+
+Sid approved the20-query, two-arm pilot and a$1.00 local task ceiling, with
+the shared cumulative mini cap raised to2,200,000 tokens while retaining
+the existing1,411,975 accounted tokens. Sid emphasized preserving tokens.
+After the first invalid response, he explicitly selected **no retries** and
+completion of only the remaining unattempted requests.
+
+The [pilot report](../data/results/llm-reranker-pilot/report.md) records the
+fixed sample, primary comparisons, failures, coverage and cached diagnostic.
+No prompt/model changes, extra queries, new labels, embeddings, presentation
+repeats or held-out calls were made. Decision36 remains approved.
+
+### Execution and spend
+
+| Item | Observed |
+|---|---:|
+| Model | `gpt-5.4-mini-2026-03-17` |
+| Planned/attempted requests | 40/40, each once |
+| Input tokens | 404,536 |
+| Output tokens | 16,060 |
+| Reasoning tokens | 0 |
+| Total new accounted tokens | **420,596** |
+| Locally accounted cost | **$0.375672** |
+| Unknown/unsettled reservations | 0 |
+| Cumulative shared mini accounting | **1,832,571 / 2,200,000** |
+| Remaining shared token allowance | **367,429** |
+| Sum of API-attempt latency | 161.2seconds |
+
+Cost uses standard uncached$0.75/M input and$4.50/M output rates, including
+failed responses. It is not a provider billing guarantee or a free-usage
+claim. API-time sum excludes local validation, the investigation pause and
+documentation work; it is not overall elapsed time or serving latency.
+The dollar limit is not a target and does not authorize further requests:
+all40 approved attempts have been used.
+
+### Output reliability is the first blocker
+
+Each response had to contain an exact permutation of its10 or50 anonymous
+candidate labels, plus brief relevance notes aligned to the first10.
+All requests used strict JSON Schema, but schema shape and allowed labels
+do not guarantee permutation uniqueness/completeness or cross-array alignment.
+
+| Arm | Strictly valid | Invalid | Acceptance |
+|---|---:|---:|---:|
+| Top10 ordering | 16/20 | 4 | 80% |
+| Top50 selection | 7/20 | 13 | 35% |
+| Total | **23/40** | **17** | **57.5%** |
+
+We inspected retained invalid outputs:
+
+- **7 top50 responses** duplicated or omitted ranking IDs. Examples include
+  50 entries with49 unique IDs, or40 entries for50 supplied candidates.
+  Those are not usable full rankings; no IDs were guessed, inserted or repaired.
+- **9 responses** (3 top10,6 top50) contained an exact valid ranking but had
+  missing, duplicated or misaligned evidence-note IDs. They remain primary
+  failures, not silently accepted successes.
+- The first invalid top10 response was rejected and its actual usage recorded,
+  but its raw output was not retained before diagnostic capture was added.
+  Its precise structural defect cannot now be reconstructed. It was not retried.
+
+All40 outcomes were HTTP successes with trustworthy usage; the problem was
+output validity, not rate limits, timeouts, an exhausted output cap or extra
+reasoning expenditure. No invalid response was assigned a baseline ranking.
+Success caches and later failure diagnostics are persisted. A replay with
+HTTP disabled verifies that no additional calls or charges occur.
+
+### Primary comparison: only seven matched queries
+
+Both arms succeeded on the same7 queries:3 keyword,3 known-item and1
+paraphrase. **No question query survived the strict top50 output contract.**
+We therefore cannot claim a balanced20-query quality result or say that
+the motivating question failures were fixed.
+
+| Same7-query comparison | nDCG10 | Source MRR10 | R10 | Judged10 |
+|---|---:|---:|---:|---:|
+| Approved baseline on these7 | .7356 | .8571 | .8571 | 100% |
+| Mini reranks the same top10 | .7485 | .7857 | .8571 | 100% |
+| Mini selects from top50 | **withheld** | .5952 | .8571 | 71.4% |
+
+Top10 nDCG delta+.0129 has CI[-.0246,+.0604]. Source MRR declines;
+membership and recall remain fixed in that arm. In top50,20 newly selected
+query-paper pairs are unjudged. Comparable nDCG/P10 and graded paired
+intervals remain withheld; missing grades were not silently treated as
+negative judgments. The mechanical values in JSON are diagnostic, not bounds.
+
+This seven-query intersection is selected by successful outputs, not the
+original balanced sampling rule. Comparisons are paired on identical queries,
+but that does not remove failure-selection bias or justify generalization.
+These scores must not be ranked beside the100-query leaderboard.
+
+### Cached ranking-only diagnostic: useful, but explicitly post-hoc
+
+To avoid wasting paid outputs, we separately inspected the9 exact
+permutations rejected only for evidence-note problems. We did **not** make
+new calls, alter any ranking IDs, use their notes as labels, change strict
+acceptance counts or overwrite primary run files.
+
+This yields12 matched queries for a secondary ranking-only comparison:
+
+| Same12-query diagnostic | nDCG10 | Source MRR10 | R10 | Judged10 |
+|---|---:|---:|---:|---:|
+| Approved baseline on these12 | .7219 | .9167 | .9167 | 100% |
+| Mini top10 ranking only | .7438 | .8333 | .9167 | 100% |
+| Mini top50 ranking only | **withheld** | .6508 | .9167 | 73.3% |
+
+The top10 diagnostic nDCG delta+.0219 has CI[-.0068,+.0563]:
+7 wins,4 losses,1 tie. The apparent practical-target gain is not a passing
+result: the interval crosses zero, source ordering worsens, failures remain,
+and this is a post-hoc success-selected subset. Details are saved in
+[`ranking-only-diagnostic.json`](../data/results/llm-reranker-pilot/ranking-only-diagnostic.json).
+
+### Concrete ranking behavior
+
+- For the hierarchical-summary retrieval paraphrase, a grade2 recursive
+  summarization paper moves9->2 in the top10 arm and query nDCG improves
+  .5258->.6611. The source remains outside the baseline candidate100, so no
+  reranker in this pilot can recover it.
+- Top50 selects two previously unjudged hierarchical-search papers from
+  baseline positions22/23 into positions1/2 for that query. Their titles
+  look promising, but neither a title nor the reranker's explanation establishes
+  relevance; those grades must be collected independently before scoring.
+- For **"Jiang personalized dense retrieval reasoning"**, both arms move the
+  grade2 source **Think-to-Personalize**1->2, behind a grade1 personalized
+  retrieval paper whose authors do not include Jiang. Full author lists were
+  supplied. This is a genuine known-item safety regression, not missing
+  author input or merely swapping equally graded answers.
+- Two keyword sources also move1->3 under top50. Within the seven matched
+  queries source recall10 does not increase. This small, selected sample is
+  not proof that deeper candidates cannot help.
+
+### Interpretation and next step
+
+**No promotion and no automatic extra spend.** This pilot does not establish
+the hoped-for big quality jump. It reveals a fragile list-output contract,
+some promising ordering changes and unresolved author/constraint safety.
+The failed MiniLM experiment and this one mini configuration do not rule
+out stronger query-document ranking generally.
+
+Before spending on a larger run, simplify the output contract. A prospective
+alternative is a fixed-key object with one required bounded relevance/task-fit
+score per supplied paper label, rather than asking the model to generate a
+long permutation plus a second independently keyed explanation array. The
+client can then sort those explicit scores deterministically, using baseline
+order for ties. Schema-required keys prevent missing/duplicated IDs; they do
+not guarantee correct relevance. An ordered list of single paper+note objects
+would remove cross-array alignment but still needs uniqueness checks.
+
+Validate that new contract offline and preregister a separately approved,
+small smoke test before another full pilot. Changing prompts/format after
+these outcomes must get a new identity, not overwrite the current failures.
+Small candidate batches may be worth testing later, but their independent
+scores need a common rubric and tie/calibration treatment; do not assume
+cross-batch rankings are automatically comparable.
+
+Any eventual quality decision also needs the missing independent grades,
+known-item safety review and fresh dev validation. The current judge is the
+same model family as this reranker, so even complete frozen-label gains would
+not independently establish better human relevance. We have conserved the
+remaining367,429 shared tokens rather than retrying, labeling or expanding.

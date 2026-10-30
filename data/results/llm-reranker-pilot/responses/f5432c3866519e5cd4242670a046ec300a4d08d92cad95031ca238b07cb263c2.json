@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly about RL self-play in a strategy game; superhuman performance in Generals.io.",
+        "paper": "P6"
+      },
+      {
+        "note": "Self-play reinforcement learning for hidden-information strategy games; broad but directly relevant.",
+        "paper": "P7"
+      },
+      {
+        "note": "Self-play RL for an asymmetric board game; strategy game focus with explicit self-play.",
+        "paper": "P3"
+      },
+      {
+        "note": "Games-focused self-play training for LLM agents; includes social strategy games, less classical RL.",
+        "paper": "P10"
+      },
+      {
+        "note": "Self-play in multi-agent social games; relevant to game strategy, but training-free and LLM-centric.",
+        "paper": "P9"
+      },
+      {
+        "note": "Adversarial learning in zero-sum games with bandit feedback; theoretical strategy-game RL, not self-play-centric.",
+        "paper": "P1"
+      },
+      {
+        "note": "Self-play for search agents, not strategy games; broader agent training rather than game play.",
+        "paper": "P5"
+      },
+      {
+        "note": "Multi-hop theory-of-mind in Werewolf; game strategy but evaluation-focused, not RL self-play.",
+        "paper": "P2"
+      },
+      {
+        "note": "Game development with recursive self-improvement, not playing strategy games via RL self-play.",
+        "paper": "P4"
+      },
+      {
+        "note": "Multimodal 3D game-play via behavior cloning, not RL self-play or strategy games.",
+        "paper": "P8"
+      }
+    ],
+    "ranking": [
+      "P6",
+      "P7",
+      "P3",
+      "P10",
+      "P9",
+      "P1",
+      "P5",
+      "P2",
+      "P4",
+      "P8"
+    ]
+  },
+  "answer_sha256": "bf55f85afbb61d090b3d20c545f3a8ff627157153136acc2177309322cb3bb20",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2602.06348",
+    "2606.27909",
+    "2604.05476",
+    "2609.39045",
+    "2510.18821",
+    "2606.23348",
+    "2511.07312",
+    "2510.16774",
+    "2608.09128",
+    "2601.05633"
+  ],
+  "request_key": "f5432c3866519e5cd4242670a046ec300a4d08d92cad95031ca238b07cb263c2",
+  "usage": {
+    "accounted_tokens": 3925,
+    "input_tokens": 3616,
+    "latency_seconds": 5.170331200002693,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 309,
+    "provider_request_id": "req_64afc989cbe8483eb5a7eda85919f212",
+    "reasoning_tokens": 0,
+    "request_id": "18e3bf74-5689-43f9-a6cd-69e91852a01b",
+    "reserved_input": 22142,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:18:48.333807+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

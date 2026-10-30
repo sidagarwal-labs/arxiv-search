@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly about long-context recall and linear-time sequence models; strongest match.",
+        "paper": "P7"
+      },
+      {
+        "note": "Explicitly proposes linear-time attention and reports strong needle-in-haystack recall.",
+        "paper": "P2"
+      },
+      {
+        "note": "Studies how linear attention remembers and retrieves facts in recurrent memory.",
+        "paper": "P3"
+      },
+      {
+        "note": "Linear-time memory model with strong long-range recall on recall-intensive benchmarks.",
+        "paper": "P10"
+      },
+      {
+        "note": "Maintains linear time while improving long-context reasoning and memory rereading.",
+        "paper": "P6"
+      },
+      {
+        "note": "Addresses explicit in-context retrieval over long contexts, but not linear-time specifically.",
+        "paper": "P9"
+      },
+      {
+        "note": "Relevant broad survey on memory-centric compression and long-context efficiency, not a direct method.",
+        "paper": "P5"
+      },
+      {
+        "note": "Long-context retrieval accuracy study; little about linear-time methods.",
+        "paper": "P4"
+      },
+      {
+        "note": "Comparative memory system vs long-context LLMs; recall-focused but not linear-time model design.",
+        "paper": "P1"
+      },
+      {
+        "note": "Studies hierarchical retrieval and context width; only indirect relation to recall and efficiency.",
+        "paper": "P8"
+      }
+    ],
+    "ranking": [
+      "P7",
+      "P2",
+      "P3",
+      "P10",
+      "P6",
+      "P9",
+      "P5",
+      "P4",
+      "P1",
+      "P8"
+    ]
+  },
+  "answer_sha256": "30fb98d704365f89f2230a455b91086e54b44b106b84a2e02c06eca4b3792f85",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2603.04814",
+    "2605.08587",
+    "2609.33093",
+    "2511.05850",
+    "2610.21165",
+    "2605.10268",
+    "2607.25357",
+    "2610.08300",
+    "2604.09494",
+    "2605.06946"
+  ],
+  "request_key": "0ebfb9f3a48ff4d94f05924d00e84a1d04fa03221f639236dca3d20ab29cd6b5",
+  "usage": {
+    "accounted_tokens": 3639,
+    "input_tokens": 3371,
+    "latency_seconds": 3.0265357999887783,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 268,
+    "provider_request_id": "req_e0648e11b1564056b3f92b9fd819bf38",
+    "reasoning_tokens": 0,
+    "request_id": "714bb3c1-7313-478b-86e1-79a2a742dbe4",
+    "reserved_input": 21620,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:18:57.533010+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

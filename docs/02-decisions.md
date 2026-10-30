@@ -514,6 +514,52 @@ spend. Its25%-title top10 variant is a challenger, not a promotion:
 mean nDCG improves but its paired interval crosses zero and paraphrase
 quality declines. See [the complete findings](03-findings.md#26-openai-large-titleabstract-candidate-experiment).
 
+## #39 Mini LLM reranker pilot approved (2026-10-30)
+
+Sid approved the proposed small reranker pilot and explicitly asked to preserve
+tokens. Use exactly20 existing dev queries, five per segment selected by the
+previously documented SHA256 rule, and two arms: reorder the baseline top10,
+or rerank baseline top50 to select a new top10. That is40 requests, not a new
+100-query experiment or a new dev set. Keep Decision36 and all labels frozen.
+
+Pin `gpt-5.4-mini-2026-03-17`, reasoning disabled, full title/authors/abstract,
+one hash-shuffled presentation order, exact candidate-ID permutations and
+short evidence notes for only the first10. No source flags, saved grades,
+external tools, reranker-generated evaluation labels, retries or model fallback.
+No separately paid relevance judging or presentation-order repeats are approved.
+
+The final offline preflight estimates416,104 serialized input tokens; with
+10% input headroom and400-2,048 output tokens per request, approximately
+$0.42-$0.71 at standard uncached rates. Sid approved a **$1.00 local pilot
+ceiling** and an effective **2,200,000 cumulative shared mini-token cap**,
+up from1,600,000. Preserve all1,411,975 accounted tokens and513 historical
+attempts; this is not a daily reset, new ledger or guarantee of free usage.
+The cap is a stop limit, not a spending target.
+
+Both dollar/request limits and the shared token guard reserve atomically
+in the existing SQLite ledger. Reserve UTF8 request bytes plus4,096 protocol
+tokens and the full2,048 output cap; settle trustworthy actual usage.
+Unknown outcomes retain reservations, and any previously attempted uncached
+request is blocked from silent paid replay. Calls are sequential and resumable
+only through exact successful caches or previously unattempted requests.
+
+Compare both arms to baseline on the same20-query sample, separately from
+the100-query leaderboard. Any unjudged new top10 papers withhold comparable
+nDCG/P10 and graded paired intervals. Source recall/MRR remain available.
+The same model family supplies most existing labels, so human/independent
+validation is still needed before treating a pilot gain as a general improvement.
+There is no automatic baseline promotion, label expansion or held-out test.
+
+**Execution amendment:** after the fifth response failed validation, Sid
+explicitly chose to finish only unattempted requests and report incomplete
+cases rather than retry. A failed result is never replaced with the baseline.
+The primary quality comparison uses the identical intersection of successful
+queries for both arms and baseline, with the smaller size and selection bias
+explicit. An additional cached, post-hoc ranking-only diagnostic may inspect
+exact full permutations rejected for bad evidence notes, but must not relabel
+them as successful primary responses or repair missing/duplicate ranking IDs.
+No new inference or changed prompt is allowed for that diagnostic.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

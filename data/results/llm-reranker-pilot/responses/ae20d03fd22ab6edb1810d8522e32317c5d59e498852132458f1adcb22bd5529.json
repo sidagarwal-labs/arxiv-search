@@ -1,0 +1,168 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly uses hierarchical summaries to navigate documents and retrieve evidence.",
+        "paper": "P37"
+      },
+      {
+        "note": "Builds multi-level topic map with supporting evidence spans for corpus exploration and document links.",
+        "paper": "P2"
+      },
+      {
+        "note": "Creates hierarchical tree retrieval with offline summaries for relevant text chunks.",
+        "paper": "P6"
+      },
+      {
+        "note": "Uses multi-level summaries/trees for long-document QA navigation, close to requested hierarchy-of-summaries idea.",
+        "paper": "P28"
+      },
+      {
+        "note": "Constructs corpus map around recurring entities to connect documents and evidence.",
+        "paper": "P3"
+      },
+      {
+        "note": "Organizes documents into a hierarchy and retrieves via multi-granularity retrieval; less about summaries specifically.",
+        "paper": "P31"
+      },
+      {
+        "note": "Hierarchical retrieval over summaries and raw chunks for long-document QA.",
+        "paper": "P32"
+      },
+      {
+        "note": "Summary-guided multimodal pyramid indexing for retrieval; relevant but page-focused and multimodal.",
+        "paper": "P16"
+      },
+      {
+        "note": "Topic metadata guides retrieval, but not a hierarchy of summaries.",
+        "paper": "P33"
+      },
+      {
+        "note": "Evidence graph and online expansion for multimodal document retrieval; broader structural retrieval, not summary hierarchy.",
+        "paper": "P7"
+      }
+    ],
+    "ranking": [
+      "P37",
+      "P2",
+      "P6",
+      "P28",
+      "P3",
+      "P31",
+      "P32",
+      "P16",
+      "P33",
+      "P7",
+      "P1",
+      "P5",
+      "P23",
+      "P39",
+      "P14",
+      "P10",
+      "P11",
+      "P24",
+      "P26",
+      "P27",
+      "P34",
+      "P35",
+      "P4",
+      "P8",
+      "P9",
+      "P13",
+      "P15",
+      "P22",
+      "P25",
+      "P29",
+      "P38",
+      "P40",
+      "P42",
+      "P43",
+      "P45",
+      "P46",
+      "P47",
+      "P48",
+      "P49",
+      "P50",
+      "P18",
+      "P19",
+      "P20",
+      "P21",
+      "P30",
+      "P36",
+      "P41",
+      "P44",
+      "P12",
+      "P17"
+    ]
+  },
+  "answer_sha256": "dcb4cedb37c0c5611acf91456fa646f1b41974f9afc6b0fe3be53f19cb4fe509",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2601.05265",
+    "2609.06664",
+    "2609.37226",
+    "2607.24781",
+    "2602.22225",
+    "2607.10316",
+    "2606.15906",
+    "2512.00367",
+    "2603.25333",
+    "2602.16964",
+    "2603.29875",
+    "2608.00229",
+    "2601.11863",
+    "2605.18774",
+    "2602.14784",
+    "2511.21121",
+    "2609.32397",
+    "2602.09821",
+    "2606.08445",
+    "2609.01618",
+    "2603.24204",
+    "2605.19806",
+    "2603.18409",
+    "2604.15802",
+    "2603.24556",
+    "2510.02539",
+    "2512.23471",
+    "2610.06902",
+    "2610.18622",
+    "2607.19836",
+    "2606.18381",
+    "2604.07012",
+    "2606.18508",
+    "2602.16974",
+    "2601.03748",
+    "2608.27809",
+    "2510.13217",
+    "2512.17179",
+    "2610.10170",
+    "2607.24767",
+    "2512.05334",
+    "2609.39312",
+    "2610.09361",
+    "2606.29894",
+    "2602.07297",
+    "2609.01617",
+    "2607.03421",
+    "2510.23104",
+    "2604.17648",
+    "2605.26400"
+  ],
+  "request_key": "ae20d03fd22ab6edb1810d8522e32317c5d59e498852132458f1adcb22bd5529",
+  "usage": {
+    "accounted_tokens": 17280,
+    "input_tokens": 16884,
+    "latency_seconds": 4.125150699983351,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 396,
+    "provider_request_id": "req_47e15db5e5224eff804266e66356c74b",
+    "reasoning_tokens": 0,
+    "request_id": "fd0f290c-0195-4a02-b96e-3477416859a9",
+    "reserved_input": 90229,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:26:12.135186+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

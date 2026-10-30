@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly proposes LLMs to suggest experiments in materials science, training-free, iterative few-shot active learning.",
+        "paper": "P4"
+      },
+      {
+        "note": "Generates novel battery materials via LLM analogical reasoning; no training-specific model required, but less explicitly experiment-suggestion.",
+        "paper": "P6"
+      },
+      {
+        "note": "Closed-loop LLM surrogate for inverse design in drug/material tasks; more optimization than experiment proposal.",
+        "paper": "P9"
+      },
+      {
+        "note": "Materials-science review covering LLMs for multi-agent experimental systems; background, not a direct method paper.",
+        "paper": "P7"
+      },
+      {
+        "note": "LLM-generated research methods suggestions; broad methodology, but not materials science specific.",
+        "paper": "P8"
+      },
+      {
+        "note": "Uses LLMs to predict plausible materials without fine-tuning; relevant but not about suggesting experiments.",
+        "paper": "P3"
+      },
+      {
+        "note": "Materials literature mining with LLM agents; supports discovery workflows but not experiment suggestion.",
+        "paper": "P1"
+      },
+      {
+        "note": "Suggests molecular transformations with no task-specific training; chemistry-focused, not materials experiments.",
+        "paper": "P2"
+      },
+      {
+        "note": "Tensor methods for material design; no LLM or experiment-suggestion focus.",
+        "paper": "P5"
+      },
+      {
+        "note": "Science communication training for early-stage researchers; unrelated to experiment generation.",
+        "paper": "P10"
+      }
+    ],
+    "ranking": [
+      "P4",
+      "P6",
+      "P9",
+      "P7",
+      "P8",
+      "P3",
+      "P1",
+      "P2",
+      "P5",
+      "P10"
+    ]
+  },
+  "answer_sha256": "4cd6a412194d7f5f0588fd08ae7afcf9d6117a356534bf398d2d479c09db550c",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2510.01235",
+    "2510.16590",
+    "2609.18437",
+    "2511.19730",
+    "2602.10392",
+    "2510.22312",
+    "2511.10673",
+    "2606.26130",
+    "2608.22967",
+    "2601.05821"
+  ],
+  "request_key": "6a299f8ad05369feeea4196c3962aee8799393508225c1b4486c0d3e15334780",
+  "usage": {
+    "accounted_tokens": 3777,
+    "input_tokens": 3474,
+    "latency_seconds": 3.263013099989621,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 303,
+    "provider_request_id": "req_46f674e5a07c4d148abf8120a5e99602",
+    "reasoning_tokens": 0,
+    "request_id": "1b11b3da-2b66-4a0e-86d4-ad22d0b313e9",
+    "reserved_input": 22091,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:56.758572+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

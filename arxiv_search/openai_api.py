@@ -36,6 +36,7 @@ ENDPOINT = "https://api.openai.com/v1/responses"
 MODEL_TIERS = {
     "gpt-5.4-nano": "mini",
     "gpt-5.4-mini": "mini",
+    "gpt-5.4-mini-2026-03-17": "mini",
     "gpt-4.1-mini": "mini",
     "gpt-4o-mini": "mini",
 }
@@ -94,6 +95,13 @@ class Ledger:
         return db
 
     def reserve(self, model: str, input_tokens: int, output_tokens: int) -> str:
+        with self._connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            return self._reserve_in_transaction(db, model, input_tokens, output_tokens)
+
+    def _reserve_in_transaction(self, db: sqlite3.Connection, model: str,
+                                input_tokens: int, output_tokens: int) -> str:
+        """Share the token guard with tasks adding an atomic task-specific budget."""
         if model not in MODEL_TIERS:
             raise OpenAIError("Model is not allowlisted for relevance judging")
         if input_tokens <= 0 or output_tokens <= 0:
@@ -105,17 +113,15 @@ class Ledger:
         limit = int(config.OPENAI_TOKEN_LIMITS[tier] * fraction)
         total = input_tokens + output_tokens
         request_id = str(uuid.uuid4())
-        with self._connect() as db:
-            db.execute("BEGIN IMMEDIATE")
-            used = db.execute(
-                "SELECT COALESCE(SUM(accounted_tokens), 0) FROM attempts WHERE tier = ?", (tier,)
-            ).fetchone()[0]
-            if used + total > limit:
-                raise BudgetExceeded(f"Local {tier} cumulative token budget exhausted; no request sent")
-            db.execute("""INSERT INTO attempts
-                (request_id, model, tier, started_utc, status, reserved_input,
-                 reserved_output, accounted_tokens) VALUES (?, ?, ?, ?, 'reserved', ?, ?, ?)""",
-                       (request_id, model, tier, _utc(), input_tokens, output_tokens, total))
+        used = db.execute(
+            "SELECT COALESCE(SUM(accounted_tokens), 0) FROM attempts WHERE tier = ?", (tier,)
+        ).fetchone()[0]
+        if used + total > limit:
+            raise BudgetExceeded(f"Local {tier} cumulative token budget exhausted; no request sent")
+        db.execute("""INSERT INTO attempts
+            (request_id, model, tier, started_utc, status, reserved_input,
+             reserved_output, accounted_tokens) VALUES (?, ?, ?, ?, 'reserved', ?, ?, ?)""",
+                   (request_id, model, tier, _utc(), input_tokens, output_tokens, total))
         return request_id
 
     def finish(self, request_id: str, status: str, latency: float,
@@ -190,7 +196,7 @@ def generate_json(model: str, prompt: str, system_instruction: str) -> tuple[dic
         "text": {"format": {"type": "json_schema", "name": "relevance_grades",
                             "strict": True, "schema": schema}},
     }
-    if model in {"gpt-5.4-nano", "gpt-5.4-mini"}:
+    if model in {"gpt-5.4-nano", "gpt-5.4-mini", "gpt-5.4-mini-2026-03-17"}:
         payload["reasoning"] = {"effort": "none"}
     encoded = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     reserved_input = len(encoded) + config.OPENAI_INPUT_OVERHEAD_TOKENS

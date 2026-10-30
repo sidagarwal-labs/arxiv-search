@@ -107,8 +107,11 @@ nDCG. Neither passes promotion; uncertainty and source-MRR tradeoffs remain.
 The [question audit and next-step hypothesis](docs/03-findings.md#29-question-audit-and-the-next-substantial-quality-improvement)
 identify task/constraint matching and deeper candidate selection as the next
 quality targets:133 known highly relevant query-paper pairs sit in positions11-50.
-A blinded label audit and mini-LLM top10/top50 pilot are proposed, not yet
-approved or run; the baseline, labels and paid budgets remain unchanged.
+A blinded label audit is still pending. The subsequently approved
+[mini-LLM pilot](docs/03-findings.md#30-mini-llm-pilot-results-and-output-reliability)
+attempted40 requests for an accounted$0.3757 with no retries. Only23 responses
+passed the strict output contract, leaving7 matched queries; top50 graded
+quality is incomplete. It is not a new baseline or a100-query leaderboard entry.
 Repeated global fusion tuning is showing diminishing returns.
 See the [experiment/promotion findings](docs/03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](docs/02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).

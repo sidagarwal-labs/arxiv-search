@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly about personalized dense retrieval, user profile denoising, and retrieval-aware reasoning.",
+        "paper": "P1"
+      },
+      {
+        "note": "Personalized dense retrieval with explicit user-history reasoning and intent enhancement.",
+        "paper": "P4"
+      },
+      {
+        "note": "Personalized retrieval reasoning for question answering using reinforcement learning.",
+        "paper": "P9"
+      },
+      {
+        "note": "Personalized deep research integrates user context with retrieval-reasoning loop; broader than dense retrieval.",
+        "paper": "P6"
+      },
+      {
+        "note": "Reasoning-aware retrieval for deep research agents; not personalized, but close to reasoning retrieval.",
+        "paper": "P10"
+      },
+      {
+        "note": "Dense retrieval with embedded reasoning for difficult queries; general, not personalized.",
+        "paper": "P2"
+      },
+      {
+        "note": "Reasoning into representation learning for multimodal retrieval; topical overlap only.",
+        "paper": "P3"
+      },
+      {
+        "note": "Reasoning-aware benchmark for person-job retrieval; diagnostic retrieval, not personalization method.",
+        "paper": "P8"
+      },
+      {
+        "note": "Large reasoning embedding model for e-commerce retrieval; reasoning dense retrieval, no personalization focus.",
+        "paper": "P7"
+      },
+      {
+        "note": "Personalized query prediction with reasoning and efficiency tradeoffs; recommendation-oriented, not retrieval-centric.",
+        "paper": "P5"
+      }
+    ],
+    "ranking": [
+      "P1",
+      "P4",
+      "P9",
+      "P6",
+      "P10",
+      "P2",
+      "P3",
+      "P8",
+      "P7",
+      "P5"
+    ]
+  },
+  "answer_sha256": "e0ee5fa0107139f3b0107442ec9e7254ea3fc99b55d033001652485361952f47",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2610.17673",
+    "2510.21727",
+    "2602.07125",
+    "2608.18855",
+    "2608.24295",
+    "2605.10530",
+    "2510.14321",
+    "2603.17386",
+    "2602.19317",
+    "2603.04384"
+  ],
+  "request_key": "0744853cf0e97d3d87e9f45fe2ecdd7f91bd53d5fae7126a3a7ebc8cfbd675c9",
+  "usage": {
+    "accounted_tokens": 4052,
+    "input_tokens": 3776,
+    "latency_seconds": 2.883286299998872,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 276,
+    "provider_request_id": "req_57679793749841a3b06a6280429c6283",
+    "reasoning_tokens": 0,
+    "request_id": "679ca503-38a1-4963-b23c-feeeb168384a",
+    "reserved_input": 23712,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:30.193450+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

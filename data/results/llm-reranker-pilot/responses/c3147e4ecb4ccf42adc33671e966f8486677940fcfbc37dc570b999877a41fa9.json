@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly about generating evaluation scenarios from tool specifications without live tools or examples.",
+        "paper": "P9"
+      },
+      {
+        "note": "Uses synthetic tasks and simulated environments to generate tool-use training data; relevant but broader than test-case creation.",
+        "paper": "P4"
+      },
+      {
+        "note": "Creates controlled synthetic environments for tool-use agents, though focused on spurious behavior analysis rather than specification-based synthesis.",
+        "paper": "P3"
+      },
+      {
+        "note": "Synthesizes hard tool-use samples and hard queries from failure cases; related, but not specifically tool specifications.",
+        "paper": "P2"
+      },
+      {
+        "note": "Builds mock worlds and simulated tool ecosystems for agent training; useful background on synthetic tasks.",
+        "paper": "P1"
+      },
+      {
+        "note": "Benchmark with semantic tool schemas removed; relevant to synthetic tool interactions, but not specification-driven generation.",
+        "paper": "P5"
+      },
+      {
+        "note": "Emphasizes realistic tool-environment unreliability, not synthetic test-case creation from specifications.",
+        "paper": "P10"
+      },
+      {
+        "note": "Benchmark for diverse long-horizon tasks across apps; includes realistic states, but not synthesized from specs.",
+        "paper": "P8"
+      },
+      {
+        "note": "Uses hidden instances and tools for optimization tasks; less about specification-based synthetic case generation.",
+        "paper": "P7"
+      },
+      {
+        "note": "Replays real-world events for evaluation; unrelated to tool specifications or synthetic test cases.",
+        "paper": "P6"
+      }
+    ],
+    "ranking": [
+      "P9",
+      "P4",
+      "P3",
+      "P2",
+      "P1",
+      "P5",
+      "P10",
+      "P8",
+      "P7",
+      "P6"
+    ]
+  },
+  "answer_sha256": "271baed69a374cf50a032915509a0cd4e075a4ba5976af44dc651d15233b9cce",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2604.17739",
+    "2601.01498",
+    "2609.16268",
+    "2601.22511",
+    "2608.02358",
+    "2605.15188",
+    "2608.29397",
+    "2510.25726",
+    "2608.26133",
+    "2606.25819"
+  ],
+  "request_key": "c3147e4ecb4ccf42adc33671e966f8486677940fcfbc37dc570b999877a41fa9",
+  "usage": {
+    "accounted_tokens": 4098,
+    "input_tokens": 3790,
+    "latency_seconds": 3.2297276000026613,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 308,
+    "provider_request_id": "req_88fd794fc26d4e1b8aafcd5127c45337",
+    "reasoning_tokens": 0,
+    "request_id": "46cd2a7c-d7bd-4c1b-9274-f937ae0c4a7e",
+    "reserved_input": 24034,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:53.503543+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

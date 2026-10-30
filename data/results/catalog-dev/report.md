@@ -1111,6 +1111,8 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 - [fusion-review-dev/report.json](../fusion-review-dev/report.json) — historical report/configuration; original scope
 - [fusion-review-dev/report.md](../fusion-review-dev/report.md) — historical report/configuration; original scope
 - [graded-dev/report.md](../graded-dev/report.md) — historical report/configuration; original scope
+- [llm-reranker-pilot/report.json](../llm-reranker-pilot/report.json) — historical report/configuration; original scope
+- [llm-reranker-pilot/report.md](../llm-reranker-pilot/report.md) — historical report/configuration; original scope
 - [openai-field-dev/report.json](../openai-field-dev/report.json) — historical report/configuration; original scope
 - [openai-field-dev/report.md](../openai-field-dev/report.md) — historical report/configuration; original scope
 - [openai-field-hybrid-dev/report.json](../openai-field-hybrid-dev/report.json) — historical report/configuration; original scope

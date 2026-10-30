@@ -1,0 +1,392 @@
+{
+  "accounting": {
+    "accounted_nanodollars": 375672000,
+    "accounted_tokens": 420596,
+    "accounted_usd": 0.375672,
+    "api_seconds": 161.23458630006644,
+    "input_tokens": 404536,
+    "output_tokens": 16060,
+    "reasoning_tokens": 0,
+    "requests": 40,
+    "shared_accounted_tokens": 1832571,
+    "unknown_reserved_tokens": 0
+  },
+  "all_requests_conservative_reservations": 0,
+  "attempted_uncached_no_retry": 17,
+  "cached_requests": 23,
+  "caution": "Tokenizer/10% estimates are not provider usage or a reservation. Actual per-call reservation uses UTF8 bytes plus protocol/output caps. Sequential settlement frees headroom; any cap stops before the next request. No retries.",
+  "expected_cost_usd_output_400_to_2048": [
+    0.0,
+    0.0
+  ],
+  "expected_tokens_with_10pct_input_headroom_and_max_output": 0.0,
+  "maximum_single_request_reservation": 0,
+  "request_preflight": [
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-keyword-005",
+      "request_key": "f5432c3866519e5cd4242670a046ec300a4d08d92cad95031ca238b07cb263c2",
+      "reserved_input_tokens": 22142,
+      "serialized_token_estimate": 3795
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-keyword-008",
+      "request_key": "d8dbe5b847881fb12be0ab22136d00ab0d2cf7c3922d3b243cc0231072d88d94",
+      "reserved_input_tokens": 20102,
+      "serialized_token_estimate": 3273
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-keyword-017",
+      "request_key": "0ebfb9f3a48ff4d94f05924d00e84a1d04fa03221f639236dca3d20ab29cd6b5",
+      "reserved_input_tokens": 21620,
+      "serialized_token_estimate": 3550
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-keyword-079",
+      "request_key": "bde29e08a97f12a264fb4c386f3619dee51de2a7d68fd23edd6645a79a11e935",
+      "reserved_input_tokens": 21827,
+      "serialized_token_estimate": 3536
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 10,
+      "query_id": "q-keyword-081",
+      "request_key": "2d1d80f9501a835f24c133ba0f534a0540668bf7cc2325e1414308731eef6e05",
+      "reserved_input_tokens": 22343,
+      "serialized_token_estimate": 3535
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-known_item-017",
+      "request_key": "0088d81fc13806b49228d4bb0d8e4cdaa42dddff0dc0f8250576da7207cf6663",
+      "reserved_input_tokens": 21418,
+      "serialized_token_estimate": 3378
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-known_item-019",
+      "request_key": "3481d8d0c12b1e1d99824a7b66c76a25bcd5efe094eae58289dcc0e94fc9cdc3",
+      "reserved_input_tokens": 22859,
+      "serialized_token_estimate": 3821
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-known_item-031",
+      "request_key": "38b61f0c91ba8aa3369a70f6c4919ac0a844900a4293062bf0766bbdcb911e6d",
+      "reserved_input_tokens": 25658,
+      "serialized_token_estimate": 4566
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-known_item-042",
+      "request_key": "0744853cf0e97d3d87e9f45fe2ecdd7f91bd53d5fae7126a3a7ebc8cfbd675c9",
+      "reserved_input_tokens": 23712,
+      "serialized_token_estimate": 3961
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-known_item-048",
+      "request_key": "f745b9b50c85ef6d21f62f54aef145a75039592e53ddb1ef798932807f747ba0",
+      "reserved_input_tokens": 21781,
+      "serialized_token_estimate": 3375
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-paraphrase-020",
+      "request_key": "cafc0a330e26faa852debb03235d9643cbb2d7d94be8dfddca974d1f09cc676d",
+      "reserved_input_tokens": 22432,
+      "serialized_token_estimate": 3696
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-paraphrase-043",
+      "request_key": "4a75d286a6efe2708cb9e9e5a8912dc3c3ce2d4f0471b1600a949bfcf1b84a9c",
+      "reserved_input_tokens": 24034,
+      "serialized_token_estimate": 4060
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-paraphrase-063",
+      "request_key": "cabf914fa911899279d715c014cb12bbcb8d3a2413226ea9ee6a256eec1da632",
+      "reserved_input_tokens": 23291,
+      "serialized_token_estimate": 3905
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 10,
+      "query_id": "q-paraphrase-077",
+      "request_key": "16b2686b24c8f5934d41345b17608b4be20d0f5705ff003fd3d8c73a31bbe67f",
+      "reserved_input_tokens": 23120,
+      "serialized_token_estimate": 4156
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-paraphrase-096",
+      "request_key": "6f25880c00bc71bf21b9176ad28e21329a073516c0c3e81e19062431dc3e0e4b",
+      "reserved_input_tokens": 20229,
+      "serialized_token_estimate": 3192
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-question-040",
+      "request_key": "c3147e4ecb4ccf42adc33671e966f8486677940fcfbc37dc570b999877a41fa9",
+      "reserved_input_tokens": 24034,
+      "serialized_token_estimate": 3966
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-question-056",
+      "request_key": "6a299f8ad05369feeea4196c3962aee8799393508225c1b4486c0d3e15334780",
+      "reserved_input_tokens": 22091,
+      "serialized_token_estimate": 3652
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 10,
+      "query_id": "q-question-077",
+      "request_key": "bb462fafbc5e9e74f38092b41feb94aefccfda62cb9267960eac246ffb930399",
+      "reserved_input_tokens": 21700,
+      "serialized_token_estimate": 3613
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 10,
+      "query_id": "q-question-088",
+      "request_key": "7f1379703654dc9379039dadc9f458703e089215768829459873bacc2abd75a4",
+      "reserved_input_tokens": 22846,
+      "serialized_token_estimate": 3778
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 10,
+      "query_id": "q-question-095",
+      "request_key": "3748e52cea51cade4a725a2c3347c56f9410478f2cf84e9219615c22dca02b39",
+      "reserved_input_tokens": 23020,
+      "serialized_token_estimate": 3759
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 50,
+      "query_id": "q-keyword-005",
+      "request_key": "9373dd60a7485f9dda70d80e8f82cf59dcc734ac22eaa505937f79e2b902ec40",
+      "reserved_input_tokens": 89653,
+      "serialized_token_estimate": 17508
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 50,
+      "query_id": "q-keyword-008",
+      "request_key": "c1b146e8327fa1bfb7c383bb14b9764f0b4beea7e2ba3088faeab79045846ded",
+      "reserved_input_tokens": 82447,
+      "serialized_token_estimate": 15573
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 50,
+      "query_id": "q-keyword-017",
+      "request_key": "07d28bf678a9e48e56b987815683443ada0343730312f56e4a54385657185b4c",
+      "reserved_input_tokens": 89291,
+      "serialized_token_estimate": 17351
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-keyword-079",
+      "request_key": "3d67b8c5343656d92def56ffe9726085265756a8935034089c650dd6aa38294e",
+      "reserved_input_tokens": 82800,
+      "serialized_token_estimate": 15833
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-keyword-081",
+      "request_key": "8460a423e3d8baecfc7a29b5b79524da15291030e64b5c57847783d0c5f21609",
+      "reserved_input_tokens": 90304,
+      "serialized_token_estimate": 16848
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 50,
+      "query_id": "q-known_item-017",
+      "request_key": "17e9cbef818acdbda834f2ff97cfab7ddb103b397da611088a1c44f6f857477f",
+      "reserved_input_tokens": 90007,
+      "serialized_token_estimate": 17023
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-known_item-019",
+      "request_key": "03173c0698fa1c12e4a2c60cb4e4588c7dfc3592f93698a42065cbcc936d3180",
+      "reserved_input_tokens": 86686,
+      "serialized_token_estimate": 16383
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-known_item-031",
+      "request_key": "dee597b329ba1b2d762abbd4f989684ec7ecf954379c7ed6ff58b102b09bd01a",
+      "reserved_input_tokens": 89497,
+      "serialized_token_estimate": 17459
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 50,
+      "query_id": "q-known_item-042",
+      "request_key": "7973780d76a4ff306c43f7f574b1c3052f17335c1ddaeb9912d8696a70152471",
+      "reserved_input_tokens": 93244,
+      "serialized_token_estimate": 17967
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 50,
+      "query_id": "q-known_item-048",
+      "request_key": "0d0d71987c8bde6df364ad7b1aa85f3a841a845fc5626e75bf942c69392e8737",
+      "reserved_input_tokens": 93584,
+      "serialized_token_estimate": 17320
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-paraphrase-020",
+      "request_key": "70617b676b161022435f07b600f08c0f63910da3fd3ec3aedad37da969388e36",
+      "reserved_input_tokens": 87436,
+      "serialized_token_estimate": 16230
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-paraphrase-043",
+      "request_key": "768e86253d00227e74db3aa74a8da2de145722b0cf608a9ae2e60a3bf387cbd0",
+      "reserved_input_tokens": 85650,
+      "serialized_token_estimate": 16187
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-paraphrase-063",
+      "request_key": "bc19df30ab00c7591a128a5c3215c63d3016cc9b2ab6324a2f001c56f7c055ac",
+      "reserved_input_tokens": 91124,
+      "serialized_token_estimate": 17883
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-paraphrase-077",
+      "request_key": "27e4010525a21310deeccc27e2306838cdfed8ac04093a94899281098cfe2800",
+      "reserved_input_tokens": 90543,
+      "serialized_token_estimate": 17986
+    },
+    {
+      "attempt_status": null,
+      "cached": true,
+      "depth": 50,
+      "query_id": "q-paraphrase-096",
+      "request_key": "ae20d03fd22ab6edb1810d8522e32317c5d59e498852132458f1adcb22bd5529",
+      "reserved_input_tokens": 90229,
+      "serialized_token_estimate": 17272
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-question-040",
+      "request_key": "4a2914ecaed6088553190cb05cc536c34b7b49380ac11e65d209418d8b26b7c9",
+      "reserved_input_tokens": 94727,
+      "serialized_token_estimate": 18426
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-question-056",
+      "request_key": "14e25f9dbfda47d0d124fc864d5f548c0b9c6b40ed92807782f4804e670785ee",
+      "reserved_input_tokens": 90531,
+      "serialized_token_estimate": 17084
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-question-077",
+      "request_key": "3b525d2cb820f38fb16cfdd59c0b0dc40834545db85cd065471d632bb4881b0b",
+      "reserved_input_tokens": 84930,
+      "serialized_token_estimate": 16283
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-question-088",
+      "request_key": "71653f25ff50f0b3de6097f57394a0ea60219e2217c5aa252eb87a62dbb2a9bf",
+      "reserved_input_tokens": 89117,
+      "serialized_token_estimate": 17057
+    },
+    {
+      "attempt_status": "invalid_answer",
+      "cached": false,
+      "depth": 50,
+      "query_id": "q-question-095",
+      "request_key": "dedeb4e622357a4f08de1bc8f6a66fa62fe7944900251d9d93157bc6f8562a4f",
+      "reserved_input_tokens": 95616,
+      "serialized_token_estimate": 17864
+    }
+  ],
+  "serialized_input_token_estimate": 0,
+  "shared_remaining_tokens": 367429,
+  "shared_token_limit": 2200000,
+  "task_ceiling_usd": 1.0,
+  "total_requests": 40,
+  "unattempted_requests": 0
+}

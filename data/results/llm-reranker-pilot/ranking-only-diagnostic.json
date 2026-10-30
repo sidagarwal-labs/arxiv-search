@@ -1,0 +1,3489 @@
+{
+  "api_calls": 0,
+  "available_rankings": {
+    "fusion-shortlist+a=1+d=500": 20,
+    "llm-mini-pilot+d=10": 19,
+    "llm-mini-pilot+d=50": 13
+  },
+  "failure_categories": {
+    "llm-mini-pilot+d=10": {
+      "q-keyword-081": "output_not_retained",
+      "q-paraphrase-077": "valid_permutation_rejected_evidence",
+      "q-question-077": "valid_permutation_rejected_evidence",
+      "q-question-088": "valid_permutation_rejected_evidence"
+    },
+    "llm-mini-pilot+d=50": {
+      "q-keyword-079": "valid_permutation_rejected_evidence",
+      "q-keyword-081": "valid_permutation_rejected_evidence",
+      "q-known_item-019": "invalid_permutation",
+      "q-known_item-031": "valid_permutation_rejected_evidence",
+      "q-paraphrase-020": "invalid_permutation",
+      "q-paraphrase-043": "invalid_permutation",
+      "q-paraphrase-063": "valid_permutation_rejected_evidence",
+      "q-paraphrase-077": "invalid_permutation",
+      "q-question-040": "invalid_permutation",
+      "q-question-056": "invalid_permutation",
+      "q-question-077": "invalid_permutation",
+      "q-question-088": "valid_permutation_rejected_evidence",
+      "q-question-095": "valid_permutation_rejected_evidence"
+    }
+  },
+  "matched_queries": 12,
+  "matched_query_ids": [
+    "q-keyword-005",
+    "q-keyword-008",
+    "q-keyword-017",
+    "q-keyword-079",
+    "q-known_item-017",
+    "q-known_item-031",
+    "q-known_item-042",
+    "q-known_item-048",
+    "q-paraphrase-063",
+    "q-paraphrase-096",
+    "q-question-088",
+    "q-question-095"
+  ],
+  "scope": "Post-hoc ranking-only diagnostic, NOT the strict primary pilot. Use only exact full permutations; ignore rejected evidence notes. Never repair missing/duplicate IDs, generate labels or change strict run files. Still success-selected; no promotion or generalized quality claim.",
+  "summary": {
+    "fusion-shortlist+a=1+d=500": {
+      "all": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.7219243400090752,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "precision@10": {
+          "mean": 0.6749999999999999,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        }
+      },
+      "keyword": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.7512370689838486,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "precision@10": {
+          "mean": 0.8,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        }
+      },
+      "known_item": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.694150485522707,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "precision@10": {
+          "mean": 0.525,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        }
+      },
+      "paraphrase": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.6722346885956316,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "precision@10": {
+          "mean": 0.6499999999999999,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        }
+      },
+      "question": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.7685362424457087,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "precision@10": {
+          "mean": 0.75,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        }
+      }
+    },
+    "llm-mini-pilot+d=10": {
+      "all": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.7438222263492421,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              -0.006805815536065333,
+              0.05633328730860882
+            ],
+            "difference": 0.02189788634016691,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.024448156042684577,
+              "q-keyword-008": -0.002699598430670358,
+              "q-keyword-017": 0.01834098052484001,
+              "q-keyword-079": 0.12646986618289335,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.04297833458695244,
+              "q-known_item-042": -0.05261852780908516,
+              "q-known_item-048": -0.032389959296479254,
+              "q-paraphrase-063": 0.00029903486942828295,
+              "q-paraphrase-096": 0.13537076493486433,
+              "q-question-088": 0.021499274210628694,
+              "q-question-095": -0.018923689734054006
+            },
+            "regressions": 4,
+            "ties": 1,
+            "wins": 7
+          }
+        },
+        "precision@10": {
+          "mean": 0.6749999999999999,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 0.8333333333333334,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              -0.20833333333333334,
+              0.0
+            ],
+            "difference": -0.08333333333333333,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": -0.5,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": -0.5,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 2,
+            "ties": 10,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.75,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              -0.4166666666666667,
+              0.0
+            ],
+            "difference": -0.16666666666666666,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": -1.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": -1.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 2,
+            "ties": 10,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        }
+      },
+      "keyword": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.7928769200637854,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.004087340187668376,
+              0.09943764476838002
+            ],
+            "difference": 0.041639851079936896,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.024448156042684577,
+              "q-keyword-008": -0.002699598430670358,
+              "q-keyword-017": 0.01834098052484001,
+              "q-keyword-079": 0.12646986618289335
+            },
+            "regressions": 1,
+            "ties": 0,
+            "wins": 3
+          }
+        },
+        "precision@10": {
+          "mean": 0.8,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 0.875,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -0.375,
+              0.0
+            ],
+            "difference": -0.125,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": -0.5
+            },
+            "regressions": 1,
+            "ties": 3,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.75,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -0.75,
+              0.0
+            ],
+            "difference": -0.25,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": -1.0
+            },
+            "regressions": 1,
+            "ties": 3,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        }
+      },
+      "known_item": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.683642947393054,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -0.042504243552782206,
+              0.024136261116094515
+            ],
+            "difference": -0.010507538129652993,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.04297833458695244,
+              "q-known_item-042": -0.05261852780908516,
+              "q-known_item-048": -0.032389959296479254
+            },
+            "regressions": 2,
+            "ties": 1,
+            "wins": 1
+          }
+        },
+        "precision@10": {
+          "mean": 0.525,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 0.875,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -0.375,
+              0.0
+            ],
+            "difference": -0.125,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": -0.5,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 1,
+            "ties": 3,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.75,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -0.75,
+              0.0
+            ],
+            "difference": -0.25,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": -1.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 1,
+            "ties": 3,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        }
+      },
+      "paraphrase": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.7400695884977779,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.00029903486942828295,
+              0.13537076493486433
+            ],
+            "difference": 0.0678348999021463,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.00029903486942828295,
+              "q-paraphrase-096": 0.13537076493486433
+            },
+            "regressions": 0,
+            "ties": 0,
+            "wins": 2
+          }
+        },
+        "precision@10": {
+          "mean": 0.6499999999999999,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        }
+      },
+      "question": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "ndcg@10": {
+          "mean": 0.7698240346839962,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              -0.018923689734054006,
+              0.021499274210628694
+            ],
+            "difference": 0.0012877922382873441,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.021499274210628694,
+              "q-question-095": -0.018923689734054006
+            },
+            "regressions": 1,
+            "ties": 0,
+            "wins": 1
+          }
+        },
+        "precision@10": {
+          "mean": 0.75,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_mrr@10": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        }
+      }
+    },
+    "llm-mini-pilot+d=50": {
+      "all": {
+        "judged@10": {
+          "mean": 0.7333333333333334,
+          "n": 12,
+          "paired_vs_working": null
+        },
+        "ndcg@10": {
+          "mean": 0.6258255306381049,
+          "n": 12,
+          "paired_vs_working": null
+        },
+        "precision@10": {
+          "mean": 0.5750000000000001,
+          "n": 12,
+          "paired_vs_working": null
+        },
+        "source_mrr@10": {
+          "mean": 0.6507936507936508,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              -0.45456349206349206,
+              -0.09722222222222222
+            ],
+            "difference": -0.26587301587301587,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": -0.6666666666666667,
+              "q-keyword-017": -0.6666666666666667,
+              "q-keyword-079": -0.8571428571428572,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": -0.5,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": -0.5,
+              "q-question-095": 0.0
+            },
+            "regressions": 5,
+            "ties": 7,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.5,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              -0.6666666666666666,
+              -0.16666666666666666
+            ],
+            "difference": -0.4166666666666667,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": -1.0,
+              "q-keyword-017": -1.0,
+              "q-keyword-079": -1.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": -1.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": -1.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 5,
+            "ties": 7,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 0.9166666666666666,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 12,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 0.8333333333333334,
+          "n": 12,
+          "paired_vs_working": {
+            "ci95": [
+              -0.25,
+              0.0
+            ],
+            "difference": -0.08333333333333333,
+            "n": 12,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": -1.0,
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0,
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0,
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 1,
+            "ties": 11,
+            "wins": 0
+          }
+        }
+      },
+      "keyword": {
+        "judged@10": {
+          "mean": 0.775,
+          "n": 4,
+          "paired_vs_working": null
+        },
+        "ndcg@10": {
+          "mean": 0.6338930592138852,
+          "n": 4,
+          "paired_vs_working": null
+        },
+        "precision@10": {
+          "mean": 0.65,
+          "n": 4,
+          "paired_vs_working": null
+        },
+        "source_mrr@10": {
+          "mean": 0.4523809523809524,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -0.8095238095238096,
+              -0.16666666666666669
+            ],
+            "difference": -0.5476190476190477,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": -0.6666666666666667,
+              "q-keyword-017": -0.6666666666666667,
+              "q-keyword-079": -0.8571428571428572
+            },
+            "regressions": 3,
+            "ties": 1,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.25,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -1.0,
+              -0.25
+            ],
+            "difference": -0.75,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": -1.0,
+              "q-keyword-017": -1.0,
+              "q-keyword-079": -1.0
+            },
+            "regressions": 3,
+            "ties": 1,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 0.75,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -0.75,
+              0.0
+            ],
+            "difference": -0.25,
+            "n": 4,
+            "per_query_difference": {
+              "q-keyword-005": 0.0,
+              "q-keyword-008": 0.0,
+              "q-keyword-017": 0.0,
+              "q-keyword-079": -1.0
+            },
+            "regressions": 1,
+            "ties": 3,
+            "wins": 0
+          }
+        }
+      },
+      "known_item": {
+        "judged@10": {
+          "mean": 0.8,
+          "n": 4,
+          "paired_vs_working": null
+        },
+        "ndcg@10": {
+          "mean": 0.6478251976500585,
+          "n": 4,
+          "paired_vs_working": null
+        },
+        "precision@10": {
+          "mean": 0.5,
+          "n": 4,
+          "paired_vs_working": null
+        },
+        "source_mrr@10": {
+          "mean": 0.875,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -0.375,
+              0.0
+            ],
+            "difference": -0.125,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": -0.5,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 1,
+            "ties": 3,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.75,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              -0.75,
+              0.0
+            ],
+            "difference": -0.25,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": -1.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 1,
+            "ties": 3,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 1.0,
+          "n": 4,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 4,
+            "per_query_difference": {
+              "q-known_item-017": 0.0,
+              "q-known_item-031": 0.0,
+              "q-known_item-042": 0.0,
+              "q-known_item-048": 0.0
+            },
+            "regressions": 0,
+            "ties": 4,
+            "wins": 0
+          }
+        }
+      },
+      "paraphrase": {
+        "judged@10": {
+          "mean": 0.55,
+          "n": 2,
+          "paired_vs_working": null
+        },
+        "ndcg@10": {
+          "mean": 0.5590638827493002,
+          "n": 2,
+          "paired_vs_working": null
+        },
+        "precision@10": {
+          "mean": 0.55,
+          "n": 2,
+          "paired_vs_working": null
+        },
+        "source_mrr@10": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-paraphrase-063": 0.0,
+              "q-paraphrase-096": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        }
+      },
+      "question": {
+        "judged@10": {
+          "mean": 0.7,
+          "n": 2,
+          "paired_vs_working": null
+        },
+        "ndcg@10": {
+          "mean": 0.6324527873514417,
+          "n": 2,
+          "paired_vs_working": null
+        },
+        "precision@10": {
+          "mean": 0.6,
+          "n": 2,
+          "paired_vs_working": null
+        },
+        "source_mrr@10": {
+          "mean": 0.75,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              -0.5,
+              0.0
+            ],
+            "difference": -0.25,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": -0.5,
+              "q-question-095": 0.0
+            },
+            "regressions": 1,
+            "ties": 1,
+            "wins": 0
+          }
+        },
+        "source_recall@1": {
+          "mean": 0.5,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              -1.0,
+              0.0
+            ],
+            "difference": -0.5,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": -1.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 1,
+            "ties": 1,
+            "wins": 0
+          }
+        },
+        "source_recall@10": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@20": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        },
+        "source_recall@5": {
+          "mean": 1.0,
+          "n": 2,
+          "paired_vs_working": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "difference": 0.0,
+            "n": 2,
+            "per_query_difference": {
+              "q-question-088": 0.0,
+              "q-question-095": 0.0
+            },
+            "regressions": 0,
+            "ties": 2,
+            "wins": 0
+          }
+        }
+      }
+    }
+  },
+  "systems": {
+    "fusion-shortlist+a=1+d=500": {
+      "all": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 12
+        },
+        "ndcg@10": {
+          "mean": 0.7219243400090752,
+          "n": 12
+        },
+        "precision@10": {
+          "mean": 0.6749999999999999,
+          "n": 12
+        },
+        "queries": 12,
+        "source_mrr@10": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        },
+        "source_recall@1": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        },
+        "source_recall@10": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        },
+        "source_recall@20": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        },
+        "source_recall@5": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        }
+      },
+      "by_query_type": {
+        "keyword": {
+          "judged@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "ndcg@10": {
+            "mean": 0.7512370689838486,
+            "n": 4
+          },
+          "precision@10": {
+            "mean": 0.8,
+            "n": 4
+          },
+          "queries": 4,
+          "source_mrr@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@1": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@20": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@5": {
+            "mean": 1.0,
+            "n": 4
+          }
+        },
+        "known_item": {
+          "judged@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "ndcg@10": {
+            "mean": 0.694150485522707,
+            "n": 4
+          },
+          "precision@10": {
+            "mean": 0.525,
+            "n": 4
+          },
+          "queries": 4,
+          "source_mrr@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@1": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@20": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@5": {
+            "mean": 1.0,
+            "n": 4
+          }
+        },
+        "paraphrase": {
+          "judged@10": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "ndcg@10": {
+            "mean": 0.6722346885956316,
+            "n": 2
+          },
+          "precision@10": {
+            "mean": 0.6499999999999999,
+            "n": 2
+          },
+          "queries": 2,
+          "source_mrr@10": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@1": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@10": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@20": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@5": {
+            "mean": 0.5,
+            "n": 2
+          }
+        },
+        "question": {
+          "judged@10": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "ndcg@10": {
+            "mean": 0.7685362424457087,
+            "n": 2
+          },
+          "precision@10": {
+            "mean": 0.75,
+            "n": 2
+          },
+          "queries": 2,
+          "source_mrr@10": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@1": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@10": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@20": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@5": {
+            "mean": 1.0,
+            "n": 2
+          }
+        }
+      },
+      "known_item_source_mrr@10": {
+        "mean": 1.0,
+        "n": 4
+      },
+      "metadata": {},
+      "paired_ndcg_vs_working_baseline": null,
+      "paired_withheld_reason": "working baseline itself",
+      "paths": [],
+      "per_query": [
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.7342150277443629,
+          "precision@10": 0.7,
+          "query_id": "q-keyword-005",
+          "query_type": "keyword",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.77852180451364,
+          "precision@10": 0.9,
+          "query_id": "q-keyword-008",
+          "query_type": "keyword",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.8408404181094719,
+          "precision@10": 1.0,
+          "query_id": "q-keyword-017",
+          "query_type": "keyword",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.6513710255679194,
+          "precision@10": 0.6,
+          "query_id": "q-keyword-079",
+          "query_type": "keyword",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.792949770861511,
+          "precision@10": 0.3,
+          "query_id": "q-known_item-017",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.5065704810957843,
+          "precision@10": 0.4,
+          "query_id": "q-known_item-031",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.8778236258105951,
+          "precision@10": 1.0,
+          "query_id": "q-known_item-042",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.5992580643229374,
+          "precision@10": 0.4,
+          "query_id": "q-known_item-048",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.8187075602633211,
+          "precision@10": 0.7,
+          "query_id": "q-paraphrase-063",
+          "query_type": "paraphrase",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.5257618169279421,
+          "precision@10": 0.6,
+          "query_id": "q-paraphrase-096",
+          "query_type": "paraphrase",
+          "source_mrr@10": 0.0,
+          "source_recall@1": 0.0,
+          "source_recall@10": 0.0,
+          "source_recall@20": 0.0,
+          "source_recall@5": 0.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.6073812248209596,
+          "precision@10": 0.6,
+          "query_id": "q-question-088",
+          "query_type": "question",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.929691260070458,
+          "precision@10": 0.9,
+          "query_id": "q-question-095",
+          "query_type": "question",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        }
+      ],
+      "queries_expected": 12,
+      "queries_present": 12,
+      "ranking_sha256": "2d78ed97b353bb150db9181b0499be78b95f1e256329849d3d63b67c987c26ca",
+      "status": "covered",
+      "top10_fully_judged": true,
+      "working_baseline": true
+    },
+    "llm-mini-pilot+d=10": {
+      "all": {
+        "judged@10": {
+          "mean": 1.0,
+          "n": 12
+        },
+        "ndcg@10": {
+          "mean": 0.7438222263492421,
+          "n": 12
+        },
+        "precision@10": {
+          "mean": 0.6749999999999999,
+          "n": 12
+        },
+        "queries": 12,
+        "source_mrr@10": {
+          "mean": 0.8333333333333334,
+          "n": 12
+        },
+        "source_recall@1": {
+          "mean": 0.75,
+          "n": 12
+        },
+        "source_recall@10": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        },
+        "source_recall@20": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        },
+        "source_recall@5": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        }
+      },
+      "by_query_type": {
+        "keyword": {
+          "judged@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "ndcg@10": {
+            "mean": 0.7928769200637854,
+            "n": 4
+          },
+          "precision@10": {
+            "mean": 0.8,
+            "n": 4
+          },
+          "queries": 4,
+          "source_mrr@10": {
+            "mean": 0.875,
+            "n": 4
+          },
+          "source_recall@1": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "source_recall@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@20": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@5": {
+            "mean": 1.0,
+            "n": 4
+          }
+        },
+        "known_item": {
+          "judged@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "ndcg@10": {
+            "mean": 0.683642947393054,
+            "n": 4
+          },
+          "precision@10": {
+            "mean": 0.525,
+            "n": 4
+          },
+          "queries": 4,
+          "source_mrr@10": {
+            "mean": 0.875,
+            "n": 4
+          },
+          "source_recall@1": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "source_recall@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@20": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@5": {
+            "mean": 1.0,
+            "n": 4
+          }
+        },
+        "paraphrase": {
+          "judged@10": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "ndcg@10": {
+            "mean": 0.7400695884977779,
+            "n": 2
+          },
+          "precision@10": {
+            "mean": 0.6499999999999999,
+            "n": 2
+          },
+          "queries": 2,
+          "source_mrr@10": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@1": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@10": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@20": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@5": {
+            "mean": 0.5,
+            "n": 2
+          }
+        },
+        "question": {
+          "judged@10": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "ndcg@10": {
+            "mean": 0.7698240346839962,
+            "n": 2
+          },
+          "precision@10": {
+            "mean": 0.75,
+            "n": 2
+          },
+          "queries": 2,
+          "source_mrr@10": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@1": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@10": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@20": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@5": {
+            "mean": 1.0,
+            "n": 2
+          }
+        }
+      },
+      "known_item_source_mrr@10": {
+        "mean": 0.875,
+        "n": 4
+      },
+      "metadata": {},
+      "paired_ndcg_vs_working_baseline": {
+        "ci95": [
+          -0.006805815536065333,
+          0.05633328730860882
+        ],
+        "difference": 0.02189788634016691,
+        "n": 12,
+        "query_ids": [
+          "q-keyword-005",
+          "q-keyword-008",
+          "q-keyword-017",
+          "q-keyword-079",
+          "q-known_item-017",
+          "q-known_item-031",
+          "q-known_item-042",
+          "q-known_item-048",
+          "q-paraphrase-063",
+          "q-paraphrase-096",
+          "q-question-088",
+          "q-question-095"
+        ]
+      },
+      "paired_withheld_reason": null,
+      "paths": [],
+      "per_query": [
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.7586631837870474,
+          "precision@10": 0.7,
+          "query_id": "q-keyword-005",
+          "query_type": "keyword",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.7758222060829696,
+          "precision@10": 0.9,
+          "query_id": "q-keyword-008",
+          "query_type": "keyword",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.8591813986343119,
+          "precision@10": 1.0,
+          "query_id": "q-keyword-017",
+          "query_type": "keyword",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.7778408917508127,
+          "precision@10": 0.6,
+          "query_id": "q-keyword-079",
+          "query_type": "keyword",
+          "source_mrr@10": 0.5,
+          "source_recall@1": 0.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.792949770861511,
+          "precision@10": 0.3,
+          "query_id": "q-known_item-017",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.5495488156827367,
+          "precision@10": 0.4,
+          "query_id": "q-known_item-031",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.82520509800151,
+          "precision@10": 1.0,
+          "query_id": "q-known_item-042",
+          "query_type": "known_item",
+          "source_mrr@10": 0.5,
+          "source_recall@1": 0.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.5668681050264581,
+          "precision@10": 0.4,
+          "query_id": "q-known_item-048",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.8190065951327494,
+          "precision@10": 0.7,
+          "query_id": "q-paraphrase-063",
+          "query_type": "paraphrase",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.6611325818628064,
+          "precision@10": 0.6,
+          "query_id": "q-paraphrase-096",
+          "query_type": "paraphrase",
+          "source_mrr@10": 0.0,
+          "source_recall@1": 0.0,
+          "source_recall@10": 0.0,
+          "source_recall@20": 0.0,
+          "source_recall@5": 0.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.6288804990315883,
+          "precision@10": 0.6,
+          "query_id": "q-question-088",
+          "query_type": "question",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 1.0,
+          "ndcg@10": 0.910767570336404,
+          "precision@10": 0.9,
+          "query_id": "q-question-095",
+          "query_type": "question",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        }
+      ],
+      "queries_expected": 12,
+      "queries_present": 12,
+      "ranking_sha256": "e81c6f08521a2ea46cd01ce152fb89cdd0a2d852168e64cf20da679898e9335b",
+      "status": "covered",
+      "top10_fully_judged": true,
+      "working_baseline": false
+    },
+    "llm-mini-pilot+d=50": {
+      "all": {
+        "judged@10": {
+          "mean": 0.7333333333333334,
+          "n": 12
+        },
+        "ndcg@10": {
+          "mean": 0.6258255306381049,
+          "n": 12
+        },
+        "precision@10": {
+          "mean": 0.5750000000000001,
+          "n": 12
+        },
+        "queries": 12,
+        "source_mrr@10": {
+          "mean": 0.6507936507936508,
+          "n": 12
+        },
+        "source_recall@1": {
+          "mean": 0.5,
+          "n": 12
+        },
+        "source_recall@10": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        },
+        "source_recall@20": {
+          "mean": 0.9166666666666666,
+          "n": 12
+        },
+        "source_recall@5": {
+          "mean": 0.8333333333333334,
+          "n": 12
+        }
+      },
+      "by_query_type": {
+        "keyword": {
+          "judged@10": {
+            "mean": 0.775,
+            "n": 4
+          },
+          "ndcg@10": {
+            "mean": 0.6338930592138852,
+            "n": 4
+          },
+          "precision@10": {
+            "mean": 0.65,
+            "n": 4
+          },
+          "queries": 4,
+          "source_mrr@10": {
+            "mean": 0.4523809523809524,
+            "n": 4
+          },
+          "source_recall@1": {
+            "mean": 0.25,
+            "n": 4
+          },
+          "source_recall@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@20": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@5": {
+            "mean": 0.75,
+            "n": 4
+          }
+        },
+        "known_item": {
+          "judged@10": {
+            "mean": 0.8,
+            "n": 4
+          },
+          "ndcg@10": {
+            "mean": 0.6478251976500585,
+            "n": 4
+          },
+          "precision@10": {
+            "mean": 0.5,
+            "n": 4
+          },
+          "queries": 4,
+          "source_mrr@10": {
+            "mean": 0.875,
+            "n": 4
+          },
+          "source_recall@1": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "source_recall@10": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@20": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "source_recall@5": {
+            "mean": 1.0,
+            "n": 4
+          }
+        },
+        "paraphrase": {
+          "judged@10": {
+            "mean": 0.55,
+            "n": 2
+          },
+          "ndcg@10": {
+            "mean": 0.5590638827493002,
+            "n": 2
+          },
+          "precision@10": {
+            "mean": 0.55,
+            "n": 2
+          },
+          "queries": 2,
+          "source_mrr@10": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@1": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@10": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@20": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@5": {
+            "mean": 0.5,
+            "n": 2
+          }
+        },
+        "question": {
+          "judged@10": {
+            "mean": 0.7,
+            "n": 2
+          },
+          "ndcg@10": {
+            "mean": 0.6324527873514417,
+            "n": 2
+          },
+          "precision@10": {
+            "mean": 0.6,
+            "n": 2
+          },
+          "queries": 2,
+          "source_mrr@10": {
+            "mean": 0.75,
+            "n": 2
+          },
+          "source_recall@1": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "source_recall@10": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@20": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "source_recall@5": {
+            "mean": 1.0,
+            "n": 2
+          }
+        }
+      },
+      "known_item_source_mrr@10": {
+        "mean": 0.875,
+        "n": 4
+      },
+      "metadata": {},
+      "paired_ndcg_vs_working_baseline": null,
+      "paired_withheld_reason": "both runs must have all dev top-10 positions present and judged",
+      "paths": [],
+      "per_query": [
+        {
+          "judged@10": 0.9,
+          "ndcg@10": 0.850408745180536,
+          "precision@10": 0.8,
+          "query_id": "q-keyword-005",
+          "query_type": "keyword",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 0.6,
+          "ndcg@10": 0.4906362591062159,
+          "precision@10": 0.6,
+          "query_id": "q-keyword-008",
+          "query_type": "keyword",
+          "source_mrr@10": 0.3333333333333333,
+          "source_recall@1": 0.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 0.7,
+          "ndcg@10": 0.6517406210536006,
+          "precision@10": 0.7,
+          "query_id": "q-keyword-017",
+          "query_type": "keyword",
+          "source_mrr@10": 0.3333333333333333,
+          "source_recall@1": 0.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 0.9,
+          "ndcg@10": 0.542786611515188,
+          "precision@10": 0.5,
+          "query_id": "q-keyword-079",
+          "query_type": "keyword",
+          "source_mrr@10": 0.14285714285714285,
+          "source_recall@1": 0.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 0.0
+        },
+        {
+          "judged@10": 0.7,
+          "ndcg@10": 0.792949770861511,
+          "precision@10": 0.3,
+          "query_id": "q-known_item-017",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 0.9,
+          "ndcg@10": 0.6369829532010405,
+          "precision@10": 0.6,
+          "query_id": "q-known_item-031",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 0.9,
+          "ndcg@10": 0.7173037844061677,
+          "precision@10": 0.9,
+          "query_id": "q-known_item-042",
+          "query_type": "known_item",
+          "source_mrr@10": 0.5,
+          "source_recall@1": 0.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 0.7,
+          "ndcg@10": 0.444064282131515,
+          "precision@10": 0.2,
+          "query_id": "q-known_item-048",
+          "query_type": "known_item",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 0.6,
+          "ndcg@10": 0.7054249548888586,
+          "precision@10": 0.6,
+          "query_id": "q-paraphrase-063",
+          "query_type": "paraphrase",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 0.5,
+          "ndcg@10": 0.4127028106097418,
+          "precision@10": 0.5,
+          "query_id": "q-paraphrase-096",
+          "query_type": "paraphrase",
+          "source_mrr@10": 0.0,
+          "source_recall@1": 0.0,
+          "source_recall@10": 0.0,
+          "source_recall@20": 0.0,
+          "source_recall@5": 0.0
+        },
+        {
+          "judged@10": 0.6,
+          "ndcg@10": 0.487983206829968,
+          "precision@10": 0.6,
+          "query_id": "q-question-088",
+          "query_type": "question",
+          "source_mrr@10": 0.5,
+          "source_recall@1": 0.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        },
+        {
+          "judged@10": 0.8,
+          "ndcg@10": 0.7769223678729155,
+          "precision@10": 0.6,
+          "query_id": "q-question-095",
+          "query_type": "question",
+          "source_mrr@10": 1.0,
+          "source_recall@1": 1.0,
+          "source_recall@10": 1.0,
+          "source_recall@20": 1.0,
+          "source_recall@5": 1.0
+        }
+      ],
+      "queries_expected": 12,
+      "queries_present": 12,
+      "ranking_sha256": "3eab3754f7ed96679f6fa09472642c2576f1074dee05c9f33175189e7f02576f",
+      "status": "PROVISIONAL",
+      "top10_fully_judged": false,
+      "working_baseline": false
+    }
+  }
+}

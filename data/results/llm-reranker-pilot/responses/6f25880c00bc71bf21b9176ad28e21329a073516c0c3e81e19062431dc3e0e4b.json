@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Directly matches hierarchical summaries for search/navigation to relevant chunks in long documents.",
+        "paper": "P4"
+      },
+      {
+        "note": "Hierarchical tree of summaries for recursive summarization; related to connecting queries and document sections.",
+        "paper": "P7"
+      },
+      {
+        "note": "Uses hierarchy-aware retrieval with coarse-to-fine traversal and prototypes, but not summaries specifically.",
+        "paper": "P3"
+      },
+      {
+        "note": "Progressive multi-stage retrieval by embedding hierarchy; broader search optimization, not summary-based chunk finding.",
+        "paper": "P8"
+      },
+      {
+        "note": "Attention-guided hierarchical RAG retrieves multi-granularity chunks; relevant but no summary hierarchy.",
+        "paper": "P6"
+      },
+      {
+        "note": "Intent-driven chunking improves retrieval by predicted queries; chunking-focused, not summary hierarchy.",
+        "paper": "P1"
+      },
+      {
+        "note": "Structural segmentation into hierarchical legal chunks aids retrieval; domain-specific and not summary-based.",
+        "paper": "P5"
+      },
+      {
+        "note": "Tree search over segments for summarization; focuses on output generation, not finding relevant chunks.",
+        "paper": "P2"
+      },
+      {
+        "note": "Hierarchical organization for multi-document summarization; about summarizing multiple docs, not retrieval chunks.",
+        "paper": "P9"
+      },
+      {
+        "note": "Framework plans for evaluating structured search summaries; evaluation only, not retrieval method.",
+        "paper": "P10"
+      }
+    ],
+    "ranking": [
+      "P4",
+      "P7",
+      "P3",
+      "P8",
+      "P6",
+      "P1",
+      "P5",
+      "P2",
+      "P9",
+      "P10"
+    ]
+  },
+  "answer_sha256": "9bf47f7bf9e37c513141b5b348512eb15b49a9d4911099f3a59d5dd04fa43c74",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2602.14784",
+    "2606.08445",
+    "2510.02539",
+    "2610.06902",
+    "2610.18622",
+    "2606.18381",
+    "2604.07012",
+    "2602.07297",
+    "2510.23104",
+    "2605.26400"
+  ],
+  "request_key": "6f25880c00bc71bf21b9176ad28e21329a073516c0c3e81e19062431dc3e0e4b",
+  "usage": {
+    "accounted_tokens": 3310,
+    "input_tokens": 3017,
+    "latency_seconds": 3.0550524000136647,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 293,
+    "provider_request_id": "req_b71ed41b26c24f01b52f91071faa107a",
+    "reasoning_tokens": 0,
+    "request_id": "fe5a10a0-fe50-4ec9-8cce-857f95f73db5",
+    "reserved_input": 20229,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:50.429746+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

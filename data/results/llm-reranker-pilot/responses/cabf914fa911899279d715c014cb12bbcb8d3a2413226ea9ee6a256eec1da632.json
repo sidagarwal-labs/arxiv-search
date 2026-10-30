@@ -1,0 +1,88 @@
+{
+  "answer": {
+    "evidence": [
+      {
+        "note": "Direct match: grades label-free multi-topic science exams with merged paragraphs and reference answers network.",
+        "paper": "P3"
+      },
+      {
+        "note": "Related grading of open-ended exam answers using rubric and reference answer; not multi-topic merged paragraphs.",
+        "paper": "P8"
+      },
+      {
+        "note": "Uses reference answer and student answer for semantic grading, but not multiple questions in one paragraph.",
+        "paper": "P9"
+      },
+      {
+        "note": "Short-answer grading with rubric/training data; focuses on dataset creation, not merged multi-question paragraphs.",
+        "paper": "P10"
+      },
+      {
+        "note": "General open-response analytics; teacher priors and embeddings, not reference-answer network grading.",
+        "paper": "P4"
+      },
+      {
+        "note": "Transparent essay grading via concept bottlenecks; broad essay scoring, no multi-topic merged-paragraph setup.",
+        "paper": "P6"
+      },
+      {
+        "note": "Systematizes grading open-text legal answers; domain mismatch and no reference-answer network focus.",
+        "paper": "P5"
+      },
+      {
+        "note": "Benchmark for grade-level adaptability in science QA, not grading student responses.",
+        "paper": "P2"
+      },
+      {
+        "note": "Course forum question answering with RAG; unrelated to grading exams.",
+        "paper": "P1"
+      },
+      {
+        "note": "Science/maths riddles benchmark for LLM answering, not assessment of student essays.",
+        "paper": "P7"
+      }
+    ],
+    "ranking": [
+      "P3",
+      "P8",
+      "P9",
+      "P10",
+      "P4",
+      "P6",
+      "P5",
+      "P2",
+      "P1",
+      "P7"
+    ]
+  },
+  "answer_sha256": "a700458be059e30528632c27143fa3ed739a4ddefc5abbb8dd972ec319085916",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "presented_ids": [
+    "2511.09831",
+    "2510.17389",
+    "2609.03857",
+    "2512.23941",
+    "2610.19992",
+    "2512.20817",
+    "2605.07051",
+    "2608.17938",
+    "2606.11931",
+    "2603.28537"
+  ],
+  "request_key": "cabf914fa911899279d715c014cb12bbcb8d3a2413226ea9ee6a256eec1da632",
+  "usage": {
+    "accounted_tokens": 4023,
+    "input_tokens": 3730,
+    "latency_seconds": 3.207243099983316,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 293,
+    "provider_request_id": "req_392e1f03a437420697478c231b3d5279",
+    "reasoning_tokens": 0,
+    "request_id": "2c3e19b3-a524-4183-8cac-96c713d23d50",
+    "reserved_input": 23291,
+    "reserved_output": 2048,
+    "started_utc": "2026-10-30T17:24:43.736661+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}
