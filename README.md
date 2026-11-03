@@ -1,8 +1,7 @@
 # arXiv Search
 
 Hybrid search over **23,304 recent arXiv papers** in information retrieval (cs.IR),
-computation and language (cs.CL) and machine learning (cs.LG). Built for DSBA 6188
-in UNC Charlotte's M.S. in Data Science and Business Analytics.
+computation and language (cs.CL) and machine learning (cs.LG). 
 
 The project treats search quality as a measurement problem. Every ranking change is
 tested on the same development queries before it becomes the working baseline, and
