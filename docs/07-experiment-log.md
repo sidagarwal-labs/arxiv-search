@@ -175,6 +175,13 @@ the safeguard reaches nDCG@10 **0.7643** vs. 0.7125 (+0.052 [+0.035, +0.069]) wi
 source MRR 0.692 vs. 0.662; on all 100, 0.7583 vs. 0.7092. Cost $1.10 reranking
 plus $0.07 judging, no failures. It is the leading candidate; not yet promoted.
 
+A [repeatability check](03-findings.md#31d-repeatability-identical-requests-different-scores)
+re-sent 20 identical requests ($0.27): a third of LLM scores moved by a point,
+but the safeguard kept a median 9/10 top10 overlap and both runs beat the
+baseline. Estimated run-to-run noise on a 100-query mean (SD ≈ .003) is far
+below the +.049 gain. The pre-registered 0.01 mean-change guide failed on 20
+queries (+.014 to +.021), which we judge too tight for that sample size.
+
 Repeated global fusion tuning is showing diminishing returns. See the
 [experiment/promotion findings](03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).

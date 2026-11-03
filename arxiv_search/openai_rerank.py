@@ -23,7 +23,21 @@ MAX_REQUESTS = 40
 DEV100_VERSION = "scores-dev100"
 DEV100_TASK_CAP = 1_600_000_000  # Nanodollars; Decision43 approved ceiling (worst case $1.55).
 DEV100_MAX_REQUESTS = 80  # The 80 dev queries the v2 pilot did not cover, top50 only.
-VERSIONS = ("list-v1", "scores-v2", DEV100_VERSION)
+REPEAT_VERSION = "scores-repeat-v1"
+REPEAT_TASK_CAP = 350_000_000  # Decision44: 20 identical top50 requests, expected ~$0.28.
+REPEAT_MAX_REQUESTS = 20
+VERSIONS = ("list-v1", "scores-v2", DEV100_VERSION, REPEAT_VERSION)
+
+
+def separate_caps() -> dict[str, tuple[int, int]]:
+    """Versions with their own dollar/request ceiling; the pilots share TASK_CAP."""
+    return {DEV100_VERSION: (DEV100_TASK_CAP, DEV100_MAX_REQUESTS),
+            REPEAT_VERSION: (REPEAT_TASK_CAP, REPEAT_MAX_REQUESTS)}
+
+
+def repeat_key(encoded: bytes, run: int = 1) -> str:
+    """Ledger key for an intentional identical re-send; the payload bytes are unchanged."""
+    return hashlib.sha256(f"repeat-{run}:".encode() + encoded).hexdigest()
 MAX_OUTPUT = 2048
 SCORE_MAX_OUTPUT = 1024
 SYSTEM = (
@@ -152,7 +166,7 @@ def validate_answer(value: dict, size: int) -> Ranking:
 
 class PilotLedger(api.Ledger):
     def __init__(self, path: Path | None = None, *,
-                 version: Literal["list-v1", "scores-v2", "scores-dev100"] = "list-v1"):
+                 version: Literal["list-v1", "scores-v2", "scores-dev100", "scores-repeat-v1"] = "list-v1"):
         if version not in VERSIONS:
             raise ValueError("Unknown reranker experiment version")
         self.version = version
@@ -213,17 +227,22 @@ class PilotLedger(api.Ledger):
             if db.execute("SELECT 1 FROM mini_reranker_pilot_attempts WHERE request_key=?",
                           (key,)).fetchone():
                 raise api.OpenAIError("Request already attempted; no automatic retry or paid cache repair")
-            # Pilots share one combined ceiling; the full-dev run has its own approved ceiling.
-            dev100 = self.version == DEV100_VERSION
+            # Pilots share one combined ceiling; later runs each have their own approved ceiling.
+            separate = separate_caps()
+            names = sorted(separate)
+            marks = ",".join("?" * len(names))
+            if self.version in separate:
+                where, args = "p.version = ?", (self.version,)
+            else:
+                where, args = f"p.version NOT IN ({marks})", tuple(names)
             spent = db.execute(f"""SELECT COALESCE(SUM(
                 COALESCE(a.input_tokens,a.reserved_input)*? +
                 COALESCE(a.output_tokens,a.reserved_output)*?),0)
                 FROM attempts a JOIN mini_reranker_pilot_attempts p USING(request_id)
-                WHERE p.version {'=' if dev100 else '!='} ?""",
-                               (INPUT_PRICE, OUTPUT_PRICE, DEV100_VERSION)).fetchone()[0]
+                WHERE {where}""", (INPUT_PRICE, OUTPUT_PRICE, *args)).fetchone()[0]
             count = db.execute("SELECT COUNT(*) FROM mini_reranker_pilot_attempts WHERE version=?",
                                (self.version,)).fetchone()[0]
-            cap, max_requests = (DEV100_TASK_CAP, DEV100_MAX_REQUESTS) if dev100 else (TASK_CAP, MAX_REQUESTS)
+            cap, max_requests = separate.get(self.version, (TASK_CAP, MAX_REQUESTS))
             if count >= max_requests or spent + tokens * INPUT_PRICE + self.output_cap * OUTPUT_PRICE > cap:
                 raise api.BudgetExceeded("Reranker task dollar/request cap reached; no request sent")
             request_id = self._reserve_in_transaction(db, MODEL, tokens, self.output_cap)
@@ -233,7 +252,8 @@ class PilotLedger(api.Ledger):
 
 
 def call_once(encoded: bytes, size: int, ledger: PilotLedger, *,
-              failure_output_path: Path | None = None) -> tuple[dict, dict]:
+              failure_output_path: Path | None = None,
+              attempt_key: str | None = None) -> tuple[dict, dict]:
     payload = json.loads(encoded)
     expected_format = "paper_ranking" if ledger.version == "list-v1" else "paper_scores"
     if (size not in (10, 50) or payload["model"] != MODEL
@@ -246,7 +266,7 @@ def call_once(encoded: bytes, size: int, ledger: PilotLedger, *,
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
         raise api.OpenAIError("OPENAI_API_KEY is required for new reranker requests")
-    request_id = ledger.reserve_request(request_key(encoded), reserved_input(encoded))
+    request_id = ledger.reserve_request(attempt_key or request_key(encoded), reserved_input(encoded))
     start = time.perf_counter()
     try:
         response = httpx.post(

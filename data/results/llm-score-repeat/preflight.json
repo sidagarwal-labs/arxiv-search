@@ -1,0 +1,10 @@
+{
+  "attempted_uncached_no_retry": 0,
+  "expected_usd": 0.326616525,
+  "new_requests": 20,
+  "repeat_cap_usd": 0.35,
+  "repeat_spent_usd": 0.0,
+  "serialized_input_token_estimate": 357717,
+  "shared_remaining_tokens_today": 1044871,
+  "worst_case_usd": 0.387276525
+}

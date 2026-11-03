@@ -2369,3 +2369,30 @@ Top50 alone is higher on nDCG (+.072) but its source MRR is volatile
 Caveats: dev only (300 held-out untouched); judge and reranker share a model
 family; adds ~17k input tokens (≈$0.014) and one LLM call per query.
 See the [full-dev report](../data/results/llm-score-dev100/report.md).
+
+### 31d. Repeatability: identical requests, different scores
+
+[Decision44](02-decisions.md#44-repeatability-check-and-two-stage-tracking-2026-11-03)
+re-sent the 20 pilot top50 requests byte-for-byte ($0.27, 20/20 valid).
+
+- **The LLM is not deterministic.** Only 665/1000 paper scores matched; 325
+  moved by one point, 10 by two or more. This explains much of the earlier
+  "102/200 scores changed between prompts" observation: a large part of that was
+  plain sampling noise, not candidate context.
+- **The safeguard halves the noise.** Median top10 overlap 9/10 (top50 alone
+  7/10); mean per-query nDCG change .032 (vs .061); one source rank changed,
+  and it improved (q-question-095 3 → 1).
+- **Both runs beat the baseline** on these 20 queries (baseline .6959;
+  safeguard .7344 then .7480 with unjudged = 0).
+- **Pre-registered guide: nDCG check failed, overlap check passed.** The
+  safeguard's 20-query mean moved +.014 (unjudged = 0) to +.021 (unjudged = 2),
+  above the 0.01 guide. The guide was too tight for 20 queries: the per-query
+  change SD of .046 implies a 20-query mean difference SD of about .010, so this
+  shift is about 1.4-2 SD and in the favourable direction.
+- **Noise vs. gain:** extrapolated, one 100-query run varies by roughly
+  SD .003 nDCG, far below the +.049 full-dev gain; ~.007 (2 SD) is a reasonable
+  minimum detectable difference for end-to-end comparisons.
+
+Implication: the full-dev gain is not a lucky draw, but a live search would show
+slightly different top10s for the same query on each call unless results are cached.
+See the [repeatability report](../data/results/llm-score-repeat/report.md).

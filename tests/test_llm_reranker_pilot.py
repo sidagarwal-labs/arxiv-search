@@ -223,6 +223,18 @@ def test_dev100_version_has_its_own_dollar_and_request_caps(monkeypatch):
     with pytest.raises(api.BudgetExceeded, match="dollar/request cap"):
         dev.reserve_request("6" * 64, 100)
     assert dev.summary()["requests"] == 2
+    repeat = client.PilotLedger(version=client.REPEAT_VERSION)
+    monkeypatch.setattr(client, "REPEAT_TASK_CAP", cost)
+    repeat.reserve_request("7" * 64, 100)  # dev100 and pilot spend do not count here
+    with pytest.raises(api.BudgetExceeded, match="dollar/request cap"):
+        repeat.reserve_request("8" * 64, 100)
+
+
+def test_repeat_key_is_distinct_per_run_and_from_request_key():
+    payload = b'{"same": "payload"}'
+    assert client.repeat_key(payload, 1) != client.request_key(payload)
+    assert client.repeat_key(payload, 1) != client.repeat_key(payload, 2)
+    assert client.repeat_key(payload, 1) == client.repeat_key(payload, 1)
 
 
 def test_request_count_and_missing_credentials_stop_before_transport(monkeypatch):

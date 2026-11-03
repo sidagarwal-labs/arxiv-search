@@ -646,6 +646,23 @@ current UTC day (`openai_api.used_today`). The limit is unchanged (2.5M effectiv
 mini tokens per day); attempt history is never deleted; task dollar ceilings stay
 lifetime. This replaces the earlier lifetime-allowance rule. No promotion.
 
+## #44 Repeatability check and two-stage tracking (2026-11-03)
+
+Before deciding on promotion, Sid chose to measure run-to-run variation only
+(no human spot-check yet). The 20 pilot queries' top50 payloads were re-sent
+byte-for-byte under a new ledger version `scores-repeat-v1` with its own $0.35
+ceiling and 20-request cap; ledger keys add a `repeat-1:` prefix so an
+intentional re-send is not mistaken for a retry. No judge calls: unjudged
+run-B pairs are bounded at grade 0 and 2. Pre-registered stability guide:
+safeguard mean nDCG@10 change ≤ 0.01 and median top10 overlap ≥ 8/10.
+
+Sid also approved two-stage tracking: Decision36 stays the **retrieval
+baseline** (free, deterministic experiments); a **reranking baseline** is tracked
+in its own end-to-end table with cost, latency and run-to-run noise. Retrieval
+winners need one paid end-to-end check before promotion. The 167 new grades
+will be merged additively into one shared label snapshot so both tables use
+the same denominators.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model
