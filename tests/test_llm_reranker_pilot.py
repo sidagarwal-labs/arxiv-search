@@ -200,9 +200,29 @@ def test_task_dollar_cap_and_shared_token_cap_both_apply_atomically(monkeypatch)
     assert ledger.summary()["accounted_nanodollars"] == 2 * cost
     monkeypatch.setattr(client, "TASK_CAP", 10 * cost)
     monkeypatch.setattr(config, "OPENAI_TOKEN_LIMITS", {"mini": 2 * (100 + client.MAX_OUTPUT), "large": 1})
-    with pytest.raises(api.BudgetExceeded, match="cumulative"):
+    with pytest.raises(api.BudgetExceeded, match="daily"):
         ledger.reserve_request("a" * 64, 100)
     assert len(ledger_rows()) == 2
+
+
+def test_dev100_version_has_its_own_dollar_and_request_caps(monkeypatch):
+    cost = 100 * client.INPUT_PRICE + client.SCORE_MAX_OUTPUT * client.OUTPUT_PRICE
+    monkeypatch.setattr(client, "TASK_CAP", cost)
+    monkeypatch.setattr(client, "DEV100_TASK_CAP", 2 * cost)
+    monkeypatch.setattr(client, "DEV100_MAX_REQUESTS", 3)
+    client.PilotLedger(version="scores-v2").reserve_request("1" * 64, 100)
+    with pytest.raises(api.BudgetExceeded):  # pilot ceiling now full
+        client.PilotLedger(version="scores-v2").reserve_request("2" * 64, 100)
+    dev = client.PilotLedger(version=client.DEV100_VERSION)
+    dev.reserve_request("3" * 64, 100)  # pilot spend does not count against dev100
+    dev.reserve_request("4" * 64, 100)
+    with pytest.raises(api.BudgetExceeded, match="dollar/request cap"):
+        dev.reserve_request("5" * 64, 100)
+    monkeypatch.setattr(client, "DEV100_TASK_CAP", 10 * cost)
+    monkeypatch.setattr(client, "DEV100_MAX_REQUESTS", 2)
+    with pytest.raises(api.BudgetExceeded, match="dollar/request cap"):
+        dev.reserve_request("6" * 64, 100)
+    assert dev.summary()["requests"] == 2
 
 
 def test_request_count_and_missing_credentials_stop_before_transport(monkeypatch):

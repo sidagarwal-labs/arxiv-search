@@ -169,6 +169,12 @@ fuses the top-50 LLM order with the baseline order (RRF, c=30, rule frozen befor
 computing). It keeps most of the gain (nDCG@10 about 0.733 vs. 0.696) while
 restoring source MRR to 0.829 (baseline 0.8375); both pre-registered criteria pass.
 
+On the [full dev set](03-findings.md#31c-full-dev-set-the-safeguard-holds-on-80-unseen-queries)
+the same method and rule hold: on the 80 queries not used to design the rule,
+the safeguard reaches nDCG@10 **0.7643** vs. 0.7125 (+0.052 [+0.035, +0.069]) with
+source MRR 0.692 vs. 0.662; on all 100, 0.7583 vs. 0.7092. Cost $1.10 reranking
+plus $0.07 judging, no failures. It is the leading candidate; not yet promoted.
+
 Repeated global fusion tuning is showing diminishing returns. See the
 [experiment/promotion findings](03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).

@@ -1113,6 +1113,8 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 - [graded-dev/report.md](../graded-dev/report.md) — historical report/configuration; original scope
 - [llm-reranker-pilot/report.json](../llm-reranker-pilot/report.json) — historical report/configuration; original scope
 - [llm-reranker-pilot/report.md](../llm-reranker-pilot/report.md) — historical report/configuration; original scope
+- [llm-score-dev100/report.json](../llm-score-dev100/report.json) — historical report/configuration; original scope
+- [llm-score-dev100/report.md](../llm-score-dev100/report.md) — historical report/configuration; original scope
 - [llm-score-pilot/judge-fill/report.json](../llm-score-pilot/judge-fill/report.json) — historical report/configuration; original scope
 - [llm-score-pilot/judge-fill/report.md](../llm-score-pilot/judge-fill/report.md) — historical report/configuration; original scope
 - [llm-score-pilot/report.json](../llm-score-pilot/report.json) — historical report/configuration; original scope

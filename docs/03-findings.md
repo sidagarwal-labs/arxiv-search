@@ -2341,3 +2341,31 @@ source MRR, but gives back part of the question/paraphrase gain
 (paraphrase .7531 → .7139). It is a guardrail, not a fix for the constraint
 errors, and the rule was motivated by these same 20 queries.
 See the [safeguard report](../data/results/llm-score-pilot/safeguard/report.md).
+
+### 31c. Full dev set: the safeguard holds on 80 unseen queries
+
+[Decision43](02-decisions.md#43-full-dev-safeguard-evaluation-and-a-daily-token-window-2026-11-03)
+ran the identical top50 method on the 80 other dev queries (80/80 valid on the
+first attempt, $1.10) and graded all 133 newly surfaced top10 pairs ($0.07).
+Every system is fully judged.
+
+| Scope | System | nDCG10 | P10 | Source MRR10 | R10 |
+|---|---|---|---|---|---|
+| new80 | Baseline | .7125 | .6925 | .6615 | .8500 |
+| new80 | Top50 LLM | .7848 | .7787 | .6750 | .8875 |
+| new80 | **Safeguard** | **.7643** | .7400 | **.6923** | .8625 |
+| all100 | Baseline | .7092 | .6890 | .6967 | .8600 |
+| all100 | Top50 LLM | .7789 | .7770 | .6775 | .8800 |
+| all100 | **Safeguard** | **.7583** | .7360 | **.7197** | .8700 |
+
+On new80 the safeguard gains nDCG +.052 [+.035, +.069] (58 wins, 15 losses)
+with source MRR +.031 [−.006, +.072]; both pre-registered criteria pass, as they
+do on all100 and pilot20. It improves every segment's nDCG, most on question
+(+.07) and paraphrase (+.08), and lifts paraphrase source MRR .511 → .568.
+Top50 alone is higher on nDCG (+.072) but its source MRR is volatile
+(pilot20 −.15). Remaining source losses are mostly keyword queries
+(q-keyword-009 2 → 13, 079 1 → 4, 078 1 → 3).
+
+Caveats: dev only (300 held-out untouched); judge and reranker share a model
+family; adds ~17k input tokens (≈$0.014) and one LLM call per query.
+See the [full-dev report](../data/results/llm-score-dev100/report.md).

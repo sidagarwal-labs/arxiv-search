@@ -115,12 +115,10 @@ def test_strict_payload_actual_usage_and_no_sensitive_ledger(monkeypatch, model)
 
 
 @pytest.mark.parametrize("model", MODELS)
-def test_reservations_persist_share_mini_tier_and_never_reset(monkeypatch, model):
+def test_reservations_persist_share_mini_tier_and_reset_each_utc_day(monkeypatch, model):
     monkeypatch.setattr(config, "OPENAI_TOKEN_LIMITS", {"mini": 100, "large": 150_000})
     monkeypatch.setattr(config, "OPENAI_BUDGET_FRACTION", 1)
     request_id = api.Ledger().reserve(MODEL, 60, 10)
-    with sqlite3.connect(config.OPENAI_LEDGER_PATH) as db:
-        db.execute("UPDATE attempts SET started_utc = '2000-01-01T00:00:00+00:00'")
     second = api.Ledger()
     with pytest.raises(api.BudgetExceeded):
         second.reserve(model, 21, 10)
@@ -128,7 +126,10 @@ def test_reservations_persist_share_mini_tier_and_never_reset(monkeypatch, model
     assert second.reserve(model, 20, 10)
     with pytest.raises(api.BudgetExceeded):
         api.Ledger().reserve(MODEL, 1, 1)
-    assert sum(row["accounted_tokens"] for row in rows()) == 100
+    with sqlite3.connect(config.OPENAI_LEDGER_PATH) as db:
+        db.execute("UPDATE attempts SET started_utc = '2000-01-01T00:00:00+00:00'")
+    assert api.Ledger().reserve(model, 90, 10)  # previous UTC days no longer count
+    assert len(rows()) == 3  # history is kept for audit
 
 
 def test_atomic_concurrent_reservations(monkeypatch):

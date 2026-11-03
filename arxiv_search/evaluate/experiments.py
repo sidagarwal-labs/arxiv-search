@@ -529,6 +529,7 @@ def write_results_doc() -> None:
                           ("llm-score-pilot", "Fixed-key mini reranker v2 (same20-query pilot)"),
                           ("llm-score-pilot/judge-fill", "Fixed-key v2 pilot with missing judgments filled"),
                           ("llm-score-pilot/safeguard", "Offline safeguard: top50 LLM order fused with baseline"),
+                          ("llm-score-dev100", "Full-dev top50 LLM reranker and safeguard (100 queries)"),
                           ("failure-analysis", "Frozen baseline failure analysis")):
         report = config.RESULTS_DIR / folder / "report.md"
         if report.exists():

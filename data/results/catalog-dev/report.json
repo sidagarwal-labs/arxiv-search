@@ -27,6 +27,8 @@
     "graded-dev/report.md",
     "llm-reranker-pilot/report.json",
     "llm-reranker-pilot/report.md",
+    "llm-score-dev100/report.json",
+    "llm-score-dev100/report.md",
     "llm-score-pilot/judge-fill/report.json",
     "llm-score-pilot/judge-fill/report.md",
     "llm-score-pilot/report.json",

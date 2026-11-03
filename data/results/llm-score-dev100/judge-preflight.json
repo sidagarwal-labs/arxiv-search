@@ -1,0 +1,578 @@
+{
+  "calls": 62,
+  "expected_tokens": 72792,
+  "expected_usd": 0.079531425,
+  "input_token_estimate": 60129,
+  "max_single_reservation_tokens": 23059,
+  "papers": 133,
+  "requests": [
+    {
+      "input_token_estimate": 682,
+      "max_reservation_tokens": 13444,
+      "papers": [
+        "2608.09936"
+      ],
+      "query_id": "q-keyword-004"
+    },
+    {
+      "input_token_estimate": 1334,
+      "max_reservation_tokens": 16750,
+      "papers": [
+        "2511.21056",
+        "2605.17849",
+        "2610.26006"
+      ],
+      "query_id": "q-keyword-007"
+    },
+    {
+      "input_token_estimate": 1020,
+      "max_reservation_tokens": 14984,
+      "papers": [
+        "2601.09280",
+        "2604.16422"
+      ],
+      "query_id": "q-keyword-011"
+    },
+    {
+      "input_token_estimate": 862,
+      "max_reservation_tokens": 14657,
+      "papers": [
+        "2607.24025",
+        "2610.15696"
+      ],
+      "query_id": "q-keyword-021"
+    },
+    {
+      "input_token_estimate": 575,
+      "max_reservation_tokens": 12960,
+      "papers": [
+        "2608.06867"
+      ],
+      "query_id": "q-keyword-026"
+    },
+    {
+      "input_token_estimate": 1282,
+      "max_reservation_tokens": 16449,
+      "papers": [
+        "2604.06330",
+        "2605.30753",
+        "2606.26120"
+      ],
+      "query_id": "q-keyword-049"
+    },
+    {
+      "input_token_estimate": 1872,
+      "max_reservation_tokens": 19390,
+      "papers": [
+        "2603.14593",
+        "2603.19278",
+        "2604.07808",
+        "2605.06166",
+        "2609.00762"
+      ],
+      "query_id": "q-keyword-052"
+    },
+    {
+      "input_token_estimate": 732,
+      "max_reservation_tokens": 13568,
+      "papers": [
+        "2605.01822"
+      ],
+      "query_id": "q-keyword-053"
+    },
+    {
+      "input_token_estimate": 910,
+      "max_reservation_tokens": 14620,
+      "papers": [
+        "2510.18527",
+        "2609.15143"
+      ],
+      "query_id": "q-keyword-057"
+    },
+    {
+      "input_token_estimate": 891,
+      "max_reservation_tokens": 14637,
+      "papers": [
+        "2511.22769",
+        "2607.09598"
+      ],
+      "query_id": "q-keyword-064"
+    },
+    {
+      "input_token_estimate": 1371,
+      "max_reservation_tokens": 17030,
+      "papers": [
+        "2510.01721",
+        "2604.20381",
+        "2606.00350",
+        "2606.09821"
+      ],
+      "query_id": "q-keyword-074"
+    },
+    {
+      "input_token_estimate": 2478,
+      "max_reservation_tokens": 23059,
+      "papers": [
+        "2510.07743",
+        "2602.17410",
+        "2603.26680",
+        "2605.10527",
+        "2606.04387",
+        "2606.29534",
+        "2607.26418"
+      ],
+      "query_id": "q-keyword-078"
+    },
+    {
+      "input_token_estimate": 578,
+      "max_reservation_tokens": 13024,
+      "papers": [
+        "2512.20578"
+      ],
+      "query_id": "q-keyword-085"
+    },
+    {
+      "input_token_estimate": 881,
+      "max_reservation_tokens": 14435,
+      "papers": [
+        "2510.23396",
+        "2601.21547"
+      ],
+      "query_id": "q-keyword-090"
+    },
+    {
+      "input_token_estimate": 823,
+      "max_reservation_tokens": 14567,
+      "papers": [
+        "2510.04800",
+        "2510.26912"
+      ],
+      "query_id": "q-known_item-016"
+    },
+    {
+      "input_token_estimate": 626,
+      "max_reservation_tokens": 13294,
+      "papers": [
+        "2601.06137"
+      ],
+      "query_id": "q-known_item-029"
+    },
+    {
+      "input_token_estimate": 729,
+      "max_reservation_tokens": 13657,
+      "papers": [
+        "2608.02036"
+      ],
+      "query_id": "q-known_item-032"
+    },
+    {
+      "input_token_estimate": 527,
+      "max_reservation_tokens": 12715,
+      "papers": [
+        "2606.03138"
+      ],
+      "query_id": "q-known_item-039"
+    },
+    {
+      "input_token_estimate": 715,
+      "max_reservation_tokens": 13202,
+      "papers": [
+        "2607.24776"
+      ],
+      "query_id": "q-known_item-059"
+    },
+    {
+      "input_token_estimate": 924,
+      "max_reservation_tokens": 14393,
+      "papers": [
+        "2608.01565",
+        "2608.08944"
+      ],
+      "query_id": "q-known_item-060"
+    },
+    {
+      "input_token_estimate": 963,
+      "max_reservation_tokens": 14977,
+      "papers": [
+        "2510.18468",
+        "2601.17284"
+      ],
+      "query_id": "q-known_item-061"
+    },
+    {
+      "input_token_estimate": 1111,
+      "max_reservation_tokens": 15539,
+      "papers": [
+        "2604.12002",
+        "2609.11699"
+      ],
+      "query_id": "q-known_item-068"
+    },
+    {
+      "input_token_estimate": 495,
+      "max_reservation_tokens": 12592,
+      "papers": [
+        "2608.25660"
+      ],
+      "query_id": "q-known_item-070"
+    },
+    {
+      "input_token_estimate": 1204,
+      "max_reservation_tokens": 16578,
+      "papers": [
+        "2511.20194",
+        "2601.03779",
+        "2609.18190"
+      ],
+      "query_id": "q-known_item-073"
+    },
+    {
+      "input_token_estimate": 505,
+      "max_reservation_tokens": 12613,
+      "papers": [
+        "2603.00612"
+      ],
+      "query_id": "q-known_item-075"
+    },
+    {
+      "input_token_estimate": 809,
+      "max_reservation_tokens": 14336,
+      "papers": [
+        "2602.05713",
+        "2609.05759"
+      ],
+      "query_id": "q-known_item-089"
+    },
+    {
+      "input_token_estimate": 1337,
+      "max_reservation_tokens": 17120,
+      "papers": [
+        "2511.16198",
+        "2608.05302",
+        "2610.20634"
+      ],
+      "query_id": "q-paraphrase-004"
+    },
+    {
+      "input_token_estimate": 1355,
+      "max_reservation_tokens": 17093,
+      "papers": [
+        "2512.10734",
+        "2603.19144",
+        "2610.01696"
+      ],
+      "query_id": "q-paraphrase-006"
+    },
+    {
+      "input_token_estimate": 932,
+      "max_reservation_tokens": 14956,
+      "papers": [
+        "2512.13727",
+        "2607.21488"
+      ],
+      "query_id": "q-paraphrase-008"
+    },
+    {
+      "input_token_estimate": 661,
+      "max_reservation_tokens": 13317,
+      "papers": [
+        "2511.08006"
+      ],
+      "query_id": "q-paraphrase-012"
+    },
+    {
+      "input_token_estimate": 595,
+      "max_reservation_tokens": 13099,
+      "papers": [
+        "2610.01566"
+      ],
+      "query_id": "q-paraphrase-014"
+    },
+    {
+      "input_token_estimate": 1762,
+      "max_reservation_tokens": 19157,
+      "papers": [
+        "2512.02502",
+        "2604.14223",
+        "2606.29254",
+        "2607.26073",
+        "2608.00549"
+      ],
+      "query_id": "q-paraphrase-030"
+    },
+    {
+      "input_token_estimate": 588,
+      "max_reservation_tokens": 13118,
+      "papers": [
+        "2601.08991"
+      ],
+      "query_id": "q-paraphrase-032"
+    },
+    {
+      "input_token_estimate": 1722,
+      "max_reservation_tokens": 19587,
+      "papers": [
+        "2605.10073",
+        "2606.02971",
+        "2606.19710",
+        "2606.21622",
+        "2608.16161"
+      ],
+      "query_id": "q-paraphrase-036"
+    },
+    {
+      "input_token_estimate": 891,
+      "max_reservation_tokens": 14673,
+      "papers": [
+        "2512.20905",
+        "2605.07424"
+      ],
+      "query_id": "q-paraphrase-047"
+    },
+    {
+      "input_token_estimate": 1138,
+      "max_reservation_tokens": 15411,
+      "papers": [
+        "2606.20065",
+        "2609.22655"
+      ],
+      "query_id": "q-paraphrase-050"
+    },
+    {
+      "input_token_estimate": 1303,
+      "max_reservation_tokens": 16763,
+      "papers": [
+        "2510.10528",
+        "2601.08490",
+        "2606.20898"
+      ],
+      "query_id": "q-paraphrase-062"
+    },
+    {
+      "input_token_estimate": 667,
+      "max_reservation_tokens": 13290,
+      "papers": [
+        "2610.04950"
+      ],
+      "query_id": "q-paraphrase-073"
+    },
+    {
+      "input_token_estimate": 1126,
+      "max_reservation_tokens": 15906,
+      "papers": [
+        "2510.17620",
+        "2511.07001",
+        "2605.16776"
+      ],
+      "query_id": "q-paraphrase-085"
+    },
+    {
+      "input_token_estimate": 897,
+      "max_reservation_tokens": 14507,
+      "papers": [
+        "2606.30133",
+        "2608.25123"
+      ],
+      "query_id": "q-paraphrase-087"
+    },
+    {
+      "input_token_estimate": 932,
+      "max_reservation_tokens": 14544,
+      "papers": [
+        "2607.08010",
+        "2609.00065"
+      ],
+      "query_id": "q-paraphrase-088"
+    },
+    {
+      "input_token_estimate": 1001,
+      "max_reservation_tokens": 15140,
+      "papers": [
+        "2511.20099",
+        "2512.21280"
+      ],
+      "query_id": "q-paraphrase-093"
+    },
+    {
+      "input_token_estimate": 1519,
+      "max_reservation_tokens": 17763,
+      "papers": [
+        "2606.26923",
+        "2607.25901",
+        "2609.39229",
+        "2610.17663"
+      ],
+      "query_id": "q-paraphrase-094"
+    },
+    {
+      "input_token_estimate": 688,
+      "max_reservation_tokens": 13245,
+      "papers": [
+        "2608.16080"
+      ],
+      "query_id": "q-paraphrase-097"
+    },
+    {
+      "input_token_estimate": 580,
+      "max_reservation_tokens": 13024,
+      "papers": [
+        "2606.05688"
+      ],
+      "query_id": "q-question-002"
+    },
+    {
+      "input_token_estimate": 884,
+      "max_reservation_tokens": 14977,
+      "papers": [
+        "2511.18261",
+        "2607.09988"
+      ],
+      "query_id": "q-question-003"
+    },
+    {
+      "input_token_estimate": 617,
+      "max_reservation_tokens": 12969,
+      "papers": [
+        "2511.21086"
+      ],
+      "query_id": "q-question-007"
+    },
+    {
+      "input_token_estimate": 999,
+      "max_reservation_tokens": 15457,
+      "papers": [
+        "2510.22049",
+        "2602.07526"
+      ],
+      "query_id": "q-question-027"
+    },
+    {
+      "input_token_estimate": 826,
+      "max_reservation_tokens": 14558,
+      "papers": [
+        "2606.07066",
+        "2606.23382"
+      ],
+      "query_id": "q-question-037"
+    },
+    {
+      "input_token_estimate": 650,
+      "max_reservation_tokens": 13396,
+      "papers": [
+        "2601.05270"
+      ],
+      "query_id": "q-question-039"
+    },
+    {
+      "input_token_estimate": 627,
+      "max_reservation_tokens": 12960,
+      "papers": [
+        "2606.13663"
+      ],
+      "query_id": "q-question-040"
+    },
+    {
+      "input_token_estimate": 986,
+      "max_reservation_tokens": 14763,
+      "papers": [
+        "2607.24781",
+        "2608.16417"
+      ],
+      "query_id": "q-question-048"
+    },
+    {
+      "input_token_estimate": 860,
+      "max_reservation_tokens": 14386,
+      "papers": [
+        "2607.02499",
+        "2607.06151"
+      ],
+      "query_id": "q-question-050"
+    },
+    {
+      "input_token_estimate": 605,
+      "max_reservation_tokens": 13318,
+      "papers": [
+        "2609.38999"
+      ],
+      "query_id": "q-question-057"
+    },
+    {
+      "input_token_estimate": 841,
+      "max_reservation_tokens": 14517,
+      "papers": [
+        "2603.24925",
+        "2604.27577"
+      ],
+      "query_id": "q-question-060"
+    },
+    {
+      "input_token_estimate": 1281,
+      "max_reservation_tokens": 16803,
+      "papers": [
+        "2604.00778",
+        "2605.09239",
+        "2606.15767"
+      ],
+      "query_id": "q-question-064"
+    },
+    {
+      "input_token_estimate": 609,
+      "max_reservation_tokens": 13235,
+      "papers": [
+        "2605.25880"
+      ],
+      "query_id": "q-question-074"
+    },
+    {
+      "input_token_estimate": 1018,
+      "max_reservation_tokens": 15349,
+      "papers": [
+        "2512.17776",
+        "2601.14460",
+        "2603.05519"
+      ],
+      "query_id": "q-question-078"
+    },
+    {
+      "input_token_estimate": 976,
+      "max_reservation_tokens": 15248,
+      "papers": [
+        "2603.23219",
+        "2609.22112"
+      ],
+      "query_id": "q-question-085"
+    },
+    {
+      "input_token_estimate": 1682,
+      "max_reservation_tokens": 18868,
+      "papers": [
+        "2511.06215",
+        "2512.01367",
+        "2602.07978",
+        "2602.14655"
+      ],
+      "query_id": "q-question-089"
+    },
+    {
+      "input_token_estimate": 563,
+      "max_reservation_tokens": 12980,
+      "papers": [
+        "2606.23695"
+      ],
+      "query_id": "q-question-094"
+    },
+    {
+      "input_token_estimate": 1512,
+      "max_reservation_tokens": 18283,
+      "papers": [
+        "2510.16925",
+        "2512.14034",
+        "2603.21613",
+        "2609.38999"
+      ],
+      "query_id": "q-question-099"
+    }
+  ],
+  "worst_case_usd": 0.620998425
+}

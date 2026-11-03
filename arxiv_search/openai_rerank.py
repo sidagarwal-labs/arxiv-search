@@ -20,6 +20,10 @@ INPUT_PRICE = 750  # Nanodollars per token; standard uncached $0.75/M.
 OUTPUT_PRICE = 4500
 TASK_CAP = 1_000_000_000
 MAX_REQUESTS = 40
+DEV100_VERSION = "scores-dev100"
+DEV100_TASK_CAP = 1_600_000_000  # Nanodollars; Decision43 approved ceiling (worst case $1.55).
+DEV100_MAX_REQUESTS = 80  # The 80 dev queries the v2 pilot did not cover, top50 only.
+VERSIONS = ("list-v1", "scores-v2", DEV100_VERSION)
 MAX_OUTPUT = 2048
 SCORE_MAX_OUTPUT = 1024
 SYSTEM = (
@@ -148,8 +152,8 @@ def validate_answer(value: dict, size: int) -> Ranking:
 
 class PilotLedger(api.Ledger):
     def __init__(self, path: Path | None = None, *,
-                 version: Literal["list-v1", "scores-v2"] = "list-v1"):
-        if version not in ("list-v1", "scores-v2"):
+                 version: Literal["list-v1", "scores-v2", "scores-dev100"] = "list-v1"):
+        if version not in VERSIONS:
             raise ValueError("Unknown reranker experiment version")
         self.version = version
         self.output_cap = MAX_OUTPUT if version == "list-v1" else SCORE_MAX_OUTPUT
@@ -169,9 +173,7 @@ class PilotLedger(api.Ledger):
             rows = db.execute("""SELECT a.* FROM attempts a
                 JOIN mini_reranker_pilot_attempts p USING(request_id)
                 WHERE p.version=? ORDER BY a.rowid""", (self.version,)).fetchall()
-            shared = db.execute(
-                "SELECT COALESCE(SUM(accounted_tokens),0) FROM attempts WHERE tier='mini'"
-            ).fetchone()[0]
+            shared = api.used_today(db, "mini")
         nano = sum(
             (r["input_tokens"] if r["input_tokens"] is not None else r["reserved_input"]) * INPUT_PRICE
             + (r["output_tokens"] if r["output_tokens"] is not None else r["reserved_output"])
@@ -211,14 +213,18 @@ class PilotLedger(api.Ledger):
             if db.execute("SELECT 1 FROM mini_reranker_pilot_attempts WHERE request_key=?",
                           (key,)).fetchone():
                 raise api.OpenAIError("Request already attempted; no automatic retry or paid cache repair")
-            spent = db.execute("""SELECT COALESCE(SUM(
+            # Pilots share one combined ceiling; the full-dev run has its own approved ceiling.
+            dev100 = self.version == DEV100_VERSION
+            spent = db.execute(f"""SELECT COALESCE(SUM(
                 COALESCE(a.input_tokens,a.reserved_input)*? +
                 COALESCE(a.output_tokens,a.reserved_output)*?),0)
-                FROM attempts a JOIN mini_reranker_pilot_attempts p USING(request_id)""",
-                               (INPUT_PRICE, OUTPUT_PRICE)).fetchone()[0]
+                FROM attempts a JOIN mini_reranker_pilot_attempts p USING(request_id)
+                WHERE p.version {'=' if dev100 else '!='} ?""",
+                               (INPUT_PRICE, OUTPUT_PRICE, DEV100_VERSION)).fetchone()[0]
             count = db.execute("SELECT COUNT(*) FROM mini_reranker_pilot_attempts WHERE version=?",
                                (self.version,)).fetchone()[0]
-            if count >= MAX_REQUESTS or spent + tokens * INPUT_PRICE + self.output_cap * OUTPUT_PRICE > TASK_CAP:
+            cap, max_requests = (DEV100_TASK_CAP, DEV100_MAX_REQUESTS) if dev100 else (TASK_CAP, MAX_REQUESTS)
+            if count >= max_requests or spent + tokens * INPUT_PRICE + self.output_cap * OUTPUT_PRICE > cap:
                 raise api.BudgetExceeded("Reranker task dollar/request cap reached; no request sent")
             request_id = self._reserve_in_transaction(db, MODEL, tokens, self.output_cap)
             db.execute("INSERT INTO mini_reranker_pilot_attempts (request_key,request_id,version) "

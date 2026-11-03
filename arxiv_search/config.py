@@ -83,10 +83,9 @@ JUDGES = {
     "openai-4o-mini": {"backend": "openai", "model": "gpt-4o-mini"},
 }
 OPENAI_LEDGER_PATH = DATA_DIR / "openai" / "usage.sqlite3"
-# Local, cumulative reservations, NOT provider billing quotas or rolling daily counters.
-# All allowlisted models share mini. No UTC midnight reset: start a new ledger manually
-# only after checking the provider's allowance and all other clients' usage.
-OPENAI_TOKEN_LIMITS = {"mini": 2_777_778, "large": 150_000}  # Decision40: effective mini cap 2,500,000
+# Local reservations per UTC day (Decision43), mirroring the provider's daily allowance that
+# resets at 00:00 UTC. All allowlisted models share mini. Attempts are never deleted.
+OPENAI_TOKEN_LIMITS = {"mini": 2_777_778, "large": 150_000}  # effective mini cap 2,500,000/day
 OPENAI_BUDGET_FRACTION = 0.9  # leave headroom; cannot guarantee organizational free usage
 OPENAI_MAX_ATTEMPTS = 3  # every HTTP attempt reserves separately, including retries
 OPENAI_MAX_RETRY_WAIT_SECONDS = 60

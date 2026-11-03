@@ -629,6 +629,23 @@ Success requires source MRR@10 ≥ baseline − 0.02 **and** nDCG@10 ≥ baselin
 half the top50 gain. Unjudged pairs withhold nDCG; a 0/1/2 sensitivity check
 is diagnostic only. No API calls, no promotion.
 
+## #43 Full-dev safeguard evaluation and a daily token window (2026-11-03)
+
+Sid approved evaluating the Decision42 safeguard on all 100 dev queries. Same
+top50 method as the v2 arm (identical request keys were verified for the 20
+pilot queries, whose cached responses were reused), and the same safeguard rule
+and pass criteria, unchanged. The other 80 queries are the out-of-sample check
+because the rule was designed on the 20. A new ledger version `scores-dev100`
+has its own $1.60 ceiling (worst case $1.55) and 80-request cap, separate from
+the frozen $1.00 pilot ceiling. New top10 pairs are graded by the frozen judge
+under a $0.25 ceiling. Smoke gate first, stop on any failure, no retries.
+
+Budget window: the provider's complimentary allowance is **daily**, resetting at
+00:00 UTC, so the shared token guard now counts only attempts started on the
+current UTC day (`openai_api.used_today`). The limit is unchanged (2.5M effective
+mini tokens per day); attempt history is never deleted; task dollar ceilings stay
+lifetime. This replaces the earlier lifetime-allowance rule. No promotion.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

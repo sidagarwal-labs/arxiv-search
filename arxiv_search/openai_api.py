@@ -1,11 +1,12 @@
 """Restricted Responses API relevance judging with durable, fail-closed accounting.
 
-The ledger is a *lifetime* local allowance, not a provider quota service. Its
-creation/attempt days use UTC for audit only; midnight never resets usage. All
+The ledger enforces a local *daily* allowance per UTC day (Decision43), mirroring
+the provider's daily complimentary-token window that resets at 00:00 UTC. Every
+attempt is kept forever for audit; only attempts started on the current UTC day
+count toward the token limit. Task-level dollar ceilings remain lifetime. All
 allowlisted models share the mini allowance. Other programs, organizational
 traffic, pricing changes, and provider tokenization are outside this guard's
-control, so it cannot guarantee free organizational usage. Only manually start a
-new ledger after verifying the applicable allowance and other clients' usage.
+control, so it cannot guarantee free organizational usage.
 
 Reserve UTF-8 request bytes (a conservative token upper bound), fixed protocol
 headroom, and the entire output cap before EVERY HTTP attempt. Unknown outcomes
@@ -74,6 +75,13 @@ def _utc() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def used_today(db: sqlite3.Connection, tier: str) -> int:
+    """Tokens accounted to attempts started on the current UTC day (the limit window)."""
+    day = datetime.now(timezone.utc).date().isoformat()
+    return db.execute("SELECT COALESCE(SUM(accounted_tokens), 0) FROM attempts "
+                      "WHERE tier = ? AND substr(started_utc, 1, 10) = ?", (tier, day)).fetchone()[0]
+
+
 class Ledger:
     """Concurrent SQLite reservations; pending/unknown attempts remain charged."""
 
@@ -113,11 +121,9 @@ class Ledger:
         limit = int(config.OPENAI_TOKEN_LIMITS[tier] * fraction)
         total = input_tokens + output_tokens
         request_id = str(uuid.uuid4())
-        used = db.execute(
-            "SELECT COALESCE(SUM(accounted_tokens), 0) FROM attempts WHERE tier = ?", (tier,)
-        ).fetchone()[0]
+        used = used_today(db, tier)
         if used + total > limit:
-            raise BudgetExceeded(f"Local {tier} cumulative token budget exhausted; no request sent")
+            raise BudgetExceeded(f"Local {tier} daily (UTC) token budget exhausted; no request sent")
         db.execute("""INSERT INTO attempts
             (request_id, model, tier, started_utc, status, reserved_input,
              reserved_output, accounted_tokens) VALUES (?, ?, ?, ?, 'reserved', ?, ?, ?)""",

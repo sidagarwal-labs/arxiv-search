@@ -83,7 +83,7 @@ def plan(qids: list[str]) -> dict:
 
 def read_cached(path: Path, encoded: bytes, presented: list[str], *,
                 version: str = "list-v1") -> tuple[dict, dict] | None:
-    if version not in ("list-v1", "scores-v2"):
+    if version not in client.VERSIONS:
         raise ValueError("Unknown response-cache version")
     if not path.exists():
         return None
