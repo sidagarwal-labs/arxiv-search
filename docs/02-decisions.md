@@ -140,7 +140,7 @@ Sid selected **Gemma as relevance judge and OpenAI large as the embedding model*
 The judge selection was updated to **GPT-5.4 mini on 2026-10-29** after
 the four-OpenAI-model human calibration below; Gemma caches are retained.
 Keep the best BM25 recipe and start hybrid testing with equal-weight RRF c=10.
-The [README summary](../README.md#current-working-baseline-updated-2026-10-29)
+The [README summary](../README.md#current-working-baseline)
 tracks the selected configuration alongside the best measured scores and their scopes.
 This does not rename or overwrite the original `bm25-baseline` control.
 
