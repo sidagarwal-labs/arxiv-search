@@ -31,6 +31,8 @@
     "llm-score-pilot/judge-fill/report.md",
     "llm-score-pilot/report.json",
     "llm-score-pilot/report.md",
+    "llm-score-pilot/safeguard/report.json",
+    "llm-score-pilot/safeguard/report.md",
     "openai-field-dev/report.json",
     "openai-field-dev/report.md",
     "openai-field-hybrid-dev/report.json",

@@ -164,6 +164,11 @@ nDCG@10 **0.7553** vs. baseline 0.6959 (+0.059 [+0.001, +0.116]) and P@10 0.770
 vs. 0.675, but source MRR still falls 0.8375 → 0.6875. The judge and reranker
 share a model family, so this is a reason to stabilize top-50, not to promote it.
 
+A free [offline safeguard](03-findings.md#31b-why-top50-loses-and-an-offline-safeguard)
+fuses the top-50 LLM order with the baseline order (RRF, c=30, rule frozen before
+computing). It keeps most of the gain (nDCG@10 about 0.733 vs. 0.696) while
+restoring source MRR to 0.829 (baseline 0.8375); both pre-registered criteria pass.
+
 Repeated global fusion tuning is showing diminishing returns. See the
 [experiment/promotion findings](03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).

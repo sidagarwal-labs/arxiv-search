@@ -1,0 +1,16 @@
+{
+  "api_calls": 0,
+  "automatic_promotion": false,
+  "depth": 50,
+  "inputs": "Cached v2 baseline and top50 runs; judge-fill child labels; 20 pilot queries.",
+  "rrf_c": 30,
+  "rule": "1/(c+baseline rank)+1/(c+LLM rank) over the top50; ties keep baseline order; ranks 51-100 unchanged. Equal weights; c is the approved baseline's RRF constant.",
+  "success_criteria": {
+    "ndcg@10_min": "baseline nDCG@10 + half of the top50 arm's nDCG@10 gain",
+    "requires_fully_judged_top10": true,
+    "source_mrr@10_min": "baseline source MRR@10 - 0.02"
+  },
+  "sweep": false,
+  "system": "llm-mini-score-pilot+d=50+rrf-baseline+c=30",
+  "version": "safeguard-v1"
+}

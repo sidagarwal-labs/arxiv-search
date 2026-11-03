@@ -2310,3 +2310,34 @@ source MRR falls by .15, the sample is 20 previously examined queries, and
 the judge shares the reranker's model family, so a same-family preference
 is not ruled out. This makes top50 worth stabilizing, not promoting.
 See the [gap-fill report](../data/results/llm-score-pilot/judge-fill/report.md).
+
+### 31b. Why top50 loses, and an offline safeguard
+
+Top10 comparison per query: top50's gains come from pulling grade-2 papers up
+from ranks 11-50 on question/paraphrase queries. Its losses are mostly
+**dropped query constraints**: q-keyword-079 "regional language social media"
+swapped four grade-2 papers for regional-language papers with no social-media
+angle (source 1 → 15); q-known_item-042 ignored the author name "Jiang";
+q-question-095 preferred narrower forecasting papers over a general model
+(source 1 → 6). Some source drops (q-question-088, q-keyword-017) are
+one-to-two places while the top10 improved, so source MRR overstates that harm.
+
+[Decision42](02-decisions.md#42-offline-safeguard-fuse-top50-llm-order-with-baseline-order-2026-11-03)
+fused the two orders by RRF (c=30). Zero API calls.
+
+| System | nDCG10 | P10 | Source MRR10 | R10 |
+|---|---|---|---|---|
+| Baseline | .6959 | .6750 | .8375 | .9000 |
+| Top50 LLM | .7553 | .7700 | .6875 | .8500 |
+| Top50 + baseline RRF | .7321-.7344* | withheld* | **.8292** | .9000 |
+
+\*One safeguard top10 pair is unjudged. With it set to 0, 1 or 2, nDCG is
+.7321/.7344/.7334 and the delta vs. baseline +.036 to +.041 (all CIs above 0);
+both pre-registered criteria pass in every case. Source ranks recover: 079 15 → 4,
+095 6 → 3, and 017, 042, 088 back to 1; 020 improves 4 → 1.
+
+Trade-off: the safeguard keeps about 60-70% of top50's nDCG gain and nearly all
+source MRR, but gives back part of the question/paraphrase gain
+(paraphrase .7531 → .7139). It is a guardrail, not a fix for the constraint
+errors, and the rule was motivated by these same 20 queries.
+See the [safeguard report](../data/results/llm-score-pilot/safeguard/report.md).

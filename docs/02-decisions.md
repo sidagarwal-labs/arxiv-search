@@ -618,6 +618,17 @@ leaderboard snapshot are not modified; the new grades live in a child
 snapshot for the20 pilot queries only. No promotion. Same-family caveat
 stands: the judge and the reranker are both GPT-5.4 mini.
 
+## #42 Offline safeguard: fuse top50 LLM order with baseline order (2026-11-03)
+
+Top50 gained on graded quality but buried strong baseline matches
+(q-keyword-079's source 1 → 15). Sid chose a free offline replay before any new
+budget decision. One rule, frozen before computing, no sweep: over the top50,
+score = 1/(30 + baseline rank) + 1/(30 + LLM rank); ties keep baseline order;
+ranks 51-100 unchanged. c = 30 is the approved baseline's RRF constant.
+Success requires source MRR@10 ≥ baseline − 0.02 **and** nDCG@10 ≥ baseline +
+half the top50 gain. Unjudged pairs withhold nDCG; a 0/1/2 sensitivity check
+is diagnostic only. No API calls, no promotion.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model
