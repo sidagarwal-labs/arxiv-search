@@ -119,8 +119,8 @@ selection: 133 known highly relevant query-paper pairs currently rank in positio
 | [Decisions](docs/02-decisions.md) | Every choice and why it was made |
 | [Findings](docs/03-findings.md) | Measurements behind the decisions |
 | [Glossary](docs/04-glossary.md) | What BM25, embedding, MRR, etc. mean |
-| [Results](docs/05-results.md) | One table comparing every search system tried |
-| [Charts](docs/06-charts.md) | Hill-climbing milestones, latest leaderboard leaders and measured remaining headroom |
+| [Results](docs/05-results.md) | Stage 1 retrieval and Stage 2 reranker progress; links to the full every-system tables |
+| [Charts](docs/06-charts.md) | Hill-climbing milestones (retrieval + reranker), latest Stage 1 and Stage 2 scores, and measured remaining headroom |
 | [Experiment log](docs/07-experiment-log.md) | Detailed experiment history, budgets and caveats |
 
 ## Run it

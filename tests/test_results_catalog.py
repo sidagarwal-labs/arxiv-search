@@ -82,7 +82,7 @@ def test_automatic_discovery_dedup_and_current_baseline(inputs):
         assert system["all"]["grade2_recall@50"]["mean"] == 1.0
     assert report["working_baseline"] == "current-baseline"
     assert report["stage2"]["systems"] == {}
-    assert "_No saved reranker runs._" in text
+    assert "_No saved full-dev reranker runs._" in text
 
 
 def test_cross_encoder_friendly_names_distinguish_candidate_selection_and_ordering():
@@ -157,7 +157,8 @@ def test_unjudged_new_run_is_visible_but_paired_withheld(inputs):
     assert result["all"]["source_mrr@10"]["mean"] == 1.0
     assert result["paired_ndcg_vs_working_baseline"] is None
     assert "both runs" in result["paired_withheld_reason"]
-    assert "`novel`" in text
+    assert "`novel`" not in text  # compact docs: full tables live in catalog-dev/report.md
+    assert "`novel`" in (root / "catalog-dev" / "report.md").read_text(encoding="utf-8")
 
 
 def test_incomplete_baseline_blocks_otherwise_complete_comparison(inputs):
@@ -396,7 +397,8 @@ def test_leaderboard_descending_unrounded_not_baseline_first_and_provisional_unr
     for q in provisional:
         provisional[q][9] = "p20"
     save(root / "score-fusion-dev" / "provisional-high.run.json", provisional)
-    text = catalog.write_catalog()
+    catalog.write_catalog()
+    text = (root / "catalog-dev" / "report.md").read_text(encoding="utf-8")
     report = json.loads((root / "catalog-dev" / "report.json").read_text())
     board = report["leaderboard"]
     assert board["ranked"] == ["a-covered-tie", "z-covered-winner", "current-baseline"]
@@ -518,7 +520,9 @@ def test_stage2_leaderboard_pairs_against_both_baselines(inputs, monkeypatch):
         1.96 * 2 ** 0.5 * 0.003)
     assert systems[llm]["noise"] is None
     assert "(RERANKING BASELINE)" in text and "(RETRIEVAL BASELINE, no reranker)" in text
-    assert "Stage 2 — end-to-end reranking leaderboard" in text
+    assert "### Stage 2 — reranker progress" in text
+    assert "(RERANKING BASELINE)" in (root / "catalog-dev" / "report.md").read_text(
+        encoding="utf-8")
 
 
 def test_stage2_refuses_alias_that_differs_from_stage1(inputs, monkeypatch):

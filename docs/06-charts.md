@@ -4,64 +4,84 @@
 
 ## Hill climbing: major comparable milestones
 
-Every point is rescored against the **same frozen 3,294-pair dev label snapshot**, 100 dev queries, 23,304 searchable papers. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order. **Zoomed linear y-axis: 0.50-0.75, not zero-based.** This focuses on score changes, not their magnitude relative to zero. All plotted top10s are fully judged; no pilot/test scores are mixed in.
+Every point is rescored against the **same 3,461-pair dev label set (`shared-labels/labels.json`)**, 100 dev queries, 23,304 searchable papers. Stage 1 points are retrieval baselines and turning points; the Stage 2 point adds the LLM reranker on top of the current retrieval baseline. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order. **Zoomed linear y-axis: 0.50-0.80, not zero-based.** This focuses on score changes, not their magnitude relative to zero. All plotted top10s are fully judged; no pilot/test scores are mixed in. Scores shifted about 0.009 down from older versions of this page when the 167 reranker grades joined the shared labels (Decision45); the curve's shape is unchanged.
 
-**First plotted baseline to current: 0.5187 to 0.7176 (+0.1988 nDCG, +38.3% relative).** The first point is tuned BM25, not the original plain-BM25 control, whose graded coverage is incomplete. Use a linear scale: nDCG is a bounded relevance score, not a quantity spanning orders of magnitude; a log axis would obscure additive improvements.
+**First plotted baseline to current: 0.5137 to 0.7583 (+0.2446 nDCG, +47.6% relative); retrieval alone reaches 0.7092, the reranker adds +0.0491.** The first point is tuned BM25, not the original plain-BM25 control, whose graded coverage is incomplete. Use a linear scale: nDCG is a bounded relevance score, not a quantity spanning orders of magnitude; a log axis would obscure additive improvements.
 
 ```mermaid
 xychart-beta
     title "Hill climbing: graded relevance nDCG@10"
-    x-axis ["Tuned BM25", "GTE dense", "GTE hybrid", "OpenAI hybrid", "RRF75 c100", "RRF55 c30", "Shortlist scores"]
-    y-axis "nDCG@10 (zoomed, higher is better)" 0.5 --> 0.75
-    line [0.5187, 0.5811, 0.6312, 0.6604, 0.7052, 0.7064, 0.7176]
+    x-axis ["Tuned BM25", "GTE dense", "GTE hybrid", "OpenAI hybrid", "RRF75 c100", "RRF55 c30", "Shortlist scores", "LLM rerank + safeguard"]
+    y-axis "nDCG@10 (zoomed, higher is better)" 0.5 --> 0.8
+    line [0.5137, 0.5742, 0.6242, 0.6530, 0.6971, 0.6982, 0.7092, 0.7583]
 ```
 
-| Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |
-|---|---|---|---|---|---|
-| Tuned BM25 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | 0.5187 | - | 0.5687 | 71% |
-| GTE dense | `dense-gte-small` | 0.5811 | +0.0624 | 0.5254 | 71% |
-| GTE hybrid | `hybrid-gte-small+rrf+w=0.5+c=10` | 0.6312 | +0.0501 | 0.6350 | 80% |
-| OpenAI hybrid | `hybrid-openai-large+rrf+w=0.5+c=10` | 0.6604 | +0.0291 | 0.6534 | 84% |
-| RRF75 c100 | `fusion-rrf+w=0.75+d=100+c=100` | 0.7052 | +0.0448 | 0.6181 | 84% |
-| RRF55 c30 | `fusion-rrf+w=0.55+d=100+c=30` | 0.7064 | +0.0012 | 0.6459 | 86% |
-| Shortlist scores | `fusion-shortlist+a=1+d=500` | 0.7176 | +0.0112 | 0.6967 | 86% |
+| Stage | Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |
+|---|---|---|---|---|---|---|
+| 1 retrieval | Tuned BM25 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | 0.5137 | - | 0.5687 | 71% |
+| 1 retrieval | GTE dense | `dense-gte-small` | 0.5742 | +0.0604 | 0.5254 | 71% |
+| 1 retrieval | GTE hybrid | `hybrid-gte-small+rrf+w=0.5+c=10` | 0.6242 | +0.0501 | 0.6350 | 80% |
+| 1 retrieval | OpenAI hybrid | `hybrid-openai-large+rrf+w=0.5+c=10` | 0.6530 | +0.0288 | 0.6534 | 84% |
+| 1 retrieval | RRF75 c100 | `fusion-rrf+w=0.75+d=100+c=100` | 0.6971 | +0.0440 | 0.6181 | 84% |
+| 1 retrieval | RRF55 c30 | `fusion-rrf+w=0.55+d=100+c=30` | 0.6982 | +0.0011 | 0.6459 | 86% |
+| 1 retrieval | Shortlist scores | `fusion-shortlist+a=1+d=500` | 0.7092 | +0.0110 | 0.6967 | 86% |
+| 2 reranking | LLM rerank + safeguard | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | 0.7583 | +0.0491 | 0.7197 | 87% |
 
-**Reading the curve:** big earlier jumps came from complementary lexical/semantic retrieval and better embeddings. The 75%-RRF point was a challenger, not an approved baseline. The balanced RRF55% point recovered known-paper ranks. The current shortlist-score baseline improves ordering while preserving its top10 membership. These steps also change other parameters, so step differences are not isolated causal effects of one feature.
+**Reading the curve:** big earlier jumps came from complementary lexical/semantic retrieval and better embeddings. The 75%-RRF point was a challenger, not an approved baseline. The balanced RRF55% point recovered known-paper ranks. The current shortlist-score baseline improves ordering while preserving its top10 membership. These steps also change other parameters, so step differences are not isolated causal effects of one feature. The reranker step is one of the largest on the curve. Without the safeguard, the top-50 reranker scores higher on nDCG but pushes source papers down; the safeguard keeps most of the gain and improves source MRR.
 
-## Latest fully judged leaderboard leaders
+## Latest scores: Stage 1 retrieval leaders
 
-Labels L1 onward below are chart keys, not separate system names. The top five ranked systems are shown, plus the approved baseline if it falls outside those five. Exact score ties use stable system IDs for ordering; a different ordinal rank within a tie is not a quality change. Highest nDCG does not automatically mean best balanced baseline. Unlike the milestone line, these bars keep a zero baseline so their lengths do not exaggerate small differences; use the table for exact scores.
+Labels L1 onward below are chart keys, not separate system names. The top five ranked retrieval systems are shown, plus the retrieval baseline if it falls outside those five. Exact score ties use stable system IDs for ordering; a different ordinal rank within a tie is not a quality change. Highest nDCG does not automatically mean best balanced baseline. Unlike the milestone line, these bars keep a zero baseline so their lengths do not exaggerate small differences; use the table for exact scores.
 
 ```mermaid
 xychart-beta
     title "Latest dev leaderboard nDCG@10"
     x-axis [L1, L2, L3, L4, L5, L6]
     y-axis "nDCG@10" 0 --> 1
-    bar [0.7214, 0.7210, 0.7204, 0.7204, 0.7202, 0.7176]
+    bar [0.7128, 0.7123, 0.7119, 0.7119, 0.7118, 0.7092]
 ```
 
 | Chart key / rank | Ranker | nDCG@10 | Source MRR@10 | R@10 | Status |
 |---|---|---|---|---|---|
-| L1 / #1 | 25% lexical / 75% semantic; 10% title / 90% abstract; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7214 | 0.6985 | 86% | experiment / control |
-| L2 / #2 | 25% lexical / 75% semantic; abstract only; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7210 | 0.6799 | 86% | experiment / control |
-| L3 / #3 | separate title 25% / abstract 75%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail | 0.7204 | 0.7047 | 86% | experiment / control |
-| L4 / #4 | 25% lexical / 75% semantic; 25% title / 75% abstract; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7204 | 0.7047 | 86% | experiment / control |
-| L5 / #5 | 25% lexical / 75% semantic; 25% title / 75% abstract; 50% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7202 | 0.6940 | 86% | experiment / control |
-| L6 / #13 | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail | 0.7176 | 0.6967 | 86% | **APPROVED BASELINE** |
+| L1 / #1 | 25% lexical / 75% semantic; 10% title / 90% abstract; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7128 | 0.6985 | 86% | experiment / control |
+| L2 / #2 | 25% lexical / 75% semantic; abstract only; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7123 | 0.6799 | 86% | experiment / control |
+| L3 / #3 | separate title 25% / abstract 75%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail | 0.7119 | 0.7047 | 86% | experiment / control |
+| L4 / #4 | 25% lexical / 75% semantic; 25% title / 75% abstract; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7119 | 0.7047 | 86% | experiment / control |
+| L5 / #5 | 25% lexical / 75% semantic; 25% title / 75% abstract; 50% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7118 | 0.6940 | 86% | experiment / control |
+| L6 / #13 | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail | 0.7092 | 0.6967 | 86% | **APPROVED BASELINE** (retrieval) |
+
+## Latest scores: Stage 2 reranking (retrieval + reranker)
+
+Every row reorders the same retrieval-baseline candidates for all 100 dev queries. Δ is paired against the retrieval baseline; the noise band comes from re-sending identical requests (Decision44).
+
+```mermaid
+xychart-beta
+    title "Stage 2 nDCG@10 (100 dev queries)"
+    x-axis [S1, S2, S3]
+    y-axis "nDCG@10" 0 --> 1
+    bar [0.7789, 0.7583, 0.7092]
+```
+
+| Chart key | System | nDCG@10 | Δ vs retrieval baseline | Source MRR@10 | R@10 | LLM $/query | Status |
+|---|---|---|---|---|---|---|---|
+| S1 | `llm-mini-score-pilot+d=50` | 0.7789 | +0.070 [+0.045, +0.095] | 0.6775 | 88% | $0.0138 | experiment |
+| S2 | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | 0.7583 | +0.049 [+0.035, +0.063] | 0.7197 | 87% | $0.0138 | **APPROVED BASELINE** (reranking) |
+| S3 | `fusion-shortlist+a=1+d=500` | 0.7092 | — | 0.6967 | 86% | $0.0000 | **APPROVED BASELINE** (retrieval, no reranker) |
 
 ## Where the next big jump would have to come from
 
-- Current nDCG: **0.7176**.
-- Perfect label-aware ordering of the **same selected ten papers** reaches only **0.7790** on this snapshot. This is a diagnostic oracle, not a measured model or a prediction of achievable gains.
+- Retrieval baseline nDCG: **0.7092** (diagnostics below are for Stage 1, the candidates the reranker sees).
+- Perfect label-aware ordering of the **same selected ten papers** reaches only **0.7695** on this snapshot. This is a diagnostic oracle, not a measured model or a prediction of achievable gains.
 - Current shortlist contains the source in **86/100** queries. The raw lexical/semantic union contains it in **97/100** at depth100 per retriever and **100/100** at depth500. Candidate availability is not final ranking quality.
 - Of 1000 selected results, **311 are grade0**, 423 grade1, and 266 grade2. A fixed shortlist cannot replace the grade0s.
 
-Next hypotheses: improve candidate selection with query-document interaction or better query/document representations, rather than endlessly tuning global fusion weights. Learned/LLM reranking remains a separate future decision, not deployed here. More independent evaluation is also needed: 100 synthetic dev queries and a calibrated LLM judge are not proof of generalization. The held-out 300 queries remain untouched.
+Next hypotheses: improve candidate selection with query-document interaction or better query/document representations, rather than endlessly tuning global fusion weights. The Stage 2 LLM reranker (Decision45) is the first step past the fixed shortlist: it reorders the top 50 rather than the top 10. More independent evaluation is also needed: 100 synthetic dev queries and a calibrated LLM judge are not proof of generalization. The held-out 300 queries remain untouched.
 
 ## Reproducibility and cautions
 
-- Current approved baseline: `fusion-shortlist+a=1+d=500` (Decision36).
-- Label snapshot: `score-fusion-dev/labels.json`; SHA256 `9ea51e45ea7c5329a90f3021516fd143049894440c47b50cdafbc6eb543fc32a`.
+- Retrieval baseline: `fusion-shortlist+a=1+d=500` (Decision36).
+- Reranking baseline: `llm-mini-score-pilot+d=50+rrf-baseline+c=30` (Decision45); LLM scores vary slightly run to run, so its point uses the saved, cached rankings.
+- Label snapshot: `shared-labels/labels.json`; SHA256 `8543e3fbdd336083e3bef33dfd5ed455f35a33e7d9f82ffc7a110dbf4f2e1fb5`.
 - Original plain-BM25 graded coverage is incomplete, so it is excluded from the hill curve.
 - Frozen experiment reports retain their original controls; only the unified leaderboard uses the latest working baseline for paired differences.
 - All intervals elsewhere are exploratory after repeated dev selection. No fresh-human validation or held-out claim is implied.

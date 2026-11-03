@@ -67,6 +67,53 @@ def test_charts_use_same_snapshot_and_real_milestones_not_provisional_scores():
         promotion.render_charts(report, diagnosis)
 
 
+def test_charts_append_reranking_baseline_and_stage2_table():
+    systems = {name: {
+        "top10_fully_judged": True, "working_baseline": name == config.WORKING_BASELINE_SYSTEM,
+        "all": {"ndcg@10": {"mean": .5 + i * .02}, "source_mrr@10": {"mean": .6},
+                "source_recall@10": {"mean": .86}},
+        "description": {"ranker": name}, "leaderboard_rank": i + 1,
+    } for i, (_, name) in enumerate(promotion.MILESTONES)}
+    rerank, llm = "rerank-safe", "rerank-raw"
+    stage2 = {
+        config.WORKING_BASELINE_SYSTEM: {**systems[config.WORKING_BASELINE_SYSTEM],
+                                         "retrieval_baseline": True, "cost": {"usd_per_query": 0.0}},
+        rerank: {"top10_fully_judged": True, "reranking_baseline": True,
+                 "all": {"ndcg@10": {"mean": .70}, "source_mrr@10": {"mean": .7},
+                         "source_recall@10": {"mean": .87}},
+                 "paired_ndcg_vs_retrieval_baseline": {"difference": .08, "ci95": [.05, .1]},
+                 "cost": {"usd_per_query": .0138}},
+        llm: {"top10_fully_judged": True,
+              "all": {"ndcg@10": {"mean": .72}, "source_mrr@10": {"mean": .65},
+                      "source_recall@10": {"mean": .88}},
+              "paired_ndcg_vs_retrieval_baseline": None, "cost": None},
+    }
+    report = {"systems": systems, "working_baseline": config.WORKING_BASELINE_SYSTEM,
+              "reranking_baseline": rerank, "leaderboard": {"ranked": list(systems)},
+              "stage2": {"systems": stage2, "ranked": [llm, rerank, config.WORKING_BASELINE_SYSTEM],
+                         "unranked": []},
+              "label_snapshot": "shared-labels/labels.json",
+              "label_snapshot_sha256": "shared",
+              "label_snapshot_provenance": {"original_pairs": 3190, "added_pairs": 271}}
+    diagnosis = {"oracle_ndcg_with_fixed_top10": .78, "source_hits_current_top10": 86,
+                 "queries": 100, "source_hits_in_retriever_union": {"100": 97, "500": 100},
+                 "top10_grade_counts": {"0": 311, "1": 423, "2": 266}}
+    text = promotion.render_charts(report, diagnosis)
+    assert text.count("```mermaid") == 3
+    assert f'"{promotion.RERANK_MILESTONE}"]' in text
+    assert "0.6200, 0.7000]" in text
+    assert f"| 2 reranking | {promotion.RERANK_MILESTONE} | `{rerank}` | 0.7000 | +0.0800 |" in text
+    assert "retrieval alone reaches 0.6200, the reranker adds +0.0800" in text
+    assert "same 3,461-pair dev label set" in text
+    assert "bar [0.7200, 0.7000, 0.6200]" in text
+    assert "| S2 | `rerank-safe` | 0.7000 | +0.080 [+0.050, +0.100] |" in text
+    assert "**APPROVED BASELINE** (reranking)" in text
+    assert "| $0.0138 |" in text and "| — | experiment |" in text
+    stage2[rerank]["top10_fully_judged"] = False
+    with pytest.raises(ValueError, match="provisional"):
+        promotion.render_charts(report, diagnosis)
+
+
 def test_working_helper_reproduces_approved_saved_rankings():
     import json
 

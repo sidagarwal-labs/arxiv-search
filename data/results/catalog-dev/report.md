@@ -10,7 +10,57 @@ All graded scores are recomputed from the **same immutable `shared-labels/labels
 
 **Snapshot/corpus caveat:** these are saved rankings, not fresh retrieval. Current corpus and dev-query fingerprints, the frozen label SHA256, ranking fingerprints, and all duplicate paths are recorded in the machine report. Older runs may not record a corpus fingerprint; matching paper IDs cannot prove identical build snapshots. Reduced-corpus embedding pilots are a separate scope, never scorecard rows. Costs/latencies are not estimated or assigned zero: only actually saved `.info.json` metadata is preserved per system, with its original timing scope. Historical reports retain their original labels, denominators, and controls.
 
-### Stage 1 — retrieval leaderboard (fully judged)
+### Stage 1 — retrieval progress
+
+Retrieval baseline: `fusion-shortlist+a=1+d=500` (Decision36). Free and deterministic, so every retrieval idea is tested here first. R@50 and grade-2 recall@50 show what the top-50 reranker can reach.
+
+**Milestones** (each step changed several settings, so gains are not isolated effects of one feature):
+
+| Step | System | nDCG@10 | Δ vs previous | P@10 | Source MRR@10 | R@10 | R@50 | Grade-2 recall@50 |
+|---|---|---|---|---|---|---|---|---|
+| Tuned BM25 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | 0.5137 | — | 0.512 | 0.569 | 0.710 | 0.770 | 0.710 |
+| GTE dense | `dense-gte-small` | 0.5742 | +0.0604 | 0.581 | 0.525 | 0.710 | 0.870 | 0.717 |
+| GTE hybrid | `hybrid-gte-small+rrf+w=0.5+c=10` | 0.6242 | +0.0501 | 0.611 | 0.635 | 0.800 | 0.880 | 0.840 |
+| OpenAI hybrid | `hybrid-openai-large+rrf+w=0.5+c=10` | 0.6530 | +0.0288 | 0.633 | 0.653 | 0.840 | 0.940 | 0.946 |
+| RRF75 c100 | `fusion-rrf+w=0.75+d=100+c=100` | 0.6971 | +0.0440 | 0.690 | 0.618 | 0.840 | 0.940 | 0.926 |
+| RRF55 c30 | `fusion-rrf+w=0.55+d=100+c=30` | 0.6982 | +0.0011 | 0.689 | 0.646 | 0.860 | 0.940 | 0.951 |
+| **Shortlist scores (RETRIEVAL BASELINE)** | `fusion-shortlist+a=1+d=500` | 0.7092 | +0.0110 | 0.689 | 0.697 | 0.860 | 0.940 | 0.951 |
+
+**Current top 5 retrieval systems** (fully judged; a lead inside the confidence interval is not a promotion):
+
+| Rank | System | nDCG@10 | Δ vs retrieval baseline [95% CI] | P@10 | Source MRR@10 | R@10 | R@50 | Grade-2 recall@50 |
+|---|---|---|---|---|---|---|---|---|
+| 1 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=title10+anchor=0+d=10` | 0.713 | +0.004 [-0.001, +0.009] | 0.689 | 0.698 | 0.860 | 0.940 | 0.951 |
+| 2 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=abstract+anchor=0+d=10` | 0.712 | +0.003 [-0.002, +0.009] | 0.689 | 0.680 | 0.860 | 0.940 | 0.951 |
+| 3 | OpenAI-large semantic field ablation<br>`oai-field-hybrid+text=title25+d=10` | 0.712 | +0.003 [-0.002, +0.008] | 0.689 | 0.705 | 0.860 | 0.940 | 0.951 |
+| 4 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=title25+anchor=0+d=10` | 0.712 | +0.003 [-0.002, +0.008] | 0.689 | 0.705 | 0.860 | 0.940 | 0.951 |
+| 5 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=title25+anchor=0.5+d=10` | 0.712 | +0.003 [-0.000, +0.006] | 0.689 | 0.694 | 0.860 | 0.940 | 0.951 |
+| 13 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE)**<br>`fusion-shortlist+a=1+d=500` | 0.709 | itself | 0.689 | 0.697 | 0.860 | 0.940 | 0.951 |
+
+### Stage 2 — reranker progress
+
+Reranking baseline: `llm-mini-score-pilot+d=50+rrf-baseline+c=30` (Decision45): gpt-5.4-mini-2026-03-17 scores the retrieval top50, fused with the retrieval order by RRF c=30.
+
+**Pilot history** — the same 20 dev queries, rescored on the shared labels. Missing rankings (failed LLM responses) score zero, so they show the reliability problem as well as quality. These queries were used to design the safeguard rule, so they are not the evidence for it.
+
+| Step | Method | Valid rankings | nDCG@10 | Δ vs retrieval baseline (W/L) | P@10 | Source MRR@10 | Unjudged top-10 pairs | Report |
+|---|---|---|---|---|---|---|---|---|
+| 0 | Retrieval baseline, no reranker | 20/20 | 0.6959 | — | 0.675 | 0.838 | 0 | — |
+| 1 | v1 listwise order, top10 | 16/20 | 0.5841 | -0.1119 (9/10) | 0.535 | 0.700 | 0 | [report](../llm-reranker-pilot/report.md) |
+| 2 | v1 listwise order, top50 | 7/20 | 0.2441 | -0.4518 (2/17) | 0.225 | 0.208 | 15 | [report](../llm-reranker-pilot/report.md) |
+| 3 | v2 0-4 scores, top10 | 20/20 | 0.7095 | +0.0136 (13/4) | 0.675 | 0.842 | 0 | [report](../llm-score-pilot/report.md) |
+| 4 | v2 0-4 scores, top50 | 20/20 | 0.7553 | +0.0593 (13/4) | 0.770 | 0.688 | 0 | [report](../llm-score-pilot/report.md) |
+| 5 | v2 top50 + RRF safeguard c30 | 20/20 | 0.7344 | +0.0385 (11/6) | 0.720 | 0.829 | 0 | [report](../llm-score-pilot/safeguard/report.md) |
+
+**Full dev set (100 queries)** — every row reranks the same retrieval-baseline candidates. Paired deltas against BOTH baselines. LLM cost and API time are measured means over uncached requests; saved rankings replay cached responses (LLM scores are not deterministic). Differences smaller than the MDD (1.96·√2·SD of the 100-query mean, from the Decision44 repeat run) are within run-to-run noise.
+
+| Rank | System | Stage 1 retrieval | Stage 2 reranker | Status | nDCG@10 (n) | P@10 | Source MRR@10 | R@1 | R@10 | Δ nDCG vs retrieval baseline [95% CI] W/L | Δ nDCG vs reranking baseline [95% CI] W/L | LLM $/query | API s/query | Run-to-run noise (SD of 100-q mean; MDD) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4 in one request; sort by score, ties keep retrieval order | covered | 0.7789 (100) | 0.777 | 0.677 | 0.570 | 0.880 | +0.070 [+0.045, +0.095] W/L 68/22 | +0.021 [+0.004, +0.036] W/L 56/32 | $0.0138 | 2.48 | 0.0063; 0.018 |
+| 2 | **LLM reranker + safeguard (RERANKING BASELINE)**<br>`llm-mini-score-pilot+d=50+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4 in one request; RRF of LLM order with retrieval order, c30 | covered | 0.7583 (100) | 0.736 | 0.720 | 0.640 | 0.870 | +0.049 [+0.035, +0.063] W/L 69/21 | itself | $0.0138 | 2.48 | 0.0033; 0.009 |
+| 3 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE, no reranker)**<br>`fusion-shortlist+a=1+d=500` | Retrieval baseline (Decision36) | None | covered | 0.7092 (100) | 0.689 | 0.697 | 0.610 | 0.860 | itself | -0.049 [-0.063, -0.035] W/L 21/69 | $0.0000 | 0.00 | deterministic |
+
+### Stage 1 — full retrieval leaderboard (fully judged)
 
 | Rank | System | Keyword retrieval | Embedding | Ranker / fusion | Status | Success: nDCG@10 (n) | P@10 | judged@10 | Source MRR@10 | R@1 | R@5 | R@10 | R@20 | R@50 | Grade-2 recall@50 | Known-item MRR@10 | Δ nDCG vs retrieval baseline [95% CI] |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -197,16 +247,6 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | - | Keyword search | BM25: stems only; k1=1.2, b=0.75 | None | BM25 score | PROVISIONAL | 0.4683 (100) | 0.438 | 0.755 | 0.492 | 0.400 | 0.610 | 0.700 | 0.730 | 0.750 | 0.660 | 0.748 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Embedding search | None | MiniLM-L6-v2 | Cosine similarity | PROVISIONAL | 0.4416 (100) | 0.389 | 0.556 | 0.407 | 0.330 | 0.530 | 0.590 | 0.680 | 0.810 | 0.650 | 0.549 | withheld: both runs must have all dev top-10 positions present and judged |
 | - | Embedding search | None | E5-small | Cosine similarity | PROVISIONAL | 0.4242 (100) | 0.364 | 0.522 | 0.485 | 0.390 | 0.610 | 0.690 | 0.750 | 0.800 | 0.661 | 0.626 | withheld: both runs must have all dev top-10 positions present and judged |
-
-### Stage 2 — end-to-end reranking leaderboard (retrieval + reranker)
-
-Every row uses the same retrieval-baseline candidates and the same shared labels. Rank by nDCG@10 with paired deltas against BOTH baselines. LLM cost and API time are measured means over uncached requests; saved rankings replay cached responses (LLM scores are not deterministic). Differences smaller than the MDD (1.96·√2·SD of the 100-query mean, from the Decision44 repeat run) are within run-to-run noise. 20-query pilots are subsets of these runs and are not repeated.
-
-| Rank | System | Stage 1 retrieval | Stage 2 reranker | Status | nDCG@10 (n) | P@10 | Source MRR@10 | R@1 | R@10 | Δ nDCG vs retrieval baseline [95% CI] W/L | Δ nDCG vs reranking baseline [95% CI] W/L | LLM $/query | API s/query | Run-to-run noise (SD of 100-q mean; MDD) |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4 in one request; sort by score, ties keep retrieval order | covered | 0.7789 (100) | 0.777 | 0.677 | 0.570 | 0.880 | +0.070 [+0.045, +0.095] W/L 68/22 | +0.021 [+0.004, +0.036] W/L 56/32 | $0.0138 | 2.48 | 0.0063; 0.018 |
-| 2 | **LLM reranker + safeguard (RERANKING BASELINE)**<br>`llm-mini-score-pilot+d=50+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4 in one request; RRF of LLM order with retrieval order, c30 | covered | 0.7583 (100) | 0.736 | 0.720 | 0.640 | 0.870 | +0.049 [+0.035, +0.063] W/L 69/21 | itself | $0.0138 | 2.48 | 0.0033; 0.009 |
-| 3 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE, no reranker)**<br>`fusion-shortlist+a=1+d=500` | Retrieval baseline (Decision36) | None | covered | 0.7092 (100) | 0.689 | 0.697 | 0.610 | 0.860 | itself | -0.049 [-0.063, -0.035] W/L 21/69 | $0.0000 | 0.00 | deterministic |
 
 ## Every run by query type
 

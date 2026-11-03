@@ -26,6 +26,26 @@ FIELDS = ("ndcg@10", "precision@10", "judged@10", "source_mrr@10",
           "source_recall@50", "grade2_recall@50")
 LEGACY_FIELDS = FIELDS[:8]  # fields frozen reviews were computed with (pre-Decision45)
 STAGE2_FOLDERS = ("llm-score-dev100",)  # full-dev reranker runs; 20-query pilots are subsets
+# Promoted or turning-point retrieval systems, oldest first (also charted in 06-charts.md).
+RETRIEVAL_MILESTONES = (
+    ("Tuned BM25", "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75"),
+    ("GTE dense", "dense-gte-small"),
+    ("GTE hybrid", "hybrid-gte-small+rrf+w=0.5+c=10"),
+    ("OpenAI hybrid", "hybrid-openai-large+rrf+w=0.5+c=10"),
+    ("RRF75 c100", "fusion-rrf+w=0.75+d=100+c=100"),
+    ("RRF55 c30", "fusion-rrf+w=0.55+d=100+c=30"),
+    ("Shortlist scores", "fusion-shortlist+a=1+d=500"),
+)
+# Reranker experiments before the full-dev run, oldest first; all used the same 20 queries.
+RERANKER_PILOTS = (
+    ("v1 listwise order, top10", "llm-reranker-pilot/llm-mini-pilot+d=10.run.json"),
+    ("v1 listwise order, top50", "llm-reranker-pilot/llm-mini-pilot+d=50.run.json"),
+    ("v2 0-4 scores, top10", "llm-score-pilot/llm-mini-score-pilot+d=10.run.json"),
+    ("v2 0-4 scores, top50", "llm-score-pilot/llm-mini-score-pilot+d=50.run.json"),
+    ("v2 top50 + RRF safeguard c30",
+     "llm-score-pilot/safeguard/llm-mini-score-pilot+d=50+rrf-baseline+c=30.run.json"),
+)
+TOP_CHALLENGERS = 5
 
 
 def _fingerprint(value: object) -> str:
@@ -580,6 +600,109 @@ def _stage2_table(systems: dict) -> str:
     return "\n".join(lines)
 
 
+def _stage1_progress(systems: dict) -> str:
+    """Short Stage 1 story: milestones, then the closest current challengers."""
+    retrieval = config.WORKING_BASELINE_SYSTEM
+    lines = ["**Milestones** (each step changed several settings, so gains are not isolated "
+             "effects of one feature):", "",
+             "| Step | System | nDCG@10 | Δ vs previous | P@10 | Source MRR@10 | R@10 | "
+             "R@50 | Grade-2 recall@50 |", "|" + "---|" * 9]
+    previous = None
+    for label, name in RETRIEVAL_MILESTONES:
+        if name not in systems:
+            continue
+        summary = systems[name]["all"]
+        score = summary["ndcg@10"]["mean"]
+        step = f"**{label} (RETRIEVAL BASELINE)**" if name == retrieval else label
+        delta = "—" if previous is None or score is None else f"{score - previous:+.4f}"
+        lines.append("| " + " | ".join([
+            step, f"`{name}`", "undefined" if score is None else f"{score:.4f}", delta,
+            *(_value(summary, f) for f in ("precision@10", "source_mrr@10",
+                                           "source_recall@10", "source_recall@50",
+                                           "grade2_recall@50"))]) + " |")
+        previous = score
+    ranked, _ = leaderboard_order(systems)
+    shown = ranked[:TOP_CHALLENGERS]
+    if retrieval in systems and retrieval not in shown:
+        shown.append(retrieval)
+    lines += ["", f"**Current top {TOP_CHALLENGERS} retrieval systems** (fully judged; a lead "
+              "inside the confidence interval is not a promotion):", "",
+              "| Rank | System | nDCG@10 | Δ vs retrieval baseline [95% CI] | P@10 | "
+              "Source MRR@10 | R@10 | R@50 | Grade-2 recall@50 |", "|" + "---|" * 9]
+    for name in shown:
+        result = systems[name]
+        summary = result["all"]
+        title = describe_system(name)["name"]
+        if result["working_baseline"]:
+            title = f"**{title} (RETRIEVAL BASELINE)**"
+        paired = result["paired_ndcg_vs_working_baseline"]
+        delta = (f"{paired['difference']:+.3f} [{paired['ci95'][0]:+.3f}, "
+                 f"{paired['ci95'][1]:+.3f}]" if paired else
+                 "itself" if result["working_baseline"] else "withheld")
+        lines.append("| " + " | ".join([
+            str(ranked.index(name) + 1) if name in ranked else "-",
+            f"{title}<br>`{name}`", _value(summary, "ndcg@10"), delta,
+            *(_value(summary, f) for f in ("precision@10", "source_mrr@10",
+                                           "source_recall@10", "source_recall@50",
+                                           "grade2_recall@50"))]) + " |")
+    return "\n".join(lines)
+
+
+def _pilot_progress(root: Path, snapshot: dict, queries: dict, stage1: dict,
+                    base_dir: Path) -> str:
+    """Score the 20-query reranker pilots on the shared labels, same 20 queries each."""
+    plan_path = root / config.RERANK_BASELINE_RUN_DIR / "report.json"
+    retrieval = config.WORKING_BASELINE_SYSTEM
+    if not plan_path.exists() or retrieval not in stage1:
+        return ""
+    plan = json.loads(plan_path.read_text(encoding="utf-8")).get("plan", {})
+    if not plan.get("pilot_query_ids"):
+        return ""
+    qids = sorted(plan["pilot_query_ids"])
+    labels = {q: snapshot["labels"][q] for q in qids}
+    sources = {q: {queries[q]["source_arxiv_id"]: 2} for q in qids}
+    base_run = json.loads((root / stage1[retrieval]["paths"][0]).read_text(encoding="utf-8"))
+
+    def score(run: dict) -> dict:
+        graded_rows = graded.score_graded(run, labels, queries)
+        ndcg = {r["query_id"]: r["ndcg@10"] for r in graded_rows}
+        defined = [v for v in ndcg.values() if v is not None]
+        return {"ndcg": ndcg, "mean": sum(defined) / len(defined),
+                "p10": sum(r["precision@10"] for r in graded_rows) / len(qids),
+                "mrr": sum(r["mrr@10"] for r in metrics.score_run(run, sources)) / len(qids),
+                "unjudged": sum(p not in labels[q] for q in qids for p in run.get(q, [])[:10]),
+                "valid": sum(len(run.get(q, [])) >= 10 for q in qids)}
+
+    base = score(base_run)
+    lines = [f"**Pilot history** — the same {len(qids)} dev queries, rescored on the shared "
+             "labels. Missing rankings (failed LLM responses) score zero, so they show the "
+             "reliability problem as well as quality. These queries were used to design the "
+             "safeguard rule, so they are not the evidence for it.", "",
+             "| Step | Method | Valid rankings | nDCG@10 | Δ vs retrieval baseline (W/L) | "
+             "P@10 | Source MRR@10 | Unjudged top-10 pairs | Report |", "|" + "---|" * 9,
+             f"| 0 | Retrieval baseline, no reranker | {base['valid']}/{len(qids)} | "
+             f"{base['mean']:.4f} | — | {base['p10']:.3f} | {base['mrr']:.3f} | "
+             f"{base['unjudged']} | — |"]
+    for step, (label, relative) in enumerate(RERANKER_PILOTS, 1):
+        path = root / relative
+        if not path.exists():
+            continue
+        result = score(json.loads(path.read_text(encoding="utf-8")))
+        pairs = [(base["ndcg"][q], result["ndcg"][q]) for q in qids
+                 if base["ndcg"][q] is not None and result["ndcg"][q] is not None]
+        delta = sum(b - a for a, b in pairs) / len(pairs)
+        wins = sum(b > a + 1e-12 for a, b in pairs)
+        losses = sum(b < a - 1e-12 for a, b in pairs)
+        report = path.parent / "report.md"
+        link = (f"[report]({_link(report, base_dir)})"
+                if report.exists() else "—")
+        lines.append(
+            f"| {step} | {label} | {result['valid']}/{len(qids)} | {result['mean']:.4f} | "
+            f"{delta:+.4f} ({wins}/{losses}) | {result['p10']:.3f} | {result['mrr']:.3f} | "
+            f"{result['unjudged']} | {link} |")
+    return "\n".join(lines)
+
+
 def _table(systems: dict) -> str:
     ranked, unranked = leaderboard_order(systems)
     header = [
@@ -589,7 +712,7 @@ def _table(systems: dict) -> str:
         "Δ nDCG vs retrieval baseline [95% CI] |",
         "|" + "---|" * 18,
     ]
-    lines = ["### Stage 1 — retrieval leaderboard (fully judged)", "", *header]
+    lines = ["### Stage 1 — full retrieval leaderboard (fully judged)", "", *header]
     for names, eligible in ((ranked, True), (unranked, False)):
         if not eligible:
             lines += ["", "### Unranked diagnostics (incomplete judgments or undefined nDCG)", "",
@@ -732,16 +855,29 @@ def write_catalog() -> str:
         "Historical reports retain their original labels, denominators, and controls."
     )
     table = _table(systems) if systems else "_No saved dev rankings._"
-    stage2_text = "\n\n".join([
-        "### Stage 2 — end-to-end reranking leaderboard (retrieval + reranker)",
-        "Every row uses the same retrieval-baseline candidates and the same shared labels. "
-        "Rank by nDCG@10 with paired deltas against BOTH baselines. LLM cost and API time "
-        "are measured means over uncached requests; saved rankings replay cached "
-        "responses (LLM scores are not deterministic). Differences smaller than the MDD "
-        "(1.96·√2·SD of the 100-query mean, from the Decision44 repeat run) are within "
-        "run-to-run noise. 20-query pilots are subsets of these runs and are not repeated.",
-        _stage2_table(stage2),
-    ]) if stage2 else "### Stage 2 — end-to-end reranking leaderboard\n\n_No saved reranker runs._"
+    def progress(base_dir: Path) -> str:
+        pilots = _pilot_progress(root, snapshot, queries, systems, base_dir)
+        full = ("**Full dev set (100 queries)** — every row reranks the same retrieval-"
+                "baseline candidates. Paired deltas against BOTH baselines. LLM cost and API "
+                "time are measured means over uncached requests; saved rankings replay cached "
+                "responses (LLM scores are not deterministic). Differences smaller than the "
+                "MDD (1.96·√2·SD of the 100-query mean, from the Decision44 repeat run) are "
+                "within run-to-run noise.\n\n" + _stage2_table(stage2)
+                if stage2 else "_No saved full-dev reranker runs._")
+        return "\n\n".join([
+            "### Stage 1 — retrieval progress",
+            f"Retrieval baseline: `{config.WORKING_BASELINE_SYSTEM}` (Decision36). Free and "
+            "deterministic, so every retrieval idea is tested here first. R@50 and grade-2 "
+            f"recall@50 show what the top-{config.RERANK_BASELINE_DEPTH} reranker can reach.",
+            _stage1_progress(systems) if systems else "_No saved dev rankings._",
+            "### Stage 2 — reranker progress",
+            f"Reranking baseline: `{config.RERANK_BASELINE_SYSTEM}` (Decision45): "
+            f"{config.RERANK_BASELINE_MODEL} scores the retrieval top"
+            f"{config.RERANK_BASELINE_DEPTH}, fused with the retrieval order by RRF "
+            f"c={config.RERANK_BASELINE_RRF_C}.",
+            *([pilots] if pilots else []), full,
+        ])
+
     inventory_lines = []
     for path in inventory:
         relative = path.relative_to(root).as_posix()
@@ -750,8 +886,8 @@ def write_catalog() -> str:
                  " — BM25 tuning, source-paper objective" if "/tuning/" in relative else
                  " — historical report/configuration; original scope")
         inventory_lines.append(f"- [{relative}]({_link(path, out)}){scope}")
-    lines = ["# Dev leaderboard: all-experiment catalog", "", caveats, "", table, "",
-             stage2_text, "",
+    lines = ["# Dev leaderboard: all-experiment catalog", "", caveats, "", progress(out), "",
+             table, "",
              "## Every run by query type", "",
              "| System | Type | Queries | nDCG@10 (n) | P@10 | judged@10 | "
              "Source MRR@10 | R@1 | R@5 | R@10 | R@20 | R@50 | Grade-2 recall@50 |",
@@ -776,13 +912,22 @@ def write_catalog() -> str:
     docs_inventory = [
         f"- [{p.relative_to(root).as_posix()}]({_link(p, docs)})" for p in inventory
     ]
+    labelled_pairs = sum(len(g) for g in snapshot["labels"].values())
     return "\n\n".join([
-        '<a id="unified-dev-scorecard"></a>\n\n## Dev leaderboard: all experiments',
-        caveats, table, stage2_text, "\n".join(identities),
-        f"[Per-type results for EVERY run]({_link(out / 'report.md', docs)}) · "
-        f"[Machine report, coverage, provenance and saved timing/cost metadata]"
-        f"({_link(out / 'report.json', docs)}) · "
-        f"[Frozen labels]({_link(snapshot_path, docs)})",
-        "### Report inventory (historical / separate scopes)",
-        "\n".join(docs_inventory) or "_No additional reports._",
+        '<a id="unified-dev-scorecard"></a>\n\n## Dev leaderboard',
+        "Search has two stages, each with its own baseline and progress table: **Stage 1 "
+        "retrieval** finds candidates; **Stage 2 reranking** reorders the retrieval top "
+        f"{config.RERANK_BASELINE_DEPTH} with an LLM. All scores: {len(splits['dev'])} dev "
+        f"queries, {len(papers):,} papers, nDCG@10 on one shared label set "
+        f"(`{report['label_snapshot']}`, {labelled_pairs:,} graded pairs), so every row "
+        "is comparable. Settings were chosen on these queries, so scores are optimistic.",
+        progress(docs),
+        f"**Full tables:** [all {len(systems)} retrieval systems, unranked diagnostics, "
+        f"per-query-type results and system IDs]({_link(out / 'report.md', docs)}) · "
+        f"[machine report]({_link(out / 'report.json', docs)}) · "
+        f"[shared labels]({_link(snapshot_path, docs)})",
+        "<details>\n<summary>Scoring rules and caveats</summary>\n\n" + caveats
+        + "\n\n</details>",
+        "<details>\n<summary>Report inventory (historical / separate scopes)</summary>\n\n"
+        + ("\n".join(docs_inventory) or "_No additional reports._") + "\n\n</details>",
     ])
