@@ -157,6 +157,13 @@ top-10 nDCG improves from 0.7055 to 0.7194; top-50 still loses one source hit an
 has 34 unjudged selected pairs. V2 costs an accounted $0.3326, bringing both
 pilots to $0.7083 combined. Decision 36 remains the working baseline.
 
+The [gap fill](03-findings.md#31a-top50-after-filling-the-34-missing-judgments)
+graded those 34 pairs with the frozen judge ($0.0185, 15 calls, no failures).
+With all three systems fully judged on the same child labels, top-50 reaches
+nDCG@10 **0.7553** vs. baseline 0.6959 (+0.059 [+0.001, +0.116]) and P@10 0.770
+vs. 0.675, but source MRR still falls 0.8375 → 0.6875. The judge and reranker
+share a model family, so this is a reason to stabilize top-50, not to promote it.
+
 Repeated global fusion tuning is showing diminishing returns. See the
 [experiment/promotion findings](03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).
