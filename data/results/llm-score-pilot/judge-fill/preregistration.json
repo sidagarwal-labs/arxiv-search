@@ -1,0 +1,107 @@
+{
+  "automatic_promotion": false,
+  "evaluation": "Rescore baseline, top10 and top50 against one child snapshot; IDCG may change.",
+  "execution": "Same judge prompt, shuffle and batching as all frozen labels. One HTTP attempt per call, no validation retries, stop on the first failure.",
+  "human_graded_pairs": 0,
+  "judge": "openai-mini",
+  "judge_model": "gpt-5.4-mini",
+  "missing": {
+    "q-keyword-005": [
+      "2608.27757"
+    ],
+    "q-keyword-008": [],
+    "q-keyword-017": [
+      "2605.13473"
+    ],
+    "q-keyword-079": [
+      "2603.23529"
+    ],
+    "q-keyword-081": [
+      "2601.03259"
+    ],
+    "q-known_item-017": [],
+    "q-known_item-019": [
+      "2606.06266",
+      "2607.10590"
+    ],
+    "q-known_item-031": [],
+    "q-known_item-042": [
+      "2609.03313"
+    ],
+    "q-known_item-048": [],
+    "q-paraphrase-020": [
+      "2511.20220",
+      "2603.28290",
+      "2607.28979"
+    ],
+    "q-paraphrase-043": [
+      "2512.13363",
+      "2512.14085",
+      "2601.03645",
+      "2607.20445"
+    ],
+    "q-paraphrase-063": [
+      "2603.06066",
+      "2606.06350",
+      "2609.05143",
+      "2610.09661"
+    ],
+    "q-paraphrase-077": [
+      "2601.19026",
+      "2604.08826"
+    ],
+    "q-paraphrase-096": [
+      "2510.13217",
+      "2511.21121",
+      "2609.06664"
+    ],
+    "q-question-040": [
+      "2601.10355",
+      "2610.09163"
+    ],
+    "q-question-056": [
+      "2512.15483",
+      "2604.23758",
+      "2605.20242",
+      "2608.23104"
+    ],
+    "q-question-077": [],
+    "q-question-088": [
+      "2607.28156",
+      "2609.01428"
+    ],
+    "q-question-095": [
+      "2510.18707",
+      "2512.05377",
+      "2603.28173"
+    ]
+  },
+  "missing_pairs": 34,
+  "parent_labels_bytes_sha256": "9ea51e45ea7c5329a90f3021516fd143049894440c47b50cdafbc6eb543fc32a",
+  "query_ids": [
+    "q-keyword-005",
+    "q-keyword-008",
+    "q-keyword-017",
+    "q-keyword-079",
+    "q-keyword-081",
+    "q-known_item-017",
+    "q-known_item-019",
+    "q-known_item-031",
+    "q-known_item-042",
+    "q-known_item-048",
+    "q-paraphrase-020",
+    "q-paraphrase-043",
+    "q-paraphrase-063",
+    "q-paraphrase-077",
+    "q-paraphrase-096",
+    "q-question-040",
+    "q-question-056",
+    "q-question-077",
+    "q-question-088",
+    "q-question-095"
+  ],
+  "rubric_version": "b8b0c14a",
+  "scope": "Only the v2 pilot's missing top10 pairs; 20 dev queries; no held-out queries.",
+  "task_cap_usd": 0.05,
+  "version": "judge-fill-v1"
+}

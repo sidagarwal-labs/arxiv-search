@@ -604,6 +604,20 @@ do not compare its7-query primary score directly to v2's full sample.
 Missing labels withhold graded comparisons, existing human grades remain
 frozen, and the same-family judge caveat remains. No automatic promotion.
 
+## #41 Fill the v2 pilot's 34 missing judgments with the frozen judge (2026-10-30)
+
+Sid chose the existing OpenAI judge only, after a dry-run cost check, over a
+blind human review. Grade exactly the34 top10 pairs the v2 arms surfaced
+without a frozen label (none human-graded), with the same `openai-mini`
+judge, rubric `b8b0c14a`, prompt, shuffle and10-paper batching as every
+existing label. Dry run:15 calls, ~18.9k expected tokens, ~$0.021 expected.
+Task ceiling **$0.05**, enforced before each call as spent-so-far plus that
+call's worst case. One HTTP attempt per call and no validation retries:
+any failure stops the run. Existing grades, the v2 artifacts and the
+leaderboard snapshot are not modified; the new grades live in a child
+snapshot for the20 pilot queries only. No promotion. Same-family caveat
+stands: the judge and the reranker are both GPT-5.4 mini.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

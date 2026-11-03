@@ -101,12 +101,37 @@ def check_answer(answer: Grades, labels: list[str]) -> str | None:
     return None
 
 
-def judge_query(judge_key: str, query: dict, papers: list[dict], call: CallFn) -> list[dict]:
-    """Grade papers for one query in one call. Returns one cache row per paper."""
+def presentation(query: dict, papers: list[dict]) -> tuple[list[dict], list[str], str]:
+    """The exact shuffled order, labels and first prompt a judge call sends."""
     order = papers[:]
     random.Random(f"{config.RANDOM_SEED}-{query['query_id']}").shuffle(order)  # same shuffle every run
     labels = [f"P{i}" for i in range(1, len(order) + 1)]
     prompt = judge_prompts.build_prompt(query["query"], [paper_block(l, p) for l, p in zip(labels, order)])
+    return order, labels, prompt
+
+
+def max_papers_per_call(judge_key: str) -> int:
+    backend = config.JUDGES[judge_key]["backend"]
+    return (min(10, config.OPENAI_JUDGE_MAX_PAPERS_PER_CALL) if backend == "openai"
+            else config.GEMMA_JUDGE_MAX_PAPERS_PER_CALL if backend == "gemini"
+            else config.JUDGE_MAX_PAPERS_PER_CALL)
+
+
+def batches(judge_key: str, pairs: dict[str, list[str]], queries: dict, papers: dict,
+            cached: dict) -> list[tuple[str, list[dict]]]:
+    """(query_id, uncached papers) per call, in the same order judge_pairs sends them."""
+    limit = max_papers_per_call(judge_key)
+    out = []
+    for qid, ids in pairs.items():
+        query = queries[qid]
+        todo = [papers[a] for a in ids if pair_key(judge_key, query["query"], papers[a]) not in cached]
+        out += [(qid, todo[start:start + limit]) for start in range(0, len(todo), limit)]
+    return out
+
+
+def judge_query(judge_key: str, query: dict, papers: list[dict], call: CallFn) -> list[dict]:
+    """Grade papers for one query in one call. Returns one cache row per paper."""
+    order, labels, prompt = presentation(query, papers)
 
     start = time.perf_counter()
     for attempt in range(1, MAX_ATTEMPTS + 1):
@@ -216,10 +241,7 @@ def judge_pairs(judge_key: str, pairs: dict[str, list[str]], queries: dict, pape
         query = queries[qid]
         todo = [papers[a] for a in ids if pair_key(judge_key, query["query"], papers[a]) not in cached]
         counts["cached"] += len(ids) - len(todo)
-        backend = config.JUDGES[judge_key]["backend"]
-        batch_limit = (min(10, config.OPENAI_JUDGE_MAX_PAPERS_PER_CALL) if backend == "openai"
-                       else config.GEMMA_JUDGE_MAX_PAPERS_PER_CALL if backend == "gemini"
-                       else config.JUDGE_MAX_PAPERS_PER_CALL)
+        batch_limit = max_papers_per_call(judge_key)
         for start in range(0, len(todo), batch_limit):
             if max_calls is not None and counts["calls"] >= max_calls:
                 return counts

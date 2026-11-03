@@ -2282,3 +2282,31 @@ The [v2 report](../data/results/llm-score-pilot/report.md), exact score caches,
 input manifest, execution-policy amendment and same-query comparisons are
 persisted. Replays use only saved responses and must leave all accounting,
 frozen labels and historical rankings unchanged.
+
+### 31a. Top50 after filling the 34 missing judgments
+
+[Decision41](02-decisions.md#41-fill-the-v2-pilots-34-missing-judgments-with-the-frozen-judge-2026-10-30)
+graded the34 pairs with the frozen judge (15 calls, 18,727 tokens,
+$0.018482, no failures). Grades 0/1/2: 7/20/7, so 27 of 34 newly surfaced
+papers are at least partly relevant. All three systems are now fully judged
+on the same child labels; the baseline moves (.7055 → .6959) because new
+relevant papers raise the ideal DCG.
+
+| System | nDCG10 | P10 | Source MRR10 | R10 |
+|---|---|---|---|---|
+| Baseline | .6959 | .6750 | .8375 | .9000 |
+| Fixed-key top10 | .7095 | .6750 | .8417 | .9000 |
+| Fixed-key top50 | **.7553** | **.7700** | .6875 | .8500 |
+
+Top50 versus baseline: nDCG +.0593 [+.0006, +.1155], P10 +.0950
+[+.0250, +.1650], 13 wins/4 losses/3 ties. Its gains are largest on
+question (.7211 → .8276) and paraphrase (.6575 → .7531); keyword is up
+slightly, and known-item is up on nDCG but q-known_item-042's source falls
+from rank 1 to 2. Losses: q-keyword-079 (−.180), q-known_item-042 (−.150),
+q-paraphrase-043 (−.104), q-question-095 (−.056).
+
+Interpretation: top50 is the first LLM arm with a large graded gain, but
+source MRR falls by .15, the sample is 20 previously examined queries, and
+the judge shares the reranker's model family, so a same-family preference
+is not ruled out. This makes top50 worth stabilizing, not promoting.
+See the [gap-fill report](../data/results/llm-score-pilot/judge-fill/report.md).
