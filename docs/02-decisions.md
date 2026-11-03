@@ -663,6 +663,51 @@ winners need one paid end-to-end check before promotion. The 167 new grades
 will be merged additively into one shared label snapshot so both tables use
 the same denominators.
 
+## #45 Safeguard promoted as the reranking baseline; two-stage leaderboard (2026-11-03)
+
+Sid approved promoting the Decision43 safeguard as the **Stage 2 reranking
+baseline**: `llm-mini-score-pilot+d=50+rrf-baseline+c=30` (the saved ID is kept).
+GPT-5.4 mini (`gpt-5.4-mini-2026-03-17`, prompt `scores-v2`) scores the retrieval
+baseline's top 50 from 0 to 4 in one request; the LLM order is fused with the
+retrieval order by RRF, c=30; ranks below 50 are unchanged. Decision36 stays the
+**Stage 1 retrieval baseline** and supplies the candidates. Both are versioned in
+`config.py` (`WORKING_BASELINE_*`, `RERANK_BASELINE_*`).
+
+Why promote despite the caveats: +0.049 nDCG@10 on all 100 dev queries
+([+0.035, +0.063], 69 wins / 21 losses), held on the 80 queries not used to design
+the rule, and run-to-run noise (minimum detectable difference ≈ 0.009) is far
+smaller. Known risks we accept, and track: the judge and reranker share a model
+family; dev-only evidence; keyword exact-match losses (q-keyword-009/078/079);
+LLM scores are not deterministic.
+
+Production contract (not yet built): cache scores per query + candidates + prompt
++ model; if the API fails or the daily token guard is exhausted, return the
+retrieval-baseline order. Measured cost about $0.014 and 2.5 s API time per
+uncached query.
+
+**Labels.** The 167 grades added during the reranker work (34 pilot + 133 dev100,
+same frozen judge and rubric) are merged into `data/results/shared-labels/labels.json`.
+It must be a strict additive extension of `score-fusion-dev/labels.json`
+(every grade and the 100 human overrides preserved; parent SHA256 recorded). The
+leaderboard reads this layer; frozen experiment scripts stay pinned to the older
+snapshot so they replay byte-identically. Every system's nDCG drops about 0.009
+because the shared ideal DCG grew; rankings are unchanged at the top.
+
+**Tracking.** The catalog now has two tables:
+
+- **Stage 1 — retrieval:** all saved systems, ranked by nDCG@10, Δ vs the retrieval
+  baseline, plus **R@50** (source paper in the top 50) and **grade-2 recall@50**
+  (known highly relevant papers a top-50 reranker can reach).
+- **Stage 2 — end-to-end:** retrieval + reranker runs on all 100 queries, with
+  paired Δ vs **both** baselines, LLM $/query, API seconds/query and run-to-run
+  noise. 20-query pilots are subsets of these runs and are not repeated.
+
+Promotion rules: a retrieval challenger must beat the retrieval baseline in
+Stage 1 without hurting R@50 / grade-2 recall@50, then pass one paid Stage 2 run
+before it can replace candidates. A reranker challenger must beat the reranking
+baseline in Stage 2 by more than the noise band with a paired CI above zero.
+Nothing is promoted automatically.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

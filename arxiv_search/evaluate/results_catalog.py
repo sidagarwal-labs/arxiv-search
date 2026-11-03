@@ -22,7 +22,10 @@ RUN_FOLDERS = ("dev", "fusion-dev", "fusion-review-dev", "score-fusion-dev", "re
                "openai-field-recovery-dev")
 QUERY_TYPES = ("keyword", "question", "paraphrase", "known_item")
 FIELDS = ("ndcg@10", "precision@10", "judged@10", "source_mrr@10",
-          "source_recall@1", "source_recall@5", "source_recall@10", "source_recall@20")
+          "source_recall@1", "source_recall@5", "source_recall@10", "source_recall@20",
+          "source_recall@50", "grade2_recall@50")
+LEGACY_FIELDS = FIELDS[:8]  # fields frozen reviews were computed with (pre-Decision45)
+STAGE2_FOLDERS = ("llm-score-dev100",)  # full-dev reranker runs; 20-query pilots are subsets
 
 
 def _fingerprint(value: object) -> str:
@@ -72,6 +75,104 @@ def load_snapshot(root: Path) -> tuple[Path, bytes, dict, dict]:
         raise ValueError("Expanded label snapshot changed human_overrides")
     provenance.update(added_pairs=added_pairs, denominator_revised=True)
     return expanded_path, raw, expanded, provenance
+
+
+SHARED_LABELS = Path("shared-labels") / "labels.json"
+
+
+def load_shared_labels(root: Path) -> tuple[Path, bytes, dict, dict]:
+    """Return the newest shared label layer for leaderboards (Decision45).
+
+    `load_snapshot` stays pinned to the score-fusion expansion so frozen experiments
+    replay byte-identically. The shared layer must be a strict additive extension of
+    it: same judge/model/rubric/queries/workbook, every grade preserved.
+    """
+    parent_path, parent_raw, parent, provenance = load_snapshot(root)
+    path = root / SHARED_LABELS
+    if not path.exists():
+        return parent_path, parent_raw, parent, provenance
+    raw = path.read_bytes()
+    shared = json.loads(raw)
+    if not isinstance(shared, dict):
+        raise ValueError("Shared label snapshot must be an object")
+    for field in ("judge", "model", "rubric_version", "query_ids", "human_workbook_sha256"):
+        if shared.get(field) != parent.get(field):
+            raise ValueError(f"Shared label snapshot has incompatible {field}")
+    if shared.get("parent_sha256") != hashlib.sha256(parent_raw).hexdigest():
+        raise ValueError("Shared label snapshot was built from a different parent snapshot")
+    if shared.get("human_overrides") != provenance["frozen_human_overrides"]:
+        raise ValueError("Shared label snapshot changed human_overrides")
+    labels = shared.get("labels")
+    if not isinstance(labels, dict) or set(labels) != set(parent["labels"]):
+        raise ValueError("Shared label snapshot must preserve exactly the parent query IDs")
+    for qid, grades in parent["labels"].items():
+        added = labels[qid]
+        if not isinstance(added, dict) or any(
+                added.get(pid) != grade or type(added.get(pid)) is not int
+                for pid, grade in grades.items()):
+            raise ValueError(f"Shared label snapshot changed or removed a parent grade: {qid}")
+    parent_pairs = sum(len(g) for g in parent["labels"].values())
+    layer_pairs = sum(len(g) for g in labels.values()) - parent_pairs
+    if layer_pairs <= 0:
+        raise ValueError("Shared label snapshot must be a strict additive extension")
+    provenance = {**provenance, "added_pairs": provenance["added_pairs"] + layer_pairs,
+                  "denominator_revised": True,
+                  "layers": [parent_path.relative_to(root).as_posix(),
+                             SHARED_LABELS.as_posix()],
+                  "shared_layer_added_pairs": layer_pairs}
+    return path, raw, shared, provenance
+
+
+def build_shared_labels(root: Path, sources: list[str]) -> dict:
+    """Merge saved child label files into the shared layer; refuse any regrade."""
+    parent_path, parent_raw, parent, provenance = load_snapshot(root)
+    labels = {q: dict(g) for q, g in parent["labels"].items()}
+    added = {}
+    for source in sources:
+        child = json.loads((root / source).read_text(encoding="utf-8"))
+        for field in ("judge", "rubric_version"):
+            if child.get(field) != parent.get(field):
+                raise ValueError(f"{source}: incompatible {field}")
+        for qid, grades in child["labels"].items():
+            if qid not in labels:
+                raise ValueError(f"{source}: non-dev query {qid}")
+            for pid, grade in grades.items():
+                if type(grade) is not int or grade not in (0, 1, 2):
+                    raise ValueError(f"{source}: invalid grade {qid}/{pid}")
+                if pid in labels[qid]:
+                    if labels[qid][pid] != grade:
+                        raise ValueError(f"{source}: conflicting grade {qid}/{pid}")
+                    continue
+                labels[qid][pid] = grade
+                added[source] = added.get(source, 0) + 1
+    shared = {key: value for key, value in parent.items() if key != "labels"}
+    shared.update({
+        "human_overrides": provenance["frozen_human_overrides"],
+        "parent": parent_path.relative_to(root).as_posix(),
+        "parent_sha256": hashlib.sha256(parent_raw).hexdigest(),
+        "sources": sources, "added_pairs_by_source": added,
+        "decision": "45: shared additive label layer for the two-stage leaderboard",
+        "labels": {q: dict(sorted(labels[q].items())) for q in sorted(labels)},
+    })
+    return shared
+
+
+SHARED_LABEL_SOURCES = ["llm-score-pilot/judge-fill/labels.json",
+                        "llm-score-dev100/labels.json"]
+
+
+def write_shared_labels(root: Path | None = None) -> Path:
+    """Build (or verify) the Decision45 shared layer; never silently rewrite it."""
+    root = root or config.RESULTS_DIR
+    shared = build_shared_labels(root, SHARED_LABEL_SOURCES)
+    path = root / SHARED_LABELS
+    text = json.dumps(shared, indent=2, sort_keys=True) + "\n"
+    if path.exists() and path.read_text(encoding="utf-8") != text:
+        raise ValueError(f"{path} exists with different content; refusing to overwrite")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+    load_shared_labels(root)  # validate exactly what the leaderboard will read
+    return path
 
 
 def discover_runs(root: Path) -> dict:
@@ -140,10 +241,16 @@ def score_catalog(runs: dict, snapshot: dict, papers: dict, queries: dict,
         rows = []
         for source in metrics.score_run(run, source_labels):
             qid = source["query_id"]
+            top50 = set(run.get(qid, [])[:50])
+            strong = [pid for pid, grade in labels[qid].items() if grade == 2]
             rows.append({
                 **graded_rows[qid],
                 "source_mrr@10": source["mrr@10"],
                 **{f"source_recall@{k}": source[f"recall@{k}"] for k in (1, 5, 10, 20)},
+                "source_recall@50": float(queries[qid]["source_arxiv_id"] in top50),
+                # Known grade-2 papers reachable by a top-50 reranker (judged pool only).
+                "grade2_recall@50": (sum(p in top50 for p in strong) / len(strong)
+                                     if strong else None),
             })
         complete = all(len(run.get(q, [])) >= 10
                        and all(p in labels[q] for p in run[q][:10]) for q in qids)
@@ -203,6 +310,17 @@ def describe_system(name: str) -> dict[str, str]:
         "gte-small": "GTE-small", "bge-small": "BGE-small",
         "e5-small": "E5-small", "minilm": "MiniLM-L6-v2",
     }
+    if name.startswith("llm-mini-score-pilot+"):
+        opts = dict(p.split("=", 1) for p in name.split("+")[1:] if "=" in p)
+        safeguard = "+rrf-baseline+" in name
+        return {
+            "name": "LLM reranker + safeguard" if safeguard else "LLM reranker (scores only)",
+            "lexical": "Retrieval baseline candidates (tuned BM25)",
+            "embedding": models["openai-large"] + " (retrieval baseline)",
+            "ranker": f"GPT-5.4 mini scores retrieval-baseline top{opts['d']} 0-4 in one "
+                      "request" + (f"; RRF of LLM order with retrieval order, c{opts['c']}"
+                                   if safeguard else "; sort by score, ties keep retrieval order"),
+        }
     if name.startswith("oai-field-recovery+"):
         opts = dict(p.split("=", 1) for p in name.split("+")[1:])
         recipe = opts["text"]
@@ -343,15 +461,135 @@ def leaderboard_order(systems: dict) -> tuple[list[str], list[str]]:
     return ranked, sorted(set(systems) - set(ranked), key=key)
 
 
+def _paired(control: dict, result: dict) -> dict | None:
+    """Paired nDCG difference, only when both runs have every top-10 position judged."""
+    if not control["top10_fully_judged"] or not result["top10_fully_judged"]:
+        return None
+    left = {r["query_id"]: r["ndcg@10"] for r in control["per_query"]}
+    right = {r["query_id"]: r["ndcg@10"] for r in result["per_query"]}
+    ids = sorted(q for q in left if left[q] is not None and right.get(q) is not None)
+    if not ids:
+        return None
+    mean, low, high = metrics.paired_diff_ci([left[q] for q in ids], [right[q] for q in ids])
+    wins = sum(right[q] > left[q] + 1e-12 for q in ids)
+    losses = sum(right[q] < left[q] - 1e-12 for q in ids)
+    return {"difference": mean, "ci95": [low, high], "n": len(ids), "wins": wins,
+            "losses": losses}
+
+
+def stage2_systems(root: Path, snapshot: dict, papers: dict, queries: dict,
+                   dev_ids: list[str], stage1: dict) -> dict:
+    """Score end-to-end (retrieval + reranker) runs against the same shared labels."""
+    retrieval = config.WORKING_BASELINE_SYSTEM
+    runs = {}
+    for folder in STAGE2_FOLDERS:
+        for path in sorted((root / folder).glob("*.run.json")):
+            name = path.name.removesuffix(".run.json")
+            run = json.loads(path.read_text(encoding="utf-8"))
+            if name in stage1:
+                if _fingerprint(run) != stage1[name]["ranking_sha256"]:
+                    raise ValueError(f"{path}: differs from the Stage 1 ranking of {name}")
+                continue
+            if name in runs:
+                raise ValueError(f"Duplicate Stage 2 system {name}")
+            runs[name] = {"run": run, "paths": [path.relative_to(root).as_posix()],
+                          "metadata": {}}
+    if not runs:
+        return {}
+    if retrieval not in stage1:
+        raise ValueError("Stage 2 needs the retrieval baseline ranking")
+    runs[retrieval] = {"run": json.loads((root / stage1[retrieval]["paths"][0])
+                                         .read_text(encoding="utf-8")),
+                       "paths": stage1[retrieval]["paths"], "metadata": {}}
+    systems = score_catalog(runs, snapshot, papers, queries, dev_ids,
+                            config.RERANK_BASELINE_SYSTEM)
+    report = json.loads((root / config.RERANK_BASELINE_RUN_DIR / "report.json")
+                        .read_text(encoding="utf-8"))
+    spend = report["reranker_accounting"]
+    noise_path = root / config.RERANK_BASELINE_NOISE_DIR / "report.json"
+    noise = (json.loads(noise_path.read_text(encoding="utf-8"))["systems"]
+             if noise_path.exists() else {})
+    rerank = systems.get(config.RERANK_BASELINE_SYSTEM)
+    for name, result in systems.items():
+        is_llm = name != retrieval
+        sd = noise.get(name, {}).get("est_sd_of_100q_mean")
+        result.update({
+            "retrieval_baseline": name == retrieval,
+            "reranking_baseline": name == config.RERANK_BASELINE_SYSTEM,
+            "paired_ndcg_vs_retrieval_baseline": (
+                _paired(systems[retrieval], result) if name != retrieval else None),
+            "paired_ndcg_vs_reranking_baseline": (
+                _paired(rerank, result) if rerank and name != config.RERANK_BASELINE_SYSTEM
+                else None),
+            "cost": ({"usd_per_query": spend["accounted_usd"] / spend["requests"],
+                      "api_seconds_per_query": spend["api_seconds"] / spend["requests"],
+                      "scope": f"{spend['requests']} uncached {config.RERANK_BASELINE_RUN_DIR} "
+                               "requests; pilot queries reused cached responses"}
+                     if is_llm else {"usd_per_query": 0.0, "api_seconds_per_query": 0.0,
+                                     "scope": "no LLM call"}),
+            "noise": ({"est_sd_of_100q_mean": sd,
+                       "min_detectable_difference": 1.96 * 2 ** 0.5 * sd,
+                       "source": f"{config.RERANK_BASELINE_NOISE_DIR}/report.json"}
+                      if sd is not None else None),
+            "cached_responses": is_llm,
+        })
+    return systems
+
+
+def _signed(paired: dict | None, reason: str) -> str:
+    if not paired:
+        return reason
+    low, high = paired["ci95"]
+    return f"{paired['difference']:+.3f} [{low:+.3f}, {high:+.3f}] W/L {paired['wins']}/{paired['losses']}"
+
+
+def _stage2_table(systems: dict) -> str:
+    ranked, unranked = leaderboard_order(systems)
+    lines = [
+        "| Rank | System | Stage 1 retrieval | Stage 2 reranker | Status | nDCG@10 (n) | P@10 | "
+        "Source MRR@10 | R@1 | R@10 | Δ nDCG vs retrieval baseline [95% CI] W/L | "
+        "Δ nDCG vs reranking baseline [95% CI] W/L | LLM $/query | API s/query | "
+        "Run-to-run noise (SD of 100-q mean; MDD) |",
+        "|" + "---|" * 15,
+    ]
+    for index, name in enumerate(ranked + unranked, 1):
+        result = systems[name]
+        summary = result["all"]
+        d = describe_system(name)
+        title = d["name"]
+        if result["retrieval_baseline"]:
+            title = f"**{title} (RETRIEVAL BASELINE, no reranker)**"
+        elif result["reranking_baseline"]:
+            title = f"**{title} (RERANKING BASELINE)**"
+        noise = result["noise"]
+        cost = result["cost"]
+        cells = [str(index) if name in ranked else "-", f"{title}<br>`{name}`",
+                 "Retrieval baseline (Decision36)",
+                 "None" if result["retrieval_baseline"] else d["ranker"],
+                 result["status"],
+                 f"{summary['ndcg@10']['mean']:.4f} ({summary['ndcg@10']['n']})",
+                 _value(summary, "precision@10"), _value(summary, "source_mrr@10"),
+                 _value(summary, "source_recall@1"), _value(summary, "source_recall@10"),
+                 _signed(result["paired_ndcg_vs_retrieval_baseline"], "itself"),
+                 _signed(result["paired_ndcg_vs_reranking_baseline"],
+                         "itself" if result["reranking_baseline"] else "withheld"),
+                 f"${cost['usd_per_query']:.4f}", f"{cost['api_seconds_per_query']:.2f}",
+                 (f"{noise['est_sd_of_100q_mean']:.4f}; {noise['min_detectable_difference']:.3f}"
+                  if noise else "deterministic" if result["retrieval_baseline"] else "unmeasured")]
+        lines.append("| " + " | ".join(cells) + " |")
+    return "\n".join(lines)
+
+
 def _table(systems: dict) -> str:
     ranked, unranked = leaderboard_order(systems)
     header = [
         "| Rank | System | Keyword retrieval | Embedding | Ranker / fusion | "
         "Status | Success: nDCG@10 (n) | P@10 | judged@10 | Source MRR@10 | "
-        "R@1 | R@5 | R@10 | R@20 | Known-item MRR@10 | Δ nDCG vs working baseline [95% CI] |",
-        "|" + "---|" * 16,
+        "R@1 | R@5 | R@10 | R@20 | R@50 | Grade-2 recall@50 | Known-item MRR@10 | "
+        "Δ nDCG vs retrieval baseline [95% CI] |",
+        "|" + "---|" * 18,
     ]
-    lines = ["### Ranked leaderboard (fully judged)", "", *header]
+    lines = ["### Stage 1 — retrieval leaderboard (fully judged)", "", *header]
     for names, eligible in ((ranked, True), (unranked, False)):
         if not eligible:
             lines += ["", "### Unranked diagnostics (incomplete judgments or undefined nDCG)", "",
@@ -362,7 +600,7 @@ def _table(systems: dict) -> str:
             description = describe_system(name)
             title = description["name"]
             if result["working_baseline"]:
-                title = f"**{title} (WORKING BASELINE)**"
+                title = f"**{title} (RETRIEVAL BASELINE)**"
             score = summary["ndcg@10"]
             ndcg = "undefined (n=0)" if score["mean"] is None else f"{score['mean']:.4f} ({score['n']})"
             cells = [str(index) if eligible else "-", title,
@@ -390,7 +628,7 @@ def write_catalog() -> str:
         return ('<a id="unified-dev-scorecard"></a>\n\n'
                 "## Dev leaderboard: all experiments\n\n"
                 "Unavailable: frozen `fusion-dev/labels.json` has not been saved yet.")
-    snapshot_path, raw_snapshot, snapshot, provenance = load_snapshot(root)
+    snapshot_path, raw_snapshot, snapshot, provenance = load_shared_labels(root)
     papers, queries, splits = judge.load_inputs()
     if set(splits["dev"]) & set(splits["test"]):
         raise ValueError("Dev/test query overlap")
@@ -400,6 +638,8 @@ def write_catalog() -> str:
     for name, result in systems.items():
         result["description"] = describe_system(name)
         result["leaderboard_rank"] = ranked.index(name) + 1 if name in ranked else None
+    stage2 = stage2_systems(root, snapshot, papers, queries, splits["dev"], systems)
+    stage2_ranked, stage2_unranked = leaderboard_order(stage2) if stage2 else ([], [])
     out.mkdir(parents=True, exist_ok=True)
     inventory = sorted({
         path for path in root.rglob("*")
@@ -410,6 +650,8 @@ def write_catalog() -> str:
     report = {
         "scope": "dev only; full current corpus; saved rankings; no retrieval or API calls",
         "working_baseline": config.WORKING_BASELINE_SYSTEM,
+        "retrieval_baseline": config.WORKING_BASELINE_SYSTEM,
+        "reranking_baseline": config.RERANK_BASELINE_SYSTEM,
         "corpus_papers": len(papers), "corpus_sha256": _fingerprint(papers),
         "dev_queries": len(splits["dev"]),
         "dev_queries_sha256": _fingerprint({q: queries[q] for q in sorted(splits["dev"])}),
@@ -426,13 +668,20 @@ def write_catalog() -> str:
         "leaderboard": {"metric": "ndcg@10", "direction": "descending",
                         "tie_breaker": "stable system ID (unrounded nDCG is used)",
                         "ranked": ranked, "unranked": unranked},
+        "stage2": {"systems": stage2, "ranked": stage2_ranked, "unranked": stage2_unranked,
+                   "folders": list(STAGE2_FOLDERS)},
     }
     (out / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n",
                                     encoding="utf-8")
     caveats = (
         f"{len(systems)} distinct saved systems; {len(splits['dev'])} dev queries; "
-        f"current corpus: {len(papers):,} papers. **Working baseline: "
-        f"`{config.WORKING_BASELINE_SYSTEM}`**. **Success score = nDCG@10**, descending "
+        f"current corpus: {len(papers):,} papers. **Two-stage tracking (Decision45):** "
+        f"Stage 1 **retrieval baseline** `{config.WORKING_BASELINE_SYSTEM}` (Decision36) "
+        f"produces candidates; Stage 2 **reranking baseline** "
+        f"`{config.RERANK_BASELINE_SYSTEM}` reorders its top{config.RERANK_BASELINE_DEPTH}. "
+        "Retrieval experiments compete in Stage 1 (watch R@50 / grade-2 recall@50: what a "
+        "top-50 reranker can reach); reranker experiments compete in Stage 2 on the same "
+        "retrieval candidates. **Success score = nDCG@10**, descending "
         "using unrounded means; exact ties use stable system ID. Only fully judged runs "
         "with defined nDCG receive positions. The baseline stays at its actual position, "
         "not pinned first. Provisional runs appear separately, unranked. "
@@ -449,7 +698,10 @@ def write_catalog() -> str:
         f"including its {report['human_overrides']} frozen human overrides. "
         + (f"**Revised shared ideal-DCG denominator:** approved additive expansion preserves "
            f"all {provenance['original_pairs']} original labels and adds "
-           f"{provenance['added_pairs']} labels. Every system is rescored against this "
+           f"{provenance['added_pairs']} labels"
+           + (f" ({provenance['shared_layer_added_pairs']} of them from the Decision45 "
+              "shared layer: LLM-reranker top-10 fills)" if "layers" in provenance else "")
+           + ". Every system is rescored against this "
            "expanded denominator; original reports remain unchanged and their nDCG values "
            "must not be mixed with these revised scores. "
            if provenance["denominator_revised"] else
@@ -459,11 +711,14 @@ def write_catalog() -> str:
         "combined. Linear-gain nDCG@10 uses that shared ideal DCG; undefined queries are "
         "excluded only from nDCG (n shown). P@10 counts grades ≥1 with denominator 10. "
         "Unjudged gains count as zero. judged@10 is the judged fraction of returned results; "
-        "short/missing lists still fail the full top-10 coverage gate.\n\n"
+        "short/missing lists still fail the full top-10 coverage gate. R@50 = source paper "
+        "in the top 50; grade-2 recall@50 = share of known grade-2 papers in the top 50 "
+        "(judged pool only, so an upper-bound-style reachability check for a top-50 "
+        "reranker, not a complete recall).\n\n"
         "**PROVISIONAL** means a dev top-10 position is missing or unjudged: source-paper "
         "MRR/recall remain valid on the full dev denominator (missing queries score zero), "
         "but graded scores are lower-bound diagnostics, not winner evidence. Paired nDCG "
-        "against the CURRENT working baseline is withheld unless BOTH runs have every dev "
+        "against the CURRENT retrieval baseline is withheld unless BOTH runs have every dev "
         "top-10 position judged. Intervals are exploratory query bootstraps conditional on "
         "these labels, not judge accuracy; no multiple-testing correction or test-query "
         "scoring. Known-item MRR is source-paper MRR on that type only.\n\n"
@@ -477,6 +732,16 @@ def write_catalog() -> str:
         "Historical reports retain their original labels, denominators, and controls."
     )
     table = _table(systems) if systems else "_No saved dev rankings._"
+    stage2_text = "\n\n".join([
+        "### Stage 2 — end-to-end reranking leaderboard (retrieval + reranker)",
+        "Every row uses the same retrieval-baseline candidates and the same shared labels. "
+        "Rank by nDCG@10 with paired deltas against BOTH baselines. LLM cost and API time "
+        "are measured means over uncached requests; saved rankings replay cached "
+        "responses (LLM scores are not deterministic). Differences smaller than the MDD "
+        "(1.96·√2·SD of the 100-query mean, from the Decision44 repeat run) are within "
+        "run-to-run noise. 20-query pilots are subsets of these runs and are not repeated.",
+        _stage2_table(stage2),
+    ]) if stage2 else "### Stage 2 — end-to-end reranking leaderboard\n\n_No saved reranker runs._"
     inventory_lines = []
     for path in inventory:
         relative = path.relative_to(root).as_posix()
@@ -486,11 +751,13 @@ def write_catalog() -> str:
                  " — historical report/configuration; original scope")
         inventory_lines.append(f"- [{relative}]({_link(path, out)}){scope}")
     lines = ["# Dev leaderboard: all-experiment catalog", "", caveats, "", table, "",
+             stage2_text, "",
              "## Every run by query type", "",
              "| System | Type | Queries | nDCG@10 (n) | P@10 | judged@10 | "
-             "Source MRR@10 | R@1 | R@5 | R@10 | R@20 |",
-             "|" + "---|" * 11]
-    for name, result in systems.items():
+             "Source MRR@10 | R@1 | R@5 | R@10 | R@20 | R@50 | Grade-2 recall@50 |",
+             "|" + "---|" * 13]
+    for name, result in [*systems.items(), *((n, r) for n, r in stage2.items()
+                                             if n not in systems)]:
         for kind, summary in result["by_query_type"].items():
             cells = [f"`{name}`", kind, str(summary["queries"]),
                      f"{_value(summary, 'ndcg@10')} ({summary['ndcg@10']['n']})"]
@@ -511,7 +778,7 @@ def write_catalog() -> str:
     ]
     return "\n\n".join([
         '<a id="unified-dev-scorecard"></a>\n\n## Dev leaderboard: all experiments',
-        caveats, table, "\n".join(identities),
+        caveats, table, stage2_text, "\n".join(identities),
         f"[Per-type results for EVERY run]({_link(out / 'report.md', docs)}) · "
         f"[Machine report, coverage, provenance and saved timing/cost metadata]"
         f"({_link(out / 'report.json', docs)}) · "

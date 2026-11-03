@@ -32,20 +32,24 @@ a 300-query held-out test set is reserved for the final evaluation.
 
 Steps 1-4 are built. Step 5, retrieval-augmented answers, and a web app are planned.
 
-## Current working baseline
+## Current working baselines
 
-GPT-5.4 mini grades results offline; it is not part of the search path.
+Search runs in two stages ([Decision 45](docs/02-decisions.md#45-safeguard-promoted-as-the-reranking-baseline-two-stage-leaderboard-2026-11-03)):
+**Stage 1 retrieval** (Decision 36, free and deterministic) finds candidates;
+**Stage 2 reranking** asks GPT-5.4 mini to score the top 50 and blends that order
+with the retrieval order. GPT-5.4 mini also grades results offline as the judge.
 
 | Component | Selected configuration | Status |
 |---|---|---|
 | Corpus | 23,304 arXiv papers; title + abstract | Indexed with local models and OpenAI large |
 | Keyword retrieval | BM25 with exact terms + stems, authors and title weighted x2; k1=0.8, b=0.75; no stopword removal | Measured on full corpus |
 | Embeddings | OpenAI `text-embedding-3-large`, 3,072 dimensions; normalized vectors | Full-corpus vectors cached; $0.7439 under a separate $1.25 cap |
-| Hybrid selection + ordering | RRF (55% semantic / 45% lexical, c=30, depth 100) selects the top 10; max-normalized score fusion (75% semantic / 25% lexical, depth 500) reorders those ten; the tail is unchanged | Selected in [Decision 36](docs/02-decisions.md#36-recall-preserving-shortlist-score-baseline-promoted-2026-10-29); deterministic, with no learned or LLM reranker |
+| Stage 1: hybrid selection + ordering | RRF (55% semantic / 45% lexical, c=30, depth 100) selects the top 10; max-normalized score fusion (75% semantic / 25% lexical, depth 500) reorders those ten; the tail is unchanged | **Retrieval baseline**, [Decision 36](docs/02-decisions.md#36-recall-preserving-shortlist-score-baseline-promoted-2026-10-29); deterministic |
+| Stage 2: LLM reranker | GPT-5.4 mini (`2026-03-17` snapshot) scores the retrieval top 50 from 0-4 in one request; RRF of LLM order and retrieval order (c=30); ranks below 50 unchanged | **Reranking baseline**, [Decision 45](docs/02-decisions.md#45-safeguard-promoted-as-the-reranking-baseline-two-stage-leaderboard-2026-11-03); ≈ $0.014 and 2.5 s per uncached query; scores vary slightly run to run, so production must cache and fall back to Stage 1 |
 | Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29; the 3,294-pair dev pool is covered for finalists; some older exploratory rows may be provisional; fresh human validation deferred |
 | Evaluation | 100 dev / 300 held-out test queries; source-paper MRR and recall, plus graded nDCG and judgment coverage | Full dev evaluation complete; held-out test untouched |
 | Vector storage | Offline NumPy arrays + paper-ID metadata; exact cosine search | Hosted Postgres/pgvector planned, not deployed |
-| Reranker / RAG | Local MiniLM cross-encoder, title/abstract field scores and a 20-query LLM reranker pilot tested; RAG not implemented | Experiments only; not baseline components |
+| RAG | Not implemented | Planned |
 
 ## Development results
 
@@ -60,7 +64,16 @@ queries over all 23,304 papers.
 | BM25 + GTE-small hybrid | 0.6312 | 0.6350 | 80% |
 | BM25 + OpenAI-large hybrid | 0.6604 | 0.6534 | 84% |
 | RRF, 55% semantic, c=30 | 0.7064 | 0.6459 | 86% |
-| **Shortlist + score reordering (current)** | **0.7176** | **0.6967** | **86%** |
+| **Shortlist + score reordering (retrieval baseline)** | **0.7176** | **0.6967** | **86%** |
+
+After the LLM-reranker work added 167 grades, the leaderboard moved to a shared
+3,461-pair label layer; every score drops about 0.009 on that larger denominator,
+so compare rows only within one label set:
+
+| Two-stage baselines (shared labels) | nDCG@10 | Source MRR@10 | Source R@10 |
+|---|---|---|---|
+| Stage 1 retrieval baseline | 0.7092 | 0.6967 | 86% |
+| **Stage 2: + LLM top-50 reranker with safeguard (current)** | **0.7583** | **0.7197** | **87%** |
 
 - **nDCG@10:** graded relevance of the top 10 results, using 0/1/2 labels.
 - **Source MRR@10:** how high the paper each query was written from appears.
@@ -78,8 +91,9 @@ test has not been run.
 - **Local MiniLM cross-encoder reranking:** nDCG@10 fell from 0.7176 to 0.7021.
 - **Separate title and abstract embeddings:** reached up to 0.7214 nDCG@10,
   but gains were within uncertainty and came with source-MRR or query-type tradeoffs.
-- **LLM reranker pilot:** on 20 queries, top-10 nDCG improved from 0.7055 to
-  0.7194, but deeper results were not fully judged; it is not a baseline.
+- **LLM reranker without the safeguard:** highest nDCG@10 (0.7789 on shared
+  labels) but source MRR fell; the RRF safeguard keeps most of the gain and
+  protects exact source-paper hits, so it was promoted instead.
 
 The [experiment log](docs/07-experiment-log.md) has the full history, budgets and
 caveats.

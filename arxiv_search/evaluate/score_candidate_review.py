@@ -88,7 +88,7 @@ def main() -> None:
         left = [r for r in rows[baseline] if kind == "all" or r["query_type"] == kind]
         right = [r for r in rows[CANDIDATE] if kind == "all" or r["query_type"] == kind]
         paired[kind] = {field: fusion.paired_rows(left, right, field)
-                        for field in results_catalog.FIELDS if field != "judged@10"}
+                        for field in results_catalog.LEGACY_FIELDS if field != "judged@10"}
     valid = [r for r in changes if r["ndcg_difference"] is not None]
     loss = sorted((r for r in valid if r["ndcg_difference"] < -1e-12),
                   key=lambda r: (r["ndcg_difference"], r["query_id"]))

@@ -71,14 +71,18 @@ def test_automatic_discovery_dedup_and_current_baseline(inputs):
         "dev/legacy.run.json", "fusion-dev/legacy.run.json"]
     assert systems["legacy"]["metadata"]["dev/legacy.info.json"]["ms_per_query"] == 12.5
     assert systems["unregistered-new-score-fusion"]["metadata"] == {}
-    assert "**current-baseline (WORKING BASELINE)**" in text
-    assert "**baseline-original-alias (WORKING BASELINE)**" not in text
+    assert "**current-baseline (RETRIEVAL BASELINE)**" in text
+    assert "**baseline-original-alias (RETRIEVAL BASELINE)**" not in text
     assert systems["legacy"]["paired_ndcg_vs_working_baseline"]["difference"] == 0
     for system in systems.values():
         assert set(system["by_query_type"]) == set(catalog.QUERY_TYPES)
         assert system["known_item_source_mrr@10"] == {"mean": 1.0, "n": 1}
         assert system["all"]["source_recall@20"]["mean"] == 1.0
+        assert system["all"]["source_recall@50"]["mean"] == 1.0
+        assert system["all"]["grade2_recall@50"]["mean"] == 1.0
     assert report["working_baseline"] == "current-baseline"
+    assert report["stage2"]["systems"] == {}
+    assert "_No saved reranker runs._" in text
 
 
 def test_cross_encoder_friendly_names_distinguish_candidate_selection_and_ordering():
@@ -421,3 +425,106 @@ def test_new_rank_score_families_automatically_reach_leaderboard(inputs):
     assert len(report["leaderboard"]["ranked"]) == 3
     assert "Fixed-shortlist score ordering" in text
     assert "Rank + score interpolation" in text
+
+def _shared_layer_inputs(root, snapshot):
+    expanded = copy.deepcopy(snapshot)
+    expanded["labels"]["q0"]["p20"] = 2
+    save(root / "score-fusion-dev" / "labels.json", expanded)
+    child = {"judge": "frozen-judge", "rubric_version": "frozen-rubric",
+             "labels": copy.deepcopy(expanded["labels"])}
+    child["labels"]["q1"]["p21"] = 1
+    save(root / "llm-score-pilot" / "judge-fill" / "labels.json", child)
+    child2 = copy.deepcopy(child)
+    child2["labels"]["q2"]["p22"] = 2
+    save(root / "llm-score-dev100" / "labels.json", child2)
+    return expanded
+
+
+def test_shared_label_layer_is_additive_and_leaves_frozen_snapshot_pinned(inputs):
+    root, snapshot, _, _, _, _ = inputs
+    _shared_layer_inputs(root, snapshot)
+    pinned = catalog.load_snapshot(root)
+    path = catalog.write_shared_labels(root)
+    assert catalog.write_shared_labels(root) == path  # idempotent
+    shared_path, _, shared, provenance = catalog.load_shared_labels(root)
+    assert shared_path == path
+    assert catalog.load_snapshot(root)[1] == pinned[1]  # frozen experiments unaffected
+    assert shared["added_pairs_by_source"] == {
+        "llm-score-pilot/judge-fill/labels.json": 1, "llm-score-dev100/labels.json": 1}
+    assert provenance["added_pairs"] == 3 and provenance["shared_layer_added_pairs"] == 2
+    catalog.write_catalog()
+    report = json.loads((root / "catalog-dev" / "report.json").read_text())
+    assert report["label_snapshot"] == "shared-labels/labels.json"
+    assert "Decision45 shared layer" in (root / "catalog-dev" / "report.md").read_text(
+        encoding="utf-8")
+
+
+@pytest.mark.parametrize("change, message", [
+    ("conflict", "conflicting grade"), ("judge", "incompatible judge"),
+])
+def test_shared_label_build_refuses_regrades(inputs, change, message):
+    root, snapshot, _, _, _, _ = inputs
+    _shared_layer_inputs(root, snapshot)
+    path = root / "llm-score-dev100" / "labels.json"
+    child = json.loads(path.read_text())
+    if change == "conflict":
+        child["labels"]["q0"]["p0"] = 0
+    else:
+        child["judge"] = "other"
+    save(path, child)
+    with pytest.raises(ValueError, match=message):
+        catalog.write_shared_labels(root)
+
+
+def test_shared_label_layer_fails_closed_when_parent_or_grades_change(inputs):
+    root, snapshot, _, _, _, _ = inputs
+    expanded = _shared_layer_inputs(root, snapshot)
+    path = catalog.write_shared_labels(root)
+    shared = json.loads(path.read_text())
+    shared["labels"]["q0"]["p0"] = 0
+    save(path, shared)
+    with pytest.raises(ValueError, match="changed or removed a parent grade"):
+        catalog.load_shared_labels(root)
+    expanded["labels"]["q3"]["p23"] = 0
+    save(root / "score-fusion-dev" / "labels.json", expanded)
+    with pytest.raises(ValueError, match="different parent snapshot"):
+        catalog.load_shared_labels(root)
+
+
+def test_stage2_leaderboard_pairs_against_both_baselines(inputs, monkeypatch):
+    root, _, _, _, ids, run = inputs
+    safe = "llm-mini-score-pilot+d=50+rrf-baseline+c=30"
+    llm = "llm-mini-score-pilot+d=50"
+    monkeypatch.setattr(catalog.config, "RERANK_BASELINE_SYSTEM", safe)
+    worse = {q: [f"p{i}" for i in (1, 0, *range(2, 20))] for q in ids}
+    save(root / "llm-score-dev100" / "current-baseline.run.json", run)  # identical alias
+    save(root / "llm-score-dev100" / f"{safe}.run.json", run)
+    save(root / "llm-score-dev100" / f"{llm}.run.json", worse)
+    save(root / "llm-score-dev100" / "report.json", {"reranker_accounting": {
+        "accounted_usd": 1.0, "requests": 4, "api_seconds": 10.0}})
+    save(root / "llm-score-repeat" / "report.json", {"systems": {
+        safe: {"est_sd_of_100q_mean": 0.003}}})
+    text = catalog.write_catalog()
+    stage2 = json.loads((root / "catalog-dev" / "report.json").read_text())["stage2"]
+    systems = stage2["systems"]
+    assert set(systems) == {"current-baseline", safe, llm}
+    assert llm not in json.loads((root / "catalog-dev" / "report.json").read_text())["systems"]
+    assert systems[safe]["reranking_baseline"] and systems["current-baseline"]["retrieval_baseline"]
+    assert systems[safe]["paired_ndcg_vs_retrieval_baseline"]["difference"] == 0
+    assert systems[llm]["paired_ndcg_vs_reranking_baseline"]["difference"] < 0
+    assert systems[llm]["paired_ndcg_vs_reranking_baseline"]["losses"] == 4
+    assert systems[safe]["cost"]["usd_per_query"] == 0.25
+    assert systems[safe]["noise"]["min_detectable_difference"] == pytest.approx(
+        1.96 * 2 ** 0.5 * 0.003)
+    assert systems[llm]["noise"] is None
+    assert "(RERANKING BASELINE)" in text and "(RETRIEVAL BASELINE, no reranker)" in text
+    assert "Stage 2 — end-to-end reranking leaderboard" in text
+
+
+def test_stage2_refuses_alias_that_differs_from_stage1(inputs, monkeypatch):
+    root, _, _, _, ids, run = inputs
+    changed = copy.deepcopy(run)
+    changed[ids[0]] = list(reversed(changed[ids[0]]))
+    save(root / "llm-score-dev100" / "current-baseline.run.json", changed)
+    with pytest.raises(ValueError, match="differs from the Stage 1 ranking"):
+        catalog.write_catalog()

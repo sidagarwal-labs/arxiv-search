@@ -20,7 +20,8 @@ Keep benchmark scopes separate: these rows use different corpora, label pools or
 | Selected judge calibration | GPT-5.4 mini vs. 100 human-labeled pairs from 12 dev searches | Exact agreement **77%**; quadratic kappa **0.802**; relevant/not agreement **84%**; **0** opposite 0-vs-2 errors |
 | Original OpenAI hybrid control | BM25 + **OpenAI large**, equal-weight RRF c=10; 23,304 papers, 100 dev queries | MRR@10 **0.653** [0.572, 0.737]; R@1 **0.56**, R@10 **0.84**, R@20 **0.90** |
 | Original seven-system graded snapshot | Original OpenAI hybrid; GPT-5.4 mini with 100 human overrides | nDCG@10 **0.686** [0.659, 0.712]; P@10 **0.633** [0.595, 0.673]; judged@10 **100%** |
-| **Current working baseline** | **RRF shortlist + max-score 75% ordering, score depth 500**; 100 dev queries, same 3,294-pair snapshot | **nDCG@10 0.7176; P@10 0.689; source MRR@10 0.6967; R@1 0.61; R@10 0.86; R@20 0.89; known-item MRR 0.980** |
+| **Current working baseline** | **RRF shortlist + max-score 75% ordering, score depth 500**; 100 dev queries, same 3,294-pair snapshot | **nDCG@10 0.7176; P@10 0.689; source MRR@10 0.6967; R@1 0.61; R@10 0.86; R@20 0.89; known-item MRR 0.980** (0.7092 on the Decision45 shared 3,461-pair labels) |
+| **Reranking baseline (Decision 45)** | Retrieval baseline top 50 scored by GPT-5.4 mini, RRF safeguard c=30; 100 dev queries, shared 3,461-pair labels | **nDCG@10 0.7583; P@10 0.736; source MRR@10 0.720**; ≈ $0.014 per uncached query |
 | Full-corpus semantic retrieval | OpenAI large alone; same corpus and dev queries | MRR@10 **0.599** [0.518, 0.679]; R@10 **0.82**, R@20 **0.88** |
 
 The pilot has fewer distractors and cannot be compared directly with the full-corpus
@@ -181,6 +182,18 @@ but the safeguard kept a median 9/10 top10 overlap and both runs beat the
 baseline. Estimated run-to-run noise on a 100-query mean (SD ≈ .003) is far
 below the +.049 gain. The pre-registered 0.01 mean-change guide failed on 20
 queries (+.014 to +.021), which we judge too tight for that sample size.
+
+**Promoted ([Decision 45](02-decisions.md#45-safeguard-promoted-as-the-reranking-baseline-two-stage-leaderboard-2026-11-03)):**
+the safeguard is the **reranking baseline**; Decision 36 stays the **retrieval
+baseline**. The 167 new grades now live in one shared label layer, so all
+leaderboard scores shifted down about 0.009 (retrieval baseline 0.7176 → 0.7092).
+The [two-stage leaderboard](05-results.md#unified-dev-scorecard) tracks retrieval
+experiments (with R@50) and end-to-end reranker experiments separately.
+
+| Stage | Baseline | nDCG@10 | P@10 | Source MRR@10 | Cost / API time per query |
+|---|---|---|---|---|---|
+| 1 retrieval | Decision 36 shortlist + score ordering | 0.7092 | 0.689 | 0.697 | free, deterministic |
+| 2 end-to-end | + GPT-5.4 mini top-50 scores, RRF safeguard c=30 | 0.7583 | 0.736 | 0.720 | ≈ $0.014 / 2.5 s uncached |
 
 Repeated global fusion tuning is showing diminishing returns. See the
 [experiment/promotion findings](03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
