@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answer": "The closest matches are [1], [8], and [9]. [1] focuses on lifecycle memory control with an explicit strength state for retention consequence, distinguishing admission validity from retention strength during maintenance. [8] also uses a lifecycle view, with explicit strength and evidence tracking in a hierarchical belief-state memory and operations such as reinforcement, weakening, consolidation, forgetting, and resynthesis. [9] addresses the knowledge lifecycle from the write phase, using cost-aware routing and periodic consolidation to selectively externalize and internalize memory.",
+    "cited": [
+      1,
+      8,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "eada8611da442f43d3ae4b6fc01701b32a55058afa6f2c6b4cfed706f51de2d5",
+  "usage": {
+    "accounted_tokens": 3985,
+    "input_tokens": 3863,
+    "latency_seconds": 2.205812900007004,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 122,
+    "provider_request_id": "req_afc06e1c15274ff7ac80cc7105ca0e06",
+    "reasoning_tokens": 0,
+    "request_id": "a6d434be-6981-4e68-8de5-38b78fabf82b",
+    "reserved_input": 24425,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:17.426337+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

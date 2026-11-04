@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-050",
+  "outcome": {
+    "answer": "No supplied paper specifically studies blocking fake information by removing a page and checking how the answer changes. The closest is [10], which evaluates defenses against misleading pages retrieved and synthesized into distorted answers, and [9], which assesses source credibility and answer groundedness against cited sources. Neither abstract describes page-removal counterfactual testing.",
+    "cited": [
+      10,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "0a74102a5fdc4336356aa6efeef2e28a25ee74ffed3a9fcbd7c4b82b997ca5ad",
+  "usage": {
+    "accounted_tokens": 3481,
+    "input_tokens": 3399,
+    "latency_seconds": 2.338943200011272,
+    "model": "gpt-6-luna",
+    "output_tokens": 82,
+    "provider_request_id": "req_ee7096b9457a4d9080ef67c81bae9099",
+    "reasoning_tokens": 0,
+    "request_id": "6c1b2da1-0b22-4830-989c-a5a80485fee4",
+    "reserved_input": 20971,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:04.768760+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

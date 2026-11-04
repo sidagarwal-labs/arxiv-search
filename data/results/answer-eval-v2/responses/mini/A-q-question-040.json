@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-040",
+  "outcome": {
+    "answer": "Tool specifications can be used as the source of synthetic scenarios: function names, natural-language descriptions, and typed parameter schemas already contain enough semantic information to generate realistic evaluation cases without manual curation or live tool execution [1]. From a single MCP specification, one pipeline can enrich raw schemas, generate graded scenarios with synthetic tool outputs, and expand them into mock-data-grounded multi-turn dialogues for evaluating tool-calling correctness and conversational coherence [1].\n\nRelated work also uses tool ecosystems to synthesize training or test data in other ways: one framework creates novel tasks and tool ecosystems, then simulates users and tools in full environments [2]; another generates hard tool-use samples by sampling from a dynamic API graph built from failure cases and instantiating abstract tools and queries [3]; and another synthesizes trajectories from text corpora by extracting workflows and tools before grounding and refining them [8].",
+    "cited": [
+      1,
+      2,
+      3,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "9c9ad2da2850d7b33ae9a364be1819a95c5c29666ae613b2abc2ab2315144d12",
+  "usage": {
+    "accounted_tokens": 3876,
+    "input_tokens": 3679,
+    "latency_seconds": 2.5290741000208072,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 197,
+    "provider_request_id": "req_1f3daf27c8054e17a785b3dae2f1461a",
+    "reasoning_tokens": 0,
+    "request_id": "9fb50b25-96a0-47e7-84a4-2dc65f89a7cd",
+    "reserved_input": 23346,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:20.988108+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

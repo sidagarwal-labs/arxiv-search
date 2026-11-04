@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-054",
+  "outcome": {
+    "answer": "Tannenbaum\u2019s study finds that preceding turns can materially change AI answers: using the full conversation rather than the final message alone produced materially different answers in 44.7% of cases, while adding a compressed prefix reduced that rate to 30.8% [1]. A separate Tannenbaum study finds that the final prompt often omits request-state dimensions present earlier in the conversation, but does not estimate the causal effect of history on model answers [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "220be7e9e240f9723752f11f9acf0b377c7c9bdb8a3a50793631fc92efff3798",
+  "usage": {
+    "accounted_tokens": 4097,
+    "input_tokens": 3877,
+    "latency_seconds": 3.1663850000186358,
+    "model": "gpt-6-luna",
+    "output_tokens": 220,
+    "provider_request_id": "req_a408eff8544d4383a8a075c57dcef8e0",
+    "reasoning_tokens": 0,
+    "request_id": "23980738-9ab1-4138-87b2-6319498e73a6",
+    "reserved_input": 23795,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:58.399935+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

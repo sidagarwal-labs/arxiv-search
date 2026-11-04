@@ -1,0 +1,37 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-003",
+  "outcome": {
+    "answer": "Large language models can improve product recommendations by actively asking for informative preference cues during a conversation and by using those cues to reduce uncertainty in the recommendations [5, 8]. They can also actively gather information by generating or refreshing user context and interaction data from existing histories or catalog data, which is then used to refine recommendations [1, 2, 6, 7, 9, 10].\n\nThe closest match for interactive information gathering is conversational recommendation: stage-aware elicitation strategies decide when to ask about attributes versus items [5], and entropy-based interaction generation chooses questions that most reduce uncertainty [8]. Other papers use LLMs more as data or context generators than as question askers, including semantic enrichment of sequences [1], real-time user personas [2], synthetic interactions for sparse or cold-start data [6, 10], live-catalog retrieval refresh [7], and LLM-generated user profiles from histories [9].",
+    "cited": [
+      5,
+      8,
+      1,
+      2,
+      6,
+      7,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "0c8b2a2f3aa5cd8b56ce1f8ec909ed7c56735eadb596be7b9b2a01b7d2846a70",
+  "usage": {
+    "accounted_tokens": 3685,
+    "input_tokens": 3470,
+    "latency_seconds": 2.8184608000156004,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 215,
+    "provider_request_id": "req_1024a59337bd4f4e82dc236360836066",
+    "reasoning_tokens": 0,
+    "request_id": "dc051672-0bb9-408f-83c6-fc5974009c65",
+    "reserved_input": 22849,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:02.734197+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

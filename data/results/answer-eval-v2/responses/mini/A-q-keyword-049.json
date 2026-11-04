@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-049",
+  "outcome": {
+    "answer": "Several papers address multimodal LLM decoding strategies. [2] proposes training-free visual-redundancy-controlled decoding for diffusion-based multimodal LLMs by prioritizing visually complementary positions instead of independent confidence ranking. [1] and [3] also target diffusion multimodal decoding, with [1] emphasizing contextual utility and semantic anchors, while [3] focuses on neighbor support and block-free cluster decoding. [4] and [9] are decoding-time methods for reducing multimodal hallucinations, but they are aimed more at faithfulness than general decoding order.",
+    "cited": [
+      2,
+      1,
+      3,
+      4,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "468a6fe3a019d5e53b3f9db334a8f1ee59c642bcda8e985786ad93dad064f677",
+  "usage": {
+    "accounted_tokens": 3529,
+    "input_tokens": 3399,
+    "latency_seconds": 2.848076399997808,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 130,
+    "provider_request_id": "req_26189f8dca2045ba9777d118815fe4a0",
+    "reasoning_tokens": 0,
+    "request_id": "1ed1086f-35be-418d-a372-56f37b96828d",
+    "reserved_input": 21730,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:21.744889+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

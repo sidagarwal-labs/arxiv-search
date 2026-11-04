@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answer": "Yes. AMuFC adaptively decides whether visual evidence is useful for fact-checking, because indiscriminate use of images can reduce accuracy [7]. VILLAIN verifies image-text claims by analyzing visual and textual evidence with multiple agents, but its abstract does not describe a separate decision about whether the image helps or harms verification [1].",
+    "cited": [
+      7,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "0d497bf83ecf4d27da2ccd1bfd5120a68dcc4c78cf8cd618caf2b534d18ed01b",
+  "usage": {
+    "accounted_tokens": 3443,
+    "input_tokens": 3357,
+    "latency_seconds": 2.2403045000100974,
+    "model": "gpt-6-luna",
+    "output_tokens": 86,
+    "provider_request_id": "req_ecb76304e53b40faba06cc6619bc7ca0",
+    "reasoning_tokens": 0,
+    "request_id": "b7c89b7b-9b05-4b70-946d-7d069d31bccd",
+    "reserved_input": 21080,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:31.457951+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

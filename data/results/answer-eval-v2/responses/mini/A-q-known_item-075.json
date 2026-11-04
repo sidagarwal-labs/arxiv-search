@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-075",
+  "outcome": {
+    "answer": "None of the supplied papers directly mention Hoehndorf, and none is a paper about a specific Hoehndorf drug safety knowledge graph. The closest match is [1], which presents SIDEKICK, a semantically integrated drug safety knowledge graph covering indications, contraindications, and adverse reactions from FDA drug labels. [1] also emphasizes ontology mapping and RDF serialization for interoperability, which is the nearest fit to a drug safety knowledge graph topic.",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "b36026a179ba92d9add8081ae487d80de74321d4209edd7d0f4c59a5507908e5",
+  "usage": {
+    "accounted_tokens": 3582,
+    "input_tokens": 3475,
+    "latency_seconds": 2.281477000011364,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 107,
+    "provider_request_id": "req_8b4e692a9b2f4a848a5dfe4743b45297",
+    "reasoning_tokens": 0,
+    "request_id": "33ae9d43-0f82-4795-a140-da09e8fa5d9a",
+    "reserved_input": 21919,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:46.847489+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "answer_id": "A100",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-054",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [1] reports both material-difference rates for full, isolated, and compressed contexts.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [2] documents missing request-state dimensions and expressly does not estimate causal effects.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

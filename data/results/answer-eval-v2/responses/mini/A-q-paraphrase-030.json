@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-030",
+  "outcome": {
+    "answer": "Yes \u2014 the closest match is [1], which presents a prerequisite-aware location-based recommender system for points of interest, explicitly modeling dependencies where visiting one place presupposes knowledge from others. [1] It also says the system uses an exploration lattice and a structural validity guarantee for next-step recommendations. [1]\n\nIf you want a more general urban recommendation approach, [3] recommends walkable itineraries with spatial constraints, and [10] offers neighborhood information retrieval and personalized recommendations, but neither is described as modeling prerequisite knowledge between spots. [3, 10]",
+    "cited": [
+      1,
+      3,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "cb172035e9a0f8cec36a91db1842292a9401bad98c4419257f58f303449e3edb",
+  "usage": {
+    "accounted_tokens": 4146,
+    "input_tokens": 4012,
+    "latency_seconds": 2.5160725000023376,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 134,
+    "provider_request_id": "req_a78086eec0f64dfa9833cba10f9159c9",
+    "reasoning_tokens": 0,
+    "request_id": "3875ce10-facd-43bd-9c1f-90e81de710bd",
+    "reserved_input": 24832,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:14.350995+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

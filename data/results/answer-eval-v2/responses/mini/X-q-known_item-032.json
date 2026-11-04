@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-032",
+  "outcome": {
+    "answer": "None of these papers directly address Bekkers equivariant neural fields; the closest are [3], [8], and [9], which focus on multimodal, structure-aware, or evidence-centric retrieval for question answering rather than neural fields. [3] is about long-document multimodal QA, [8] about exhaustive recall-sensitive QA over structured corpora, and [9] about heterogeneous financial filings.",
+    "cited": [
+      3,
+      8,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "b2eb2421c313a3ecd18323f18fc2f0677e0517af7c2b6943f1ac4c6fe6caab66",
+  "usage": {
+    "accounted_tokens": 3959,
+    "input_tokens": 3862,
+    "latency_seconds": 2.483341900020605,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 97,
+    "provider_request_id": "req_964b7d4ca75c481282877779d8ae5809",
+    "reasoning_tokens": 0,
+    "request_id": "fd1593a3-5f84-43e1-a91e-dfa1fb111c74",
+    "reserved_input": 22976,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:06.609467+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

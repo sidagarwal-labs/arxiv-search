@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-070",
+  "outcome": {
+    "answer": "The closest match is LigBench [1], a benchmark for evaluating LLM-based research idea generation with fine-grained, more reliable assessment and a pairwise idea-judgment dataset. RINoBench [2], SoundnessBench [4], and InnoEval [6] are also related, but they focus on novelty judgment, methodological soundness, and knowledge-grounded multi-perspective idea evaluation rather than the same unified research idea benchmark.",
+    "cited": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "247ff2928863726d411c9b3a5a7b5f0181d8ca4de46096fae5d6df19bf0d9e6e",
+  "usage": {
+    "accounted_tokens": 3776,
+    "input_tokens": 3669,
+    "latency_seconds": 2.9199214999971446,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 107,
+    "provider_request_id": "req_2eff8ea274174bfdab00d5624c571274",
+    "reasoning_tokens": 0,
+    "request_id": "bc4bbd98-a090-4e48-b919-239bbeb66a72",
+    "reserved_input": 23412,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:39.472187+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

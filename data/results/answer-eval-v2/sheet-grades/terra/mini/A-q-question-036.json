@@ -1,0 +1,34 @@
+{
+  "answer_id": "A249",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-036",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The provider-transparency paper explicitly targets system-level item exposure.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The proxy approximates exposure and attributes decisions to feature contributions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The counterfactual framework and AURA\u2019s recommendation diagnosis match these descriptions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This sentence contains citation labels only.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

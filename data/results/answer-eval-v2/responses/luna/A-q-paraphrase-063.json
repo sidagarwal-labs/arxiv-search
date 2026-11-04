@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-063",
+  "outcome": {
+    "answer": "GRASP directly addresses this setup: it grades multi-topic science tests where answers to several questions are merged into one unlabeled paragraph, using a network of reference answers to retrieve and assign references to answer segments [1]. It then grades each segment against its assigned reference independently [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "6eb5bd26fc19e9f784c677b96be77387594e14df6be09d0abcf267eddaad4b68",
+  "usage": {
+    "accounted_tokens": 3776,
+    "input_tokens": 3702,
+    "latency_seconds": 2.3592726000060793,
+    "model": "gpt-6-luna",
+    "output_tokens": 74,
+    "provider_request_id": "req_a3d9c66366cf4bd4a763755698de4dc0",
+    "reasoning_tokens": 0,
+    "request_id": "01c40824-bfb0-46d8-8766-835b8a316c87",
+    "reserved_input": 23339,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:09.744427+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

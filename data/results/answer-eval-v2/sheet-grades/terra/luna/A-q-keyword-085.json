@@ -1,0 +1,44 @@
+{
+  "answer_id": "A252",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-085",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The broad statement about the papers and consciousness has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Both abstracts state the reported denial and self-reference findings and the evidence limitation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The paper links self-reports to framing and training and questions their evidential admissibility.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited abstracts report the respective benchmark, agency, and behavioral self-awareness results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The sentence makes an uncited factual characterization of the behavioral findings.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S6",
+        "reason": "DenialBench measures consciousness-denial behaviors across 115 models.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

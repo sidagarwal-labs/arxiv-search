@@ -1,0 +1,34 @@
+{
+  "answer_id": "A250",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The general factual assertion has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract contrasts earlier naturalistic-reading layers with later ambiguity layers and residual underestimation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited brain study uses surprisal and LM features and finds general features predictive.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The reading-time study links surprisal alignment to long-range coreference.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A079",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-048",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title, author, and topic match paper [1].",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes the heterogeneous graph and all listed modalities and emotion embeddings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [1] matches; the uncited other papers and their topics are not supplied.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

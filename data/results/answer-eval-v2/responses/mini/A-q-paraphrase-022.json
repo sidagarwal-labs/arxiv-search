@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answer": "The closest match is [2], which uses structured supervised fine-tuning with an interpretable slot-filling template and then DPO refinement to detect polarization in social media text. It is not exactly \u201cpolitical leaning\u201d spotting, but it is a two-stage method for polarization detection in posts and explicitly combines slot-based training with preference optimization. [1] is also related, but it improves political stance detection by adding user-context profiles rather than using preference optimization.",
+    "cited": [
+      2,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "b6f721b863d850d9e3066faf4366a70edfb691a526cfcceca32cfb521291de59",
+  "usage": {
+    "accounted_tokens": 3408,
+    "input_tokens": 3299,
+    "latency_seconds": 2.947165799996583,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 109,
+    "provider_request_id": "req_2eae247c6edc44a1967507e14703db21",
+    "reasoning_tokens": 0,
+    "request_id": "ba6e4058-eb0c-48ed-8324-ad471ba09a04",
+    "reserved_input": 21321,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:11.385141+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

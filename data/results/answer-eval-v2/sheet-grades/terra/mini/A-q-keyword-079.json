@@ -1,0 +1,29 @@
+{
+  "answer_id": "A036",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited collection includes New Zealand English and African languages, not only Bengali and Tulu.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstracts cover Tulu and Bengali comment classification and place-linked variation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstracts describe Bangla dialect identification and sparse, challenging code-switched Reddit data.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

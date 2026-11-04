@@ -1,0 +1,28 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-037",
+  "outcome": {
+    "answer": "None of the supplied papers address how language-model internal representations correlate with the effort humans use to understand sentences. The results focus on algorithmic fairness and related machine-learning topics [1\u201310].",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "97f8551673e71c6b31071ee2ac701fafb7eb75d9d574939472a03ac68ba16c1b",
+  "usage": {
+    "accounted_tokens": 3318,
+    "input_tokens": 3262,
+    "latency_seconds": 2.140577200014377,
+    "model": "gpt-6-luna",
+    "output_tokens": 56,
+    "provider_request_id": "req_81f36e6c2fe94357b2970300634d9dae",
+    "reasoning_tokens": 0,
+    "request_id": "02b517ba-75a5-4640-86ab-1b31df5441bd",
+    "reserved_input": 22317,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:54.150599+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A166",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-089",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Several cited studies investigate machine learning for early Alzheimer's or MCI detection.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited studies collectively cover early detection, screening, prognosis, and the listed modalities.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited studies cover early Alzheimer's and MCI, as well as broader dementia-related detection and prognosis.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

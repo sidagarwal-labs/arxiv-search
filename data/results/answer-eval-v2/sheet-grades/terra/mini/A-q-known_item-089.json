@@ -1,0 +1,29 @@
+{
+  "answer_id": "A039",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-089",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Than's paper explicitly establishes fundamental fairness limits.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper identifies subgroup cost, finite samples, and model expressivity as disparity sources.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The papers discuss fairness conflicts and weighting fairness metrics, but [9] does not explicitly weight predictive accuracy.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-007",
+  "outcome": {
+    "answer": "Yes\u2014[1] is the closest match: it is specifically about synthetic data curation for LLM training and argues that effective curation needs group-level signals rather than individual-sample signals. [3] and [9] are also about LLM data curation, but they focus on online reweighting and bilevel offline/online fine-tuning, not the group-level issue in synthetic data.",
+    "cited": [
+      1,
+      3,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "749208f40f0922101106c504dd82138c917fe867633d71d62a089b1770d76933",
+  "usage": {
+    "accounted_tokens": 3644,
+    "input_tokens": 3545,
+    "latency_seconds": 1.9950715999875683,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 99,
+    "provider_request_id": "req_58d80f377b064619bd691be1d04bc207",
+    "reasoning_tokens": 0,
+    "request_id": "637ed631-cbde-406c-9e5e-fbe0643d5da8",
+    "reserved_input": 22834,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:03.220943+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

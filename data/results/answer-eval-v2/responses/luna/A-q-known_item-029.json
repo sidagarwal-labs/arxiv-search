@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-029",
+  "outcome": {
+    "answer": "The matching paper is Zhou and Impraimakis\u2019s study of wind-induced bridge response forecasting and structural health monitoring [1]. It uses a transformer model to forecast bridge vibrations and compares predictions with measurements to flag large deviations as early warnings of structural change, evaluating the approach on real-world measurements from the Hardanger Bridge [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "faf1ce299de4395e3ce6454ae9ae5c14e0686d1dd2434f285e621228186f3c7c",
+  "usage": {
+    "accounted_tokens": 3717,
+    "input_tokens": 3634,
+    "latency_seconds": 2.384723099996336,
+    "model": "gpt-6-luna",
+    "output_tokens": 83,
+    "provider_request_id": "req_4d86b7e0435d4740a60dd02d6d1ed6c3",
+    "reasoning_tokens": 0,
+    "request_id": "1c92a3ef-106a-47a4-843c-5108ceec6c92",
+    "reserved_input": 23865,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:40.292709+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

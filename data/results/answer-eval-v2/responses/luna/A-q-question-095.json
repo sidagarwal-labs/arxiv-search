@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-095",
+  "outcome": {
+    "answer": "Yes. WIND is described as a single pretrained atmospheric foundation model for diverse weather and climate tasks\u2014including forecasting, downscaling, reconstruction, and conservation\u2014without task-specific fine-tuning [1]. The paper frames those tasks as inverse problems solved through posterior sampling [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "d2b6b31609a52f714b5f9b5c9a434c166ca6399d76054166f479c775cf71c718",
+  "usage": {
+    "accounted_tokens": 3798,
+    "input_tokens": 3726,
+    "latency_seconds": 2.2557971000205725,
+    "model": "gpt-6-luna",
+    "output_tokens": 72,
+    "provider_request_id": "req_59040c3de6964dbbadba8259851e489d",
+    "reasoning_tokens": 0,
+    "request_id": "2580eefe-10ab-4361-ad44-c9433fab9c1a",
+    "reserved_input": 24148,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:49.863861+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

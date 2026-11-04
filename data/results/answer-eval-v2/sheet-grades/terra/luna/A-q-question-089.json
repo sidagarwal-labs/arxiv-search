@@ -1,0 +1,34 @@
+{
+  "answer_id": "A055",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-089",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no independently stated factual detail.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited studies use clinical, imaging, speech, and behavioral measures for early cognitive impairment or Alzheimer's.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The two abstracts report multimodal MCI classification and repeated-session behavioral modeling.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstracts report screening or classification studies, not readiness for routine clinical diagnosis.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

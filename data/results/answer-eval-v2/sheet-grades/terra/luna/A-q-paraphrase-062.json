@@ -1,0 +1,29 @@
+{
+  "answer_id": "A083",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A bare affirmative is conversational framing.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [4] describes multiple generations and point and distributional prediction variants.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [1] reports linear decoding of total length from the prompt\u2019s last hidden state.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

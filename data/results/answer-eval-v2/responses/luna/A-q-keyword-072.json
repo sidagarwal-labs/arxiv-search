@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-072",
+  "outcome": {
+    "answer": "The BL19 digital collection retrieval benchmark is described in \u201cCultural Analytics for Good: Building Inclusive Evaluation Frameworks for Historical IR\u201d [1]. It uses the British Library\u2019s BL19 collection of more than 35,000 works from 1700\u20131899, with expert-designed queries and paragraph-level relevance annotations to evaluate historical retrieval [1]. The work also investigates whether knowledge from fiction can improve retrieval for scholarly and factual materials [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "c0593ef09438176433658281fb6542a5b25c538585974f7a30b30484926791d0",
+  "usage": {
+    "accounted_tokens": 3249,
+    "input_tokens": 3142,
+    "latency_seconds": 2.298339400003897,
+    "model": "gpt-6-luna",
+    "output_tokens": 107,
+    "provider_request_id": "req_b275afee1147429d9d52cdb760f70393",
+    "reasoning_tokens": 0,
+    "request_id": "1bbc4467-e9ff-4322-b13c-f6539f7a9051",
+    "reserved_input": 20503,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:50:02.055564+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

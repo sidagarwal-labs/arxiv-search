@@ -1,0 +1,49 @@
+{
+  "answer_id": "A064",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-093",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual closest-match claim is not cited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The EDA paper describes source-linked functional hyperedges, combined retrieval, and improved QA.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The papers collectively report better answer quality or retrieval using document or domain structure.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This sentence is a transition introducing alternatives.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "IDC predicts user queries and optimizes document chunk boundaries around anticipated needs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Adaptive Chunking selects per-document strategies using intrinsic metrics including block integrity and cohesion.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "LaTeX structure supports chunk creation, but LARAG uses hyperlink metadata for retrieval rather than creating blocks.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

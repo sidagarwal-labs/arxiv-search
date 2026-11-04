@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answer": "The closest matches are [5], [1], and [8]. [5] trains reasoning on unverifiable data by having the model generate its own reasoning traces from standard question-answer pairs, creating a self-reinforcing feedback loop without expert-written demonstrations. [1] focuses on self-improvement without external feedback at test time, using self-generated verification signals to improve answer selection. [8] targets non-verifiable learning by using multi-agent self-play and meta-evaluation to create supervision for both generation and judging without ground-truth labels.",
+    "cited": [
+      5,
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "ab1f64addd009a4bc4a6f8639c279621d5822525f71d463acd71e6425d0eb2f7",
+  "usage": {
+    "accounted_tokens": 3689,
+    "input_tokens": 3564,
+    "latency_seconds": 2.3088968000083696,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 125,
+    "provider_request_id": "req_5995b7d48b49455983839b391c16d5c6",
+    "reasoning_tokens": 0,
+    "request_id": "e3e243a9-7c7b-4ef3-a49c-0a940c50a927",
+    "reserved_input": 22805,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:26.133925+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

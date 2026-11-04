@@ -1,0 +1,29 @@
+{
+  "answer_id": "A221",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-002",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited papers describe expert-wise precision and reduced memory or edge inference latency.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "DyMoE demonstrates commercial edge hardware benefits, but mobile deployment is not established.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "DPA-MoE uses live gate scores; GEMQ and AlphaQ use global and calibration-free allocation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

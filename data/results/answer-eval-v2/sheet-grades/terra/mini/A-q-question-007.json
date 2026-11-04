@@ -1,0 +1,24 @@
+{
+  "answer_id": "A045",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited papers describe planning and counting, dynamic feedback, and constrained reinforcement learning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Suffix-constrained generation guarantees grammar constraints on the response ending while allowing freer preceding text.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

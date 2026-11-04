@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answer": "Roth GraphER reranking for RAG is not directly addressed by the supplied papers, but the closest match is GraphER [1], which is a graph-based enrichment and reranking framework for retrieval-augmented generation. [1] It builds a query-time graph from proximity relationships and applies graph-based ranking to surface top candidate documents, with improved retrieval completeness and no extra graph infrastructure. [1]\n\nIf you meant reranking more generally, LURE-RAG [4], RRPO [3], and RSRank [9] also focus on RAG reranking, but they optimize different goals: utility-driven ordering, LLM-feedback alignment, and relevance scoring from representational shift, respectively. [3, 4, 9]",
+    "cited": [
+      1,
+      4,
+      3,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "e3732e3a2a176c2d3d1b1a15240c400775321d1067f653b265de068b63dbbe9a",
+  "usage": {
+    "accounted_tokens": 3697,
+    "input_tokens": 3528,
+    "latency_seconds": 2.376746699999785,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 169,
+    "provider_request_id": "req_2bbf398380834197a8733c33868e15ed",
+    "reasoning_tokens": 0,
+    "request_id": "17ed0cc4-8e96-4f54-8222-5f3246580466",
+    "reserved_input": 22057,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:27.786549+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A105",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A bare affirmative is conversational framing.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [7] describes adaptive visual evidence and reduced accuracy from indiscriminate use.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [1] describes multi-agent evidence analysis without a separate image-utility decision.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-043",
+  "outcome": {
+    "answer": "For identifying a speaker\u2019s mood, the most direct result finds that conversational context matters, but gains saturate: roughly 90% is captured by the most recent 10\u201330 preceding turns, depending on the emotion label set [1]. Sentence starters are not studied directly; the closest evidence concerns discourse markers, whose position is associated with emotion, with sad utterances showing fewer markers at the beginning of the utterance than other emotions [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "7f73a2a3230c772ab2382063aee67f9d19ddfbe8afa07bf6fda7fc0c0c9a038c",
+  "usage": {
+    "accounted_tokens": 4103,
+    "input_tokens": 3996,
+    "latency_seconds": 2.7278251000097953,
+    "model": "gpt-6-luna",
+    "output_tokens": 107,
+    "provider_request_id": "req_8ece2bae248a4b3d873707bce72d752f",
+    "reasoning_tokens": 0,
+    "request_id": "68574eef-9f9c-46bf-9398-1e16eb946736",
+    "reserved_input": 24713,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:57.285750+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

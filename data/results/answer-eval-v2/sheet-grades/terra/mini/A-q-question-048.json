@@ -1,0 +1,34 @@
+{
+  "answer_id": "A195",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-048",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no separate factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "ViSAR is training-free, and LAD-RAG retrieves dynamically; LAD-RAG's abstract does not establish that no retraining is needed.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "LITTA uses a frozen retriever and controls the efficiency trade-off through query variants.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "ViSAR and LAD-RAG adapt page retrieval; MAB-DQA reallocates budgets among query aspects.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

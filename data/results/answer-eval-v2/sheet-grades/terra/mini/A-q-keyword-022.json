@@ -1,0 +1,34 @@
+{
+  "answer_id": "A242",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This simply identifies the closest matches.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract distinguishes confidence or validity from explicit retention-consequence strength.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "MARS tracks strength and evidence and includes the listed lifecycle operations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstract describes write-phase routing and consolidation for selective externalization and internalization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

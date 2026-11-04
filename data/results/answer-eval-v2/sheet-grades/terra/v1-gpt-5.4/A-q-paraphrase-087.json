@@ -1,0 +1,39 @@
+{
+  "answer_id": "A114",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-087",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A bare affirmative is conversational framing.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [3] provides the described method and guarantee only under mild signal-to-noise conditions, omitted here.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [5] describes training-free black-box retrieval using expansion and ranking for recall and precision.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper [1] uses a pretrained model and minimal sufficient subgraphs, but does not establish that downstream training is required.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "Papers [4] and [6] describe those subgraph and incomplete-graph methods.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

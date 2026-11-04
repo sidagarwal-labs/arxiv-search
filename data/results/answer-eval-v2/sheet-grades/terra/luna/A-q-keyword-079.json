@@ -1,0 +1,34 @@
+{
+  "answer_id": "A084",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual overview has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [4] studies New Zealand Reddit dialect alignment and place identity.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers [2] and [3] match the described Tulu and Hinglish tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper [7] studies social media, but [6] describes a synthetic corpus without establishing social-media provenance.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

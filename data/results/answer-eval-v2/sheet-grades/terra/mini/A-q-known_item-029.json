@@ -1,0 +1,29 @@
+{
+  "answer_id": "A080",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-029",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [1] describes wind-response forecasting, bridge monitoring, and the Hardanger Bridge.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "No citation is supplied, and the apparent denial of a Zhou-authored paper conflicts with [1].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "No citation or evidence for the other papers is provided.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

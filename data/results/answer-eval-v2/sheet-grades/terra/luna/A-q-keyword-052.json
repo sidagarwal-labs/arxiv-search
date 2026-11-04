@@ -1,0 +1,24 @@
+{
+  "answer_id": "A183",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "AWARe assigns activation-based importance and selectively freezes important parameters.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Model-Dowser combines the three signals and preserves high-importance parameters.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

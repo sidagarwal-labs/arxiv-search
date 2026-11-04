@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-096",
+  "outcome": {
+    "answer": "For finding relevant text chunks through a hierarchy, NavTree builds a balanced tree over chunks and uses it as a navigation scaffold, descending toward relevant leaves and returning only the original chunks [1]. SproutRAG instead creates a tree of progressively larger, semantically coherent chunks and searches across multiple granularities [3]. DTCRS dynamically builds summary trees using query semantics and question type to make summaries more relevant [2].",
+    "cited": [
+      1,
+      3,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "7534fdd96d295bd867a9b08063b8daca26e661caa63e2ba6700fa4f207211e43",
+  "usage": {
+    "accounted_tokens": 3680,
+    "input_tokens": 3578,
+    "latency_seconds": 3.2870393999910448,
+    "model": "gpt-6-luna",
+    "output_tokens": 102,
+    "provider_request_id": "req_17e215c8065747799d957f50624f5296",
+    "reasoning_tokens": 0,
+    "request_id": "0f48e835-8db6-4054-957b-a77ce299a9c8",
+    "reserved_input": 22734,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:32.254918+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

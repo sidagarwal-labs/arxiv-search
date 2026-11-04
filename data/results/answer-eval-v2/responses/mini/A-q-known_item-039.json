@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-039",
+  "outcome": {
+    "answer": "Fernandes\u2019 Brazilian legal document segmentation is best matched by Structural Segmentation for Brazilian Legal Document Retrieval [1]. [1] It studies structural segmentation for Brazilian legal document retrieval using the hierarchical structure of legal acts, comparing a multi-layered hierarchy with simplified chunk-based representations. [1] The closest related papers are JU\u00c1, a benchmark for Brazilian legal text collections [3], and Chunking German Legal Code [9], but they focus on benchmarking and German statutory law rather than Fernandes\u2019 Brazilian legal segmentation approach. [3, 9]",
+    "cited": [
+      1,
+      3,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "b4a74cf5c4573a765a349d754b143e822d84e3d4d1a93b0f91432bd21aebcb6a",
+  "usage": {
+    "accounted_tokens": 3691,
+    "input_tokens": 3565,
+    "latency_seconds": 2.330107100016903,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 126,
+    "provider_request_id": "req_05c0c2d3a1114da1b281d1d46864c286",
+    "reasoning_tokens": 0,
+    "request_id": "63980ffc-7593-4f7b-92f9-7e993f860022",
+    "reserved_input": 21905,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:16.139776+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

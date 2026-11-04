@@ -1,0 +1,29 @@
+{
+  "answer_id": "A111",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-031",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [1] describes supervised fine-tuning for sentence-level clinical provenance categorization.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The factual claims about performance, transfer, and author absence have no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The assertion about other supplied papers has no citation or supporting evidence.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

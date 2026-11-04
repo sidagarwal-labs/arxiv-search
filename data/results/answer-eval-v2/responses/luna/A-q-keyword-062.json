@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answer": "Yes. One paper studies GNNs as fast surrogates for linear SDP solutions, finding standard architectures can fail and proposing a more expressive model that can emulate first-order solver updates and warm-start a solver [1]. A second develops a Max-Cut-specific GNN proxy for SDP relaxations that predicts primal- and dual-feasible solutions and can reduce the cost of bounding in branch-and-bound [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "0b9063d2b77482188e8d57ddc764d39cbc730e902fde2448155e3ac001c66c1e",
+  "usage": {
+    "accounted_tokens": 3152,
+    "input_tokens": 3049,
+    "latency_seconds": 2.2775975999829825,
+    "model": "gpt-6-luna",
+    "output_tokens": 103,
+    "provider_request_id": "req_939d30747ff94ffeb3c474d9b58d4d09",
+    "reasoning_tokens": 0,
+    "request_id": "dc479084-7d07-40e3-879d-a15108fa5cb9",
+    "reserved_input": 19618,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:47:38.685094+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-060",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "1c47c99ad64c725359fb391024a7bc35f507c0a817f8b8721259767f5f5e6b6f",
+  "usage": {
+    "accounted_tokens": 3524,
+    "input_tokens": 3456,
+    "latency_seconds": 2.272462299995823,
+    "model": "gpt-6-luna",
+    "output_tokens": 68,
+    "provider_request_id": "req_68debd719526444fad915acafee022c3",
+    "reasoning_tokens": 0,
+    "request_id": "ab9eb28e-b784-4754-a991-1542a97653c5",
+    "reserved_input": 21926,
+    "reserved_output": 1200,
+    "started_utc": "2026-11-04T18:57:36.248110+00:00",
+    "status": "invalid_answer",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answer": "For an LLM API priority-bidding system, Inference Auctions is the direct match: it lets users bid for faster service when inference demand exceeds compute capacity, aiming to allocate priority efficiently without sacrificing latency [1]. It also describes an autobidder that adjusts bids over time to meet a user-specified inference budget [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "133077529d500db32b17e2664f663f312c8eb2d5aea6d37d9d4d4748a787dfdc",
+  "usage": {
+    "accounted_tokens": 3774,
+    "input_tokens": 3690,
+    "latency_seconds": 2.3634725000010803,
+    "model": "gpt-6-luna",
+    "output_tokens": 84,
+    "provider_request_id": "req_720b95086f304d2188700d5696cdf3ca",
+    "reasoning_tokens": 0,
+    "request_id": "a392567c-5c7f-4798-a171-449c688e592e",
+    "reserved_input": 23041,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:47:17.315027+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

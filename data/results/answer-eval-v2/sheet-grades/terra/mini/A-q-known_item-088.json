@@ -1,0 +1,29 @@
+{
+  "answer_id": "A065",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-088",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited paper studies RAG for AI governance and policy question answering.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract states improved retrieval without consistent QA gains and hallucinations when relevant documents are absent.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "A citation by itself states no claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

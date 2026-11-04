@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-088",
+  "outcome": {
+    "answer": "The closest match is [1], which studies RAG for AI policy QA and specifically focuses on AI governance and policy analysis. [1] It finds that domain-specific fine-tuning improves retrieval metrics but does not consistently improve end-to-end question answering, and it warns that stronger retrieval can still produce hallucinated answers when relevant documents are missing. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "d530db214a2ca1b42a951d631b397be4eb9cc6050485344477335498fff6ff46",
+  "usage": {
+    "accounted_tokens": 3956,
+    "input_tokens": 3861,
+    "latency_seconds": 2.242323300015414,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 95,
+    "provider_request_id": "req_92abd9bff5a74c1fb76280aa5c44722f",
+    "reasoning_tokens": 0,
+    "request_id": "ea759f74-7616-422c-88fc-dd31567bfc96",
+    "reserved_input": 22963,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:49.150763+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "answer_id": "A227",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-097",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "An affirmative response without a factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Strategically diverse sampling improves difficult-task performance compared with IID sampling.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Diverse incorrect traces outperform IID distillation from a larger teacher in the reported experiment.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "RPD selects diverse valid paths and improves output diversity and pass at k.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Re:Max replays verified modes and improves success and the number of successful modes.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

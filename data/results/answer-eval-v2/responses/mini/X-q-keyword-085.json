@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-keyword-085",
+  "outcome": {
+    "answer": "None of these papers directly address AI consciousness or self-awareness. The closest are [3], which uses a self-supervised pre-trained foundation model for atmospheric tasks, and [6], which uses generative AI only as an explainability layer, but neither discusses consciousness or self-awareness.",
+    "cited": [
+      3,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "1d8cb04acdc1d4d5c7b679d3092402c85969781be7fe84af70fc5ad0d07b65b5",
+  "usage": {
+    "accounted_tokens": 3707,
+    "input_tokens": 3634,
+    "latency_seconds": 1.7716275999846403,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 73,
+    "provider_request_id": "req_e1e9d76620414ff3b9b4f4f24bf470c7",
+    "reasoning_tokens": 0,
+    "request_id": "7639b2c5-9ded-410a-a709-1a18938448a4",
+    "reserved_input": 23885,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:30.446640+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

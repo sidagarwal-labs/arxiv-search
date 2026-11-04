@@ -1,0 +1,224 @@
+{
+  "decision": {
+    "checks": {
+      "luna": {
+        "abstain_accuracy": true,
+        "citation_precision": true,
+        "citation_precision_vs_yardstick": {
+          "ci95": [
+            0.04027355623100304,
+            0.09473214285714285
+          ],
+          "difference": 0.06656534954407295,
+          "n": 94
+        },
+        "faithfulness": true,
+        "faithfulness_vs_yardstick": {
+          "ci95": [
+            0.06950259625126645,
+            0.14141527355623096
+          ],
+          "difference": 0.10510385005065855,
+          "n": 94
+        },
+        "false_abstain": true,
+        "format_valid": true,
+        "qualifies": true
+      },
+      "mini": {
+        "abstain_accuracy": true,
+        "citation_precision": true,
+        "citation_precision_vs_yardstick": {
+          "ci95": [
+            -0.02039935832489024,
+            0.04924159912191824
+          ],
+          "difference": 0.015678824721377913,
+          "n": 94
+        },
+        "faithfulness": true,
+        "faithfulness_vs_yardstick": {
+          "ci95": [
+            0.011080610435663621,
+            0.09679616261398176
+          ],
+          "difference": 0.05448328267477203,
+          "n": 94
+        },
+        "false_abstain": true,
+        "format_valid": true,
+        "qualifies": true
+      }
+    },
+    "replace_incumbent": true,
+    "serving_model": "luna (answer-v2)",
+    "why": "qualifies, cheaper, grader drift within limit"
+  },
+  "drift": {
+    "answers": 40,
+    "faithfulness_shift_new_minus_old": -0.027500000000000004,
+    "sentence_agreement": 0.9473684210526315,
+    "sentence_kappa": 0.8795303326810174,
+    "sentences": 171,
+    "within_limit": true
+  },
+  "plan": {
+    "budget_usd": 1.5,
+    "candidates": {
+      "luna": "gpt-6-luna",
+      "mini": "gpt-5.4-mini-2026-03-17"
+    },
+    "caveats": "Prompt written after reading answer-v1 failures on these dev items; the rules are general (cite every sentence) but a pass is optimistic until confirmed on held-out queries.",
+    "date": "2026-11-04",
+    "decision_rule": {
+      "drift_guard": "if the anchors' mean faithfulness moves by more than 0.05 between Terra sessions, report only (no replacement)",
+      "mini_v2": "diagnostic only: whether the prompt helps a model that already qualifies; switching mini's prompt would need its own decision",
+      "qualifies_if": "the answer-eval-v2 rule unchanged: faithfulness and citation precision 95% CI lower bound of (candidate - yardstick) >= -0.05; abstain accuracy (v2) >= 0.80; false abstain (v2) <= 0.10; format valid >= 0.95",
+      "replace": "luna with answer-v2 replaces mini answer-v1 if it qualifies and costs less per answer"
+    },
+    "evaluation_set": "answer-dev-v1, full stage (125 items), same Decision46 top10 evidence as Decision 48",
+    "grader": "GPT-6.1 Terra via the owner's chat session (terra-v2.xlsx), same rubric and caveat column; 20 answer-v1 answers each from gpt-5.4 and mini mixed in blind to measure drift",
+    "held_out_queries_used": false,
+    "parser": "final_answer phase only when a reply has phased messages (bug fix, model-general)",
+    "prompt": "answer-v2",
+    "question": "Does answer-v2 make GPT-6 Luna qualify under Decision 48's rule, so it can replace GPT-5.4 mini as the cheaper AI-summary model?",
+    "reasoning_effort": "none",
+    "retries": "none",
+    "version": "answer-eval-l1",
+    "yardstick": "gpt-5.4 answer-v1 answers and their GPT-6.1 Terra grades (unchanged)"
+  },
+  "recheck": {
+    "change": "answer contract B: grounded=false means the supplied papers do not answer the request and the answer may cite the closest papers (shown as closest results); grounded answers must still cite",
+    "date": "2026-11-04",
+    "method": "free: re-validate the saved raw replies of invalid_answer failures under contract B; no new requests, no new grades, decision rule and drift guard unchanged",
+    "status": "post hoc: the rule changed after seeing the failures, so a pass is provisional; serving Luna needs a confirmation run on held-out queries (separate approval)",
+    "version": "answer-eval-l-recheck1"
+  },
+  "rechecked_answers": {
+    "luna": 8,
+    "mini": 7
+  },
+  "table": {
+    "luna": {
+      "abstain_accuracy_v2": 0.96,
+      "answers_request": 1.9,
+      "citation_precision": 0.993,
+      "faithfulness": 0.9349166666666666,
+      "false_abstain_v2": 0.030303030303030304,
+      "format_valid": 1.0,
+      "fully_faithful": 0.77,
+      "grade2_coverage": 0.7022526855860189,
+      "graded_answers": 100,
+      "items": 125,
+      "n_cited": 2.24,
+      "output_tokens_per_answer": 112.184,
+      "seconds_p50": 2.445408600004157,
+      "seconds_p95": 4.195057600009022,
+      "seconds_per_answer": 2.7454139927998185,
+      "source_cited": 1.0,
+      "usd_per_1000": 0.413436,
+      "usd_per_100000": 41.3436,
+      "usd_per_answer": 0.00041343600000000004,
+      "words": 65.28
+    },
+    "mini": {
+      "abstain_accuracy_v2": 0.92,
+      "answers_request": 1.9,
+      "citation_precision": 0.9451666666666667,
+      "faithfulness": 0.895,
+      "false_abstain_v2": 0.050505050505050504,
+      "format_valid": 1.0,
+      "fully_faithful": 0.61,
+      "grade2_coverage": 0.7551266634599968,
+      "graded_answers": 100,
+      "items": 125,
+      "n_cited": 3.44,
+      "output_tokens_per_answer": 123.216,
+      "seconds_p50": 2.3258553000050597,
+      "seconds_p95": 2.9199214999971446,
+      "seconds_per_answer": 2.363470016001724,
+      "source_cited": 0.9885057471264368,
+      "usd_per_1000": 3.234552,
+      "usd_per_100000": 323.4552,
+      "usd_per_answer": 0.003234552,
+      "words": 82.38
+    }
+  },
+  "v1_table": {
+    "gpt-5.4": {
+      "abstain_accuracy": 0.7222222222222222,
+      "abstain_accuracy_v2": 0.8888888888888888,
+      "answers_request": 1.946808510638298,
+      "caveat_graded": 18,
+      "citation_precision": 0.9259878419452888,
+      "faithfulness": 0.8355876393110435,
+      "false_abstain": 0.0,
+      "false_abstain_v2": 0.03225806451612903,
+      "format_valid": 0.896,
+      "fully_faithful": 0.3191489361702128,
+      "grade2_coverage": 0.8472990271377369,
+      "graded_answers": 94,
+      "items": 125,
+      "n_cited": 4.25531914893617,
+      "output_tokens_per_answer": 193.56,
+      "seconds_p50": 5.152070700016338,
+      "seconds_p95": 7.38764309999533,
+      "seconds_per_answer": 12.145406723200344,
+      "source_cited": 1.0,
+      "usd_per_1000": 11.5845,
+      "usd_per_100000": 1158.45,
+      "usd_per_answer": 0.011584500000000001,
+      "words": 142.17021276595744
+    },
+    "luna": {
+      "abstain_accuracy": 0.6666666666666666,
+      "abstain_accuracy_v2": 0.9166666666666666,
+      "answers_request": 1.9545454545454546,
+      "caveat_graded": 24,
+      "citation_precision": 0.9879599567099567,
+      "faithfulness": 0.6953598484848484,
+      "false_abstain": 0.0,
+      "false_abstain_v2": 0.034482758620689655,
+      "format_valid": 0.896,
+      "fully_faithful": 0.38636363636363635,
+      "grade2_coverage": 0.7105227148330596,
+      "graded_answers": 88,
+      "items": 125,
+      "n_cited": 2.284090909090909,
+      "output_tokens_per_answer": 129.6,
+      "seconds_p50": 3.485161999997217,
+      "seconds_p95": 6.540416400006507,
+      "seconds_per_answer": 3.8437924288017675,
+      "source_cited": 1.0,
+      "usd_per_1000": 0.412044,
+      "usd_per_100000": 41.2044,
+      "usd_per_answer": 0.00041204400000000003,
+      "words": 71.02272727272727
+    },
+    "mini": {
+      "abstain_accuracy": 0.5238095238095238,
+      "abstain_accuracy_v2": 0.8571428571428571,
+      "answers_request": 1.9191919191919191,
+      "caveat_graded": 21,
+      "citation_precision": 0.947029822029822,
+      "faithfulness": 0.820959595959596,
+      "false_abstain": 0.0,
+      "false_abstain_v2": 0.08163265306122448,
+      "format_valid": 0.96,
+      "fully_faithful": 0.36363636363636365,
+      "grade2_coverage": 0.8098032069970845,
+      "graded_answers": 99,
+      "items": 125,
+      "n_cited": 3.7373737373737375,
+      "output_tokens_per_answer": 142.184,
+      "seconds_p50": 2.5652315000188537,
+      "seconds_p95": 3.2920353999943472,
+      "seconds_per_answer": 2.5820034632007594,
+      "source_cited": 1.0,
+      "usd_per_1000": 3.244158,
+      "usd_per_100000": 324.4158,
+      "usd_per_answer": 0.003244158,
+      "words": 100.76767676767676
+    }
+  }
+}

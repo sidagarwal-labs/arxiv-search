@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-085",
+  "outcome": {
+    "answer": "None of these papers directly address AI consciousness or self-awareness. The closest papers use self-supervised learning or AI explainability for forecasting and modeling, not consciousness or self-awareness [3, 6, 9, 10].",
+    "cited": [
+      3,
+      6,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "03b759293be19254ae1abd8c10c0a919f7b59f6e26b97695fafcfc2c9c9e4fbd",
+  "usage": {
+    "accounted_tokens": 3698,
+    "input_tokens": 3634,
+    "latency_seconds": 2.097733199974755,
+    "model": "gpt-6-luna",
+    "output_tokens": 64,
+    "provider_request_id": "req_8cbc177b08594aec92acc0702e04fe0c",
+    "reasoning_tokens": 0,
+    "request_id": "f7d09f15-922f-4afa-a7ed-0116939fcadd",
+    "reserved_input": 23872,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:29.709090+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

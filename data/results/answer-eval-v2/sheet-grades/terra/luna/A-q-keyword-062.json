@@ -1,0 +1,29 @@
+{
+  "answer_id": "A014",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This isolated affirmative contains no substantive factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes standard GNN failures, solver-update emulation, and solver warm-starting.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The Max-Cut proxy predicts both feasible solution types and reduces bounding costs.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

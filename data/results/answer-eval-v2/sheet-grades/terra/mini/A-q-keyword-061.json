@@ -1,0 +1,34 @@
+{
+  "answer_id": "A233",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "General introductory framing.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Attention pooling performs best under noise, while mean pooling degrades performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The open-weight study evaluates perturbation robustness and deployment constraints.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The comparison finds training-free approaches generally more robust to mixed-intent and adversarial prompts.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

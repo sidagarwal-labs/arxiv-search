@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-paraphrase-087",
+  "outcome": {
+    "answer": "No supplied paper directly addresses finding the best evidence subgraphs from a hidden knowledge graph without training the system. The closest papers are [2], which studies authorship verification under distribution shifts and benchmarks feature-based, embedding-based, and LLM-based approaches, and [10], which studies preserving author-specific style in federated personalized generation rather than subgraph evidence retrieval.",
+    "cited": [
+      2,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "f6e89b31e31d4cc058bf4296e9de629ddcc11709cdb81c7c890c8b4cabf919a2",
+  "usage": {
+    "accounted_tokens": 3587,
+    "input_tokens": 3498,
+    "latency_seconds": 2.0633433000184596,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 89,
+    "provider_request_id": "req_cbc3cea52db54bf0b4a4f88cc09c969b",
+    "reasoning_tokens": 0,
+    "request_id": "91ee8be8-340a-45bf-b644-1c7d4cffbfa2",
+    "reserved_input": 21982,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:09.128815+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-031",
+  "outcome": {
+    "answer": "The closest match is [1], which focuses on efficient sentence-level clinical provenance categorization for hospital-stay summarization using supervised fine-tuning of large language models. It reports strong in-domain performance and cross-domain transfer to NICU summaries, but it does not specifically mention Boyd. None of the other supplied papers directly address Boyd clinical provenance categorization.",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "7206a773fff60cb1f2ed1f6f85c33ecff55a86e34f1aae0d76be2b1acf21c0d2",
+  "usage": {
+    "accounted_tokens": 4245,
+    "input_tokens": 4158,
+    "latency_seconds": 1.9179459000006318,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 87,
+    "provider_request_id": "req_04f01f617bcb4ec59de1299d9e4c1ee5",
+    "reasoning_tokens": 0,
+    "request_id": "f4004df8-309b-4a8f-ad9b-f0f4a94592e2",
+    "reserved_input": 25018,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:11.939194+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

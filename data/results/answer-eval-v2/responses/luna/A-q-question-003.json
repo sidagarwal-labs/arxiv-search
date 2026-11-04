@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-003",
+  "outcome": {
+    "answer": "Large language models can actively gather information by asking users targeted questions during a multi-turn recommendation dialogue. Attribute-based questions work best early, while item-based questions become more effective as preferences become clearer [5]. Another approach trains the model to choose interactions that reduce uncertainty about its recommendations, improving recommendation quality and conversational efficiency [8].",
+    "cited": [
+      5,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "537a279c446e639144699067eca43ed859512497187621330308164483c6185f",
+  "usage": {
+    "accounted_tokens": 3552,
+    "input_tokens": 3470,
+    "latency_seconds": 2.862236799992388,
+    "model": "gpt-6-luna",
+    "output_tokens": 82,
+    "provider_request_id": "req_661f525d80dd420f80eba026880d26c6",
+    "reasoning_tokens": 0,
+    "request_id": "f4ab4940-a7d8-4b9f-8b3e-58b4c06b395a",
+    "reserved_input": 22836,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:44.391727+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-093",
+  "outcome": {
+    "answer": "For chip-design documentation, the closest match is a method that groups related EDA artifacts into functional units and retrieves those units alongside their source snippets, improving question-answering results in the evaluated EDA documentation [6]. For dividing manual text into retrieval-friendly chunks, intent-driven chunking uses anticipated questions to guide boundaries [1], while adaptive chunking selects a strategy based on document characteristics [3].",
+    "cited": [
+      6,
+      1,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "0642ac30ac1cd24d967e372e07193990b08a5f1e900f55e7716f8a02dcb05f31",
+  "usage": {
+    "accounted_tokens": 3644,
+    "input_tokens": 3547,
+    "latency_seconds": 4.098434600018663,
+    "model": "gpt-6-luna",
+    "output_tokens": 97,
+    "provider_request_id": "req_48a04d0711fd4477b596b6ec1dd38089",
+    "reasoning_tokens": 0,
+    "request_id": "ad035aa5-940f-4b35-a4ee-e3fd7df2fa18",
+    "reserved_input": 22674,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:25.136006+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

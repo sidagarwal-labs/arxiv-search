@@ -1,0 +1,34 @@
+{
+  "answer_id": "A203",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "An affirmative response without a specific factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited paper proves standard GNN limitations and reports solver emulation and warm-start speedups.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The Max-Cut proxy predicts feasible primal and dual solutions and reduces bounding cost.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The papers describe those general and specialized scopes, benchmarks, and training properties.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

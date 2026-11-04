@@ -33,8 +33,9 @@ Detailed measurements belong in [Findings](03-findings.md), with
    [experiment tooling](#step-4c-experiments-evaluateexperimentspy) and the
    [judge](#step-4d-llm-relevance-judge-evaluatejudgepy-judge_promptspy-judge_pilotpy)
    measure source ranking, graded relevance and coverage.
-5. Answers: GPT-5.4 mini uses top-10 evidence with citations or abstains
-   (Decision 48). Read the [answer evaluation](../data/results/answer-eval/report.md)
+5. Answers: GPT-6 Luna with prompt `answer-v2` uses top-10 evidence, cites every
+   sentence, and cites the closest papers when the results don't answer
+   (Decision 49). Read the [answer evaluation](../data/results/answer-eval-v2/report.md)
    separately from retrieval metrics; its experiment used Decision 46 evidence.
 6. Evidence: [complete metrics tables](../data/results/catalog-dev/report.md),
    [charts](06-charts.md) and [labeler provenance](09-labeler-comparison.md).

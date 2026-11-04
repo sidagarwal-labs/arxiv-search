@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-002",
+  "outcome": {
+    "answer": "Use mixed-precision quantization to assign higher bit-widths to more important experts and lower bit-widths to less sensitive ones, which reduces memory and speeds MoE inference on constrained devices [2, 3, 5]. For mobile or edge hardware, DyMoE adds runtime importance-aware quantization, depth-adaptive scheduling, and look-ahead prefetching to cut TTFT and TPOT on commercial edge hardware [2]. If you want runtime precision control rather than fixed allocation, DPA-MoE makes routed experts any-precision by allocating prefix-decodable chunks from live router scores [7], while GEMQ and AlphaQ improve allocation with global optimization or calibration-free bit assignment [5, 3].",
+    "cited": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "018171103e811e9068027bf88aaeb54a2fca0b46894321e310dcb5e634521a35",
+  "usage": {
+    "accounted_tokens": 3535,
+    "input_tokens": 3371,
+    "latency_seconds": 3.046944400004577,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 164,
+    "provider_request_id": "req_67aa78574ec04d4d87715b1a3ef80d40",
+    "reasoning_tokens": 0,
+    "request_id": "8be32b6a-ef05-43fe-873e-b1e4772804f1",
+    "reserved_input": 21134,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:59.668844+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

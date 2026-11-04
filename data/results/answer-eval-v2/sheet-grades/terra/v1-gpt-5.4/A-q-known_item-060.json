@@ -1,0 +1,44 @@
+{
+  "answer_id": "A018",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-060",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited metadata confirms the paper title and named authors.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract contrasts individual relevance rankings with evidence-set sufficiency.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The formulation recovers compact evidence supplying what the current decision lacks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "MSS-Complement constructs evidence sets and exceeds the specified baseline on SERBench.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The memory-selection paper discusses sufficient subsets under redundant or jointly necessary evidence.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "A standalone citation contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

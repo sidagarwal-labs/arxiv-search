@@ -1,0 +1,24 @@
+{
+  "answer_id": "A265",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract describes proximity-based query-time graph construction, reranking, and no extra infrastructure.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The supplied GraphER metadata and abstract do not mention Roth.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

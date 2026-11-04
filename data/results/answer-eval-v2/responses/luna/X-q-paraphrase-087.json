@@ -1,0 +1,25 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-paraphrase-087",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "95247f9c9d4132f066a19a0361d05ce1ae41cf2acb866415d4d93229a5e40ede",
+  "usage": {
+    "accounted_tokens": 3556,
+    "input_tokens": 3498,
+    "latency_seconds": 2.1869532999990042,
+    "model": "gpt-6-luna",
+    "output_tokens": 58,
+    "provider_request_id": "req_09504f7a8d5b4fe5b16f26a029af233e",
+    "reasoning_tokens": 0,
+    "request_id": "e25bca48-dafb-4749-923b-a9c54c38903a",
+    "reserved_input": 21969,
+    "reserved_output": 1200,
+    "started_utc": "2026-11-04T18:57:05.695537+00:00",
+    "status": "invalid_answer",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answer": "Several papers explore AI-generated feedback or iterative self-improvement for complex reasoning and rules. Test-time Recursive Thinking generates verification signals to improve answers without external feedback [1], while Native Reasoning Training uses self-generated reasoning traces and an intrinsic reward loop to improve complex reasoning without expert-written demonstrations [5].\n\nFor agents and explicit rules, RoboPhD evolves Text-to-SQL strategies from performance feedback without external domain guidance [6], and RuleEvolve iteratively mutates and evaluates coding rules [10]. CoNL uses self-play critiques that are rewarded when they help improve solutions, without external judges or ground-truth labels [8].",
+    "cited": [
+      1,
+      5,
+      6,
+      10,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "67649a89edec627083492ef47cdefcc3e01ef1e2c48165dc9e430ddcbf84d252",
+  "usage": {
+    "accounted_tokens": 3710,
+    "input_tokens": 3564,
+    "latency_seconds": 2.680768200021703,
+    "model": "gpt-6-luna",
+    "output_tokens": 146,
+    "provider_request_id": "req_b242780b246c4e6d88ed962678c51c05",
+    "reasoning_tokens": 0,
+    "request_id": "c82b8718-7d59-4beb-9d16-44cd8a16416e",
+    "reserved_input": 22792,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:02.070555+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

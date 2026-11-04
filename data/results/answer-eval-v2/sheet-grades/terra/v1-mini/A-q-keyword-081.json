@@ -1,0 +1,29 @@
+{
+  "answer_id": "A129",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "TRAIL is a fine-tuned LLM predicting near-term popularity and generating explanations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The LLM reranker improves ranking accuracy and interpretability.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "FairLRM addresses popularity bias, and VarLenRec studies popularity-dependent token lengths.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

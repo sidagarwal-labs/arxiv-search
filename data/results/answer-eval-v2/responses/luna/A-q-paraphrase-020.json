@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answer": "Decoupled Split Learning via Auxiliary Loss most directly reduces data exchange by avoiding backward error-signal propagation: it trains client and server partitions semi-independently with local loss signals, eliminating the need to transmit backward gradients while maintaining performance comparable to standard split learning [1]. FedCritic-MIMO also reduces communication through sparse exchange of shared critic parameters with error feedback, but it does not describe avoiding error-signal propagation [10].",
+    "cited": [
+      1,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "8fbec67ebebc5397d074ece35dbe7989ec882655d05edc47757a0f6f04b68111",
+  "usage": {
+    "accounted_tokens": 3995,
+    "input_tokens": 3891,
+    "latency_seconds": 3.1210460999864154,
+    "model": "gpt-6-luna",
+    "output_tokens": 104,
+    "provider_request_id": "req_6313fe34984e403290a8c2dc339ce91c",
+    "reasoning_tokens": 0,
+    "request_id": "75b96bf2-d080-4224-a589-eb88222bc81d",
+    "reserved_input": 24416,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:43.591873+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

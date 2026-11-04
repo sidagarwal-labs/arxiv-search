@@ -1,0 +1,34 @@
+{
+  "answer_id": "A025",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-011",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A general introductory selection statement contains no specific technical claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "MM-KG links multimodal patient evidence and biomedical knowledge with retrievable, testable edges.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The study examines KG integration for diagnosis and reports improved reasoning under sparse-update paradigms.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The paper compares biomedical KG continual pretraining and GraphRAG across language models.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

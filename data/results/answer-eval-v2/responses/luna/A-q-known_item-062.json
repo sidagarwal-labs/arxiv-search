@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-062",
+  "outcome": {
+    "answer": "Lucie Flek is a coauthor of MiniFool, a physics-constraint-aware adversarial attack method for testing neural-network classifiers in particle and astroparticle physics [1]. MiniFool minimizes a cost combining a chi-squared-based test statistic, which reflects experimental uncertainties, with deviation from a target score; the paper applies it to IceCube-related use cases, MNIST, and CMS Open Data [1]. Flek is also a coauthor of a study using adversarially inspired perturbations consistent with experimental uncertainties to probe hidden sensitivities in high-energy-physics neural networks [8].",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "3fbeb1c6f591f3e5c30dad8f285cc1776d9ac5aa4e5d8e0d1ba6ef38aed7c61f",
+  "usage": {
+    "accounted_tokens": 3646,
+    "input_tokens": 3507,
+    "latency_seconds": 2.8710877999837976,
+    "model": "gpt-6-luna",
+    "output_tokens": 139,
+    "provider_request_id": "req_7079e09a059c46c2ac0518306e9fb740",
+    "reasoning_tokens": 0,
+    "request_id": "082d4925-e7fe-45c4-aaf5-9aa76cec734a",
+    "reserved_input": 22973,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:08.866616+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

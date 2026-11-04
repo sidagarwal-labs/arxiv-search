@@ -1,0 +1,29 @@
+{
+  "answer_id": "A005",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This is a framing statement selecting papers, without a substantive factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "AWARe assigns activation-based importance scores and freezes parameters important to prior capabilities.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Model-Dowser combines the three signals and preserves important parameters during fine-tuning.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

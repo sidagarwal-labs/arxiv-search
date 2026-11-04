@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answer": "The closest match is [1], which describes seed-guided clustering that starts from a few user-provided labels and then expands groups by excluding anomalous points. It frames clustering as the dual of anomaly detection and uses an iterative \u201cclustering-by-exclusion\u201d mechanism to isolate fringe points and noise [1].\n\nA second close paper is [7], but it focuses on outlier detection after clustering rather than identifying clusters by starting from a few markers [7]. Papers [4] and [10] also handle robustness and outliers, but they do not describe a seed-guided exclusion-based cluster discovery process [4, 10].",
+    "cited": [
+      1,
+      7,
+      4,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "a201aef6b5da79b3a525ecab458caad1859984a88c0e670857a36c129bc15e23",
+  "usage": {
+    "accounted_tokens": 3843,
+    "input_tokens": 3695,
+    "latency_seconds": 2.603289099992253,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 148,
+    "provider_request_id": "req_3f7a55c40d724105b3d136b9e8b7abf6",
+    "reasoning_tokens": 0,
+    "request_id": "9c078dae-cfae-46a7-a836-399ed66c8e07",
+    "reserved_input": 22833,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:23.508731+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

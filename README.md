@@ -32,7 +32,7 @@ end-to-end production latency.
 ## Current working baselines
 
 Stage 1 finds candidates; Stage 2 reranks them. GPT-5.4 mini also serves as the
-offline relevance judge and the selected answer writer. These roles have
+offline relevance judge; GPT-6 Luna writes the AI summary. These roles have
 separate prompts and evaluations.
 
 | Component | Current selection |
@@ -40,7 +40,7 @@ separate prompts and evaluations.
 | Corpus and vectors | 23,304 title/abstract records; normalized OpenAI-large embeddings, 3,072 dimensions; local NumPy exact search |
 | Stage 1 retrieval | Tuned BM25 + semantic retrieval; RRF shortlist followed by score reordering ([Decision 36](docs/02-decisions.md#36-recall-preserving-shortlist-score-baseline-promoted-2026-10-29)) |
 | Stage 2 reranking | Two GPT-5.4 mini passes over the top 50 fused with retrieval order, then two passes re-scoring the top 20, keeping rank 1 ([Decision 47](docs/02-decisions.md#47-top-20-refinement-promoted-as-the-reranking-baseline-2026-11-04)); approximately $0.039 per uncached query, p50 5.5 s |
-| AI summary | GPT-5.4 mini answers from the top 10 with [n] citations or abstains ([Decision 48](docs/02-decisions.md#48-gpt-54-mini-writes-the-ai-summary-2026-11-04)); approximately $0.003 per answer |
+| AI summary | GPT-6 Luna (prompt `answer-v2`) answers from the top 10 with an [n] citation in every sentence, or says the results don't answer and cites the closest papers ([Decision 49](docs/02-decisions.md#49-gpt-6-luna-writes-the-ai-summary-2026-11-04)); approximately $0.0004 per answer, p50 2.4 s |
 | Relevance labels | GPT-5.4 mini 0/1/2 grades with 100 ASTRA reference overrides; current Decision 47 layer has 3,579 pairs; no human validation |
 | Evaluation | 100 dev / 300 held-out queries; graded relevance, source ranking, coverage, cost and reliability |
 
@@ -86,14 +86,15 @@ so their gains are not isolated causal effects.
 - LLM scores without the safeguard improved graded relevance but hurt source ranking.
 - Compression changed the tradeoff: full-dimensional float16 nearly preserved
   retrieval quality, while reducing dimensions lost candidate overlap.
+- Requiring a citation in every sentence turned the cheapest answer model into
+  the most faithful one; most unsupported sentences had simply lacked their own [n].
 
 The [experiment digest](docs/07-experiment-log.md#recent-experiments-at-a-glance)
 connects hypotheses, outcomes and lessons to detailed reports.
 
 ## Status
 
-**Selected:** Decision 47 reranking and Decision 48 AI summaries.
-**In progress:** Experiment L.
+**Selected:** Decision 47 reranking and Decision 49 AI summaries.
 **Still open:** final held-out evaluation, human validation, public deployment
 and end-to-end serving measurements.
 

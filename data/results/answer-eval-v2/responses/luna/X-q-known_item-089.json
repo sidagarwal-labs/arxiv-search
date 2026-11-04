@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-089",
+  "outcome": {
+    "answer": "If you mean fairness limits in recommendation systems, none of these papers directly studies fairness. The closest is [4], which constrains knowledge fusion to bound potential performance degradation, but it does not describe this as a fairness guarantee.",
+    "cited": [
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "9793eaf424f8927b05737f89b20098805798a28e9f61f542e99f2bc64cf9c2b8",
+  "usage": {
+    "accounted_tokens": 3373,
+    "input_tokens": 3311,
+    "latency_seconds": 2.1617835000215564,
+    "model": "gpt-6-luna",
+    "output_tokens": 62,
+    "provider_request_id": "req_671e5b1a4cf54646bf147ae972306d3e",
+    "reasoning_tokens": 0,
+    "request_id": "ff039825-3b7a-4470-9b5d-886b825d99a7",
+    "reserved_input": 22106,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:22.919507+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

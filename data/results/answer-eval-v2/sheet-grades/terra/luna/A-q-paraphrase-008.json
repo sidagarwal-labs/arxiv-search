@@ -1,0 +1,24 @@
+{
+  "answer_id": "A193",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-008",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract describes non-exclusive couriers and platform-local partially observable multi-agent learning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Attention aggregates courier information and simulations show revenue and travel-efficiency gains.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

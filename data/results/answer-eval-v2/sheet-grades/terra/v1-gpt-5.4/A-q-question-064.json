@@ -1,0 +1,39 @@
+{
+  "answer_id": "A113",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual explanation has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [1] lists greater capacity, embedding, fitting-step, and sampling-noise demands.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [1] names the curse and reports theoretical, synthetic, and real-data results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper [2] shows the stated plateau, but does not establish the same representational and capacity effect as [1].",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper [2] finds gradient noise stabilizes the marginal solution and delays escape.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

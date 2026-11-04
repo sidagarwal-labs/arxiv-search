@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-036",
+  "outcome": {
+    "answer": "Several papers compare fine-tuning strategies for legal retrieval embeddings, but they do not assess legal technical documents across diverse domains in one study. LEMUR finds that contrastive legal-domain fine-tuning improves multilingual retrieval, with gains transferring to unseen languages [1]. For Brazilian legal search, legal-only training favors specialized tasks, while mixing legal and general question-answer data gives a more robust balance across retrieval types [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "37cb1d8c61105270bdc30ec87dc163ba2e62b8df72560dc6d687668289b92c33",
+  "usage": {
+    "accounted_tokens": 3572,
+    "input_tokens": 3471,
+    "latency_seconds": 2.3968468999955803,
+    "model": "gpt-6-luna",
+    "output_tokens": 101,
+    "provider_request_id": "req_774c5a2272ae4eac846aec85abb3bb58",
+    "reasoning_tokens": 0,
+    "request_id": "cd30274d-caa0-4df7-91c3-9d57cd343f2e",
+    "reserved_input": 21391,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:54.867432+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

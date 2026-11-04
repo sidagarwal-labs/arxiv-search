@@ -1,0 +1,34 @@
+{
+  "answer_id": "A162",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-049",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about papers has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "VRCD prioritizes visually complementary positions without training.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "IGFD emphasizes semantic anchors; cluster decoding uses neighbor support without blocks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Both methods mitigate hallucinations during decoding rather than emphasizing general commitment order.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

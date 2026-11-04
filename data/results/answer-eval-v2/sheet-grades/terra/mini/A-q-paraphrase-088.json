@@ -1,0 +1,29 @@
+{
+  "answer_id": "A002",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-088",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The survey explicitly covers code-based infrastructure, reasoning, action, planning, memory, and tool use.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Both surveys describe the stated code and procedural-artifact operational roles.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The papers respectively compare tool-calling methods and describe scientific procedural skills.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,34 @@
+{
+  "answer_id": "A019",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-085",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract explicitly describes unbranding characteristic language, slogans, and stylistic markers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "MUTE is an inference-time unbranding method intended to preserve general capabilities.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Both concern redaction; semantic preservation is stated for RedacBench, not the domain-agnostic method.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited papers preserve utility while unlearning sensitive information or mitigating copyright leakage.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,39 @@
+{
+  "answer_id": "A186",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-047",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no separate factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The title and first author match the supplied metadata.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract proves logarithmic output-norm scaling for existing Lorentz layers and explains its consequence.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The proposed distance-to-hyperplane layer restores linear output-norm scaling.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The abstract describes Lorentzian activations and caching to improve geometric fidelity and efficiency.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

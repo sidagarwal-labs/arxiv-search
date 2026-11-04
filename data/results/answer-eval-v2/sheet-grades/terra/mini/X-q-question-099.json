@@ -1,0 +1,29 @@
+{
+  "answer_id": "A120",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper finds user-dependent saturation and recommends adapting fairness-driven exploration per user.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract proposes no comprehensive goal model and argues against uniform exploration pressure.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "A standalone citation makes no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

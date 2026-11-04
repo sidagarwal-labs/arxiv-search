@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-029",
+  "outcome": {
+    "answer": "The closest match is [1], which forecasts wind-induced structural response and supports bridge digital twin monitoring on the Hardanger Bridge. It is about bridge wind response forecasting and early warning, not a specific Zhou-authored bridge forecasting paper beyond the author name in [1]. None of the other papers directly address bridge forecasting.",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "e112c51793d9456b1c314f77479100369bf3ab318bd19cf41fe648ed7e9f0762",
+  "usage": {
+    "accounted_tokens": 3714,
+    "input_tokens": 3634,
+    "latency_seconds": 2.2664663000032306,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 80,
+    "provider_request_id": "req_1556bbe227bf4cafa9a1285c62972fb6",
+    "reasoning_tokens": 0,
+    "request_id": "1d073ed5-261b-4d8e-9140-4d7b0d2962c4",
+    "reserved_input": 23878,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:09.646162+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A095",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-008",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [2] describes multi-platform couriers and platform-local observations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [2] uses partially observable multi-agent reinforcement learning with local observations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [1] describes centralized ride-sharing dispatch rather than multi-platform partial observability.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

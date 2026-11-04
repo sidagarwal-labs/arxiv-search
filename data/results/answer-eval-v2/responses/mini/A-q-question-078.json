@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-078",
+  "outcome": {
+    "answer": "You can automatically judge such reports with reusable rubrics or judge models that compare a report against expected trust-relevant questions and evidence. The closest match is [1], which creates importance-weighted rubrics for news trustworthiness assessment and an automated process to judge new runs, and [2], which generates trustworthiness reports with citations and reports official evaluation results for that task.\n\nIf you want a general judging approach, [1] says assessors\u2019 rubrics capture the information readers need to assess an article\u2019s trustworthiness, while [2] uses retrieved evidence, re-ranking, and an LLM relevance judge to support report generation and evaluation. These papers focus on news trustworthiness reports, not on unrelated report types [1, 2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5af5df29929be455cf508397d6ba1e6c433f37e2c359b8a5a41ee8fe69c31b7a",
+  "usage": {
+    "accounted_tokens": 3767,
+    "input_tokens": 3599,
+    "latency_seconds": 2.7637635999999475,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 168,
+    "provider_request_id": "req_0e11c4ac280246c5b21efb497c38bab2",
+    "reasoning_tokens": 0,
+    "request_id": "713e0598-8df1-4990-986b-2a977abcfa0d",
+    "reserved_input": 22645,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:46.703185+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

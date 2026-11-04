@@ -1,0 +1,29 @@
+{
+  "answer_id": "A179",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-060",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "CONGRATS explores multiple graph paths to expand decoding and promote diversity.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Graph transitions model item dependencies and permit more diverse sequences.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited alternatives concern retrieval and reranking rather than repetitive generative recommendation lists.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

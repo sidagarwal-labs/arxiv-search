@@ -1,0 +1,38 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-089",
+  "outcome": {
+    "answer": "Yes [1, 2, 3, 4, 5, 6, 7, 8, 9]. Several papers show machine learning for early detection or screening of dementia-related decline, including early Alzheimer\u2019s disease, mild cognitive impairment, and cognitive decline from speech, multimodal behavior, EEG, MRI/PET, and clinical notes [1, 2, 3, 4, 5, 6, 7, 8, 9]. Some focus on early stages or MCI specifically [1, 2, 3, 8], while others target Alzheimer\u2019s prediction or broader dementia prognosis from different data sources [4, 5, 6, 7, 9].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "c4570759185059a9d39259a801b713fa723be35abae3e91577335047c23a352a",
+  "usage": {
+    "accounted_tokens": 3994,
+    "input_tokens": 3827,
+    "latency_seconds": 2.3859250000095926,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 167,
+    "provider_request_id": "req_886b11d82f7849fc838cd361eb12b773",
+    "reasoning_tokens": 0,
+    "request_id": "c1ecacbf-ef3b-4658-983a-9a283c68739a",
+    "reserved_input": 23855,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:54.479619+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

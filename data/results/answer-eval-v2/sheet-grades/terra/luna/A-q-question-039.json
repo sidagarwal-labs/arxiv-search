@@ -1,0 +1,29 @@
+{
+  "answer_id": "A118",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "NuggetIndex stores validity intervals and lifecycle states and filters invalid records before ranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Chronofy represents fact age, applies retrieval decay, and checks temporal validity during reasoning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The reranker reduces poisoning with accurate dates; dates alone yield only modest adaptation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

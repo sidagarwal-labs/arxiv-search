@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-042",
+  "outcome": {
+    "answer": "Yes \u2014 [1] is the Jiang paper on personalized dense retrieval reasoning. [1] proposes Think-to-Personalize, which unifies explicit user-centric intent reasoning with dense retrieval by reasoning over user history to generate an intent-enhanced query embedding. [1] It is also the closest match if you want a personalized dense retrieval method that uses reasoning rather than only implicit embedding interactions.",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "bdbe0b7d0386d68683f43dc2f7a7a3f21766aaa663ffde8aa2825b79aa0af87d",
+  "usage": {
+    "accounted_tokens": 3585,
+    "input_tokens": 3485,
+    "latency_seconds": 2.5067950999946333,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 100,
+    "provider_request_id": "req_b12207bee4cd4835bbbd46e5e5e88d6a",
+    "reasoning_tokens": 0,
+    "request_id": "b35c64c6-8aa0-43fb-b26e-95be5f0caf4f",
+    "reserved_input": 22433,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:18.489971+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

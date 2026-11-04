@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answer": "To make retrieval account for information dates, represent facts with temporal validity and filter out expired or superseded facts before ranking; NuggetIndex uses records with validity intervals and lifecycle states [8]. Chronofy incorporates fact age into embeddings and retrieval through temporal decay, then checks whether evidence remains valid during reasoning [4]. For a simpler approach, a recency-aware hybrid reranker can help when date metadata is reliable, but dates alone may not make a model correctly judge whether old evidence still applies [1].",
+    "cited": [
+      8,
+      4,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "ecb397292c158eb4c299606446980337044e784d2aea54de574728b677e5a030",
+  "usage": {
+    "accounted_tokens": 3726,
+    "input_tokens": 3608,
+    "latency_seconds": 3.140512399986619,
+    "model": "gpt-6-luna",
+    "output_tokens": 118,
+    "provider_request_id": "req_f6b0d8ff54c44c2782d7ad369af163c8",
+    "reasoning_tokens": 0,
+    "request_id": "72f7b999-c081-436a-bd4b-70e1425de3af",
+    "reserved_input": 22591,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:05.522473+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

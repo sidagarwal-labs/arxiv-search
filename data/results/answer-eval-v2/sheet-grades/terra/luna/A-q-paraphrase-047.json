@@ -1,0 +1,24 @@
+{
+  "answer_id": "A237",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The seed-guided method identifies anomalies and expands initial groups with non-anomalous points.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract defines anomaly-free clusters and describes iterative exclusion of fringe and noise.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

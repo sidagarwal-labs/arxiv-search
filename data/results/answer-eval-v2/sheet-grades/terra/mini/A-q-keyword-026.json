@@ -1,0 +1,29 @@
+{
+  "answer_id": "A027",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The inference auction bids for priority and uses prices incentivizing truthful bidding.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The autobidder dynamically adjusts bids to maximize utility subject to a specified budget.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "A standalone citation contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

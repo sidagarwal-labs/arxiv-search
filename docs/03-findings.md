@@ -32,7 +32,7 @@ agreement has its own [comparison method](09-labeler-comparison.md).
 | Fusion and candidate selection | [Hybrid fusion](#11-hybrid-rank-fusion-decision-32), [score/depth experiments](#21-score-based-fusion-top-rank-bonuses-and-candidate-depth), [recall-preserving ordering](#23-rankscore-experiments-and-recall-preserving-baseline) |
 | Query-document interactions | [Cross-encoder](#24-query-document-interaction-first-local-cross-encoder), [field scores](#25-separate-titleabstract-field-scores), [paraphrase recovery](#28-recovering-paraphrases-without-query-type-routing) |
 | LLM reranking and reliability | [Output reliability](#30-mini-llm-pilot-results-and-output-reliability), [fixed-key scoring](#31-fixed-key-reranker-v2-reliable-output-and-pilot-quality), [loss analysis](#32-stage-2-loss-analysis-and-the-north-star-2026-11-03), [Experiment D](#33-experiment-d-a-requirement-checklist-made-the-reranker-worse-2026-11-03), [Experiment E](#35-experiment-e-a-second-look-at-the-top-20-ranks-better-but-moves-the-source-paper-2026-11-04), [Experiment E2](#36-experiment-e2-refinement-holds-up-on-80-unseen-queries-2026-11-04), [subsequent experiments](07-experiment-log.md#reranker-follow-ups-after-decision-45) |
-| AI summary (RAG answers) | [Choosing the AI-summary model](#37-choosing-the-ai-summary-model-2026-11-04) |
+| AI summary (RAG answers) | [Choosing the AI-summary model](#37-choosing-the-ai-summary-model-2026-11-04), [Experiment L: per-sentence citations](#38-experiment-l-a-citation-rule-made-the-cheapest-model-the-most-faithful-2026-11-04) |
 | All metrics, not just selected milestones | [Complete all-system tables](../data/results/catalog-dev/report.md), [results index](05-results.md), [charts](06-charts.md) |
 
 Sections remain in place so their evidence and incoming links stay intact.
@@ -2617,3 +2617,36 @@ answer blind; GPT-6 ASTRA graded a 40-answer sample.
 - **The v2 abstain rule mattered.** The models rarely refuse outright; they answer
   "the papers don't directly address this; the closest are [n]". Counting that
   graded caveat as abstaining moved mini's abstain accuracy from 0.52 to 0.86.
+
+## 38. Experiment L: a citation rule made the cheapest model the most faithful (2026-11-04)
+
+Decision 48 left Luna out on faithfulness and format. Free diagnostics on its saved
+answers found two causes, neither about invented facts
+([report](../data/results/answer-eval-v2/report.md)):
+
+- **Format was mostly a parser bug.** 9 of Luna's 13 malformed answers were GPT-6
+  replies that send a commentary-phase draft before the `final_answer` message.
+  The client now reads only the final answer; 3 more had run out of output tokens.
+- **Unsupported sentences had no citation of their own.** 81 of Luna's 82
+  unsupported sentences carried no [n]; the label sat in a neighbouring sentence.
+  The same was true for gpt-5.4 (70/72) and mini (56/63).
+
+Prompt `answer-v2` asks for a label in every sentence about a paper and allows
+1,200 output tokens. Luna and mini rewrote all 125 dev items ($0.46), and Terra
+graded them blind in a new session with 40 old answers mixed in to measure drift.
+
+- **Every sentence cited, far fewer unsupported claims.** Luna's faithfulness rose
+  from 0.695 to 0.935 and fully faithful answers from 39% to 77%, now above the
+  gpt-5.4 yardstick (+0.105 [+0.070, +0.141]). Mini rose to 0.895.
+- **The grader was stable.** Same answers, two Terra sessions: sentence agreement
+  95% (kappa 0.88), faithfulness shift −0.028.
+- **Our own two rules collided.** answer-v2 said "cite the closest papers" when
+  nothing answers; the format check said an ungrounded answer must not cite. All
+  15 format failures were exactly that, so both models scored 0.94 and failed the
+  0.95 bar. Allowing citations in an ungrounded answer (contract B) makes both
+  1.000 and Luna qualifies
+  ([recheck](../data/results/answer-eval-v2/report-recheck.md),
+  [Decision 49](02-decisions.md#49-gpt-6-luna-writes-the-ai-summary-2026-11-04)).
+- **Lesson:** reading why sentences fail beat switching models; the fix that helped
+  the cheap model also helped the others. The rule change is post hoc and was not
+  confirmed on held-out queries.

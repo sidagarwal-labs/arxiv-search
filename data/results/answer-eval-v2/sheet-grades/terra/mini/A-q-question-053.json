@@ -1,0 +1,29 @@
+{
+  "answer_id": "A159",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-053",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Gnosis passively compresses hidden-state and attention traces with negligible cost and without external judges.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "DMI-Lib captures tensors asynchronously with low overhead; the abstract does not explicitly establish layer-wise capture.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "The tool collects layer-wise trajectories and enables real-time control; streaming and reduced latency are not explicitly established.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,34 @@
+{
+  "answer_id": "A228",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-017",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual Raven mechanism has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Raven reports strong recall and effective extrapolation to sixteen times training length.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "KLA uses normalized updates and reports perfect single-needle and improved associative recall.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Input-dependent decay improves associative recall and long-range memory settings.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

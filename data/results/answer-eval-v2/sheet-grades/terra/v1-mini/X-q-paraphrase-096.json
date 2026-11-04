@@ -1,0 +1,24 @@
+{
+  "answer_id": "A099",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-paraphrase-096",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [1] concerns physics-constrained adversarial attacks, not summary trees or retrieval.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [2] concerns attacks on relational deep learning, not hierarchical document retrieval.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

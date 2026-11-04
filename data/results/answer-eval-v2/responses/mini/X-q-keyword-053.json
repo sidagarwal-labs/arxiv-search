@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-keyword-053",
+  "outcome": {
+    "answer": "The closest matches are [2], [5], [7], [9], and [10]. [2] studies authorship verification under genre, time, and AI-era shifts, using feature-based, embedding-based, and LLM-based approaches. [5] analyzes stylistic differences between human and LLM writing across genres, models, and decoding strategies. [7] shows that an LLM trained on one author\u2019s works can capture that author\u2019s style. [9] evaluates personalization methods and finds they modulate style but do not bridge the gap to human authorship. [10] studies federated personalized generation and author-style homogenization, proposing a method to retain authorial voice.",
+    "cited": [
+      2,
+      5,
+      7,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "8bc1f14874e3decfcaf606e091c37062e5e213e2075188bcc0ff4ffb9a0cee1f",
+  "usage": {
+    "accounted_tokens": 3642,
+    "input_tokens": 3486,
+    "latency_seconds": 2.0292637999809813,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 156,
+    "provider_request_id": "req_8528848276e741389dfada9a6b32afd9",
+    "reasoning_tokens": 0,
+    "request_id": "79b71a8a-dff0-4ddb-a33b-5006c6d7edbd",
+    "reserved_input": 21921,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:04.556670+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

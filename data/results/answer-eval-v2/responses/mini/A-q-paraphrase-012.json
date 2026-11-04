@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-012",
+  "outcome": {
+    "answer": "Yes. The closest matches are [1], [2], [3], and [5]: they all address updating item identifiers or token mappings in generative retrieval/recommendation as item behavior changes. [1] specifically argues to keep old SIDs fixed, insert new items, and warm-start training so the model preserves learned topology, while [2] proposes a lightweight SID alignment update to refresh interaction-informed SIDs without a full rebuild. [3] adds an exposure-aware dynamic update mechanism for a large semantic codebook, and [5] uses drift-aware continual tokenization with drift detection and hierarchical code reassignment to limit disruptive changes.",
+    "cited": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "bcb6897c09fdc4a442ec3433785c7e08b2498907ce131f662849d5a5d9ec3262",
+  "usage": {
+    "accounted_tokens": 3998,
+    "input_tokens": 3853,
+    "latency_seconds": 2.4285803000093438,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 145,
+    "provider_request_id": "req_b44447c266284ddc9cb0f3193488c84b",
+    "reasoning_tokens": 0,
+    "request_id": "a19f8b30-a466-411e-b3bd-681ba2368ff4",
+    "reserved_input": 24327,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:03.401888+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

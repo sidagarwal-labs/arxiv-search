@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-095",
+  "outcome": {
+    "answer": "Yes. WIND says a single pre-trained foundation model can replace specialized baselines across a wide range of atmospheric tasks without task-specific fine-tuning [1]. Other papers also support the idea that one general-purpose model can work across multiple atmospheric or Earth-science tasks, though some emphasize limits or the need for domain-specific adaptation [4, 6, 9].",
+    "cited": [
+      1,
+      4,
+      6,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5385c2b018696bbfc90d5cb7ec228c51b9e03f2e1b52be40342b68eb46e4097c",
+  "usage": {
+    "accounted_tokens": 3817,
+    "input_tokens": 3726,
+    "latency_seconds": 2.3075249000103213,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 91,
+    "provider_request_id": "req_ca214e9f932848a1b391505d1753efc2",
+    "reasoning_tokens": 0,
+    "request_id": "bdb0441d-0e37-4582-894f-6359036549db",
+    "reserved_input": 24161,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:59.563412+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

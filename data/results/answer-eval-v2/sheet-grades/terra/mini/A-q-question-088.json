@@ -1,0 +1,29 @@
+{
+  "answer_id": "A049",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-088",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "LifeMem and TRIAGE retrieve reusable experience, but SWIFT conditions generation on priors rather than explicitly retrieving them.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "LifeMem clusters workflows, recalls skills and trajectories, and reports reduced forgetting and improved transfer.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "SWIFT distills heuristics from trajectories, but its workflow demonstrations are not described as distilled from those trajectories.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

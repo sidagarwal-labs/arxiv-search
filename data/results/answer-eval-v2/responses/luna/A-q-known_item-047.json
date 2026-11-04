@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-047",
+  "outcome": {
+    "answer": "The matching paper is \u201cFast and Geometrically Grounded Lorentz Neural Networks,\u201d by Robert van der Klis and coauthors [1]. It proposes a Lorentz linear layer based on the distance-to-hyperplane formulation, along with Lorentzian activation functions and a caching strategy, aiming to preserve hyperbolic geometry while improving computational efficiency [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "c2dd1dab0f33b4220f0f4dd00da9e53e3e6e43b7895c8ce4ba657b7807a09cb2",
+  "usage": {
+    "accounted_tokens": 3499,
+    "input_tokens": 3409,
+    "latency_seconds": 1.9779787000152282,
+    "model": "gpt-6-luna",
+    "output_tokens": 90,
+    "provider_request_id": "req_4c62f0e972fe4641b625d36a53bc159d",
+    "reasoning_tokens": 0,
+    "request_id": "7c59df79-fec6-4c42-aeb3-0bbb843103c5",
+    "reserved_input": 21612,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:54.352728+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

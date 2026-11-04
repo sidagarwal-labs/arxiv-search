@@ -1,0 +1,49 @@
+{
+  "answer_id": "A069",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The uncited claim about papers and complex rule-following lacks sentence-level support.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "RuleEvolve mutates rules, evaluates variants with a judge, and outperforms the stated baselines.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The overview describes autonomous data generation, evaluation, and iterative refinement.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This is a framing transition.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "TRT uses self-generated verification signals and reports improvements without external feedback.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "CoNL uses multi-agent critique and diagnostic rewards without external judges or ground truth.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "NRT generates reasoning traces from question-answer pairs without expert reasoning demonstrations or external verifiers.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

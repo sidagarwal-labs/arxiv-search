@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-088",
+  "outcome": {
+    "answer": "LLMs can reuse specific workflows by abstracting past trajectories into reusable skills or structural priors, then retrieving those for similar new tasks instead of rerunning everything from scratch [1, 2, 10]. LifeMem clusters interaction trajectories by underlying workflows and recalls relevant skills and trajectories at inference time to reduce forgetting and improve transfer [1]. SWIFT distills compositional heuristics and workflow demonstrations from prior search trajectories, while TRIAGE turns historical execution trajectories into skills for direct reuse or parameter substitution on similar queries [2, 10].",
+    "cited": [
+      1,
+      2,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "61c689ecf988e30c3ac5c403cae0395012e0ec7f9e478fa1630f4e112b5b58c9",
+  "usage": {
+    "accounted_tokens": 3918,
+    "input_tokens": 3792,
+    "latency_seconds": 2.3860990999964997,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 126,
+    "provider_request_id": "req_7bd53a23ff3242909cc7020ae4a5141d",
+    "reasoning_tokens": 0,
+    "request_id": "9a4a410f-413e-4437-b9c4-30d0d59f6e4f",
+    "reserved_input": 23636,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:52.066946+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

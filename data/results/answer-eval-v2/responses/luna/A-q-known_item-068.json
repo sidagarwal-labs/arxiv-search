@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answer": "The matching paper is \u201cContinually Post-training Small Models via Synthetic Self-distillation\u201d by Woosung Koh and coauthors [1]. It introduces Synthetic Self-Distillation (SynthSelf), which uses a minimally larger, same-family aligner to provide supervision for small models\u2019 continual learning, combined with off-policy supervision and rejection sampling [1]. The paper reports that SynthSelf outperforms six compared methods across three small-model scales and evaluates both learning new capabilities and retaining prior knowledge [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "9dbd3dccb647a5f115a44eb1ca972bed24259cb405930433faf5bc80815b7ac9",
+  "usage": {
+    "accounted_tokens": 3809,
+    "input_tokens": 3691,
+    "latency_seconds": 2.7275794000015594,
+    "model": "gpt-6-luna",
+    "output_tokens": 118,
+    "provider_request_id": "req_88decbeffe7142009a37384822340aec",
+    "reasoning_tokens": 0,
+    "request_id": "d849af60-d65d-45ca-9207-9badb85621fa",
+    "reserved_input": 22312,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:11.757138+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A035",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This isolated affirmative contains no substantive factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract states the reification, zero-shot transfer, and GAT comparison.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The result is established for the proposed representation, not arbitrary graph representations.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

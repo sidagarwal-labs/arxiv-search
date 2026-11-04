@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-036",
+  "outcome": {
+    "answer": "Content creators can understand why their items receive little or no exposure by using a surrogate model that approximates a recommender\u2019s overall exposure distribution and identifies which item features most influence exposure [1]. A counterfactual observability framework can also estimate what recommendations and engagement would have occurred without a particular item or model decision, helping separate model behavior from content quality, presentation bias, and audience reach [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "b483cf49257ee6117ee7242fe2540cf341113b66ea64efdb020f2f98c68b5b5d",
+  "usage": {
+    "accounted_tokens": 3637,
+    "input_tokens": 3539,
+    "latency_seconds": 2.688598799984902,
+    "model": "gpt-6-luna",
+    "output_tokens": 98,
+    "provider_request_id": "req_e024a31913364354ae2001e994d62d9f",
+    "reasoning_tokens": 0,
+    "request_id": "62a97d08-766c-46b0-8310-d0851df3bf54",
+    "reserved_input": 23001,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:59.561031+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

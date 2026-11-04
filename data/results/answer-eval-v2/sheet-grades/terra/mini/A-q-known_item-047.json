@@ -1,0 +1,29 @@
+{
+  "answer_id": "A236",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-047",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited metadata names the paper and van der Klis.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes the Lorentz layer, activations, caching, geometry, and efficiency.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Most cited topics match, but [3] studies neural quadratic forms, not specifically quadratic neural networks.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answer": "Some ways include prompt engineering with deliberate planning and word counting to steer the model to a target length [1], dynamic length feedback during generation so the model can adapt as it goes [2], and reinforcement learning that explicitly optimizes temporal or length compliance under constraints [3]. Another option is suffix-constrained generation, which guarantees that the end of the response satisfies a constraint while allowing freer generation before it [6].",
+    "cited": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "db42957f4af9971664319bc3e6b523152ba3ba4a2a6f11ec80ecff4333889a12",
+  "usage": {
+    "accounted_tokens": 3490,
+    "input_tokens": 3390,
+    "latency_seconds": 2.2913615999859758,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 100,
+    "provider_request_id": "req_bea7127505344bc18f4c9c78d3f0cb0e",
+    "reasoning_tokens": 0,
+    "request_id": "5aaf2b6f-df9a-471e-b10b-e89957ad1d4e",
+    "reserved_input": 21967,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:05.599496+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

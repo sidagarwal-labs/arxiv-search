@@ -1,0 +1,29 @@
+{
+  "answer_id": "A156",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The sentence is uncited and its denial of a direct match conflicts with [2]'s dense-to-sparse method.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited papers describe learned sparse retrieval, decomposing dense retrievers, and SAE-based sparse models.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "SSR replaces clustering with sparse coding of token embeddings and inverted indexing.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

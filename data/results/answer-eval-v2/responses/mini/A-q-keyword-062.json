@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answer": "Yes: [1] and [2] are the closest matches. [1] studies GNNs as fast computational surrogates for linear SDPs, showing that standard GNNs fail but a more expressive architecture can recover optimal SDP solutions and warm-start a solver. [2] is a Max-Cut-specific neural proxy for SDP solvers that predicts primal- and dual-feasible SDP solutions and can be plugged into exact branch-and-bound.",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "75e1e72813a347a7f7c37502514f5df642a51b68ce95dd8aba0b88e7b49745d8",
+  "usage": {
+    "accounted_tokens": 3156,
+    "input_tokens": 3049,
+    "latency_seconds": 2.165232700004708,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 107,
+    "provider_request_id": "req_8c5aae225a8c4b1b84949750718b2ace",
+    "reasoning_tokens": 0,
+    "request_id": "41ca6179-72d3-415e-aff3-3d17cc2a486b",
+    "reserved_input": 19631,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:35.764035+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

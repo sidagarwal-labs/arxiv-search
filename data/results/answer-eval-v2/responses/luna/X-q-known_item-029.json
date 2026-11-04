@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-029",
+  "outcome": {
+    "answer": "None of these papers address wind bridge forecasting or identify a Zhou paper on that topic. The closest match is a recommendation paper coauthored by Peilin Zhou, but it concerns intent-guided sequential recommendation, not wind or bridge forecasting [4].",
+    "cited": [
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "347d0e7a1ca9f3ad669b8d82ae569fe6af10c78eacf7801fbc82e501bfcf76b7",
+  "usage": {
+    "accounted_tokens": 3558,
+    "input_tokens": 3491,
+    "latency_seconds": 2.2476103999943007,
+    "model": "gpt-6-luna",
+    "output_tokens": 67,
+    "provider_request_id": "req_dae77e9c78c14bc7a5e20800ff846334",
+    "reasoning_tokens": 0,
+    "request_id": "fb286f04-260f-4042-a8f8-8f3821c26ede",
+    "reserved_input": 23237,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:31.825087+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

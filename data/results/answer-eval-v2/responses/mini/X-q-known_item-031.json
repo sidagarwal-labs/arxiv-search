@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-031",
+  "outcome": {
+    "answer": "No supplied paper directly addresses Boyd clinical provenance categorization. The closest papers are about controlling or predicting output length in large language models, especially [2], [4], and [9], but they do not discuss clinical provenance categorization.",
+    "cited": [
+      2,
+      4,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "684b32a169f35131b82195af9c6bbe3cc02c83506373748c83b40e2224389622",
+  "usage": {
+    "accounted_tokens": 3450,
+    "input_tokens": 3380,
+    "latency_seconds": 1.8753618999908213,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 70,
+    "provider_request_id": "req_86f59d9e88ed45669d68251d31974bf2",
+    "reasoning_tokens": 0,
+    "request_id": "e8df5476-1d10-412a-a3b0-f970093e4037",
+    "reserved_input": 21916,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:49.010958+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

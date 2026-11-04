@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answer": "Neural networks struggle because highly ambiguous next-token distributions require more capacity to store and larger embeddings to represent, take more training steps to fit, and amplify token-sampling noise [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5738d4b3f0db38b73a6cbd46e7df1689b12af31c3db9ca179fec60998bd39902",
+  "usage": {
+    "accounted_tokens": 3253,
+    "input_tokens": 3198,
+    "latency_seconds": 1.8837137999944389,
+    "model": "gpt-6-luna",
+    "output_tokens": 55,
+    "provider_request_id": "req_ace4b3483d8644e5873023453664181a",
+    "reasoning_tokens": 0,
+    "request_id": "9f9b3183-fb00-481c-ba40-52238f7a91e7",
+    "reserved_input": 20515,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:27.284500+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

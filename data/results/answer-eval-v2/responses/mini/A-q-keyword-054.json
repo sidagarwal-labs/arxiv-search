@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-054",
+  "outcome": {
+    "answer": "Bifocal Diffusion Language Models introduces R2LM, and it is the paper that reports throughput results for this bifocal setup [1]. It says R2LM achieves 2.4\u00d7 to 12.9\u00d7 higher throughput than bidirectional dLLMs and 1.9\u00d7 to 2.9\u00d7 speedup over autoregressive baselines in batch serving with parallel decoding and KV caching [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "41d8f4cf16ea2ccb422993e807dbe9eb2011f433c41d3f03e513aa92398c747e",
+  "usage": {
+    "accounted_tokens": 3898,
+    "input_tokens": 3789,
+    "latency_seconds": 2.191629799985094,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 109,
+    "provider_request_id": "req_0ae2e5a26ef84d419c677b154ff99eea",
+    "reasoning_tokens": 0,
+    "request_id": "56373aca-8838-4b1d-9eb3-531bd4e60006",
+    "reserved_input": 22380,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:29.027098+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

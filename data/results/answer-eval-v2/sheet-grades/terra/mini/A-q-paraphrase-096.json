@@ -1,0 +1,34 @@
+{
+  "answer_id": "A124",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-096",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This sentence selects papers without specifying factual topic claims.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited abstracts describe chunk-tree navigation and hierarchical summary-based retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "SproutRAG builds a chunk tree and uses multi-granularity hierarchical beam search.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "EviMap supports corpus exploration through hierarchical topics grounded in evidence spans.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

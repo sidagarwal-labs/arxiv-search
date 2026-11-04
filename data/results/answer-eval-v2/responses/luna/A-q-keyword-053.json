@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answer": "For graph machine learning applied to chemical reactions, RxnCLF uses a condensed reaction graph to learn transformation-aware representations and improve reaction-yield prediction over graph and sequence baselines [1]. enviGraph generates reaction data from transformation rules and uses a graph-to-sequence predictor for biodegradation products and pathways [6]. These address different tasks: reaction representation and yield prediction [1], versus biodegradation prediction [6].",
+    "cited": [
+      1,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "3718751cdd7f601129b1c97dd2ac5b68324ae9e45082136697fdc162150f1d67",
+  "usage": {
+    "accounted_tokens": 4079,
+    "input_tokens": 3978,
+    "latency_seconds": 2.486085099983029,
+    "model": "gpt-6-luna",
+    "output_tokens": 101,
+    "provider_request_id": "req_240c3e7027ca49bab863faa7db9ec8ba",
+    "reasoning_tokens": 0,
+    "request_id": "7045fb7a-c088-44e0-9636-4ebe90a93dc2",
+    "reserved_input": 24372,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:47:26.865732+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

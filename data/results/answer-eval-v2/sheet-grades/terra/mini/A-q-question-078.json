@@ -1,0 +1,34 @@
+{
+  "answer_id": "A253",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-078",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The proposed factual judging method is asserted without citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The first paper supplies weighted rubrics and AutoJudge; the second generates cited reports and reports evaluations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The relevance judge filters retrieved evidence; the second abstract does not say it evaluates reports.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "Both cited papers concern news trustworthiness reporting.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

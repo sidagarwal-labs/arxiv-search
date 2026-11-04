@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-017",
+  "outcome": {
+    "answer": "Raven directly targets long-context recall in linear-time sequence models, using input-dependent routing to update selected memory slots and reduce interference and eviction. It reports strong recall on benchmarks and remains effective at context lengths up to 16 times its training length [1]. Kaczmarz Linear Attention instead improves recurrent-state updates with a key-norm-normalized step size; it reports perfect single-needle retrieval and better multi-query associative recall than Gated DeltaNet [2]. Adaptive Memory Decay for Log-Linear Attention adapts memory decay to input content and reports gains on long-range associative recall [3].",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "4904897b3ebd478c2705b9c7865b70dfad47e873cf4e725681b7c785cfab13fc",
+  "usage": {
+    "accounted_tokens": 3675,
+    "input_tokens": 3537,
+    "latency_seconds": 2.5288132000132464,
+    "model": "gpt-6-luna",
+    "output_tokens": 138,
+    "provider_request_id": "req_e8962a3d4a3a4b4486057be3dab89097",
+    "reasoning_tokens": 0,
+    "request_id": "7af3bf2f-cc09-4cb5-aac8-0545e4ff32eb",
+    "reserved_input": 22218,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:44:12.490928+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

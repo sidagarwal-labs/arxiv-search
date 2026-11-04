@@ -1,0 +1,38 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-004",
+  "outcome": {
+    "answer": "The closest match is [1], which directly studies computational political bias in Wales by analyzing bias in Nation.Cymru\u2019s political reporting with an NLP pipeline. [1] It finds measurable differential framing across Welsh party mentions, including more negative treatment of Reform UK and more favourable framing for Plaid Cymru. [1]\n\nA broader but less Wales-specific fit is [4], which compares human and LLM-based political bias detection in news media and finds RoBERTa aligns best with human labels among transformer baselines. [4] Papers [2], [3], [5], [6], [8], [9], and [10] focus on political bias or partisanship in LLMs, media, or summarization, but not specifically on Wales. [2, 3, 5, 6, 8, 9, 10]",
+    "cited": [
+      1,
+      4,
+      2,
+      3,
+      5,
+      6,
+      8,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "062558a688e4d00daf57ae4d5a779eee9b8902b1e5dd63596ab198b17ace6415",
+  "usage": {
+    "accounted_tokens": 3504,
+    "input_tokens": 3304,
+    "latency_seconds": 2.5119537000136916,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 200,
+    "provider_request_id": "req_077b54354959487f8f4202cee314c48e",
+    "reasoning_tokens": 0,
+    "request_id": "b4de09d1-ba51-4ebd-ad9b-b1c01bac356b",
+    "reserved_input": 22017,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:57:58.561223+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-093",
+  "outcome": {
+    "answer": "The closest matches are [1], [3], [8], [9], and [2]. [1] and [9] focus on query-aware or intent-aware chunking for RAG, which is directly relevant to grouping snippets into better blocks for question answering. [3] and [8] also address chunking or structured processing for technical documents, with [3] emphasizing adaptive selection of chunking strategies and [8] focusing on engineering manuals. [2] is especially relevant if your manuals are hyperlinked HTML documentation, because it uses link-aware retrieval to exploit existing document structure.",
+    "cited": [
+      1,
+      3,
+      8,
+      9,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "f8c47588fbd6c74a9e662ae3b88def4272940eec2fd793bdd1e0608dd846a3db",
+  "usage": {
+    "accounted_tokens": 3683,
+    "input_tokens": 3547,
+    "latency_seconds": 2.394770899991272,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 136,
+    "provider_request_id": "req_422852ff435049d1a5b2d81a2987c933",
+    "reasoning_tokens": 0,
+    "request_id": "777781d1-8a98-4eff-86b5-a40782e8e523",
+    "reserved_input": 22687,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:49.495629+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

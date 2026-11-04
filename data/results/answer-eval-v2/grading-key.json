@@ -1,0 +1,2498 @@
+{
+  "A001": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-053",
+    "sentences": [
+      "For graph machine learning applied to chemical reactions, RxnCLF uses a condensed reaction graph to learn transformation-aware representations and improve reaction-yield prediction over graph and sequence baselines [1]. enviGraph generates reaction data from transformation rules and uses a graph-to-sequence predictor for biodegradation products and pathways [6].",
+      "These address different tasks: reaction representation and yield prediction [1], versus biodegradation prediction [6]."
+    ]
+  },
+  "A002": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-088",
+    "sentences": [
+      "Yes \u2014 the closest match is [2], which surveys code as an agent harness and explicitly centers code as the basis for agent infrastructure, including reasoning, action, planning, memory, and tool use.",
+      "[2] It is broader than a review of programmable scripts specifically, but it does cover the role of executable code as the operational substrate for agent reasoning and execution, and [3] similarly frames reusable procedural artifacts as the operational layer for agent execution.",
+      "[1] focuses more narrowly on programmatic tool calling versus JSON tool calling, while [7] emphasizes procedural skills for research agents rather than a general review of scripts as the core structure."
+    ]
+  },
+  "A003": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-072",
+    "sentences": [
+      "The closest match is [1]: it builds a benchmark using the British Library BL19 digital collection, with more than 35,000 works from 1700-1899, to study retrieval in 19th-century fiction and non-fiction.",
+      "[1] It is specifically an evaluation framework for historical information retrieval, with expert-driven queries and paragraph-level relevance annotation, but it is not described as a general BL19 retrieval benchmark outside that historical collection setting.",
+      "[1]"
+    ]
+  },
+  "A004": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-031",
+    "sentences": [
+      "The closest match is \u201cTowards Multidisciplinary Summarization of Hospital Stays: Efficient Sentence-Level Clinical Provenance Categorization\u201d [1].",
+      "It presents a supervised pipeline for categorizing sentence-level provenance in clinical notes and evaluates transfer from adult ICU notes to multidisciplinary NICU summaries [1]."
+    ]
+  },
+  "A005": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-052",
+    "sentences": [
+      "The closest matches are [2] and [4].",
+      "[2] proposes AWARe for MLLMs, which assigns activation-based importance scores to parameters and selectively freezes those essential for preserving prior capabilities while adapting less important ones.",
+      "[4] proposes Model-Dowser for MLLMs, which scores each parameter using weight magnitudes, input activations, and output sensitivities, then preserves high-importance parameters during fine-tuning to mitigate catastrophic forgetting."
+    ]
+  },
+  "A006": {
+    "candidate": "luna",
+    "item_id": "X-q-paraphrase-094",
+    "sentences": [
+      "The supplied papers do not address improving picture descriptions with a shared model that creates and checks quality rules using a moving average.",
+      "The closest mention of a moving average is an exponential moving average of model parameters for deploying a game-playing agent [1], while another paper describes a shared model trunk for game roles [2]."
+    ]
+  },
+  "A007": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-paraphrase-008",
+    "sentences": [
+      "The closest match is POLO, a partially observable multi-agent reinforcement learning framework for dispatching optimization in multi-platform instant delivery systems, where couriers are not exclusive to one platform and each platform only observes its own orders and courier interactions due to privacy and operational constraints [2].",
+      "It learns dispatch policies from platform-local observations and is designed to work with incomplete courier information [2].",
+      "If you mean a broader delivery-routing setting rather than multiple apps/platforms, other papers focus on ride-sharing dispatch with many drivers [1], last-mile pickup dispatch and routing [7], or multi-vehicle pickup-delivery [3], but they do not specifically frame the problem as multiple apps with partial visibility into all driver data [1, 3, 7]."
+    ]
+  },
+  "A008": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-question-039",
+    "sentences": [
+      "Use a retrieval setup that attaches temporal validity to each retrieved item and filters or down-weights items that are no longer valid.",
+      "One option is NuggetIndex, which stores atomic records with evidence links, a temporal validity interval, and a lifecycle state, then filters invalid or deprecated nuggets before ranking [8].",
+      "Another is Chronofy, which embeds temporal validity into representation, retrieval, and reasoning using temporal decay and explicit validity checks [4].",
+      "If you want a simpler ranking-focused approach, a recency-aware hybrid re-ranker can reduce stale-document poisoning when date metadata is reliable, but performance depends on accurate temporal metadata [1].",
+      "For time-sensitive news, DynaTree adapts retrieval over time and improves freshness and relevance in a live system [7]."
+    ]
+  },
+  "A009": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-007",
+    "sentences": [
+      "Yes\u2014[1] is the closest match: it is specifically about synthetic data curation for LLM training and argues that effective curation needs group-level signals rather than individual-sample signals.",
+      "[3] and [9] are also about LLM data curation, but they focus on online reweighting and bilevel offline/online fine-tuning, not the group-level issue in synthetic data."
+    ]
+  },
+  "A010": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-070",
+    "sentences": [
+      "Chenrun Wang is a coauthor of LigBench, a benchmark for fine-grained, consistent evaluation of LLM-generated research ideas [1].",
+      "The paper also introduces PAIR-IQ, a dataset for training pairwise idea-judgment models, and reports that LigBench\u2019s evaluations align more closely with expert judgments [1]."
+    ]
+  },
+  "A011": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-039",
+    "sentences": [
+      "Fernandes\u2019 Brazilian legal document segmentation is best matched by Structural Segmentation for Brazilian Legal Document Retrieval [1].",
+      "[1] It studies structural segmentation for Brazilian legal document retrieval using the hierarchical structure of legal acts, comparing a multi-layered hierarchy with simplified chunk-based representations.",
+      "[1] The closest related papers are JU\u00c1, a benchmark for Brazilian legal text collections [3], and Chunking German Legal Code [9], but they focus on benchmarking and German statutory law rather than Fernandes\u2019 Brazilian legal segmentation approach.",
+      "[3, 9]"
+    ]
+  },
+  "A012": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-019",
+    "sentences": [
+      "The matching paper is \u201cSympathetic Framing: Evaluating AI Alignment across Sociodemographic Groups\u201d by Haran Shani-Narkiss, Michael Fire, and Oren Tsur [1].",
+      "It evaluates how closely LLMs\u2019 judgments of sympathy-evoking news headlines align with human judgments, including across demographic subgroups [1].",
+      "The authors report broad alignment among leading models across groups, alongside statistically significant differences between groups [1]."
+    ]
+  },
+  "A013": {
+    "candidate": "luna",
+    "item_id": "X-q-keyword-021",
+    "sentences": [
+      "None of these papers directly address transformer recommender popularity bias.",
+      "The closest papers study stylistic homogenization in personalized text generation, not recommendation systems or popularity bias [10]."
+    ]
+  },
+  "A014": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-062",
+    "sentences": [
+      "Yes.",
+      "One paper studies GNNs as fast surrogates for linear SDP solutions, finding standard architectures can fail and proposing a more expressive model that can emulate first-order solver updates and warm-start a solver [1].",
+      "A second develops a Max-Cut-specific GNN proxy for SDP relaxations that predicts primal- and dual-feasible solutions and can reduce the cost of bounding in branch-and-bound [2]."
+    ]
+  },
+  "A015": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-050",
+    "sentences": [
+      "None of these papers directly answer how to block fake information in external search results by checking how removing a page changes the answer.",
+      "The closest are [9], which studies source credibility and groundedness in chat assistants using web search, and [10], which evaluates defenses against information-distorting GEO content in generative search; [7] is also related because it shows how leaky retrieval can distort evaluation."
+    ]
+  },
+  "A016": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-096",
+    "sentences": [
+      "The closest match is [1], which is by Shutong Qiao and coauthors and proposes variable-length, LLM-aligned semantic identifiers for generative recommendation.",
+      "[1] It directly targets adaptive SID lengths and says the identifiers are built from native LLM vocabulary tokens to better fit item semantic complexity.",
+      "[1] A related earlier paper is [8], also by Shutong Qiao and coauthors, but it studies how to improve Semantic ID learning by using OCR-based text representations rather than standard text embeddings.",
+      "[8] It does not address variable-length semantic IDs.",
+      "[8]"
+    ]
+  },
+  "A017": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-042",
+    "sentences": [
+      "Angqing Jiang and coauthors propose Think-to-Personalize (TTP), a framework that combines explicit reasoning over a user\u2019s purchase history with dense retrieval [1].",
+      "TTP infers personalized needs, creates an intent-enhanced query, and trains the reasoning process in supervised fine-tuning and reinforcement-learning stages [1]."
+    ]
+  },
+  "A018": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-known_item-060",
+    "sentences": [
+      "The matching paper is The Missing Complement: State-Conditioned Minimal Sufficient Evidence for Coding Agents by Zhexi Feng, Ruiyi Zhang, Yongbo Yang, et al.",
+      "[1] It argues that for coding agents, relevance-ranked passages are not enough because sufficiency belongs to the set of evidence: individually relevant passages can still miss one requirement needed for the agent\u2019s next decision.",
+      "[1] Feng et al. formulate state-conditioned minimal sufficient evidence recovery: given the agent\u2019s current state, recover a compact combination of evidence that supplies what the next decision still lacks.",
+      "[1] Their MSS-Complement method treats retrieval as set construction rather than ranking, and on SERBench it recovers complete evidence sets more often than a Qwen3 embedding plus reranking baseline.",
+      "[1] Related work makes a similar sufficiency point for agent memory selection rather than repository retrieval, arguing that rankings cannot identify sufficient subsets under redundant or jointly necessary evidence.",
+      "[6]"
+    ]
+  },
+  "A019": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-085",
+    "sentences": [
+      "Yes: [1] directly addresses removing brand language from LLM text while preserving general utility, including neutralizing characteristic language, slogans, and stylistic markers.",
+      "[1] is the closest match and is specifically framed as LLM Unbranding, with an inference-time method that aims to eliminate brand leakage without harming general capabilities.",
+      "[2] and [8] are related but broader: they focus on domain-agnostic redaction and policy-conditioned redaction of sensitive information while preserving semantics, not specifically company trademarks or slogans.",
+      "[4], [6], and [7] also preserve utility while removing or mitigating sensitive or copyrighted content, but they do not focus on branded text or slogans."
+    ]
+  },
+  "A020": {
+    "candidate": "mini",
+    "item_id": "X-q-known_item-032",
+    "sentences": [
+      "None of these papers directly address Bekkers equivariant neural fields; the closest are [3], [8], and [9], which focus on multimodal, structure-aware, or evidence-centric retrieval for question answering rather than neural fields.",
+      "[3] is about long-document multimodal QA, [8] about exhaustive recall-sensitive QA over structured corpora, and [9] about heterogeneous financial filings."
+    ]
+  },
+  "A021": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-072",
+    "sentences": [
+      "HASTE [1] is the direct match: it is a generative recommendation method that explicitly adds hierarchical supervision, along with attribute-level supervision, to improve training efficiency and long-tail performance.",
+      "[1]"
+    ]
+  },
+  "A022": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-049",
+    "sentences": [
+      "The closest matches are [5], [1], and [8].",
+      "[5] trains reasoning on unverifiable data by having the model generate its own reasoning traces from standard question-answer pairs, creating a self-reinforcing feedback loop without expert-written demonstrations.",
+      "[1] focuses on self-improvement without external feedback at test time, using self-generated verification signals to improve answer selection.",
+      "[8] targets non-verifiable learning by using multi-agent self-play and meta-evaluation to create supervision for both generation and judging without ground-truth labels."
+    ]
+  },
+  "A023": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-061",
+    "sentences": [
+      "For robust chatbot intent classification, attention pooling is recommended for noisy conversational inputs, while mean pooling can degrade accuracy [2].",
+      "Training-free approaches are generally more robust to mixed-intent and adversarial prompts, while training-based classifiers have an advantage on harder classification tasks [3].",
+      "For detecting unknown intents, EliDecide uses flexible ellipsoid boundaries and reports strong open-intent detection [4]."
+    ]
+  },
+  "A024": {
+    "candidate": "mini",
+    "item_id": "A-q-question-039",
+    "sentences": [
+      "Use a retrieval system that stores or filters documents by temporal validity, and make the model use that date information when deciding whether evidence still applies [1, 4, 8].",
+      "Chronofy embeds temporal validity into representation, retrieval, and reasoning, NuggetIndex keeps a validity interval and filters deprecated nuggets before ranking, and the recency taxonomy in RecencyQA helps determine when a question actually needs up-to-date information [4, 8, 3].",
+      "If you want a practical retrieval layer, a recency-aware hybrid reranker can reduce stale-document poisoning when dates are accurate, and news retrieval can be improved by time-localized selection over a dynamic structure [1, 7].",
+      "The papers also warn that date filters alone can be unreliable because retrieval may still leak post-cutoff information, so you need stronger safeguards than simple date filtering [2]."
+    ]
+  },
+  "A025": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-011",
+    "sentences": [
+      "Yes \u2014 several papers fit this topic.",
+      "The closest is [2], which explicitly combines multimodal patient evidence with biomedical knowledge graphs for clinical LLMs and makes the links retrievable, traceable, and testable.",
+      "[1] also fits, studying how to integrate biomedical knowledge graphs into LLMs for clinical diagnosis and finding that KG-judgment training can improve reasoning.",
+      "[9] is related too, comparing continual pretraining on a biomedical knowledge graph with GraphRAG for language models, but it is less specifically about clinical LLMs."
+    ]
+  },
+  "A026": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-paraphrase-087",
+    "sentences": [
+      "Yes \u2014 the closest matches are training-free graph retrieval methods that aim to find minimal, query-relevant evidence subgraphs from a knowledge graph.",
+      "GFM-Retriever directly returns a subgraph using a pre-trained Graph Foundation Model and a label-free selector to find an informationally sufficient and structurally minimal \u201ccore set\u201d [1].",
+      "BubbleRAG is also training-free and frames retrieval as finding an optimal informative subgraph over black-box knowledge graphs, while QAFD-RAG is training-free and dynamically adapts traversal to the query\u2019s semantics with retrieval guarantees [5, 3].",
+      "If you specifically want \u201cwithout needing to train the system,\u201d [1], [3], and [5] fit best.",
+      "[1] emphasizes a pre-trained model plus label-free selection; [5] focuses on evidence-driven retrieval over unknown-schema graphs; [3] emphasizes query-aware traversal with statistical guarantees."
+    ]
+  },
+  "A027": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-026",
+    "sentences": [
+      "The closest match is [1], which proposes an inference auction for LLM API requests when demand exceeds compute capacity, letting users bid for faster service and using pricing that incentivizes truthful bidding.",
+      "[1] It also includes an autobidding agent that adjusts bids under a user-specified budget to maximize utility.",
+      "[1]"
+    ]
+  },
+  "A028": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-073",
+    "sentences": [
+      "For wordy or repetitive student-generated rollouts in on-policy distillation, StableOPD directly targets repetition-induced length inflation using a reference-based divergence constraint and rollout-mixture distillation [1].",
+      "Another approach aligns functionally equivalent EOS tokens to reduce termination-mismatch-driven length inflation, though this does not eliminate all late-training inflation [2].",
+      "For verbose reasoning traces, BIRD first trains on concise, answer-correct samples and then applies on-policy distillation with a concise self-teacher [5]."
+    ]
+  },
+  "A029": {
+    "candidate": "mini",
+    "item_id": "X-q-question-064",
+    "sentences": [
+      "Highly ambiguous token distributions are hard because the model has to choose among many plausible continuations, and the supplied papers do not directly explain this token-level training difficulty.",
+      "The closest evidence is that retrieval and generation can become unreliable when evidence is sparse or conflicting: stronger retrieval can still lead to confident hallucinations if relevant documents are absent [1], and complex, repetitive document settings with distractors make exhaustive retrieval difficult [8]."
+    ]
+  },
+  "A030": {
+    "candidate": "luna",
+    "item_id": "X-q-paraphrase-063",
+    "sentences": [
+      "None of the supplied papers directly address grading science tests where students write one paragraph answering several questions, or using a network of reference answers for that task.",
+      "The closest paper studies learning evaluator preferences from multiple criteria to produce an overall evaluation, but its abstract does not describe this grading setup [3]."
+    ]
+  },
+  "A031": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-061",
+    "sentences": [
+      "DeCode: Decoupling Content and Delivery for Medical QA [1] is the paper that matches this query.",
+      "It proposes a training-free, model-agnostic framework that decouples content and delivery to adapt existing LLMs for contextualized clinical answers, and it reports improved medical question answering performance [1].",
+      "If you want related but different approaches, one paper uses retrieval-augmented generation and fine-tuning to ground answers in medical literature [2], while another uses multi-source retrieval and in-context learning for direct and sequential biomedical questions [3]."
+    ]
+  },
+  "A032": {
+    "candidate": "mini",
+    "item_id": "A-q-question-003",
+    "sentences": [
+      "Large language models can improve product recommendations by actively asking for informative preference cues during a conversation and by using those cues to reduce uncertainty in the recommendations [5, 8].",
+      "They can also actively gather information by generating or refreshing user context and interaction data from existing histories or catalog data, which is then used to refine recommendations [1, 2, 6, 7, 9, 10].",
+      "The closest match for interactive information gathering is conversational recommendation: stage-aware elicitation strategies decide when to ask about attributes versus items [5], and entropy-based interaction generation chooses questions that most reduce uncertainty [8].",
+      "Other papers use LLMs more as data or context generators than as question askers, including semantic enrichment of sequences [1], real-time user personas [2], synthetic interactions for sparse or cold-start data [6, 10], live-catalog retrieval refresh [7], and LLM-generated user profiles from histories [9]."
+    ]
+  },
+  "A033": {
+    "candidate": "mini",
+    "item_id": "A-q-question-050",
+    "sentences": [
+      "Yes.",
+      "ArcGD is a geometry-inspired optimizer that, on a highly non-convex Rosenbrock benchmark, consistently outperformed Adam under one matched-learning-rate setting and achieved superior final solutions in most cases under another [1].",
+      "EISAM is also geometry-based in the sense of using a prediction step that investigates the loss landscape, and it consistently outperformed Adam in test accuracy and training efficiency across benchmark datasets [6]."
+    ]
+  },
+  "A034": {
+    "candidate": "luna",
+    "item_id": "A-q-question-078",
+    "sentences": [
+      "Reports that help readers assess news trustworthiness can be judged with importance-weighted rubrics: assessors define key questions and expected answers for each article, then an automated judge scores reports against those rubrics.",
+      "In one evaluation, automated rankings aligned well with human assessments, especially for report generation [1].",
+      "A report-generation system can retrieve and rerank evidence, filter it for relevance, and use an LLM to produce a concise report with citations [2].",
+      "Evaluation should also check whether the reports cover the rubric\u2019s important information; the rubric-based approach is designed to support reusable comparisons of such systems [1]."
+    ]
+  },
+  "A035": {
+    "candidate": "luna",
+    "item_id": "A-q-question-077",
+    "sentences": [
+      "Yes.",
+      "Reifying each fact as a node and using a fixed vocabulary allows textbook GNNs, including an off-the-shelf GAT, to transfer zero-shot to unseen knowledge graphs; the best GAT matches a dedicated knowledge-graph foundation model on its evaluation suite [1].",
+      "This result shows that standard GNNs can do so with the proposed representation, rather than establishing that they work on unknown graphs without any adaptation to the representation [1]."
+    ]
+  },
+  "A036": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-079",
+    "sentences": [
+      "The closest matches are papers on regional-language social media and dialect variation in Bengali and Tulu [2, 4, 6, 7, 8].",
+      "[2] and [7] analyze Bengali or Tulu social media comments for classification tasks, while [4] studies place-linked language variation in social media communities.",
+      "[6] focuses on regional dialect identification in Bangla text, and [8] shows that code-switched social-media data can be sparse and challenging for language models."
+    ]
+  },
+  "A037": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-062",
+    "sentences": [
+      "Yes: [1] and [2] are the closest matches.",
+      "[1] studies GNNs as fast computational surrogates for linear SDPs, showing that standard GNNs fail but a more expressive architecture can recover optimal SDP solutions and warm-start a solver.",
+      "[2] is a Max-Cut-specific neural proxy for SDP solvers that predicts primal- and dual-feasible SDP solutions and can be plugged into exact branch-and-bound."
+    ]
+  },
+  "A038": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-009",
+    "sentences": [
+      "Several papers describe automated clustering for discovering topics or communities.",
+      "ClusterFusion combines embedding-guided partitioning with LLM topic summarization and assignment [1], while TriTopic uses a graph combining semantic embeddings, TF-IDF, and metadata with consensus clustering [2].",
+      "Other topic-discovery approaches include multilingual embedding and density-based clustering [3], adaptive dimensionality reduction with embedding clustering [5], and hierarchical density modeling that reveals topics at multiple scales [8].",
+      "For community clustering specifically, an unsupervised graph-based system detects communities of arguments using relationships such as topic similarity and shared keywords [7]."
+    ]
+  },
+  "A039": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-089",
+    "sentences": [
+      "The closest match is [1], which directly addresses fundamental fairness limits.",
+      "[1] says unfairness can arise from irreducible subgroup cost, finite-sample learning, and model-class expressivity limits, so fairness requires explicit trade-offs rather than a guaranteed free solution.",
+      "[2] and [9] are also related: [2] discusses conflicts between fairness notions and accuracy in criminal justice, while [9] presents a framework for balancing multiple fairness metrics and predictive accuracy."
+    ]
+  },
+  "A040": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-036",
+    "sentences": [
+      "Several papers compare fine-tuning strategies for legal retrieval embeddings, but they do not assess legal technical documents across diverse domains in one study.",
+      "LEMUR finds that contrastive legal-domain fine-tuning improves multilingual retrieval, with gains transferring to unseen languages [1].",
+      "For Brazilian legal search, legal-only training favors specialized tasks, while mixing legal and general question-answer data gives a more robust balance across retrieval types [2]."
+    ]
+  },
+  "A041": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-012",
+    "sentences": [
+      "For updating item IDs as user-interaction patterns change, DACT is a close match: it detects item-level collaborative drift, fine-tunes the tokenizer, and reassigns codes while limiting unnecessary changes [5].",
+      "Another option is to refresh IDs from recent logs and align them with the existing vocabulary, enabling warm-start training without a full rebuild [2].",
+      "The papers differ in emphasis: DACT adapts individual items according to drift, while SID alignment prioritizes compatibility with the existing retriever [5, 2]."
+    ]
+  },
+  "A042": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-005",
+    "sentences": [
+      "Yes \u2014 [1] directly matches RL self-play for a strategy game: it trains a transformer with plain policy-gradient self-play for the strategy game Generals.io and reaches superhuman play.",
+      "[2] is also relevant because it applies self-play RL to the board game Tablut, but it focuses on asymmetric board-game adaptations and stabilization rather than real-time strategy."
+    ]
+  },
+  "A043": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-keyword-081",
+    "sentences": [
+      "Yes\u2014these results include LLM approaches that use popularity prediction inside recommendation.",
+      "TRAIL is the most direct match: a fine-tuned LLM for recommendation that jointly predicts short-term item popularity and generates explanations, reporting stronger popularity prediction and explainability than baselines [1].",
+      "Related work also uses popularity signals more indirectly: one method activates LLM guidance based partly on item popularity and improves accuracy especially in cold-start and long-tail settings [3], while FairLRM targets popularity bias by helping RecLLMs semantically interpret and address item-side and user-side sources of that bias, improving fairness and accuracy [8].",
+      "If you mean broader LLM recommendation rather than explicit popularity prediction, the papers differ: some use LLMs as explainable re-rankers instead of standalone recommenders [2], some generate temporal user profiles to improve recommendation quality and interpretability in certain domains [5], and one studies when LLM-generated profiles help in production, finding benefits mainly for exploratory users and also observing a popularity-attractor effect [10]."
+    ]
+  },
+  "A044": {
+    "candidate": "luna",
+    "item_id": "A-q-question-074",
+    "sentences": [
+      "Different spherical retractions mainly differ in how they convert update magnitude into a rotation angle, and that choice affects stability and performance [1].",
+      "The paper compares metric-projection and Cayley retractions, which preserve norm exactly, and introduces a broader one-parameter family; its best validation loss occurs at a finite parameter value, suggesting the exponential-map retraction is not preferred [1]."
+    ]
+  },
+  "A045": {
+    "candidate": "mini",
+    "item_id": "A-q-question-007",
+    "sentences": [
+      "Some ways include prompt engineering with deliberate planning and word counting to steer the model to a target length [1], dynamic length feedback during generation so the model can adapt as it goes [2], and reinforcement learning that explicitly optimizes temporal or length compliance under constraints [3].",
+      "Another option is suffix-constrained generation, which guarantees that the end of the response satisfies a constraint while allowing freer generation before it [6]."
+    ]
+  },
+  "A046": {
+    "candidate": "luna",
+    "item_id": "X-q-known_item-089",
+    "sentences": [
+      "If you mean fairness limits in recommendation systems, none of these papers directly studies fairness.",
+      "The closest is [4], which constrains knowledge fusion to bound potential performance degradation, but it does not describe this as a fairness guarantee."
+    ]
+  },
+  "A047": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-063",
+    "sentences": [
+      "GRASP directly addresses this setup: it grades multi-topic science tests where answers to several questions are merged into one unlabeled paragraph, using a network of reference answers to retrieve and assign references to answer segments [1].",
+      "It then grades each segment against its assigned reference independently [1]."
+    ]
+  },
+  "A048": {
+    "candidate": "luna",
+    "item_id": "X-q-known_item-096",
+    "sentences": [
+      "None of the supplied papers addresses Qiao or variable-length semantic IDs; the closest is [2], which describes a scientific generative language model that represents objects and interactions as token sequences over a shared vocabulary."
+    ]
+  },
+  "A049": {
+    "candidate": "mini",
+    "item_id": "A-q-question-088",
+    "sentences": [
+      "LLMs can reuse specific workflows by abstracting past trajectories into reusable skills or structural priors, then retrieving those for similar new tasks instead of rerunning everything from scratch [1, 2, 10].",
+      "LifeMem clusters interaction trajectories by underlying workflows and recalls relevant skills and trajectories at inference time to reduce forgetting and improve transfer [1].",
+      "SWIFT distills compositional heuristics and workflow demonstrations from prior search trajectories, while TRIAGE turns historical execution trajectories into skills for direct reuse or parameter substitution on similar queries [2, 10]."
+    ]
+  },
+  "A050": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-keyword-079",
+    "sentences": [
+      "The results include several papers on regional-language social media, especially for Bengali and related low-resource languages.",
+      "The closest match is a study on code-mixed Tulu social media comments for hope speech detection, which uses organically adapted text models on social media data [2].",
+      "Another paper analyzes social media polarization in Bengali comments and evaluates multiple classifiers on a manually annotated Bengali dataset [7].",
+      "If you mean broader regional-language social media research, one paper studies place-based language variation on New Zealand Reddit communities [4], while another looks at Hinglish tweets for sentiment analysis [3].",
+      "The Bengali papers focus on speech or dialect resources and dialect-aware assistance rather than social media specifically [1, 5, 6]."
+    ]
+  },
+  "A051": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-question-077",
+    "sentences": [
+      "Yes.",
+      "One paper shows that vanilla, standard GNNs can do zero-shot link prediction on unseen knowledge graphs if the graph is first reified into a fixed transferable representation; in that setup, textbook GNNs including GAT, GraphSAGE, and R-GCN transferred from one training KG to 40 inductive link-prediction benchmarks, and the best off-the-shelf GAT matched a dedicated KG foundation model [1].",
+      "The key difference is that the transfer mechanism is moved from the architecture into the representation, rather than claiming ordinary GNNs on their usual KG input will generalize automatically [1].",
+      "Related papers here discuss specialized KG foundation models for unseen graphs [4] or scalable KG link prediction on large graphs [5], but they do not show standard vanilla GNNs doing zero-shot prediction on unknown KGs in the same way [4,5]."
+    ]
+  },
+  "A052": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-014",
+    "sentences": [
+      "Yes: [1] directly gives a probabilistic upper bound on the actor error in a slow-fast two-timescale actor-critic setup.",
+      "[1] states that, with high probability, the actor parameter stays in a safe region after some finite time, and gives an explicit all-time bound on \\Vert\\theta_k-\\theta^*\\Vert for all sufficiently large k.",
+      "[3] is also about two-timescale reinforcement-learning stochastic approximation and proves stability and convergence under Markovian noise, but it does not give the same explicit probabilistic upper limit on actor distance from the optimum.",
+      "[5] discusses why a two-timescale actor-critic framework helps justify second-order actor updates, but it is not an upper-bound result for actor error."
+    ]
+  },
+  "A053": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-068",
+    "sentences": [
+      "The matching paper is \u201cContinually Post-training Small Models via Synthetic Self-distillation\u201d by Woosung Koh and coauthors [1].",
+      "It introduces Synthetic Self-Distillation (SynthSelf), which uses a minimally larger, same-family aligner to provide supervision for small models\u2019 continual learning, combined with off-policy supervision and rejection sampling [1].",
+      "The paper reports that SynthSelf outperforms six compared methods across three small-model scales and evaluates both learning new capabilities and retaining prior knowledge [1]."
+    ]
+  },
+  "A054": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-032",
+    "sentences": [
+      "The closest match is a study that uses measured hardware behavior\u2014including ramp limits, efficiency, and setpoint-tracking accuracy\u2014to optimize battery and electrolyser participation in Danish electricity and ancillary-service markets [1].",
+      "It reports optimized daily profits for both systems [1].",
+      "The papers do not specifically describe \u201cpower conversion tools\u201d or Nordic exchanges beyond the Danish markets studied [1]."
+    ]
+  },
+  "A055": {
+    "candidate": "luna",
+    "item_id": "A-q-question-089",
+    "sentences": [
+      "Yes.",
+      "The papers describe machine-learning approaches that detect early Alzheimer\u2019s disease or mild cognitive impairment using clinical and cognitive measures, brain imaging, speech, and other behavioral signals [1, 2, 3, 6, 8].",
+      "One study reports that multimodal video, audio, and text models distinguish mild cognitive impairment from healthy aging [2], while another reports detection of mild cognitive impairment from changes across repeated behavioral sessions [3].",
+      "These are screening and classification results; the abstracts do not establish that the methods are ready to diagnose dementia in routine clinical use [1, 2, 3, 6, 8]."
+    ]
+  },
+  "A056": {
+    "candidate": "luna",
+    "item_id": "A-q-question-056",
+    "sentences": [
+      "Yes.",
+      "A training-free LLM active-learning framework uses pretrained knowledge and text descriptions to suggest experiments iteratively, without training a task-specific model; across four materials datasets, it reduced experiments needed to reach top candidates by over 70% [1].",
+      "LLMs can also generate materials hypotheses through analogy-guided reasoning, including novel battery-material candidates [2]."
+    ]
+  },
+  "A057": {
+    "candidate": "mini",
+    "item_id": "A-q-question-095",
+    "sentences": [
+      "Yes.",
+      "WIND says a single pre-trained foundation model can replace specialized baselines across a wide range of atmospheric tasks without task-specific fine-tuning [1].",
+      "Other papers also support the idea that one general-purpose model can work across multiple atmospheric or Earth-science tasks, though some emphasize limits or the need for domain-specific adaptation [4, 6, 9]."
+    ]
+  },
+  "A058": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-026",
+    "sentences": [
+      "For an LLM API priority-bidding system, Inference Auctions is the direct match: it lets users bid for faster service when inference demand exceeds compute capacity, aiming to allocate priority efficiently without sacrificing latency [1].",
+      "It also describes an autobidder that adjusts bids over time to meet a user-specified inference budget [1]."
+    ]
+  },
+  "A059": {
+    "candidate": "mini",
+    "item_id": "A-q-question-099",
+    "sentences": [
+      "Use richer user-goal signals, not just clicks, to model why users choose items and align recommendations with those goals.",
+      "[1, 2, 4, 9] Papers propose using explicit context feedback, review text, and natural-language profiles to capture semantic reasons behind preferences, which can make recommendations more personalized, transparent, and steerable.",
+      "[1, 2, 9] Another approach is to infer and use high-level intents or motivations during reasoning, so the system can understand intrinsic behavior patterns and stay robust to noisy interactions.",
+      "[2, 4, 10] One paper also argues for semantic profiles built from LLMs and knowledge graphs to better represent preferences and propagate them in recommendation models.",
+      "[3]"
+    ]
+  },
+  "A060": {
+    "candidate": "mini",
+    "item_id": "A-q-question-040",
+    "sentences": [
+      "Tool specifications can be used as the source of synthetic scenarios: function names, natural-language descriptions, and typed parameter schemas already contain enough semantic information to generate realistic evaluation cases without manual curation or live tool execution [1].",
+      "From a single MCP specification, one pipeline can enrich raw schemas, generate graded scenarios with synthetic tool outputs, and expand them into mock-data-grounded multi-turn dialogues for evaluating tool-calling correctness and conversational coherence [1].",
+      "Related work also uses tool ecosystems to synthesize training or test data in other ways: one framework creates novel tasks and tool ecosystems, then simulates users and tools in full environments [2]; another generates hard tool-use samples by sampling from a dynamic API graph built from failure cases and instantiating abstract tools and queries [3]; and another synthesizes trajectories from text corpora by extracting workflows and tools before grounding and refining them [8]."
+    ]
+  },
+  "A061": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-known_item-039",
+    "sentences": [
+      "The closest match is Structural Segmentation for Brazilian Legal Document Retrieval, which studies structural segmentation for Brazilian legal documents and compares hierarchy-based and chunk-based representations for retrieval [1].",
+      "It reports that structural segmentation improves dense retrieval over whole-document indexing, but not consistently lexical retrieval [1].",
+      "If you meant a different paper by Fernandes, the other Fernandes-authored papers here are about Brazilian Portuguese IR datasets and judge evaluation, Jev-as-a-judge, and legal retrieval benchmarks, but they do not specifically focus on segmentation [2, 3, 7]."
+    ]
+  },
+  "A062": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-008",
+    "sentences": [
+      "Causality by Abstraction: Symbolic Rule Learning in Multivariate Timeseries with Large Language Models is the closest match: it uses LLMs to generate formal, verifiable symbolic causal rules for delayed effects in multivariate time series, with temporal operators and delay semantics [1].",
+      "The rules are refined for consistency and tested through reconstruction, causal-encoding ablations, and generalization to unseen output trends [1].",
+      "Other papers address LLM-assisted causal discovery or temporal causal models, but their abstracts do not describe learning logical rules for time-series causality [3, 4, 6]."
+    ]
+  },
+  "A063": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-004",
+    "sentences": [
+      "Yes: the closest match is [7], which proposes AMuFC, a modular fact-checking framework that adaptively decides whether visual evidence should be used, because the paper shows that using visual evidence indiscriminately can reduce verification accuracy.",
+      "[7] None of the other supplied papers directly focus on deciding whether an image is helpful or harmful for verification; instead, they mainly verify image-text claims with retrieval, evidence fusion, or explanation generation [1, 2, 8]."
+    ]
+  },
+  "A064": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-paraphrase-093",
+    "sentences": [
+      "Yes: the closest match is to organize manual snippets into structure- or function-based blocks rather than fixed chunks.",
+      "For chip-design and EDA documentation specifically, one paper groups related typed artifacts into EDA functional units, recorded as hyperedges linked back to source chunks, and retrieves both these units and raw chunks; this improved QA on EDA documentation benchmarks [6].",
+      "More broadly, papers on technical and specialized documents find that preserving domain structure improves retrieval and answer quality over flat or fixed-size chunking [2,3,5,7].",
+      "If your bot must answer varied technical questions, there are a few variants.",
+      "Intent-Driven Dynamic Chunking uses predicted user queries to place chunk boundaries around likely information needs [1].",
+      "Adaptive Chunking chooses a chunking method per document using intrinsic quality metrics such as block integrity and cohesion [3].",
+      "If your manuals already have links or markup, using hyperlink topology [2] or source structure such as LaTeX labels and sectioning [4] can create more logical blocks for retrieval."
+    ]
+  },
+  "A065": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-088",
+    "sentences": [
+      "The closest match is [1], which studies RAG for AI policy QA and specifically focuses on AI governance and policy analysis.",
+      "[1] It finds that domain-specific fine-tuning improves retrieval metrics but does not consistently improve end-to-end question answering, and it warns that stronger retrieval can still produce hallucinated answers when relevant documents are missing.",
+      "[1]"
+    ]
+  },
+  "A066": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-096",
+    "sentences": [
+      "Shutong Qiao is a coauthor of VaLiDRec, which proposes variable-length, LLM-aligned semantic IDs for generative recommendation [1].",
+      "It builds IDs from informative native LLM tokens, adapting their length to item semantic complexity, and predicts token sets rather than generating IDs autoregressively [1].",
+      "Qiao also coauthored an empirical study of OCR-based text representations for semantic ID learning, but that paper does not focus on variable-length IDs [8]."
+    ]
+  },
+  "A067": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-074",
+    "sentences": [
+      "The closest match is [1], which directly studies distributional reinforcement learning in chaotic dynamical systems and explains why return distributions can evolve more regularly than individual trajectories under chaos.",
+      "[1] It argues that this yields a smoother distributional Bellman objective and better conditioned learning in chaotic settings.",
+      "[1] Other nearby papers are [7] and [6], but they do not focus on chaotic dynamics: [7] proposes a distributional RL critic using diffusion bridges, and [6] develops average-reward distributional RL with a quotient-space formulation.",
+      "[7, 6]"
+    ]
+  },
+  "A068": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-021",
+    "sentences": [
+      "Several supplied papers address transformer recommender popularity bias.",
+      "[1] studies scaling transformer-based sequential recommenders and finds that larger models can amplify popularity bias; it proposes SPRINT to reduce this effect and improve long-tail fairness.",
+      "[8] also targets a Transformer-based next-item recommender and says noncontrastive self-supervised learning can mitigate popularity bias while improving long-tail coverage.",
+      "[3] addresses sequential recommendation with a loss-only method that reduces popularity bias without architectural changes, but it is not specifically about transformers."
+    ]
+  },
+  "A069": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-paraphrase-049",
+    "sentences": [
+      "Yes: several papers describe improving AI with self-generated feedback instead of human labels, including for following complex rules.",
+      "RuleEvolve directly targets rules for coding agents by mutating candidate rules and using a judge module to evaluate and keep the best ones, outperforming manual rule engineering and prompt optimization baselines [10].",
+      "More broadly, self-improvement frameworks let models generate data, evaluate outputs, and iteratively refine capabilities with minimal or no external supervision [4].",
+      "If you mean self-feedback during reasoning or agent behavior, there are a few variants.",
+      "TRT uses self-generated verification signals at test time to improve answers without external feedback [1].",
+      "CoNL uses multi-agent critique and meta-evaluation, rewarding critiques that help improve solutions, so generation and judging improve together without external judges or ground truth [8].",
+      "NRT trains reasoning models from standard question-answer pairs by having the model generate its own reasoning traces, avoiding expert-written demonstrations and external verifiers [5]."
+    ]
+  },
+  "A070": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-022",
+    "sentences": [
+      "The closest match is [2], which uses structured supervised fine-tuning with an interpretable slot-filling template and then DPO refinement to detect polarization in social media text.",
+      "It is not exactly \u201cpolitical leaning\u201d spotting, but it is a two-stage method for polarization detection in posts and explicitly combines slot-based training with preference optimization.",
+      "[1] is also related, but it improves political stance detection by adding user-context profiles rather than using preference optimization."
+    ]
+  },
+  "A071": {
+    "candidate": "luna",
+    "item_id": "X-q-keyword-057",
+    "sentences": [
+      "None of these papers directly address dense-to-sparse retrieval.",
+      "The closest papers concern subword tokenization for Hinglish sentiment analysis [3] and tokenizer efficiency in multilingual language models [10], not retrieval."
+    ]
+  },
+  "A072": {
+    "candidate": "mini",
+    "item_id": "X-q-keyword-053",
+    "sentences": [
+      "The closest matches are [2], [5], [7], [9], and [10].",
+      "[2] studies authorship verification under genre, time, and AI-era shifts, using feature-based, embedding-based, and LLM-based approaches.",
+      "[5] analyzes stylistic differences between human and LLM writing across genres, models, and decoding strategies.",
+      "[7] shows that an LLM trained on one author\u2019s works can capture that author\u2019s style.",
+      "[9] evaluates personalization methods and finds they modulate style but do not bridge the gap to human authorship.",
+      "[10] studies federated personalized generation and author-style homogenization, proposing a method to retain authorial voice."
+    ]
+  },
+  "A073": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-060",
+    "sentences": [
+      "The closest match is [1], which specifically studies state-conditioned minimal sufficient evidence for coding agents and frames retrieval as recovering what a decision still lacks.",
+      "[1] It uses agent state to find a compact evidence set that satisfies every required evidence condition, rather than ranking passages by relevance alone.",
+      "[1]"
+    ]
+  },
+  "A074": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-paraphrase-049",
+    "sentences": [
+      "The closest matches are papers on self-improving AI systems that create their own training or evaluation signals without human labels.",
+      "NRT trains reasoning models from standard question-answer pairs by having the model generate its own reasoning traces and using a self-reinforcing feedback loop, without expert-written demonstrations [5].",
+      "CoNL also targets tasks without ground-truth labels by using multi-agent self-play and meta-evaluation, where critiques are rewarded if they help others improve [8].",
+      "If you mean improving rule-following or agent behavior from weak or no labels, SynAct allocates feedback to the most consequential decisions and distills corrections into reusable rules [3], while RoboPhD and RuleEvolve use iterative performance feedback to evolve Text-to-SQL agents and coding rules autonomously [6, 10]."
+    ]
+  },
+  "A075": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-011",
+    "sentences": [
+      "Several papers study medical knowledge graphs with clinical LLMs.",
+      "[2] presents MM-KG, which links multimodal patient evidence to biomedical concepts and retrieves relevant subgraphs for LLM use.",
+      "[1] compares methods for integrating biomedical KG signals into LLM training, reporting that KG-judgment training with KL regularization produces sparse model updates and improves reasoning quality.",
+      "[3] finds that KG grounding helps clinical question answering when the decisive fact is outside the model\u2019s training, but adds little for known facts.",
+      "[5] and [6] focus on evidence-traceable and temporal knowledge graphs for clinical reasoning.",
+      "[9] compares incorporating UMLS knowledge through continual pretraining with GraphRAG at inference time."
+    ]
+  },
+  "A076": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-030",
+    "sentences": [
+      "Yes \u2014 the closest match is [1], which presents a prerequisite-aware location-based recommender system for points of interest, explicitly modeling dependencies where visiting one place presupposes knowledge from others.",
+      "[1] It also says the system uses an exploration lattice and a structural validity guarantee for next-step recommendations.",
+      "[1] If you want a more general urban recommendation approach, [3] recommends walkable itineraries with spatial constraints, and [10] offers neighborhood information retrieval and personalized recommendations, but neither is described as modeling prerequisite knowledge between spots.",
+      "[3, 10]"
+    ]
+  },
+  "A077": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-064",
+    "sentences": [
+      "Yes\u2014[1] is a direct match for Bangla spoken regional speech data because it presents a regional corpus of Bengali spontaneous speech across dialects and says the released dataset is for public use.",
+      "[3] is also closely related because it builds a real-time speech assistance system for Bengali regional dialects and uses a dialect-aware ASR system evaluated on [1].",
+      "[4], [8], and [6] are related to Bangla speech processing, but they focus on long-form ASR, speaker diarization, or end-of-turn detection rather than regional speech data specifically."
+    ]
+  },
+  "A078": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-question-007",
+    "sentences": [
+      "Some effective ways are: prompt-engineered planning and explicit word counting, dynamic feedback during generation, and training-based optimization for length-constrained tasks.",
+      "A prompt-only method asks the model to deliberately plan its response structure and count words as it writes, improving adherence without retraining, especially for shorter-to-medium targets [1].",
+      "Another training-free approach adds dynamic length feedback during generation so the model can adaptively adjust toward a target token, word, or sentence count [2].",
+      "If retraining is possible, papers also describe stronger task-specific methods.",
+      "Reinforcement learning can optimize compliance with strict duration or syllable constraints in translation while preserving meaning [3].",
+      "More generally, supervised fine-tuning on top of dynamic feedback can help length control generalize to broader text-generation tasks [2].",
+      "A lightweight mitigation for overly long outputs is also to add a fixed conciseness reminder to the prompt, which reduces excessive output tails across many prompting strategies [7]."
+    ]
+  },
+  "A079": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-048",
+    "sentences": [
+      "The closest match is [1], which is a socially aware music recommendation paper by Kajwan Ziaoddini.",
+      "[1] proposes a multi-modal graph neural network that uses user-song interactions and user-user social relationships, along with lyrics, audio, visual, and emotion-aware embeddings, to improve music recommendation.",
+      "[1] If you meant a graph-based music recommendation paper by Ziaoddini, this is the one supplied here; the other papers focus on multimodal, mood-aware, generative, or conversational recommendation rather than that specific author and graph setting."
+    ]
+  },
+  "A080": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-029",
+    "sentences": [
+      "The closest match is [1], which forecasts wind-induced structural response and supports bridge digital twin monitoring on the Hardanger Bridge.",
+      "It is about bridge wind response forecasting and early warning, not a specific Zhou-authored bridge forecasting paper beyond the author name in [1].",
+      "None of the other papers directly address bridge forecasting."
+    ]
+  },
+  "A081": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-088",
+    "sentences": [
+      "Saahil Mathur and coauthors study RAG for AI policy question answering in \u201cRetrieval Improvements Do Not Guarantee Better Answers: A Study of RAG for AI Policy QA\u201d [1].",
+      "Using a corpus of AI policy documents, they find that domain-specific fine-tuning improves retrieval metrics but does not consistently improve end-to-end QA; stronger retrieval can even produce more confident hallucinations when relevant documents are missing [1]."
+    ]
+  },
+  "A082": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-090",
+    "sentences": [
+      "The closest matches are [1], [2], [7], and [10].",
+      "[1] directly models watch-time distributions with a hierarchical exponential-Gaussian mixture, while [2] models a joint watch-time distribution over four watch states and serves probabilities and uncertainty, not just a single estimate.",
+      "[7] uses residual quantization to predict continuous values like watch-time, but it is not a mixture model.",
+      "[10] is a residual quantized Gaussian mixture model, but it is for CTR prediction rather than watch time."
+    ]
+  },
+  "A083": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-062",
+    "sentences": [
+      "Yes.",
+      "For prompts whose possible response lengths vary widely, Robust Length Prediction models output length as a prompt-conditioned distribution rather than assuming one fixed target; it proposes using multiple generations per prompt to estimate either a robust point prediction or the uncertainty in that distribution [4].",
+      "How Much is Left? reports that total response length can also be estimated from the prompt\u2019s final hidden state before generation begins [1]."
+    ]
+  },
+  "A084": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-079",
+    "sentences": [
+      "Several papers study regional language use on social media.",
+      "One examines geographic dialect alignment in New Zealand Reddit communities and how language variation relates to place identity [4].",
+      "Other work analyzes hope-speech detection in code-mixed Tulu social media comments [2] and sentiment analysis of Hinglish tweets [3].",
+      "For Bengali social media, papers address ideological stance in university discourse [7] and dialect identification in abusive text [6]."
+    ]
+  },
+  "A085": {
+    "candidate": "mini",
+    "item_id": "X-q-known_item-031",
+    "sentences": [
+      "No supplied paper directly addresses Boyd clinical provenance categorization.",
+      "The closest papers are about controlling or predicting output length in large language models, especially [2], [4], and [9], but they do not discuss clinical provenance categorization."
+    ]
+  },
+  "A086": {
+    "candidate": "mini",
+    "item_id": "X-q-question-060",
+    "sentences": [
+      "None of these papers directly address stopping generative rerankers from producing repetitive item lists.",
+      "The closest are [4], which shows self-referential processing can change what models generate, and [10], which shows self-awareness can be induced and modulated with a simple linear feature; [8] is also related because it studies how internal belief states guide action selection during generation."
+    ]
+  },
+  "A087": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-keyword-064",
+    "sentences": [
+      "RegSpeech12 is the most direct match: it is a regional corpus of Bengali spontaneous speech across dialects, covering dialect variation in Bangladesh and released as a public dataset for building regional ASR models [1].",
+      "BanglaTalk is also relevant because it uses a dialect-aware ASR system for Bengali regional dialects and is designed for real-time speech assistance [3].",
+      "For broader Bengali speech processing, other papers focus on long-form ASR and diarization rather than a regional speech corpus specifically [4, 8]."
+    ]
+  },
+  "A088": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-072",
+    "sentences": [
+      "Tripti Shukla is a coauthor of HASTE, a generative recommendation framework using hierarchical and attribute-specific supervision [1].",
+      "HASTE applies supervision at each level of semantic IDs to speed convergence, and attribute-specific losses to improve item representations and recommendations, particularly for tail items [1]."
+    ]
+  },
+  "A089": {
+    "candidate": "luna",
+    "item_id": "A-q-question-007",
+    "sentences": [
+      "Several approaches can help.",
+      "A prompt can ask the model to plan the response and count words as it writes, improving adherence without retraining [1].",
+      "A training-free alternative provides dynamic length feedback during generation so the model can adjust toward a target word, token, or sentence count [2].",
+      "For translation with strict duration limits, reinforcement learning can optimize length compliance alongside meaning [3].",
+      "A simple conciseness reminder can also reduce excessively long outputs [7]."
+    ]
+  },
+  "A090": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-061",
+    "sentences": [
+      "DeCode is a training-free, model-agnostic framework that separates answer content from delivery to make medical QA responses better suited to individual patient contexts.",
+      "On HealthBench, it improved zero-shot performance from 28.4% to 49.8% [1]."
+    ]
+  },
+  "A091": {
+    "candidate": "luna",
+    "item_id": "A-q-question-099",
+    "sentences": [
+      "Recommenders can better understand user goals by using explicit signals about why people make choices, rather than relying only on clicks or other interaction histories.",
+      "Reviews and other verbal feedback can reveal nuanced motivations and context, supporting better-aligned and more explainable recommendations [1, 2].",
+      "Systems can also extract high-level intents from behavior and use them to guide recommendation reasoning, making it less sensitive to accidental interactions [4].",
+      "A fuller approach distinguishes a user\u2019s current demand from the recommendation strategy that best serves it, then tests and refines that strategy using outcome feedback [10].",
+      "Natural-language profiles that users can edit may also let them express preferences that behavior alone does not reveal [9]."
+    ]
+  },
+  "A092": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-094",
+    "sentences": [
+      "The best match is [1], which improves detailed image captioning by using one shared vision-language model to act as the caption policy, rubric generator, and rubric judge.",
+      "[1] It builds rubrics online from sampled captions and image evidence, and it uses an exponential moving average of the policy parameters to update a shared momentum model for the generator and judge, so the rubric roles track policy updates smoothly.",
+      "[1] The closest related paper is [2], but it focuses on evaluating image descriptions by separating specificity from length rather than on generating and checking rubric-based captions with a shared moving-average model.",
+      "[2]"
+    ]
+  },
+  "A093": {
+    "candidate": "mini",
+    "item_id": "A-q-question-064",
+    "sentences": [
+      "It is difficult because more ambiguous distributions demand more model capacity, larger embeddings, more fitting steps, and they amplify token-sampling noise, so the model is harder to train accurately on them [1].",
+      "A related result is that with K-fold ambiguity, neural networks first learn the marginal distribution and can sit at a loss plateau set by the ambiguity before later acquiring the full conditional, with gradient noise and learning-rate settings affecting how long that plateau lasts [2].",
+      "Several papers also show that models tend to collapse toward the most probable or dominant interpretation instead of matching the desired distribution, which makes highly ambiguous or probabilistic outputs especially hard to learn and sample correctly [3, 7, 8]."
+    ]
+  },
+  "A094": {
+    "candidate": "mini",
+    "item_id": "X-q-question-094",
+    "sentences": [
+      "The closest match is [10]: it measures learner knowledge acquisition with a pretest-posttest benchmark, using near- and far-transfer test sets so gains reflect learning rather than prior recall.",
+      "[10] It is about evaluating AI-generated teaching slides and shows that instructional effectiveness can differ from visual polish, but it does not directly test whether a model can learn new rules or knowledge from a provided text in general.",
+      "[10]"
+    ]
+  },
+  "A095": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-008",
+    "sentences": [
+      "The closest match is [2], which addresses dispatch optimization for instant delivery platforms where couriers may serve multiple platforms and each platform only observes its own orders and courier interactions.",
+      "[2] uses partially observable multi-agent reinforcement learning with platform-local observations, which fits the \u201cwithout seeing all their data\u201d part.",
+      "[1] is also related to driver dispatch on ride-sharing platforms, but it assumes a centralized setting rather than partial observability across several apps."
+    ]
+  },
+  "A096": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-017",
+    "sentences": [
+      "Yang GraDE frequent subgraph discovery is [1].",
+      "[1] proposes GraDE, a graph diffusion estimator for frequent subgraph discovery in neural architectures, using diffusion-guided search to score subgraph typicality and improve discovery capability.",
+      "[1] says it finds large-scale frequent patterns more effectively than sampling-based methods, with better ranking accuracy and much higher median frequency."
+    ]
+  },
+  "A097": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-053",
+    "sentences": [
+      "Yes\u2014these results include several graph-ML papers on chemical reactions.",
+      "The closest direct match is [1], which uses a condensed reaction graph and contrastive learning for reaction representation learning and yield prediction, explicitly comparing against graph-based baselines.",
+      "[2] is also about reaction prediction, but it focuses on compact LLMs with atom-map invariance and curriculum learning rather than graph representations.",
+      "[6] uses a graph-to-sequence predictor for biodegradation pathway prediction with synthetic reaction data, which is related but not centered on general chemical reaction graph learning."
+    ]
+  },
+  "A098": {
+    "candidate": "mini",
+    "item_id": "A-q-question-056",
+    "sentences": [
+      "Yes.",
+      "[1] shows that an LLM can propose experiments directly from text-based materials descriptions in an active-learning loop without conventional model training, and it reports that this training-free approach can reduce the number of experiments needed.",
+      "[6] is also close: it uses LLM predictions to broadly explore the search space and then selectively choose real experiments, but it is framed as Bayesian optimization rather than direct experiment suggestion alone.",
+      "[2] is another close match, showing LLMs can generate novel materials candidates through analogical reasoning and few-shot guidance."
+    ]
+  },
+  "A099": {
+    "candidate": "v1-mini",
+    "item_id": "X-q-paraphrase-096",
+    "sentences": [
+      "The closest match is a paper on building and searching a hierarchy of summaries for long documents: it proposes Deselective Summarization, which creates a summary tree and uses hierarchical summaries to support abstractive query-based summarization and passage retrieval from long documents [1].",
+      "Another related paper uses a hierarchical document model for document retrieval, but it is about improving retrieval with tree-structured representation learning rather than connecting search terms to text chunks through summaries [2]."
+    ]
+  },
+  "A100": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-054",
+    "sentences": [
+      "Tannenbaum\u2019s study finds that preceding turns can materially change AI answers: using the full conversation rather than the final message alone produced materially different answers in 44.7% of cases, while adding a compressed prefix reduced that rate to 30.8% [1].",
+      "A separate Tannenbaum study finds that the final prompt often omits request-state dimensions present earlier in the conversation, but does not estimate the causal effect of history on model answers [2]."
+    ]
+  },
+  "A101": {
+    "candidate": "mini",
+    "item_id": "X-q-known_item-062",
+    "sentences": [
+      "None of these papers directly address Flek physics constraint adversarial attacks; the closest are papers on robustness and language-model performance in low-resource or code-mixed settings, especially [3], [7], and [8].",
+      "[3] focuses on sentiment classification for Hinglish tweets, [7] on stance detection in Bengali social media, and [8] on language detection for African languages in code-switched and clean text."
+    ]
+  },
+  "A102": {
+    "candidate": "luna",
+    "item_id": "A-q-question-085",
+    "sentences": [
+      "A person\u2019s writing style can shift over time and between genres, though some features remain stable.",
+      "In a German authorship-verification benchmark, performance fell significantly as the time gap between texts increased, while cross-genre shifts also challenged verification [2].",
+      "Genre influences stylistic features, and the relative importance of features varies by genre transition [2, 5].",
+      "The papers describe changes in scientific writing over time as well: multiple linguistic features followed altered trajectories after 2022, with some markers continuing to rise and others later receding [4]."
+    ]
+  },
+  "A103": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-074",
+    "sentences": [
+      "The paper directly addressing distributional reinforcement learning in chaotic dynamics is \u201cOn Distributional Reinforcement Learning in Chaotic Dynamical Systems\u201d [1].",
+      "It argues that return distributions can evolve more regularly than individual trajectories under mild statistical stability assumptions, producing a smoother distributional Bellman objective and better-conditioned learning [1]."
+    ]
+  },
+  "A104": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-022",
+    "sentences": [
+      "[2] is the closest match: it combines structured supervised fine-tuning with Direct Preference Optimization to detect polarization in social media text, using slots for target, claim type, manifestation checklist, and justification.",
+      "It addresses polarization detection rather than explicitly predicting a user's left-right political leaning [2].",
+      "For political leaning in social posts, [1] studies stance detection in informal political discourse using user-profile context, while [4] predicts a text's left-to-right orientation and includes tweets in its data."
+    ]
+  },
+  "A105": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-004",
+    "sentences": [
+      "Yes.",
+      "AMuFC adaptively decides whether visual evidence is useful for fact-checking, because indiscriminate use of images can reduce accuracy [7].",
+      "VILLAIN verifies image-text claims by analyzing visual and textual evidence with multiple agents, but its abstract does not describe a separate decision about whether the image helps or harms verification [1]."
+    ]
+  },
+  "A106": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-081",
+    "sentences": [
+      "The closest matches are [1], [2], [3], and [8].",
+      "[1] directly focuses on predicting short-term item popularity with a fine-tuned LLM and generating explanations, while [2] and [3] use LLMs to improve recommendation ranking and explainability through re-ranking or selective guidance.",
+      "[8] addresses popularity bias in recommendation with LLM-based semantic understanding, but it is about debiasing rather than popularity prediction itself.",
+      "None of these papers is a pure \u201cLLM popularity prediction recommendation\u201d paper in the general sense, but [1] is the most directly aligned if you mean predicting item popularity for recommendation.",
+      "[2], [3], and [8] are related alternatives that use LLMs to improve recommendation quality, interpretability, or fairness rather than primarily forecasting popularity."
+    ]
+  },
+  "A107": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-093",
+    "sentences": [
+      "The closest matches are [1], [3], [8], [9], and [2].",
+      "[1] and [9] focus on query-aware or intent-aware chunking for RAG, which is directly relevant to grouping snippets into better blocks for question answering.",
+      "[3] and [8] also address chunking or structured processing for technical documents, with [3] emphasizing adaptive selection of chunking strategies and [8] focusing on engineering manuals.",
+      "[2] is especially relevant if your manuals are hyperlinked HTML documentation, because it uses link-aware retrieval to exploit existing document structure."
+    ]
+  },
+  "A108": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-025",
+    "sentences": [
+      "The closest match is [1], which is by Mykhailo Poliakov and Nadiya Shvai and specifically addresses metadata filtering in Multi-Meta-RAG.",
+      "It replaces a prompted metadata extractor with a local, deterministic hidden-state probe for filtering a vector store by metadata.",
+      "[1] Other papers discuss metadata-enriched or metadata-driven RAG more broadly, but not this specific filtering setup: [3], [4], [6], [7], [9], and [10] focus on improving retrieval with metadata, chunking, or pipeline design, while [2] is a conceptual framework for corpus partitioning and metadata-based routing.",
+      "[5] examines when metadata helps or hurts RAG performance, rather than proposing a metadata filter.",
+      "[1, 2, 3, 4, 5, 6, 7, 9, 10]"
+    ]
+  },
+  "A109": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-072",
+    "sentences": [
+      "The BL19 digital collection retrieval benchmark is described in \u201cCultural Analytics for Good: Building Inclusive Evaluation Frameworks for Historical IR\u201d [1].",
+      "It uses the British Library\u2019s BL19 collection of more than 35,000 works from 1700\u20131899, with expert-designed queries and paragraph-level relevance annotations to evaluate historical retrieval [1].",
+      "The work also investigates whether knowledge from fiction can improve retrieval for scholarly and factual materials [1]."
+    ]
+  },
+  "A110": {
+    "candidate": "mini",
+    "item_id": "X-q-known_item-029",
+    "sentences": [
+      "None of these papers directly address Zhou wind bridge forecasting.",
+      "The closest match is [9], which is about steerability with natural-language profiles for recommendation, and [4], which uses intent-guided reasoning for sequential recommendation."
+    ]
+  },
+  "A111": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-031",
+    "sentences": [
+      "The closest match is [1], which focuses on efficient sentence-level clinical provenance categorization for hospital-stay summarization using supervised fine-tuning of large language models.",
+      "It reports strong in-domain performance and cross-domain transfer to NICU summaries, but it does not specifically mention Boyd.",
+      "None of the other supplied papers directly address Boyd clinical provenance categorization."
+    ]
+  },
+  "A112": {
+    "candidate": "luna",
+    "item_id": "X-q-keyword-085",
+    "sentences": [
+      "None of these papers directly address AI consciousness or self-awareness.",
+      "The closest papers use self-supervised learning or AI explainability for forecasting and modeling, not consciousness or self-awareness [3, 6, 9, 10]."
+    ]
+  },
+  "A113": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-question-064",
+    "sentences": [
+      "It is difficult because ambiguity makes the target next-token distribution intrinsically harder for neural networks to represent and fit.",
+      "More ambiguous distributions require more model capacity, larger embeddings, and more training steps, and they amplify token-sampling noise, which hurts accurate learning of discrete probabilities [1].",
+      "One paper calls this a \u201ccurse of ambiguity\u201d and reports both theoretical analysis and matching behavior in synthetic and real language-model settings [1].",
+      "A complementary controlled study shows the same effect in a minimal ambiguous task: the model first learns the marginal distribution and gets stuck on a loss plateau whose height is exactly set by the ambiguity level, before only later learning the full conditional distribution in a sharp transition [2].",
+      "That work also finds gradient noise stabilizes this ambiguous marginal solution, delaying escape to the correct conditional behavior [2]."
+    ]
+  },
+  "A114": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-paraphrase-087",
+    "sentences": [
+      "Yes.",
+      "The closest match is a training-free method called QAFD-RAG, which is designed to recover query-specific reasoning subgraphs from a graph by dynamically weighting edges according to query relevance, with statistical guarantees that it recovers relevant subgraphs with high probability [3].",
+      "Another strong fit is BubbleRAG, also training-free, which targets black-box knowledge graphs and formulates retrieval as finding an optimal informative subgraph, then uses expansion and ranking to improve both recall and precision of evidence retrieval [5].",
+      "If you specifically want minimal or \u201cbest evidence\u201d subgraphs, GFM-Retriever is also relevant because it aims to identify query-conditioned subgraphs that are informationally sufficient and structurally minimal, but it relies on a pre-trained Graph Foundation Model rather than being fully training-free [1].",
+      "Related work differs in emphasis: SGR generates compact query-relevant subgraphs for stepwise reasoning [4], while XoG focuses on incomplete knowledge graphs and recovers missing reasoning paths without task-specific KGQA training [6]."
+    ]
+  },
+  "A115": {
+    "candidate": "luna",
+    "item_id": "A-q-question-088",
+    "sentences": [
+      "To reuse workflows and reduce forgetting, organize past interaction trajectories by their underlying workflow, extract reusable skills, and retrieve relevant skills and trajectories to guide new tasks; LifeMem reports reduced forgetting and improved cross-task transfer using this approach [1].",
+      "TRIAGE offers another pattern: store execution trajectories as skills, reuse exact matches directly, substitute parameters for similar queries, and run the full agent loop for novel queries [10].",
+      "Abstract procedural memories may transfer more reliably than detailed trajectories, but memory retrieval and organization can themselves cause forgetting [3]."
+    ]
+  },
+  "A116": {
+    "candidate": "luna",
+    "item_id": "A-q-question-040",
+    "sentences": [
+      "Tool specifications can be used directly to generate synthetic agent test cases: extract meaning from function names, descriptions, and typed parameter schemas, enrich the schemas, create graded scenarios with synthetic tool outputs, and expand them into mock-data-grounded multi-turn dialogues [1].",
+      "The method can work from a single specification without examples, live tool access, or domain-specific tuning; its evaluation checks tool-calling correctness and conversational coherence, with argument-value accuracy a key weakness to inspect [1]."
+    ]
+  },
+  "A117": {
+    "candidate": "mini",
+    "item_id": "X-q-paraphrase-087",
+    "sentences": [
+      "No supplied paper directly addresses finding the best evidence subgraphs from a hidden knowledge graph without training the system.",
+      "The closest papers are [2], which studies authorship verification under distribution shifts and benchmarks feature-based, embedding-based, and LLM-based approaches, and [10], which studies preserving author-specific style in federated personalized generation rather than subgraph evidence retrieval."
+    ]
+  },
+  "A118": {
+    "candidate": "luna",
+    "item_id": "A-q-question-039",
+    "sentences": [
+      "To make retrieval account for information dates, represent facts with temporal validity and filter out expired or superseded facts before ranking; NuggetIndex uses records with validity intervals and lifecycle states [8].",
+      "Chronofy incorporates fact age into embeddings and retrieval through temporal decay, then checks whether evidence remains valid during reasoning [4].",
+      "For a simpler approach, a recency-aware hybrid reranker can help when date metadata is reliable, but dates alone may not make a model correctly judge whether old evidence still applies [1]."
+    ]
+  },
+  "A119": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-keyword-062",
+    "sentences": [
+      "Yes: the closest matches are GNNs used as lightweight proxies for SDP relaxations.",
+      "One paper studies GNNs as surrogates for linear SDPs, showing standard GNNs fail while a more expressive architecture can recover SDP solutions and warm-start a solver [1].",
+      "Another focuses on Max-Cut, proposing a GNN that directly serves as a principled proxy for SDP solvers, predicting primal- and dual-feasible SDP solutions and plugging into branch-and-bound [2].",
+      "If you want a general SDP-proxy result, [1] is broader; if you want an exact optimization use case with feasibility guarantees, [2] is more specialized to Max-Cut."
+    ]
+  },
+  "A120": {
+    "candidate": "mini",
+    "item_id": "X-q-question-099",
+    "sentences": [
+      "A closer match is [8]: it suggests recommender systems should adapt the amount of fairness-driven exploration to individual users, because users differ in when additional novelty stops helping and can start hurting engagement.",
+      "[8] It does not directly propose a full goal model, but it argues that fairness and novelty pressure should be personalized rather than applied uniformly across users.",
+      "[8]"
+    ]
+  },
+  "A121": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-087",
+    "sentences": [
+      "For finding evidence subgraphs in a hidden-structure knowledge graph without training, BubbleRAG is the closest match: it is training-free and designed for black-box graphs whose schema and structure are unknown, using candidate evidence-graph discovery and ranking [5].",
+      "QAFD-RAG is also training-free and query-adaptively traverses a graph to recover relevant subgraphs, but its abstract does not specifically describe hidden graph structure [3]."
+    ]
+  },
+  "A122": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-070",
+    "sentences": [
+      "The closest match is LigBench [1], a benchmark for evaluating LLM-based research idea generation with fine-grained, more reliable assessment and a pairwise idea-judgment dataset.",
+      "RINoBench [2], SoundnessBench [4], and InnoEval [6] are also related, but they focus on novelty judgment, methodological soundness, and knowledge-grounded multi-perspective idea evaluation rather than the same unified research idea benchmark."
+    ]
+  },
+  "A123": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-050",
+    "sentences": [
+      "No supplied paper specifically studies blocking fake information by removing a page and checking how the answer changes.",
+      "The closest is [10], which evaluates defenses against misleading pages retrieved and synthesized into distorted answers, and [9], which assesses source credibility and answer groundedness against cited sources.",
+      "Neither abstract describes page-removal counterfactual testing."
+    ]
+  },
+  "A124": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-096",
+    "sentences": [
+      "The closest matches are [1], [3], [6], and [9].",
+      "[1] and [9] describe hierarchical tree-based retrieval for long documents, using chunk trees or summary trees to connect queries to relevant chunks.",
+      "[3] also builds a hierarchical tree over chunks and uses hierarchical beam search to retrieve candidates at multiple granularities, which helps capture multi-sentence relevance beyond flat retrieval.",
+      "[6] is more about exploring corpora with evidence-grounded hierarchical topic maps, linking documents to topics through supporting spans rather than retrieval for QA."
+    ]
+  },
+  "A125": {
+    "candidate": "luna",
+    "item_id": "A-q-question-048",
+    "sentences": [
+      "Yes.",
+      "ViSAR dynamically chooses how many relevant pages to retrieve based on the query, and is explicitly training-free, so it does not require retraining [1].",
+      "LAD-RAG also adaptively retrieves evidence based on the query without top-k tuning, though its abstract does not specifically state that it avoids retraining [2]."
+    ]
+  },
+  "A126": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-043",
+    "sentences": [
+      "Yes.",
+      "The closest match is [1], which says conversational context is the dominant factor and that roughly 90% of the gain comes from the most recent 10\u201330 preceding turns, so many earlier turns are not needed.",
+      "[1] also finds that discourse markers matter: emotion is associated with marker position, and sad utterances show reduced left-periphery marker usage."
+    ]
+  },
+  "A127": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-043",
+    "sentences": [
+      "For identifying a speaker\u2019s mood, the most direct result finds that conversational context matters, but gains saturate: roughly 90% is captured by the most recent 10\u201330 preceding turns, depending on the emotion label set [1].",
+      "Sentence starters are not studied directly; the closest evidence concerns discourse markers, whose position is associated with emotion, with sad utterances showing fewer markers at the beginning of the utterance than other emotions [1]."
+    ]
+  },
+  "A128": {
+    "candidate": "luna",
+    "item_id": "A-q-question-094",
+    "sentences": [
+      "Measure performance on held-out cases that require applying the rules or knowledge in the provided text, rather than merely reproducing it.",
+      "RuleWorld evaluates single-rule, parallel multi-rule, and multi-hop reasoning scenarios, providing a benchmark for externally supplied procedural rules [2].",
+      "For a controlled test of learning a genuinely unseen rule, the cellular-automaton study withholds one truth-table entry and tests whether the model can infer it where similarity-based interpolation fails [3].",
+      "Compare rule descriptions with input-output examples to assess whether performance depends on how the task is presented [1]."
+    ]
+  },
+  "A129": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-keyword-081",
+    "sentences": [
+      "Several papers address LLMs for recommendation and popularity-related prediction, but the closest match is a fine-tuned LLM that jointly predicts short-term item popularity and generates explanations [1].",
+      "If you want recommendation reranking rather than popularity forecasting, another paper uses an LLM as an explainable re-ranker to improve ranking accuracy and interpretability [2].",
+      "For popularity bias specifically, one paper uses LLMs to model and address popularity bias with a semantically aware fairness framework [8], and another studies how popularity affects variable-length tokenization in generative recommendation [7]."
+    ]
+  },
+  "A130": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-090",
+    "sentences": [
+      "For video watch-time prediction with mixture models, Hierarchical Exponential-Gaussian Mixtures for Watch-Time Distribution Prediction proposes HEGM to model the full conditional watch-time distribution and address mixture instability, including variance collapse and inactive or redundant components [1].",
+      "It reports improved ranking accuracy, threshold-event prediction, and mixture stability [1]."
+    ]
+  },
+  "A131": {
+    "candidate": "luna",
+    "item_id": "A-q-question-003",
+    "sentences": [
+      "Large language models can actively gather information by asking users targeted questions during a multi-turn recommendation dialogue.",
+      "Attribute-based questions work best early, while item-based questions become more effective as preferences become clearer [5].",
+      "Another approach trains the model to choose interactions that reduce uncertainty about its recommendations, improving recommendation quality and conversational efficiency [8]."
+    ]
+  },
+  "A132": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-062",
+    "sentences": [
+      "The closest matches are [1] and [4].",
+      "[1] directly addresses estimating how much output remains before generation starts, finding that total response length is linearly decodable from the prompt\u2019s last hidden state and framing it as approximate estimation of remaining generation length.",
+      "[4] shows that the same prompt can induce a prompt-conditioned output length distribution rather than one true fixed length, and treats length prediction as robust estimation under heavy-tailed variability."
+    ]
+  },
+  "A133": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-073",
+    "sentences": [
+      "Zichao Wei\u2019s paper argues that structural generalization has a computational complexity barrier: under the assumption TC\u2070 \u2260 NC\u00b9, a pure Transformer cannot learn it [1].",
+      "Wei\u2019s separate SLOG study presents a neural cellular automaton that learns compositional rules without hand-written rules and reports structural generalization results on the benchmark [2]."
+    ]
+  },
+  "A134": {
+    "candidate": "luna",
+    "item_id": "X-q-question-019",
+    "sentences": [
+      "None of these papers directly examine how repeating training data affects model performance during pretraining.",
+      "The closest papers discuss adapting a pretrained model on additional Tulu text [2] and training language models from scratch on collected datasets [10], but their abstracts do not report effects of repeating data."
+    ]
+  },
+  "A135": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-known_item-047",
+    "sentences": [
+      "The matching paper is Fast and Geometrically Grounded Lorentz Neural Networks by Robert van der Klis and coauthors [1].",
+      "It presents a Lorentz-model hyperbolic neural network, argues that the current Lorentz linear layer has a scaling problem, and proposes a new distance-to-hyperplane-based Lorentz linear layer with faster propagation and hyperbolic geometry guarantees [1]."
+    ]
+  },
+  "A136": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-007",
+    "sentences": [
+      "For LLM synthetic-data curation, the central finding is that samples should be evaluated as groups, not only individually: group-level signals account for interactions among samples and yield better downstream performance, especially in generation [1].",
+      "For specialized-task fine-tuning, AutoSynth automatically searches for synthetic-data generation workflows without requiring reference datasets [4], while C-Mining curates cultural seeds from multilingual corpora to guide culturally focused instruction-data synthesis [8]."
+    ]
+  },
+  "A137": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-075",
+    "sentences": [
+      "None of the supplied papers directly mention Hoehndorf, and none is a paper about a specific Hoehndorf drug safety knowledge graph.",
+      "The closest match is [1], which presents SIDEKICK, a semantically integrated drug safety knowledge graph covering indications, contraindications, and adverse reactions from FDA drug labels.",
+      "[1] also emphasizes ontology mapping and RDF serialization for interoperability, which is the nearest fit to a drug safety knowledge graph topic."
+    ]
+  },
+  "A138": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-064",
+    "sentences": [
+      "For Bangla spoken regional speech data, RegSpeech12 is the closest match: it is a publicly released corpus of spontaneous Bengali speech across dialects, intended to support analysis and regional ASR research [1].",
+      "BanglaTalk also uses RegSpeech12 to evaluate a dialect-aware ASR system covering ten Bengali regional dialects [3]."
+    ]
+  },
+  "A139": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-known_item-019",
+    "sentences": [
+      "Yes: the matching paper is Sympathetic Framing: Evaluating AI Alignment across Sociodemographic Groups by Haran Shani-Narkiss, Michael Fire, and Oren Tsur [1].",
+      "It studies whether LLMs align with human emotional perception of news framing, using political and geopolitical conflict headlines, and compares model judgments with a demographically diverse human sample [1].",
+      "The paper finds that leading models are broadly aligned with human judgments across sociodemographic subgroups including age, gender, education, prior geopolitical knowledge, and predispositions regarding the conflict, while still showing statistically significant differences between groups [1].",
+      "If you want nearby work rather than this exact paper, related results examine alignment across demographic groups and group-specific effects such as sycophancy shifts [3], social discourse under sociodemographic prompting [4], and identity-dependent variation in response quality across sociodemographic identities [10]."
+    ]
+  },
+  "A140": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-019",
+    "sentences": [
+      "The closest match is [1], which directly studies AI alignment across sociodemographic groups.",
+      "[1] evaluates whether LLMs\u2019 sympathy judgments align with human judgments across age, gender, education, prior geopolitical knowledge, and conflict predispositions, and finds broadly high alignment with statistically significant differences between groups.",
+      "Other nearby papers are [3], which examines group alignment across 13 demographic groups but focuses on opinion alignment and sycophancy rather than sociodemographic framing, and [6], which studies how sociodemographic cues affect LLM personalization across different persona cues.",
+      "[4] is also related because it uses sociodemographic attributes to compare LLM framing and alignment in societal-topic prompts, but it is broader and not specifically about alignment across demographic groups."
+    ]
+  },
+  "A141": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-known_item-068",
+    "sentences": [
+      "Yes\u2014paper [1] is the match: it is by Woosung Koh and focuses on \u201cContinually Post-training Small Models via Synthetic Self-distillation.\u201d It says standard self-distillation fails on smaller models, and proposes Synthetic Self-Distillation (SynthSelf) to provide high-quality supervision for small models without breaking their original distribution.",
+      "[1] If you meant a different self-distillation paper, [2] is also related but it targets diffusion language models rather than small continual post-training, and [8] is about verifier-guided distillation for small language models rather than synthetic self-distillation.",
+      "[2, 8]"
+    ]
+  },
+  "A142": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-078",
+    "sentences": [
+      "For LLM-generated synthetic slate preferences, the closest match is a study that uses LLMs to articulate pairwise preferences between recommendation slates for synthetic A/B testing [4].",
+      "It validates those preferences against recommender-system metrics and preference axioms, and reports that the resulting rankings are stable across utility weightings [4].",
+      "A related paper uses synthetic data to teach LLMs generalizable user preference patterns for recommendation, but does not focus on slate preferences [6]."
+    ]
+  },
+  "A143": {
+    "candidate": "mini",
+    "item_id": "X-q-keyword-005",
+    "sentences": [
+      "None of these papers directly address RL self-play strategy games.",
+      "The closest is [5], which studies post-training performance with Group Relative Policy Optimization on Rubik\u2019s Cubes, but it is not about self-play strategy games.",
+      "[8] is about continual learning from repeated versus varied fact writes, not game-playing or self-play."
+    ]
+  },
+  "A144": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-032",
+    "sentences": [
+      "The closest match is [1], which explicitly extends Equivariant Neural Fields and removes structural constraints on them.",
+      "I don\u2019t see a paper here specifically by Bekkers, but [1] is the only one directly about equivariant neural fields; the others are about related equivariant or neural-field methods more broadly [2, 4, 5, 8, 9]."
+    ]
+  },
+  "A145": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-009",
+    "sentences": [
+      "The closest matches are [4] and [2].",
+      "[4] combines embedding-based clustering with iterative LLM inference to build an interpretable topic taxonomy from unlabeled text, assigning consistent topic labels across clusters.",
+      "[2] is a topic-modeling framework that uses semantic embeddings, TF-IDF, metadata, and consensus clustering for stable partitions and iterative refinement, but it focuses more on robust topic modeling than on an automated taxonomy pipeline."
+    ]
+  },
+  "A146": {
+    "candidate": "mini",
+    "item_id": "X-q-keyword-085",
+    "sentences": [
+      "None of these papers directly address AI consciousness or self-awareness.",
+      "The closest are [3], which uses a self-supervised pre-trained foundation model for atmospheric tasks, and [6], which uses generative AI only as an explainability layer, but neither discusses consciousness or self-awareness."
+    ]
+  },
+  "A147": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-093",
+    "sentences": [
+      "For chip-design documentation, the closest match is a method that groups related EDA artifacts into functional units and retrieves those units alongside their source snippets, improving question-answering results in the evaluated EDA documentation [6].",
+      "For dividing manual text into retrieval-friendly chunks, intent-driven chunking uses anticipated questions to guide boundaries [1], while adaptive chunking selects a strategy based on document characteristics [3]."
+    ]
+  },
+  "A148": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-004",
+    "sentences": [
+      "The closest match is [1], which directly studies computational political bias in Wales by analyzing bias in Nation.Cymru\u2019s political reporting with an NLP pipeline.",
+      "[1] It finds measurable differential framing across Welsh party mentions, including more negative treatment of Reform UK and more favourable framing for Plaid Cymru.",
+      "[1] A broader but less Wales-specific fit is [4], which compares human and LLM-based political bias detection in news media and finds RoBERTa aligns best with human labels among transformer baselines.",
+      "[4] Papers [2], [3], [5], [6], [8], [9], and [10] focus on political bias or partisanship in LLMs, media, or summarization, but not specifically on Wales.",
+      "[2, 3, 5, 6, 8, 9, 10]"
+    ]
+  },
+  "A149": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-006",
+    "sentences": [
+      "FUDLR is the closest match: it identifies bias-inducing samples and efficiently removes their influence on recommender-model parameters, improving fairness without costly retraining while preserving recommendation accuracy [2].",
+      "CRAGRU also avoids retraining the entire base model, but targets user-specific data removal and the resulting bias in recommendations rather than general fairness debiasing [1]."
+    ]
+  },
+  "A150": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-049",
+    "sentences": [
+      "Several papers propose inference-time decoding strategies for multimodal models.",
+      "For diffusion-based multimodal LLMs, Information-Guided Frontier Decoding commits useful semantic anchors ahead of fragile structural tokens [1], while Visual-Redundancy-Controlled Decoding selects positions with complementary visual grounding [2].",
+      "Context-Aware Cluster Decoding prioritizes tokens supported by decoded neighbors [3].",
+      "Other approaches target distinct goals: causal decoding reduces object hallucinations through interventions during generation [4], and LIME shifts relevance toward perceptual input tokens to improve grounding and reduce hallucinations [9].",
+      "A survey reviews decoding methods for large language and vision-language models across token-level, sequence-level, and parallel-generation paradigms [5]."
+    ]
+  },
+  "A151": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-085",
+    "sentences": [
+      "The closest matches are papers on self-awareness and consciousness-related reporting in language models [4, 5, 8, 9, 10].",
+      "[4] studies when self-referential prompting elicits structured first-person reports of subjective experience, while explicitly saying this is not direct evidence of consciousness.",
+      "[5] benchmarks metacognition, self-awareness, social awareness, and situational awareness, and finds these are distinct capabilities.",
+      "[8], [9], and [10] focus on model beliefs, behavioral self-awareness, and meta-cognitive monitoring, showing that models can report on internal states or learned behaviors."
+    ]
+  },
+  "A152": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-077",
+    "sentences": [
+      "The papers cover low-precision training and distributed communication, but none directly studies training across distributed private devices as a combined setting.",
+      "For large-model training, AGoQ reports up to 1.34\u00d7 faster training using layer-aware activation quantization and 8-bit gradient storage and communication across GPU clusters [7]; several studies examine recipes for stable FP4 training and accuracy recovery [1, 3].",
+      "For on-device distributed learning, RockNet trains across ultra-low-power devices with low communication overhead, but does not focus on low-precision numbers [8]."
+    ]
+  },
+  "A153": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-073",
+    "sentences": [
+      "The closest matches are [1], [2], [3], [4], and [6].",
+      "[1] studies on-policy distillation failures where student-generated rollouts become too long and repetitive, and proposes a stabilization method to reduce repetition-induced length inflation.",
+      "[2] focuses on excessive length caused by termination-token mismatch and shows that treating equivalent EOS tokens as a shared stopping action helps curb length inflation.",
+      "[4] proposes Early Stopping Rollout, which restricts generation to the first response tokens to improve training stability and efficiency.",
+      "[3] and [6] also address making student-generated reasoning less verbose: [3] adds a concise-learning objective to reduce output length, while [6] mitigates weak teacher supervision over long chains, which helps prevent drift during long reasoning."
+    ]
+  },
+  "A154": {
+    "candidate": "mini",
+    "item_id": "A-q-question-077",
+    "sentences": [
+      "Yes\u2014standard GNNs can do zero-shot link prediction on unseen knowledge graphs if the graph is reified into a fixed representation [1].",
+      "In that setup, five textbook GNNs, including GAT and GraphSAGE variants, transfer zero-shot to many inductive link-prediction benchmarks, and the best off-the-shelf GAT matches a dedicated knowledge-graph foundation model [1].",
+      "Other papers also show GNN-based link prediction on knowledge graphs, but they are not about the same \u201cunknown graph\u201d setting: one improves scalable training on large KGs [5], and another studies link prediction for uncertain knowledge graphs with added structural priors [10]."
+    ]
+  },
+  "A155": {
+    "candidate": "mini",
+    "item_id": "X-q-keyword-057",
+    "sentences": [
+      "None of these papers directly address dense-to-sparse retrieval.",
+      "The closest are [3], which uses a fine-tuned multilingual encoder for code-mixed sentiment classification, and [8], which compares language detection performance on clean versus code-switched text."
+    ]
+  },
+  "A156": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-057",
+    "sentences": [
+      "The closest matches are sparse-retrieval papers that use dense models or dense embeddings as a starting point, but none directly answer a generic \u201cdense to sparse retrieval\u201d request in full.",
+      "[1] presents learned sparse retrievers that bridge the gap with dense models while using less index memory, [2] shows dense retrievers can be decomposed into sparse BM25-ready features, and [7] uses sparse autoencoders to train sparse retrieval models from LLM representations.",
+      "[10] is also relevant because it replaces multi-vector dense-style retrieval bottlenecks with sparse coding and inverted indexing."
+    ]
+  },
+  "A157": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-059",
+    "sentences": [
+      "Roth GraphER reranking for RAG is not directly addressed by the supplied papers, but the closest match is GraphER [1], which is a graph-based enrichment and reranking framework for retrieval-augmented generation.",
+      "[1] It builds a query-time graph from proximity relationships and applies graph-based ranking to surface top candidate documents, with improved retrieval completeness and no extra graph infrastructure.",
+      "[1] If you meant reranking more generally, LURE-RAG [4], RRPO [3], and RSRank [9] also focus on RAG reranking, but they optimize different goals: utility-driven ordering, LLM-feedback alignment, and relevance scoring from representational shift, respectively.",
+      "[3, 4, 9]"
+    ]
+  },
+  "A158": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-026",
+    "sentences": [
+      "Philipp Altmann is a coauthor of \u201cQuantum Generator Kernels\u201d [1].",
+      "The paper proposes a generator-based quantum-kernel approach using Variational Generator Groups and a trainable weight vector to adapt projections to the data context [1]."
+    ]
+  },
+  "A159": {
+    "candidate": "mini",
+    "item_id": "A-q-question-053",
+    "sentences": [
+      "You can inspect internal activations during inference by reading hidden states or attention traces and compressing them into lightweight descriptors, rather than adding extra forward passes or external judges [1].",
+      "A concrete systems approach is to decouple observability from the inference hot path with asynchronous tensor capture, which can collect layer-wise activations with low overhead while preserving serving speed [7].",
+      "Another practical option is to use activation-level interpretability tooling that streams activations during generation and supports real-time control with reduced memory and latency cost [4]."
+    ]
+  },
+  "A160": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-016",
+    "sentences": [
+      "The closest match is [1], which studies efficient attention in hybrid architectures and analyzes how modules like sliding-window attention and full attention affect long-context capability.",
+      "[1] It finds that efficient attention mainly changes how fast long-context ability emerges, while full attention carries long-range retrieval, and it proposes a design tweak that improves long-context performance with little short-context cost.",
+      "[1]"
+    ]
+  },
+  "A161": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-question-007",
+    "sentences": [
+      "Some ways include prompt engineering with deliberate planning and word-count tracking to keep the model within a target length without retraining [1], adding dynamic length feedback during generation so the model can adjust as it goes [2], and using reinforcement learning with a length-based reward for strict constraints [3].",
+      "Other papers suggest training-free length prediction or decoding methods, such as plug-in predictors for diffusion language models [5] and suffix-constrained greedy search for constrained outputs [6].",
+      "One paper also notes that a simple conciseness reminder can reduce excessive output length [7]."
+    ]
+  },
+  "A162": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-049",
+    "sentences": [
+      "Several papers address multimodal LLM decoding strategies.",
+      "[2] proposes training-free visual-redundancy-controlled decoding for diffusion-based multimodal LLMs by prioritizing visually complementary positions instead of independent confidence ranking.",
+      "[1] and [3] also target diffusion multimodal decoding, with [1] emphasizing contextual utility and semantic anchors, while [3] focuses on neighbor support and block-free cluster decoding.",
+      "[4] and [9] are decoding-time methods for reducing multimodal hallucinations, but they are aimed more at faithfulness than general decoding order."
+    ]
+  },
+  "A163": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-012",
+    "sentences": [
+      "Yes.",
+      "The closest matches are [1], [2], [3], and [5]: they all address updating item identifiers or token mappings in generative retrieval/recommendation as item behavior changes.",
+      "[1] specifically argues to keep old SIDs fixed, insert new items, and warm-start training so the model preserves learned topology, while [2] proposes a lightweight SID alignment update to refresh interaction-informed SIDs without a full rebuild.",
+      "[3] adds an exposure-aware dynamic update mechanism for a large semantic codebook, and [5] uses drift-aware continual tokenization with drift detection and hierarchical code reassignment to limit disruptive changes."
+    ]
+  },
+  "A164": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-039",
+    "sentences": [
+      "The paper matching Fernandes and Brazilian legal document segmentation is \u201cStructural Segmentation for Brazilian Legal Document Retrieval\u201d [1].",
+      "It segments Brazilian legal acts into hierarchical chunks and finds that segmentation improves dense retrieval over whole-document indexing, while benefits for lexical retrieval are inconsistent; core chunks enriched with document metadata can perform comparably to or better than full hierarchy [1]."
+    ]
+  },
+  "A165": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-057",
+    "sentences": [
+      "For converting dense retrieval into sparse retrieval, Latent Terms decomposes dense-retriever representations into sparse features suitable for BM25, without sparse-retrieval supervision [2].",
+      "LACONIC instead trains learned sparse retrievers to approach dense-model effectiveness while using less index memory [1].",
+      "Sparse autoencoders also underpin SPLARE, which learns sparse latent embeddings and reports gains in multilingual and out-of-domain settings [7]."
+    ]
+  },
+  "A166": {
+    "candidate": "mini",
+    "item_id": "A-q-question-089",
+    "sentences": [
+      "Yes [1, 2, 3, 4, 5, 6, 7, 8, 9].",
+      "Several papers show machine learning for early detection or screening of dementia-related decline, including early Alzheimer\u2019s disease, mild cognitive impairment, and cognitive decline from speech, multimodal behavior, EEG, MRI/PET, and clinical notes [1, 2, 3, 4, 5, 6, 7, 8, 9].",
+      "Some focus on early stages or MCI specifically [1, 2, 3, 8], while others target Alzheimer\u2019s prediction or broader dementia prognosis from different data sources [4, 5, 6, 7, 9]."
+    ]
+  },
+  "A167": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-096",
+    "sentences": [
+      "For finding relevant text chunks through a hierarchy, NavTree builds a balanced tree over chunks and uses it as a navigation scaffold, descending toward relevant leaves and returning only the original chunks [1].",
+      "SproutRAG instead creates a tree of progressively larger, semantically coherent chunks and searches across multiple granularities [3].",
+      "DTCRS dynamically builds summary trees using query semantics and question type to make summaries more relevant [2]."
+    ]
+  },
+  "A168": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-paraphrase-008",
+    "sentences": [
+      "Yes: the closest match is POLO, which targets instant delivery where couriers may work for multiple platforms at the same time, while each platform sees only its own orders and courier interactions because of privacy and operational constraints [2].",
+      "It models this as a partially observable multi-platform dispatch problem and uses multi-agent reinforcement learning with platform-local observations only, so it fits \u201cwithout seeing all their data\u201d [2].",
+      "POLO differs from centralized dispatch RL papers because it is built specifically for cross-platform partial observability and non-exclusive couriers; it uses attention to aggregate incomplete courier information and counterfactual reward shaping for stability, and it improves platform revenue and courier travel efficiency in simulation [2].",
+      "Other supplied papers cover delivery or mobility RL, but not this exact setting of drivers/couriers working across several apps with only local data visibility [1, 4, 6, 7]."
+    ]
+  },
+  "A169": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-017",
+    "sentences": [
+      "Yang et al.\u2019s GraDE proposes a diffusion-guided framework for discovering frequent subgraphs in neural architectures [1].",
+      "Its Graph Diffusion Estimator scores subgraph typicality in a learned distribution, aiming to combine feasible computation with strong discovery capability [1].",
+      "The abstract reports improved ranking accuracy over sampling-based baselines and discovery of larger patterns with higher median frequency [1]."
+    ]
+  },
+  "A170": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-known_item-068",
+    "sentences": [
+      "Yes: the matching paper is Continually Post-training Small Models via Synthetic Self-distillation by Woosung Koh, Hyunsoo Lee, Kyungjae Lee, et al.",
+      "[1] It targets small models specifically, arguing that prior self-distillation fine-tuning fails on smaller models because it depends on strong in-context learning and instruction-following abilities.",
+      "[1] The paper introduces Synthetic Self-Distillation (SynthSelf), which uses a minimally larger, same-family aligner to produce in-distribution rewrites for the small model, combined with off-policy supervision and rejection sampling.",
+      "[1] According to the abstract, SynthSelf consistently outperforms six baselines across multiple acquisition datasets, retention benchmarks, and three small model scales, aiming at effective continual learning for low-latency, on-device small models.",
+      "[1]"
+    ]
+  },
+  "A171": {
+    "candidate": "luna",
+    "item_id": "A-q-question-053",
+    "sentences": [
+      "DMI-Lib is designed to inspect model internals during inference while minimizing disruption: it moves activation capture off the inference hot path using an asynchronous GPU\u2013CPU observability system, preserving serving optimizations and supporting varied internal signals and inference backends [7].",
+      "It reports 0.4%\u20136.8% overhead in offline batch inference and an average of 6% in moderate online serving, with 2x\u201315x lower latency overhead than comparable baselines [7]."
+    ]
+  },
+  "A172": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-keyword-064",
+    "sentences": [
+      "Yes.",
+      "The most directly relevant result is RegSpeech12, a public corpus of Bengali spontaneous speech built across regional dialects for documenting phonetic and morphological variation and supporting dialect-specific ASR research [1].",
+      "A related system paper, BanglaTalk, uses the RegSpeech12 dataset and trains dialect-aware ASR for ten Bengali regional dialects, showing it is spoken regional speech data rather than only text [3].",
+      "If you want other Bangla regional-language resources, most of the rest are not spoken regional speech datasets. 5-Dialects-BN and BanglaDial-Abuse are dialectal text datasets, not speech [2,5].",
+      "BanglaTurn is Bangla conversational speech, but its abstract does not describe regional dialect coverage [6]."
+    ]
+  },
+  "A173": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-089",
+    "sentences": [
+      "Khoat Than\u2019s paper, \u201cNo-Free-Fairness: Fundamental Limits and Trade-offs in Learning Systems,\u201d describes three sources of fairness limits: irreducible subgroup costs, disparity caused by finite samples, and insufficient model expressivity [1].",
+      "It also finds that strict relative fairness can require exponentially many samples to achieve low cost [1]."
+    ]
+  },
+  "A174": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-005",
+    "sentences": [
+      "Several papers study reinforcement-learning self-play in strategy games.",
+      "[1] trains a Generals.io agent using policy-gradient self-play and reports superhuman play.",
+      "[2] adapts AlphaZero self-play to asymmetric Tablut, using separate policy and value heads for each player role.",
+      "[3] develops self-play reinforcement learning and search for Stratego with hidden information, and applies related techniques to other games.",
+      "[5] uses PPO self-play in a physics-based badminton environment, while [8] presents a memory-efficient self-play algorithm for two-player zero-sum Markov games."
+    ]
+  },
+  "A175": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-025",
+    "sentences": [
+      "Mykhailo Poliakov and Nadiya Shvai\u2019s paper directly studies metadata filtering in Multi-Meta-RAG [1].",
+      "It replaces prompted metadata extraction with a deterministic probe trained on a small language model\u2019s hidden states, which filters retrieval using a fixed list of 49 news sources [1].",
+      "The paper reports that the probe improves set-exact accuracy over a substring baseline and GPT-3.5, with the advantage coming from better handling of queries where no source applies [1]."
+    ]
+  },
+  "A176": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-032",
+    "sentences": [
+      "The closest match is \u201cGeneralized Reduction to the Isotropy for Flexible Equivariant Neural Fields,\u201d which extends Equivariant Neural Fields to arbitrary group actions and homogeneous conditioning spaces [1].",
+      "A related paper introduces MetaLF, an equivariant transformer-based neural field for conditional representation learning [2]."
+    ]
+  },
+  "A177": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-078",
+    "sentences": [
+      "The closest match is [4], which studies whether LLMs can express synthetic pairwise preferences between slates for offline A/B testing of slate recommender systems.",
+      "It specifically focuses on synthetic LLM-based slate preference judgments, while [1] and [2] are about generative slate recommendation and preference alignment, not synthetic slate evaluation."
+    ]
+  },
+  "A178": {
+    "candidate": "luna",
+    "item_id": "A-q-question-027",
+    "sentences": [
+      "For large-scale recommendation systems, compute requirements can be estimated with scaling-law experiments that vary model size, training data, and compute, then measure performance to find compute-efficient allocations.",
+      "Kunlun studies this relationship for massive-scale recommendation models [2], while behavioral foundation-model experiments vary compute budgets and deployment-relevant choices to derive compute-optimal recipes [4].",
+      "Component-level profiling can help locate hardware bottlenecks and guide optimization [5].",
+      "For inference, measure workload costs and consider sharing request-side computation across candidates to improve efficiency [1]."
+    ]
+  },
+  "A179": {
+    "candidate": "mini",
+    "item_id": "A-q-question-060",
+    "sentences": [
+      "A graph structure can help by expanding the decoding space so the reranker explores multiple paths instead of committing to one high-likelihood sequence, which reduces repetition and increases diversity [2].",
+      "In that paper, the graph-structured model explicitly models item dependencies from graph transitions and is designed to generate more diverse sequences [2].",
+      "The closest other graph-based reranking papers use graphs for retrieval completeness or refinement, not specifically for fixing repetitive generative item lists [1, 5, 8]."
+    ]
+  },
+  "A180": {
+    "candidate": "luna",
+    "item_id": "A-q-question-057",
+    "sentences": [
+      "Large language models can turn conversational data into structured preference triples, link them to knowledge-base entities, and use the resulting personal knowledge graph for recommendations; one evaluated pipeline found that some lightweight models\u2019 extraction quality tracked downstream recommendation utility [2].",
+      "Another approach uses LLMs to generate semantic profiles for knowledge-graph entities, integrates those profiles into the graph, and matches profile-based preferences during recommendation training [1].",
+      "For session-based recommendations, a heterogeneous graph can combine interactions, item relations, features, and metadata; learned user personas and LLM-derived item embeddings then inform candidate generation and reranking [3]."
+    ]
+  },
+  "A181": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-062",
+    "sentences": [
+      "Lucie Flek is a matching author, and the closest paper is [1].",
+      "[1] presents MiniFool, a physics-inspired adversarial attack algorithm for particle and astroparticle physics that combines a chi-squared-based test statistic with deviation from a target score.",
+      "[1] A related later paper by the same author also studies subtle perturbations consistent with experimental uncertainties to fool neural networks in high-energy physics, but it is about hidden systematics rather than a new attack algorithm [8]."
+    ]
+  },
+  "A182": {
+    "candidate": "luna",
+    "item_id": "X-q-keyword-005",
+    "sentences": [
+      "None of the supplied papers directly addresses reinforcement-learning self-play for strategy games.",
+      "The closest paper studies post-training with Group Relative Policy Optimization on Rubik\u2019s Cube tasks, comparing action prediction with explicit state-prediction training; it does not describe self-play or strategy games [5]."
+    ]
+  },
+  "A183": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-052",
+    "sentences": [
+      "For MLLM parameter importance and freezing, AWARe scores parameters from activation patterns and selectively freezes those important for retaining prior capabilities while updating less important parameters [2].",
+      "Model-Dowser instead combines weight magnitudes, input activations, and output sensitivities to score parameters, preserving high-importance ones during sparse fine-tuning [4]."
+    ]
+  },
+  "A184": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-keyword-090",
+    "sentences": [
+      "Several supplied papers address watch-time prediction with distributional or mixture-style modeling.",
+      "The closest match is a hierarchical exponential-Gaussian mixture model for watch-time distribution prediction, which says watch-time is near-zero-inflated, long-tailed, and multimodal, and proposes HEGM to address variance collapse, component redundancy, and inactive components in a prior mixture network [1].",
+      "Another closely related paper proposes a distributional serving interface that learns a joint distribution over four watch states and exposes compact summaries and task-specific readouts rather than only a single watch-time estimate [2].",
+      "If you want a more general watch-time regression paper, DADF corrects predictable residual structure in a frozen watch-time predictor rather than replacing it with a mixture model [3], and RQ-Reg predicts continuous values like watch-time using residual quantization instead of a parametric mixture [7]."
+    ]
+  },
+  "A185": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-029",
+    "sentences": [
+      "The matching paper is Zhou and Impraimakis\u2019s study of wind-induced bridge response forecasting and structural health monitoring [1].",
+      "It uses a transformer model to forecast bridge vibrations and compares predictions with measurements to flag large deviations as early warnings of structural change, evaluating the approach on real-world measurements from the Hardanger Bridge [1]."
+    ]
+  },
+  "A186": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-known_item-047",
+    "sentences": [
+      "Yes.",
+      "The matching paper is Fast and Geometrically Grounded Lorentz Neural Networks by Robert van der Klis and coauthors [1].",
+      "It studies hyperbolic neural networks in the Lorentz model and argues that existing Lorentz linear layers make output hyperbolic norms grow only logarithmically with gradient descent steps, undermining hyperbolic geometry\u2019s advantage [1].",
+      "The paper proposes a new Lorentz linear layer based on a distance-to-hyperplane formulation, and proves this restores the usual linear scaling of output hyperbolic norms with gradient descent steps [1].",
+      "It also adds Lorentzian activation functions and a caching strategy, aiming for networks that better respect hyperbolic geometry while narrowing the computation gap to Euclidean neural networks [1]."
+    ]
+  },
+  "A187": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-known_item-019",
+    "sentences": [
+      "The closest match is \u201cSympathetic Framing: Evaluating AI Alignment across Sociodemographic Groups,\u201d by Haran Shani-Narkiss, Michael Fire, and Oren Tsur.",
+      "It studies whether LLM alignment with human emotional judgments varies across sociodemographic subgroups, and finds the leading models are broadly aligned across age, gender, education, prior geopolitical knowledge, and conflict predispositions, with some statistically significant group differences [1].",
+      "If you meant broader work on sociodemographic effects in alignment, related papers here look at group-specific sycophancy in demographic alignment [3], persona cues and bias in personalization [6], identity-dependent degradation in response quality [10], and modeling human perspectives with socio-demographic representations [9]."
+    ]
+  },
+  "A188": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-004",
+    "sentences": [
+      "The closest match is a computational study of political bias in Welsh media, focused on Nation.Cymru [1].",
+      "It applies NLP and sentiment analysis to political reporting and finds differential framing among parties, with Reform UK receiving more biased and negative framing and Plaid Cymru receiving more favourable framing in the broader analysis [1]."
+    ]
+  },
+  "A189": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-020",
+    "sentences": [
+      "Yes \u2014 [1] directly matches this idea by reducing communication in split learning through local error signals instead of propagated gradients.",
+      "[1] says the client uses an auxiliary classifier at the split point, the server trains on transmitted activations, and backward gradients are no longer sent, cutting communication roughly in half.",
+      "[7] is a partial match: it routes global error signals in a dual-stream architecture without transporting transposed forward weights, but it is about biologically plausible learning rather than shared neural architectures in general."
+    ]
+  },
+  "A190": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-question-077",
+    "sentences": [
+      "Yes.",
+      "One paper reports that five textbook GNNs, including GAT, GINE, GraphSAGE, and R-GCN, trained on one knowledge graph can transfer zero-shot to 40 inductive link-prediction benchmarks on unseen graphs, and the best off-the-shelf GAT matches a dedicated foundation model [1].",
+      "Another paper says a GraphSAGE backbone can be used for directed link prediction and outperforms state-of-the-art GDL techniques on several benchmarks, but it does not focus on unknown knowledge graphs specifically [2]."
+    ]
+  },
+  "A191": {
+    "candidate": "mini",
+    "item_id": "X-q-keyword-021",
+    "sentences": [
+      "None of these papers directly address transformer recommender popularity bias.",
+      "The closest are [10], which studies author-style homogenization in federated personalized generation, and [9], which measures the gap between personalized LLM output and human authorship, but neither is about recommendation models or popularity bias."
+    ]
+  },
+  "A192": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-088",
+    "sentences": [
+      "Code as Agent Harness is the closest broad review: it surveys code as the operational substrate for agent reasoning, action, environment modeling, planning, memory, tool use, verification, and multi-agent coordination [2].",
+      "For reusable procedural scripts and workflows, the Agent Skills survey reviews how skills are represented, acquired, retrieved, and evolved, describing them as an execution layer alongside agents\u2019 high-level reasoning and planning [3].",
+      "These surveys cover the requested architecture broadly, while The Bitter Lesson of Tool Calling provides an empirical comparison of script-based tool execution with native JSON calls rather than a general review [1]."
+    ]
+  },
+  "A193": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-008",
+    "sentences": [
+      "POLO is the closest match: it uses partially observable multi-agent reinforcement learning to dispatch couriers who may work across several delivery platforms, with each platform learning from its own observations rather than seeing all platforms\u2019 data [2].",
+      "The paper describes attention-based aggregation of incomplete courier information and reports improved platform revenue and courier travel efficiency in simulations [2]."
+    ]
+  },
+  "A194": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-keyword-079",
+    "sentences": [
+      "Yes\u2014several papers cover regional language use on social media, mainly through code-mixed or dialectal analysis.",
+      "For South Asian social media, one paper studies hope speech detection in code-mixed Tulu social media comments [2], another targets sentiment analysis on Hinglish tweets for Indian user-generated content [3], and a third analyzes ideological stance and polarization in Bengali social media comments from Bangladesh [7].",
+      "For dialect and place variation in social platforms, a thesis examines geographic dialect alignment in New Zealand-related Reddit communities and argues social media can serve as a natural laboratory for sociolinguistic inquiry [4].",
+      "The papers differ in focus: some are task-oriented NLP on regional or mixed language content such as Tulu, Hinglish, and Bengali comments [2,3,7], while another studies how language variation aligns with geography and identity in social media communities [4].",
+      "Related Bengali regional-language work in the results is about dialect speech technology or abusive-text dialect identification, not social media specifically [1,5,6]."
+    ]
+  },
+  "A195": {
+    "candidate": "mini",
+    "item_id": "A-q-question-048",
+    "sentences": [
+      "Yes.",
+      "Several papers support dynamically changing how many pages are fetched at test time without retraining: ViSAR is a training-free adaptive-k method that dynamically determines the number of pages to retrieve [1], and LAD-RAG dynamically adapts retrieval with an LLM agent without top-k tuning [2].",
+      "LITTA also improves retrieval without retriever retraining, with the number of query variants controlling the accuracy-efficiency trade-off [6].",
+      "If you want the closest match to \u201chow many pages are fetched,\u201d [1] and [2] are the most direct; [9] also dynamically reallocates retrieval budgets toward high-value query aspects, but it focuses on aspect-aware subqueries rather than a simple page-count rule [9]."
+    ]
+  },
+  "A196": {
+    "candidate": "mini",
+    "item_id": "A-q-question-094",
+    "sentences": [
+      "The closest way to measure this is to test whether the model can reliably apply externally provided rules in new contexts, using benchmarks that compare performance on rule-based learning versus example-based learning [1, 2, 3, 4].",
+      "One paper introduces a benchmark for step-level procedural rule reasoning and evaluates single-rule, multi-rule, and multi-hop settings to measure how well models understand and use given rules [2].",
+      "Another shows that models can learn unseen rules in a controlled setting where interpolation fails, which helps separate genuine rule learning from pattern matching [3].",
+      "A broader probe suite also measures limits on what text-trained models can learn, including cases where rules are non-identifiable or unreachable by standard training [4]."
+    ]
+  },
+  "A197": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-017",
+    "sentences": [
+      "The closest matches are [1], [2], and [3].",
+      "[1] directly targets long-context recall in linear-time sequence models and says it preserves long-range content much more effectively than prior linear-time baselines.",
+      "[2] also focuses on linear-time sequence models and reports strong retrieval and associative recall, while [3] improves long-range memory in log-linear attention with input-dependent decay."
+    ]
+  },
+  "A198": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-063",
+    "sentences": [
+      "The closest match is [1], which describes grading label-free multi-topic science exams where a student\u2019s several answers are merged into one paragraph.",
+      "[1] uses reference answers for each question, builds a semantic similarity graph over them, and combines retrieval with graph traversal to assign the right references before grading each segment separately.",
+      "None of the other papers directly address grading one big paragraph for several different questions with a network of reference answers.",
+      "[2, 5, 10] focus on rubric-based grading, [4, 6, 9] on automated scoring of written answers, and [7, 8] on question answering or benchmarks rather than this multi-topic grading setup."
+    ]
+  },
+  "A199": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-042",
+    "sentences": [
+      "Yes \u2014 [1] is the Jiang paper on personalized dense retrieval reasoning.",
+      "[1] proposes Think-to-Personalize, which unifies explicit user-centric intent reasoning with dense retrieval by reasoning over user history to generate an intent-enhanced query embedding.",
+      "[1] It is also the closest match if you want a personalized dense retrieval method that uses reasoning rather than only implicit embedding interactions."
+    ]
+  },
+  "A200": {
+    "candidate": "mini",
+    "item_id": "A-q-question-037",
+    "sentences": [
+      "Internal representations of language models seem to correlate with human sentence effort in a layered way: early layers can model naturalistic reading-time difficulty, while later layers better estimate harder syntactic-ambiguity effort, though they still underestimate human cost [1].",
+      "More generally, human reading behavior is better explained by model features that capture meaningful information in LM representations, and by measures tied to surprisal or storage-like uncertainty over future context [2, 5]."
+    ]
+  },
+  "A201": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-016",
+    "sentences": [
+      "Ziqing Qiao and coauthors\u2019 \u201cRethinking the Role of Efficient Attention in Hybrid Architectures\u201d analyzes how efficient-attention modules affect hybrid language models [1].",
+      "It finds that full attention mainly carries long-range retrieval, while efficient attention shapes how retrieval capability develops during training; larger sliding-window windows can delay the formation of retrieval heads [1].",
+      "The authors also report that applying NoPE only to full-attention layers in a small-window hybrid improves long-context performance with negligible short-context impact [1]."
+    ]
+  },
+  "A202": {
+    "candidate": "mini",
+    "item_id": "A-q-question-085",
+    "sentences": [
+      "The closest matches are [2, 4, 5].",
+      "[2] shows that writing style changes over time: temporal drift is one of the strongest factors affecting authorship verification, and performance drops as the time gap between documents increases.",
+      "[4] also finds post-2022 changes in scientific prose, with shifts in vocabulary, punctuation, readability, and syntax, and says some features change in rate and direction over time.",
+      "For differences across text types, [5] finds that genre has a stronger influence on stylistic features than the source itself, across human-written text and outputs from multiple LLMs.",
+      "None of these papers directly tracks one person's style across both time and different text types, but together they address temporal drift and genre-related stylistic variation."
+    ]
+  },
+  "A203": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-keyword-062",
+    "sentences": [
+      "Yes.",
+      "The clearest match is work that treats GNNs as fast surrogates for semidefinite programs: one paper studies when GNNs can recover optimal linear SDP solutions, showing standard GNNs fail but a more expressive architecture can emulate first-order solver updates and provide strong predictions that can warm-start SDP solving for practical speedups [1].",
+      "Another paper gives a Max-Cut-specific GNN proxy for SDP relaxations inside branch-and-bound, predicting primal- and dual-feasible SDP solutions and substantially reducing bounding cost compared with an SDP solver [2].",
+      "They differ in scope: [1] is a general study of expressive power for linear SDPs plus warm-starting on synthetic and SdpLib benchmarks, while [2] is a specialized, feasibility-preserving proxy for Max-Cut SDP relaxations in exact optimization, trained self-supervised and designed to plug directly into branch-and-bound [1,2]."
+    ]
+  },
+  "A204": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-008",
+    "sentences": [
+      "The closest match is [1], which uses LLMs to extract formal symbolic rules with temporal operators and delay semantics for multivariate time series, aiming to explain causal relations and delayed effects.",
+      "[1] It relies on simulator-generated counterfactual trajectories and clustered temporal patterns to produce verifiable causal rules, so it directly combines LLMs, logical rules, and time-series causality.",
+      "[1] Also related are [8], which does time series causal discovery with simulator-generated interventional distributions, and [2], which uses causal intervention and variable-level alignment for LLM-based time series forecasting, but neither is focused on learning logical rules from time-series causality as directly as [1].",
+      "[8, 2]"
+    ]
+  },
+  "A205": {
+    "candidate": "mini",
+    "item_id": "A-q-question-074",
+    "sentences": [
+      "Different retraction maps can change spherical residual stability mainly by changing how update size becomes a rotation angle, not by changing norm preservation itself [1].",
+      "The exponential map is only one choice; the metric projection and Cayley retractions are exactly norm-preserving and appear to be more favorable in the reported experiments, with the best validation loss occurring at finite p rather than at the exponential-map limit [1].",
+      "More broadly, the paper says all retractions on the hypersphere collapse to a single scalar design choice, so the stability difference is in angular behavior: some retractions saturate their rotation angle instead of letting it grow without bound [1].",
+      "That makes the exponential map just one end of a spectrum, while Proj-SpheretNorm and Cay-SpheretNorm are finite-angle alternatives that still keep the residual stream on the sphere [1]."
+    ]
+  },
+  "A206": {
+    "candidate": "luna",
+    "item_id": "A-q-question-060",
+    "sentences": [
+      "A graph-structured generative reranker can reduce repetitive lists by exploring multiple paths through item dependencies, widening the decoding choices instead of favoring only high-likelihood sequences that repeat items.",
+      "CONGRATS uses graph transitions to model item dependencies and a differentiable training method that learns from user preferences; its authors report improved recommendation quality and diversity [2]."
+    ]
+  },
+  "A207": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-054",
+    "sentences": [
+      "R2LM, introduced in \u201cBifocal Diffusion Language Models: Asymmetric Bidirectional Context for Parallel Generation,\u201d reports 2.4\u00d7\u201312.9\u00d7 higher throughput than bidirectional diffusion language models and 1.9\u00d7\u20132.9\u00d7 speedup over autoregressive baselines in batch serving [1].",
+      "It combines causal attention with KV caching and a reverse Mamba sidecar that provides right-side context [1]."
+    ]
+  },
+  "A208": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-paraphrase-022",
+    "sentences": [
+      "Yes.",
+      "One supplied paper directly matches that setup for social media text: it detects polarization in social posts with a two-stage method that combines structured supervised fine-tuning using an interpretable slot-filling template with Direct Preference Optimization refinement [2].",
+      "The slots are target, claim type, manifestation checklist, and justification, and the DPO stage uses automatically generated preference pairs to reduce false negatives [2].",
+      "Related papers cover nearby but different tasks.",
+      "One improves political stance detection in informal online discourse by adding user-profile context from historical posts, rather than slot-based training plus preference optimization [1].",
+      "Another extracts target and stance from Reddit political posts for more granular opinion analysis, using prompting strategies rather than the supervised-fine-tuning-plus-DPO recipe [3]."
+    ]
+  },
+  "A209": {
+    "candidate": "luna",
+    "item_id": "A-q-question-002",
+    "sentences": [
+      "For MoE inference on edge hardware, DyMoE is the closest match: dynamically quantize experts according to their importance, use depth-adaptive scheduling to protect critical layers, and prefetch experts to overlap I/O stalls; it reports lower latency on commercial edge devices [2].",
+      "GEMQ instead allocates precision globally across experts and fine-tunes the router to account for routing changes caused by quantization [5].",
+      "AlphaQ assigns more bits to experts with stronger heavy-tailed weight spectra, without requiring calibration data [3].",
+      "DPA-MoE offers runtime precision control, allocating weight chunks to routed experts according to live gate scores [7].",
+      "The supplied abstracts discuss edge inference and efficient MoE quantization, but do not establish performance specifically on mobile hardware [2, 4]."
+    ]
+  },
+  "A210": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-085",
+    "sentences": [
+      "LLM unbranding is the direct match: MUTE neutralizes brand-characteristic language, slogans, and stylistic markers in generated text while preserving general capabilities and utility [1].",
+      "It uses iterative refinement of system instructions and does not require parameter updates [1]."
+    ]
+  },
+  "A211": {
+    "candidate": "luna",
+    "item_id": "X-q-question-099",
+    "sentences": [
+      "A more detailed understanding of user goals could help recommender systems adapt exploration to each user rather than applying a uniform novelty or fairness boost.",
+      "One study finds that exploration saturation varies substantially across users and that users with limited interaction histories may reach it earlier, so systems should adapt the amount of fairness-driven exploration to the individual user [8].",
+      "The paper studies exploration effects, rather than proposing a specific goal-modeling method [8]."
+    ]
+  },
+  "A212": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-049",
+    "sentences": [
+      "Several papers explore AI-generated feedback or iterative self-improvement for complex reasoning and rules.",
+      "Test-time Recursive Thinking generates verification signals to improve answers without external feedback [1], while Native Reasoning Training uses self-generated reasoning traces and an intrinsic reward loop to improve complex reasoning without expert-written demonstrations [5].",
+      "For agents and explicit rules, RoboPhD evolves Text-to-SQL strategies from performance feedback without external domain guidance [6], and RuleEvolve iteratively mutates and evaluates coding rules [10].",
+      "CoNL uses self-play critiques that are rewarded when they help improve solutions, without external judges or ground-truth labels [8]."
+    ]
+  },
+  "A213": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-087",
+    "sentences": [
+      "The closest match is [5], which is a training-free pipeline for retrieving optimal informative subgraphs from black-box knowledge graphs.",
+      "[5] It aims to optimize recall and precision for evidence subgraphs without task-specific training, using semantic anchor grouping, bubble expansion, ranking, and reasoning-aware expansion.",
+      "[5] Also close are [3] and [1].",
+      "[3] is training-free and gives query-aware retrieval guarantees for relevant subgraphs, while [1] uses a pre-trained graph foundation model and a label-free selector to find minimal, sufficient evidence subgraphs, but it is not fully training-free in the same sense as [5].",
+      "[3, 1]"
+    ]
+  },
+  "A214": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-keyword-090",
+    "sentences": [
+      "For video watch time mixture models, the most direct match is a line of work that models the full watch-time distribution with exponential-Gaussian mixtures rather than a single prediction [1].",
+      "One paper studies the earlier Exponential-Gaussian Mixture Network and proposes a Hierarchical Exponential-Gaussian Mixture model to better handle near-zero inflation, long tails, and multimodality in watch time, improving mixture stability, interpretability, ranking accuracy, and threshold-event prediction [1].",
+      "A related but broader direction is to expose watch-time distributions through a serving interface rather than only a mean estimate [2].",
+      "That work does not present a mixture model; instead, it learns a joint distribution over watch states and event times and serves compact summaries such as event probabilities, duration-relative time scales, and uncertainty statistics for downstream tasks [2]."
+    ]
+  },
+  "A215": {
+    "candidate": "mini",
+    "item_id": "A-q-question-019",
+    "sentences": [
+      "Repeating training data can hurt pretraining performance, but the effect depends on how repetition is structured and how much unique data is available [1, 3].",
+      "One study finds a systematic loss peak at an intermediate repeat count, with the most damaging repeat count growing with model size, and says repeated documents can waste substantial compute compared with no repetition [1].",
+      "Another finds that repetition damage is scale-dependent: limited uniqueness causes only mild degradation for small models but rapidly increasing loss penalties for larger models [3].",
+      "Not all repetition is equally bad: one paper reports that, under a fixed update budget, more epochs on smaller datasets can improve downstream results in supervised fine-tuning, with gains saturating at full memorization [6].",
+      "Another reports that a second epoch can be worth nearly as much as fresh data, but also that replaying shards consecutively or concentrating repeats on fewer samples raises loss [2]."
+    ]
+  },
+  "A216": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-030",
+    "sentences": [
+      "Exploration Space Theory is a direct match: it models prerequisite relationships among places, where experiencing some locations meaningfully depends on contextual knowledge gained at others, and uses those dependencies to recommend structurally valid next places to visit [1].",
+      "Its recommender represents valid exploration states as a lattice and provides explanations for recommendations [1]."
+    ]
+  },
+  "A217": {
+    "candidate": "luna",
+    "item_id": "A-q-question-019",
+    "sentences": [
+      "Repeating data during pretraining often hurts performance compared with using fresh data, but the effect depends on how repetition is structured and how much unique data is available [1, 2, 3].",
+      "In controlled studies, loss can peak at an intermediate repeat count, and repeating a moderately sized subset moderately many times can be more damaging than other repeat patterns [1].",
+      "Replaying shards consecutively or concentrating repeats on fewer samples also raises loss [2].",
+      "Limited unique data causes increasingly large loss penalties for larger models [3].",
+      "Repetition is not uniformly harmful: with unique data constrained, diffusion language models can benefit from more epochs, and one reported model improved downstream performance by repeating standard pretraining data [10]."
+    ]
+  },
+  "A218": {
+    "candidate": "luna",
+    "item_id": "X-q-known_item-029",
+    "sentences": [
+      "None of these papers address wind bridge forecasting or identify a Zhou paper on that topic.",
+      "The closest match is a recommendation paper coauthored by Peilin Zhou, but it concerns intent-guided sequential recommendation, not wind or bridge forecasting [4]."
+    ]
+  },
+  "A219": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-054",
+    "sentences": [
+      "Bifocal Diffusion Language Models introduces R2LM, and it is the paper that reports throughput results for this bifocal setup [1].",
+      "It says R2LM achieves 2.4\u00d7 to 12.9\u00d7 higher throughput than bidirectional dLLMs and 1.9\u00d7 to 2.9\u00d7 speedup over autoregressive baselines in batch serving with parallel decoding and KV caching [1]."
+    ]
+  },
+  "A220": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-026",
+    "sentences": [
+      "Altmann\u2019s paper is Quantum Generator Kernels [1].",
+      "It proposes Quantum Generator Kernels, a generator-based approach to quantum kernels using Variational Generator Groups, and reports improved projection and classification performance over state-of-the-art quantum and classical kernel methods [1].",
+      "None of the other papers directly address Altmann\u2019s quantum generator kernels [2, 3, 4, 5, 6, 7, 8, 9, 10]."
+    ]
+  },
+  "A221": {
+    "candidate": "mini",
+    "item_id": "A-q-question-002",
+    "sentences": [
+      "Use mixed-precision quantization to assign higher bit-widths to more important experts and lower bit-widths to less sensitive ones, which reduces memory and speeds MoE inference on constrained devices [2, 3, 5].",
+      "For mobile or edge hardware, DyMoE adds runtime importance-aware quantization, depth-adaptive scheduling, and look-ahead prefetching to cut TTFT and TPOT on commercial edge hardware [2].",
+      "If you want runtime precision control rather than fixed allocation, DPA-MoE makes routed experts any-precision by allocating prefix-decodable chunks from live router scores [7], while GEMQ and AlphaQ improve allocation with global optimization or calibration-free bit assignment [5, 3]."
+    ]
+  },
+  "A222": {
+    "candidate": "luna",
+    "item_id": "X-q-question-094",
+    "sentences": [
+      "The supplied papers do not directly measure whether a model can learn new rules or knowledge from a provided text.",
+      "The closest is [10], which measures learner knowledge acquisition using pretest and posttest assessments, including near- and far-transfer tests, designed to distinguish learning from prior knowledge; it evaluates AI-generated teaching slides rather than a model learning from arbitrary text."
+    ]
+  },
+  "A223": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-047",
+    "sentences": [
+      "The closest match is [1], which describes seed-guided clustering that starts from a few user-provided labels and then expands groups by excluding anomalous points.",
+      "It frames clustering as the dual of anomaly detection and uses an iterative \u201cclustering-by-exclusion\u201d mechanism to isolate fringe points and noise [1].",
+      "A second close paper is [7], but it focuses on outlier detection after clustering rather than identifying clusters by starting from a few markers [7].",
+      "Papers [4] and [10] also handle robustness and outliers, but they do not describe a seed-guided exclusion-based cluster discovery process [4, 10]."
+    ]
+  },
+  "A224": {
+    "candidate": "luna",
+    "item_id": "A-q-question-050",
+    "sentences": [
+      "Yes, in some reported settings.",
+      "ArcGD, a geometrically motivated optimizer, outperformed Adam on a highly non-convex Rosenbrock benchmark when both used ArcGD\u2019s effective learning rate, and achieved better final solutions in most cases under the alternative learning-rate comparison [1].",
+      "It also achieved higher average test accuracy than Adam on CIFAR-10 MLPs [1]."
+    ]
+  },
+  "A225": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-077",
+    "sentences": [
+      "The closest matches are [1], [2], [3], [5], [7], and [9].",
+      "[1], [2], and [3] are about low-precision FP4 training for large language models, with [1] focusing on comparative training recipes, [2] on adaptive block scaling to reduce quantization error, and [3] on transposition-invariant block quantization for stable end-to-end FP4 training.",
+      "[7] addresses distributed training with low-bit activations and gradients to reduce memory and communication, while [9] covers dynamic precision allocation for quantization-aware training.",
+      "[5] provides a broader comparison of FP and INT formats, including 4-bit cases, but it is not specifically about private devices."
+    ]
+  },
+  "A226": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-022",
+    "sentences": [
+      "For lifecycle memory strength control, the closest match is [1]: it treats strength as an explicit lifecycle state governing retention consequence and uses it to control promotion, compression, and eviction.",
+      "[8] also tracks preference strength and evidence, with lifecycle operations that reinforce or weaken memories.",
+      "[2] controls what to strengthen by reinforcing memories that contribute to responses, while [7] evolves memory through retrieval-driven reconsolidation."
+    ]
+  },
+  "A227": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-097",
+    "sentences": [
+      "Yes.",
+      "Strategically Diverse Sampling for Self-Training directly tackles this: it samples distinct approaches rather than relying on IID responses filtered mainly for correctness, and reports improved performance on difficult tasks [1].",
+      "It also finds that strategically diverse but incorrect traces can outperform IID distillation from a much larger teacher [1].",
+      "Related work trains on multiple valid reasoning paths selected for diversity, reporting more varied outputs and higher pass@k [3].",
+      "For reinforcement learning rather than self-training, Re:Max replays verified examples from different solution modes and improves both success rates and the number of ways a model can solve tasks [2]."
+    ]
+  },
+  "A228": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-017",
+    "sentences": [
+      "Raven directly targets long-context recall in linear-time sequence models, using input-dependent routing to update selected memory slots and reduce interference and eviction.",
+      "It reports strong recall on benchmarks and remains effective at context lengths up to 16 times its training length [1].",
+      "Kaczmarz Linear Attention instead improves recurrent-state updates with a key-norm-normalized step size; it reports perfect single-needle retrieval and better multi-query associative recall than Gated DeltaNet [2].",
+      "Adaptive Memory Decay for Log-Linear Attention adapts memory decay to input content and reports gains on long-range associative recall [3]."
+    ]
+  },
+  "A229": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-075",
+    "sentences": [
+      "The closest match is SIDEKICK, a knowledge graph for drug indications, contraindications, and adverse reactions extracted from FDA drug labels and mapped to biomedical ontologies [1].",
+      "Its abstract does not mention Hoehndorf [1]."
+    ]
+  },
+  "A230": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-054",
+    "sentences": [
+      "The closest match is [1], which directly studies whether within-conversation context changes AI answers and finds that omitting preceding turns often causes materially different responses.",
+      "[2] is also closely related, but it measures how request state is distributed across turns and explicitly says it does not estimate the causal effect of history on model answers.",
+      "If you mean the broader idea of context effects in multi-turn conversations, [4], [6], and [9] also address how conversational history affects model behavior, but they focus on response quality, emotion recognition, or bias rather than the specific effect on answers from omitted context."
+    ]
+  },
+  "A231": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-097",
+    "sentences": [
+      "Yes\u2014[1] is the closest match.",
+      "It studies self-training data built by strategically diverse sampling instead of filtering mainly for correctness, and reports that diverse, even incorrect, traces can outperform IID distillation.",
+      "[3] is also close: it proposes a one-problem-multiple-solutions paradigm and curates maximally diverse solution sets to improve reasoning diversity and pass@k.",
+      "[2] is related but focuses more on preserving multiple correct solution modes during RLVR than on choosing varied ways to solve a problem in self-training."
+    ]
+  },
+  "A232": {
+    "candidate": "mini",
+    "item_id": "A-q-question-057",
+    "sentences": [
+      "The closest matches show that you can use LLMs to extract or generate semantic user profiles and triples, then attach them to a knowledge graph for recommendation [1, 2, 5, 6].",
+      "[1] uses LLMs to generate semantic profiles for KG entities and then propagates them through the KG for better matching, while [2] builds personal knowledge graphs by extracting RDF-compliant preference triples from conversational data and evaluates them on downstream recommendation.",
+      "[5] and [6] focus more on persona-based personalization, using KG-derived summaries or live-generated personas to produce personalized prompts and recommendations rather than explicitly constructing a personal knowledge graph from raw text."
+    ]
+  },
+  "A233": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-061",
+    "sentences": [
+      "Several papers address robust intent classification for chatbots.",
+      "[2] focuses on noise-robust conversational intent classification under realistic conversational noise and finds attention pooling performs best, while mean pooling degrades performance.",
+      "[1] studies intent classification for open-weight language models and evaluates robustness to realistic input perturbations, giving practical guidance under compute and latency constraints.",
+      "[3] compares training-free and training-based intent classification methods and reports that training-free methods are generally more robust to mixed-intent and adversarial prompts."
+    ]
+  },
+  "A234": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-060",
+    "sentences": [
+      "Feng et al. study recovering minimal sufficient evidence for a coding agent\u2019s next decision, using the agent\u2019s current state to find a compact set that meets every annotated evidence requirement [1].",
+      "Their MSS-Complement method proposes a jointly sufficient set and searches for missing evidence, outperforming similarity-based ranking in complete-set recovery on their benchmark [1]."
+    ]
+  },
+  "A235": {
+    "candidate": "luna",
+    "item_id": "A-q-question-036",
+    "sentences": [
+      "Content creators can understand why their items receive little or no exposure by using a surrogate model that approximates a recommender\u2019s overall exposure distribution and identifies which item features most influence exposure [1].",
+      "A counterfactual observability framework can also estimate what recommendations and engagement would have occurred without a particular item or model decision, helping separate model behavior from content quality, presentation bias, and audience reach [2]."
+    ]
+  },
+  "A236": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-047",
+    "sentences": [
+      "The matching paper is [1], \u201cFast and Geometrically Grounded Lorentz Neural Networks,\u201d by Robert van der Klis and coauthors.",
+      "It directly addresses Lorentz neural networks and the Lorentz model of hyperbolic space, proposing a new Lorentz linear layer, Lorentzian activation functions, and a caching strategy to make the networks both geometrically faithful and computationally efficient [1].",
+      "The other papers are about different topics, such as Clifford algebra networks [2], quadratic neural networks [3, 4], neural operators [6, 7], learning dynamics and scaling laws [8, 9], and long-horizon dynamical prediction [10]."
+    ]
+  },
+  "A237": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-047",
+    "sentences": [
+      "The closest match is a seed-guided method that starts with a few user-provided markers, identifies outliers, and builds clusters by admitting non-anomalous points [1].",
+      "It defines clusters as subsets containing no anomalies and uses iterative \u201cclustering-by-exclusion\u201d to isolate noise and fringe points [1]."
+    ]
+  },
+  "A238": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-036",
+    "sentences": [
+      "The closest matches are [1] and [2].",
+      "[1] compares legal-domain fine-tuning of multilingual embedding models and finds consistent retrieval gains across low- and high-resource languages, with cross-lingual transfer to unseen languages.",
+      "[2] compares a base retriever, a legal-only fine-tuned model, and a mixed legal-plus-general setup, showing a trade-off between stronger specialization and better robustness across different legal search types and an out-of-domain benchmark."
+    ]
+  },
+  "A239": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-048",
+    "sentences": [
+      "Kajwan Ziaoddini\u2019s paper proposes a socially aware music recommendation system using a multimodal graph neural network [1].",
+      "It builds a heterogeneous graph of user\u2013song interactions and user\u2013user social relationships, and combines lyrics, audio, visual, and emotion-aware signals for personalized recommendations [1]."
+    ]
+  },
+  "A240": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-081",
+    "sentences": [
+      "For LLM-based prediction of item popularity for recommendation, TRAIL jointly predicts short-term popularity and generates natural-language explanations, using contrastive learning to align predictions with trend signals [1].",
+      "It reports outperforming strong baselines [1].",
+      "Related work uses popularity as a signal for selective LLM ranking supervision, activating it when the model predicts the LLM is reliable [3], while another LLM recommendation framework addresses popularity bias to improve fairness and accuracy [8]."
+    ]
+  },
+  "A241": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-known_item-039",
+    "sentences": [
+      "Yes: the matching paper is Structural Segmentation for Brazilian Legal Document Retrieval by Leandro Car\u00edsio Fernandes and coauthors [1].",
+      "It studies structural segmentation for Brazilian legal document retrieval, representing legal acts as collections of chunks based on their hierarchical structure rather than indexing each document as a single unit [1].",
+      "The paper compares a full multi-layer hierarchy with simpler chunk-based variants centered on core chunks such as articles and non-normative components, with different amounts of context [1].",
+      "It finds that structural segmentation improves dense retrieval over whole-document indexing, but does not consistently help lexical retrieval; it also reports that full hierarchy is unnecessary, since core chunks enriched with document metadata can match or outperform it [1]."
+    ]
+  },
+  "A242": {
+    "candidate": "mini",
+    "item_id": "A-q-keyword-022",
+    "sentences": [
+      "The closest matches are [1], [8], and [9].",
+      "[1] focuses on lifecycle memory control with an explicit strength state for retention consequence, distinguishing admission validity from retention strength during maintenance.",
+      "[8] also uses a lifecycle view, with explicit strength and evidence tracking in a hierarchical belief-state memory and operations such as reinforcement, weakening, consolidation, forgetting, and resynthesis.",
+      "[9] addresses the knowledge lifecycle from the write phase, using cost-aware routing and periodic consolidation to selectively externalize and internalize memory."
+    ]
+  },
+  "A243": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-068",
+    "sentences": [
+      "Yes \u2014 [1] is the matching paper: Continually Post-training Small Models via Synthetic Self-distillation [1].",
+      "It proposes Synthetic Self-Distillation (SynthSelf) to help small models do continual post-training by providing in-distribution supervision without relying on strong in-context learning or instruction-following abilities [1].",
+      "[1] focuses on small-model continual learning and says SynthSelf consistently outperforms several distillation methods across multiple small model scales and benchmarks [1]."
+    ]
+  },
+  "A244": {
+    "candidate": "v1-mini",
+    "item_id": "X-q-question-099",
+    "sentences": [
+      "The closest match is not a recommender-system design paper, but one paper does address how to better tailor fairness-driven recommendation to users.",
+      "It argues that fairness-aware recommenders should adapt the amount of exploration to individual users, because novelty and diversity interventions show diminishing or non-monotonic returns and users with shorter interaction histories may reach saturation earlier [8].",
+      "So, a more detailed understanding of user goals would mean modeling when extra exploration still helps and when it starts to hurt engagement or perceived relevance, instead of using one global exploration level for everyone [8].",
+      "None of the other papers directly discusses recommender systems or user goals."
+    ]
+  },
+  "A245": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-006",
+    "sentences": [
+      "The closest matches are [2] and [5].",
+      "[2] targets bias in LLM-based recommender systems by turning debiasing into an efficient machine unlearning task, estimating and removing the influence of bias-inducing samples without costly retraining.",
+      "[5] also focuses on debiasing without direct sensitive labels, using post-hoc concept and attribute erasure from textual profiles.",
+      "[1] is related too, but it is about unlearning a user\u2019s data in recommendation systems while preserving recommendation quality, not general prejudice removal in suggestion engines."
+    ]
+  },
+  "A246": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-021",
+    "sentences": [
+      "Transformer-based recommenders can amplify popularity bias as they scale: increasing model depth improves accuracy but can cause spectral collapse that favors popular items over niche ones [1].",
+      "SPRINT mitigates this by constraining attention-score column sums and feed-forward parameter spectral norms, improving accuracy and long-tail fairness [1].",
+      "Other work addresses sequential or generative recommenders with different approaches: PR-entmax modifies the training objective without architectural changes [3], PopSteer steers popularity-related neuron activations post hoc [6], and BT-SR uses noncontrastive self-supervised learning to improve long-tail coverage [8]."
+    ]
+  },
+  "A247": {
+    "candidate": "luna",
+    "item_id": "X-q-keyword-007",
+    "sentences": [
+      "None of these papers directly study curation of synthetic data for LLMs.",
+      "The closest results analyze how LLM-generated or rewritten text varies stylistically and how training-data diversity affects authorship verification: diverse training data improves cross-genre generalization in AVShift [2], while stylistic differences vary across models and genres [5]."
+    ]
+  },
+  "A248": {
+    "candidate": "luna",
+    "item_id": "A-q-question-064",
+    "sentences": [
+      "Neural networks struggle because highly ambiguous next-token distributions require more capacity to store and larger embeddings to represent, take more training steps to fit, and amplify token-sampling noise [1]."
+    ]
+  },
+  "A249": {
+    "candidate": "mini",
+    "item_id": "A-q-question-036",
+    "sentences": [
+      "The closest match is [1], which directly addresses how providers can understand why their items do or do not get exposure in recommendation lists by explaining item exposure at a system level.",
+      "[1] It proposes a surrogate model that approximates the exposure distribution of a recommender and uses feature contributions to identify the factors driving recommendation decisions across users.",
+      "[1] If you want broader diagnostic tools, [2] frames recommender observability as a counterfactual measurement problem for content creators and model developers, and [5] describes an agentic system that surfaces patterns in where recommendations perform well or poorly.",
+      "[2, 5]"
+    ]
+  },
+  "A250": {
+    "candidate": "luna",
+    "item_id": "A-q-question-037",
+    "sentences": [
+      "Language-model representations correlate with human sentence-processing effort, but the best-aligned layers depend on the kind of reading.",
+      "For naturalistic reading, earlier layers model processing behavior; for syntactically challenging ambiguity, later layers better estimate human effort, though they still underestimate it [1].",
+      "Other evidence links model signals to human brain responses: language-model features and surprisal predict neural responses, with general-purpose representation features contributing beyond surprisal in some regions [2].",
+      "Reading-time studies also find that model surprisal tracks human behavior and that long-range coreference can improve its predictions [4]."
+    ]
+  },
+  "A251": {
+    "candidate": "mini",
+    "item_id": "A-q-known_item-073",
+    "sentences": [
+      "The closest match is [1], which is by Zichao Wei and is explicitly about the computational complexity of structural generalization.",
+      "[1] defines structural generalization, relates it to a lower bound of NC^1 versus the learnable ceiling TC^0 for pure Transformers, and argues that under TC^0 \u2260 NC^1 a pure Transformer cannot learn it.",
+      "[2] is also by Zichao Wei and studies structural generalization in semantic parsing without hand-written rules, but it is mainly an empirical benchmark study rather than a complexity-theoretic one."
+    ]
+  },
+  "A252": {
+    "candidate": "luna",
+    "item_id": "A-q-keyword-085",
+    "sentences": [
+      "The papers examine AI consciousness and self-awareness as related but distinct questions; they do not establish that language models are conscious.",
+      "[3] finds no reliable evidence that tested models\u2019 denials of sentience are untruthful, while [4] shows that prompting sustained self-reference can elicit structured reports of subjective experience, explicitly noting these are not direct evidence of consciousness.",
+      "[1] argues that models\u2019 self-reports are sensitive to phrasing and training, limiting their value as evidence.",
+      "Other papers assess narrower capabilities: [5] benchmarks metacognition and self-awareness and finds most tested models fall short of human averages in those areas; [8] reports evidence of belief-guided agency and meta-cognitive monitoring; and [9] and [10] study models\u2019 ability to recognize their own learned behaviors.",
+      "These behavioral findings concern forms of self-monitoring, not proof of subjective experience.",
+      "[2] measures trained consciousness-denial behavior across models."
+    ]
+  },
+  "A253": {
+    "candidate": "mini",
+    "item_id": "A-q-question-078",
+    "sentences": [
+      "You can automatically judge such reports with reusable rubrics or judge models that compare a report against expected trust-relevant questions and evidence.",
+      "The closest match is [1], which creates importance-weighted rubrics for news trustworthiness assessment and an automated process to judge new runs, and [2], which generates trustworthiness reports with citations and reports official evaluation results for that task.",
+      "If you want a general judging approach, [1] says assessors\u2019 rubrics capture the information readers need to assess an article\u2019s trustworthiness, while [2] uses retrieved evidence, re-ranking, and an LLM relevance judge to support report generation and evaluation.",
+      "These papers focus on news trustworthiness reports, not on unrelated report types [1, 2]."
+    ]
+  },
+  "A254": {
+    "candidate": "mini",
+    "item_id": "X-q-paraphrase-085",
+    "sentences": [
+      "None of these papers directly address removing company trademarks or corporate slogans from LLM-generated text while preserving general knowledge.",
+      "The closest are [4] and [9], which study improving LLM agents through self-play and reflection in search or social games, but they do not discuss text cleanup, trademark removal, or preserving general knowledge after editing."
+    ]
+  },
+  "A255": {
+    "candidate": "mini",
+    "item_id": "A-q-paraphrase-032",
+    "sentences": [
+      "The closest match is [1], which uses measured real device behavior to optimize multi-market participation for a battery and an electrolyser in Danish electricity and ancillary service markets.",
+      "[1] It explicitly incorporates ramp limits, efficiency, and setpoint-tracking accuracy from experiments to improve daily profit, but it is about battery and power-to-x systems rather than power conversion tools and cells specifically.",
+      "[1]"
+    ]
+  },
+  "A256": {
+    "candidate": "mini",
+    "item_id": "X-q-question-019",
+    "sentences": [
+      "None of these papers directly study repeating training data during pretraining.",
+      "The closest are [8] and [10], which discuss how the choice and quality of training data affect model performance, but they do not analyze repeated training data or pretraining repetition specifically.",
+      "[2] also compares a baseline with an organically adapted model, but it is about domain adaptation rather than repeated data during pretraining."
+    ]
+  },
+  "A257": {
+    "candidate": "luna",
+    "item_id": "A-q-question-095",
+    "sentences": [
+      "Yes.",
+      "WIND is described as a single pretrained atmospheric foundation model for diverse weather and climate tasks\u2014including forecasting, downscaling, reconstruction, and conservation\u2014without task-specific fine-tuning [1].",
+      "The paper frames those tasks as inverse problems solved through posterior sampling [1]."
+    ]
+  },
+  "A258": {
+    "candidate": "mini",
+    "item_id": "X-q-known_item-089",
+    "sentences": [
+      "None of these papers directly address fairness limits.",
+      "The closest are [8], which discusses governable personalization and issues of transparency, privacy, ownership, and accountability, and [4], which constrains personalized knowledge transfer to avoid harming recommendations.",
+      "[8] is about future personalization design rather than fairness limits specifically, and [4] is about bounded performance degradation rather than fairness."
+    ]
+  },
+  "A259": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-014",
+    "sentences": [
+      "Yes.",
+      "The closest match is \u201cA Concentration Bound for Two-Timescale Actor-Critic Algorithm\u201d [1], which gives a high-probability bound on the actor error \\(\\|\\theta_k-\\theta^*\\|\\) for all sufficiently late iterations and says the actor eventually enters a safe region and remains there with high probability [1].",
+      "The stated bound depends on the iteration, initial time, and probability parameters [1]."
+    ]
+  },
+  "A260": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-known_item-060",
+    "sentences": [
+      "Yes.",
+      "The strongest match is The Missing Complement: State-Conditioned Minimal Sufficient Evidence for Coding Agents, by Zhexi Feng and coauthors, which is explicitly about recovering \u201cstate-conditioned minimal sufficient evidence\u201d for coding agents and framing retrieval as set construction rather than ranking [1].",
+      "It studies how to recover a compact evidence combination that supplies what the agent\u2019s next decision still lacks [1].",
+      "Related papers also discuss evidence retrieval, but with different goals: ContextBench evaluates context recall, precision, and efficiency in coding agents [4], and Agent Retrieval Bench studies repository context retrieval and selective retrieval for the next needed files [9]."
+    ]
+  },
+  "A261": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "X-q-question-099",
+    "sentences": [
+      "A better recommender system can use a more detailed view of user goals by adapting not just to relevance, but to how much fairness- or novelty-driven exploration each user actually benefits from.",
+      "One paper shows that users differ in their \u201cexploration saturation\u201d point: beyond that point, more exploration no longer improves utility and can hurt engagement or perceived relevance, with users who have limited interaction histories tending to saturate earlier [8].",
+      "This suggests user goals should be modeled at the individual level rather than with one global exploration setting for everyone [8].",
+      "More broadly, the supplied papers support aligning system behavior with stakeholder priorities through weighted, human-centered objectives instead of a single fixed notion of fairness or utility [9].",
+      "That is not specific to recommenders, but it complements the recommender finding by suggesting systems should explicitly represent different objectives and trade-offs, while [8] shows, in recommendation, that these trade-offs vary substantially across users."
+    ]
+  },
+  "A262": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-062",
+    "sentences": [
+      "Lucie Flek is a coauthor of MiniFool, a physics-constraint-aware adversarial attack method for testing neural-network classifiers in particle and astroparticle physics [1].",
+      "MiniFool minimizes a cost combining a chi-squared-based test statistic, which reflects experimental uncertainties, with deviation from a target score; the paper applies it to IceCube-related use cases, MNIST, and CMS Open Data [1].",
+      "Flek is also a coauthor of a study using adversarially inspired perturbations consistent with experimental uncertainties to probe hidden sensitivities in high-energy-physics neural networks [8]."
+    ]
+  },
+  "A263": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-020",
+    "sentences": [
+      "Decoupled Split Learning via Auxiliary Loss most directly reduces data exchange by avoiding backward error-signal propagation: it trains client and server partitions semi-independently with local loss signals, eliminating the need to transmit backward gradients while maintaining performance comparable to standard split learning [1].",
+      "FedCritic-MIMO also reduces communication through sparse exchange of shared critic parameters with error feedback, but it does not describe avoiding error-signal propagation [10]."
+    ]
+  },
+  "A264": {
+    "candidate": "mini",
+    "item_id": "A-q-question-027",
+    "sentences": [
+      "The closest answers are [2], [4], and [6].",
+      "[2] says compute requirements for massive-scale recommendation can be determined by finding predictable scaling laws between performance and computational investment, and by improving model efficiency and resource allocation.",
+      "[4] gives a concrete way to do this for behavioral recommendation models by running many experiments across FLOPs budgets and fitting how parameter split, batch size, data allocation, and negative sampling change with compute.",
+      "[6] similarly derives compute-allocation rules from fitted scaling laws for reranking, showing how smaller runs can forecast larger models and guide budget choices.",
+      "None of these papers directly give a universal recipe for all large-scale suggesting systems, but together they show that compute requirements are estimated by empirical scaling-law studies plus architecture- and metric-specific compute allocation rules [2, 4, 6]."
+    ]
+  },
+  "A265": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-059",
+    "sentences": [
+      "GraphER is a graph-based enrichment and reranking method for RAG that builds a query-time graph from data-structure proximities and ranks candidate documents, aiming to improve retrieval completeness without extra graph infrastructure [1].",
+      "The supplied results do not mention Roth or establish a connection between Roth and GraphER [1]."
+    ]
+  },
+  "A266": {
+    "candidate": "v1-gpt-5.4",
+    "item_id": "A-q-question-039",
+    "sentences": [
+      "Use explicit temporal metadata and make validity part of retrieval, not just generation.",
+      "The papers suggest storing or extracting dates and validity intervals for each item, filtering out invalid or deprecated items before ranking, and then re-ranking with recency or temporal decay so older evidence is trusted less when appropriate [8, 4, 1].",
+      "They also suggest checking whether the query actually needs fresh information, since recency requirements vary by question and context; a recency-aware taxonomy can help decide when to retrieve or emphasize newer evidence [3].",
+      "If you build and evaluate such a system, be careful: ordinary search-engine date filters can leak post-cutoff information and have unreliable metadata, so frozen time-stamped snapshots or stronger safeguards are safer for retrospective settings [2].",
+      "For time-sensitive domains like news, dynamic daily adaptation can improve freshness and relevance over a fixed retriever [7].",
+      "The papers differ in approach: Chronofy adds temporal decay and logical validity into representation, retrieval, and reasoning [4], while NuggetIndex uses atomic records with temporal validity intervals and lifecycle states to prevent outdated information from entering ranking [8]."
+    ]
+  },
+  "A267": {
+    "candidate": "luna",
+    "item_id": "A-q-known_item-047",
+    "sentences": [
+      "The matching paper is \u201cFast and Geometrically Grounded Lorentz Neural Networks,\u201d by Robert van der Klis and coauthors [1].",
+      "It proposes a Lorentz linear layer based on the distance-to-hyperplane formulation, along with Lorentzian activation functions and a caching strategy, aiming to preserve hyperbolic geometry while improving computational efficiency [1]."
+    ]
+  },
+  "A268": {
+    "candidate": "luna",
+    "item_id": "A-q-paraphrase-094",
+    "sentences": [
+      "MoCo Rubric directly matches this approach: it improves detailed image captions using a shared vision-language model for captioning, rubric creation, and judging, with an exponential moving average model shared by the rubric generator and judge [1].",
+      "The generator creates explicit quality criteria from current captions, reference captions, and image evidence; the judge scores captions against those criteria, while policy updates help the shared momentum model track changing outputs [1]."
+    ]
+  },
+  "A269": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-paraphrase-022",
+    "sentences": [
+      "The closest match is a two-stage polarization detector that combines structured supervised fine-tuning with Direct Preference Optimization, using an interpretable slot-filling template before DPO refinement [2].",
+      "It is designed for online polarization in social media text, not specifically for general political leaning classification in posts [2]."
+    ]
+  },
+  "A270": {
+    "candidate": "v1-mini",
+    "item_id": "A-q-question-064",
+    "sentences": [
+      "Neural networks struggle with highly ambiguous token distributions because the ambiguity itself makes the target harder to represent and fit accurately [1].",
+      "The paper says more ambiguous distributions require more capacity to store, larger embeddings to represent, more training steps to fit, and they amplify token-sampling noise [1].",
+      "A related study finds that with K-fold ambiguity, models first learn the marginal distribution and stay on a plateau at log K before a later transition to the full conditional [2].",
+      "That plateau is stabilized by gradient noise, and higher learning rates or smaller batch sizes delay escaping it [2]."
+    ]
+  },
+  "A271": {
+    "candidate": "luna",
+    "item_id": "X-q-question-064",
+    "sentences": [
+      "The supplied papers do not address why neural networks find highly ambiguous token distributions difficult to learn.",
+      "The closest paper discusses uncertainty in language-model token predictions as a signal for deciding when to retrieve, but it does not explain difficulty learning ambiguous distributions [10]."
+    ]
+  }
+}

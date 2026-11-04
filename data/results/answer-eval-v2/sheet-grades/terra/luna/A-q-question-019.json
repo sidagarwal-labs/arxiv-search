@@ -1,0 +1,39 @@
+{
+  "answer_id": "A217",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-019",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The studies report repetition costs dependent on structure and available unique data.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Loss peaks at an intermediate repeat count in controlled experiments.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Consecutive shard replay and concentration of repeats raise loss.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The finite-unique-data experiments report larger penalties for larger models.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The DLM benefits under data constraints, but the abstract gives scores without establishing improvement from repetition.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

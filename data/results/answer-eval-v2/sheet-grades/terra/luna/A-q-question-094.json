@@ -1,0 +1,34 @@
+{
+  "answer_id": "A128",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This sentence recommends an evaluation approach without asserting a factual result.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "RuleWorld includes single-rule, parallel multi-rule, and multi-hop procedural reasoning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The study withholds a truth-table entry and shows recovery where similarity-based interpolation fails.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The study compares learning from rule descriptions and input-output examples.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

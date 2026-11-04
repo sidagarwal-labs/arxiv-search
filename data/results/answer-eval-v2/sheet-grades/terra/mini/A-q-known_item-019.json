@@ -1,0 +1,34 @@
+{
+  "answer_id": "A140",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-019",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and author names match the supplied metadata.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The study compares model and diverse human judgments on conflict-headline emotional framing.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract states leading-model alignment and significant differences across the named groups.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The three cited studies respectively address group alignment, persona-conditioned discourse, and identity-dependent response quality.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

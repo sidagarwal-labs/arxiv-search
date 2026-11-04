@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-085",
+  "outcome": {
+    "answer": "The closest matches are [2, 4, 5]. [2] shows that writing style changes over time: temporal drift is one of the strongest factors affecting authorship verification, and performance drops as the time gap between documents increases. [4] also finds post-2022 changes in scientific prose, with shifts in vocabulary, punctuation, readability, and syntax, and says some features change in rate and direction over time.\n\nFor differences across text types, [5] finds that genre has a stronger influence on stylistic features than the source itself, across human-written text and outputs from multiple LLMs. None of these papers directly tracks one person's style across both time and different text types, but together they address temporal drift and genre-related stylistic variation.",
+    "cited": [
+      2,
+      4,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "51862bcbfa8a9165971bb37ddf3cccb8202da6da2bf9da804cddfa8f800337a1",
+  "usage": {
+    "accounted_tokens": 3668,
+    "input_tokens": 3496,
+    "latency_seconds": 2.5487777999951504,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 172,
+    "provider_request_id": "req_788ac8f3ba3544c3939fbcaf5f244ad0",
+    "reasoning_tokens": 0,
+    "request_id": "63153ba7-8579-4dbf-b523-9ae598e409b9",
+    "reserved_input": 21966,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:49.493776+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

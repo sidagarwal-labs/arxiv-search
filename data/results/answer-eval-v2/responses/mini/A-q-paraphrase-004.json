@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answer": "Yes: the closest match is [7], which proposes AMuFC, a modular fact-checking framework that adaptively decides whether visual evidence should be used, because the paper shows that using visual evidence indiscriminately can reduce verification accuracy. [7] None of the other supplied papers directly focus on deciding whether an image is helpful or harmful for verification; instead, they mainly verify image-text claims with retrieval, evidence fusion, or explanation generation [1, 2, 8].",
+    "cited": [
+      7,
+      1,
+      2,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "f9efa6ec80d14764b74a3f979fcd0366deca7cc8ce790fe2e92486e6abf676e4",
+  "usage": {
+    "accounted_tokens": 3472,
+    "input_tokens": 3357,
+    "latency_seconds": 2.1424047999898903,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 115,
+    "provider_request_id": "req_5c39c6b7d689472db474df0b82a3e9e4",
+    "reasoning_tokens": 0,
+    "request_id": "84b911de-f725-448d-a6d2-382301fe2902",
+    "reserved_input": 21093,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:56.250231+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

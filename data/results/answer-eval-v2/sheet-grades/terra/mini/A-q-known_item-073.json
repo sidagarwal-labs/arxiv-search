@@ -1,0 +1,29 @@
+{
+  "answer_id": "A251",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The metadata identifies Wei and the stated computational complexity topic.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract defines the problem and states the NC\u00b9 versus TC\u2070 conditional limitation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The second paper studies rule-free semantic parsing with an empirical benchmark.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-053",
+  "outcome": {
+    "answer": "DMI-Lib is designed to inspect model internals during inference while minimizing disruption: it moves activation capture off the inference hot path using an asynchronous GPU\u2013CPU observability system, preserving serving optimizations and supporting varied internal signals and inference backends [7]. It reports 0.4%\u20136.8% overhead in offline batch inference and an average of 6% in moderate online serving, with 2x\u201315x lower latency overhead than comparable baselines [7].",
+    "cited": [
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "b9841871af87bd848116993b43ef65aaead1150e7c27b4b910a5be5792a4fa3c",
+  "usage": {
+    "accounted_tokens": 3238,
+    "input_tokens": 3122,
+    "latency_seconds": 2.74371800001245,
+    "model": "gpt-6-luna",
+    "output_tokens": 116,
+    "provider_request_id": "req_3ce62c64f9cf4851abacdf0c86ead2fd",
+    "reasoning_tokens": 0,
+    "request_id": "01f065bc-1676-45e8-9e2c-0dc6fd10e23b",
+    "reserved_input": 20210,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:16.598325+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

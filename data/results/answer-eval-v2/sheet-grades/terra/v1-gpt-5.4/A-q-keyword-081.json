@@ -1,0 +1,34 @@
+{
+  "answer_id": "A043",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual summary of the results has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "TRAIL jointly predicts short-term popularity and generates explanations, outperforming baselines.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Both the popularity-informed gating method and FairLRM's bias and accuracy results are described.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The profiling paper reports interpretability potential, not demonstrated improvement in interpretability.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

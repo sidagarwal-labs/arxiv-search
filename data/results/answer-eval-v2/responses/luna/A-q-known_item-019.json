@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-019",
+  "outcome": {
+    "answer": "The matching paper is \u201cSympathetic Framing: Evaluating AI Alignment across Sociodemographic Groups\u201d by Haran Shani-Narkiss, Michael Fire, and Oren Tsur [1]. It evaluates how closely LLMs\u2019 judgments of sympathy-evoking news headlines align with human judgments, including across demographic subgroups [1]. The authors report broad alignment among leading models across groups, alongside statistically significant differences between groups [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "9cfb6baec76382343a8af41521d951740b8d79dcee489f1263558b92a1a1c936",
+  "usage": {
+    "accounted_tokens": 3487,
+    "input_tokens": 3379,
+    "latency_seconds": 2.445408600004157,
+    "model": "gpt-6-luna",
+    "output_tokens": 108,
+    "provider_request_id": "req_3380b9f587574b5eb2339b4024fd0b59",
+    "reasoning_tokens": 0,
+    "request_id": "c681774c-19b9-4411-a882-e331bc66c6ec",
+    "reserved_input": 21639,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:33.358062+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

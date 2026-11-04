@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-017",
+  "outcome": {
+    "answer": "Yang GraDE frequent subgraph discovery is [1]. [1] proposes GraDE, a graph diffusion estimator for frequent subgraph discovery in neural architectures, using diffusion-guided search to score subgraph typicality and improve discovery capability. [1] says it finds large-scale frequent patterns more effectively than sampling-based methods, with better ranking accuracy and much higher median frequency.",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "7b45bdf589100222f572834e6521924997299c49bd174d0eb89c2a97d9a56e14",
+  "usage": {
+    "accounted_tokens": 3344,
+    "input_tokens": 3253,
+    "latency_seconds": 2.612545699987095,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 91,
+    "provider_request_id": "req_423d543236d84487aaf3100550546f4b",
+    "reasoning_tokens": 0,
+    "request_id": "ad6e5561-0718-4188-8d42-214d6e4282a7",
+    "reserved_input": 21649,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:59.647976+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

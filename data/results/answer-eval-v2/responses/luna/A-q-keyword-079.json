@@ -1,0 +1,34 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answer": "Several papers study regional language use on social media. One examines geographic dialect alignment in New Zealand Reddit communities and how language variation relates to place identity [4]. Other work analyzes hope-speech detection in code-mixed Tulu social media comments [2] and sentiment analysis of Hinglish tweets [3]. For Bengali social media, papers address ideological stance in university discourse [7] and dialect identification in abusive text [6].",
+    "cited": [
+      4,
+      2,
+      3,
+      7,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "c50d8934993cd817c4df60270635b56da8dcefb2ee72b969d2d65677914d3d52",
+  "usage": {
+    "accounted_tokens": 3577,
+    "input_tokens": 3475,
+    "latency_seconds": 2.9383187999774236,
+    "model": "gpt-6-luna",
+    "output_tokens": 102,
+    "provider_request_id": "req_7e131199391a4b168aa340ef4ef40267",
+    "reasoning_tokens": 0,
+    "request_id": "f2c5b044-e28e-4d08-9a21-597889185bec",
+    "reserved_input": 21544,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:16.168192+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

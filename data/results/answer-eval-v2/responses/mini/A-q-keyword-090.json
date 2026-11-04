@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-090",
+  "outcome": {
+    "answer": "The closest matches are [1], [2], [7], and [10]. [1] directly models watch-time distributions with a hierarchical exponential-Gaussian mixture, while [2] models a joint watch-time distribution over four watch states and serves probabilities and uncertainty, not just a single estimate. [7] uses residual quantization to predict continuous values like watch-time, but it is not a mixture model. [10] is a residual quantized Gaussian mixture model, but it is for CTR prediction rather than watch time.",
+    "cited": [
+      1,
+      2,
+      7,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "4f47810103ae39c20b4495d110252fa901aa1aaf161038210ba87586ea6335ef",
+  "usage": {
+    "accounted_tokens": 3836,
+    "input_tokens": 3713,
+    "latency_seconds": 2.3442809999978635,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 123,
+    "provider_request_id": "req_6f6bbede9b11447b9e0943f4b40d54c3",
+    "reasoning_tokens": 0,
+    "request_id": "3a8ad76b-16bd-49a0-8092-082f44dc6158",
+    "reserved_input": 23761,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:55.161454+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

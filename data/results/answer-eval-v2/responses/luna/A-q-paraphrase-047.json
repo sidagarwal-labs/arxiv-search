@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answer": "The closest match is a seed-guided method that starts with a few user-provided markers, identifies outliers, and builds clusters by admitting non-anomalous points [1]. It defines clusters as subsets containing no anomalies and uses iterative \u201cclustering-by-exclusion\u201d to isolate noise and fringe points [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "6fcf3e65bde35ff157e8761692d20b7de17f97f036f3f7f4a8ae027edf84251c",
+  "usage": {
+    "accounted_tokens": 3776,
+    "input_tokens": 3695,
+    "latency_seconds": 2.0170305000210647,
+    "model": "gpt-6-luna",
+    "output_tokens": 81,
+    "provider_request_id": "req_bd65dd0e4e5844a7a567da46033ac98d",
+    "reasoning_tokens": 0,
+    "request_id": "43a10c34-6fb7-437c-b7f1-1844baa69b7d",
+    "reserved_input": 22820,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:00.033451+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

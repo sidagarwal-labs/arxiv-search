@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answer": "The closest matches are [1] and [4]. [1] directly addresses estimating how much output remains before generation starts, finding that total response length is linearly decodable from the prompt\u2019s last hidden state and framing it as approximate estimation of remaining generation length. [4] shows that the same prompt can induce a prompt-conditioned output length distribution rather than one true fixed length, and treats length prediction as robust estimation under heavy-tailed variability.",
+    "cited": [
+      1,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "3a3c27188f76f04ee52cc20b875243ba67c8db5bca29de56a78fcf37d46cc94c",
+  "usage": {
+    "accounted_tokens": 3971,
+    "input_tokens": 3865,
+    "latency_seconds": 2.530134500004351,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 106,
+    "provider_request_id": "req_06f36edd3b164d7c9298c996387b9749",
+    "reasoning_tokens": 0,
+    "request_id": "b7588ce0-51b8-480d-a36a-ff9aeed39472",
+    "reserved_input": 23296,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:30.917527+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

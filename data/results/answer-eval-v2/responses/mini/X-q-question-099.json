@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answer": "A closer match is [8]: it suggests recommender systems should adapt the amount of fairness-driven exploration to individual users, because users differ in when additional novelty stops helping and can start hurting engagement. [8] It does not directly propose a full goal model, but it argues that fairness and novelty pressure should be personalized rather than applied uniformly across users. [8]",
+    "cited": [
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "98654b184985d62c101ca02c75e54541d3dc83d6ea38e96c76664f60ea27916b",
+  "usage": {
+    "accounted_tokens": 3354,
+    "input_tokens": 3263,
+    "latency_seconds": 2.120488100015791,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 91,
+    "provider_request_id": "req_c2210ed9548d48f284506628981d1774",
+    "reasoning_tokens": 0,
+    "request_id": "c81698a3-d79b-43d7-92f8-936e5ce91838",
+    "reserved_input": 22314,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:44.941213+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

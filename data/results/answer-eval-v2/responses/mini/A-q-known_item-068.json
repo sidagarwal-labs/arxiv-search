@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answer": "Yes \u2014 [1] is the matching paper: Continually Post-training Small Models via Synthetic Self-distillation [1]. It proposes Synthetic Self-Distillation (SynthSelf) to help small models do continual post-training by providing in-distribution supervision without relying on strong in-context learning or instruction-following abilities [1].\n\n[1] focuses on small-model continual learning and says SynthSelf consistently outperforms several distillation methods across multiple small model scales and benchmarks [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "1bdbf2552fb7a7436d980930673d8805ba0184165d2931e328cca161a0a15283",
+  "usage": {
+    "accounted_tokens": 3807,
+    "input_tokens": 3691,
+    "latency_seconds": 2.064437499997439,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 116,
+    "provider_request_id": "req_466bae13e6944300b5e82c541d8bcabc",
+    "reasoning_tokens": 0,
+    "request_id": "f9b2e130-d773-4478-a1f9-5931b033e1f8",
+    "reserved_input": 22325,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:37.384983+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

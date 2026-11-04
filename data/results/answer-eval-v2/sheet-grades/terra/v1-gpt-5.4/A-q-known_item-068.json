@@ -1,0 +1,39 @@
+{
+  "answer_id": "A170",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and author claim lacks a citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract attributes small-model SDFT failure to demands for in-context learning and instruction following.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "SynthSelf uses a slightly larger same-family aligner, off-policy supervision, and rejection sampling.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstract reports these datasets, benchmarks, baselines, scales, and intended use.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Citation marker only.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

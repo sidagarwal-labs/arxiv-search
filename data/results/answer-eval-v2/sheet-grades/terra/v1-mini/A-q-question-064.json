@@ -1,0 +1,34 @@
+{
+  "answer_id": "A270",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract states that ambiguity makes distributions harder to represent and fit.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The four listed costs match the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited minimal task learns the marginal before transitioning from a log K plateau.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstract attributes plateau stability to gradient noise and reports both delay effects.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

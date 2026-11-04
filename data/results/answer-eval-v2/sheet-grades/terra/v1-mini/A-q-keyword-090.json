@@ -1,0 +1,34 @@
+{
+  "answer_id": "A184",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-090",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about supplied papers is uncited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "HEGM models the stated distribution characteristics and addresses the listed EGMN failure modes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "DSI learns a distribution over four watch states and serves compact summaries and task-specific readouts.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "DADF corrects frozen-predictor residuals; RQ-Reg models continuous values through residual quantization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

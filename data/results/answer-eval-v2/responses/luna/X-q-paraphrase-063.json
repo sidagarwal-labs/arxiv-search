@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-paraphrase-063",
+  "outcome": {
+    "answer": "None of the supplied papers directly address grading science tests where students write one paragraph answering several questions, or using a network of reference answers for that task. The closest paper studies learning evaluator preferences from multiple criteria to produce an overall evaluation, but its abstract does not describe this grading setup [3].",
+    "cited": [
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "68bfbbf17e713214c0123bc7a9c1ab4e05aac1182d2d74800c3f93ee0ad57fa8",
+  "usage": {
+    "accounted_tokens": 3608,
+    "input_tokens": 3532,
+    "latency_seconds": 2.22736360001727,
+    "model": "gpt-6-luna",
+    "output_tokens": 76,
+    "provider_request_id": "req_9ba5814344ce40eb952eb1a37a9d33c5",
+    "reasoning_tokens": 0,
+    "request_id": "507a151d-953c-47bc-8b4a-5cb14c1d3306",
+    "reserved_input": 22672,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:25.106028+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

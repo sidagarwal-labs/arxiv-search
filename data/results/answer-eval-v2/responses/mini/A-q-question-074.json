@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answer": "Different retraction maps can change spherical residual stability mainly by changing how update size becomes a rotation angle, not by changing norm preservation itself [1]. The exponential map is only one choice; the metric projection and Cayley retractions are exactly norm-preserving and appear to be more favorable in the reported experiments, with the best validation loss occurring at finite p rather than at the exponential-map limit [1].\n\nMore broadly, the paper says all retractions on the hypersphere collapse to a single scalar design choice, so the stability difference is in angular behavior: some retractions saturate their rotation angle instead of letting it grow without bound [1]. That makes the exponential map just one end of a spectrum, while Proj-SpheretNorm and Cay-SpheretNorm are finite-angle alternatives that still keep the residual stream on the sphere [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "6ec979baebbc50fa5299bbf2fe26bee7a2ba9cecae3f9f721610165002a15387",
+  "usage": {
+    "accounted_tokens": 4011,
+    "input_tokens": 3821,
+    "latency_seconds": 2.8756621000065934,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 190,
+    "provider_request_id": "req_06bb6cefbb894304a620f9053b98ca9b",
+    "reasoning_tokens": 0,
+    "request_id": "165ae0cf-c364-41d3-bc72-66834f06a34e",
+    "reserved_input": 22913,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:41.744695+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

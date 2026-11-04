@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-053",
+  "outcome": {
+    "answer": "You can inspect internal activations during inference by reading hidden states or attention traces and compressing them into lightweight descriptors, rather than adding extra forward passes or external judges [1]. A concrete systems approach is to decouple observability from the inference hot path with asynchronous tensor capture, which can collect layer-wise activations with low overhead while preserving serving speed [7]. Another practical option is to use activation-level interpretability tooling that streams activations during generation and supports real-time control with reduced memory and latency cost [4].",
+    "cited": [
+      1,
+      7,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "4fe705043c2fa11e795e6ebd03ce926e9d773ea5575a5d02e5ccffef3c5120db",
+  "usage": {
+    "accounted_tokens": 3243,
+    "input_tokens": 3122,
+    "latency_seconds": 2.07511199999135,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 121,
+    "provider_request_id": "req_f25bbee5344c41c084793b923fe44b17",
+    "reasoning_tokens": 0,
+    "request_id": "7bc22aae-1ab2-4f95-b595-aad5d91b8f8f",
+    "reserved_input": 20223,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:29.547823+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

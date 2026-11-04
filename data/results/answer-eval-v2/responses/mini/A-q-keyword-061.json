@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answer": "Several papers address robust intent classification for chatbots. [2] focuses on noise-robust conversational intent classification under realistic conversational noise and finds attention pooling performs best, while mean pooling degrades performance. [1] studies intent classification for open-weight language models and evaluates robustness to realistic input perturbations, giving practical guidance under compute and latency constraints. [3] compares training-free and training-based intent classification methods and reports that training-free methods are generally more robust to mixed-intent and adversarial prompts.",
+    "cited": [
+      2,
+      1,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "4db2addc4831852ef9b3593979cfe827de5d93468d5799c05d21007269fe7a8d",
+  "usage": {
+    "accounted_tokens": 3674,
+    "input_tokens": 3557,
+    "latency_seconds": 1.9502638000121806,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 117,
+    "provider_request_id": "req_7caaa06495de4a38b8f98a7cbd1bd92d",
+    "reasoning_tokens": 0,
+    "request_id": "f906f02c-1d3d-42f9-a20b-c2b78afa74bd",
+    "reserved_input": 22484,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:33.791669+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

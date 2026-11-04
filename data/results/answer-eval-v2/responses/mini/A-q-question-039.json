@@ -1,0 +1,35 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answer": "Use a retrieval system that stores or filters documents by temporal validity, and make the model use that date information when deciding whether evidence still applies [1, 4, 8]. Chronofy embeds temporal validity into representation, retrieval, and reasoning, NuggetIndex keeps a validity interval and filters deprecated nuggets before ranking, and the recency taxonomy in RecencyQA helps determine when a question actually needs up-to-date information [4, 8, 3].\n\nIf you want a practical retrieval layer, a recency-aware hybrid reranker can reduce stale-document poisoning when dates are accurate, and news retrieval can be improved by time-localized selection over a dynamic structure [1, 7]. The papers also warn that date filters alone can be unreliable because retrieval may still leak post-cutoff information, so you need stronger safeguards than simple date filtering [2].",
+    "cited": [
+      1,
+      4,
+      8,
+      3,
+      7,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "2bd7b9557e0bb1c7c3221ddd48e9436747c4e8ee921af7425f042179aecdec01",
+  "usage": {
+    "accounted_tokens": 3800,
+    "input_tokens": 3608,
+    "latency_seconds": 2.668526399997063,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 192,
+    "provider_request_id": "req_41d45b913753457c983605923f5ff7fb",
+    "reasoning_tokens": 0,
+    "request_id": "e870940f-73d7-42e2-b525-3cd091ef854b",
+    "reserved_input": 22604,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:18.296329+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

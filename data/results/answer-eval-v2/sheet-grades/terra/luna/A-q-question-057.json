@@ -1,0 +1,29 @@
+{
+  "answer_id": "A180",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-057",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The pipeline extracts linked preference triples and evaluates resulting recommendation utility.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "SPiKE generates entity profiles, integrates them into a KG, and matches profile representations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited session-based method combines heterogeneous graph information, learned personas, embeddings, candidate generation, and reranking.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

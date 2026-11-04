@@ -1,0 +1,34 @@
+{
+  "answer_id": "A223",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper initializes groups from few labels and expands them using non-anomalous points.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "It explicitly frames clustering as anomaly detection's dual and isolates fringe points.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited approach detects outliers after cluster analysis using visual expert criteria.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstracts address density clustering and robustness to outliers, not seeded exclusion.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

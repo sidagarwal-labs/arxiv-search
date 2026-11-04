@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-027",
+  "outcome": {
+    "answer": "For large-scale recommendation systems, compute requirements can be estimated with scaling-law experiments that vary model size, training data, and compute, then measure performance to find compute-efficient allocations. Kunlun studies this relationship for massive-scale recommendation models [2], while behavioral foundation-model experiments vary compute budgets and deployment-relevant choices to derive compute-optimal recipes [4]. Component-level profiling can help locate hardware bottlenecks and guide optimization [5]. For inference, measure workload costs and consider sharing request-side computation across candidates to improve efficiency [1].",
+    "cited": [
+      2,
+      4,
+      5,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "05cbaa9346d4f5ebf626ba51e487779ebab26125b6471d659f6937d72dd8f714",
+  "usage": {
+    "accounted_tokens": 3593,
+    "input_tokens": 3469,
+    "latency_seconds": 3.4270562999881804,
+    "model": "gpt-6-luna",
+    "output_tokens": 124,
+    "provider_request_id": "req_888de3defbcc445d8aeff374b754588e",
+    "reasoning_tokens": 0,
+    "request_id": "2b1864e6-3cf3-40cc-b0cb-f7d836333b8a",
+    "reserved_input": 22274,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:56.115038+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

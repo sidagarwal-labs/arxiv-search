@@ -1,0 +1,28 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-032",
+  "outcome": {
+    "answer": "The supplied search results do not address Bekkers or equivariant neural fields.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5fb48de5834dd7405d2115a00e3958c663613b27a1c4be9b1fdd7c831ed2ef4a",
+  "usage": {
+    "accounted_tokens": 3894,
+    "input_tokens": 3862,
+    "latency_seconds": 8.897017399984179,
+    "model": "gpt-6-luna",
+    "output_tokens": 32,
+    "provider_request_id": "req_04822b0b9fb2472eb838cd6ac33122e3",
+    "reasoning_tokens": 0,
+    "request_id": "7904c1bb-b39d-4b3c-8ea2-9550fc40bebe",
+    "reserved_input": 22963,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:56.779659+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A132",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This is a paper-selection framing sentence.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The study decodes total response length before generation and frames remaining-length estimation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The paper models prompt-conditioned output length distributions with heavy-tailed variability.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

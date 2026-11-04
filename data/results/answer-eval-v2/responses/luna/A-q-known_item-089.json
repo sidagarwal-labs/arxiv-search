@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-089",
+  "outcome": {
+    "answer": "Khoat Than\u2019s paper, \u201cNo-Free-Fairness: Fundamental Limits and Trade-offs in Learning Systems,\u201d describes three sources of fairness limits: irreducible subgroup costs, disparity caused by finite samples, and insufficient model expressivity [1]. It also finds that strict relative fairness can require exponentially many samples to achieve low cost [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "a38ff93c1e4f9b599a21de756ee8c5846b95b520b0fd0bed0f1efe2f7e03ab9f",
+  "usage": {
+    "accounted_tokens": 3335,
+    "input_tokens": 3249,
+    "latency_seconds": 2.087302300002193,
+    "model": "gpt-6-luna",
+    "output_tokens": 86,
+    "provider_request_id": "req_02b42087c663404198dc7d05d9f23fd5",
+    "reasoning_tokens": 0,
+    "request_id": "54bd4021-07cf-49a6-831d-7b38a9cfd4aa",
+    "reserved_input": 22225,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:25.979225+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

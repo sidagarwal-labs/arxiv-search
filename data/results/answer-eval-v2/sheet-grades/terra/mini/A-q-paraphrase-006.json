@@ -1,0 +1,34 @@
+{
+  "answer_id": "A245",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-006",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This is a framing statement selecting papers.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "FUDLR identifies bias-inducing samples and removes their estimated influence without costly retraining.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "H-SAL performs post-hoc erasure using self-description without direct protected labels.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "CRAGRU unlearns user data and mitigates collateral recommendation degradation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

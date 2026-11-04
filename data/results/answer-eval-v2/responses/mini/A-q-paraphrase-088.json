@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-088",
+  "outcome": {
+    "answer": "Yes \u2014 the closest match is [2], which surveys code as an agent harness and explicitly centers code as the basis for agent infrastructure, including reasoning, action, planning, memory, and tool use. [2] It is broader than a review of programmable scripts specifically, but it does cover the role of executable code as the operational substrate for agent reasoning and execution, and [3] similarly frames reusable procedural artifacts as the operational layer for agent execution. [1] focuses more narrowly on programmatic tool calling versus JSON tool calling, while [7] emphasizes procedural skills for research agents rather than a general review of scripts as the core structure.",
+    "cited": [
+      2,
+      3,
+      1,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "9fe0e962fe41cca388e32e2f3e5aadba243e4a5d2ec7352fde8c1429826cf4dd",
+  "usage": {
+    "accounted_tokens": 4023,
+    "input_tokens": 3878,
+    "latency_seconds": 2.41234490001807,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 145,
+    "provider_request_id": "req_e5966e860c9942fa8fe9234a5339e2e1",
+    "reasoning_tokens": 0,
+    "request_id": "2f9a857d-0dbf-4f08-9526-0912d2694850",
+    "reserved_input": 23766,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:47.063897+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

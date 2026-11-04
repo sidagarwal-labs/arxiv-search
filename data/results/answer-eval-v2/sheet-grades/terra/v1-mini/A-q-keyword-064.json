@@ -1,0 +1,29 @@
+{
+  "answer_id": "A087",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and abstract identify a public regional spontaneous-speech corpus and regional ASR goals.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [3] describes dialect-aware ASR and real-time regional speech assistance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers [4] and [8] focus on long-form Bengali recognition and diarization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

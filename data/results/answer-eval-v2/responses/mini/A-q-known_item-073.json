@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answer": "The closest match is [1], which is by Zichao Wei and is explicitly about the computational complexity of structural generalization. [1] defines structural generalization, relates it to a lower bound of NC^1 versus the learnable ceiling TC^0 for pure Transformers, and argues that under TC^0 \u2260 NC^1 a pure Transformer cannot learn it. [2] is also by Zichao Wei and studies structural generalization in semantic parsing without hand-written rules, but it is mainly an empirical benchmark study rather than a complexity-theoretic one.",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "96666dbb3787530252d0402203ef2f6124e9961b99eeb594acb613aae8d5dbde",
+  "usage": {
+    "accounted_tokens": 3562,
+    "input_tokens": 3430,
+    "latency_seconds": 2.059339600004023,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 132,
+    "provider_request_id": "req_66fcd5040c864ce78a9c51e195af1ecc",
+    "reasoning_tokens": 0,
+    "request_id": "3a224a49-eb05-443e-b3ff-5e49ae6401dd",
+    "reserved_input": 21440,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:44.768442+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

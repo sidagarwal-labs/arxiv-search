@@ -1,0 +1,39 @@
+{
+  "answer_id": "A050",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual description of the results has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper studies hope speech detection in code-mixed Tulu comments with organic adaptation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited study analyzes social-media polarization using annotated Bengali comments and multiple classifiers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The papers study New Zealand Reddit language variation and Hinglish tweet sentiment respectively.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "These cited papers concern Bengali speech or dialect resources and assistance rather than social-media analysis.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

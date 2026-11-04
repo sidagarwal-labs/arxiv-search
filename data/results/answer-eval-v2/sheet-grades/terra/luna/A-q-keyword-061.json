@@ -1,0 +1,29 @@
+{
+  "answer_id": "A023",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The pooling study recommends attention under noise and reports degradation with mean pooling.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The comparative study reports these relative robustness and harder-task findings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "EliDecide uses ellipsoidal boundaries and reports strong open-intent performance.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

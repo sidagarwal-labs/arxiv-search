@@ -1,0 +1,25 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-question-037",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "69139b3840238aea2dfffa75d0a1833d1009929b589a7c1c38330ddca8cd86be",
+  "usage": {
+    "accounted_tokens": 3343,
+    "input_tokens": 3262,
+    "latency_seconds": 1.9722948999842629,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 81,
+    "provider_request_id": "req_339bfaeba13e4f41a12490141ece6a60",
+    "reasoning_tokens": 0,
+    "request_id": "101f4405-fa46-428f-ae50-1803f18ed387",
+    "reserved_input": 22330,
+    "reserved_output": 1200,
+    "started_utc": "2026-11-04T19:02:52.828268+00:00",
+    "status": "invalid_answer",
+    "tier": "mini"
+  }
+}

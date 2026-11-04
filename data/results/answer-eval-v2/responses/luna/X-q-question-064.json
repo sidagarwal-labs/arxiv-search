@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-064",
+  "outcome": {
+    "answer": "The supplied papers do not address why neural networks find highly ambiguous token distributions difficult to learn. The closest paper discusses uncertainty in language-model token predictions as a signal for deciding when to retrieve, but it does not explain difficulty learning ambiguous distributions [10].",
+    "cited": [
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "a217ae75525727330296c2a2590f9ad3444db560b97c9a8672cb7f1aaf4455ce",
+  "usage": {
+    "accounted_tokens": 3936,
+    "input_tokens": 3869,
+    "latency_seconds": 2.8477352000190876,
+    "model": "gpt-6-luna",
+    "output_tokens": 67,
+    "provider_request_id": "req_62eeca2f5e644308b4244702465da4b8",
+    "reasoning_tokens": 0,
+    "request_id": "9ecfa133-9cdf-4b13-92d2-6d5331093d13",
+    "reserved_input": 23016,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:07.908314+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

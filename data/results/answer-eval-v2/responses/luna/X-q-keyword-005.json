@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-005",
+  "outcome": {
+    "answer": "None of the supplied papers directly addresses reinforcement-learning self-play for strategy games. The closest paper studies post-training with Group Relative Policy Optimization on Rubik\u2019s Cube tasks, comparing action prediction with explicit state-prediction training; it does not describe self-play or strategy games [5].",
+    "cited": [
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "508259fb04727ffd4139d7e1a6822a091dc6ee9cde6462ff1f84a90ff6318cdc",
+  "usage": {
+    "accounted_tokens": 3805,
+    "input_tokens": 3731,
+    "latency_seconds": 2.129242399998475,
+    "model": "gpt-6-luna",
+    "output_tokens": 74,
+    "provider_request_id": "req_441ffa99815a4538a2f03aec102c4656",
+    "reasoning_tokens": 0,
+    "request_id": "6ae6f13e-66c2-4a3c-8f38-b0317376d0e7",
+    "reserved_input": 22634,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:20.772596+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

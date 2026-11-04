@@ -1,0 +1,37 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-085",
+  "outcome": {
+    "answer": "The papers examine AI consciousness and self-awareness as related but distinct questions; they do not establish that language models are conscious. [3] finds no reliable evidence that tested models\u2019 denials of sentience are untruthful, while [4] shows that prompting sustained self-reference can elicit structured reports of subjective experience, explicitly noting these are not direct evidence of consciousness. [1] argues that models\u2019 self-reports are sensitive to phrasing and training, limiting their value as evidence.\n\nOther papers assess narrower capabilities: [5] benchmarks metacognition and self-awareness and finds most tested models fall short of human averages in those areas; [8] reports evidence of belief-guided agency and meta-cognitive monitoring; and [9] and [10] study models\u2019 ability to recognize their own learned behaviors. These behavioral findings concern forms of self-monitoring, not proof of subjective experience. [2] measures trained consciousness-denial behavior across models.",
+    "cited": [
+      3,
+      4,
+      1,
+      5,
+      8,
+      9,
+      10,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "016e29a75232a3bf20d54ee7c07c5b0483baa93aed30c290e6d02c5f3f71916d",
+  "usage": {
+    "accounted_tokens": 3655,
+    "input_tokens": 3445,
+    "latency_seconds": 3.5316307000175584,
+    "model": "gpt-6-luna",
+    "output_tokens": 210,
+    "provider_request_id": "req_8c7e04646f294af2be66fdc96bdbb5d0",
+    "reasoning_tokens": 0,
+    "request_id": "b346e572-6ffa-4c02-b6a0-1c29cca2fc1b",
+    "reserved_input": 21872,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:22.071810+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

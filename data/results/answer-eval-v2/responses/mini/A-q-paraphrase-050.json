@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-050",
+  "outcome": {
+    "answer": "None of these papers directly answer how to block fake information in external search results by checking how removing a page changes the answer. The closest are [9], which studies source credibility and groundedness in chat assistants using web search, and [10], which evaluates defenses against information-distorting GEO content in generative search; [7] is also related because it shows how leaky retrieval can distort evaluation.",
+    "cited": [
+      9,
+      10,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "f9a310f29b97161f500b4748583e5121cdf8b0b657ce6b1ce12fa4c4c64ab2bc",
+  "usage": {
+    "accounted_tokens": 3496,
+    "input_tokens": 3399,
+    "latency_seconds": 2.433513399999356,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 97,
+    "provider_request_id": "req_e93fd0941c854d23bf6027d490d20dba",
+    "reasoning_tokens": 0,
+    "request_id": "a0ecbcaf-6324-452d-98cb-5cc62b7f0158",
+    "reserved_input": 20984,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:28.461822+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

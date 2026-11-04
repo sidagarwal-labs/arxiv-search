@@ -1,0 +1,34 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-005",
+  "outcome": {
+    "answer": "Several papers study reinforcement-learning self-play in strategy games. [1] trains a Generals.io agent using policy-gradient self-play and reports superhuman play. [2] adapts AlphaZero self-play to asymmetric Tablut, using separate policy and value heads for each player role. [3] develops self-play reinforcement learning and search for Stratego with hidden information, and applies related techniques to other games. [5] uses PPO self-play in a physics-based badminton environment, while [8] presents a memory-efficient self-play algorithm for two-player zero-sum Markov games.",
+    "cited": [
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "1c2357d858dd408c3884cae6e31b37cdb5c72654d91cf3c3a53efe2e2150d7a7",
+  "usage": {
+    "accounted_tokens": 3818,
+    "input_tokens": 3684,
+    "latency_seconds": 2.416486900008749,
+    "model": "gpt-6-luna",
+    "output_tokens": 134,
+    "provider_request_id": "req_d38300a57f524c9582e12f3239634f36",
+    "reasoning_tokens": 0,
+    "request_id": "e1899f64-42b8-4d28-b3b7-7826fd860b7d",
+    "reserved_input": 22646,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:43:54.631381+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

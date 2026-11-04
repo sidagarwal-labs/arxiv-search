@@ -1,0 +1,39 @@
+{
+  "answer_id": "A194",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about papers is not cited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited papers study Tulu hope speech, Hinglish tweet sentiment, and Bengali social-media polarization.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The thesis studies New Zealand Reddit dialect alignment and treats social media as a sociolinguistic laboratory.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited studies have the stated NLP-task and geographic-variation focuses.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited Bengali works concern speech technology or dialectal abusive text, without a specific social-media focus.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

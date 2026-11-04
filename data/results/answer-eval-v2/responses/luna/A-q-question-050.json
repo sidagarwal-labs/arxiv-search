@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-050",
+  "outcome": {
+    "answer": "Yes, in some reported settings. ArcGD, a geometrically motivated optimizer, outperformed Adam on a highly non-convex Rosenbrock benchmark when both used ArcGD\u2019s effective learning rate, and achieved better final solutions in most cases under the alternative learning-rate comparison [1]. It also achieved higher average test accuracy than Adam on CIFAR-10 MLPs [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "2c09d93b1239f26d6dd694c95c0c22627ed64ac79cb37342c57c44baf5d44b68",
+  "usage": {
+    "accounted_tokens": 3949,
+    "input_tokens": 3854,
+    "latency_seconds": 2.350501399982022,
+    "model": "gpt-6-luna",
+    "output_tokens": 95,
+    "provider_request_id": "req_2f73edb93d4d474cae9f635ec848b6dc",
+    "reasoning_tokens": 0,
+    "request_id": "06053c85-4156-422e-ac62-38fdc85c18c2",
+    "reserved_input": 22930,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:14.225575+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "answer_id": "A235",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-036",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Both the system-level exposure proxy and feature contributions are described.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The framework estimates counterfactual recommendations and engagement to disentangle the stated factors.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

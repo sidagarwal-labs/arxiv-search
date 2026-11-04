@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answer": "The closest matches are [1], [2], [3], and [8]. [1] directly focuses on predicting short-term item popularity with a fine-tuned LLM and generating explanations, while [2] and [3] use LLMs to improve recommendation ranking and explainability through re-ranking or selective guidance. [8] addresses popularity bias in recommendation with LLM-based semantic understanding, but it is about debiasing rather than popularity prediction itself.\n\nNone of these papers is a pure \u201cLLM popularity prediction recommendation\u201d paper in the general sense, but [1] is the most directly aligned if you mean predicting item popularity for recommendation. [2], [3], and [8] are related alternatives that use LLMs to improve recommendation quality, interpretability, or fairness rather than primarily forecasting popularity.",
+    "cited": [
+      1,
+      2,
+      3,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "31e37e4cd5166c3acc8ee64a961bd206602428eca930a595ed7dcedfe309eb47",
+  "usage": {
+    "accounted_tokens": 3602,
+    "input_tokens": 3412,
+    "latency_seconds": 2.8932503000251018,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 190,
+    "provider_request_id": "req_257d119e750f44d38a81899700278fea",
+    "reasoning_tokens": 0,
+    "request_id": "0b142d5c-72c7-422e-8923-50449993da4c",
+    "reserved_input": 23041,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:49.829152+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

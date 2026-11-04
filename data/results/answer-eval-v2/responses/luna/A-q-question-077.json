@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "answer": "Yes. Reifying each fact as a node and using a fixed vocabulary allows textbook GNNs, including an off-the-shelf GAT, to transfer zero-shot to unseen knowledge graphs; the best GAT matches a dedicated knowledge-graph foundation model on its evaluation suite [1]. This result shows that standard GNNs can do so with the proposed representation, rather than establishing that they work on unknown graphs without any adaptation to the representation [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "b71f8be99a4cebf16e8d9cab9030f27193c62c97cf38c6acd3b014a5ccfab982",
+  "usage": {
+    "accounted_tokens": 3668,
+    "input_tokens": 3451,
+    "latency_seconds": 3.3076780999836046,
+    "model": "gpt-6-luna",
+    "output_tokens": 217,
+    "provider_request_id": "req_07a8137d9842471980919705cccacd29",
+    "reasoning_tokens": 0,
+    "request_id": "ffc33a8f-fd58-4dc7-8c32-fa5e64cb3d2f",
+    "reserved_input": 21588,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:31.548934+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

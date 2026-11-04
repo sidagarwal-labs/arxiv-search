@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-paraphrase-085",
+  "outcome": {
+    "answer": "None of these papers directly address removing company trademarks or corporate slogans from LLM-generated text while preserving general knowledge. The closest are [4] and [9], which study improving LLM agents through self-play and reflection in search or social games, but they do not discuss text cleanup, trademark removal, or preserving general knowledge after editing.",
+    "cited": [
+      4,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "d35509e0b0248c209c0a4611a24aa90b7ee1990c10c7992defc2cf8a273e318a",
+  "usage": {
+    "accounted_tokens": 3783,
+    "input_tokens": 3699,
+    "latency_seconds": 2.104879999998957,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 84,
+    "provider_request_id": "req_3e56f4899c0747b98ce9134c1845a96e",
+    "reasoning_tokens": 0,
+    "request_id": "02acc788-85cd-484e-8fe6-cf7447ea7060",
+    "reserved_input": 22766,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:34.012663+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

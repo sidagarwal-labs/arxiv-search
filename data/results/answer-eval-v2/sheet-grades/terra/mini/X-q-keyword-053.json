@@ -1,0 +1,44 @@
+{
+  "answer_id": "A072",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-keyword-053",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited authorship and writing-style papers are not matches for graph learning on chemical reactions.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "AVShift benchmarks authorship verification across genre, time, and AI-era shifts using those model families.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The paper compares stylistic variation across humans, LLMs, genres, and decoding strategies.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The paper suggests a model trained on one author's works embodies that author's style.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "PersonalBench finds personalization modulates style without bridging the human authorship gap.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "FAVoR studies federated author-style homogenization and improves retention of individual style.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

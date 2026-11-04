@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-073",
+  "outcome": {
+    "answer": "For wordy or repetitive student-generated rollouts in on-policy distillation, StableOPD directly targets repetition-induced length inflation using a reference-based divergence constraint and rollout-mixture distillation [1]. Another approach aligns functionally equivalent EOS tokens to reduce termination-mismatch-driven length inflation, though this does not eliminate all late-training inflation [2]. For verbose reasoning traces, BIRD first trains on concise, answer-correct samples and then applies on-policy distillation with a concise self-teacher [5].",
+    "cited": [
+      1,
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "0ddc42e001fa1e17aa789897d060186b004b49cdc6ae569be0a98b21322de168",
+  "usage": {
+    "accounted_tokens": 3744,
+    "input_tokens": 3626,
+    "latency_seconds": 2.783033899992006,
+    "model": "gpt-6-luna",
+    "output_tokens": 118,
+    "provider_request_id": "req_c634b8ff77e04f338d4e384fa355c656",
+    "reasoning_tokens": 0,
+    "request_id": "66e0a71e-7a8f-472e-9632-c536584b9a93",
+    "reserved_input": 22632,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:12.122326+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

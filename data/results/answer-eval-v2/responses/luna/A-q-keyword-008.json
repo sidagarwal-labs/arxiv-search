@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-008",
+  "outcome": {
+    "answer": "Causality by Abstraction: Symbolic Rule Learning in Multivariate Timeseries with Large Language Models is the closest match: it uses LLMs to generate formal, verifiable symbolic causal rules for delayed effects in multivariate time series, with temporal operators and delay semantics [1]. The rules are refined for consistency and tested through reconstruction, causal-encoding ablations, and generalization to unseen output trends [1].\n\nOther papers address LLM-assisted causal discovery or temporal causal models, but their abstracts do not describe learning logical rules for time-series causality [3, 4, 6].",
+    "cited": [
+      1,
+      3,
+      4,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "237fc64620ae03778043a8f376246c127603592890b9125be25aa61faf588c00",
+  "usage": {
+    "accounted_tokens": 3501,
+    "input_tokens": 3202,
+    "latency_seconds": 3.62346879998222,
+    "model": "gpt-6-luna",
+    "output_tokens": 299,
+    "provider_request_id": "req_89bf0545ed994f8cbb07c6f69c4f8e6c",
+    "reasoning_tokens": 0,
+    "request_id": "5938ef7b-bcfe-4a67-b44e-269a7ac690dc",
+    "reserved_input": 20339,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:44:00.438570+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

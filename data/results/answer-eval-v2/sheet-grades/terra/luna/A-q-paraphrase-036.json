@@ -1,0 +1,29 @@
+{
+  "answer_id": "A040",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-036",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The comparative claim about papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "LEMUR reports contrastive legal fine-tuning gains transferring to unseen languages.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The legal-only and mixed models show the stated specialization and robustness trade-off.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

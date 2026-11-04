@@ -1,0 +1,34 @@
+{
+  "answer_id": "A205",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Retractions differ in angular mapping and preserve norms, but the abstract does not establish their effects on training stability.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports norm preservation and the best validation loss at finite p.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "One scalar governs angular behavior, but the abstract does not establish a corresponding stability difference.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "Projection and Cayley variants are norm-preserving finite-p angular retractions.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

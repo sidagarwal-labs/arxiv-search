@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-012",
+  "outcome": {
+    "answer": "For updating item IDs as user-interaction patterns change, DACT is a close match: it detects item-level collaborative drift, fine-tunes the tokenizer, and reassigns codes while limiting unnecessary changes [5]. Another option is to refresh IDs from recent logs and align them with the existing vocabulary, enabling warm-start training without a full rebuild [2]. The papers differ in emphasis: DACT adapts individual items according to drift, while SID alignment prioritizes compatibility with the existing retriever [5, 2].",
+    "cited": [
+      5,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "4721b57dce970d69f009c90143ee28ebe4417b4b57606905576b1b128907780a",
+  "usage": {
+    "accounted_tokens": 3975,
+    "input_tokens": 3853,
+    "latency_seconds": 2.4021447999984957,
+    "model": "gpt-6-luna",
+    "output_tokens": 122,
+    "provider_request_id": "req_7730e7e148c84fcaac3ab90b59bd7148",
+    "reasoning_tokens": 0,
+    "request_id": "4a732535-1bf8-4d40-9064-602dc5baa8c5",
+    "reserved_input": 24314,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:38.252043+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

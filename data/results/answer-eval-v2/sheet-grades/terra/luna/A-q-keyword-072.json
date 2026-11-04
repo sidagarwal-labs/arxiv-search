@@ -1,0 +1,29 @@
+{
+  "answer_id": "A109",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-072",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [1] describes the BL19 retrieval benchmark under that title.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [1] confirms the collection size, period, expert queries, and paragraph annotations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [1] investigates transfer from fiction to scholarly and factual retrieval.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

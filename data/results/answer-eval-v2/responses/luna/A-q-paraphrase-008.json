@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-008",
+  "outcome": {
+    "answer": "POLO is the closest match: it uses partially observable multi-agent reinforcement learning to dispatch couriers who may work across several delivery platforms, with each platform learning from its own observations rather than seeing all platforms\u2019 data [2]. The paper describes attention-based aggregation of incomplete courier information and reports improved platform revenue and courier travel efficiency in simulations [2].",
+    "cited": [
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "6859433101367fcb1b487ad8e41f994fdc50b837b8c326fbc8203413f3ba4ef9",
+  "usage": {
+    "accounted_tokens": 3737,
+    "input_tokens": 3650,
+    "latency_seconds": 2.188153900002362,
+    "model": "gpt-6-luna",
+    "output_tokens": 87,
+    "provider_request_id": "req_f95aac4947ac4a0fb53a8b2f08d50aa0",
+    "reasoning_tokens": 0,
+    "request_id": "83f29624-7ce5-4db6-a53c-ffac6a505a7c",
+    "reserved_input": 23843,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:36.042787+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

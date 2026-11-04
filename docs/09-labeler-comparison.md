@@ -59,6 +59,14 @@ lenient on nano's sampled answers, and same-family model judgments remain a
 limitation. The 100 ASTRA relevance references above are a separate dataset,
 not part of this 40-answer comparison.
 
+**Experiment L second session (Decision 49).** Terra graded 271 answers blind in a
+new chat session ([workbook](../data/eval/answers/grading/terra-v2-reviewed.xlsx)):
+231 gradable answer-v2 answers (114 Luna, 117 mini), plus 40 answer-v1 answers it had already
+graded (20 gpt-5.4, 20 mini) as drift anchors. On the anchors, sentence verdicts
+agreed 95% (kappa 0.88) and faithfulness shifted −0.028, inside the ±0.05 limit
+([report](../data/results/answer-eval-v2/report.md)). No ASTRA sample was graded
+for this session.
+
 ## Matched-pair comparison method
 
 1. Locate each label set and verify model identity, collection date, prompt/rubric,

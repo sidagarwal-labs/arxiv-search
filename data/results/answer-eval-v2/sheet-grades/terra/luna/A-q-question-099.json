@@ -1,0 +1,39 @@
+{
+  "answer_id": "A091",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-099",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual recommendation claim has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Papers [1] and [2] discuss explicit motivational context, alignment, and explainability.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [4] extracts intents and reports improved robustness to behavioral noise.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper [10] separates demand from recommendation policy and refines policies using outcome feedback.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper [9] describes editable profiles for preferences difficult to infer from behavior.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

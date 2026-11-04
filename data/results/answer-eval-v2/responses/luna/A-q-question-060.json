@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-060",
+  "outcome": {
+    "answer": "A graph-structured generative reranker can reduce repetitive lists by exploring multiple paths through item dependencies, widening the decoding choices instead of favoring only high-likelihood sequences that repeat items. CONGRATS uses graph transitions to model item dependencies and a differentiable training method that learns from user preferences; its authors report improved recommendation quality and diversity [2].",
+    "cited": [
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "10b01b29cfe7d0a78c77cf1a206edbb6073431042f8f026033c7afae9bd1be12",
+  "usage": {
+    "accounted_tokens": 3771,
+    "input_tokens": 3683,
+    "latency_seconds": 2.2054729999799747,
+    "model": "gpt-6-luna",
+    "output_tokens": 88,
+    "provider_request_id": "req_00f6f98ccd13488aab3e422744ded076",
+    "reasoning_tokens": 0,
+    "request_id": "873d6ca8-4a2c-4c5e-95e9-e2d2cddb6fa0",
+    "reserved_input": 23421,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:25.056158+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

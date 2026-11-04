@@ -1,0 +1,49 @@
+{
+  "answer_id": "A078",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual claim that these methods are effective has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper reports prompt-based planning and counting, with gains particularly for shorter-to-medium lengths.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Dynamic feedback improves target token, word, and sentence count control without training.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The comparative assertion that training-based methods are stronger has no citation or specified comparison.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "HOMURA optimizes temporal compliance and semantic preservation under syllable-duration constraints.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The paper reports supervised fine-tuning extends dynamic feedback to broader generation tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "The paper reports that a fixed conciseness reminder attenuates output-length tails across prompting strategies.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

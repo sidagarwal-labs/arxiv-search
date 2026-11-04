@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-039",
+  "outcome": {
+    "answer": "The paper matching Fernandes and Brazilian legal document segmentation is \u201cStructural Segmentation for Brazilian Legal Document Retrieval\u201d [1]. It segments Brazilian legal acts into hierarchical chunks and finds that segmentation improves dense retrieval over whole-document indexing, while benefits for lexical retrieval are inconsistent; core chunks enriched with document metadata can perform comparably to or better than full hierarchy [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "73bb2a6d59e774ac4edadd28408f95a13eb3525c46f0d80fcd3f6f45164f6b7a",
+  "usage": {
+    "accounted_tokens": 3761,
+    "input_tokens": 3565,
+    "latency_seconds": 3.199197499983711,
+    "model": "gpt-6-luna",
+    "output_tokens": 196,
+    "provider_request_id": "req_bc353f9591174264b088458cf6fd126f",
+    "reasoning_tokens": 0,
+    "request_id": "229c3131-befe-430a-ad84-dea4d24886ce",
+    "reserved_input": 21892,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:48.880280+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

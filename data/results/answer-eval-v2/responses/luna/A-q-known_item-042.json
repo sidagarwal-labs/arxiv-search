@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-042",
+  "outcome": {
+    "answer": "Angqing Jiang and coauthors propose Think-to-Personalize (TTP), a framework that combines explicit reasoning over a user\u2019s purchase history with dense retrieval [1]. TTP infers personalized needs, creates an intent-enhanced query, and trains the reasoning process in supervised fine-tuning and reinforcement-learning stages [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "51591426a41e830a006e4aca3202e9da7c10d27cab3905db0004e74430e46256",
+  "usage": {
+    "accounted_tokens": 3568,
+    "input_tokens": 3485,
+    "latency_seconds": 2.2352053000067826,
+    "model": "gpt-6-luna",
+    "output_tokens": 83,
+    "provider_request_id": "req_4e651c8354d64bb69668c1fe3591e939",
+    "reasoning_tokens": 0,
+    "request_id": "b0b3316f-bf47-4262-876e-b8ccc0d3c418",
+    "reserved_input": 22420,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:52.100872+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

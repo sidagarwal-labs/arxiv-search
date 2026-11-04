@@ -1,0 +1,38 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-063",
+  "outcome": {
+    "answer": "The closest match is [1], which describes grading label-free multi-topic science exams where a student\u2019s several answers are merged into one paragraph. [1] uses reference answers for each question, builds a semantic similarity graph over them, and combines retrieval with graph traversal to assign the right references before grading each segment separately.\n\nNone of the other papers directly address grading one big paragraph for several different questions with a network of reference answers. [2, 5, 10] focus on rubric-based grading, [4, 6, 9] on automated scoring of written answers, and [7, 8] on question answering or benchmarks rather than this multi-topic grading setup.",
+    "cited": [
+      1,
+      2,
+      5,
+      10,
+      4,
+      6,
+      9,
+      7,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "ccd33702f0447549a86a4b0f7c9022054c8111e688dbe7e695f7758dd3a2161c",
+  "usage": {
+    "accounted_tokens": 3857,
+    "input_tokens": 3702,
+    "latency_seconds": 2.559696199983591,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 155,
+    "provider_request_id": "req_1e1bc0b672f84eab992dc2cc3791e764",
+    "reasoning_tokens": 0,
+    "request_id": "af287e1c-3f0e-4638-8db9-2d6f8cf9778b",
+    "reserved_input": 23352,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:33.467828+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

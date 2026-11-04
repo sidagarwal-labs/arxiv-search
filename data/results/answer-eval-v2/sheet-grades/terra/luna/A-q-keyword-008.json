@@ -1,0 +1,29 @@
+{
+  "answer_id": "A062",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-008",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper describes LLM-generated temporal symbolic causal rules for multivariate time series.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Refinement and all three validation approaches appear in the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The other abstracts discuss causal discovery without describing logical rule learning for time-series causality.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

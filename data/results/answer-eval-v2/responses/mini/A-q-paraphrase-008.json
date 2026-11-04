@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-008",
+  "outcome": {
+    "answer": "The closest match is [2], which addresses dispatch optimization for instant delivery platforms where couriers may serve multiple platforms and each platform only observes its own orders and courier interactions. [2] uses partially observable multi-agent reinforcement learning with platform-local observations, which fits the \u201cwithout seeing all their data\u201d part. [1] is also related to driver dispatch on ride-sharing platforms, but it assumes a centralized setting rather than partial observability across several apps.",
+    "cited": [
+      2,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "bc6677d35bf0b4110cf99d8b6d4bf5e0db6a3922d3f18733873a2dda12e8f7c0",
+  "usage": {
+    "accounted_tokens": 3757,
+    "input_tokens": 3650,
+    "latency_seconds": 2.1854274999932386,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 107,
+    "provider_request_id": "req_9fc00564ebb74f95892d98b15b132ba0",
+    "reasoning_tokens": 0,
+    "request_id": "b39edeb2-186e-4149-8abb-661c53ceae10",
+    "reserved_input": 23856,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:01.198580+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-032",
+  "outcome": {
+    "answer": "The closest match is a study that uses measured hardware behavior\u2014including ramp limits, efficiency, and setpoint-tracking accuracy\u2014to optimize battery and electrolyser participation in Danish electricity and ancillary-service markets [1]. It reports optimized daily profits for both systems [1]. The papers do not specifically describe \u201cpower conversion tools\u201d or Nordic exchanges beyond the Danish markets studied [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "37adff51b656f0de29ba0a9e744bd4b61b24ed6f88c123fd49724376f98f6d92",
+  "usage": {
+    "accounted_tokens": 3531,
+    "input_tokens": 3440,
+    "latency_seconds": 2.485035199992126,
+    "model": "gpt-6-luna",
+    "output_tokens": 91,
+    "provider_request_id": "req_c344921a7f3e494cb6f25ba0ac0cccd8",
+    "reasoning_tokens": 0,
+    "request_id": "b31849e9-92b8-4935-9363-12a281d44796",
+    "reserved_input": 22103,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:52.364204+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

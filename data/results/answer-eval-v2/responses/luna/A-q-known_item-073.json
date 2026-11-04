@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answer": "Zichao Wei\u2019s paper argues that structural generalization has a computational complexity barrier: under the assumption TC\u2070 \u2260 NC\u00b9, a pure Transformer cannot learn it [1]. Wei\u2019s separate SLOG study presents a neural cellular automaton that learns compositional rules without hand-written rules and reports structural generalization results on the benchmark [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "c71b9e7f1ad1e15d62daa5100bfb457698d523bc3540c16c9f321ae36cc6d88c",
+  "usage": {
+    "accounted_tokens": 3518,
+    "input_tokens": 3430,
+    "latency_seconds": 2.305199399997946,
+    "model": "gpt-6-luna",
+    "output_tokens": 88,
+    "provider_request_id": "req_78b13b9df9714bcba460565c77042fdd",
+    "reasoning_tokens": 0,
+    "request_id": "a30dd476-5c8d-42c1-8f2d-76f466f7b39d",
+    "reserved_input": 21427,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:19.171273+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

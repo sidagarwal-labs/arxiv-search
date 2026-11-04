@@ -1,0 +1,34 @@
+{
+  "answer_id": "A212",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "General introductory framing.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "TRT uses self-generated verification; NRT uses self-generated traces and intrinsic rewards.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "RoboPhD evolves strategies via performance feedback; RuleEvolve mutates and judges coding rules.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "CoNL rewards useful critiques in self-play without external judges or ground truth.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

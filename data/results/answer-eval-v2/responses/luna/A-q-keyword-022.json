@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answer": "For lifecycle memory strength control, the closest match is [1]: it treats strength as an explicit lifecycle state governing retention consequence and uses it to control promotion, compression, and eviction. [8] also tracks preference strength and evidence, with lifecycle operations that reinforce or weaken memories. [2] controls what to strengthen by reinforcing memories that contribute to responses, while [7] evolves memory through retrieval-driven reconsolidation.",
+    "cited": [
+      1,
+      8,
+      2,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "29ce6228be79b356d371c4cc927682d6e833c899a5039070341382aa0ad88cd1",
+  "usage": {
+    "accounted_tokens": 3963,
+    "input_tokens": 3863,
+    "latency_seconds": 3.152340300002834,
+    "model": "gpt-6-luna",
+    "output_tokens": 100,
+    "provider_request_id": "req_4d10e7b8bed04b94b19884b989549760",
+    "reasoning_tokens": 0,
+    "request_id": "ff78323c-2784-4d0d-8cdb-6548a1badb87",
+    "reserved_input": 24412,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:47:14.141156+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

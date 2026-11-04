@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-078",
+  "outcome": {
+    "answer": "For LLM-generated synthetic slate preferences, the closest match is a study that uses LLMs to articulate pairwise preferences between recommendation slates for synthetic A/B testing [4]. It validates those preferences against recommender-system metrics and preference axioms, and reports that the resulting rankings are stable across utility weightings [4]. A related paper uses synthetic data to teach LLMs generalizable user preference patterns for recommendation, but does not focus on slate preferences [6].",
+    "cited": [
+      4,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "f7b56847a2444f750972ca0334fe2cabcc9406ff95ea4c44016e1b6b7f600f4a",
+  "usage": {
+    "accounted_tokens": 3629,
+    "input_tokens": 3517,
+    "latency_seconds": 2.4797330999863334,
+    "model": "gpt-6-luna",
+    "output_tokens": 112,
+    "provider_request_id": "req_5df808da70514fbb88bdf2ce1a9b2a6f",
+    "reasoning_tokens": 0,
+    "request_id": "6e2c060a-6f70-4dfd-b352-d516021d6d7e",
+    "reserved_input": 22572,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:13.666189+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

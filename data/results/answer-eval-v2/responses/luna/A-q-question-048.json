@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-048",
+  "outcome": {
+    "answer": "Yes. ViSAR dynamically chooses how many relevant pages to retrieve based on the query, and is explicitly training-free, so it does not require retraining [1]. LAD-RAG also adaptively retrieves evidence based on the query without top-k tuning, though its abstract does not specifically state that it avoids retraining [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "7122447af7384ac86f21697fadc46585e989fb737493113a9f176e5b7d93168f",
+  "usage": {
+    "accounted_tokens": 3920,
+    "input_tokens": 3837,
+    "latency_seconds": 3.0712584999855608,
+    "model": "gpt-6-luna",
+    "output_tokens": 83,
+    "provider_request_id": "req_a9f259958158457bb03206905ad96297",
+    "reasoning_tokens": 0,
+    "request_id": "058ec6e3-7679-4099-bc2b-1a2834f2af30",
+    "reserved_input": 23571,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:11.128630+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

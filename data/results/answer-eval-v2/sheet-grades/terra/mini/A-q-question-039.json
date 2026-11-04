@@ -1,0 +1,34 @@
+{
+  "answer_id": "A024",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited approaches filter by validity or use temporal applicability in reasoning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited abstracts describe Chronofy, NuggetIndex, and the recency-stationarity taxonomy.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The reranker and dynamically selected news retrieval structure are described in the cited papers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The leakage study finds date filters unreliable and recommends stronger safeguards.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A232",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-057",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Personal preference triples and entity profiles are supported, but entity profiles are not specifically user profiles.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "SPiKE profiles KG entities; the PKG pipeline extracts RDF triples and evaluates recommendations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited papers use KG-based summaries or online personas for personalization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

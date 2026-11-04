@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-062",
+  "outcome": {
+    "answer": "None of these papers directly address Flek physics constraint adversarial attacks; the closest are papers on robustness and language-model performance in low-resource or code-mixed settings, especially [3], [7], and [8]. [3] focuses on sentiment classification for Hinglish tweets, [7] on stance detection in Bengali social media, and [8] on language detection for African languages in code-switched and clean text.",
+    "cited": [
+      3,
+      7,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "307f3baef2a02ef05b8ce0a22ebfeb4d56d76880e55c478b611f866ef28581cc",
+  "usage": {
+    "accounted_tokens": 3580,
+    "input_tokens": 3478,
+    "latency_seconds": 2.1345916999853216,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 102,
+    "provider_request_id": "req_cd3382c91e784d0fa16bb5ed8602c03c",
+    "reasoning_tokens": 0,
+    "request_id": "3992a205-3587-4a10-b5ac-948474890b9d",
+    "reserved_input": 21570,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:40.497059+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

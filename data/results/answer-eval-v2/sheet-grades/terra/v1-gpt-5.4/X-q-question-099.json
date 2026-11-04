@@ -1,0 +1,39 @@
+{
+  "answer_id": "A261",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The recommendation and its claimed benefit have no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract states the exploration-saturation definition and shorter-history tendency.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Individualized exploration is supported, but explicit modeling of user goals is not established.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "The framework weights multiple fairness objectives to reflect stakeholder priorities.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "User-specific recommendation trade-offs are supported by [8], but the broader framework is not cited here.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

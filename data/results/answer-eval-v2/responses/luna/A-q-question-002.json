@@ -1,0 +1,34 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-002",
+  "outcome": {
+    "answer": "For MoE inference on edge hardware, DyMoE is the closest match: dynamically quantize experts according to their importance, use depth-adaptive scheduling to protect critical layers, and prefetch experts to overlap I/O stalls; it reports lower latency on commercial edge devices [2]. GEMQ instead allocates precision globally across experts and fine-tunes the router to account for routing changes caused by quantization [5]. AlphaQ assigns more bits to experts with stronger heavy-tailed weight spectra, without requiring calibration data [3]. DPA-MoE offers runtime precision control, allocating weight chunks to routed experts according to live gate scores [7]. The supplied abstracts discuss edge inference and efficient MoE quantization, but do not establish performance specifically on mobile hardware [2, 4].",
+    "cited": [
+      2,
+      5,
+      3,
+      7,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "f54ed807b02df4e16375a86a6e85aa986d5386916c933371d6d1b7cacc3e1a18",
+  "usage": {
+    "accounted_tokens": 3546,
+    "input_tokens": 3371,
+    "latency_seconds": 3.5624671999830753,
+    "model": "gpt-6-luna",
+    "output_tokens": 175,
+    "provider_request_id": "req_282333b846ae4d9f9b185e6835b5bdbd",
+    "reasoning_tokens": 0,
+    "request_id": "6b906b17-89e8-4f1c-82ab-4d48fbe2a0d2",
+    "reserved_input": 21121,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:40.784524+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

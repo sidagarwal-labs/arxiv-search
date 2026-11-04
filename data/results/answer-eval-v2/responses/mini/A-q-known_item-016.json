@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-016",
+  "outcome": {
+    "answer": "The closest match is [1], which studies efficient attention in hybrid architectures and analyzes how modules like sliding-window attention and full attention affect long-context capability. [1] It finds that efficient attention mainly changes how fast long-context ability emerges, while full attention carries long-range retrieval, and it proposes a design tweak that improves long-context performance with little short-context cost. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "58e312a68ea61abbd8e955171dad9304198d6e080b699ebcd74b3558e9f27326",
+  "usage": {
+    "accounted_tokens": 3598,
+    "input_tokens": 3505,
+    "latency_seconds": 2.102107499988051,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 93,
+    "provider_request_id": "req_b19e8276d6eb4aaabd8d24b96aec9fff",
+    "reasoning_tokens": 0,
+    "request_id": "f96f7602-a95e-4e44-99ad-f12926963311",
+    "reserved_input": 22822,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:57.527657+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

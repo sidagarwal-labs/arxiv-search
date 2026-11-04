@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answer": "Measure performance on held-out cases that require applying the rules or knowledge in the provided text, rather than merely reproducing it. RuleWorld evaluates single-rule, parallel multi-rule, and multi-hop reasoning scenarios, providing a benchmark for externally supplied procedural rules [2]. For a controlled test of learning a genuinely unseen rule, the cellular-automaton study withholds one truth-table entry and tests whether the model can infer it where similarity-based interpolation fails [3]. Compare rule descriptions with input-output examples to assess whether performance depends on how the task is presented [1].",
+    "cited": [
+      2,
+      3,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "6544658953cfdb10358316b2b1737f4b5a37a9742678205159e3dedc50d0ba3e",
+  "usage": {
+    "accounted_tokens": 3755,
+    "input_tokens": 3625,
+    "latency_seconds": 2.9484865999838803,
+    "model": "gpt-6-luna",
+    "output_tokens": 130,
+    "provider_request_id": "req_902814460c1c484f822dbb42fdf388a6",
+    "reasoning_tokens": 0,
+    "request_id": "869fff6d-994f-40c4-a5ad-8466c07e3954",
+    "reserved_input": 22658,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:46.877441+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

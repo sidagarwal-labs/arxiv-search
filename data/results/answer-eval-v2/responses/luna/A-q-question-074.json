@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answer": "Different spherical retractions mainly differ in how they convert update magnitude into a rotation angle, and that choice affects stability and performance [1]. The paper compares metric-projection and Cayley retractions, which preserve norm exactly, and introduces a broader one-parameter family; its best validation loss occurs at a finite parameter value, suggesting the exponential-map retraction is not preferred [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "05837a48d6e1c7911238318a94aacdc97c0aeefbefcff248bf7d73b72ee6ae9e",
+  "usage": {
+    "accounted_tokens": 3915,
+    "input_tokens": 3821,
+    "latency_seconds": 2.326275200000964,
+    "model": "gpt-6-luna",
+    "output_tokens": 94,
+    "provider_request_id": "req_2ea89d0abd3747ff8371c77d6aea917c",
+    "reasoning_tokens": 0,
+    "request_id": "080e0e75-6652-4e89-975c-f45665071ba2",
+    "reserved_input": 22900,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:29.200356+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

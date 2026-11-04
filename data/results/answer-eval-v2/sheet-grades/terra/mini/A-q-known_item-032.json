@@ -1,0 +1,24 @@
+{
+  "answer_id": "A144",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-032",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper extends Equivariant Neural Fields and removes structural constraints.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [2] also describes an equivariant transformer-based neural field; truncated author lists cannot exclude Bekkers.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,34 @@
+{
+  "answer_id": "A092",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-094",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [1] assigns the three roles to a shared-parameter vision-language model.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [1] confirms online rubric generation and EMA updates to the shared momentum model.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [2] studies specificity and length in evaluation, not the rubric adaptation method.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "A standalone citation contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "answer": "Yes\u2014standard GNNs can do zero-shot link prediction on unseen knowledge graphs if the graph is reified into a fixed representation [1]. In that setup, five textbook GNNs, including GAT and GraphSAGE variants, transfer zero-shot to many inductive link-prediction benchmarks, and the best off-the-shelf GAT matches a dedicated knowledge-graph foundation model [1].\n\nOther papers also show GNN-based link prediction on knowledge graphs, but they are not about the same \u201cunknown graph\u201d setting: one improves scalable training on large KGs [5], and another studies link prediction for uncertain knowledge graphs with added structural priors [10].",
+    "cited": [
+      1,
+      5,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "257b8122a29edde776b7ccf0a4fb102a0fd0e15188a8ecf58b4619dd09f4a42c",
+  "usage": {
+    "accounted_tokens": 3607,
+    "input_tokens": 3451,
+    "latency_seconds": 2.04222890001256,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 156,
+    "provider_request_id": "req_2bd910f99a6e4f2e9ae3906bff9faed3",
+    "reasoning_tokens": 0,
+    "request_id": "6d9b70c3-fc0c-4710-be48-8a66c7f32f90",
+    "reserved_input": 21601,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:44.640005+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

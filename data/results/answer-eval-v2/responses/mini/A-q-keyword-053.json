@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answer": "Yes\u2014these results include several graph-ML papers on chemical reactions. The closest direct match is [1], which uses a condensed reaction graph and contrastive learning for reaction representation learning and yield prediction, explicitly comparing against graph-based baselines. [2] is also about reaction prediction, but it focuses on compact LLMs with atom-map invariance and curriculum learning rather than graph representations. [6] uses a graph-to-sequence predictor for biodegradation pathway prediction with synthetic reaction data, which is related but not centered on general chemical reaction graph learning.",
+    "cited": [
+      1,
+      2,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "d6c1f6af20b90ec71ddf3af82a413436e6ef21ce7038cba2e9396676f3b71963",
+  "usage": {
+    "accounted_tokens": 4106,
+    "input_tokens": 3978,
+    "latency_seconds": 2.350308099994436,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 128,
+    "provider_request_id": "req_d5d76128a88b4bc8b91bb26053311bbe",
+    "reasoning_tokens": 0,
+    "request_id": "ae19e089-7dfc-4db5-930a-0da4844fe609",
+    "reserved_input": 24385,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:26.657745+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

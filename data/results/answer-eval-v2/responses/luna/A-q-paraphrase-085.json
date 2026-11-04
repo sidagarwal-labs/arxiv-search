@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-085",
+  "outcome": {
+    "answer": "LLM unbranding is the direct match: MUTE neutralizes brand-characteristic language, slogans, and stylistic markers in generated text while preserving general capabilities and utility [1]. It uses iterative refinement of system instructions and does not require parameter updates [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "4d2a794eb1ad5d3b0e0e34757c510649969797de174ec50788135c9bd70a314d",
+  "usage": {
+    "accounted_tokens": 3527,
+    "input_tokens": 3457,
+    "latency_seconds": 2.375886299996637,
+    "model": "gpt-6-luna",
+    "output_tokens": 70,
+    "provider_request_id": "req_38f8b278bcbf4d5ba8763debf32dfdf8",
+    "reasoning_tokens": 0,
+    "request_id": "fb4337f1-ab86-492e-ad1e-bd4e19ac7e86",
+    "reserved_input": 21989,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:17.637026+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

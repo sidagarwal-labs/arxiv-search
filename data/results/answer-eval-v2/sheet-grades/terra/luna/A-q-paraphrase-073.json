@@ -1,0 +1,29 @@
+{
+  "answer_id": "A028",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "StableOPD combines a divergence constraint and rollout mixture distillation against length inflation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "EOS alignment mitigates mismatch-induced inflation but not all late-stage inflation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "BIRD warms up on concise correct traces, then distills using a concise self-teacher.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

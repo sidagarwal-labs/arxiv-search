@@ -1,0 +1,35 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-085",
+  "outcome": {
+    "answer": "Yes: [1] directly addresses removing brand language from LLM text while preserving general utility, including neutralizing characteristic language, slogans, and stylistic markers. [1] is the closest match and is specifically framed as LLM Unbranding, with an inference-time method that aims to eliminate brand leakage without harming general capabilities.\n\n[2] and [8] are related but broader: they focus on domain-agnostic redaction and policy-conditioned redaction of sensitive information while preserving semantics, not specifically company trademarks or slogans. [4], [6], and [7] also preserve utility while removing or mitigating sensitive or copyrighted content, but they do not focus on branded text or slogans.",
+    "cited": [
+      1,
+      2,
+      8,
+      4,
+      6,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "2d48793b92fb73c6adae620dbaee4dfdb60f39c97e61b89dea5dfbaad562c312",
+  "usage": {
+    "accounted_tokens": 3614,
+    "input_tokens": 3457,
+    "latency_seconds": 2.5389192000147887,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 157,
+    "provider_request_id": "req_94cf0433bf8d437995821cf3253838ff",
+    "reasoning_tokens": 0,
+    "request_id": "6814948f-c9c3-46e9-abf4-234ec492efd2",
+    "reserved_input": 22002,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:41.547398+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

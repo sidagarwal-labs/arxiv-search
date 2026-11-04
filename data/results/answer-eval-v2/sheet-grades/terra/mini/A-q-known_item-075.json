@@ -1,0 +1,29 @@
+{
+  "answer_id": "A137",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-075",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The negative claim about supplied papers has no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "SIDEKICK standardizes indications, contraindications, and adverse reactions from FDA labels.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "SIDEKICK uses ontology mapping and RDF serialization to improve interoperability.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

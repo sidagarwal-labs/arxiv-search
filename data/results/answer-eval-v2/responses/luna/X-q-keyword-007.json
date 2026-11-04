@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-007",
+  "outcome": {
+    "answer": "None of these papers directly study curation of synthetic data for LLMs. The closest results analyze how LLM-generated or rewritten text varies stylistically and how training-data diversity affects authorship verification: diverse training data improves cross-genre generalization in AVShift [2], while stylistic differences vary across models and genres [5].",
+    "cited": [
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "d7d08895c6abd7919fe67861b6d2c94bc90f702a2cc4208751d6da19f11a719b",
+  "usage": {
+    "accounted_tokens": 3573,
+    "input_tokens": 3488,
+    "latency_seconds": 2.377657699980773,
+    "model": "gpt-6-luna",
+    "output_tokens": 85,
+    "provider_request_id": "req_3b20c924eb434122b2f9bd0439f3a512",
+    "reasoning_tokens": 0,
+    "request_id": "af94aa2e-2e56-461c-ba39-6fa04e87985d",
+    "reserved_input": 21895,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:38.542062+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

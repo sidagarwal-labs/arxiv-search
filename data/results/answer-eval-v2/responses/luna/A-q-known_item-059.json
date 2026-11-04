@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answer": "GraphER is a graph-based enrichment and reranking method for RAG that builds a query-time graph from data-structure proximities and ranks candidate documents, aiming to improve retrieval completeness without extra graph infrastructure [1]. The supplied results do not mention Roth or establish a connection between Roth and GraphER [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "e6f570c36ee98565d84ce2c69fc758826ab8d2d5b57678aa6d0b403639ba601d",
+  "usage": {
+    "accounted_tokens": 3608,
+    "input_tokens": 3528,
+    "latency_seconds": 2.849280099995667,
+    "model": "gpt-6-luna",
+    "output_tokens": 80,
+    "provider_request_id": "req_aedf753912d54f60be065638cf54e0ed",
+    "reasoning_tokens": 0,
+    "request_id": "0c1a02c5-113f-4616-988e-6d00dcd1d57e",
+    "reserved_input": 22044,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:01.585104+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

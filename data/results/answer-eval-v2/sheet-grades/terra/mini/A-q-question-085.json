@@ -1,0 +1,39 @@
+{
+  "answer_id": "A202",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-085",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Selection framing.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Temporal drift strongly affects authorship verification, with greater degradation over longer gaps.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The time-series analysis reports post-2022 changes across those linguistic features.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The study finds genre has a stronger influence than source on stylistic features.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The comparative assertion about all papers is not cited in this sentence.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

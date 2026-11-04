@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-089",
+  "outcome": {
+    "answer": "The closest match is [1], which directly addresses fundamental fairness limits. [1] says unfairness can arise from irreducible subgroup cost, finite-sample learning, and model-class expressivity limits, so fairness requires explicit trade-offs rather than a guaranteed free solution. [2] and [9] are also related: [2] discusses conflicts between fairness notions and accuracy in criminal justice, while [9] presents a framework for balancing multiple fairness metrics and predictive accuracy.",
+    "cited": [
+      1,
+      2,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "4c683153a090068b77b7963a9afc4ab7167c04f92bd4fa09aa9da1f2ada98c96",
+  "usage": {
+    "accounted_tokens": 3367,
+    "input_tokens": 3249,
+    "latency_seconds": 2.299815700011095,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 118,
+    "provider_request_id": "req_f4b4929eee9b45588923fddfe18762b6",
+    "reasoning_tokens": 0,
+    "request_id": "70588f2c-f89b-4eaf-90ae-24f2bd4216d7",
+    "reserved_input": 22238,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:51.446731+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answer": "Yes \u2014 [1] directly matches this idea by reducing communication in split learning through local error signals instead of propagated gradients. [1] says the client uses an auxiliary classifier at the split point, the server trains on transmitted activations, and backward gradients are no longer sent, cutting communication roughly in half. [7] is a partial match: it routes global error signals in a dual-stream architecture without transporting transposed forward weights, but it is about biologically plausible learning rather than shared neural architectures in general.",
+    "cited": [
+      1,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "0c007ebbd62a8569cdc8e3a931471cb348542f68d4c63f4cd76abfea068d1d60",
+  "usage": {
+    "accounted_tokens": 4016,
+    "input_tokens": 3891,
+    "latency_seconds": 2.655394700006582,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 125,
+    "provider_request_id": "req_53ec52f8bc1d47dbbe2f74ae209d9834",
+    "reasoning_tokens": 0,
+    "request_id": "072eaf99-751a-450e-bf9f-179d44768d7e",
+    "reserved_input": 24429,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:08.708095+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-019",
+  "outcome": {
+    "answer": "Repeating data during pretraining often hurts performance compared with using fresh data, but the effect depends on how repetition is structured and how much unique data is available [1, 2, 3]. In controlled studies, loss can peak at an intermediate repeat count, and repeating a moderately sized subset moderately many times can be more damaging than other repeat patterns [1]. Replaying shards consecutively or concentrating repeats on fewer samples also raises loss [2]. Limited unique data causes increasingly large loss penalties for larger models [3].\n\nRepetition is not uniformly harmful: with unique data constrained, diffusion language models can benefit from more epochs, and one reported model improved downstream performance by repeating standard pretraining data [10].",
+    "cited": [
+      1,
+      2,
+      3,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "9b482ffafe5bb4f5ac50f08421d6887328f03c615d73509779eef741933dbb51",
+  "usage": {
+    "accounted_tokens": 3899,
+    "input_tokens": 3737,
+    "latency_seconds": 4.6028170000063255,
+    "model": "gpt-6-luna",
+    "output_tokens": 162,
+    "provider_request_id": "req_195ddf9e8a344c0c98d7c974c5a0e724",
+    "reasoning_tokens": 0,
+    "request_id": "e0092cb4-9338-4812-830c-980e969a37dc",
+    "reserved_input": 22684,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:51.489241+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-057",
+  "outcome": {
+    "answer": "Large language models can turn conversational data into structured preference triples, link them to knowledge-base entities, and use the resulting personal knowledge graph for recommendations; one evaluated pipeline found that some lightweight models\u2019 extraction quality tracked downstream recommendation utility [2]. Another approach uses LLMs to generate semantic profiles for knowledge-graph entities, integrates those profiles into the graph, and matches profile-based preferences during recommendation training [1]. For session-based recommendations, a heterogeneous graph can combine interactions, item relations, features, and metadata; learned user personas and LLM-derived item embeddings then inform candidate generation and reranking [3].",
+    "cited": [
+      2,
+      1,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "926080112ae919b847bb06872a748a03bc45a0970e5e02acd3a655ee8d8bdd7d",
+  "usage": {
+    "accounted_tokens": 3461,
+    "input_tokens": 3323,
+    "latency_seconds": 3.238559100020211,
+    "model": "gpt-6-luna",
+    "output_tokens": 138,
+    "provider_request_id": "req_ac1446e460bb4dd68b575e9ffbd7702e",
+    "reasoning_tokens": 0,
+    "request_id": "08703e38-5e38-49a8-909b-a10cf15d54eb",
+    "reserved_input": 22185,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:21.795795+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

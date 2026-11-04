@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answer": "DeCode: Decoupling Content and Delivery for Medical QA [1] is the paper that matches this query. It proposes a training-free, model-agnostic framework that decouples content and delivery to adapt existing LLMs for contextualized clinical answers, and it reports improved medical question answering performance [1].\n\nIf you want related but different approaches, one paper uses retrieval-augmented generation and fine-tuning to ground answers in medical literature [2], while another uses multi-source retrieval and in-context learning for direct and sequential biomedical questions [3].",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5cf0dba474d72b53220e3c485ab2ed215ebc1105aa33b00085de3f7aa5690877",
+  "usage": {
+    "accounted_tokens": 3812,
+    "input_tokens": 3679,
+    "latency_seconds": 2.7846999999892432,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 133,
+    "provider_request_id": "req_0ad6f57cffe54c7ca5cff8f1d548ae15",
+    "reasoning_tokens": 0,
+    "request_id": "d3ff08d1-d9f0-4639-8190-a7b275ad0ff3",
+    "reserved_input": 22199,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:32.287419+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

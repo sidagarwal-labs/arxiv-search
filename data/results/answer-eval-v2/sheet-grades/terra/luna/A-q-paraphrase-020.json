@@ -1,0 +1,24 @@
+{
+  "answer_id": "A263",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract describes semi-independent local training, no backward-gradient transmission, and comparable performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper exchanges sparse critic parameters with error feedback, not split-point backpropagation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

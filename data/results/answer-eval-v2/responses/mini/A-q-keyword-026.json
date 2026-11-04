@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answer": "The closest match is [1], which proposes an inference auction for LLM API requests when demand exceeds compute capacity, letting users bid for faster service and using pricing that incentivizes truthful bidding. [1] It also includes an autobidding agent that adjusts bids under a user-specified budget to maximize utility. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "3536796aeb7d0419fd97715d5cc831beb62675068df621459b74708ae82b63ff",
+  "usage": {
+    "accounted_tokens": 3772,
+    "input_tokens": 3690,
+    "latency_seconds": 2.0479478999914136,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 82,
+    "provider_request_id": "req_f928b1eb9e4946c3810631f8bf1cdb78",
+    "reasoning_tokens": 0,
+    "request_id": "4823be9e-ea32-4dc4-8c4c-40c14d582a4f",
+    "reserved_input": 23054,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:19.651100+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

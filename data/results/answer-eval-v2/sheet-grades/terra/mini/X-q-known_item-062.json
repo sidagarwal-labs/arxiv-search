@@ -1,0 +1,24 @@
+{
+  "answer_id": "A101",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-known_item-062",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited papers concern language modeling and low-resource or code-mixed language processing, not the requested attacks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The three cited abstracts describe the stated classification, stance, and language-detection tasks.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

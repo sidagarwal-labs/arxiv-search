@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answer": "Several approaches can help. A prompt can ask the model to plan the response and count words as it writes, improving adherence without retraining [1]. A training-free alternative provides dynamic length feedback during generation so the model can adjust toward a target word, token, or sentence count [2]. For translation with strict duration limits, reinforcement learning can optimize length compliance alongside meaning [3]. A simple conciseness reminder can also reduce excessively long outputs [7].",
+    "cited": [
+      1,
+      2,
+      3,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "3e5eeb9dc308c3763543477a7c0b14ef413385abda46479bdf0dcd2bfd29436b",
+  "usage": {
+    "accounted_tokens": 3499,
+    "input_tokens": 3390,
+    "latency_seconds": 4.195057600009022,
+    "model": "gpt-6-luna",
+    "output_tokens": 109,
+    "provider_request_id": "req_2d4b2f6f3489484a83ce081b146bab3c",
+    "reasoning_tokens": 0,
+    "request_id": "769ba42b-c969-4913-948a-ab1fed15cb00",
+    "reserved_input": 21954,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:47.273117+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

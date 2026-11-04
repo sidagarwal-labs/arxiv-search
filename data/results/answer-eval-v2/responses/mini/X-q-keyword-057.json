@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-keyword-057",
+  "outcome": {
+    "answer": "None of these papers directly address dense-to-sparse retrieval. The closest are [3], which uses a fine-tuned multilingual encoder for code-mixed sentiment classification, and [8], which compares language detection performance on clean versus code-switched text.",
+    "cited": [
+      3,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "76abd809279f8bf67a5dde7948f65900027c0ca49c3c025285362e5ae80b5305",
+  "usage": {
+    "accounted_tokens": 3542,
+    "input_tokens": 3475,
+    "latency_seconds": 1.9996857999940403,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 67,
+    "provider_request_id": "req_a546cf029a0143c7951d374bf3ee8a38",
+    "reasoning_tokens": 0,
+    "request_id": "0f657ff5-b151-4d1b-a7e1-397333be6bbe",
+    "reserved_input": 21552,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:54.826712+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

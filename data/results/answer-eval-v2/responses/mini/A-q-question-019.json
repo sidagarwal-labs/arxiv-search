@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-019",
+  "outcome": {
+    "answer": "Repeating training data can hurt pretraining performance, but the effect depends on how repetition is structured and how much unique data is available [1, 3]. One study finds a systematic loss peak at an intermediate repeat count, with the most damaging repeat count growing with model size, and says repeated documents can waste substantial compute compared with no repetition [1]. Another finds that repetition damage is scale-dependent: limited uniqueness causes only mild degradation for small models but rapidly increasing loss penalties for larger models [3].\n\nNot all repetition is equally bad: one paper reports that, under a fixed update budget, more epochs on smaller datasets can improve downstream results in supervised fine-tuning, with gains saturating at full memorization [6]. Another reports that a second epoch can be worth nearly as much as fresh data, but also that replaying shards consecutively or concentrating repeats on fewer samples raises loss [2].",
+    "cited": [
+      1,
+      3,
+      6,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5c804c750cd2a7ba119f2ad5376be0c1a27d0d598e55ef26c29c275ade12409d",
+  "usage": {
+    "accounted_tokens": 3937,
+    "input_tokens": 3737,
+    "latency_seconds": 3.0874210000038147,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 200,
+    "provider_request_id": "req_8837eef5a4904010bb92c75263b905c3",
+    "reasoning_tokens": 0,
+    "request_id": "2f8c148d-fa52-48e9-b59a-32276e80ba89",
+    "reserved_input": 22697,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:07.911368+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

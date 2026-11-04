@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-096",
+  "outcome": {
+    "answer": "Shutong Qiao is a coauthor of VaLiDRec, which proposes variable-length, LLM-aligned semantic IDs for generative recommendation [1]. It builds IDs from informative native LLM tokens, adapting their length to item semantic complexity, and predicts token sets rather than generating IDs autoregressively [1]. Qiao also coauthored an empirical study of OCR-based text representations for semantic ID learning, but that paper does not focus on variable-length IDs [8].",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "8dd627491e9cdd8ecb694443145f569efebadbdbb112de2bf97f8b7f0bb6bd3e",
+  "usage": {
+    "accounted_tokens": 3591,
+    "input_tokens": 3476,
+    "latency_seconds": 3.3524835999996867,
+    "model": "gpt-6-luna",
+    "output_tokens": 115,
+    "provider_request_id": "req_67b2b316b86c45ea90995fde6139d790",
+    "reasoning_tokens": 0,
+    "request_id": "9d382b0d-94c5-4a7e-b29a-c49d5a1e5b8a",
+    "reserved_input": 22992,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:28.086125+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

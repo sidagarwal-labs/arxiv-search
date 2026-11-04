@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-096",
+  "outcome": {
+    "answer": "The closest match is [1], which is by Shutong Qiao and coauthors and proposes variable-length, LLM-aligned semantic identifiers for generative recommendation. [1] It directly targets adaptive SID lengths and says the identifiers are built from native LLM vocabulary tokens to better fit item semantic complexity. [1]\n\nA related earlier paper is [8], also by Shutong Qiao and coauthors, but it studies how to improve Semantic ID learning by using OCR-based text representations rather than standard text embeddings. [8] It does not address variable-length semantic IDs. [8]",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "94cf5ba742daa7ec75aa59e5f209c1bd258f194fdd95913aec998ea93e0433f3",
+  "usage": {
+    "accounted_tokens": 3614,
+    "input_tokens": 3476,
+    "latency_seconds": 2.45425239999895,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 138,
+    "provider_request_id": "req_e67108d282474ca69db89a26c6b3de6c",
+    "reasoning_tokens": 0,
+    "request_id": "10263c0d-61f9-4dac-9511-ff0adbc6013d",
+    "reserved_input": 23005,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:53.770761+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -43,13 +43,13 @@ so their scores must not be joined into a new leaderboard.
 | E: refine the top 20 on a finer score scale | Failed the pilot source-ranking guard | Better graded relevance is not enough to preserve known-paper lookup. [Pilot](../data/results/llm-score-refine/pilot-report.md) |
 | E2: refine while preserving Decision 46 rank 1 | Promoted as Decision 47, current reranking baseline | Confirm on queries not used to design the rule; the pin's benefit did not replicate on new80. [Finding 36](03-findings.md#36-experiment-e2-refinement-holds-up-on-80-unseen-queries-2026-11-04) |
 | Compression: lower precision versus fewer dimensions | Full-dimensional float16 recommended in the findings; no ranking-baseline change | Storage and candidate overlap must be measured together. This Stage 1 check is not Stage 2 parity evidence. [Report](../data/results/embedding-compression/report.md), [interpretation](03-findings.md#34-storing-the-embeddings-smaller-for-hosting-2026-11-04) |
-| Answer evaluation: choose the cheapest qualifying grounded-answer model | GPT-5.4 mini selected as Decision 48 | Citation precision alone misses unsupported claims; compare faithfulness, format and abstention too. [Report](../data/results/answer-eval/report.md), [grader provenance](09-labeler-comparison.md#answer-evaluation-terra-full-set-and-astra-sample) |
-| Experiment L | In progress | No result claim. |
+| Answer evaluation: choose the cheapest qualifying grounded-answer model | GPT-5.4 mini selected as Decision 48 (superseded) | Citation precision alone misses unsupported claims; compare faithfulness, format and abstention too. [Report](../data/results/answer-eval/report.md), [grader provenance](09-labeler-comparison.md#answer-evaluation-terra-full-set-and-astra-sample) |
+| L: a citation in every sentence makes cheap GPT-6 Luna faithful enough | Luna faithfulness 0.695 → 0.935; qualified only after a post-hoc format-rule change (contract B); selected as Decision 49 on dev evidence | Read why sentences fail before switching models; check that prompt rules and validators don't contradict each other. [Report](../data/results/answer-eval-v2/report.md), [recheck](../data/results/answer-eval-v2/report-recheck.md), [Finding 38](03-findings.md#38-experiment-l-a-citation-rule-made-the-cheapest-model-the-most-faithful-2026-11-04) |
 
 Decision 47's comparable ranking metrics use the 3,579-pair
 `shared-labels/labels-d47.json` snapshot in the
-[current results](05-results.md). Decision 48's answer comparison used
-Decision 46 evidence; it is a separate evaluation, not another retrieval score.
+[current results](05-results.md). Decisions 48 and 49's answer comparisons used
+Decision 46 evidence; they are separate evaluations, not another retrieval score.
 
 ## Best measured scores by scope
 

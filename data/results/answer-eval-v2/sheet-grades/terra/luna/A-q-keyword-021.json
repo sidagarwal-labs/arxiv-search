@@ -1,0 +1,29 @@
+{
+  "answer_id": "A246",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-021",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract connects increased transformer depth and spectral collapse with amplified popularity bias.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "SPRINT constrains the specified matrices and improves accuracy and long-tail fairness.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The three papers describe the stated objective, activation steering, and noncontrastive long-tail method.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-007",
+  "outcome": {
+    "answer": "For LLM synthetic-data curation, the central finding is that samples should be evaluated as groups, not only individually: group-level signals account for interactions among samples and yield better downstream performance, especially in generation [1]. For specialized-task fine-tuning, AutoSynth automatically searches for synthetic-data generation workflows without requiring reference datasets [4], while C-Mining curates cultural seeds from multilingual corpora to guide culturally focused instruction-data synthesis [8].",
+    "cited": [
+      1,
+      4,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "c876f9ff015dda5e73983906fa70260ee7b5371988bd8e2005882a95c83c1a94",
+  "usage": {
+    "accounted_tokens": 3652,
+    "input_tokens": 3545,
+    "latency_seconds": 3.3338776000018697,
+    "model": "gpt-6-luna",
+    "output_tokens": 107,
+    "provider_request_id": "req_03cea131225840e1a2751c7d4bc78503",
+    "reasoning_tokens": 0,
+    "request_id": "464362ba-8c24-4be3-9691-d1fe596668d8",
+    "reserved_input": 22821,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:43:57.074884+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

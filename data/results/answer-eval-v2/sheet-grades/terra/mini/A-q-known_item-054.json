@@ -1,0 +1,29 @@
+{
+  "answer_id": "A230",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-054",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Tannenbaum tests omitted context and reports material answer differences.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The request-state paper explicitly does not estimate history's causal effect on answers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited studies focus on quality, emotion recognition, and bias under conversation context.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

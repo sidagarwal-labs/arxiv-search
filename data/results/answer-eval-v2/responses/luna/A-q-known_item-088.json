@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-088",
+  "outcome": {
+    "answer": "Saahil Mathur and coauthors study RAG for AI policy question answering in \u201cRetrieval Improvements Do Not Guarantee Better Answers: A Study of RAG for AI Policy QA\u201d [1]. Using a corpus of AI policy documents, they find that domain-specific fine-tuning improves retrieval metrics but does not consistently improve end-to-end QA; stronger retrieval can even produce more confident hallucinations when relevant documents are missing [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "92a8a24820fbca2e4b06716b823cd798c0005df55ea6fa2d6dbb98a5f3fd25a3",
+  "usage": {
+    "accounted_tokens": 3964,
+    "input_tokens": 3861,
+    "latency_seconds": 2.3214654000184964,
+    "model": "gpt-6-luna",
+    "output_tokens": 103,
+    "provider_request_id": "req_956d3b6f142547d487dfb04a767f4de5",
+    "reasoning_tokens": 0,
+    "request_id": "2ab6b0e3-0c63-4d69-bc71-ee6c76a3f1a0",
+    "reserved_input": 22950,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:23.633352+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

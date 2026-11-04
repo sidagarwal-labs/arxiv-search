@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answer": "A more detailed understanding of user goals could help recommender systems adapt exploration to each user rather than applying a uniform novelty or fairness boost. One study finds that exploration saturation varies substantially across users and that users with limited interaction histories may reach it earlier, so systems should adapt the amount of fairness-driven exploration to the individual user [8]. The paper studies exploration effects, rather than proposing a specific goal-modeling method [8].",
+    "cited": [
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "255a4129499f25f4d8e4dce85404ea951bd0d25f3479212f71b454573e7b7800",
+  "usage": {
+    "accounted_tokens": 3365,
+    "input_tokens": 3263,
+    "latency_seconds": 2.393123999994714,
+    "model": "gpt-6-luna",
+    "output_tokens": 102,
+    "provider_request_id": "req_a36b46a485574496aa474d0e14cc085f",
+    "reasoning_tokens": 0,
+    "request_id": "52a4e68d-f43f-43dc-aac1-7a2340909600",
+    "reserved_input": 22301,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:45.371537+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

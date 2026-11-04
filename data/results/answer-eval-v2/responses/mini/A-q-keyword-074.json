@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answer": "The closest match is [1], which directly studies distributional reinforcement learning in chaotic dynamical systems and explains why return distributions can evolve more regularly than individual trajectories under chaos. [1] It argues that this yields a smoother distributional Bellman objective and better conditioned learning in chaotic settings. [1]\n\nOther nearby papers are [7] and [6], but they do not focus on chaotic dynamics: [7] proposes a distributional RL critic using diffusion bridges, and [6] develops average-reward distributional RL with a quotient-space formulation. [7, 6]",
+    "cited": [
+      1,
+      7,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "133c81552a90d007ac422ea11e79dd3886e3ae8c10b3339ab5759571d6ed0553",
+  "usage": {
+    "accounted_tokens": 3597,
+    "input_tokens": 3461,
+    "latency_seconds": 2.3809222000127193,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 136,
+    "provider_request_id": "req_b065507210ed40a2aae98267734f6c4e",
+    "reasoning_tokens": 0,
+    "request_id": "2a35d081-f586-4395-93d4-42de53e139db",
+    "reserved_input": 22889,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:43.065722+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

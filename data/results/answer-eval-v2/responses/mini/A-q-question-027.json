@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-027",
+  "outcome": {
+    "answer": "The closest answers are [2], [4], and [6]. [2] says compute requirements for massive-scale recommendation can be determined by finding predictable scaling laws between performance and computational investment, and by improving model efficiency and resource allocation. [4] gives a concrete way to do this for behavioral recommendation models by running many experiments across FLOPs budgets and fitting how parameter split, batch size, data allocation, and negative sampling change with compute. [6] similarly derives compute-allocation rules from fitted scaling laws for reranking, showing how smaller runs can forecast larger models and guide budget choices.\n\nNone of these papers directly give a universal recipe for all large-scale suggesting systems, but together they show that compute requirements are estimated by empirical scaling-law studies plus architecture- and metric-specific compute allocation rules [2, 4, 6].",
+    "cited": [
+      2,
+      4,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "b1e30024ba624c4f1e9407a95f040fbcaf0a49b8f7e922bbb8b858c2cf843c27",
+  "usage": {
+    "accounted_tokens": 3655,
+    "input_tokens": 3469,
+    "latency_seconds": 2.699190399987856,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 186,
+    "provider_request_id": "req_a3e14f011d0b446ea90f5e3d01658f38",
+    "reasoning_tokens": 0,
+    "request_id": "9f0c68b0-d9fd-4420-9e65-914011260a0f",
+    "reserved_input": 22287,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:11.017672+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

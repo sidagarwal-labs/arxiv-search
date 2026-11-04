@@ -1,0 +1,29 @@
+{
+  "answer_id": "A152",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-077",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This factual claim about the papers has no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "AGoQ reports the speedup and quantization methods; the other papers examine FP4 training.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "RockNet distributes on-device training with low communication overhead and does not focus on numerical precision.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

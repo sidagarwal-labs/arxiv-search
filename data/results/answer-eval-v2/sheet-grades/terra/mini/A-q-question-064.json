@@ -1,0 +1,29 @@
+{
+  "answer_id": "A093",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [1] explicitly lists capacity, embedding, fitting-step, and sampling-noise costs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [2] describes the ambiguity-dependent marginal plateau and effects of noise and learning rate.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers show probability or interpretation biases, but the cited results do not all establish difficulty learning ambiguous distributions.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

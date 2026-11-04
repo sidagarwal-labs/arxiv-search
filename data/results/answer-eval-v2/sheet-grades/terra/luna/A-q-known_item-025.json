@@ -1,0 +1,29 @@
+{
+  "answer_id": "A175",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-025",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Both authors and the Multi-Meta-RAG metadata-filtering topic appear in the supplied paper.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The probe uses small-model hidden states and a fixed vocabulary of 49 news sources.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The probe outperforms both baselines in set-exact accuracy, with its margin arising from null queries.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,7 @@
+{
+  "change": "answer contract B: grounded=false means the supplied papers do not answer the request and the answer may cite the closest papers (shown as closest results); grounded answers must still cite",
+  "date": "2026-11-04",
+  "method": "free: re-validate the saved raw replies of invalid_answer failures under contract B; no new requests, no new grades, decision rule and drift guard unchanged",
+  "status": "post hoc: the rule changed after seeing the failures, so a pass is provisional; serving Luna needs a confirmation run on held-out queries (separate approval)",
+  "version": "answer-eval-l-recheck1"
+}

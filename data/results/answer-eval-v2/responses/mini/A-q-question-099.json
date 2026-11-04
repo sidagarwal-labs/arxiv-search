@@ -1,0 +1,35 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-099",
+  "outcome": {
+    "answer": "Use richer user-goal signals, not just clicks, to model why users choose items and align recommendations with those goals. [1, 2, 4, 9] Papers propose using explicit context feedback, review text, and natural-language profiles to capture semantic reasons behind preferences, which can make recommendations more personalized, transparent, and steerable. [1, 2, 9]\n\nAnother approach is to infer and use high-level intents or motivations during reasoning, so the system can understand intrinsic behavior patterns and stay robust to noisy interactions. [2, 4, 10] One paper also argues for semantic profiles built from LLMs and knowledge graphs to better represent preferences and propagate them in recommendation models. [3]",
+    "cited": [
+      1,
+      2,
+      4,
+      9,
+      10,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5eb0c1aae7c228b24a8b2be6f47852c6d4b39fe2872679ab9faa366521a1938f",
+  "usage": {
+    "accounted_tokens": 3676,
+    "input_tokens": 3503,
+    "latency_seconds": 2.645141999993939,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 173,
+    "provider_request_id": "req_2b3956f11f6343ac8efdf2a2f555954b",
+    "reasoning_tokens": 0,
+    "request_id": "01d6f3f9-e442-4e3c-9ec5-082ad662a772",
+    "reserved_input": 23318,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:01.890975+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

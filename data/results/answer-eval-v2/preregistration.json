@@ -1,0 +1,25 @@
+{
+  "budget_usd": 1.5,
+  "candidates": {
+    "luna": "gpt-6-luna",
+    "mini": "gpt-5.4-mini-2026-03-17"
+  },
+  "caveats": "Prompt written after reading answer-v1 failures on these dev items; the rules are general (cite every sentence) but a pass is optimistic until confirmed on held-out queries.",
+  "date": "2026-11-04",
+  "decision_rule": {
+    "drift_guard": "if the anchors' mean faithfulness moves by more than 0.05 between Terra sessions, report only (no replacement)",
+    "mini_v2": "diagnostic only: whether the prompt helps a model that already qualifies; switching mini's prompt would need its own decision",
+    "qualifies_if": "the answer-eval-v2 rule unchanged: faithfulness and citation precision 95% CI lower bound of (candidate - yardstick) >= -0.05; abstain accuracy (v2) >= 0.80; false abstain (v2) <= 0.10; format valid >= 0.95",
+    "replace": "luna with answer-v2 replaces mini answer-v1 if it qualifies and costs less per answer"
+  },
+  "evaluation_set": "answer-dev-v1, full stage (125 items), same Decision46 top10 evidence as Decision 48",
+  "grader": "GPT-6.1 Terra via the owner's chat session (terra-v2.xlsx), same rubric and caveat column; 20 answer-v1 answers each from gpt-5.4 and mini mixed in blind to measure drift",
+  "held_out_queries_used": false,
+  "parser": "final_answer phase only when a reply has phased messages (bug fix, model-general)",
+  "prompt": "answer-v2",
+  "question": "Does answer-v2 make GPT-6 Luna qualify under Decision 48's rule, so it can replace GPT-5.4 mini as the cheaper AI-summary model?",
+  "reasoning_effort": "none",
+  "retries": "none",
+  "version": "answer-eval-l1",
+  "yardstick": "gpt-5.4 answer-v1 answers and their GPT-6.1 Terra grades (unchanged)"
+}

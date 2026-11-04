@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-paraphrase-094",
+  "outcome": {
+    "answer": "The supplied papers do not address improving picture descriptions with a shared model that creates and checks quality rules using a moving average. The closest mention of a moving average is an exponential moving average of model parameters for deploying a game-playing agent [1], while another paper describes a shared model trunk for game roles [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "a3b5f8700b6956070308ee7948beb37099d3a3c60fe53057f1b10137bf23cf7c",
+  "usage": {
+    "accounted_tokens": 3779,
+    "input_tokens": 3699,
+    "latency_seconds": 2.0775125000218395,
+    "model": "gpt-6-luna",
+    "output_tokens": 80,
+    "provider_request_id": "req_45f512062a7549fab774b7d931eb896a",
+    "reasoning_tokens": 0,
+    "request_id": "daa4a96d-0ec2-4571-af11-09ae2f5fc1d2",
+    "reserved_input": 22749,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:14.619814+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

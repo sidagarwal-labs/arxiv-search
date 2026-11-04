@@ -1,0 +1,39 @@
+{
+  "answer_id": "A153",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This is a paper-selection framing sentence.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "StableOPD mitigates repetition-induced length inflation and truncation collapse.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The study connects EOS mismatch to length inflation and aligns equivalent stopping actions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Early Stopping Rollout restricts generation and improves training stability and efficiency.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The concise objective is supported, but [6] addresses supervision decay and drift, not reduced verbosity.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

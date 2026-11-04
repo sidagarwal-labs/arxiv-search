@@ -1,0 +1,34 @@
+{
+  "answer_id": "A038",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about the papers has no sentence-level citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Both abstracts describe the stated partitioning, topic assignment, graph features, and consensus clustering.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The three cited papers describe the respective clustering and hierarchical density approaches.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The argument system uses an unsupervised graph with topic similarity and shared keywords.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

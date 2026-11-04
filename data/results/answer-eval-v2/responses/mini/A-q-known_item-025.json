@@ -1,0 +1,38 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-025",
+  "outcome": {
+    "answer": "The closest match is [1], which is by Mykhailo Poliakov and Nadiya Shvai and specifically addresses metadata filtering in Multi-Meta-RAG. It replaces a prompted metadata extractor with a local, deterministic hidden-state probe for filtering a vector store by metadata. [1]\n\nOther papers discuss metadata-enriched or metadata-driven RAG more broadly, but not this specific filtering setup: [3], [4], [6], [7], [9], and [10] focus on improving retrieval with metadata, chunking, or pipeline design, while [2] is a conceptual framework for corpus partitioning and metadata-based routing. [5] examines when metadata helps or hurts RAG performance, rather than proposing a metadata filter. [1, 2, 3, 4, 5, 6, 7, 9, 10]",
+    "cited": [
+      1,
+      3,
+      4,
+      6,
+      7,
+      9,
+      10,
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "17e0ec1bf5dc1f3f5bf536a80acfb0d5f0f0dbc7f8d993237cf19bc51c564b02",
+  "usage": {
+    "accounted_tokens": 3762,
+    "input_tokens": 3565,
+    "latency_seconds": 2.5257876999967266,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 197,
+    "provider_request_id": "req_90be8ab153784264822fd554da06e350",
+    "reasoning_tokens": 0,
+    "request_id": "d30da6fb-e62b-4afa-a3ef-70043b435e66",
+    "reserved_input": 22638,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:05.134543+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

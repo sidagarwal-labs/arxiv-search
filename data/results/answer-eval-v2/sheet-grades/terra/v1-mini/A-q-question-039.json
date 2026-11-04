@@ -1,0 +1,39 @@
+{
+  "answer_id": "A008",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The general recommendation about temporal filtering or down-weighting has no sentence-level citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "NuggetIndex stores the stated metadata and filters invalid or deprecated nuggets.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Chronofy embeds temporal validity across representation, retrieval, and reasoning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The reranker reduces poisoning when dates are accurate; gains depend on reliable metadata.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "DynaTree uses dynamic selection and reports live-system freshness and relevance improvements.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

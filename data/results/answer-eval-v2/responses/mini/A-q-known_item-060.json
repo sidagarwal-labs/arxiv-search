@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-060",
+  "outcome": {
+    "answer": "The closest match is [1], which specifically studies state-conditioned minimal sufficient evidence for coding agents and frames retrieval as recovering what a decision still lacks. [1] It uses agent state to find a compact evidence set that satisfies every required evidence condition, rather than ranking passages by relevance alone. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "e85ee0e6c229b9d3e531a045abffef5aef4632c39422231ff8a52aecf8e26811",
+  "usage": {
+    "accounted_tokens": 3700,
+    "input_tokens": 3622,
+    "latency_seconds": 2.0813686000183225,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 78,
+    "provider_request_id": "req_9b79e98d25bb46e09ef067bee6a08171",
+    "reasoning_tokens": 0,
+    "request_id": "179a275b-5438-4d3c-b5ce-89eea439f855",
+    "reserved_input": 22653,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:30.185935+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

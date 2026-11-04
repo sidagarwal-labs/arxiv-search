@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-043",
+  "outcome": {
+    "answer": "Yes. The closest match is [1], which says conversational context is the dominant factor and that roughly 90% of the gain comes from the most recent 10\u201330 preceding turns, so many earlier turns are not needed. [1] also finds that discourse markers matter: emotion is associated with marker position, and sad utterances show reduced left-periphery marker usage.",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "39a1ccf5e9f390d95159c60a252bfcad18820efad7c789996dc22b140273af3e",
+  "usage": {
+    "accounted_tokens": 4088,
+    "input_tokens": 3996,
+    "latency_seconds": 2.4352279999875464,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 92,
+    "provider_request_id": "req_9520f054725e4df3b8e6ddec5ebeac6c",
+    "reasoning_tokens": 0,
+    "request_id": "fc725d9f-81b2-48b9-bbc4-76b3d535b7af",
+    "reserved_input": 24726,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:21.053881+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A054",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-032",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Measured BESS and electrolyser characteristics inform optimization in Danish electricity and ancillary-service markets.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports optimized daily profits for both systems.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract specifies Danish markets and does not use the requested equipment wording.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

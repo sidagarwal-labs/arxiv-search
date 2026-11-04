@@ -843,7 +843,43 @@ Nano failed four checks and is deprecated. Abstain accuracy uses the v2 rule: an
 answer that says the papers don't directly answer the query, then points to the
 closest ones, counts as abstaining. Graders are models, not people, and the
 evidence is dev-only. Luna costs about 8x less, so a prompt experiment to close
-its faithfulness gap is the next candidate.
+its faithfulness gap is the next candidate. **Superseded by
+[Decision 49](#49-gpt-6-luna-writes-the-ai-summary-2026-11-04).**
+
+## #49 GPT-6 Luna writes the AI summary (2026-11-04)
+
+The AI summary now uses `gpt-6-luna` with prompt `answer-v2` and answer contract B
+([report](../data/results/answer-eval-v2/report.md),
+[recheck](../data/results/answer-eval-v2/report-recheck.md),
+[finding 38](03-findings.md#38-experiment-l-a-citation-rule-made-the-cheapest-model-the-most-faithful-2026-11-04)).
+
+- **answer-v2** requires an [n] label in every sentence about a paper (a citation
+  never carries over to the next sentence) and, when no paper directly answers,
+  cites the closest papers inside that caveat.
+- **Contract B:** `grounded=false` means the top 10 do not answer the request; the
+  answer may still cite the closest papers, which the UI shows as closest results.
+  Grounded answers must still cite. Contract A (Decision 48) rejected any citation
+  in an ungrounded answer.
+
+| Model (prompt) | Faithfulness | Fully faithful | Format valid | Abstain acc. | Citation precision | $ per 1k | p50 s |
+|---|---|---|---|---|---|---|---|
+| gpt-5.4 (answer-v1, yardstick) | 0.836 | 0.319 | 0.896 | 0.889 | 0.926 | $11.58 | 5.2 |
+| mini (answer-v1, Decision 48) | 0.821 | 0.364 | 0.960 | 0.857 | 0.947 | $3.24 | 2.6 |
+| **luna (answer-v2, contract B)** | **0.935** | **0.770** | **1.000** | **0.960** | **0.993** | **$0.41** | **2.4** |
+
+Luna's faithfulness is +0.105 [+0.070, +0.141] above the yardstick. Terra graded the
+new answers in a second session; re-grading 40 old answers shifted faithfulness by
+−0.028, inside the frozen ±0.05 drift limit.
+
+**How this was decided, and its limits.** Under the frozen rule (contract A) Luna
+did not qualify: format validity was 0.936. All 15 invalid answers (8 Luna, 7 mini)
+were correct abstentions that cited the closest papers, as answer-v2 asked. The
+contract was changed after seeing those failures and the saved answers were
+re-validated for free, so the pass is post hoc. The plan called for a confirmation
+on held-out queries; the owner accepted the dev evidence instead because the
+margin is large on every check and the change only affects abstention format.
+The prompt was also written after reading answer-v1 failures on the same dev
+items, graders are models, and the evidence used Decision 46 top 10s.
 
 ## Which LLMs
 

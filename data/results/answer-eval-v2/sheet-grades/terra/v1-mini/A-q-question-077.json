@@ -1,0 +1,29 @@
+{
+  "answer_id": "A190",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no separate factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The reified-graph study evaluates the listed GNN families on 40 benchmarks and reports GAT matching ULTRA.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Gravity-GraphSAGE targets directed attributed graphs and reports benchmark improvements, not unseen knowledge graphs.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

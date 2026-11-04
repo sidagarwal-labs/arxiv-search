@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-019",
+  "outcome": {
+    "answer": "The closest match is [1], which directly studies AI alignment across sociodemographic groups. [1] evaluates whether LLMs\u2019 sympathy judgments align with human judgments across age, gender, education, prior geopolitical knowledge, and conflict predispositions, and finds broadly high alignment with statistically significant differences between groups.\n\nOther nearby papers are [3], which examines group alignment across 13 demographic groups but focuses on opinion alignment and sycophancy rather than sociodemographic framing, and [6], which studies how sociodemographic cues affect LLM personalization across different persona cues. [4] is also related because it uses sociodemographic attributes to compare LLM framing and alignment in societal-topic prompts, but it is broader and not specifically about alignment across demographic groups.",
+    "cited": [
+      1,
+      3,
+      6,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "66dc437a1c71141eaf68ba6608fd566f48c1c92d024b9c2fa56039ebe785c510",
+  "usage": {
+    "accounted_tokens": 3559,
+    "input_tokens": 3379,
+    "latency_seconds": 2.8319361000030767,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 180,
+    "provider_request_id": "req_9279a66bcc814ba2856ccc7e6007f32b",
+    "reasoning_tokens": 0,
+    "request_id": "fc3f848d-f2f6-47f5-a356-e85106339fea",
+    "reserved_input": 21652,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:02.280632+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

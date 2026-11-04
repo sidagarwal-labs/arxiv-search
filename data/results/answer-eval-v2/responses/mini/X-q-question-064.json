@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-question-064",
+  "outcome": {
+    "answer": "Highly ambiguous token distributions are hard because the model has to choose among many plausible continuations, and the supplied papers do not directly explain this token-level training difficulty. The closest evidence is that retrieval and generation can become unreliable when evidence is sparse or conflicting: stronger retrieval can still lead to confident hallucinations if relevant documents are absent [1], and complex, repetitive document settings with distractors make exhaustive retrieval difficult [8].",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "dad36c2b9a7fd59f5ec0fd79bba5227077c297c985596c7935edde1b6eb5eb43",
+  "usage": {
+    "accounted_tokens": 3976,
+    "input_tokens": 3869,
+    "latency_seconds": 2.4811557000211906,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 107,
+    "provider_request_id": "req_9d213989336448da8e9e8e2e56bedaf9",
+    "reasoning_tokens": 0,
+    "request_id": "50b1f509-6818-45af-b44c-e8ee7d265362",
+    "reserved_input": 23029,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:11.211122+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

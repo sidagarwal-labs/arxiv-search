@@ -1,0 +1,39 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-026",
+  "outcome": {
+    "answer": "Altmann\u2019s paper is Quantum Generator Kernels [1]. It proposes Quantum Generator Kernels, a generator-based approach to quantum kernels using Variational Generator Groups, and reports improved projection and classification performance over state-of-the-art quantum and classical kernel methods [1]. None of the other papers directly address Altmann\u2019s quantum generator kernels [2, 3, 4, 5, 6, 7, 8, 9, 10].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5fbc9ffb982fbceef697ac455f79a77dae02af2bb0333e78fbf65ecd9346fb07",
+  "usage": {
+    "accounted_tokens": 4434,
+    "input_tokens": 4324,
+    "latency_seconds": 1.931341199990129,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 110,
+    "provider_request_id": "req_3b770aa5f88443829d37e30f383d202d",
+    "reasoning_tokens": 0,
+    "request_id": "bda30bd0-9607-4282-9df8-5a08f04adf8c",
+    "reserved_input": 24757,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:07.694669+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

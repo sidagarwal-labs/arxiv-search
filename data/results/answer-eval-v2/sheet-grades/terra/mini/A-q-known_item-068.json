@@ -1,0 +1,29 @@
+{
+  "answer_id": "A243",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The metadata identifies the matching title and Koh.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "SynthSelf provides in-distribution supervision for small models without SDFT\u2019s demanding capabilities.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract reports consistent gains over six methods across three small-model scales and multiple benchmarks.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

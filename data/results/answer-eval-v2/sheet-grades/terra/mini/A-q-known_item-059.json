@@ -1,0 +1,34 @@
+{
+  "answer_id": "A157",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "GraphER is described correctly, but Roth's absence cannot be established from the abbreviated author list.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes query-time proximity graphs, graph ranking, improved completeness, and no additional infrastructure.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The three abstracts describe utility-based ordering, feedback-aligned reranking, and representational-shift relevance scoring.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Citation marker only.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

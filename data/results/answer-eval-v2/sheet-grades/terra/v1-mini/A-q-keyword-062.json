@@ -1,0 +1,34 @@
+{
+  "answer_id": "A119",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This factual introductory claim has no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper reports standard GNN failures, a more expressive solver-emulating architecture, and warm-start speedups.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The Max-Cut proxy predicts primal- and dual-feasible solutions and integrates with branch-and-bound.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The first study covers diverse linear SDPs; the second is Max-Cut-specific and preserves SDP feasibility.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

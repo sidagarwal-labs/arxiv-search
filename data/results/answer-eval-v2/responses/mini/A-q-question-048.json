@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-048",
+  "outcome": {
+    "answer": "Yes. Several papers support dynamically changing how many pages are fetched at test time without retraining: ViSAR is a training-free adaptive-k method that dynamically determines the number of pages to retrieve [1], and LAD-RAG dynamically adapts retrieval with an LLM agent without top-k tuning [2]. LITTA also improves retrieval without retriever retraining, with the number of query variants controlling the accuracy-efficiency trade-off [6].\n\nIf you want the closest match to \u201chow many pages are fetched,\u201d [1] and [2] are the most direct; [9] also dynamically reallocates retrieval budgets toward high-value query aspects, but it focuses on aspect-aware subqueries rather than a simple page-count rule [9].",
+    "cited": [
+      1,
+      2,
+      6,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "8c1866331c635bd7c1921c29bf4fc5db49c3fd38233018d7fa418c744023bfdb",
+  "usage": {
+    "accounted_tokens": 4005,
+    "input_tokens": 3837,
+    "latency_seconds": 3.986245699983556,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 168,
+    "provider_request_id": "req_317fd23132a944999b74ce5d46a8119c",
+    "reasoning_tokens": 0,
+    "request_id": "255756e9-075d-499d-8560-373c4e907d9d",
+    "reserved_input": 23584,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:23.562154+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

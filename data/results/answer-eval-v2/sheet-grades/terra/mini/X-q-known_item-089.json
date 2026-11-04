@@ -1,0 +1,29 @@
+{
+  "answer_id": "A258",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-known_item-089",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The categorical statement about all papers lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The two abstracts describe governable personalization and bounded knowledge-fusion degradation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstracts address personalization governance and bounded degradation rather than fairness limits.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

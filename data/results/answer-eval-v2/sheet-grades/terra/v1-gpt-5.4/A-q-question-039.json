@@ -1,0 +1,44 @@
+{
+  "answer_id": "A266",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The proposed factual retrieval practice has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited papers support validity metadata, pre-ranking filtering, temporal decay, and recency-aware reranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "RecencyQA models how freshness requirements depend on question and context.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The leakage study documents these failure modes and recommends frozen snapshots or safeguards.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "DynaTree\u2019s dynamic daily adaptation improves time-sensitive news retrieval over a fixed subtree.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Chronofy and NuggetIndex use the stated temporal decay and validity mechanisms.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

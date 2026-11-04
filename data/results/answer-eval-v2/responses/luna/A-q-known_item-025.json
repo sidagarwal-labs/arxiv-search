@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-025",
+  "outcome": {
+    "answer": "Mykhailo Poliakov and Nadiya Shvai\u2019s paper directly studies metadata filtering in Multi-Meta-RAG [1]. It replaces prompted metadata extraction with a deterministic probe trained on a small language model\u2019s hidden states, which filters retrieval using a fixed list of 49 news sources [1]. The paper reports that the probe improves set-exact accuracy over a substring baseline and GPT-3.5, with the advantage coming from better handling of queries where no source applies [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "f9aaa5b9ed084bf408e307d0f2d34f099a65b818be327ec545ea42d0bf6d63d4",
+  "usage": {
+    "accounted_tokens": 3682,
+    "input_tokens": 3565,
+    "latency_seconds": 2.479924100014614,
+    "model": "gpt-6-luna",
+    "output_tokens": 117,
+    "provider_request_id": "req_7f5edf3f3e41498681e0e543f932f31d",
+    "reasoning_tokens": 0,
+    "request_id": "55c6aa0d-2c86-440f-a796-ac92df0002e8",
+    "reserved_input": 22625,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:35.826966+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

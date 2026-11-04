@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-017",
+  "outcome": {
+    "answer": "The closest matches are [1], [2], and [3]. [1] directly targets long-context recall in linear-time sequence models and says it preserves long-range content much more effectively than prior linear-time baselines. [2] also focuses on linear-time sequence models and reports strong retrieval and associative recall, while [3] improves long-range memory in log-linear attention with input-dependent decay.",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "62208f8387c50082cc48dc9954dffde2945e3c7f83ad1b3d608256ad8ce7d8a2",
+  "usage": {
+    "accounted_tokens": 3633,
+    "input_tokens": 3537,
+    "latency_seconds": 2.360258300002897,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 96,
+    "provider_request_id": "req_b26d7abc53e94cb9b80accbeae16adc9",
+    "reasoning_tokens": 0,
+    "request_id": "336073f9-5ea4-44e1-9540-c941165c75bf",
+    "reserved_input": 22231,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:12.789877+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

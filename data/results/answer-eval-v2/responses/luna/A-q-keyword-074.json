@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answer": "The paper directly addressing distributional reinforcement learning in chaotic dynamics is \u201cOn Distributional Reinforcement Learning in Chaotic Dynamical Systems\u201d [1]. It argues that return distributions can evolve more regularly than individual trajectories under mild statistical stability assumptions, producing a smoother distributional Bellman objective and better-conditioned learning [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "50411e174979fe727c747bcee4440a5337c236ae8e218ec33001ce2e02de50de",
+  "usage": {
+    "accounted_tokens": 3541,
+    "input_tokens": 3461,
+    "latency_seconds": 3.0927561999997124,
+    "model": "gpt-6-luna",
+    "output_tokens": 80,
+    "provider_request_id": "req_65024e85faf443688eaca6f8571fd678",
+    "reasoning_tokens": 0,
+    "request_id": "2911b8df-7caa-4e27-9375-3ae570618129",
+    "reserved_input": 22876,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:10.549550+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

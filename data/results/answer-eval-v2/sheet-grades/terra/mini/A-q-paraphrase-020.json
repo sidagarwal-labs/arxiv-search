@@ -1,0 +1,29 @@
+{
+  "answer_id": "A189",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Decoupled split learning uses local loss signals rather than propagating gradients across the split.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The auxiliary classifier, transmitted activations, removed backward gradients, and roughly halved communication are reported.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Error Diffusion routes global errors without transporting transposed weights in a biologically plausible architecture.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

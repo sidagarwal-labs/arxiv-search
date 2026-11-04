@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-question-094",
+  "outcome": {
+    "answer": "The closest match is [10]: it measures learner knowledge acquisition with a pretest-posttest benchmark, using near- and far-transfer test sets so gains reflect learning rather than prior recall. [10] It is about evaluating AI-generated teaching slides and shows that instructional effectiveness can differ from visual polish, but it does not directly test whether a model can learn new rules or knowledge from a provided text in general. [10]",
+    "cited": [
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "652567f4638e49de93c35d39fcdc9e7b7b47a65af3ff78e25773397ab738b059",
+  "usage": {
+    "accounted_tokens": 3631,
+    "input_tokens": 3529,
+    "latency_seconds": 2.011500199994771,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 102,
+    "provider_request_id": "req_d13340523a7140a5baf72f2ea111bc6c",
+    "reasoning_tokens": 0,
+    "request_id": "36b74604-8524-462e-a321-c1395555e9af",
+    "reserved_input": 22639,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:19.763102+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

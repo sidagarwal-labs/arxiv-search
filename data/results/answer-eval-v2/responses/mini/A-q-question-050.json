@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-050",
+  "outcome": {
+    "answer": "Yes. ArcGD is a geometry-inspired optimizer that, on a highly non-convex Rosenbrock benchmark, consistently outperformed Adam under one matched-learning-rate setting and achieved superior final solutions in most cases under another [1]. EISAM is also geometry-based in the sense of using a prediction step that investigates the loss landscape, and it consistently outperformed Adam in test accuracy and training efficiency across benchmark datasets [6].",
+    "cited": [
+      1,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "d2fa20e93d91e4c9e50cac40cc254d9f136aee42a44437b89051a221398d89a8",
+  "usage": {
+    "accounted_tokens": 3957,
+    "input_tokens": 3854,
+    "latency_seconds": 1.959132599993609,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 103,
+    "provider_request_id": "req_295bca5f7dc14ed38d48d54422c0de0e",
+    "reasoning_tokens": 0,
+    "request_id": "942c7b24-a768-439b-aae7-37d14b4922af",
+    "reserved_input": 22943,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:27.569436+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

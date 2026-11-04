@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answer": "For converting dense retrieval into sparse retrieval, Latent Terms decomposes dense-retriever representations into sparse features suitable for BM25, without sparse-retrieval supervision [2]. LACONIC instead trains learned sparse retrievers to approach dense-model effectiveness while using less index memory [1]. Sparse autoencoders also underpin SPLARE, which learns sparse latent embeddings and reports gains in multilingual and out-of-domain settings [7].",
+    "cited": [
+      2,
+      1,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "1982722e5986fad0f566b70dc5358e6050a6b1948f91df305f5227514cb275c3",
+  "usage": {
+    "accounted_tokens": 3826,
+    "input_tokens": 3723,
+    "latency_seconds": 2.4443650000030175,
+    "model": "gpt-6-luna",
+    "output_tokens": 103,
+    "provider_request_id": "req_c6e6308ac824435a965afb21ae57c02c",
+    "reasoning_tokens": 0,
+    "request_id": "0e32554d-cee8-4a86-b0f9-b392d99007c8",
+    "reserved_input": 22385,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:47:31.837100+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

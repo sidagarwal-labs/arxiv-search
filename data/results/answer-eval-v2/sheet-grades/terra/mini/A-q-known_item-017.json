@@ -1,0 +1,29 @@
+{
+  "answer_id": "A096",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-017",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [1] lists Yang authors and the specified GraDE topic.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [1] describes the diffusion estimator, typicality scoring, and guided search.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [1] reports better ranking and substantially higher median frequency than sampling baselines.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-090",
+  "outcome": {
+    "answer": "For video watch-time prediction with mixture models, Hierarchical Exponential-Gaussian Mixtures for Watch-Time Distribution Prediction proposes HEGM to model the full conditional watch-time distribution and address mixture instability, including variance collapse and inactive or redundant components [1]. It reports improved ranking accuracy, threshold-event prediction, and mixture stability [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "1d00f6dcd6d81552023a2d972d872db2230ae3a3c0d67c346562799cc9ffb9c3",
+  "usage": {
+    "accounted_tokens": 3797,
+    "input_tokens": 3713,
+    "latency_seconds": 2.4941333000024315,
+    "model": "gpt-6-luna",
+    "output_tokens": 84,
+    "provider_request_id": "req_8bbca75eb0bf467d8767d88072bbe58e",
+    "reasoning_tokens": 0,
+    "request_id": "d120836e-f0e1-4431-b48d-0b5f8608c9f2",
+    "reserved_input": 23748,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:25.622398+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

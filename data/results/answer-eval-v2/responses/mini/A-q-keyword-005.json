@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-005",
+  "outcome": {
+    "answer": "Yes \u2014 [1] directly matches RL self-play for a strategy game: it trains a transformer with plain policy-gradient self-play for the strategy game Generals.io and reaches superhuman play. [2] is also relevant because it applies self-play RL to the board game Tablut, but it focuses on asymmetric board-game adaptations and stabilization rather than real-time strategy.",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "18c5e78e0d40c9a50c089266c0460715c089447a29e15f83c2982891128ae302",
+  "usage": {
+    "accounted_tokens": 3775,
+    "input_tokens": 3684,
+    "latency_seconds": 2.1026903000019956,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 91,
+    "provider_request_id": "req_ce38552eabfa4a6db73d2bbd51a9763a",
+    "reasoning_tokens": 0,
+    "request_id": "06757fb3-04df-41b3-8dc1-d888b31e4e66",
+    "reserved_input": 22659,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:01.096187+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

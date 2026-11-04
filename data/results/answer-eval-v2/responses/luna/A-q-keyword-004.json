@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-004",
+  "outcome": {
+    "answer": "The closest match is a computational study of political bias in Welsh media, focused on Nation.Cymru [1]. It applies NLP and sentiment analysis to political reporting and finds differential framing among parties, with Reform UK receiving more biased and negative framing and Plaid Cymru receiving more favourable framing in the broader analysis [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "db47d98d496c56b61426e54ebf98c71738cfd47a7f6566936c63c802933a5f3a",
+  "usage": {
+    "accounted_tokens": 3384,
+    "input_tokens": 3304,
+    "latency_seconds": 2.4391583999968134,
+    "model": "gpt-6-luna",
+    "output_tokens": 80,
+    "provider_request_id": "req_6dedd77f56484b5abbf03b90125cadf0",
+    "reasoning_tokens": 0,
+    "request_id": "f04756a1-b849-4208-b338-ae04c92a4a68",
+    "reserved_input": 22004,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:43:52.162600+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

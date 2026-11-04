@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-029",
+  "outcome": {
+    "answer": "None of these papers directly address Zhou wind bridge forecasting. The closest match is [9], which is about steerability with natural-language profiles for recommendation, and [4], which uses intent-guided reasoning for sequential recommendation.",
+    "cited": [
+      9,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "08c8f11662b82660d4bed5a2e090233a03764556baca0634ce80037b78132f52",
+  "usage": {
+    "accounted_tokens": 3564,
+    "input_tokens": 3491,
+    "latency_seconds": 1.7500912999967113,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 73,
+    "provider_request_id": "req_d0a6c43f321e427389efa1de3cf2d591",
+    "reasoning_tokens": 0,
+    "request_id": "452c03d3-f50c-4659-85f0-085f8c560ac4",
+    "reserved_input": 23250,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:32.238992+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

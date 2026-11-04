@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-072",
+  "outcome": {
+    "answer": "Tripti Shukla is a coauthor of HASTE, a generative recommendation framework using hierarchical and attribute-specific supervision [1]. HASTE applies supervision at each level of semantic IDs to speed convergence, and attribute-specific losses to improve item representations and recommendations, particularly for tail items [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "6dead2240c7b38896efd75c9ee76e03629ac4427e926dab266f5c1f2fffc4d3f",
+  "usage": {
+    "accounted_tokens": 3775,
+    "input_tokens": 3698,
+    "latency_seconds": 2.3003958000044804,
+    "model": "gpt-6-luna",
+    "output_tokens": 77,
+    "provider_request_id": "req_b1a9ea2a79c14392a44ee877179397f8",
+    "reasoning_tokens": 0,
+    "request_id": "fb4c4a9a-95b0-43c8-9184-ad33643939f3",
+    "reserved_input": 24487,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:16.852403+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

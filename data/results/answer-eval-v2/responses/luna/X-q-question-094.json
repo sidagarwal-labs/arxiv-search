@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-094",
+  "outcome": {
+    "answer": "The supplied papers do not directly measure whether a model can learn new rules or knowledge from a provided text. The closest is [10], which measures learner knowledge acquisition using pretest and posttest assessments, including near- and far-transfer tests, designed to distinguish learning from prior knowledge; it evaluates AI-generated teaching slides rather than a model learning from arbitrary text.",
+    "cited": [
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "75636f30a421509138ec704d259780d2e48f2b4cc83a78bff7a405a134f1002e",
+  "usage": {
+    "accounted_tokens": 3617,
+    "input_tokens": 3529,
+    "latency_seconds": 4.025164199993014,
+    "model": "gpt-6-luna",
+    "output_tokens": 88,
+    "provider_request_id": "req_91ecf889774d40ba8858ce6d7dec87d5",
+    "reasoning_tokens": 0,
+    "request_id": "76723f31-d20f-444d-9b27-2db64575173d",
+    "reserved_input": 22626,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:16.721570+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

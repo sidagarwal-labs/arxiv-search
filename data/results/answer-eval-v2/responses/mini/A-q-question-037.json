@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answer": "Internal representations of language models seem to correlate with human sentence effort in a layered way: early layers can model naturalistic reading-time difficulty, while later layers better estimate harder syntactic-ambiguity effort, though they still underestimate human cost [1]. More generally, human reading behavior is better explained by model features that capture meaningful information in LM representations, and by measures tied to surprisal or storage-like uncertainty over future context [2, 5].",
+    "cited": [
+      1,
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "e50988a98284d8ce3ce7b6251ce5bdd0036bfca34f7f6ae6e082c3c54cbdc577",
+  "usage": {
+    "accounted_tokens": 3543,
+    "input_tokens": 3436,
+    "latency_seconds": 2.2252740999974776,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 107,
+    "provider_request_id": "req_e82a2b3ab1e345569e399b9ef92499d0",
+    "reasoning_tokens": 0,
+    "request_id": "0fbb5702-dfa0-4fef-8029-b5a35601505d",
+    "reserved_input": 22164,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:16.047981+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

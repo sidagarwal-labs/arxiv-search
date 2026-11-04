@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-032",
+  "outcome": {
+    "answer": "The closest match is [1], which uses measured real device behavior to optimize multi-market participation for a battery and an electrolyser in Danish electricity and ancillary service markets. [1] It explicitly incorporates ramp limits, efficiency, and setpoint-tracking accuracy from experiments to improve daily profit, but it is about battery and power-to-x systems rather than power conversion tools and cells specifically. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "7862ac07e5b19b69fab446307e6625d96e34c8146178e705c97fd074c8e29c20",
+  "usage": {
+    "accounted_tokens": 3537,
+    "input_tokens": 3440,
+    "latency_seconds": 2.2123203999944963,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 97,
+    "provider_request_id": "req_c5b3e45200584451b3100e586178de96",
+    "reasoning_tokens": 0,
+    "request_id": "43151b5c-93d4-470a-94b6-959e205fd3d5",
+    "reserved_input": 22116,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:16.890125+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

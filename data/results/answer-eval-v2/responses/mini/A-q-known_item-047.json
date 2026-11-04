@@ -1,0 +1,38 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-047",
+  "outcome": {
+    "answer": "The matching paper is [1], \u201cFast and Geometrically Grounded Lorentz Neural Networks,\u201d by Robert van der Klis and coauthors. It directly addresses Lorentz neural networks and the Lorentz model of hyperbolic space, proposing a new Lorentz linear layer, Lorentzian activation functions, and a caching strategy to make the networks both geometrically faithful and computationally efficient [1].\n\nThe other papers are about different topics, such as Clifford algebra networks [2], quadratic neural networks [3, 4], neural operators [6, 7], learning dynamics and scaling laws [8, 9], and long-horizon dynamical prediction [10].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "280523763499f7d6e9704b0e604a9ca3400a37f8dcf25e5d47f8cb6cbb5d0a0a",
+  "usage": {
+    "accounted_tokens": 3565,
+    "input_tokens": 3409,
+    "latency_seconds": 2.352517199993599,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 156,
+    "provider_request_id": "req_2420d50284c749b8a545674fe699bcf1",
+    "reasoning_tokens": 0,
+    "request_id": "3187e5d7-0706-418a-a878-2eb5258f4192",
+    "reserved_input": 21625,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:21.017405+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

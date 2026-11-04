@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answer": "DeCode is a training-free, model-agnostic framework that separates answer content from delivery to make medical QA responses better suited to individual patient contexts. On HealthBench, it improved zero-shot performance from 28.4% to 49.8% [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5acffe122e8641874bfe420c4840f401c5299dec9452bea3f46bff40855e81a2",
+  "usage": {
+    "accounted_tokens": 3751,
+    "input_tokens": 3679,
+    "latency_seconds": 2.15909680002369,
+    "model": "gpt-6-luna",
+    "output_tokens": 72,
+    "provider_request_id": "req_4c280a0180f4415b83d8791eea47e44d",
+    "reasoning_tokens": 0,
+    "request_id": "2a4bdf56-e57f-4404-adf4-77dfc923167e",
+    "reserved_input": 22186,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:06.666340+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

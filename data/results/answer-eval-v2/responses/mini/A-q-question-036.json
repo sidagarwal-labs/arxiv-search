@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-036",
+  "outcome": {
+    "answer": "The closest match is [1], which directly addresses how providers can understand why their items do or do not get exposure in recommendation lists by explaining item exposure at a system level. [1] It proposes a surrogate model that approximates the exposure distribution of a recommender and uses feature contributions to identify the factors driving recommendation decisions across users. [1]\n\nIf you want broader diagnostic tools, [2] frames recommender observability as a counterfactual measurement problem for content creators and model developers, and [5] describes an agentic system that surfaces patterns in where recommendations perform well or poorly. [2, 5]",
+    "cited": [
+      1,
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "13f0d2ef2d8e4bad01673926180f71ef29a08f9b3adee626d7da786a3552080f",
+  "usage": {
+    "accounted_tokens": 3684,
+    "input_tokens": 3539,
+    "latency_seconds": 2.290226500015706,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 145,
+    "provider_request_id": "req_e42908bf2fc549f6ba5ae2c81ee458a8",
+    "reasoning_tokens": 0,
+    "request_id": "750dc2eb-f96d-43e0-ba2b-d020f0a25892",
+    "reserved_input": 23014,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:13.741073+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

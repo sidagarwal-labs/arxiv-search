@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answer": "The closest matches are [2] and [4]. [2] proposes AWARe for MLLMs, which assigns activation-based importance scores to parameters and selectively freezes those essential for preserving prior capabilities while adapting less important ones. [4] proposes Model-Dowser for MLLMs, which scores each parameter using weight magnitudes, input activations, and output sensitivities, then preserves high-importance parameters during fine-tuning to mitigate catastrophic forgetting.",
+    "cited": [
+      2,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5ab4483cebd670d25d8252799b67e732152b0a0d647b47ff45c4bd78a7c213af",
+  "usage": {
+    "accounted_tokens": 3793,
+    "input_tokens": 3684,
+    "latency_seconds": 2.0227741000126116,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 109,
+    "provider_request_id": "req_14449531c95c4b37be08d4060e872e5c",
+    "reasoning_tokens": 0,
+    "request_id": "8c993eb5-142c-4881-8ad9-2d125c061aa1",
+    "reserved_input": 22622,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:24.618179+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

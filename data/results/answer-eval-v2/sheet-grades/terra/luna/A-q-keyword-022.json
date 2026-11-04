@@ -1,0 +1,29 @@
+{
+  "answer_id": "A226",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "StageMem makes retention consequence explicit as strength across lifecycle pressure points.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "MARS tracks preference strength and evidence and includes reinforcement and weakening.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Oblivion reinforces contributing memories; REALM reconsolidates using retrieval feedback.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

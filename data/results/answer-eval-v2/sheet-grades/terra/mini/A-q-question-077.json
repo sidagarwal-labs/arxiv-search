@@ -1,0 +1,29 @@
+{
+  "answer_id": "A154",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Textbook GNNs transfer zero-shot to unseen graphs using a reified fixed-vocabulary representation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Five textbook GNNs transfer across benchmarks and the best GAT matches ULTRA.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "gHAWK is GNN-based, but the QUEST abstract does not establish that its link-prediction pipeline uses a GNN.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

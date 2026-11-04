@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answer": "The closest way to measure this is to test whether the model can reliably apply externally provided rules in new contexts, using benchmarks that compare performance on rule-based learning versus example-based learning [1, 2, 3, 4]. One paper introduces a benchmark for step-level procedural rule reasoning and evaluates single-rule, multi-rule, and multi-hop settings to measure how well models understand and use given rules [2]. Another shows that models can learn unseen rules in a controlled setting where interpolation fails, which helps separate genuine rule learning from pattern matching [3]. A broader probe suite also measures limits on what text-trained models can learn, including cases where rules are non-identifiable or unreachable by standard training [4].",
+    "cited": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "d6ce344c804b293dc45b69cac72ddc5ecb4baa1b223fcc072cadfae894d5db34",
+  "usage": {
+    "accounted_tokens": 3785,
+    "input_tokens": 3625,
+    "latency_seconds": 2.6585458000190556,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 160,
+    "provider_request_id": "req_023c3fd5a4d647e2929cd588bf3d85a0",
+    "reasoning_tokens": 0,
+    "request_id": "8f8cb694-bd78-4143-b53f-444312cacd51",
+    "reserved_input": 22671,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:01:56.886962+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

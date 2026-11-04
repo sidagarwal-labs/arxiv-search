@@ -1,0 +1,34 @@
+{
+  "answer_id": "A139",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-019",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and abstract directly address alignment across sociodemographic groups.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The demographic comparisons are supported, but broad alignment is reported for leading models, not all LLMs.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited studies examine group opinion alignment and sycophancy, and sociodemographic persona cues.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The corpus enables framing comparisons and future alignment audits, but does not report measuring alignment.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

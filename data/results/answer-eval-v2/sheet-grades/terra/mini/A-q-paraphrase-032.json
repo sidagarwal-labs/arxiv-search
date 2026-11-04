@@ -1,0 +1,29 @@
+{
+  "answer_id": "A255",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-032",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper uses measured device behavior for Danish battery and electrolyser market optimization.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Measured characteristics and profit optimization are supported; improvement over a baseline is not established.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "This sentence contains only a citation label.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

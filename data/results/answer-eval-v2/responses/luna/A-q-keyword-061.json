@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answer": "For robust chatbot intent classification, attention pooling is recommended for noisy conversational inputs, while mean pooling can degrade accuracy [2]. Training-free approaches are generally more robust to mixed-intent and adversarial prompts, while training-based classifiers have an advantage on harder classification tasks [3]. For detecting unknown intents, EliDecide uses flexible ellipsoid boundaries and reports strong open-intent detection [4].",
+    "cited": [
+      2,
+      3,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "66bcfa8b9e133f3957c474687b1564d9df578b683e739557ca46ffdcc88e48fd",
+  "usage": {
+    "accounted_tokens": 3875,
+    "input_tokens": 3557,
+    "latency_seconds": 4.369156600005226,
+    "model": "gpt-6-luna",
+    "output_tokens": 318,
+    "provider_request_id": "req_3cd63cc628374557b63b67beae1b6b6d",
+    "reasoning_tokens": 0,
+    "request_id": "e92dcb80-ece5-472d-b510-3465e7c9b17b",
+    "reserved_input": 22471,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:47:34.298244+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

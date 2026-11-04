@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-096",
+  "outcome": {
+    "answer": "None of the supplied papers addresses Qiao or variable-length semantic IDs; the closest is [2], which describes a scientific generative language model that represents objects and interactions as token sequences over a shared vocabulary.",
+    "cited": [
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "84823fc85d61605d23ee2e6199bf932c80ee1b9ee5154dfc7fef1bb576b8075e",
+  "usage": {
+    "accounted_tokens": 3777,
+    "input_tokens": 3719,
+    "latency_seconds": 1.9034644000057597,
+    "model": "gpt-6-luna",
+    "output_tokens": 58,
+    "provider_request_id": "req_002bd3889f1549e89fd2e92941ae4df9",
+    "reasoning_tokens": 0,
+    "request_id": "4816e6a4-c7a7-458a-a4fd-47ec466be2ac",
+    "reserved_input": 24100,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:12.697316+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

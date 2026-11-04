@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-094",
+  "outcome": {
+    "answer": "The best match is [1], which improves detailed image captioning by using one shared vision-language model to act as the caption policy, rubric generator, and rubric judge. [1] It builds rubrics online from sampled captions and image evidence, and it uses an exponential moving average of the policy parameters to update a shared momentum model for the generator and judge, so the rubric roles track policy updates smoothly. [1]\n\nThe closest related paper is [2], but it focuses on evaluating image descriptions by separating specificity from length rather than on generating and checking rubric-based captions with a shared moving-average model. [2]",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "1525b1800b13cb310afb2949f466a12afefe832a1645d7b67b81e2a76d667108",
+  "usage": {
+    "accounted_tokens": 3764,
+    "input_tokens": 3621,
+    "latency_seconds": 2.4030448000121396,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 143,
+    "provider_request_id": "req_e642e0fc96ba43fba012e73673c8ce17",
+    "reasoning_tokens": 0,
+    "request_id": "00537f82-2087-42bf-9632-5835698bfeb0",
+    "reserved_input": 22906,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:51.912998+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answer": "The closest matches are papers on regional-language social media and dialect variation in Bengali and Tulu [2, 4, 6, 7, 8]. [2] and [7] analyze Bengali or Tulu social media comments for classification tasks, while [4] studies place-linked language variation in social media communities. [6] focuses on regional dialect identification in Bangla text, and [8] shows that code-switched social-media data can be sparse and challenging for language models.",
+    "cited": [
+      2,
+      4,
+      6,
+      7,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "a34fb5473fb14190482773fa85d3d13d4acee408bd2cec66f8ad633242df30a2",
+  "usage": {
+    "accounted_tokens": 3592,
+    "input_tokens": 3475,
+    "latency_seconds": 2.3372422000102233,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 117,
+    "provider_request_id": "req_eb51138afff44c1c8a085b33445f5404",
+    "reasoning_tokens": 0,
+    "request_id": "9e0f0a41-71e5-4146-b89c-9dc9d5b40d6b",
+    "reserved_input": 21557,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:47.472396+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

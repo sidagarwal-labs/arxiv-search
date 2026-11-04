@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-070",
+  "outcome": {
+    "answer": "Chenrun Wang is a coauthor of LigBench, a benchmark for fine-grained, consistent evaluation of LLM-generated research ideas [1]. The paper also introduces PAIR-IQ, a dataset for training pairwise idea-judgment models, and reports that LigBench\u2019s evaluations align more closely with expert judgments [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "bc8d8f0fdac6cee28a7a10f1e327677e39224ca1d4b133cbe133f5f4ceb01b89",
+  "usage": {
+    "accounted_tokens": 3753,
+    "input_tokens": 3669,
+    "latency_seconds": 2.32798040000489,
+    "model": "gpt-6-luna",
+    "output_tokens": 84,
+    "provider_request_id": "req_56cb1055e3b04504a2e6a35d09b9fbad",
+    "reasoning_tokens": 0,
+    "request_id": "a559f5f4-8dde-4977-90fd-803dafe53c27",
+    "reserved_input": 23399,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:14.504217+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

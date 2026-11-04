@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-026",
+  "outcome": {
+    "answer": "Philipp Altmann is a coauthor of \u201cQuantum Generator Kernels\u201d [1]. The paper proposes a generator-based quantum-kernel approach using Variational Generator Groups and a trainable weight vector to adapt projections to the data context [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "6afe8c7ef73430c7d67728ab1ffaffc4be6f0064b38ffabab269d67564e3f6dc",
+  "usage": {
+    "accounted_tokens": 4391,
+    "input_tokens": 4324,
+    "latency_seconds": 1.94865249999566,
+    "model": "gpt-6-luna",
+    "output_tokens": 67,
+    "provider_request_id": "req_2a542d6851a741f8b27052ec1328e8fb",
+    "reasoning_tokens": 0,
+    "request_id": "4ec78fdf-ef36-4776-add8-e2606b0d1f8b",
+    "reserved_input": 24744,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:38.326117+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

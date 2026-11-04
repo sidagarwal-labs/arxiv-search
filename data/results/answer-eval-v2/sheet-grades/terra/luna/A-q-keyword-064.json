@@ -1,0 +1,24 @@
+{
+  "answer_id": "A138",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and abstract identify a public spontaneous regional Bengali corpus for analysis and ASR.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "BanglaTalk evaluates dialect-aware ASR across ten regional dialects on RegSpeech12.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

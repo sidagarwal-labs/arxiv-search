@@ -1,0 +1,39 @@
+{
+  "answer_id": "A172",
+  "candidate": "v1-gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no separate factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The title and abstract describe a public dialect speech corpus and its research purposes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "BanglaTalk evaluates dialect-aware ASR on RegSpeech12 across ten regional dialects.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited resources are regional dialect text datasets rather than speech corpora.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "BanglaTurn uses conversational podcast speech; regional dialect coverage is not specified.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

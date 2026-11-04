@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-036",
+  "outcome": {
+    "answer": "The closest matches are [1] and [2]. [1] compares legal-domain fine-tuning of multilingual embedding models and finds consistent retrieval gains across low- and high-resource languages, with cross-lingual transfer to unseen languages. [2] compares a base retriever, a legal-only fine-tuned model, and a mixed legal-plus-general setup, showing a trade-off between stronger specialization and better robustness across different legal search types and an out-of-domain benchmark.",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "a0f4bd0639244052bde0d12ba25214115dcd06e12bdaba101f6c6454e9e796cd",
+  "usage": {
+    "accounted_tokens": 3582,
+    "input_tokens": 3471,
+    "latency_seconds": 1.914970000012545,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 111,
+    "provider_request_id": "req_0ccffdbda86b49a6ae589191a69a1f89",
+    "reasoning_tokens": 0,
+    "request_id": "68eabf19-c871-4ccc-bc9b-14cdd348d37c",
+    "reserved_input": 21404,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:19.121385+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

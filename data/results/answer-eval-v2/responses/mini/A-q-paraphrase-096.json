@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-096",
+  "outcome": {
+    "answer": "The closest matches are [1], [3], [6], and [9]. [1] and [9] describe hierarchical tree-based retrieval for long documents, using chunk trees or summary trees to connect queries to relevant chunks. [3] also builds a hierarchical tree over chunks and uses hierarchical beam search to retrieve candidates at multiple granularities, which helps capture multi-sentence relevance beyond flat retrieval. [6] is more about exploring corpora with evidence-grounded hierarchical topic maps, linking documents to topics through supporting spans rather than retrieval for QA.",
+    "cited": [
+      1,
+      3,
+      6,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "1591ea51d208df57e9f4490e48ca5f8b48e12677084866f669af9dd2ec91df0c",
+  "usage": {
+    "accounted_tokens": 3705,
+    "input_tokens": 3578,
+    "latency_seconds": 2.4668613000249024,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 127,
+    "provider_request_id": "req_1a24ec3fa23f40caa9c0b1038ca6368b",
+    "reasoning_tokens": 0,
+    "request_id": "7b04a934-cd93-4cbf-9907-def87b976bd8",
+    "reserved_input": 22747,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:54.337564+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

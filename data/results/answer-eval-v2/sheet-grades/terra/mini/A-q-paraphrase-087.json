@@ -1,0 +1,39 @@
+{
+  "answer_id": "A213",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-087",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "BubbleRAG tackles optimal informative subgraph retrieval, but its heuristic pipeline is not proven to find optimal solutions.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "The listed stages aim to improve retrieval recall and precision.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Comparative selection framing.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S4",
+        "reason": "The retrieval descriptions are supported, but the abstract does not establish that GFM-Retriever requires training at retrieval time.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "A standalone citation contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

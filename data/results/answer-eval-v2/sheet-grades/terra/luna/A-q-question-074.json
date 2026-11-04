@@ -1,0 +1,24 @@
+{
+  "answer_id": "A044",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Angle conversion and performance are described, but comparative effects on stability are not established.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper gives both norm-preserving retractions, the parameterized family, and the finite-parameter result.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

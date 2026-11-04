@@ -1,0 +1,24 @@
+{
+  "answer_id": "A130",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-090",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "HEGM models watch-time distributions and addresses the listed mixture failure modes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports better ranking, threshold-event prediction, and mixture stability.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

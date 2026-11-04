@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answer": "For MLLM parameter importance and freezing, AWARe scores parameters from activation patterns and selectively freezes those important for retaining prior capabilities while updating less important parameters [2]. Model-Dowser instead combines weight magnitudes, input activations, and output sensitivities to score parameters, preserving high-importance ones during sparse fine-tuning [4].",
+    "cited": [
+      2,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "eede534139178e11e3a9b36db112f1e4697c6078eef20c071ace6734f067356d",
+  "usage": {
+    "accounted_tokens": 3771,
+    "input_tokens": 3684,
+    "latency_seconds": 2.387790300010238,
+    "model": "gpt-6-luna",
+    "output_tokens": 87,
+    "provider_request_id": "req_e28861fc7e1d4da49c2bedbf583fa4a5",
+    "reasoning_tokens": 0,
+    "request_id": "19d11bf0-f4bc-47cd-ae87-f14fa6e0c429",
+    "reserved_input": 22609,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:47:24.460467+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

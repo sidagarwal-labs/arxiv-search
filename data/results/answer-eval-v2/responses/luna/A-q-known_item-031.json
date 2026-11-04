@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-031",
+  "outcome": {
+    "answer": "The closest match is \u201cTowards Multidisciplinary Summarization of Hospital Stays: Efficient Sentence-Level Clinical Provenance Categorization\u201d [1]. It presents a supervised pipeline for categorizing sentence-level provenance in clinical notes and evaluates transfer from adult ICU notes to multidisciplinary NICU summaries [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "f16b99deb89e504f6e900384529b396208fc3c5c2bccac50b4a2199145ba294c",
+  "usage": {
+    "accounted_tokens": 4234,
+    "input_tokens": 4158,
+    "latency_seconds": 2.326534799998626,
+    "model": "gpt-6-luna",
+    "output_tokens": 76,
+    "provider_request_id": "req_4d3dd01f48554b5f99597419483d9359",
+    "reasoning_tokens": 0,
+    "request_id": "289654e0-1c25-42ae-8947-03081cc16ddd",
+    "reserved_input": 25005,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:42.700256+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

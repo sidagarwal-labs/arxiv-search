@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answer": "Language-model representations correlate with human sentence-processing effort, but the best-aligned layers depend on the kind of reading. For naturalistic reading, earlier layers model processing behavior; for syntactically challenging ambiguity, later layers better estimate human effort, though they still underestimate it [1].\n\nOther evidence links model signals to human brain responses: language-model features and surprisal predict neural responses, with general-purpose representation features contributing beyond surprisal in some regions [2]. Reading-time studies also find that model surprisal tracks human behavior and that long-range coreference can improve its predictions [4].",
+    "cited": [
+      1,
+      2,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "52722bc4c239a5cf000b6878f5ffa6f2c889d3fa4edf3daba979398eae43d90f",
+  "usage": {
+    "accounted_tokens": 3573,
+    "input_tokens": 3436,
+    "latency_seconds": 3.2349050999910105,
+    "model": "gpt-6-luna",
+    "output_tokens": 137,
+    "provider_request_id": "req_849bb8f38aee4e10ab55db7eb345fc72",
+    "reasoning_tokens": 0,
+    "request_id": "bcdbcdd1-48cd-4fec-a35b-795618697641",
+    "reserved_input": 22151,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:02.269535+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

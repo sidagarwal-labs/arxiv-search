@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-097",
+  "outcome": {
+    "answer": "Yes\u2014[1] is the closest match. It studies self-training data built by strategically diverse sampling instead of filtering mainly for correctness, and reports that diverse, even incorrect, traces can outperform IID distillation. [3] is also close: it proposes a one-problem-multiple-solutions paradigm and curates maximally diverse solution sets to improve reasoning diversity and pass@k. [2] is related but focuses more on preserving multiple correct solution modes during RLVR than on choosing varied ways to solve a problem in self-training.",
+    "cited": [
+      1,
+      3,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "c018bf31d76948435fed8b4fa7b16fa91f50c620290e49b62c71ae0190bffa3d",
+  "usage": {
+    "accounted_tokens": 3771,
+    "input_tokens": 3647,
+    "latency_seconds": 2.82536170000094,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 124,
+    "provider_request_id": "req_2ad67496e16543cc89406a025c923200",
+    "reasoning_tokens": 0,
+    "request_id": "8e6b64b1-da1c-4e4b-a722-fec6e8400a3f",
+    "reserved_input": 22125,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:56.824281+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

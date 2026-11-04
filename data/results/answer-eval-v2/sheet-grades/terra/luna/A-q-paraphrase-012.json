@@ -1,0 +1,29 @@
+{
+  "answer_id": "A041",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-012",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "DACT identifies item-level drift, fine-tunes the tokenizer, and selectively reassigns codes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Refreshed IDs are aligned to the vocabulary to permit warm-start fine-tuning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "DACT uses item-level drift; SID alignment preserves retriever compatibility.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

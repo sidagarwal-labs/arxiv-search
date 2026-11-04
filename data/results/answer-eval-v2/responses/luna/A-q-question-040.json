@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-040",
+  "outcome": {
+    "answer": "Tool specifications can be used directly to generate synthetic agent test cases: extract meaning from function names, descriptions, and typed parameter schemas, enrich the schemas, create graded scenarios with synthetic tool outputs, and expand them into mock-data-grounded multi-turn dialogues [1]. The method can work from a single specification without examples, live tool access, or domain-specific tuning; its evaluation checks tool-calling correctness and conversational coherence, with argument-value accuracy a key weakness to inspect [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "cdf35837983e8ca53a5a93a66602f1a68c5fe767d951a864054206d9c1b0659d",
+  "usage": {
+    "accounted_tokens": 3792,
+    "input_tokens": 3679,
+    "latency_seconds": 2.4208365000085905,
+    "model": "gpt-6-luna",
+    "output_tokens": 113,
+    "provider_request_id": "req_e91167b64dc2468499583c050d16977e",
+    "reasoning_tokens": 0,
+    "request_id": "a2fc8725-5164-4b93-8933-18614e41ce9a",
+    "reserved_input": 23333,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:08.679879+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

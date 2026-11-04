@@ -131,6 +131,21 @@ class TaskLedger(api.Ledger):
         return request_id
 
 
+def final_parts(output: list) -> list[dict]:
+    """Content parts of the reply's messages; GPT-6 drafts in a commentary phase first."""
+    messages = [item for item in output if item.get("type") == "message"]
+    if any(item.get("phase") for item in messages):
+        messages = [item for item in messages if item.get("phase") == "final_answer"]
+    return [part for item in messages for part in item.get("content", [])]
+
+
+def structured_text(parts: list[dict]) -> str:
+    texts = [part["text"] for part in parts if part.get("type") == "output_text"]
+    if len(texts) != 1:
+        raise ValueError("Expected one structured response")
+    return texts[0]
+
+
 def call_once(encoded: bytes, ledger: TaskLedger, *, validate, attempt_key: str | None = None,
               failure_path: Path | None = None) -> tuple[object, dict]:
     """Send one structured-output request; validate; record usage. Never retries."""
@@ -157,7 +172,12 @@ def call_once(encoded: bytes, ledger: TaskLedger, *, validate, attempt_key: str 
     provider_id = response.headers.get("x-request-id")
     if response.status_code != 200:
         ledger.finish(request_id, f"http_{response.status_code}", elapsed, provider_request_id=provider_id)
-        raise api.OpenAIError(f"HTTP {response.status_code}; reservation retained; no retry")
+        try:
+            error = response.json().get("error") or {}
+            reason = f" {error.get('type')}/{error.get('code')}"
+        except (ValueError, AttributeError):
+            reason = ""
+        raise api.OpenAIError(f"HTTP {response.status_code}{reason}; reservation retained; no retry")
     try:
         body = response.json()
         usage = api._usage(body)
@@ -171,15 +191,11 @@ def call_once(encoded: bytes, ledger: TaskLedger, *, validate, attempt_key: str 
             raise ValueError("Incomplete response")
         if not str(body.get("model", "")).startswith(model):
             raise ValueError("Response came from a different model")
-        parts = [part for item in body.get("output", []) if item.get("type") == "message"
-                 for part in item.get("content", [])]
+        parts = final_parts(body.get("output", []))
         if any(part.get("type") == "refusal" for part in parts):
             status = "refused"
             raise ValueError("Refused response")
-        texts = [part["text"] for part in parts if part.get("type") == "output_text"]
-        if len(texts) != 1:
-            raise ValueError("Expected one structured response")
-        answer = validate(json.loads(texts[0]))
+        answer = validate(json.loads(structured_text(parts)))
     except (ValueError, TypeError, KeyError, AttributeError) as error:
         if status == "completed":
             status = "invalid_answer"

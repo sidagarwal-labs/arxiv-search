@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-072",
+  "outcome": {
+    "answer": "HASTE [1] is the direct match: it is a generative recommendation method that explicitly adds hierarchical supervision, along with attribute-level supervision, to improve training efficiency and long-tail performance. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "01dc6a9997b98369ab83b1396e4ec365755d53d23bc5758e36ac3382898cfbd0",
+  "usage": {
+    "accounted_tokens": 3757,
+    "input_tokens": 3698,
+    "latency_seconds": 2.3258553000050597,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 59,
+    "provider_request_id": "req_92564e9c9b54486bade7350dc0208c92",
+    "reasoning_tokens": 0,
+    "request_id": "4df18633-9590-4d91-ad6d-4652629f2dba",
+    "reserved_input": 24500,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:59:42.416890+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

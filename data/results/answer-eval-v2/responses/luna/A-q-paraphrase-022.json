@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answer": "[2] is the closest match: it combines structured supervised fine-tuning with Direct Preference Optimization to detect polarization in social media text, using slots for target, claim type, manifestation checklist, and justification. It addresses polarization detection rather than explicitly predicting a user's left-right political leaning [2]. For political leaning in social posts, [1] studies stance detection in informal political discourse using user-profile context, while [4] predicts a text's left-to-right orientation and includes tweets in its data.",
+    "cited": [
+      2,
+      1,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "37dd97b6c46a374b05334af33d4720bd401fb67273211b0f4424a9de3ca2b423",
+  "usage": {
+    "accounted_tokens": 3532,
+    "input_tokens": 3299,
+    "latency_seconds": 3.3259988999925554,
+    "model": "gpt-6-luna",
+    "output_tokens": 233,
+    "provider_request_id": "req_998013a5a292467097b398b0a970f688",
+    "reasoning_tokens": 0,
+    "request_id": "6dbe2374-d28c-4f6a-b4b8-7263f39fc9d6",
+    "reserved_input": 21308,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:46.740207+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

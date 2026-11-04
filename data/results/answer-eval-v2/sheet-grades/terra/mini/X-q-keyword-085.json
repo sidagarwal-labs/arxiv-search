@@ -1,0 +1,24 @@
+{
+  "answer_id": "A146",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-keyword-085",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The sentence makes an uncited factual claim about the supplied papers.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The papers concern self-supervised weather modeling and an energy-forecast explanation layer, not consciousness.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

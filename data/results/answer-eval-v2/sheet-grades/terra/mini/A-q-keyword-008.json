@@ -1,0 +1,34 @@
+{
+  "answer_id": "A204",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-008",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "RuleXplain uses LLMs and symbolic temporal rules to explain delayed time-series relationships.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The simulator generates counterfactual inputs, which are clustered to generate verifiable rules.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited related papers cover interventional causal discovery and causal forecasting alignment.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "A standalone citation contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

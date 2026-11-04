@@ -1,0 +1,35 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-077",
+  "outcome": {
+    "answer": "The closest matches are [1], [2], [3], [5], [7], and [9]. [1], [2], and [3] are about low-precision FP4 training for large language models, with [1] focusing on comparative training recipes, [2] on adaptive block scaling to reduce quantization error, and [3] on transposition-invariant block quantization for stable end-to-end FP4 training. [7] addresses distributed training with low-bit activations and gradients to reduce memory and communication, while [9] covers dynamic precision allocation for quantization-aware training. [5] provides a broader comparison of FP and INT formats, including 4-bit cases, but it is not specifically about private devices.",
+    "cited": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "2047271ecc6f41d17c5cdbf14825127c67f4df6faf3ff4802f61ea84afc79c96",
+  "usage": {
+    "accounted_tokens": 3960,
+    "input_tokens": 3792,
+    "latency_seconds": 2.637740500009386,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 168,
+    "provider_request_id": "req_640eee303be14a48974bfeacde299eaf",
+    "reasoning_tokens": 0,
+    "request_id": "167edd17-7ff1-48b4-969d-452b882db242",
+    "reserved_input": 22741,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:38.887739+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

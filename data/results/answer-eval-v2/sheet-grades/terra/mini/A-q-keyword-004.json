@@ -1,0 +1,39 @@
+{
+  "answer_id": "A148",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-004",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper applies an NLP pipeline to Nation.Cymru political reporting.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports more negative Reform UK framing and more favorable Plaid Cymru framing.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The comparison finds RoBERTa best aligned among traditional transformer-based baselines.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited abstracts cover related political bias and partisanship, without focusing specifically on Wales.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "A standalone citation makes no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

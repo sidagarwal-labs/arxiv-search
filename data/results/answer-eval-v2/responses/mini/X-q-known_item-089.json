@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-089",
+  "outcome": {
+    "answer": "None of these papers directly address fairness limits. The closest are [8], which discusses governable personalization and issues of transparency, privacy, ownership, and accountability, and [4], which constrains personalized knowledge transfer to avoid harming recommendations. [8] is about future personalization design rather than fairness limits specifically, and [4] is about bounded performance degradation rather than fairness.",
+    "cited": [
+      8,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "8bb55cb3f1a65a3a31f3b3d8c9f91194b417b29eb4eeb05c670118a528fc9608",
+  "usage": {
+    "accounted_tokens": 3408,
+    "input_tokens": 3311,
+    "latency_seconds": 2.187067200022284,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 97,
+    "provider_request_id": "req_c3e2201058d2482b908f4bb225aaa965",
+    "reasoning_tokens": 0,
+    "request_id": "5833cf8d-6095-4e64-b34c-9de81bb2de89",
+    "reserved_input": 22119,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:23.654134+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

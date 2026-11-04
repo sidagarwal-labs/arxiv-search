@@ -1,0 +1,35 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answer": "Several papers describe automated clustering for discovering topics or communities. ClusterFusion combines embedding-guided partitioning with LLM topic summarization and assignment [1], while TriTopic uses a graph combining semantic embeddings, TF-IDF, and metadata with consensus clustering [2]. Other topic-discovery approaches include multilingual embedding and density-based clustering [3], adaptive dimensionality reduction with embedding clustering [5], and hierarchical density modeling that reveals topics at multiple scales [8].\n\nFor community clustering specifically, an unsupervised graph-based system detects communities of arguments using relationships such as topic similarity and shared keywords [7].",
+    "cited": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "2c0b9415555885182e901f20adb2075397d054f851cd24d54f8f01e0a7439048",
+  "usage": {
+    "accounted_tokens": 3656,
+    "input_tokens": 3517,
+    "latency_seconds": 3.0629339999868535,
+    "model": "gpt-6-luna",
+    "output_tokens": 139,
+    "provider_request_id": "req_980dfacf276645758757862a3073f578",
+    "reasoning_tokens": 0,
+    "request_id": "f01dc424-8a77-46fe-8d79-69343d87b2ba",
+    "reserved_input": 22992,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:44:04.078693+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

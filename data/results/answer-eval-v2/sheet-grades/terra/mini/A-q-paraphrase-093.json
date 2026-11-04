@@ -1,0 +1,34 @@
+{
+  "answer_id": "A107",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-093",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This is a comparative selection of papers, not a substantive factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [1] uses intent-aware segmentation; [9] adapts retrieval granularity rather than grouping snippets into blocks.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [3] selects chunking methods; [8] structures processing of engineering manuals.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper [2] exploits hyperlinks in HTML technical documentation for retrieval.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

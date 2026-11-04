@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-057",
+  "outcome": {
+    "answer": "None of these papers directly address dense-to-sparse retrieval. The closest papers concern subword tokenization for Hinglish sentiment analysis [3] and tokenizer efficiency in multilingual language models [10], not retrieval.",
+    "cited": [
+      3,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "bb41bc60890dec30cd7201f45325ac77eb865716a61c970e8bfc23fb0b7a1b04",
+  "usage": {
+    "accounted_tokens": 3533,
+    "input_tokens": 3475,
+    "latency_seconds": 2.2303192999970634,
+    "model": "gpt-6-luna",
+    "output_tokens": 58,
+    "provider_request_id": "req_6da6a74eb5c044d6a04b8e395cf26832",
+    "reasoning_tokens": 0,
+    "request_id": "dd564ef4-a21f-4fc4-b459-a52582836e16",
+    "reserved_input": 21539,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:57:56.311954+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

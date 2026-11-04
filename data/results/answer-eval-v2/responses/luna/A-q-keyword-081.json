@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answer": "For LLM-based prediction of item popularity for recommendation, TRAIL jointly predicts short-term popularity and generates natural-language explanations, using contrastive learning to align predictions with trend signals [1]. It reports outperforming strong baselines [1]. Related work uses popularity as a signal for selective LLM ranking supervision, activating it when the model predicts the LLM is reliable [3], while another LLM recommendation framework addresses popularity bias to improve fairness and accuracy [8].",
+    "cited": [
+      1,
+      3,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "fc916950119395c4ea3bcc2a1294f69aea2319d94582f913b1126bbcff8924bb",
+  "usage": {
+    "accounted_tokens": 3522,
+    "input_tokens": 3412,
+    "latency_seconds": 2.9244089999992866,
+    "model": "gpt-6-luna",
+    "output_tokens": 110,
+    "provider_request_id": "req_ec992cee06ad40698d9d1bdba58250c4",
+    "reasoning_tokens": 0,
+    "request_id": "9f1f67e9-1e22-4866-88c2-f011a4ca2f58",
+    "reserved_input": 23028,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:19.125139+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

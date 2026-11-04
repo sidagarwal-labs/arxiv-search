@@ -1,0 +1,24 @@
+{
+  "answer_id": "A136",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The study reports group-level interactions and better downstream generation performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "AutoSynth searches workflows without reference datasets; C-Mining extracts seeds for cultural instruction synthesis.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

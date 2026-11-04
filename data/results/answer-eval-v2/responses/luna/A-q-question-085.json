@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-085",
+  "outcome": {
+    "answer": "A person\u2019s writing style can shift over time and between genres, though some features remain stable. In a German authorship-verification benchmark, performance fell significantly as the time gap between texts increased, while cross-genre shifts also challenged verification [2]. Genre influences stylistic features, and the relative importance of features varies by genre transition [2, 5]. The papers describe changes in scientific writing over time as well: multiple linguistic features followed altered trajectories after 2022, with some markers continuing to rise and others later receding [4].",
+    "cited": [
+      2,
+      5,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "bffcecc3ada54b407732e0cc8c898083d7b1281f9fa3af3f75f3cd723cf47139",
+  "usage": {
+    "accounted_tokens": 3623,
+    "input_tokens": 3496,
+    "latency_seconds": 2.9635643000074197,
+    "model": "gpt-6-luna",
+    "output_tokens": 127,
+    "provider_request_id": "req_bc96130e2b364679a1557b86aeea9248",
+    "reasoning_tokens": 0,
+    "request_id": "706bdc10-4ac2-4c0e-8548-e408cc4e98c6",
+    "reserved_input": 21953,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:37.873995+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

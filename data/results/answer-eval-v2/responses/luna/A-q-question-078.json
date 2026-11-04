@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-078",
+  "outcome": {
+    "answer": "Reports that help readers assess news trustworthiness can be judged with importance-weighted rubrics: assessors define key questions and expected answers for each article, then an automated judge scores reports against those rubrics. In one evaluation, automated rankings aligned well with human assessments, especially for report generation [1].\n\nA report-generation system can retrieve and rerank evidence, filter it for relevance, and use an LLM to produce a concise report with citations [2]. Evaluation should also check whether the reports cover the rubric\u2019s important information; the rubric-based approach is designed to support reusable comparisons of such systems [1].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "a93a9f498afff68bed750023f150d84b66babae4a576fdcf174d1898ae41d1a0",
+  "usage": {
+    "accounted_tokens": 3741,
+    "input_tokens": 3599,
+    "latency_seconds": 2.968037499987986,
+    "model": "gpt-6-luna",
+    "output_tokens": 142,
+    "provider_request_id": "req_2879e7fd646743a5b801d2093be9c14e",
+    "reasoning_tokens": 0,
+    "request_id": "e3187bba-7efa-4ef8-b76a-f52f6f7e5a73",
+    "reserved_input": 22632,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:34.887120+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

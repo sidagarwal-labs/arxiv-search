@@ -1,0 +1,34 @@
+{
+  "answer_id": "A067",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited paper studies distributional RL under chaos and compares distributional with trajectory regularity.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract states a smoother distributional Bellman objective and better-conditioned learning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited abstracts describe diffusion-bridge critics and quotient-space average-reward distributional RL.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "A citation by itself states no claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-006",
+  "outcome": {
+    "answer": "FUDLR is the closest match: it identifies bias-inducing samples and efficiently removes their influence on recommender-model parameters, improving fairness without costly retraining while preserving recommendation accuracy [2]. CRAGRU also avoids retraining the entire base model, but targets user-specific data removal and the resulting bias in recommendations rather than general fairness debiasing [1].",
+    "cited": [
+      2,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "5d49e3e0fc40739047a5b9247b094f8250eb3ce256d246df4fd54f026828299b",
+  "usage": {
+    "accounted_tokens": 3339,
+    "input_tokens": 3249,
+    "latency_seconds": 2.30693489999976,
+    "model": "gpt-6-luna",
+    "output_tokens": 90,
+    "provider_request_id": "req_e191cd1b508f4bea9d941fec8bf4d230",
+    "reasoning_tokens": 0,
+    "request_id": "4195d192-559c-4dc4-988c-c1a401d4b434",
+    "reserved_input": 21071,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:33.717631+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

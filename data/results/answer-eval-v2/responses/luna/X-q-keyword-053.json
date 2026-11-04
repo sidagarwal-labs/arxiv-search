@@ -1,0 +1,28 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-053",
+  "outcome": {
+    "answer": "None of these papers address graph machine learning for chemical reactions; the supplied results focus on writing style, authorship, and language models [1\u201310].",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "15ec6ae2b398f4315ca869fc401d79c5ad7d64a7d696f4339bc5c7d4febcbf74",
+  "usage": {
+    "accounted_tokens": 3535,
+    "input_tokens": 3486,
+    "latency_seconds": 1.7983374000177719,
+    "model": "gpt-6-luna",
+    "output_tokens": 49,
+    "provider_request_id": "req_f5debc99a2e344fd8d6dce72cc76c735",
+    "reasoning_tokens": 0,
+    "request_id": "f46834f1-39e1-4784-9e1a-72551d12772d",
+    "reserved_input": 21908,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:54.963202+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

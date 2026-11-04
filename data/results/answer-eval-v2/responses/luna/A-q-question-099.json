@@ -1,0 +1,34 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-099",
+  "outcome": {
+    "answer": "Recommenders can better understand user goals by using explicit signals about why people make choices, rather than relying only on clicks or other interaction histories. Reviews and other verbal feedback can reveal nuanced motivations and context, supporting better-aligned and more explainable recommendations [1, 2]. Systems can also extract high-level intents from behavior and use them to guide recommendation reasoning, making it less sensitive to accidental interactions [4].\n\nA fuller approach distinguishes a user\u2019s current demand from the recommendation strategy that best serves it, then tests and refines that strategy using outcome feedback [10]. Natural-language profiles that users can edit may also let them express preferences that behavior alone does not reveal [9].",
+    "cited": [
+      1,
+      2,
+      4,
+      10,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "98866959371632f055a93ed713ba65c8d04366fbb39e6864f2ad1c828291001e",
+  "usage": {
+    "accounted_tokens": 3660,
+    "input_tokens": 3503,
+    "latency_seconds": 2.799243399989791,
+    "model": "gpt-6-luna",
+    "output_tokens": 157,
+    "provider_request_id": "req_896d25c96fe649e4a746f7634a8f10be",
+    "reasoning_tokens": 0,
+    "request_id": "d370602a-434e-4b74-8c95-4006da3a8395",
+    "reserved_input": 23305,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:52.144489+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

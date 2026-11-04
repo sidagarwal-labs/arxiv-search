@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answer": "The closest matches are sparse-retrieval papers that use dense models or dense embeddings as a starting point, but none directly answer a generic \u201cdense to sparse retrieval\u201d request in full. [1] presents learned sparse retrievers that bridge the gap with dense models while using less index memory, [2] shows dense retrievers can be decomposed into sparse BM25-ready features, and [7] uses sparse autoencoders to train sparse retrieval models from LLM representations. [10] is also relevant because it replaces multi-vector dense-style retrieval bottlenecks with sparse coding and inverted indexing.",
+    "cited": [
+      1,
+      2,
+      7,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "7ff9d582be20d5e0ca0d6504b91e0bf3cc54accd2831c09ae2e4fede29c3ab77",
+  "usage": {
+    "accounted_tokens": 3860,
+    "input_tokens": 3723,
+    "latency_seconds": 2.5249212000053376,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 137,
+    "provider_request_id": "req_c13c1ed9ad3e4c159910fd19222e9724",
+    "reasoning_tokens": 0,
+    "request_id": "a030b559-7626-4e5c-a77b-8a50a16547c1",
+    "reserved_input": 22398,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:31.241148+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

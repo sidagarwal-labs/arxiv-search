@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-087",
+  "outcome": {
+    "answer": "The closest match is [5], which is a training-free pipeline for retrieving optimal informative subgraphs from black-box knowledge graphs. [5] It aims to optimize recall and precision for evidence subgraphs without task-specific training, using semantic anchor grouping, bubble expansion, ranking, and reasoning-aware expansion. [5]\n\nAlso close are [3] and [1]. [3] is training-free and gives query-aware retrieval guarantees for relevant subgraphs, while [1] uses a pre-trained graph foundation model and a label-free selector to find minimal, sufficient evidence subgraphs, but it is not fully training-free in the same sense as [5]. [3, 1]",
+    "cited": [
+      5,
+      3,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "1ad95721a39b82733beee4f90d0015252ad8eead0797b4cb8ae560d058783e4b",
+  "usage": {
+    "accounted_tokens": 3853,
+    "input_tokens": 3698,
+    "latency_seconds": 2.9368093000084627,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 155,
+    "provider_request_id": "req_adbd309ea15a4d18b3816e979fcb85a4",
+    "reasoning_tokens": 0,
+    "request_id": "97d0f748-03ce-46a9-9956-807b7c75afa6",
+    "reserved_input": 22907,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:44.109878+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

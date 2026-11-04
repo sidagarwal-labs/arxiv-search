@@ -1,0 +1,29 @@
+{
+  "answer_id": "A031",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The named paper matches the title and author metadata.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "DeCode is training-free, model-agnostic, contextualized, and improves the reported clinical QA benchmark.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited alternatives describe the stated medical retrieval, fine-tuning, and contextual approaches.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

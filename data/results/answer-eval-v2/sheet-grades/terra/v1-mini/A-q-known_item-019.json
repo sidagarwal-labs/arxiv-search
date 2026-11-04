@@ -1,0 +1,29 @@
+{
+  "answer_id": "A187",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-019",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and author attribution is uncited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The stated subgroup dimensions and broad alignment with significant differences match the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited papers study group sycophancy, persona cues, identity-dependent degradation, and demographic perspective modeling.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-011",
+  "outcome": {
+    "answer": "Yes \u2014 several papers fit this topic. The closest is [2], which explicitly combines multimodal patient evidence with biomedical knowledge graphs for clinical LLMs and makes the links retrievable, traceable, and testable. [1] also fits, studying how to integrate biomedical knowledge graphs into LLMs for clinical diagnosis and finding that KG-judgment training can improve reasoning. [9] is related too, comparing continual pretraining on a biomedical knowledge graph with GraphRAG for language models, but it is less specifically about clinical LLMs.",
+    "cited": [
+      2,
+      1,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "abbca8aff021c6d99fd04063c72ed9d7463c88e630f393a5485c6cc680f60c01",
+  "usage": {
+    "accounted_tokens": 4278,
+    "input_tokens": 4150,
+    "latency_seconds": 2.2816948000108823,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 128,
+    "provider_request_id": "req_790568844fc740b4a2a508f5d656200a",
+    "reasoning_tokens": 0,
+    "request_id": "8f391a42-0ad7-4040-a728-ad6640164d4b",
+    "reserved_input": 24680,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:10.489274+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

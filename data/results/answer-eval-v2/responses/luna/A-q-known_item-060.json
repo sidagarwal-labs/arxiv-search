@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-060",
+  "outcome": {
+    "answer": "Feng et al. study recovering minimal sufficient evidence for a coding agent\u2019s next decision, using the agent\u2019s current state to find a compact set that meets every annotated evidence requirement [1]. Their MSS-Complement method proposes a jointly sufficient set and searches for missing evidence, outperforming similarity-based ranking in complete-set recovery on their benchmark [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "47fdca0f73ebefc33834eba538c753b7228122bd5ddd55d5b146a7d96d0cba3d",
+  "usage": {
+    "accounted_tokens": 3709,
+    "input_tokens": 3622,
+    "latency_seconds": 2.1791041999822482,
+    "model": "gpt-6-luna",
+    "output_tokens": 87,
+    "provider_request_id": "req_4e87899a81cd48a9b850fbfa119a6bf7",
+    "reasoning_tokens": 0,
+    "request_id": "c3dc18ed-b2ae-4694-9fd5-06035b20995c",
+    "reserved_input": 22640,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:54:04.458440+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

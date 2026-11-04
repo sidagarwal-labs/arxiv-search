@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answer": "Yes. For prompts whose possible response lengths vary widely, Robust Length Prediction models output length as a prompt-conditioned distribution rather than assuming one fixed target; it proposes using multiple generations per prompt to estimate either a robust point prediction or the uncertainty in that distribution [4]. How Much is Left? reports that total response length can also be estimated from the prompt\u2019s final hidden state before generation begins [1].",
+    "cited": [
+      4,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "993c25f9a6e50e21a709505db96e52b79add7a9447fb9dc838d761d54b9cae10",
+  "usage": {
+    "accounted_tokens": 3962,
+    "input_tokens": 3865,
+    "latency_seconds": 2.6000099000229966,
+    "model": "gpt-6-luna",
+    "output_tokens": 97,
+    "provider_request_id": "req_ec035d31b59444bab1309649d819d2ff",
+    "reasoning_tokens": 0,
+    "request_id": "123def42-6eb3-448c-b7ce-8bfb5f7e5173",
+    "reserved_input": 23283,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:07.127268+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

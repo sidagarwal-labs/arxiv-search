@@ -1,0 +1,34 @@
+{
+  "answer_id": "A244",
+  "candidate": "v1-mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The sentence makes factual claims about a paper without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited study reports user-dependent saturation, diminishing returns, and earlier saturation for shorter histories.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Individualized exploration is supported, but the study does not establish a model of user goals.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "No other papers are cited or supplied to support the universal assertion.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

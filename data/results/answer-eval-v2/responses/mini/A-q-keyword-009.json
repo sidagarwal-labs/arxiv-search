@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answer": "The closest matches are [4] and [2]. [4] combines embedding-based clustering with iterative LLM inference to build an interpretable topic taxonomy from unlabeled text, assigning consistent topic labels across clusters. [2] is a topic-modeling framework that uses semantic embeddings, TF-IDF, metadata, and consensus clustering for stable partitions and iterative refinement, but it focuses more on robust topic modeling than on an automated taxonomy pipeline.",
+    "cited": [
+      4,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "33692d3d8997c4912992793909756fb7e05f14987795e74fb6ed8ef4b647c466",
+  "usage": {
+    "accounted_tokens": 3621,
+    "input_tokens": 3517,
+    "latency_seconds": 2.149889499996789,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 104,
+    "provider_request_id": "req_ed2bfbf6b03642fb8ec63278f74a74e8",
+    "reasoning_tokens": 0,
+    "request_id": "9224f630-45c6-47d8-88f8-521e9ccc4e6e",
+    "reserved_input": 23005,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T18:58:08.320921+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

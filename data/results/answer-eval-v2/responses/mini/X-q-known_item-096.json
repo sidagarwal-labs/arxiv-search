@@ -1,0 +1,28 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-096",
+  "outcome": {
+    "answer": "None of the supplied papers directly address Qiao variable length semantic ids. The closest papers are about atmospheric and Earth foundation models, probabilistic forecasting, and generative modeling, but they do not discuss semantic ids or variable-length identifier schemes.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "82cf22d5c2995ed19fcb0e2128125831b29ca24282cca2c56d83126ddefd32ed",
+  "usage": {
+    "accounted_tokens": 3783,
+    "input_tokens": 3719,
+    "latency_seconds": 2.2851396999903955,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 64,
+    "provider_request_id": "req_5e26bd278c0046c1a5756e7ef692db7d",
+    "reasoning_tokens": 0,
+    "request_id": "cf30f47b-6ea7-4fcb-bbe7-9c65a148894a",
+    "reserved_input": 24113,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:02:15.592893+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

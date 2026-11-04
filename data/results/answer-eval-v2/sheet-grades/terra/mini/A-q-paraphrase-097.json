@@ -1,0 +1,34 @@
+{
+  "answer_id": "A231",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-097",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Selection framing.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The substantive self-training and comparison claims have no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "RPD curates diverse reasoning paths and improves diversity and pass at k.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Re:Max preserves verified solution modes during RLVR rather than self-training.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

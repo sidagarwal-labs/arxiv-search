@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-032",
+  "outcome": {
+    "answer": "The closest match is \u201cGeneralized Reduction to the Isotropy for Flexible Equivariant Neural Fields,\u201d which extends Equivariant Neural Fields to arbitrary group actions and homogeneous conditioning spaces [1]. A related paper introduces MetaLF, an equivariant transformer-based neural field for conditional representation learning [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "65d4ea99b35126e0d4fb5e28b23ec1802a5faafb35de06cfc95532e74f0a3bfa",
+  "usage": {
+    "accounted_tokens": 3735,
+    "input_tokens": 3448,
+    "latency_seconds": 3.814512000011746,
+    "model": "gpt-6-luna",
+    "output_tokens": 287,
+    "provider_request_id": "req_8cef2ef5d62546ae963dada11329b3c5",
+    "reasoning_tokens": 0,
+    "request_id": "432ed944-58b0-4b25-bb6c-b381460648c7",
+    "reserved_input": 21799,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:45.046765+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

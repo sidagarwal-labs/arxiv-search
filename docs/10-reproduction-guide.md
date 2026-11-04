@@ -16,7 +16,7 @@ These are the selections summarized in the README, not new promotions:
 | Stage 1 | RRF 55% semantic / 45% lexical, c=30, depth 100 selects top10; max-normalized fusion 75% semantic / 25% lexical, depth 500 reorders those ten; tail unchanged (Decision 36) |
 | Stage 2 | `gpt-5.4-mini-2026-03-17` scores top50 0-4 twice; average scores; RRF with retrieval order c=30 (Decision 46); then re-scores that top20 0-10 twice, averages, RRF c=30 with the Decision 46 order, keeps its rank 1; ranks below 20 unchanged (Decision 47); Decisions 45 and 46 stay historical controls |
 | Reranker resources | Approximately $0.039 per uncached query; measured p50 5.5 s / p90 6.6 s with each step's two passes in parallel in the saved experiment, not end-to-end live website latency |
-| AI summary | `gpt-5.4-mini-2026-03-17`, prompt `answer-v1`, top-10 evidence, [n] citations or abstain (Decision 48); approximately $0.003 per answer, p50 2.6 s |
+| AI summary | `gpt-6-luna`, prompt `answer-v2`, answer contract B (an ungrounded answer may cite the closest papers), top-10 evidence (Decision 49; Decision 48's GPT-5.4 mini / `answer-v1` is the historical control); approximately $0.0004 per answer, p50 2.4 s |
 | Storage and serving | Offline NumPy arrays with paper-ID metadata and exact cosine search; hosted Postgres/pgvector was a plan, not a deployed service |
 
 See the [decisions](02-decisions.md), [configuration source](../arxiv_search/config.py)
@@ -56,6 +56,8 @@ and configuration records. The full metrics have not been removed:
   and Terra/ASTRA answer grading; neither is human validation.
 - [Answer-model report](../data/results/answer-eval/report.md): Decision 48 selection
   using Decision 46 evidence, with cost, latency and quality tradeoffs.
+- [Experiment L report](../data/results/answer-eval-v2/report.md) and
+  [contract-B recheck](../data/results/answer-eval-v2/report-recheck.md): Decision 49.
 - [Recent experiment digest](07-experiment-log.md#recent-experiments-at-a-glance):
   hypotheses, outcomes and links to the original evidence.
 

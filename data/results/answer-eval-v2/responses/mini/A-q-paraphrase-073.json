@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-073",
+  "outcome": {
+    "answer": "The closest matches are [1], [2], [3], [4], and [6]. [1] studies on-policy distillation failures where student-generated rollouts become too long and repetitive, and proposes a stabilization method to reduce repetition-induced length inflation. [2] focuses on excessive length caused by termination-token mismatch and shows that treating equivalent EOS tokens as a shared stopping action helps curb length inflation. [4] proposes Early Stopping Rollout, which restricts generation to the first response tokens to improve training stability and efficiency. [3] and [6] also address making student-generated reasoning less verbose: [3] adds a concise-learning objective to reduce output length, while [6] mitigates weak teacher supervision over long chains, which helps prevent drift during long reasoning.",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "df603247a3fc7aebf9735666991315679c4bcea96e74426f6f5d6efdb3b1528f",
+  "usage": {
+    "accounted_tokens": 3800,
+    "input_tokens": 3626,
+    "latency_seconds": 2.8061356999969576,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 174,
+    "provider_request_id": "req_1a44d83a742b456d8a602346442628c8",
+    "reasoning_tokens": 0,
+    "request_id": "4690732a-3868-499c-b0c1-4f9a20d2b672",
+    "reserved_input": 22645,
+    "reserved_output": 1200,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T19:00:36.062960+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-088",
+  "outcome": {
+    "answer": "To reuse workflows and reduce forgetting, organize past interaction trajectories by their underlying workflow, extract reusable skills, and retrieve relevant skills and trajectories to guide new tasks; LifeMem reports reduced forgetting and improved cross-task transfer using this approach [1]. TRIAGE offers another pattern: store execution trajectories as skills, reuse exact matches directly, substitute parameters for similar queries, and run the full agent loop for novel queries [10]. Abstract procedural memories may transfer more reliably than detailed trajectories, but memory retrieval and organization can themselves cause forgetting [3].",
+    "cited": [
+      1,
+      10,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "292e181ea10cff0ff6545a2be2ba51084a14fafc6a8e0637aa1cece77b95aec0",
+  "usage": {
+    "accounted_tokens": 3915,
+    "input_tokens": 3792,
+    "latency_seconds": 2.991365900001256,
+    "model": "gpt-6-luna",
+    "output_tokens": 123,
+    "provider_request_id": "req_24148b84f2fd4499865e08152cfaceef",
+    "reasoning_tokens": 0,
+    "request_id": "8d0a8cd9-fa00-4cf8-969b-f0088f0bd679",
+    "reserved_input": 23623,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:56:40.855906+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

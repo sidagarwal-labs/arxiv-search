@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-088",
+  "outcome": {
+    "answer": "Code as Agent Harness is the closest broad review: it surveys code as the operational substrate for agent reasoning, action, environment modeling, planning, memory, tool use, verification, and multi-agent coordination [2]. For reusable procedural scripts and workflows, the Agent Skills survey reviews how skills are represented, acquired, retrieved, and evolved, describing them as an execution layer alongside agents\u2019 high-level reasoning and planning [3]. These surveys cover the requested architecture broadly, while The Bitter Lesson of Tool Calling provides an empirical comparison of script-based tool execution with native JSON calls rather than a general review [1].",
+    "cited": [
+      2,
+      3,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "0f7dc33a4f80b4ffc41aa54b0be0c5a5e28c1b7ff650162704504b80466e83c8",
+  "usage": {
+    "accounted_tokens": 4015,
+    "input_tokens": 3878,
+    "latency_seconds": 2.700920800009044,
+    "model": "gpt-6-luna",
+    "output_tokens": 137,
+    "provider_request_id": "req_4da3593bd30e4924b62767c02640f314",
+    "reasoning_tokens": 0,
+    "request_id": "e23e94a5-a47f-47fe-9e27-d9d174840fe3",
+    "reserved_input": 23753,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:55:22.416310+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

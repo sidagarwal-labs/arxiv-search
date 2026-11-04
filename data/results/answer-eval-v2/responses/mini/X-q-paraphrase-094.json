@@ -1,0 +1,25 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-paraphrase-094",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "4d85848094b621fcecba97d6f7458f28222a52d37c7f5f70ef7c920fccce1e4f",
+  "usage": {
+    "accounted_tokens": 3785,
+    "input_tokens": 3699,
+    "latency_seconds": 1.8429519000055734,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 86,
+    "provider_request_id": "req_fad8f1f6c06f4e08a861138f9531f63a",
+    "reasoning_tokens": 0,
+    "request_id": "99ee7c9b-e5a9-4ab9-86db-659d0167047c",
+    "reserved_input": 22762,
+    "reserved_output": 1200,
+    "started_utc": "2026-11-04T19:02:17.898529+00:00",
+    "status": "invalid_answer",
+    "tier": "mini"
+  }
+}

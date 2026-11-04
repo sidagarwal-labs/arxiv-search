@@ -1,0 +1,29 @@
+{
+  "answer_id": "A066",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-096",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Qiao coauthored VaLiDRec, which proposes variable-length LLM-aligned identifiers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract specifies native tokens, complexity-adaptive lengths, and non-autoregressive token-set prediction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Qiao coauthored the OCR-based semantic ID study, which does not focus on variable length.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-v2-reviewed.xlsx (not the API)"
+}

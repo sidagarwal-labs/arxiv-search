@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-048",
+  "outcome": {
+    "answer": "Kajwan Ziaoddini\u2019s paper proposes a socially aware music recommendation system using a multimodal graph neural network [1]. It builds a heterogeneous graph of user\u2013song interactions and user\u2013user social relationships, and combines lyrics, audio, visual, and emotion-aware signals for personalized recommendations [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "prompt": "answer-v2",
+  "request_sha256": "9316ea9201fbe86ef72b4c01a13ba52327ef4bfab2b8472de296e302f3c296c1",
+  "usage": {
+    "accounted_tokens": 3344,
+    "input_tokens": 3266,
+    "latency_seconds": 2.025466699997196,
+    "model": "gpt-6-luna",
+    "output_tokens": 78,
+    "provider_request_id": "req_8d67a2a2a9b64e828d2d63796e49b1dc",
+    "reasoning_tokens": 0,
+    "request_id": "a5704ab5-d613-414d-a6cd-b1a56dde5ee2",
+    "reserved_input": 22057,
+    "reserved_output": 1200,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T18:53:56.353082+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}
