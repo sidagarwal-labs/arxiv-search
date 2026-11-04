@@ -35,14 +35,14 @@ xychart-beta
 
 ## Latest scores: Stage 1 retrieval leaders
 
-Labels L1 onward below are chart keys, not separate system names. The top five ranked retrieval systems are shown, plus the retrieval baseline if it falls outside those five. Exact score ties use stable system IDs for ordering; a different ordinal rank within a tie is not a quality change. Highest nDCG does not automatically mean best balanced baseline. **Zoomed linear y-axis: 0.69-0.72, not zero-based.** The line connects systems in displayed rank order, not time or a development trajectory. Small gaps are not evidence of statistically significant differences; use the table for exact scores. Each comparison chart has its own scale.
+Labels L1 onward below are chart keys, not separate system names. The top five ranked retrieval systems are shown, plus the retrieval baseline if it falls outside those five. Exact score ties use stable system IDs for ordering; a different ordinal rank within a tie is not a quality change. Highest nDCG does not automatically mean best balanced baseline. **Zoomed linear y-axis: 0.69-0.72, not zero-based.** The chart runs from lowest to highest score; the table stays highest-first. Chart keys still identify the same table rows. This is score order, not time or a development trajectory. Small gaps are not evidence of statistically significant differences; use the table for exact scores. Each comparison chart has its own scale.
 
 ```mermaid
 xychart-beta
     title "Latest dev leaderboard nDCG@10"
-    x-axis [L1, L2, L3, L4, L5, L6]
+    x-axis [L6, L4, L5, L3, L2, L1]
     y-axis "nDCG@10 (zoomed, higher is better)" 0.69 --> 0.72
-    line [0.7042, 0.7038, 0.7033, 0.7032, 0.7032, 0.7007]
+    line [0.7007, 0.7032, 0.7032, 0.7033, 0.7038, 0.7042]
 ```
 
 | Chart key / rank | Ranker | nDCG@10 | Source MRR@10 | R@10 | Status |
@@ -56,14 +56,14 @@ xychart-beta
 
 ## Latest scores: Stage 2 reranking (retrieval + reranker)
 
-Every row reorders the same retrieval-baseline candidates for all 100 dev queries. Δ is paired against the retrieval baseline; the noise band comes from re-sending identical requests (Decision44). **Zoomed linear y-axis: 0.69-0.81, not zero-based.** The line connects systems in table order, not time or a development trajectory. It shows mean scores, not uncertainty; use the paired intervals in the table to assess gains against the retrieval baseline. Each comparison chart has its own scale.
+Every row reorders the same retrieval-baseline candidates for all 100 dev queries. Δ is paired against the retrieval baseline; the noise band comes from re-sending identical requests (Decision44). **Zoomed linear y-axis: 0.69-0.81, not zero-based.** The chart runs from lowest to highest score; the table stays highest-first. Chart keys still identify the same table rows. This is score order, not time or a development trajectory. It shows mean scores, not uncertainty; use the paired intervals in the table to assess gains against the retrieval baseline. Each comparison chart has its own scale.
 
 ```mermaid
 xychart-beta
     title "Stage 2 nDCG@10 (100 dev queries)"
-    x-axis [S1, S2, S3, S4, S5, S6, S7, S8, S9]
+    x-axis [S9, S8, S7, S6, S5, S4, S3, S2, S1]
     y-axis "nDCG@10 (zoomed, higher is better)" 0.69 --> 0.81
-    line [0.7939, 0.7845, 0.7711, 0.7695, 0.7688, 0.7652, 0.7608, 0.7490, 0.7007]
+    line [0.7007, 0.7490, 0.7608, 0.7652, 0.7688, 0.7695, 0.7711, 0.7845, 0.7939]
 ```
 
 | Chart key | System | nDCG@10 | Δ vs retrieval baseline | Source MRR@10 | R@10 | LLM $/query | Status |

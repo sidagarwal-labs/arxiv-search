@@ -43,7 +43,9 @@ def test_charts_use_same_snapshot_and_real_milestones_not_provisional_scores():
     diagnosis = {"oracle_ndcg_with_fixed_top10": .78, "source_hits_current_top10": 86,
                  "queries": 100, "source_hits_in_retriever_union": {"100": 97, "500": 100},
                  "top10_grade_counts": {"0": 311, "1": 423, "2": 266}}
+    original = copy.deepcopy(report)
     text = promotion.render_charts(report, diagnosis)
+    assert report == original
     assert text.count("```mermaid") == 2
     assert "line [0.5000, 0.5200, 0.5400, 0.5600, 0.5800, 0.6000, 0.6200]" in text
     assert "**APPROVED BASELINE**" in text
@@ -52,13 +54,21 @@ def test_charts_use_same_snapshot_and_real_milestones_not_provisional_scores():
     assert "Zoomed linear y-axis: 0.50-0.75, not zero-based." in text
     assert "0.5000 to 0.6200 (+0.1200 nDCG, +24.0% relative)" in text
     assert 'y-axis "nDCG@10 (zoomed, higher is better)" 0.53 --> 0.63' in text
-    assert "line [0.6200, 0.6000, 0.5800, 0.5600, 0.5400]" in text
+    assert "line [0.5400, 0.5600, 0.5800, 0.6000, 0.6200]" in text
+    assert "x-axis [L5, L4, L3, L2, L1]" in text
+    table_rows = [line for line in text.splitlines() if line.startswith("| L")]
+    assert table_rows[0].startswith("| L1 / #1 |")
+    assert table_rows[-1].startswith("| L5 / #5 |")
     assert "bar [" not in text
     assert "not time or a development trajectory" in text
     assert "whose graded coverage is incomplete" in text
     report["leaderboard"]["ranked"] = list(systems)
     with_baseline = promotion.render_charts(report, diagnosis)
     assert "x-axis [L1, L2, L3, L4, L5, L6]" in with_baseline
+    systems[promotion.MILESTONES[0][1]]["all"]["ndcg@10"]["mean"] = .52
+    tied = promotion.render_charts(report, diagnosis)
+    assert "x-axis [L1, L2, L3, L4, L5, L6]" in tied
+    assert "line [0.5200, 0.5200, 0.5400, 0.5600, 0.5800, 0.6200]" in tied
     assert "**APPROVED BASELINE**" in with_baseline
     # Future milestones must expand the zoom window rather than being clipped.
     systems[promotion.MILESTONES[0][1]]["all"]["ndcg@10"]["mean"] = .42
@@ -108,7 +118,10 @@ def test_charts_append_reranking_baseline_and_stage2_table():
     assert f"| 2 reranking | {promotion.RERANK_MILESTONE} | `{rerank}` | 0.7000 | +0.0800 |" in text
     assert "retrieval alone reaches 0.6200, the reranker adds +0.0800" in text
     assert "same 3,461-pair dev label set" in text
-    assert "line [0.7200, 0.7000, 0.6200]" in text
+    assert "line [0.6200, 0.7000, 0.7200]" in text
+    assert "x-axis [S3, S2, S1]" in text
+    assert [line.split("|")[1].strip() for line in text.splitlines()
+            if line.startswith(("| S1 |", "| S2 |", "| S3 |"))] == ["S1", "S2", "S3"]
     assert 'y-axis "nDCG@10 (zoomed, higher is better)" 0.61 --> 0.73' in text
     assert "Zoomed linear y-axis: 0.61-0.73, not zero-based." in text
     assert "bar [" not in text
@@ -116,6 +129,10 @@ def test_charts_append_reranking_baseline_and_stage2_table():
     assert "| S2 | `rerank-safe` | 0.7000 | +0.080 [+0.050, +0.100] |" in text
     assert "**APPROVED BASELINE** (reranking)" in text
     assert "| $0.0138 |" in text and "| — | experiment |" in text
+    stage2[llm]["all"]["ndcg@10"]["mean"] = .70
+    tied = promotion.render_charts(report, diagnosis)
+    assert "x-axis [S3, S1, S2]" in tied
+    assert "line [0.6200, 0.7000, 0.7000]" in tied
     stage2[rerank]["top10_fully_judged"] = False
     with pytest.raises(ValueError, match="provisional"):
         promotion.render_charts(report, diagnosis)

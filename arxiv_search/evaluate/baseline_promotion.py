@@ -100,7 +100,9 @@ def render_charts(report: dict, diagnosis: dict) -> str:
     latest = report["leaderboard"]["ranked"][:5]
     if report["working_baseline"] not in latest:
         latest = [*latest, report["working_baseline"]]
-    latest_scores = [systems[n]["all"]["ndcg@10"]["mean"] for n in latest]
+    latest_points = sorted(enumerate(latest, 1),
+                           key=lambda point: systems[point[1]]["all"]["ndcg@10"]["mean"])
+    latest_scores = [systems[n]["all"]["ndcg@10"]["mean"] for _, n in latest_points]
     latest_lower, latest_upper = _comparison_bounds(latest_scores)
     lines = [
         "# Search quality charts", "",
@@ -156,11 +158,13 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         "different ordinal rank within a tie is not a quality change. Highest nDCG "
         "does not automatically mean best balanced baseline. "
         f"**Zoomed linear y-axis: {latest_lower:.2f}-{latest_upper:.2f}, not zero-based.** "
-        "The line connects systems in displayed rank order, not time or a development "
-        "trajectory. Small gaps are not evidence of statistically significant differences; "
+        "The chart runs from lowest to highest score; the table stays highest-first. "
+        "Chart keys still identify the same table rows. This is score order, "
+        "not time or a development trajectory. Small gaps are not evidence of "
+        "statistically significant differences; "
         "use the table for exact scores. Each comparison chart has its own scale.", "",
         "```mermaid", "xychart-beta", '    title "Latest dev leaderboard nDCG@10"',
-        "    x-axis [" + ", ".join(f"L{i}" for i in range(1, len(latest) + 1)) + "]",
+        "    x-axis [" + ", ".join(f"L{i}" for i, _ in latest_points) + "]",
         f'    y-axis "nDCG@10 (zoomed, higher is better)" {latest_lower:g} --> {latest_upper:g}',
         "    line [" + ", ".join(f"{score:.4f}" for score in latest_scores) + "]",
         "```", "",
@@ -178,7 +182,9 @@ def render_charts(report: dict, diagnosis: dict) -> str:
             f"{result['all']['source_recall@10']['mean']:.0%} | {status} |")
     if stage2:
         order = report["stage2"].get("ranked", []) + report["stage2"].get("unranked", [])
-        stage2_scores = [stage2[n]["all"]["ndcg@10"]["mean"] for n in order]
+        stage2_points = sorted(enumerate(order, 1),
+                               key=lambda point: stage2[point[1]]["all"]["ndcg@10"]["mean"])
+        stage2_scores = [stage2[n]["all"]["ndcg@10"]["mean"] for _, n in stage2_points]
         stage2_lower, stage2_upper = _comparison_bounds(stage2_scores)
         lines += [
             "", "## Latest scores: Stage 2 reranking (retrieval + reranker)", "",
@@ -186,12 +192,14 @@ def render_charts(report: dict, diagnosis: dict) -> str:
             "queries. Δ is paired against the retrieval baseline; the noise band comes from "
             "re-sending identical requests (Decision44). "
             f"**Zoomed linear y-axis: {stage2_lower:.2f}-{stage2_upper:.2f}, not zero-based.** "
-            "The line connects systems in table order, not time or a development trajectory. "
+            "The chart runs from lowest to highest score; the table stays highest-first. "
+            "Chart keys still identify the same table rows. This is score order, "
+            "not time or a development trajectory. "
             "It shows mean scores, not uncertainty; use the paired intervals in the table "
             "to assess gains against the retrieval baseline. Each comparison chart has "
             "its own scale.", "",
             "```mermaid", "xychart-beta", '    title "Stage 2 nDCG@10 (100 dev queries)"',
-            "    x-axis [" + ", ".join(f"S{i}" for i in range(1, len(order) + 1)) + "]",
+            "    x-axis [" + ", ".join(f"S{i}" for i, _ in stage2_points) + "]",
             f'    y-axis "nDCG@10 (zoomed, higher is better)" {stage2_lower:g} --> {stage2_upper:g}',
             "    line [" + ", ".join(f"{score:.4f}" for score in stage2_scores) + "]",
             "```", "",
