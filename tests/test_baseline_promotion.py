@@ -51,7 +51,10 @@ def test_charts_use_same_snapshot_and_real_milestones_not_provisional_scores():
     assert 'y-axis "nDCG@10 (zoomed, higher is better)" 0.5 --> 0.75' in text
     assert "Zoomed linear y-axis: 0.50-0.75, not zero-based." in text
     assert "0.5000 to 0.6200 (+0.1200 nDCG, +24.0% relative)" in text
-    assert 'y-axis "nDCG@10" 0 --> 1' in text
+    assert 'y-axis "nDCG@10 (zoomed, higher is better)" 0.53 --> 0.63' in text
+    assert "line [0.6200, 0.6000, 0.5800, 0.5600, 0.5400]" in text
+    assert "bar [" not in text
+    assert "not time or a development trajectory" in text
     assert "whose graded coverage is incomplete" in text
     report["leaderboard"]["ranked"] = list(systems)
     with_baseline = promotion.render_charts(report, diagnosis)
@@ -105,13 +108,33 @@ def test_charts_append_reranking_baseline_and_stage2_table():
     assert f"| 2 reranking | {promotion.RERANK_MILESTONE} | `{rerank}` | 0.7000 | +0.0800 |" in text
     assert "retrieval alone reaches 0.6200, the reranker adds +0.0800" in text
     assert "same 3,461-pair dev label set" in text
-    assert "bar [0.7200, 0.7000, 0.6200]" in text
+    assert "line [0.7200, 0.7000, 0.6200]" in text
+    assert 'y-axis "nDCG@10 (zoomed, higher is better)" 0.61 --> 0.73' in text
+    assert "Zoomed linear y-axis: 0.61-0.73, not zero-based." in text
+    assert "bar [" not in text
+    assert "use the paired intervals in the table" in text
     assert "| S2 | `rerank-safe` | 0.7000 | +0.080 [+0.050, +0.100] |" in text
     assert "**APPROVED BASELINE** (reranking)" in text
     assert "| $0.0138 |" in text and "| — | experiment |" in text
     stage2[rerank]["top10_fully_judged"] = False
     with pytest.raises(ValueError, match="provisional"):
         promotion.render_charts(report, diagnosis)
+
+
+@pytest.mark.parametrize(("scores", "expected"), [
+    ([.7007, .7042], (.69, .72)),
+    ([.7007, .7939], (.69, .81)),
+    ([.7, .7], (.69, .71)),
+    ([.7], (.69, .71)),
+    ([0, 1], (0, 1)),
+    ([0], (0, .01)),
+    ([1], (.99, 1)),
+])
+def test_comparison_bounds_pad_scores_without_clipping(scores, expected):
+    lower, upper = promotion._comparison_bounds(scores)
+    assert (lower, upper) == expected
+    assert 0 <= lower < upper <= 1
+    assert all(lower <= score <= upper for score in scores)
 
 
 def test_working_helper_reproduces_approved_saved_rankings():
