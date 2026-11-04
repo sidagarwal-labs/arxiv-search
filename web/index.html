@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>arXiv Search · Agarwal Labs</title>
   <meta name="description" content="Search recent arXiv papers in information retrieval, NLP and machine learning, with an AI summary of the top results." />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#fdfdfc" />
   <link rel="canonical" href="https://arxiv.agarwal-labs.com/" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
@@ -23,8 +22,7 @@
   <meta property="og:image:alt" content="arXiv Search: a search bar over recent IR, NLP and ML papers" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="preconnect" href="https://rsms.me/" />
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
   <link rel="stylesheet" href="./styles.css" />
   <link rel="modulepreload" href="./api.js" />
   <link rel="modulepreload" href="./config.js" />
@@ -33,16 +31,23 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="topbar">
-    <a class="brand" href="./" data-home>
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span>arXiv Search</span>
-    </a>
-    <span class="badge badge-demo" id="demo-badge" hidden title="The API isn't connected; results come from a local sample with naive ranking.">Demo data</span>
-    <span class="badge badge-demo" id="soon-badge" hidden title="The search service isn't deployed yet.">Coming soon</span>
-    <button type="button" class="topbar-link" id="about-open" aria-haspopup="dialog">How it works</button>
+  <div class="journal">
+  <header class="masthead">
+    <div class="masthead__identity">
+      <h1><a class="masthead__name" href="./" data-home>arXiv Search</a></h1>
+      <p class="masthead__role">Search recent papers in information retrieval, NLP and machine learning. Get an AI summary and the most relevant papers.</p>
+      <p class="masthead__location">A project by <a href="https://agarwal-labs.com">Sid Agarwal</a></p>
+    </div>
+    <div class="masthead__bar">
+      <nav class="site-links" aria-label="Site">
+        <a href="https://agarwal-labs.com">Home</a>
+        <button type="button" class="text-button" id="about-open" aria-haspopup="dialog">How it works</button>
+        <a href="https://github.com/sidagarwal-labs/arxiv-search">Source</a>
+      </nav>
+      <span class="badge" id="demo-badge" hidden title="The API isn't connected; results come from a local sample with naive ranking.">Demo data</span>
+      <span class="badge" id="soon-badge" hidden title="The search service isn't deployed yet.">Coming soon</span>
+    </div>
   </header>
-
   <dialog class="about" id="about" aria-labelledby="about-title">
     <div class="about-inner">
       <div class="about-head">
@@ -77,23 +82,14 @@
   </dialog>
 
   <main id="main" class="page">
-    <section class="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">Find recent research, <span class="accent">fast</span>.</h1>
-      <p class="tagline">Search arXiv papers in information retrieval, NLP and machine learning. Get an AI summary and the most relevant papers.</p>
-    </section>
-
     <form class="search" id="search-form" role="search" autocomplete="off">
       <label class="visually-hidden" for="q">Search papers</label>
-      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
       <input id="q" name="q" type="search" placeholder="e.g. reducing hallucination in retrieval-augmented generation" maxlength="300" enterkeyhint="search" required />
-      <kbd class="kbd-hint" aria-hidden="true">/</kbd>
-      <button class="search-submit" type="submit" aria-label="Search">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </button>
+      <button class="search-submit" type="submit">Search</button>
     </form>
 
     <div class="examples" id="examples" aria-label="Example searches">
-      <span class="examples-label">Try</span>
+      <span class="examples-label">Try:</span>
       <button type="button" class="chip">LLM reranking for search</button>
       <button type="button" class="chip">long-context retrieval benchmarks</button>
       <button type="button" class="chip">diffusion language models</button>
@@ -101,7 +97,6 @@
 
     <details class="notice" id="notice">
       <summary>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" /></svg>
         <span id="notice-short">Searches 23,304 arXiv papers (cs.IR, cs.CL, cs.LG) from Oct 2025 to Oct 2026, using titles and abstracts. Not every paper is included.</span>
         <span class="notice-more">Details</span>
       </summary>
@@ -119,16 +114,16 @@
     <p class="visually-hidden" id="sr-status" role="status" aria-live="polite"></p>
 
     <section class="results-view" id="results-view" hidden aria-label="Search results">
-      <div class="wake card" id="wake" role="status" hidden>
+      <div class="wake" id="wake" role="status" hidden>
         <span class="spinner" aria-hidden="true"></span>
         <div>
           <strong>Waking up the search server…</strong>
           <p>The first search after a quiet period can take up to a minute. Later searches are much faster.</p>
         </div>
       </div>
-      <article class="summary card" id="summary" aria-labelledby="summary-title" aria-busy="false">
+      <article class="summary" id="summary" aria-labelledby="summary-title" aria-busy="false">
         <header class="summary-head">
-          <h2 id="summary-title"><span class="sparkle" aria-hidden="true">✦</span> AI summary</h2>
+          <h2 id="summary-title">AI summary</h2>
           <span class="summary-meta" id="summary-meta"></span>
         </header>
         <div class="summary-body" id="summary-body"></div>
@@ -140,7 +135,6 @@
         <span class="results-meta" id="results-meta"></span>
       </div>
       <p class="inline-note" id="fallback-note" hidden>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" /></svg>
         AI reranking is unavailable right now, so these results are in search order.
       </p>
       <ol class="results" id="results" role="list"></ol>
@@ -158,16 +152,14 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <span>A DSBA 6188 project by <a href="https://agarwal-labs.com">Agarwal Labs</a></span>
-    <span aria-hidden="true">·</span>
-    <span>Searches are sent to OpenAI for ranking and summaries.</span>
-    <span aria-hidden="true">·</span>
-    <span>Paper data from <a href="https://arxiv.org">arXiv</a>. Thank you to arXiv for use of its open access interoperability.</span>
+  <footer class="site-footer">
+    <p>A DSBA 6188 project. Searches are sent to OpenAI for ranking and summaries.</p>
+    <p>Paper data from <a href="https://arxiv.org">arXiv</a>. Thank you to arXiv for use of its open access interoperability.</p>
   </footer>
+  </div>
 
   <template id="result-template">
-    <li class="result card">
+    <li class="result">
       <div class="result-rank" aria-hidden="true"></div>
       <div class="result-main">
         <h3 class="result-title"><a target="_blank" rel="noopener"></a></h3>

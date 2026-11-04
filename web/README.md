@@ -9,7 +9,7 @@ Plain HTML/CSS/JS (ES modules), no build step and no dependencies.
 | File | Purpose |
 |---|---|
 | `index.html` | Page structure, limitations notice, result template |
-| `styles.css` | Light/dark theme, layout, loading skeletons |
+| `styles.css` | Theme matching agarwal-labs.com, layout, loading skeletons |
 | `app.js` | Search flow, URL state (`?q=`), rendering, citations, keyboard shortcuts |
 | `api.js` | API client plus a mock that follows the same contract |
 | `config.js` | `MODE` (`auto`/`live`/`mock`), `API_BASE`, number of results |
@@ -144,10 +144,21 @@ idle. The page handles this in three ways:
 
 ### Content-Security-Policy
 
-`vercel.json` only allows scripts, styles, images and API calls from the site itself,
-plus the Inter font from `rsms.me`. If the API moves to another origin without a
-rewrite, add that origin to `connect-src`. If you add analytics or another font
-host, add them to the matching directive.
+`vercel.json` only allows scripts, styles, fonts, images and API calls from the site
+itself. If the API moves to another origin without a rewrite, add that origin to
+`connect-src`. If you add analytics or a web font host, add them to the matching
+directive.
+
+## Design
+
+The page deliberately matches the main site, agarwal-labs.com, so moving between the
+two doesn't feel like a different product. `styles.css` copies its tokens exactly:
+`--paper` `#fdfdfc`, `--ink` `#272b29`, `--muted` `#656c68`, `--link` `#285b4c`,
+`--line` `#dfe3df`, plus the system serif stack (Iowan Old Style, Palatino), the
+700px column, the masthead with a hairline rule, underlined green links, and the
+outlined button style. It is light-only, like the main site. If the main site's
+tokens change, update the `:root` block at the top of `styles.css` and re-render the
+images in `scripts/`.
 
 ## Link previews and icons
 
@@ -166,14 +177,11 @@ image shows the paper count (23,304); update it if the corpus changes.
 
 ## Accessibility
 
-Checked with axe-core (WCAG 2.1 AA plus best practices) in light and dark mode,
-on the home page, results and the "How it works" dialog: no violations. Notes:
+Checked with axe-core (WCAG 2.1 AA plus best practices) on the home page, results and the "How it works" dialog: no violations. Notes:
 
 - Status changes (searching, waking up, results found, summary ready, errors) are
   announced through one polite live region, `#sr-status`, rather than reading out
   the whole results list.
 - Citation chips scroll to the cited paper and move keyboard focus to its title.
 - "How it works" is a native `<dialog>`, so focus trapping and Esc come from the browser.
-- Text on accent backgrounds uses `--on-accent` (white in light mode, near-black in
-  dark mode) to meet contrast.
 - Animations are disabled under `prefers-reduced-motion`.
