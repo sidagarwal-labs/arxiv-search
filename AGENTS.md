@@ -24,9 +24,17 @@ larger leaderboard or unsupported claims. Planned features are not shipped featu
 
 ## Recurring maintenance: "Run arXiv maintenance"
 
+The maintenance chat owns investigating, implementing and validating maintenance
+changes. The development chat owns building and experimentation. Read its recent
+context first; ask only for missing context or a narrowly scoped file handoff,
+not for implementation, cleanup, report regeneration or testing on maintenance's
+behalf. Do not pause all development when only a few shared files need coordination.
+
 1. Inspect git status and the current revision. Consult the active development
    chat for latest decisions, pending promotions, protected files and a safe
-   handoff. Do not overwrite concurrent work.
+   handoff for overlapping files. Do not overwrite concurrent work. Recheck the
+   diff before editing or staging; integrate existing edits and stage only owned
+   changes. A shared generated output requires coordination with its generator.
 2. Investigate documentation freshness, links, duplication, provenance and
    retention. Age alone is not evidence that a file is obsolete.
 3. Present exact proposed additions, edits, moves and deletions, with reasons,
