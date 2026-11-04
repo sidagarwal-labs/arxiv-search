@@ -1,0 +1,38 @@
+{
+  "rows": [
+    {
+      "arxiv_id": "2603.05370",
+      "query_id": "q-keyword-008",
+      "usage": {
+        "accounted_tokens": 742,
+        "attempts": 1,
+        "input_tokens": 695,
+        "ledger_attempts": [
+          {
+            "accounted_tokens": 742,
+            "input_tokens": 695,
+            "latency_seconds": 2.5899477999919327,
+            "model": "gpt-5.4-mini",
+            "output_tokens": 47,
+            "provider_request_id": "req_dea91e29355c474092821d9e32d0d28c",
+            "reasoning_tokens": 0,
+            "request_id": "20715a9e-864d-4f2f-ab4c-f0b92dd57c7b",
+            "reserved_input": 7716,
+            "reserved_output": 2048,
+            "started_utc": "2026-11-04T03:05:30.556854+00:00",
+            "status": "completed",
+            "tier": "mini"
+          }
+        ],
+        "model": "gpt-5.4-mini",
+        "output_tokens": 47,
+        "provider_request_id": "req_dea91e29355c474092821d9e32d0d28c",
+        "reasoning_tokens": 0,
+        "request_id": "20715a9e-864d-4f2f-ab4c-f0b92dd57c7b",
+        "thinking_tokens": 0,
+        "unknown_reserved_tokens": 0,
+        "wall_seconds": 2.6003175000078045
+      }
+    }
+  ]
+}

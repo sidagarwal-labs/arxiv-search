@@ -1,0 +1,400 @@
+{
+  "answer": {
+    "P1": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P10": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P11": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P12": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P13": {
+      "missing": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "score": 1
+    },
+    "P14": {
+      "missing": [
+        "F2",
+        "F3"
+      ],
+      "score": 1
+    },
+    "P15": {
+      "missing": [
+        "F2",
+        "F3"
+      ],
+      "score": 1
+    },
+    "P16": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P17": {
+      "missing": [
+        "F2",
+        "F3"
+      ],
+      "score": 1
+    },
+    "P18": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P19": {
+      "missing": [],
+      "score": 4
+    },
+    "P2": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P20": {
+      "missing": [
+        "F2",
+        "F3"
+      ],
+      "score": 1
+    },
+    "P21": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P22": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P23": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P24": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P25": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P26": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P27": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P28": {
+      "missing": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "score": 0
+    },
+    "P29": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P3": {
+      "missing": [
+        "F1",
+        "F3"
+      ],
+      "score": 2
+    },
+    "P30": {
+      "missing": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "score": 0
+    },
+    "P31": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P32": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P33": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P34": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P35": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P36": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P37": {
+      "missing": [
+        "F2",
+        "F3"
+      ],
+      "score": 1
+    },
+    "P38": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P39": {
+      "missing": [
+        "F3"
+      ],
+      "score": 2
+    },
+    "P4": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P40": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P41": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P42": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P43": {
+      "missing": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "score": 0
+    },
+    "P44": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P45": {
+      "missing": [
+        "F2",
+        "F3"
+      ],
+      "score": 1
+    },
+    "P46": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P47": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P48": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P49": {
+      "missing": [
+        "F2",
+        "F3"
+      ],
+      "score": 2
+    },
+    "P5": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P50": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P6": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P7": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P8": {
+      "missing": [
+        "F2",
+        "F3"
+      ],
+      "score": 1
+    },
+    "P9": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    }
+  },
+  "answer_sha256": "4742e2eb8719755e5e919cefb4bb56dbbfcb804ace61ca1a9c39bfdcddcbfc15",
+  "attempt_key": "657907ea5bc4c87c005bb692f83f2afff2c62bed7ef0301f5929d36a4fec8d70",
+  "facets": [
+    "LLM agents",
+    "reuse specific workflows from previous tasks",
+    "avoid forgetting"
+  ],
+  "model": "gpt-5.4-mini-2026-03-17",
+  "pass": 1,
+  "presented_ids": [
+    "2604.24039",
+    "2607.08960",
+    "2605.13647",
+    "2607.27260",
+    "2609.01428",
+    "2604.26197",
+    "2609.21533",
+    "2609.35427",
+    "2610.17039",
+    "2607.15587",
+    "2610.04649",
+    "2604.23626",
+    "2605.06937",
+    "2605.02801",
+    "2608.23104",
+    "2607.26072",
+    "2609.00296",
+    "2604.16337",
+    "2609.12655",
+    "2603.29665",
+    "2608.20319",
+    "2510.25333",
+    "2606.13177",
+    "2608.27924",
+    "2510.22732",
+    "2605.16045",
+    "2607.08010",
+    "2609.10266",
+    "2605.18032",
+    "2605.16374",
+    "2602.11243",
+    "2604.20006",
+    "2605.28108",
+    "2607.13474",
+    "2606.18502",
+    "2601.06676",
+    "2610.12651",
+    "2604.19667",
+    "2609.01642",
+    "2607.28156",
+    "2510.20036",
+    "2510.23924",
+    "2605.09608",
+    "2610.24861",
+    "2606.30005",
+    "2605.07358",
+    "2604.27003",
+    "2609.34988",
+    "2608.21544",
+    "2604.25012"
+  ],
+  "query_id": "q-question-088",
+  "request_sha256": "d31cc1b89e223a928ee05ca9baa4d1f84833c3940c66fa67aa795fa608283877",
+  "usage": {
+    "accounted_tokens": 19316,
+    "input_tokens": 18598,
+    "latency_seconds": 4.367937799994252,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 718,
+    "provider_request_id": "req_41d16af2e36d43109cbc2cefb0ec41a2",
+    "reasoning_tokens": 0,
+    "request_id": "e637ce99-217b-4cbe-9698-252aeba84a21",
+    "reserved_input": 101638,
+    "reserved_output": 2048,
+    "started_utc": "2026-11-04T03:03:50.607578+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer": {
+    "facets": [
+      "standard graph neural networks",
+      "link prediction",
+      "unknown knowledge graphs"
+    ]
+  },
+  "answer_sha256": "8cbeeebded04e98645a72d7928daffe66af2f7179a630d2817ca1083571bc4d9",
+  "attempt_key": "02b0391c561ecaf2a958ace811dd2eaf386f96be1502cb3506ad20a33d9b9f06",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-question-077",
+  "request_sha256": "02b0391c561ecaf2a958ace811dd2eaf386f96be1502cb3506ad20a33d9b9f06",
+  "usage": {
+    "accounted_tokens": 231,
+    "input_tokens": 205,
+    "latency_seconds": 1.4510076000005938,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 26,
+    "provider_request_id": "req_0a65fbd3bd2a42e9b1ff5a04716a527d",
+    "reasoning_tokens": 0,
+    "request_id": "4d98ef62-049a-4776-963f-b3b705bbbd21",
+    "reserved_input": 5327,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:03:38.264591+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

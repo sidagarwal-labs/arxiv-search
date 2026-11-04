@@ -553,6 +553,11 @@ def test_stage2_leaderboard_pairs_against_both_baselines(inputs, monkeypatch):
     assert systems[llm]["noise"] is None
     assert "(RERANKING BASELINE)" in text and "(RETRIEVAL BASELINE, no reranker)" in text
     assert "### Stage 2 — reranker progress" in text
+    oracle = stage2["oracle"]
+    assert oracle["all"]["ndcg@10"]["mean"] >= systems[safe]["all"]["ndcg@10"]["mean"]
+    assert oracle["paths"] == [] and oracle["depth"] == catalog.config.RERANK_BASELINE_DEPTH
+    assert "oracle+top" not in str(set(systems))  # never a ranked system
+    assert "NORTH STAR, not a system" in text and "Headroom closed" in text
     assert "(RERANKING BASELINE)" in (root / "catalog-dev" / "report.md").read_text(
         encoding="utf-8")
 
@@ -564,3 +569,11 @@ def test_stage2_refuses_alias_that_differs_from_stage1(inputs, monkeypatch):
     save(root / "llm-score-dev100" / "current-baseline.run.json", changed)
     with pytest.raises(ValueError, match="differs from the Stage 1 ranking"):
         catalog.write_catalog()
+
+
+def test_pool_oracle_reorders_only_the_pool_by_grade_then_source():
+    run = {"q": ["a", "b", "c", "d", "e"]}
+    labels = {"q": {"b": 2, "c": 2, "d": 1, "e": 2}}
+    queries = {"q": {"source_arxiv_id": "c"}}
+    assert catalog.pool_oracle_run(run, labels, queries, depth=4) == {
+        "q": ["c", "b", "d", "a", "e"]}  # e is outside the pool, so it stays last

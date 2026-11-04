@@ -1,0 +1,28 @@
+{
+  "answer": {
+    "facets": [
+      "single general-purpose model",
+      "various atmospheric science tasks"
+    ]
+  },
+  "answer_sha256": "463b849729e0edb43848a8b58ab3ec6336af9627d985cbb46563af0ad2c0e7ef",
+  "attempt_key": "f5b421509e210506f85849e6e41dc57ce5956ec7516ac6b801eca02e4e399df3",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-question-095",
+  "request_sha256": "f5b421509e210506f85849e6e41dc57ce5956ec7516ac6b801eca02e4e399df3",
+  "usage": {
+    "accounted_tokens": 231,
+    "input_tokens": 206,
+    "latency_seconds": 1.2615132999926573,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 25,
+    "provider_request_id": "req_bce13be896b749189d6d696031864fe2",
+    "reasoning_tokens": 0,
+    "request_id": "b0c8a34e-76bd-413b-875c-a976f4790f27",
+    "reserved_input": 5321,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:03:59.272907+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

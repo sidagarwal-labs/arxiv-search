@@ -1,0 +1,379 @@
+{
+  "answer": {
+    "P1": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P10": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P11": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P12": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P13": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P14": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P15": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P16": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P17": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P18": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P19": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P2": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P20": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P21": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P22": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P23": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P24": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P25": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P26": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P27": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P28": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P29": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P3": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P30": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P31": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P32": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P33": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P34": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P35": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P36": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P37": {
+      "missing": [],
+      "score": 4
+    },
+    "P38": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P39": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P4": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P40": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P41": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P42": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P43": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P44": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P45": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P46": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P47": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P48": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P49": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P5": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P50": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P6": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P7": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P8": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P9": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    }
+  },
+  "answer_sha256": "da98a0f87cc4208a56302eb763cbd73339755c08b8f9a1ebe1384e948513a9bf",
+  "attempt_key": "1e5b2577381adc9fe9ab626d2474b2dcbf60a3bff6f74b89c5d5d391575837ad",
+  "facets": [
+    "music graph recommendation",
+    "Ziaoddini"
+  ],
+  "model": "gpt-5.4-mini-2026-03-17",
+  "pass": 1,
+  "presented_ids": [
+    "2606.00125",
+    "2609.31253",
+    "2604.21305",
+    "2511.04237",
+    "2607.24846",
+    "2608.25381",
+    "2510.27342",
+    "2609.04574",
+    "2606.16641",
+    "2605.28810",
+    "2605.09120",
+    "2510.21724",
+    "2610.06590",
+    "2610.06703",
+    "2601.08764",
+    "2510.22799",
+    "2605.05238",
+    "2510.10127",
+    "2604.23077",
+    "2609.30568",
+    "2511.12495",
+    "2512.19983",
+    "2608.06928",
+    "2511.18282",
+    "2601.08497",
+    "2602.19711",
+    "2607.23718",
+    "2606.06225",
+    "2604.20847",
+    "2607.25216",
+    "2511.12114",
+    "2512.07384",
+    "2511.16478",
+    "2608.11015",
+    "2602.17036",
+    "2511.18347",
+    "2511.05497",
+    "2607.24607",
+    "2604.03654",
+    "2604.07090",
+    "2603.11796",
+    "2511.18279",
+    "2510.01698",
+    "2605.00670",
+    "2602.17354",
+    "2606.13858",
+    "2602.13581",
+    "2605.27103",
+    "2604.14114",
+    "2602.07208"
+  ],
+  "query_id": "q-known_item-048",
+  "request_sha256": "acc60c9ce1fad507905d2a370d76c5907d68d986a7d12275301f864bab1173a9",
+  "usage": {
+    "accounted_tokens": 19347,
+    "input_tokens": 18689,
+    "latency_seconds": 4.501855099995737,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 658,
+    "provider_request_id": "req_ad5fa1d4817c4b5e96cceb319b1e7fad",
+    "reasoning_tokens": 0,
+    "request_id": "2daa40a0-0db3-4856-9724-0ddedf638437",
+    "reserved_input": 105735,
+    "reserved_output": 2048,
+    "started_utc": "2026-11-04T03:02:08.239432+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

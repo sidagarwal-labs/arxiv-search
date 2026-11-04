@@ -1,0 +1,28 @@
+{
+  "answer": {
+    "facets": [
+      "Boyd",
+      "clinical provenance categorization"
+    ]
+  },
+  "answer_sha256": "4b1c5fd7b609cdd6f1a70ab673efdf44dc0b5ffb10ffe4182b8b2d7610b6019c",
+  "attempt_key": "8351b3e8dcc71ba8a76d384368c4afb41dfad17f26073580347dd6ea55d5ec3c",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-known_item-031",
+  "request_sha256": "8351b3e8dcc71ba8a76d384368c4afb41dfad17f26073580347dd6ea55d5ec3c",
+  "usage": {
+    "accounted_tokens": 220,
+    "input_tokens": 198,
+    "latency_seconds": 1.3246806000097422,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 22,
+    "provider_request_id": "req_924e84e70b0841d68ce4b8e82953457e",
+    "reasoning_tokens": 0,
+    "request_id": "769c2dad-2fac-4240-9396-05ef0c61b65d",
+    "reserved_input": 5279,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:01:43.259707+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

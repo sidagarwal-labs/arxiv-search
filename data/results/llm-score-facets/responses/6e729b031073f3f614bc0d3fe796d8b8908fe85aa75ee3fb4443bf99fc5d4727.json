@@ -1,0 +1,404 @@
+{
+  "answer": {
+    "P1": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P10": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P11": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P12": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P13": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P14": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P15": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P16": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P17": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P18": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P19": {
+      "missing": [],
+      "score": 4
+    },
+    "P2": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P20": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P21": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P22": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P23": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P24": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P25": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P26": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P27": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P28": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P29": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P3": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P30": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P31": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P32": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P33": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P34": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P35": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P36": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P37": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P38": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P39": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P4": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P40": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P41": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P42": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P43": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P44": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P45": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P46": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P47": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P48": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P49": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P5": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P50": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P6": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 0
+    },
+    "P7": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P8": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P9": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    }
+  },
+  "answer_sha256": "cdcb55d2bc99242d3d656f3f92b4a91fbedcdb77c23ee00eab5e5af2e44e9103",
+  "attempt_key": "6e729b031073f3f614bc0d3fe796d8b8908fe85aa75ee3fb4443bf99fc5d4727",
+  "facets": [
+    "single general-purpose model",
+    "various atmospheric science tasks"
+  ],
+  "model": "gpt-5.4-mini-2026-03-17",
+  "pass": 2,
+  "presented_ids": [
+    "2510.25563",
+    "2607.17037",
+    "2603.23282",
+    "2609.38067",
+    "2610.11901",
+    "2512.13910",
+    "2510.18707",
+    "2604.27911",
+    "2609.29027",
+    "2609.02566",
+    "2606.19363",
+    "2609.24882",
+    "2604.16451",
+    "2606.24162",
+    "2601.05821",
+    "2510.13916",
+    "2608.17440",
+    "2601.11046",
+    "2602.03924",
+    "2606.07898",
+    "2607.07758",
+    "2605.16929",
+    "2603.19268",
+    "2606.16905",
+    "2512.05377",
+    "2608.22358",
+    "2602.15004",
+    "2511.20109",
+    "2511.01468",
+    "2605.18911",
+    "2606.08563",
+    "2609.28749",
+    "2607.18877",
+    "2608.25700",
+    "2603.28173",
+    "2606.18338",
+    "2510.06471",
+    "2602.02301",
+    "2601.18111",
+    "2605.07522",
+    "2610.00370",
+    "2606.18857",
+    "2603.20256",
+    "2603.01865",
+    "2607.21080",
+    "2610.00728",
+    "2606.11447",
+    "2602.23146",
+    "2512.12341",
+    "2603.03517"
+  ],
+  "query_id": "q-question-095",
+  "request_sha256": "461af48945e8898d4469897176cb2a59d964cc9ff40b7858fbae8dcd636580d5",
+  "usage": {
+    "accounted_tokens": 19959,
+    "input_tokens": 19223,
+    "latency_seconds": 4.890411600004882,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 736,
+    "provider_request_id": "req_baa84bfd732d4068882811f364ba1fe0",
+    "reasoning_tokens": 0,
+    "request_id": "a18ec647-a1ba-4ce6-bee7-a5782955a169",
+    "reserved_input": 107793,
+    "reserved_output": 2048,
+    "started_utc": "2026-11-04T03:04:05.443538+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

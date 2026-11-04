@@ -15,6 +15,21 @@ belongs to that experiment's scope. For current selections use the
 generated [leaderboard](05-results.md#unified-dev-scorecard).
 Maintenance follows [provenance and retention](08-provenance-and-retention.md).
 
+## Browse the experiments
+
+- [Historical scores by scope](#best-measured-scores-by-scope) and
+  [original retrieval milestones](10-reproduction-guide.md#historical-retrieval-milestones).
+- Fusion: [first grid](#fusion-grid-and-label-expansion),
+  [RRF selection](#rrf-55--c30-working-baseline-decision-35),
+  [score/depth](#score-based-fusion-and-candidate-depth) and
+  [recall-preserving ordering](#recall-preserving-shortlist-score-baseline-decision-36).
+- Interaction models: [cross-encoder and fields](#cross-encoder-and-field-score-experiments),
+  [OpenAI fields](#openai-large-title-and-abstract-fields).
+- Reranking: [pilots](#question-audit-and-llm-reranker-pilots) and
+  [follow-ups](#reranker-follow-ups-after-decision-45).
+- [Complete metrics tables](../data/results/catalog-dev/report.md): all systems
+  and query-type comparisons, not only the selected summaries on this page.
+
 ## Best measured scores by scope
 
 Keep benchmark scopes separate: these rows use different corpora, label pools or purposes.
@@ -26,7 +41,7 @@ Keep benchmark scopes separate: these rows use different corpora, label pools or
 | Selected judge calibration | GPT-5.4 mini vs. 100 GPT-6 ASTRA reference-labeled pairs from 12 dev searches (model-to-model) | Exact agreement **77%**; quadratic kappa **0.802**; relevant/not agreement **84%**; **0** opposite 0-vs-2 errors |
 | Original OpenAI hybrid control | BM25 + **OpenAI large**, equal-weight RRF c=10; 23,304 papers, 100 dev queries | MRR@10 **0.653** [0.572, 0.737]; R@1 **0.56**, R@10 **0.84**, R@20 **0.90** |
 | Original seven-system graded snapshot | Original OpenAI hybrid; GPT-5.4 mini with 100 GPT-6 ASTRA reference overrides | nDCG@10 **0.686** [0.659, 0.712]; P@10 **0.633** [0.595, 0.673]; judged@10 **100%** |
-| **Current working baseline** | **RRF shortlist + max-score 75% ordering, score depth 500**; 100 dev queries, same 3,294-pair snapshot | **nDCG@10 0.7176; P@10 0.689; source MRR@10 0.6967; R@1 0.61; R@10 0.86; R@20 0.89; known-item MRR 0.980** (0.7092 on the Decision45 shared 3,461-pair labels) |
+| Retrieval baseline (Decision 36; historical scoring layers) | RRF shortlist + max-score 75% ordering, score depth 500; 100 dev queries, 3,294-pair snapshot | nDCG@10 0.7176; P@10 0.689; source MRR@10 0.6967; R@1 0.61; R@10 0.86; R@20 0.89; known-item MRR 0.980 (0.7092 on Decision 45's 3,461-pair layer; 0.7036 on Decision 46's 3,533-pair layer) |
 | Reranking baseline (Decision 45, superseded) | Retrieval baseline top 50 scored by GPT-5.4 mini, RRF safeguard c=30; 100 dev queries, shared 3,461-pair labels | nDCG@10 0.7583; P@10 0.736; source MRR@10 0.720; ≈ $0.014 per uncached query |
 | **Reranking baseline (Decision 46)** | Same, but the mean of two identical GPT-5.4 mini passes; 100 dev queries, shared 3,533-pair labels | **nDCG@10 0.7684; P@10 0.751; source MRR@10 0.723**; ≈ $0.028 per uncached query, p50 2.9 s with parallel passes |
 | Full-corpus semantic retrieval | OpenAI large alone; same corpus and dev queries | MRR@10 **0.599** [0.518, 0.679]; R@10 **0.82**, R@20 **0.88** |

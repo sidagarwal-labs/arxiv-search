@@ -1,0 +1,29 @@
+{
+  "answer": {
+    "facets": [
+      "reducing data exchange",
+      "avoiding error signal propagation",
+      "shared neural architectures"
+    ]
+  },
+  "answer_sha256": "b4a2593c4a6a98921dac223759bf49c507fa8dce10564f179ed6328ab875458f",
+  "attempt_key": "3ade6a3f95ed551f8dca75ee6770a571cb8f0069374f2106dc5d0da69f87f8c4",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-paraphrase-020",
+  "request_sha256": "3ade6a3f95ed551f8dca75ee6770a571cb8f0069374f2106dc5d0da69f87f8c4",
+  "usage": {
+    "accounted_tokens": 234,
+    "input_tokens": 205,
+    "latency_seconds": 1.3736395000014454,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 29,
+    "provider_request_id": "req_d90b2bff139a4933a6d24ac1c24ea211",
+    "reasoning_tokens": 0,
+    "request_id": "34d719ee-62b3-4d36-9f9f-139fb8e6a266",
+    "reserved_input": 5330,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:02:17.243541+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

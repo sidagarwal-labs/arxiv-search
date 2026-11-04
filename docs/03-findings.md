@@ -22,6 +22,20 @@ Do not update an old score to match a newer label layer without preserving its
 scope. Follow [provenance and retention](08-provenance-and-retention.md); labeler
 agreement has its own [comparison method](09-labeler-comparison.md).
 
+### Browse by learning topic
+
+| Topic | Sections and evidence |
+|---|---|
+| Corpus and indexing choices | [Corpus](#1-the-corpus-download-of-2026-10-20), [input length](#2-how-long-is-title--abstract-decision-12), [full text tradeoff](#3-full-paper-vs-abstract-decision-18) |
+| Evaluation design | [Score precision](#6-how-precise-will-our-scores-be-decisions-16-21), [query generation](#7-making-the-400-test-queries-decisions-2224-run-of-2026-10-21), [labeler provenance](09-labeler-comparison.md) |
+| Lexical and semantic retrieval | [BM25 baseline](#8-bm25-baseline-on-dev-decision-27), [BM25 grid](#9-bm25-techniques-full-grid-decisions-2830), [local embeddings](#10-four-small-embedding-models-decision-31), [OpenAI embeddings](#14-full-corpus-openai-large-2026-10-29) |
+| Fusion and candidate selection | [Hybrid fusion](#11-hybrid-rank-fusion-decision-32), [score/depth experiments](#21-score-based-fusion-top-rank-bonuses-and-candidate-depth), [recall-preserving ordering](#23-rankscore-experiments-and-recall-preserving-baseline) |
+| Query-document interactions | [Cross-encoder](#24-query-document-interaction-first-local-cross-encoder), [field scores](#25-separate-titleabstract-field-scores), [paraphrase recovery](#28-recovering-paraphrases-without-query-type-routing) |
+| LLM reranking and reliability | [Output reliability](#30-mini-llm-pilot-results-and-output-reliability), [fixed-key scoring](#31-fixed-key-reranker-v2-reliable-output-and-pilot-quality), [subsequent experiments](07-experiment-log.md#reranker-follow-ups-after-decision-45) |
+| All metrics, not just selected milestones | [Complete all-system tables](../data/results/catalog-dev/report.md), [results index](05-results.md), [charts](06-charts.md) |
+
+Sections remain in place so their evidence and incoming links stay intact.
+
 ---
 
 ## 1. The corpus (download of 2026-10-20)
@@ -2417,3 +2431,67 @@ re-sent the 20 pilot top50 requests byte-for-byte ($0.27, 20/20 valid).
 Implication: the full-dev gain is not a lucky draw, but a live search would show
 slightly different top10s for the same query on each call unless results are cached.
 See the [repeatability report](../data/results/llm-score-repeat/report.md).
+
+## 32. Stage 2 loss analysis and the north star (2026-11-03)
+
+Free, offline review of the [Decision46](02-decisions.md) reranking baseline on
+the shared Decision46 labels (no API calls).
+
+- **Ordering, not recall, is the bottleneck.** A perfect reorder of the same
+  retrieval top50 would score **.978** nDCG@10 (the new leaderboard ★ row);
+  the baseline scores .768, so it closes **24%** of the gap from retrieval
+  (.704). Only .022 is lost to known relevant papers outside the top50. The
+  oracle is optimistic: labels were pooled from saved systems' results.
+- **Size of the gap:** 143 grade-2 papers sit at ranks 11-50 in 56 of 100
+  queries, mostly displaced by grade-1 (partly relevant) papers.
+- **Reranker vs retrieval:** 76 wins, 16 losses, 8 ties (+7.38 vs -0.90 total
+  nDCG). Keyword queries gain least and hold 7 of the 16 losses.
+
+AI-assistant reading of 23 cases (the 16 losses plus the largest gaps to the oracle;
+one reviewer, not double-checked):
+
+| Failure type | Cases | Example |
+|---|---|---|
+| **Missing required facet** ranked high: right main topic, a distinguishing constraint absent | ~10 | "regional language social media" puts a Bengali *speech* corpus first |
+| Many grade-2 papers, grade-1 ones placed above them (same cause, under-weighted facet) | ~4 | "linear time long context recall": memory papers above 9 linear-attention papers |
+| Shared word or acronym, different meaning | ~2 | "SLATE" slide benchmark for a slate-recommendation query |
+| Label ceiling: source already #1, little else relevant | ~3 | van der Klis Lorentz networks |
+| Possible label noise or near-ties within run-to-run noise | ~4 | -0.001 on "AI consciousness" |
+
+Hypothesis for the next experiment: the scorer must check each required facet of
+the query, not overall topical similarity. The rule is general (facets come from
+each query's own text), so it is not tuned to these dev queries.
+
+
+## 33. Experiment D: a requirement checklist made the reranker worse (2026-11-03)
+
+Pilot of the facet-checklist reranker ([pilot report](../data/results/llm-score-facets/pilot-report.md)):
+one call lists 1-4 required facets per query, then two scoring passes flag
+each paper's missing facets and score it 0-4. Code caps papers missing a facet
+at 2. Cost: $0.70 for 60 requests plus $0.0007 judge. **The pilot gate failed;
+the full stage was not run.**
+
+| pilot20 | nDCG@10 | Δ vs D46 | Source MRR@10 |
+|---|---|---|---|
+| Decision46 reranking baseline | .751 | — | .863 |
+| Checklist + cap 2 (primary) | .728 | -.023 [-.063, +.015] | .783 |
+| Checklist, no cap (secondary) | .732 | -.019 [-.060, +.019] | .817 |
+
+Why it failed (diagnostics, not tuned on):
+
+- **The checker flags almost everything.** 97% of paper-passes list a missing
+  facet, so "missing" carries almost no signal. The cap changed only 0.5% of
+  scores because the model already lowered them.
+- **It rejects the right paper.** The source paper, which by construction meets
+  the query, was flagged in 17 of 36 paper-passes. Facets are written in the
+  query's paraphrased words ("one paragraph for several questions"), and an
+  abstract rarely states them literally, so a strict "clearly supported" test
+  fails.
+- **The prompt itself hurt.** Even without the cap, scores fell. Question
+  (-.053) and paraphrase (-.038) queries lost most. Keyword queries, the
+  motivating weak spot, gained slightly (+.014), which is not significant on 4
+  queries.
+
+Lesson: explicit hard requirement checks need semantic, not literal, facet
+matching. Ranking quality depends on the holistic judgement the baseline prompt
+already makes. Decision46 stays the reranking baseline.

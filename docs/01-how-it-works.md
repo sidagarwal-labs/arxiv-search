@@ -11,10 +11,32 @@ For selected configurations and current scores, start with the
 and experiment designs; those sections are learning history, not a claim that
 every former model or plan remains selected.
 
-Offline hybrid retrieval and LLM reranking have been evaluated on dev. Final
-held-out evaluation, fresh human validation, RAG and the deployed website remain
-open work. Detailed measurements belong in [Findings](03-findings.md), with
+Offline hybrid retrieval and LLM reranking have been evaluated on dev. A
+[mock-backed UI](../web/README.md) is being developed locally; real API integration,
+RAG, final held-out evaluation, human validation and public deployment remain
+open work. Demo outputs are not measured live-search results.
+Detailed measurements belong in [Findings](03-findings.md), with
 [provenance and retention](08-provenance-and-retention.md) governing maintenance.
+
+### Current architecture reading route
+
+1. Ingestion: [download](#step-1-download-downloadpy), [parse](#step-2a-translate-parsepy)
+   and [clean](#step-2b-filter-and-sample-cleanpy) produce the title/abstract corpus.
+2. Retrieval: [BM25](#step-3a-keyword-search-bm25-searchtextpy-searchbm25py),
+   [dense search](#step-3b-meaning-search-embeddings-searchdensepy) and
+   [hybrid fusion](#step-3c-hybrid-search-searchhybridpy) supply candidates.
+3. Reranking: the [current configuration](../README.md#current-working-baselines)
+   averages two GPT-5.4 mini scoring passes over the top 50 and applies the
+   retrieval-order safeguard. The experiments below explain how we got there.
+4. Evaluation: [metrics](#step-4-scoring-evaluatemetricspy),
+   [experiment tooling](#step-4c-experiments-evaluateexperimentspy) and the
+   [judge](#step-4d-llm-relevance-judge-evaluatejudgepy-judge_promptspy-judge_pilotpy)
+   measure source ranking, graded relevance and coverage.
+5. Evidence: [complete metrics tables](../data/results/catalog-dev/report.md),
+   [charts](06-charts.md) and [labeler provenance](09-labeler-comparison.md).
+
+For setup and commands grouped by cost/side effects, use the
+[reproduction guide](10-reproduction-guide.md).
 
 ## The big picture
 
@@ -31,8 +53,8 @@ open work. Detailed measurements belong in [Findings](03-findings.md), with
 | 2. Clean up | ✅ Done | Turn those saved pages into one row per paper, and keep only the papers we want. |
 | 3. Search | ✅ Offline pipeline built | BM25, embeddings, hybrid retrieval and LLM reranking evaluated on development queries; live deployment remains planned. |
 | 4. Test | 🔨 Final validation pending | Evaluation tooling and 100-query dev runs complete; 300 held-out queries and fresh human validation remain pending. |
-| 5. Answer (RAG) | Later | Send the top papers to an LLM and have it answer the question, citing them. |
-| 6. Website | Later | A public page where anyone can search. |
+| 5. Answer (RAG) | Planned integration | The UI can demonstrate cited summaries with mock data; real grounded generation remains pending. |
+| 6. Website | Local UI in development | Mock-backed page built locally; API integration and public deployment remain pending. |
 
 ## Recommended reading order
 
@@ -51,6 +73,13 @@ open work. Detailed measurements belong in [Findings](03-findings.md), with
    test queries and updates the [results table](05-results.md)
 
 ---
+
+<details>
+<summary>Historical experiment walkthroughs: cross-encoder, field embeddings and LLM pilots</summary>
+
+These are preserved designs and controls, not the current selected configuration.
+For a shorter outcome narrative, use the [experiment log](07-experiment-log.md);
+for exact metrics, use the [complete tables](../data/results/catalog-dev/report.md).
 
 ## Experimental reranking: what new information does it use?
 
@@ -181,6 +210,8 @@ is a100-query leaderboard entry. V2 stops on **any** failed request and blocks
 further paid execution pending investigation, including after the smoke gate.
 See
 [Decision40](02-decisions.md#40-fixed-key-reranker-v2-approved-2026-10-30).
+
+</details>
 
 ---
 

@@ -26,7 +26,7 @@ FIELDS = ("ndcg@10", "precision@10", "judged@10", "source_mrr@10",
           "source_recall@1", "source_recall@5", "source_recall@10", "source_recall@20",
           "source_recall@50", "grade2_recall@50")
 LEGACY_FIELDS = FIELDS[:8]  # fields frozen reviews were computed with (pre-Decision45)
-STAGE2_FOLDERS = ("llm-score-dev100", "llm-score-blend", "llm-score-pass2")  # full-dev only
+STAGE2_FOLDERS = ("llm-score-dev100", "llm-score-blend", "llm-score-pass2", "llm-score-refine")  # full-dev only
 # Promoted or turning-point retrieval systems, oldest first (also charted in 06-charts.md).
 RETRIEVAL_MILESTONES = (
     ("Tuned BM25", "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75"),
@@ -380,6 +380,28 @@ def describe_system(name: str) -> dict[str, str]:
             "ranker": f"GPT-5.4 mini scores retrieval-baseline top{opts['d']} 0-4, "
                       f"{passes}{tail}",
         }
+    if name.startswith("llm-mini-facet-score+"):
+        opts = dict(p.split("=", 1) for p in name.split("+")[1:] if "=" in p)
+        cap = (f"; papers missing a requirement capped at {opts['cap']}" if "cap" in opts
+               else "; no cap")
+        return {
+            "name": "2-pass requirement-checklist reranker + safeguard",
+            "lexical": "Retrieval baseline candidates (tuned BM25)",
+            "embedding": models["openai-large"] + " (retrieval baseline)",
+            "ranker": f"GPT-5.4 mini lists each query's required facets, then scores retrieval-"
+                      f"baseline top{opts['d']} 0-4 with missing facets{cap}; average of two "
+                      f"requests; RRF with retrieval order, c{opts['c']}",
+        }
+    if name.startswith("llm-mini-refine20+"):
+        opts = dict(p.split("=", 1) for p in name.split("+")[1:] if "=" in p)
+        guard = (f"; RRF with the Decision46 order, c{opts['c']}" if "c" in opts else "; no safeguard")
+        return {
+            "name": "Decision46 + top20 refinement" + (" + safeguard" if "c" in opts else ""),
+            "lexical": "Retrieval baseline candidates (tuned BM25)",
+            "embedding": models["openai-large"] + " (retrieval baseline)",
+            "ranker": f"Decision46 reranker, then GPT-5.4 mini re-scores its top{opts['d']} 0-10, "
+                      f"average of two requests{guard}",
+        }
     if name.startswith("oai-field-recovery+"):
         opts = dict(p.split("=", 1) for p in name.split("+")[1:])
         recipe = opts["text"]
@@ -604,6 +626,52 @@ def stage2_systems(root: Path, snapshot: dict, papers: dict, queries: dict,
     return systems
 
 
+def pool_oracle_run(run: dict, labels: dict, queries: dict, depth: int) -> dict:
+    """Best possible reorder of each query's top-`depth` candidates under the frozen labels.
+
+    The north star for Stage 2: a perfect reranker of the same candidates. Higher grades
+    first, the source paper first among equal grades, otherwise retrieval order.
+    """
+    oracle = {}
+    for qid, ids in run.items():
+        grades, source = labels.get(qid, {}), queries[qid]["source_arxiv_id"]
+        pool = sorted(ids[:depth], key=lambda p: (-grades.get(p, 0), p != source))
+        oracle[qid] = pool + ids[depth:]
+    return oracle
+
+
+def stage2_oracle(root: Path, snapshot: dict, papers: dict, queries: dict,
+                  dev_ids: list[str], stage1: dict, stage2: dict) -> dict | None:
+    """Score the top-k pool oracle; record how much of its gap each Stage 2 system closes."""
+    retrieval = config.WORKING_BASELINE_SYSTEM
+    if not stage2 or retrieval not in stage2:
+        return None
+    depth = config.RERANK_BASELINE_DEPTH
+    base_run = json.loads((root / stage1[retrieval]["paths"][0]).read_text(encoding="utf-8"))
+    name = f"oracle+top{depth}"
+    oracle = score_catalog(
+        {name: {"run": pool_oracle_run(base_run, snapshot["labels"], queries, depth),
+                "paths": [], "metadata": {}}},
+        snapshot, papers, queries, dev_ids, retrieval)[name]
+    floor = stage2[retrieval]["all"]["ndcg@10"]["mean"]
+    ceiling = oracle["all"]["ndcg@10"]["mean"]
+    oracle.update({
+        "name": name, "depth": depth,
+        "paired_ndcg_vs_retrieval_baseline": _paired(stage2[retrieval], oracle),
+        "paired_ndcg_vs_reranking_baseline": (
+            _paired(stage2[config.RERANK_BASELINE_SYSTEM], oracle)
+            if config.RERANK_BASELINE_SYSTEM in stage2 else None),
+        "scope": (f"Perfect ordering of the retrieval-baseline top{depth} under the shared "
+                  "labels; not a system. Optimistic: labels were pooled from saved systems' "
+                  "results, so relevant papers no system surfaced are missing."),
+    })
+    for result in stage2.values():
+        value = result["all"]["ndcg@10"]["mean"]
+        result["headroom_closed"] = ((value - floor) / (ceiling - floor)
+                                     if value is not None and ceiling > floor else None)
+    return oracle
+
+
 def _signed(paired: dict | None, reason: str) -> str:
     if not paired:
         return reason
@@ -611,15 +679,32 @@ def _signed(paired: dict | None, reason: str) -> str:
     return f"{paired['difference']:+.3f} [{low:+.3f}, {high:+.3f}] W/L {paired['wins']}/{paired['losses']}"
 
 
-def _stage2_table(systems: dict) -> str:
+def _headroom(result: dict) -> str:
+    value = result.get("headroom_closed")
+    return "—" if value is None else f"{value:.0%}"
+
+
+def _stage2_table(systems: dict, oracle: dict | None = None) -> str:
     ranked, unranked = leaderboard_order(systems)
     lines = [
         "| Rank | System | Stage 1 retrieval | Stage 2 reranker | Status | nDCG@10 (n) | P@10 | "
         "Source MRR@10 | R@1 | R@10 | Δ nDCG vs retrieval baseline [95% CI] W/L | "
-        "Δ nDCG vs reranking baseline [95% CI] W/L | LLM $/query | API s/query | "
-        "Run-to-run noise (SD of 100-q mean; MDD) |",
-        "|" + "---|" * 15,
+        "Δ nDCG vs reranking baseline [95% CI] W/L | Headroom closed | LLM $/query | "
+        "API s/query | Run-to-run noise (SD of 100-q mean; MDD) |",
+        "|" + "---|" * 16,
     ]
+    if oracle:
+        summary = oracle["all"]
+        lines.append("| " + " | ".join([
+            "★", f"**Top-{oracle['depth']} oracle (NORTH STAR, not a system)**",
+            "Retrieval baseline (Decision36)",
+            f"Perfect ordering of the top{oracle['depth']} using the shared labels",
+            "ceiling", f"{summary['ndcg@10']['mean']:.4f} ({summary['ndcg@10']['n']})",
+            _value(summary, "precision@10"), _value(summary, "source_mrr@10"),
+            _value(summary, "source_recall@1"), _value(summary, "source_recall@10"),
+            _signed(oracle["paired_ndcg_vs_retrieval_baseline"], "withheld"),
+            _signed(oracle["paired_ndcg_vs_reranking_baseline"], "withheld"),
+            "100%", "—", "—", "deterministic"]) + " |")
     for index, name in enumerate(ranked + unranked, 1):
         result = systems[name]
         summary = result["all"]
@@ -641,12 +726,30 @@ def _stage2_table(systems: dict) -> str:
                  _signed(result["paired_ndcg_vs_retrieval_baseline"], "itself"),
                  _signed(result["paired_ndcg_vs_reranking_baseline"],
                          "itself" if result["reranking_baseline"] else "withheld"),
+                 _headroom(result),
                  f"${cost['usd_per_query']:.4f}", (f"{cost['api_seconds_per_query']:.2f}" if cost["api_seconds_per_query"] is not None
                   else "parallel"),
                  (f"{noise['est_sd_of_100q_mean']:.4f}; {noise['min_detectable_difference']:.3f}"
                   if noise else "deterministic" if result["retrieval_baseline"] else "unmeasured")]
         lines.append("| " + " | ".join(cells) + " |")
     return "\n".join(lines)
+
+
+def _north_star(systems: dict, oracle: dict | None) -> str:
+    if not oracle:
+        return ""
+    ceiling = oracle["all"]["ndcg@10"]["mean"]
+    rerank = systems.get(config.RERANK_BASELINE_SYSTEM)
+    closed = (f" The reranking baseline closes **{rerank['headroom_closed']:.0%}** of the gap "
+              "from retrieval to the oracle." if rerank and rerank.get("headroom_closed")
+              is not None else "")
+    return (f"**North star:** a perfect reranker of the same retrieval top{oracle['depth']} "
+            f"would score **{ceiling:.4f}** nDCG@10 (★ row).{closed} Headroom closed = "
+            "(system − retrieval) / (oracle − retrieval). The oracle is optimistic: labels "
+            "were pooled from saved systems' results, so relevant papers no system found "
+            f"are missing; the remaining {1 - ceiling:.4f} to a perfect 1.0 is lost because "
+            f"known relevant papers sit outside the top{oracle['depth']} (a Stage 1 problem)."
+            "\n\n")
 
 
 def _stage1_progress(systems: dict) -> str:
@@ -811,6 +914,7 @@ def write_catalog() -> str:
         result["description"] = describe_system(name)
         result["leaderboard_rank"] = ranked.index(name) + 1 if name in ranked else None
     stage2 = stage2_systems(root, snapshot, papers, queries, splits["dev"], systems)
+    oracle = stage2_oracle(root, snapshot, papers, queries, splits["dev"], systems, stage2)
     stage2_ranked, stage2_unranked = leaderboard_order(stage2) if stage2 else ([], [])
     out.mkdir(parents=True, exist_ok=True)
     inventory = sorted({
@@ -842,7 +946,7 @@ def write_catalog() -> str:
                         "tie_breaker": "stable system ID (unrounded nDCG is used)",
                         "ranked": ranked, "unranked": unranked},
         "stage2": {"systems": stage2, "ranked": stage2_ranked, "unranked": stage2_unranked,
-                   "folders": list(STAGE2_FOLDERS)},
+                   "folders": list(STAGE2_FOLDERS), "oracle": oracle},
     }
     (out / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n",
                                     encoding="utf-8")
@@ -915,7 +1019,8 @@ def write_catalog() -> str:
                 "time are measured means over uncached requests; saved rankings replay cached "
                 "responses (LLM scores are not deterministic). Differences smaller than the "
                 "MDD (1.96·√2·SD of the 100-query mean, from the Decision44 repeat run) are "
-                "within run-to-run noise.\n\n" + _stage2_table(stage2)
+                "within run-to-run noise.\n\n" + _north_star(stage2, oracle)
+                + _stage2_table(stage2, oracle)
                 if stage2 else "_No saved full-dev reranker runs._")
         return "\n\n".join([
             "### Stage 1 — retrieval progress",

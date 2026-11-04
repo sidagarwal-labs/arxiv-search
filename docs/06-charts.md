@@ -4,7 +4,7 @@
 
 ## Hill climbing: major comparable milestones
 
-Every point is rescored against the **same 3,533-pair dev label set (`shared-labels/labels-d46.json`)**, 100 dev queries, 23,304 searchable papers. Stage 1 points are retrieval baselines and turning points; the Stage 2 point adds the LLM reranker on top of the current retrieval baseline. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order. **Zoomed linear y-axis: 0.50-0.80, not zero-based.** This focuses on score changes, not their magnitude relative to zero. All plotted top10s are fully judged; no pilot/test scores are mixed in. Scores shifted down slightly from older versions of this page when reranker top-10 grades joined the shared labels (167 in Decision45, 72 in Decision46); the curve's shape is unchanged.
+Every point is rescored against the **same 3,533-pair dev label set (`shared-labels/labels-d46.json`)**, 100 dev queries, 23,304 searchable papers. Stage 1 points are retrieval baselines and turning points; the Stage 2 point adds the LLM reranker on top of the current retrieval baseline. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order. **Zoomed linear y-axis: 0.50-1.00, not zero-based.** This focuses on score changes, not their magnitude relative to zero. All plotted top10s are fully judged; no pilot/test scores are mixed in. Scores shifted down slightly from older versions of this page when reranker top-10 grades joined the shared labels (167 in Decision45, 72 in Decision46); the curve's shape is unchanged.
 
 **First plotted baseline to current: 0.5090 to 0.7684 (+0.2594 nDCG, +51.0% relative); retrieval alone reaches 0.7036, the reranker adds +0.0649.** The first point is tuned BM25, not the original plain-BM25 control, whose graded coverage is incomplete. Use a linear scale: nDCG is a bounded relevance score, not a quantity spanning orders of magnitude; a log axis would obscure additive improvements.
 
@@ -12,9 +12,12 @@ Every point is rescored against the **same 3,533-pair dev label set (`shared-lab
 xychart-beta
     title "Hill climbing: graded relevance nDCG@10"
     x-axis ["Tuned BM25", "GTE dense", "GTE hybrid", "OpenAI hybrid", "RRF75 c100", "RRF55 c30", "Shortlist scores", "LLM rerank + safeguard", "2-pass LLM rerank + safeguard"]
-    y-axis "nDCG@10 (zoomed, higher is better)" 0.5 --> 0.8
+    y-axis "nDCG@10 (zoomed, higher is better)" 0.5 --> 1
     line [0.5090, 0.5688, 0.6188, 0.6476, 0.6913, 0.6925, 0.7036, 0.7521, 0.7684]
+    line [0.9784, 0.9784, 0.9784, 0.9784, 0.9784, 0.9784, 0.9784, 0.9784, 0.9784]
 ```
+
+**North star (flat upper line): 0.9784** — a perfect reranker of the retrieval top50 under the same labels. Not a system; optimistic because labels were pooled from saved systems' results. The current reranking baseline is 0.2100 below it.
 
 | Stage | Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |
 |---|---|---|---|---|---|---|

@@ -1,0 +1,28 @@
+{
+  "answer": {
+    "facets": [
+      "Yang GraDE",
+      "frequent subgraph discovery"
+    ]
+  },
+  "answer_sha256": "ac9d6ece8afacc636d5c6b5dd1e1f51618036ce3d0199170f4ce15826301e893",
+  "attempt_key": "c1b016d6d756a5ac6fee0a3ce18ac5d4328428445d31780f7a9ef77704222555",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-known_item-017",
+  "request_sha256": "c1b016d6d756a5ac6fee0a3ce18ac5d4328428445d31780f7a9ef77704222555",
+  "usage": {
+    "accounted_tokens": 223,
+    "input_tokens": 199,
+    "latency_seconds": 1.3772343000018736,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 24,
+    "provider_request_id": "req_17acd63b480b4e7d87059b5a72d74634",
+    "reasoning_tokens": 0,
+    "request_id": "6558e8b7-a721-4261-8d16-d7bd42dd30af",
+    "reserved_input": 5278,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:01:18.537252+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "answer": {
+    "facets": [
+      "low precision training",
+      "distributed private devices",
+      "speeding up training",
+      "comprehensive look"
+    ]
+  },
+  "answer_sha256": "b6cfd9bba9879a08123bc00758c4126dc4cbd0d32ab06e8d54077933e49f11ae",
+  "attempt_key": "a6e8cacba81a2bbc3ffee7ca24cba255cf9e99dd7ed050005cf8a09dce3ba6e6",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-paraphrase-077",
+  "request_sha256": "a6e8cacba81a2bbc3ffee7ca24cba255cf9e99dd7ed050005cf8a09dce3ba6e6",
+  "usage": {
+    "accounted_tokens": 239,
+    "input_tokens": 208,
+    "latency_seconds": 1.4179393000085838,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 31,
+    "provider_request_id": "req_84094af8bac745ea86941cf5d495834a",
+    "reasoning_tokens": 0,
+    "request_id": "4cda6c5d-7b97-44fe-8f86-b78c63117e60",
+    "reserved_input": 5347,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:02:52.976987+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

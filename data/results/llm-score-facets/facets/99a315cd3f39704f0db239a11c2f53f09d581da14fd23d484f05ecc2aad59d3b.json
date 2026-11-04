@@ -1,0 +1,29 @@
+{
+  "answer": {
+    "facets": [
+      "identify speaker's mood",
+      "previous chat turns needed",
+      "role of sentence starters"
+    ]
+  },
+  "answer_sha256": "7a0227e6395cf53ace28d8d54218eb2c1e335c7557db4fc12efd997af317ac74",
+  "attempt_key": "99a315cd3f39704f0db239a11c2f53f09d581da14fd23d484f05ecc2aad59d3b",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-paraphrase-043",
+  "request_sha256": "99a315cd3f39704f0db239a11c2f53f09d581da14fd23d484f05ecc2aad59d3b",
+  "usage": {
+    "accounted_tokens": 245,
+    "input_tokens": 216,
+    "latency_seconds": 1.5738318000076106,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 29,
+    "provider_request_id": "req_c54561623afe49fd971bf78a630ed67e",
+    "reasoning_tokens": 0,
+    "request_id": "dc475886-d9cf-45e7-bfd5-04fce25cc4a8",
+    "reserved_input": 5366,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:02:28.931182+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

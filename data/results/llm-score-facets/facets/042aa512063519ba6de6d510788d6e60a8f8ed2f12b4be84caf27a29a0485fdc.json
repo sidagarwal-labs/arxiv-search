@@ -1,0 +1,28 @@
+{
+  "answer": {
+    "facets": [
+      "LLM popularity prediction",
+      "recommendation"
+    ]
+  },
+  "answer_sha256": "55c68f996be861c72dbe4e37e4003fe2ffbbf325e7a8881b02487fd115adab06",
+  "attempt_key": "042aa512063519ba6de6d510788d6e60a8f8ed2f12b4be84caf27a29a0485fdc",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-keyword-081",
+  "request_sha256": "042aa512063519ba6de6d510788d6e60a8f8ed2f12b4be84caf27a29a0485fdc",
+  "usage": {
+    "accounted_tokens": 219,
+    "input_tokens": 197,
+    "latency_seconds": 1.335457499997574,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 22,
+    "provider_request_id": "req_553c0c892fb04c408545e1b612e043ca",
+    "reasoning_tokens": 0,
+    "request_id": "40ecb5e0-b96b-4579-90b6-5e6f335b4e8b",
+    "reserved_input": 5280,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:01:07.833171+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

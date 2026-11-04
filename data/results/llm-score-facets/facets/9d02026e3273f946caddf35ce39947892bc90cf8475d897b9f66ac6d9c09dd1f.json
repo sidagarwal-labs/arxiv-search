@@ -1,0 +1,28 @@
+{
+  "answer": {
+    "facets": [
+      "music graph recommendation",
+      "Ziaoddini"
+    ]
+  },
+  "answer_sha256": "890ed54d752b9efe493d5f908108ea965781f698f059946f761720d529d8d8e6",
+  "attempt_key": "9d02026e3273f946caddf35ce39947892bc90cf8475d897b9f66ac6d9c09dd1f",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-known_item-048",
+  "request_sha256": "9d02026e3273f946caddf35ce39947892bc90cf8475d897b9f66ac6d9c09dd1f",
+  "usage": {
+    "accounted_tokens": 222,
+    "input_tokens": 199,
+    "latency_seconds": 1.694822400007979,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 23,
+    "provider_request_id": "req_3675e84cdf9844bc9f50e92bf366a8b5",
+    "reasoning_tokens": 0,
+    "request_id": "3a4c751e-3019-4577-ba35-289953197cb1",
+    "reserved_input": 5276,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:02:06.515833+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

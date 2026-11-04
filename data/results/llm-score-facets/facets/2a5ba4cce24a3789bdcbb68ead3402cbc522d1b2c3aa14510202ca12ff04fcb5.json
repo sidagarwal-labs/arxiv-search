@@ -1,0 +1,29 @@
+{
+  "answer": {
+    "facets": [
+      "AI alignment",
+      "sociodemographic",
+      "Shani-Narkiss"
+    ]
+  },
+  "answer_sha256": "7e4470872ea2215767b5e5d3594e902e407cfba0a4399cbae2ac1b0091b6df96",
+  "attempt_key": "2a5ba4cce24a3789bdcbb68ead3402cbc522d1b2c3aa14510202ca12ff04fcb5",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-known_item-019",
+  "request_sha256": "2a5ba4cce24a3789bdcbb68ead3402cbc522d1b2c3aa14510202ca12ff04fcb5",
+  "usage": {
+    "accounted_tokens": 231,
+    "input_tokens": 203,
+    "latency_seconds": 1.6434956999873975,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 28,
+    "provider_request_id": "req_60dcf54e4d464feb9d4d188fc0649137",
+    "reasoning_tokens": 0,
+    "request_id": "d732115d-6db6-49d1-a33f-dfefb6524ec1",
+    "reserved_input": 5283,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:01:30.501583+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

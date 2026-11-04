@@ -1,0 +1,29 @@
+{
+  "answer": {
+    "facets": [
+      "find relevant text chunks",
+      "hierarchy of summaries",
+      "connect search terms and documents"
+    ]
+  },
+  "answer_sha256": "bbcb17098bac675fad0a2a00d9e6543f0edcf813db1db7e5397dc0935636a5c3",
+  "attempt_key": "133472516d11f12ce3f9a49d4c73c05fc1ae76dc6d042780ddb7007373d12827",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-paraphrase-096",
+  "request_sha256": "133472516d11f12ce3f9a49d4c73c05fc1ae76dc6d042780ddb7007373d12827",
+  "usage": {
+    "accounted_tokens": 240,
+    "input_tokens": 210,
+    "latency_seconds": 1.34886290000577,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 30,
+    "provider_request_id": "req_a95205a714294df490b60cfd8f5c305e",
+    "reasoning_tokens": 0,
+    "request_id": "9844d4b3-44fe-412a-ac4f-48dca4c0736d",
+    "reserved_input": 5343,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:03:05.637103+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

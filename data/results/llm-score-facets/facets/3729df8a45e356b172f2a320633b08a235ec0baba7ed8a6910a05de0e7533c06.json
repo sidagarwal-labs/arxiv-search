@@ -1,0 +1,29 @@
+{
+  "answer": {
+    "facets": [
+      "use tool specifications",
+      "create synthetic test cases",
+      "for AI agents"
+    ]
+  },
+  "answer_sha256": "f08b6c32f81626241c0b95f891ce40fffbf8a3dd53c025058b9c7da437aec811",
+  "attempt_key": "3729df8a45e356b172f2a320633b08a235ec0baba7ed8a6910a05de0e7533c06",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-question-040",
+  "request_sha256": "3729df8a45e356b172f2a320633b08a235ec0baba7ed8a6910a05de0e7533c06",
+  "usage": {
+    "accounted_tokens": 234,
+    "input_tokens": 207,
+    "latency_seconds": 1.430011000004015,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 27,
+    "provider_request_id": "req_5b56a75c45f940de85e54a0432d00b45",
+    "reasoning_tokens": 0,
+    "request_id": "3a9ae8d8-4d45-4a47-bba2-3e9475e0d5ca",
+    "reserved_input": 5321,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:03:16.647359+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -11,6 +11,8 @@ Short, plain definitions of every term used in this project, grouped by topic.
 | **Label snapshot** | A frozen set of relevance grades; comparisons need the same snapshot and query/corpus scope. |
 | **Preregistration** | A plan saved before measuring the outcome; a retrospective explanation is not a preregistration. |
 | **Calibration vs. validation** | Calibration guides rubric/model selection; fresh validation checks quality on evidence not used for that tuning. |
+| **Top-50 oracle (north star)** | The best possible nDCG@10 if the retrieval top 50 were reordered perfectly by the shared labels. A ceiling, not a system; optimistic because labels only cover papers some system surfaced. |
+| **Headroom closed** | (system − retrieval baseline) / (oracle − retrieval baseline): the share of the reachable Stage 2 gap a reranker has captured. |
 | **Matched-pair labeler comparison** | Compare graders on the same query-paper text pairs, with compatible rubrics and explicit exclusions. |
 
 See [provenance and retention](08-provenance-and-retention.md) and

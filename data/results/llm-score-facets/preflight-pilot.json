@@ -1,0 +1,15 @@
+{
+  "attempted_uncached_no_retry": 0,
+  "expected_tokens": 977154,
+  "expected_usd": 0.8558658,
+  "facet_cap_usd": 0.1,
+  "facet_requests": 20,
+  "facet_spent_usd": 0.0,
+  "max_single_reservation_tokens": 110750,
+  "score_cap_usd": 5.2,
+  "score_requests": 40,
+  "score_spent_usd": 0.0,
+  "shared_remaining_tokens_today": 1091748,
+  "stage": "pilot",
+  "worst_case_usd": 1.0999458
+}

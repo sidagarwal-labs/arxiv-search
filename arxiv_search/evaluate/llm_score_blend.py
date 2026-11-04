@@ -98,7 +98,8 @@ def labels_with_child(shared: dict, out=None) -> dict:
 
 
 def fill_top10(state: dict, runs: dict, shared: dict, out, cap_usd: float,
-               run_judge: bool) -> tuple[dict | None, list]:
+               run_judge: bool, parent: str = "shared-labels/labels.json"
+               ) -> tuple[dict | None, list]:
     """Grade unjudged top10 pairs into `out`/labels.json (child of the shared layer).
 
     Returns (labels, usage rows); labels is None when grading is needed but not enabled.
@@ -136,7 +137,7 @@ def fill_top10(state: dict, runs: dict, shared: dict, out, cap_usd: float,
     child = fill.child_labels(labels, new)
     fusion._write_json(out / "labels.json", {
         "judge": shared["judge"], "rubric_version": shared["rubric_version"],
-        "parent": "shared-labels/labels.json",
+        "parent": parent,
         "labels": {q: {p: g for p, g in child[q].items() if p not in shared["labels"][q]}
                    for q in state["qids"]}})
     labels = labels_with_child(shared, out)

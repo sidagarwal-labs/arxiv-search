@@ -1,0 +1,29 @@
+{
+  "answer": {
+    "facets": [
+      "grade science tests",
+      "network of reference answers",
+      "one paragraph for several questions"
+    ]
+  },
+  "answer_sha256": "d0d900f2ed7fe8ee7e6409681ec4d3511c6e509efd538dd8d95ef3e0cc081ffa",
+  "attempt_key": "8ba6fcb64d1ebe205c345298a17279f321ee42250d776ece29bdce13743e0662",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-paraphrase-063",
+  "request_sha256": "8ba6fcb64d1ebe205c345298a17279f321ee42250d776ece29bdce13743e0662",
+  "usage": {
+    "accounted_tokens": 241,
+    "input_tokens": 212,
+    "latency_seconds": 1.2952555999945616,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 29,
+    "provider_request_id": "req_df3ab13c194e4b8d9b78f9d254f30b3e",
+    "reasoning_tokens": 0,
+    "request_id": "32da18f3-3721-4f4b-8de4-f1f2702205d2",
+    "reserved_input": 5370,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:02:41.075276+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

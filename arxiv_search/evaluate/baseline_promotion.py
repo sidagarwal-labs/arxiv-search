@@ -79,8 +79,10 @@ def render_charts(report: dict, diagnosis: dict) -> str:
             f"{result['all']['source_recall@10']['mean']:.0%} |")
         previous = score
     scores = [result["all"]["ndcg@10"]["mean"] for *_, result in points]
+    oracle = report.get("stage2", {}).get("oracle")
+    ceiling = oracle["all"]["ndcg@10"]["mean"] if oracle else None
     lower = min(0.5, math.floor(min(scores) * 20) / 20)
-    upper = max(0.75, math.ceil(max(scores) * 20) / 20)
+    upper = max(0.75, math.ceil(max(scores + ([ceiling] if ceiling else [])) * 20) / 20)
     current = scores[-1]
     gain = current - scores[0]
     retrieval_score = systems[report["working_baseline"]]["all"]["ndcg@10"]["mean"]
@@ -121,7 +123,12 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         "    x-axis [" + ", ".join(f'\"{label}\"' for label, *_ in points) + "]",
         f'    y-axis "nDCG@10 (zoomed, higher is better)" {lower:g} --> {upper:g}',
         "    line [" + ", ".join(f"{v:.4f}" for v in scores) + "]",
+        *(["    line [" + ", ".join(f"{ceiling:.4f}" for _ in scores) + "]"] if ceiling else []),
         "```", "",
+        *([f"**North star (flat upper line): {ceiling:.4f}** — a perfect reranker of the "
+           f"retrieval top{oracle['depth']} under the same labels. Not a system; optimistic "
+           "because labels were pooled from saved systems' results. The current reranking "
+           f"baseline is {ceiling - current:.4f} below it.", ""] if ceiling else []),
         "| Stage | Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |",
         "|---|---|---|---|---|---|---|", *milestone_rows, "",
         "**Reading the curve:** big earlier jumps came from complementary lexical/semantic "

@@ -1,0 +1,29 @@
+{
+  "answer": {
+    "facets": [
+      "Jiang",
+      "personalized dense retrieval",
+      "reasoning"
+    ]
+  },
+  "answer_sha256": "2bb109403c8510255db483c6f64ca32ad7580f60726f88af36fd1f5df32c4a96",
+  "attempt_key": "f112d8df3834ed58b7f5a4d153b9290d43ae06c8d718ea8dbfc837b10bbce36a",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-known_item-042",
+  "request_sha256": "f112d8df3834ed58b7f5a4d153b9290d43ae06c8d718ea8dbfc837b10bbce36a",
+  "usage": {
+    "accounted_tokens": 223,
+    "input_tokens": 198,
+    "latency_seconds": 1.2899521999934223,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 25,
+    "provider_request_id": "req_54fbb79088114fa399cf51ea0476cd8d",
+    "reasoning_tokens": 0,
+    "request_id": "7ead4a9a-a50b-4aa6-b062-e5c3b75ec256",
+    "reserved_input": 5284,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:01:55.377983+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

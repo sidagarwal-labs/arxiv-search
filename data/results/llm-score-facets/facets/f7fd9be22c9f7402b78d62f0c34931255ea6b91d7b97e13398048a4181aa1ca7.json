@@ -1,0 +1,29 @@
+{
+  "answer": {
+    "facets": [
+      "reinforcement learning",
+      "self-play",
+      "strategy games"
+    ]
+  },
+  "answer_sha256": "feea49b41e5d14d404aa1bb7e3e0ebc9fca9b464db235feaf3d73c3913725bef",
+  "attempt_key": "f7fd9be22c9f7402b78d62f0c34931255ea6b91d7b97e13398048a4181aa1ca7",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-keyword-005",
+  "request_sha256": "f7fd9be22c9f7402b78d62f0c34931255ea6b91d7b97e13398048a4181aa1ca7",
+  "usage": {
+    "accounted_tokens": 221,
+    "input_tokens": 197,
+    "latency_seconds": 2.9314223999972455,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 24,
+    "provider_request_id": "req_f0d0a2ce44184f2bbe122e2cf4a3bea5",
+    "reasoning_tokens": 0,
+    "request_id": "406e5d04-8141-4dcd-9b0d-97139bba6d8d",
+    "reserved_input": 5267,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:00:20.568985+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "attempted_uncached_no_retry": 0,
+  "cap_usd": 1.5,
+  "expected_tokens": 334684,
+  "expected_usd": 0.2735133,
+  "max_single_reservation_tokens": 44059,
+  "requests": 40,
+  "shared_remaining_tokens_today": 313122,
+  "spent_usd": 0.0,
+  "stage": "pilot",
+  "worst_case_usd": 0.3386733
+}

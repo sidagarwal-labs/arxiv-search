@@ -1,0 +1,28 @@
+{
+  "answer": {
+    "facets": [
+      "regional language",
+      "social media"
+    ]
+  },
+  "answer_sha256": "0635a8f26d462a2980aaff4f8851f69367e7103ef66c09ff44aa900bd9346763",
+  "attempt_key": "b43779895036041cc0e313f54be19f67855f1a7aa6db2dc3ccb9e1fed0e7c6b0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-keyword-079",
+  "request_sha256": "b43779895036041cc0e313f54be19f67855f1a7aa6db2dc3ccb9e1fed0e7c6b0",
+  "usage": {
+    "accounted_tokens": 216,
+    "input_tokens": 196,
+    "latency_seconds": 1.6485039999970468,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 20,
+    "provider_request_id": "req_678a6d663d924220848b8d402b8b64c4",
+    "reasoning_tokens": 0,
+    "request_id": "0573706e-de47-4e55-bbb6-6647d0e5a75b",
+    "reserved_input": 5270,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:00:56.812242+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

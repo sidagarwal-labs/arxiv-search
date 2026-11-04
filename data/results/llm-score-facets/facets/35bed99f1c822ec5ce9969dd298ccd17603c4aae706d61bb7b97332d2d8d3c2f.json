@@ -1,0 +1,28 @@
+{
+  "answer": {
+    "facets": [
+      "LLM logical rules",
+      "time series causality"
+    ]
+  },
+  "answer_sha256": "57e038352969145fa8b035364bb23025dd8fdae269aa8927d68af4044249e41c",
+  "attempt_key": "35bed99f1c822ec5ce9969dd298ccd17603c4aae706d61bb7b97332d2d8d3c2f",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-keyword-008",
+  "request_sha256": "35bed99f1c822ec5ce9969dd298ccd17603c4aae706d61bb7b97332d2d8d3c2f",
+  "usage": {
+    "accounted_tokens": 224,
+    "input_tokens": 200,
+    "latency_seconds": 1.7247035000036703,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 24,
+    "provider_request_id": "req_1de5c533469e4c2c9e3b4182ccda8f85",
+    "reasoning_tokens": 0,
+    "request_id": "69821bc0-8f2f-47c2-806f-cf03d2c69fb7",
+    "reserved_input": 5278,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:00:33.120027+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

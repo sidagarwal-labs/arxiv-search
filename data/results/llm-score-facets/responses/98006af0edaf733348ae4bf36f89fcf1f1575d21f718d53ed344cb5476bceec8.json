@@ -1,0 +1,382 @@
+{
+  "answer": {
+    "P1": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P10": {
+      "missing": [],
+      "score": 4
+    },
+    "P11": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P12": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P13": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P14": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P15": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P16": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P17": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P18": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P19": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P2": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P20": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P21": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P22": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P23": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P24": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P25": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P26": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P27": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P28": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P29": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P3": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P30": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P31": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P32": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P33": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P34": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P35": {
+      "missing": [
+        "F1",
+        "F2"
+      ],
+      "score": 1
+    },
+    "P36": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P37": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P38": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P39": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P4": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P40": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P41": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P42": {
+      "missing": [
+        "F1"
+      ],
+      "score": 2
+    },
+    "P43": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P44": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P45": {
+      "missing": [
+        "F2"
+      ],
+      "score": 2
+    },
+    "P46": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P47": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P48": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    },
+    "P49": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P5": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P50": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P6": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P7": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P8": {
+      "missing": [
+        "F1"
+      ],
+      "score": 1
+    },
+    "P9": {
+      "missing": [
+        "F2"
+      ],
+      "score": 1
+    }
+  },
+  "answer_sha256": "9891706369eaa8fe072e7ce87d9bc8f04d942d848e57744a0d16cd01f366b7e3",
+  "attempt_key": "98006af0edaf733348ae4bf36f89fcf1f1575d21f718d53ed344cb5476bceec8",
+  "facets": [
+    "regional language",
+    "social media"
+  ],
+  "model": "gpt-5.4-mini-2026-03-17",
+  "pass": 2,
+  "presented_ids": [
+    "2608.07727",
+    "2604.27624",
+    "2603.21519",
+    "2607.02734",
+    "2607.03540",
+    "2605.25626",
+    "2511.17241",
+    "2608.30903",
+    "2602.08698",
+    "2605.09795",
+    "2607.27022",
+    "2602.15038",
+    "2609.21349",
+    "2512.07195",
+    "2608.12776",
+    "2512.16147",
+    "2510.21220",
+    "2603.15969",
+    "2511.05078",
+    "2605.17187",
+    "2609.09964",
+    "2511.22769",
+    "2605.20960",
+    "2604.18955",
+    "2606.08307",
+    "2603.18822",
+    "2610.01150",
+    "2510.18908",
+    "2602.17051",
+    "2604.15744",
+    "2603.26587",
+    "2601.05091",
+    "2510.24096",
+    "2606.16387",
+    "2601.16349",
+    "2603.23529",
+    "2602.13867",
+    "2606.30957",
+    "2608.26123",
+    "2512.01557",
+    "2604.16665",
+    "2610.04401",
+    "2606.22841",
+    "2512.19933",
+    "2510.06188",
+    "2606.26654",
+    "2512.04765",
+    "2602.19815",
+    "2601.22931",
+    "2511.06402"
+  ],
+  "query_id": "q-keyword-079",
+  "request_sha256": "730161976bae4b4ef35f1fe1e773c0b82b38f5d7ca70609001c4325560eb5062",
+  "usage": {
+    "accounted_tokens": 17864,
+    "input_tokens": 17197,
+    "latency_seconds": 4.862632199990912,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 667,
+    "provider_request_id": "req_6fd3696bde464d288d578f3f426cf2d5",
+    "reasoning_tokens": 0,
+    "request_id": "d90f5115-0c42-474e-aee2-2a2b96baa25c",
+    "reserved_input": 94945,
+    "reserved_output": 2048,
+    "started_utc": "2026-11-04T03:01:02.952797+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

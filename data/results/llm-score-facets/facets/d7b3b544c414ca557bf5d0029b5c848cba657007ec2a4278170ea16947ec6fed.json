@@ -1,0 +1,28 @@
+{
+  "answer": {
+    "facets": [
+      "linear time",
+      "long context recall"
+    ]
+  },
+  "answer_sha256": "eaf412af114902023869d5f67cf3c3c2070cb3f49caa509f10be68600376b978",
+  "attempt_key": "d7b3b544c414ca557bf5d0029b5c848cba657007ec2a4278170ea16947ec6fed",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "query_id": "q-keyword-017",
+  "request_sha256": "d7b3b544c414ca557bf5d0029b5c848cba657007ec2a4278170ea16947ec6fed",
+  "usage": {
+    "accounted_tokens": 218,
+    "input_tokens": 197,
+    "latency_seconds": 1.4189301000005798,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 21,
+    "provider_request_id": "req_e238bedfedc64532b52bcbfcb874485b",
+    "reasoning_tokens": 0,
+    "request_id": "d6a24a7f-92f9-436a-804d-e66d831d68cd",
+    "reserved_input": 5271,
+    "reserved_output": 256,
+    "started_utc": "2026-11-04T03:00:45.475463+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}
