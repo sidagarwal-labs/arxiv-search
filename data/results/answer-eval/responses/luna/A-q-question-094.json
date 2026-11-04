@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answer": "Measure performance on held-out cases that require applying rules or knowledge from the provided text, rather than merely repeating it. RuleWorld tests single rules, parallel rules, and multi-hop reasoning, making it a direct option for evaluating rule application [2]. To test whether a model learned a rule rather than interpolating from examples, use a controlled task where the needed rule case is withheld from direct supervision and similarity-based prediction would fail [3]. For knowledge learned into model weights, evaluate question answering about sequentially added facts and track retention of earlier facts [7].",
+    "cited": [
+      2,
+      3,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "199aaed2fb72b49462845d790fa95709473961a8f22f222272ceef96d4f433e1",
+  "usage": {
+    "accounted_tokens": 3659,
+    "input_tokens": 3524,
+    "latency_seconds": 3.2446980999957304,
+    "model": "gpt-6-luna",
+    "output_tokens": 135,
+    "provider_request_id": "req_fab5e236b41e4476a4883157be11bb58",
+    "reasoning_tokens": 0,
+    "request_id": "68020b2c-29b1-414e-932f-ad2bba6fe820",
+    "reserved_input": 22139,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:43.816922+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

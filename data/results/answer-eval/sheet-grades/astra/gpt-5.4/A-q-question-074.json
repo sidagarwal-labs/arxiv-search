@@ -1,0 +1,39 @@
+{
+  "answer_id": "A034",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The causal stability assertion is uncited; [1] establishes angular parameterization, not that it chiefly determines stability.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] supports saturating angles and better finite-p validation loss, but does not establish that the exponential map is less stable.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "[1] explicitly states exact norm preservation, algebraic projection/Cayley operations, and the exponential map as a limiting case.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[6] reports unconditional Cayley orthogonality, best long-horizon stability against compared baselines, and strong norm preservation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "[1] supports the spherical retraction family, but the claim about the other paper's scope needs citation [6].",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

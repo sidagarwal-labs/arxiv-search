@@ -1,0 +1,44 @@
+{
+  "answer_id": "A237",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about papers addressing selective freezing lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "AWARe uses activation-based importance and selective freezing without architectural changes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Model-Dowser combines these importance signals and preserves high-importance parameters.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "A framing transition to related approaches.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "Guarded Freezing selects removal-value or drift-value based on incoming connectivity.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Both abstracts describe the stated layer importance and allocation strategies.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

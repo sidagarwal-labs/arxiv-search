@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answer": "Yes: the closest matches are GNNs used as lightweight proxies for SDP relaxations. One paper studies GNNs as surrogates for linear SDPs, showing standard GNNs fail while a more expressive architecture can recover SDP solutions and warm-start a solver [1]. Another focuses on Max-Cut, proposing a GNN that directly serves as a principled proxy for SDP solvers, predicting primal- and dual-feasible SDP solutions and plugging into branch-and-bound [2].\n\nIf you want a general SDP-proxy result, [1] is broader; if you want an exact optimization use case with feasibility guarantees, [2] is more specialized to Max-Cut.",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "6c6972ecc0363071c11c3ec6e8134013ef87dc082f1e6626676b092209939cfc",
+  "usage": {
+    "accounted_tokens": 3105,
+    "input_tokens": 2948,
+    "latency_seconds": 2.7408073999977205,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 157,
+    "provider_request_id": "req_8587bf80e9434fc2acdebbc573c29179",
+    "reasoning_tokens": 0,
+    "request_id": "5e4fa06f-50cd-45b3-9170-3a0393a5a7e9",
+    "reserved_input": 19112,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:40.969897+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

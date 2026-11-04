@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-003",
+  "outcome": {
+    "answer": "Large language models can actively gather information by asking for preference cues during conversation and by using those cues to reduce uncertainty in the recommendation process. One paper studies stage-dependent preference elicitation, showing that attribute-based questions work best early and item-based questions later, and proposes a model for context-aware strategy selection [5]. Another quantifies each interaction by the reduction in uncertainty over recommendations and uses that signal to train the model to generate more informative follow-up questions, improving both recommendation quality and conversational efficiency [8].\n\nRelated papers also show LLMs gathering or generating extra context from existing data to improve recommendations, such as inferred user personas, semantic summaries, and synthetic interaction data for sparse or cold-start settings [2, 1, 6, 10].",
+    "cited": [
+      5,
+      8,
+      2,
+      1,
+      6,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2348e21538f1ee796fa5b74867666557684d51aef9a2c3671b174e7123f9ea6d",
+  "usage": {
+    "accounted_tokens": 3540,
+    "input_tokens": 3369,
+    "latency_seconds": 2.7600859999947716,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 171,
+    "provider_request_id": "req_407cb99c2b8a4ccb8fef5aa3473b36e4",
+    "reasoning_tokens": 0,
+    "request_id": "893d2cce-37ae-4cf9-8659-8a080681ea52",
+    "reserved_input": 22330,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:22.067714+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

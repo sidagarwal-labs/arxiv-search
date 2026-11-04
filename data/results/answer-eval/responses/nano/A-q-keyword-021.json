@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-021",
+  "outcome": {
+    "answer": "Transformer-based sequential recommenders can amplify popularity bias as model size increases, where scaling improves accuracy but also over-recommends popular items at the expense of niche ones. The pitfall is linked to \u201cspectral collapse\u201d in model predictions induced by transformer depth, arising from synergistic effects of attention aggregation and feed-forward projections; SPRINT mitigates this by constraining attention matrix column-sums and feed-forward spectral norms during scaling [1].\n\nOther work addresses popularity bias in (non-necessarily transformer) recommendation by directly correcting learning objectives or training signals. PR-entmax reduces popularity bias by making the popularity correction context-dependent and affecting which items receive non-zero probabilities and gradients during training, without architectural changes [3]. In collaborative filtering, DDC shows popularity bias as an intrinsic geometric artifact of BPR optimization and corrects embedding geometry via asymmetric directional updates [4].\n\nThese approaches differ in scope and mechanism: [1] focuses specifically on transformer scaling dynamics, while [3] targets sequential popularity correction via a loss/objective change, and [4] analyzes and corrects geometric bias in BPR-style CF.",
+    "cited": [
+      1,
+      3,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2340daf937ab293a23fc5f25c739e97518d0a4ca377f62e845bf4d6e3094e63a",
+  "usage": {
+    "accounted_tokens": 3497,
+    "input_tokens": 3253,
+    "latency_seconds": 3.3558699999994133,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 244,
+    "provider_request_id": "req_d923eac7482a45c893ebca00244aa6a6",
+    "reasoning_tokens": 0,
+    "request_id": "9e2f8df5-f2aa-413b-ba37-6fa7f32e3e6d",
+    "reserved_input": 21878,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:23.438267+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

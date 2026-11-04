@@ -1,0 +1,39 @@
+{
+  "answer_id": "A177",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-014",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 gives an actor error bound, but its abstract does not identify \u03b8* as an optimal parameter.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 specifies the slower actor and a uniform high-probability concentration bound.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract states the safe-region result and the indicated probability and error bound.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 3 proves Markovian stability and convergence, with no stated actor distance bound.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 5 uses the faster critic to justify quasi-stationarity for second-order actor updates.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

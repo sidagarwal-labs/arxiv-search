@@ -1,0 +1,29 @@
+{
+  "answer_id": "A049",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This factual characterization of Wei's work has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper states the assumed complexity separation and relevant bounds.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract describes data-learned rules in an NCA evaluated on SLOG.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

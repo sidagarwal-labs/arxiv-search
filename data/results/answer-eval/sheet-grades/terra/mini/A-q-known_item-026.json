@@ -1,0 +1,24 @@
+{
+  "answer_id": "A336",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-026",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title, authors and generator-based operator match the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports weight-vector alignment and comparative results.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

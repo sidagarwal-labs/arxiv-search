@@ -1,0 +1,34 @@
+{
+  "answer_id": "A247",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-008",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 2 describes non-exclusive couriers and platform-local observations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "POLO models partial observability and learns dispatch policies using local information.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract describes attention, counterfactual shaping, and simulator improvements.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited alternatives describe different mobility or delivery settings, not the stated shared-courier setting.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-004",
+  "outcome": {
+    "answer": "The directly relevant study computationally examines political bias in Nation.Cymru, a Welsh political news outlet, using RoBERTa to detect bias and an LLM to classify sentiment toward political parties. It reports differential framing: Reform UK receives biased framing more often and more negatively than Plaid Cymru, while a broader analysis finds Plaid Cymru receives more favourable framing than the other parties examined. The study covers one outlet and calls for broader review; it does not establish bias across Welsh media as a whole. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "e1825d8ca14e3b326d1b21071d6b879a61d11927249fd3b2eae55b597ae8eb36",
+  "usage": {
+    "accounted_tokens": 3324,
+    "input_tokens": 3203,
+    "latency_seconds": 2.7934353000018746,
+    "model": "gpt-6-luna",
+    "output_tokens": 121,
+    "provider_request_id": "req_bb5e8035e79b47f49c0990f10328bfa1",
+    "reasoning_tokens": 0,
+    "request_id": "68074a9f-a12b-4fdc-b4c8-d876b0ba81d6",
+    "reserved_input": 21485,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:52:54.622334+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

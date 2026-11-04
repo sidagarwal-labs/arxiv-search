@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answer": "Different retraction maps change stability mainly by changing how an update\u2019s size becomes a rotation angle on the sphere. The paper says the exponential map is only one choice, and that on the hypersphere the family of retractions differs by this scalar angle rule rather than by the basic norm-preserving geometry; metric projection and Cayley give exact norm-preserving variants, while the identity map and GeoNorm appear only as limits [1]. It also reports that the best validation loss is reached at a finite parameter value, suggesting the exponential map is not the preferred retraction for spherical residual streams [1].\n\nMore broadly, the related stability papers show that preserving orthogonality or norm helps training remain stable, while unstable updates come from unconstrained amplification or from gates that reintroduce vanishing gradients [3, 6, 2].",
+    "cited": [
+      1,
+      3,
+      6,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "58281cb945a405b651295e5a875ef21992ced2c00a9ddd3dd089c6bfb58821f7",
+  "usage": {
+    "accounted_tokens": 3907,
+    "input_tokens": 3720,
+    "latency_seconds": 3.175253599998541,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 187,
+    "provider_request_id": "req_3235e8ad23024db19aeba832dddd73bb",
+    "reasoning_tokens": 0,
+    "request_id": "56d13384-c6da-4c9f-b75b-f3baaf312898",
+    "reserved_input": 22394,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:04.962964+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

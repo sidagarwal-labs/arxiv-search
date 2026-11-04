@@ -1,0 +1,29 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-072",
+  "outcome": {
+    "answer": "The BL19 digital collection retrieval benchmark is described in Cultural Analytics for Good: Building Inclusive Evaluation Frameworks for Historical IR [1]. It uses the British Library BL19 digital collection of more than 35,000 works from 1700\u20131899 to study retrieval and language change in 19th-century fiction and non-fiction [1].\n\nThe benchmark is built with expert-driven query design, paragraph-level relevance annotation, and LLM assistance to create a scalable evaluation framework grounded in human expertise [1]. It specifically studies knowledge transfer from fiction to non-fiction, asking how narrative understanding and semantic richness in fiction can improve retrieval for scholarly and factual materials [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8be5ec4b26b65b7f310e8cd17c17cefe230a6cf0d386d3a05462d5c55dfde5fd",
+  "usage": {
+    "accounted_tokens": 3193,
+    "input_tokens": 3041,
+    "latency_seconds": 3.236819900019327,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 152,
+    "provider_request_id": "req_6d28214648834443a3805c80c2d8d52d",
+    "reasoning_tokens": 0,
+    "request_id": "c1a36aff-75a3-4094-bc66-b7b9ccff5f87",
+    "reserved_input": 19992,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:09.113320+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

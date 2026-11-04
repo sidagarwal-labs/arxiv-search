@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answer": "One way is prompt-based length tracking: Plan-and-Write proposes a structure-guided prompting method that uses deliberate planning and word counting mechanisms in the prompt to better adhere to specified length constraints without retraining. It reports improved length fidelity on document summarization, especially for shorter-to-medium length constraints. [1]\n\nAnother approach is dynamic feedback during generation: Can LLMs Track Their Output Length? introduces a training-free length regulation method that provides dynamic length feedback during generation so the model can adaptively adjust to hit target token/word/sentence counts, with results on summarization and biography tasks. [2]\n\nA third strategy is to directly optimize the length trade-off in training: HOMURA uses reinforcement learning to \u201ctame\u201d output length under time-constrained translation by explicitly optimizing semantic preservation versus temporal compliance via a constrained reward. [3] These differ in whether they rely on prompt engineering without retraining, training-free online feedback, or reinforcement learning with an explicit reward objective. [1-3]",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "9461c3a55506be86dff85fab69432dc78b93315e43738c3fddf08f04ae875a8b",
+  "usage": {
+    "accounted_tokens": 3512,
+    "input_tokens": 3289,
+    "latency_seconds": 2.9757786999980453,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 223,
+    "provider_request_id": "req_19254c3110f9432c84832d6632f17c74",
+    "reasoning_tokens": 0,
+    "request_id": "7d600b3a-c74f-4c9b-ae4e-5b3a15ec94ac",
+    "reserved_input": 21448,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:50:47.611222+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

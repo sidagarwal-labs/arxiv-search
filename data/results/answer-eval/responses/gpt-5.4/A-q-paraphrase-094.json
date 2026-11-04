@@ -1,0 +1,29 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-094",
+  "outcome": {
+    "answer": "The paper that matches this is Momentum-Coupled Rubric Adaptation for Detailed Image Captioning [1]. It improves picture descriptions by using one shared vision-language model for three roles: generating captions, generating detailed quality rubrics, and judging captions against those rubrics, instead of using separate models that may become inconsistent [1].\n\nIts key idea is a momentum update: after the caption policy changes, the rubric generator and judge are updated through an exponential moving average of the policy parameters, using one shared momentum model [1]. The rubrics are created online from sampled captions, reference captions, and image evidence, and the judge uses them to give rubric-based rewards while only the caption policy is directly updated [1]. The paper reports strong gains on five captioning benchmarks, including the highest average score in caption-based question answering [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "9cf685158efae4d7efc3f0669aa5af283db9c2283e1beace01838cd78620da92",
+  "usage": {
+    "accounted_tokens": 3708,
+    "input_tokens": 3520,
+    "latency_seconds": 4.3521921999927144,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 188,
+    "provider_request_id": "req_b58f0d626cb84fd08377b79cae078128",
+    "reasoning_tokens": 0,
+    "request_id": "daf0b7ea-f739-4770-8abe-97ac8d2f4b10",
+    "reserved_input": 22382,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:12:48.093001+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "answer_id": "A325",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-048",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited paper is by Ziaoddini and has the stated title.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The model aligns the three modalities and uses user-song and social relationships.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract describes emotion-aware embeddings, missing-modality robustness, and benchmark improvements.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The sole supplied paper is the stated Ziaoddini graph-based music recommendation study.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

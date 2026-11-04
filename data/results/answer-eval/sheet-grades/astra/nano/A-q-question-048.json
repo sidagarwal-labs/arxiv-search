@@ -1,0 +1,44 @@
+{
+  "answer_id": "A027",
+  "candidate": "nano",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-question-048",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative framing word contains no independently assessable factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The ViSAR claims match [1], but the supplied segmentation puts that citation outside this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "As segmented, this cites [1] (ViSAR), but LAD-RAG's layout-aware agent and recall improvements are in [2].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "As segmented, this cites [2] (LAD-RAG), but D2-ScaleAgent's routing, expansion, and pruning are in [10].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "[10] supports D2-ScaleAgent's routing/evidence bank, but the ViSAR and LAD-RAG mechanisms require [1] and [2].",
+        "verdict": "partial"
+      },
+      {
+        "id": "S6",
+        "reason": "Standalone citation labels contain no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

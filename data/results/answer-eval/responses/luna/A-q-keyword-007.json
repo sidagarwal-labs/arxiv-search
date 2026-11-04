@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-007",
+  "outcome": {
+    "answer": "For LLM training, effective synthetic-data curation should account for how samples interact as groups: group-level utility signals can improve downstream performance, especially generative capability, where judging samples individually may miss important effects [1]. Other approaches include dynamically reweighting examples during training to improve generalization without removing data [3], and combining offline selection with online refinement of responses for fine-tuning [9]. For specialized-task dataset generation, AutoSynth automates the discovery and optimization of generation workflows without a reference dataset [4].",
+    "cited": [
+      1,
+      3,
+      9,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8f236ed04984116abaed62998c478c3d05c2ac4ff34b9b621c373a02ae422e89",
+  "usage": {
+    "accounted_tokens": 3566,
+    "input_tokens": 3444,
+    "latency_seconds": 4.321906400000444,
+    "model": "gpt-6-luna",
+    "output_tokens": 122,
+    "provider_request_id": "req_eb85c73c574442549bbb64badd22806d",
+    "reasoning_tokens": 0,
+    "request_id": "199860a3-8124-412d-8534-6ab9c7baec97",
+    "reserved_input": 22302,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:00.557046+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

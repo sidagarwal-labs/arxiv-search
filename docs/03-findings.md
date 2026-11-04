@@ -31,7 +31,8 @@ agreement has its own [comparison method](09-labeler-comparison.md).
 | Lexical and semantic retrieval | [BM25 baseline](#8-bm25-baseline-on-dev-decision-27), [BM25 grid](#9-bm25-techniques-full-grid-decisions-2830), [local embeddings](#10-four-small-embedding-models-decision-31), [OpenAI embeddings](#14-full-corpus-openai-large-2026-10-29) |
 | Fusion and candidate selection | [Hybrid fusion](#11-hybrid-rank-fusion-decision-32), [score/depth experiments](#21-score-based-fusion-top-rank-bonuses-and-candidate-depth), [recall-preserving ordering](#23-rankscore-experiments-and-recall-preserving-baseline) |
 | Query-document interactions | [Cross-encoder](#24-query-document-interaction-first-local-cross-encoder), [field scores](#25-separate-titleabstract-field-scores), [paraphrase recovery](#28-recovering-paraphrases-without-query-type-routing) |
-| LLM reranking and reliability | [Output reliability](#30-mini-llm-pilot-results-and-output-reliability), [fixed-key scoring](#31-fixed-key-reranker-v2-reliable-output-and-pilot-quality), [subsequent experiments](07-experiment-log.md#reranker-follow-ups-after-decision-45) |
+| LLM reranking and reliability | [Output reliability](#30-mini-llm-pilot-results-and-output-reliability), [fixed-key scoring](#31-fixed-key-reranker-v2-reliable-output-and-pilot-quality), [loss analysis](#32-stage-2-loss-analysis-and-the-north-star-2026-11-03), [Experiment D](#33-experiment-d-a-requirement-checklist-made-the-reranker-worse-2026-11-03), [Experiment E](#35-experiment-e-a-second-look-at-the-top-20-ranks-better-but-moves-the-source-paper-2026-11-04), [Experiment E2](#36-experiment-e2-refinement-holds-up-on-80-unseen-queries-2026-11-04), [subsequent experiments](07-experiment-log.md#reranker-follow-ups-after-decision-45) |
+| AI summary (RAG answers) | [Choosing the AI-summary model](#37-choosing-the-ai-summary-model-2026-11-04) |
 | All metrics, not just selected milestones | [Complete all-system tables](../data/results/catalog-dev/report.md), [results index](05-results.md), [charts](06-charts.md) |
 
 Sections remain in place so their evidence and incoming links stay intact.
@@ -2527,3 +2528,92 @@ zero API calls. The equivalence rule was frozen before scoring.
   would need their own measurement. 768 OpenAI numbers lose .018 here.
 
 No baseline changes; this sets the storage format for the planned backend.
+
+## 35. Experiment E: a second look at the top 20 ranks better but moves the source paper (2026-11-04)
+
+Pilot of top-20 refinement ([pilot report](../data/results/llm-score-refine/pilot-report.md)):
+mini re-scores Decision46's top 20 again, 0-10, two passes averaged. The primary
+system fuses that order with Decision46 by RRF (c=30); the secondary uses it alone.
+Cost: $0.23 for 40 requests plus $0.005 judge (paid usage approved by the owner).
+**The pilot gate failed on the source-paper guard; the full stage was not run.**
+
+| pilot20 | nDCG@10 | Δ vs D46 | Source MRR@10 |
+|---|---|---|---|
+| Decision46 reranking baseline | .747 | — | .863 |
+| Refine top 20 + RRF with D46 (primary) | .789 | +.042 [+.015, +.069] | .831 |
+| Refine top 20 alone (secondary) | .791 | +.044 [+.010, +.079] | .733 |
+
+The frozen gate required nDCG@10 > D46 and source MRR@10 no more than .02 below it.
+The primary lost .031.
+
+- **Ranking quality did improve.** Both CIs exclude zero. Grade-0 papers in the
+  top 10 fell from 50 to 40 (primary) and 35 (secondary), and 11 grade-2 papers
+  moved into the primary's top 10 while 6 left it.
+- **The source loss is narrow.** In the primary, only two keyword queries moved:
+  q-keyword-017 from rank 1 to 2, and q-keyword-079 from 4 to 8. nDCG rose on
+  both, so other fully relevant papers took those places. No known-item query
+  lost its source. The secondary also lost 3 more, including a known-item query.
+- **Scores are coarse and noisy.** The two passes agreed exactly on only 43% of
+  paper-passes, with a mean gap of 0.87 points on the 0-10 scale.
+
+Lesson: a focused second pass is the first Stage 2 change to raise pilot nDCG
+with a CI above zero. But it treats the source paper as one relevant paper among
+several, which a lookup user would notice. Changing the guard after seeing the
+result would move the goalposts, so Decision46 stays the reranking baseline.
+Any follow-up needs a new frozen plan, for example one that protects the
+Decision46 rank 1. Pilot queries informed earlier designs, so this is a screen,
+not evidence.
+
+## 36. Experiment E2: refinement holds up on 80 unseen queries (2026-11-04)
+
+E2 is Experiment E's primary order with one rule added after E's pilot: Decision46's
+rank-1 paper stays at rank 1 ([report](../data/results/llm-score-refine-pin/report.md)).
+The rule was designed on pilot20, so the frozen plan decided only on the **80 dev
+queries no refinement had scored before**. Cost: $0.91 for 160 requests plus $0.026
+judge (paid usage approved by the owner).
+
+| new80 (decision) | nDCG@10 | Δ vs D46 [95% CI] | Source MRR@10 |
+|---|---|---|---|
+| Decision46 reranking baseline | .770 | — | .688 |
+| **E2: refine + RRF + keep rank 1** | **.797** | **+.027 [+.014, +.040]** | .709 |
+| E primary, no pin (diagnostic) | .797 | +.027 [+.013, +.041] | .755 |
+| E secondary, refine alone (diagnostic) | .797 | +.027 [+.006, +.047] | .788 |
+
+**E2 qualifies on every frozen check:** top 10 fully judged; gain above the .0106 noise
+threshold with a CI above zero; source MRR not lower. Across all 100 dev queries it scores
+.794 against .765 (+.029). Promoted as [Decision 47](02-decisions.md#47-top-20-refinement-promoted-as-the-reranking-baseline-2026-11-04) after this finding.
+
+- **The gain replicated on unseen queries.** It is smaller than on the pilot (+.027 vs
+  +.035), as expected once the queries that motivated the design are excluded.
+- **The pin was a pilot artefact.** On new80, unpinned refinement *raised* source MRR
+  (.755 and .788 vs .688). Keeping Decision46's rank 1 gave some of that back (.709).
+  E's pilot failure came from 2 of 20 queries, and the unseen queries do not repeat it.
+- Choosing the unpinned version now would mean picking the winner after seeing the
+  test, so it needs its own confirmation (for example on held-out queries) before it
+  replaces E2.
+- **Cost and latency.** Refinement adds two mini calls per search, about $0.0114 per
+  query at uncached prices, on top of Decision46's $0.0275. That is a sequential LLM
+  step after reranking; its latency was not measured here.
+
+## 37. Choosing the AI-summary model (2026-11-04)
+
+Four models wrote answers from the same top-10 evidence
+([report](../data/results/answer-eval/report.md)). The set was 100 answerable dev
+queries plus 25 built to need an abstention. GPT-6.1 Terra graded every gradable
+answer blind; GPT-6 ASTRA graded a 40-answer sample.
+
+- **The graders mostly agree.** Sentence verdicts agree 87% (kappa 0.76),
+  answers-the-request 93%, caveat 98%. On nano's 10 sampled answers Terra was
+  0.25 more lenient on faithfulness. Correcting that would only lower nano, which
+  already fails.
+- **Mini matches the ceiling at a quarter of the price.** Faithfulness is 0.821 vs
+  gpt-5.4's 0.836, Δ −0.007 [−0.046, +0.031], inside the frozen 0.05 margin. Mini
+  also has the most valid format (0.96) and the lowest latency (p50 2.6 s). It
+  qualifies and is chosen ([Decision 48](02-decisions.md#48-gpt-54-mini-writes-the-ai-summary-2026-11-04)).
+- **Luna is cheapest but less grounded.** Citation precision is the best (0.99),
+  but faithfulness is 0.142 below the best and 10% of its answers are malformed.
+  Its words are fewer (71 vs 101), so the gap is in claims it can't support, not
+  length.
+- **The v2 abstain rule mattered.** The models rarely refuse outright; they answer
+  "the papers don't directly address this; the closest are [n]". Counting that
+  graded caveat as abstaining moved mini's abstain accuracy from 0.52 to 0.86.

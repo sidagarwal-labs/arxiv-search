@@ -1,0 +1,29 @@
+{
+  "answer_id": "A285",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "TRAIL jointly predicts short-term item popularity and generates explanations for recommendation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited re-ranker improves ranking accuracy and interpretability.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "FairLRM addresses popularity bias; VarLenRec studies popularity-dependent tokenization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-043",
+  "outcome": {
+    "answer": "To identify a speaker\u2019s mood (emotion) from conversation, the supplied results indicate that using only a limited window of recent turns can capture most of the performance gain. In causal emotion recognition in conversation, performance is dominated by conversational context and \u201csaturates quickly,\u201d with roughly 90% of the gain captured within the most recent 10\u201330 preceding turns (depending on the label set) [1].\n\nRegarding sentence starters, the supplied work does not directly study sentence starters as a factor for identifying mood. However, it does analyze discourse-level patterns and marker position: it finds a reliable association between emotion and discourse-marker position, with sadness showing reduced left-periphery marker usage compared to other emotions [1]. It also reports that hierarchical sentence representations help most in utterance-only settings but lose advantage once turn-level context is available, suggesting later conversational history can subsume effects that might otherwise come from sentence-level structure [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "99115dfb4f1583a7efbd11970a5d91f2751ab4ac8abcdf94f4a367b7ab37bf8e",
+  "usage": {
+    "accounted_tokens": 4101,
+    "input_tokens": 3895,
+    "latency_seconds": 2.856746200006455,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 206,
+    "provider_request_id": "req_987a40d14b60413fb6d599e336c3da6f",
+    "reasoning_tokens": 0,
+    "request_id": "5ef7ab99-9fe9-4d8f-81f8-11779f38168b",
+    "reserved_input": 24207,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:53.572337+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-019",
+  "outcome": {
+    "answer": "The closest match is \u201cSympathetic Framing: Evaluating AI Alignment across Sociodemographic Groups\u201d by Haran Shani-Narkiss, Michael Fire, and Oren Tsur [1]. It empirically evaluates whether LLMs align with human emotional perceptions of sympathy in news headlines about political/geopolitical conflicts, and reports that alignment varies across demographic subgroups (age, gender, education, prior geopolitical knowledge, and predispositions), with some statistically significant differences despite broadly aligned performance across groups [1].\n\nIf you instead meant social-norm or broader societal alignment using socio-demographic context, \u201cMapping how LLMs debate societal issues when shadowing human personality traits, sociodemographics and social media behavior\u201d provides a synthetic corpus designed for audits of bias, social sensitivity, and alignment across sociodemographic attributes in prompted LLM discourse [4]. \u201cGroup Alignment-Induced Sycophancy\u201d differs by focusing on how group alignment can shift sycophantic behavior in a two-sided way across multiple demographic groups [3].",
+    "cited": [
+      1,
+      4,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "19c82e32e79089164748b94921260b5fb45d32d010dc3c1f81a5248836870e7a",
+  "usage": {
+    "accounted_tokens": 3510,
+    "input_tokens": 3278,
+    "latency_seconds": 3.0047636999806855,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 232,
+    "provider_request_id": "req_4981b8dafbc646c8a6787b61339e4711",
+    "reasoning_tokens": 0,
+    "request_id": "27b7cbac-62f3-48b7-b980-9418c33bb481",
+    "reserved_input": 21133,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:20.186882+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

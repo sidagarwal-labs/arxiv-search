@@ -1,0 +1,29 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-039",
+  "outcome": {
+    "answer": "Yes: the matching paper is Structural Segmentation for Brazilian Legal Document Retrieval by Leandro Car\u00edsio Fernandes and coauthors [1]. It studies structural segmentation for Brazilian legal document retrieval, representing legal acts as collections of chunks based on their hierarchical structure rather than indexing each document as a single unit [1].\n\nThe paper compares a full multi-layer hierarchy with simpler chunk-based variants centered on core chunks such as articles and non-normative components, with different amounts of context [1]. It finds that structural segmentation improves dense retrieval over whole-document indexing, but does not consistently help lexical retrieval; it also reports that full hierarchy is unnecessary, since core chunks enriched with document metadata can match or outperform it [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d63fe38da29ae75b6bfd1274115fcdcf3215cbbb421296ae5325f8006641ad2b",
+  "usage": {
+    "accounted_tokens": 3626,
+    "input_tokens": 3464,
+    "latency_seconds": 3.9193798000051174,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 162,
+    "provider_request_id": "req_470e1bc9540f49bcad9b75b087a607c9",
+    "reasoning_tokens": 0,
+    "request_id": "39f417bd-ce59-4b8d-bc55-9c988601653b",
+    "reserved_input": 21381,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:09:23.288499+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

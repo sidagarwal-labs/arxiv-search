@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-keyword-007",
+  "outcome": {
+    "answer": "The closest matches are papers on LLM-driven style change and personalization, not on synthetic data curation specifically. One paper finds that LLM rewriting normalizes personal narratives, reducing first-person pronouns and contractions while increasing vocabulary diversity and word length [1]. Another shows that post-editing LLM-generated drafts can move text toward a writer\u2019s personal style, but the result still retains detectable LLM traces [3]. A broader study of human and LLM writing also finds that model and genre shape style more than prompting or decoding strategy [5].\n\nIf you mean methods for making synthetic text more like a target author, the benchmark paper on personalization says such methods modulate style but do not bridge the gap to human authorship [9], and a federated approach aims to preserve author-specific signals instead of homogenizing them [10].",
+    "cited": [
+      1,
+      3,
+      5,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "cd96c9e50d1dc80adc3dc5029b8b6d4fb17f1813a9a3ed5ac6031187b23c66c8",
+  "usage": {
+    "accounted_tokens": 3580,
+    "input_tokens": 3387,
+    "latency_seconds": 3.328542400005972,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 193,
+    "provider_request_id": "req_c3e094af13974a78a330b287e7e9c63e",
+    "reasoning_tokens": 0,
+    "request_id": "21b0411a-e0b1-401b-99fc-e41e9079aa33",
+    "reserved_input": 21389,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:06:02.802952+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

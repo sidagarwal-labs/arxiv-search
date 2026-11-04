@@ -1,0 +1,44 @@
+{
+  "answer_id": "A085",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-006",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A bare affirmative is not a factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "FUDLR estimates and removes bias-inducing sample influence without costly retraining.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The method removes sample influence, but it does modify model parameters; absence of full model updates is not established.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "This is a transition to related work.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "CRAGRU addresses user-specific unlearning and propagation bias without full base-model retraining.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "H-SAL erases concepts without protected labels and is evaluated on helpfulness prediction.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

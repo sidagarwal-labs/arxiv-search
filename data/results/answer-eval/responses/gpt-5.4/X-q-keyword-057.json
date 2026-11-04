@@ -1,0 +1,27 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-keyword-057",
+  "outcome": {
+    "answer": "None of the supplied papers is about dense-to-sparse retrieval, so these results do not directly answer the query.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "c3bd5c9533f782ca51791960f97cb2a603a49cec7da9dd8388122f63ecd9c086",
+  "usage": {
+    "accounted_tokens": 3414,
+    "input_tokens": 3374,
+    "latency_seconds": 5.170488600007957,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 40,
+    "provider_request_id": "req_49198ee6b58c437c99b1e6373612e491",
+    "reasoning_tokens": 0,
+    "request_id": "a790e4e1-c4e2-412a-b918-2bd9cf200f75",
+    "reserved_input": 21028,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:31:39.473647+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

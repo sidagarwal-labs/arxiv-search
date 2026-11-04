@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-064",
+  "outcome": {
+    "answer": "Yes. The most directly relevant result is RegSpeech12, a public corpus of Bengali spontaneous speech built across regional dialects for documenting phonetic and morphological variation and supporting dialect-specific ASR research [1]. A related system paper, BanglaTalk, uses the RegSpeech12 dataset and trains dialect-aware ASR for ten Bengali regional dialects, showing it is spoken regional speech data rather than only text [3].\n\nIf you want other Bangla regional-language resources, most of the rest are not spoken regional speech datasets. 5-Dialects-BN and BanglaDial-Abuse are dialectal text datasets, not speech [2,5]. BanglaTurn is Bangla conversational speech, but its abstract does not describe regional dialect coverage [6].",
+    "cited": [
+      1,
+      3,
+      2,
+      5,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3a59b8d0541bb12f7bf91a3b286ffa16f2f726223eb05094be09dde139d22bd3",
+  "usage": {
+    "accounted_tokens": 3624,
+    "input_tokens": 3452,
+    "latency_seconds": 4.490298100019572,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 172,
+    "provider_request_id": "req_725a245a48dd4e71a2e5c8eece54d94c",
+    "reasoning_tokens": 0,
+    "request_id": "e28929f1-37ff-4a64-9edf-eea5328a70ff",
+    "reserved_input": 20792,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:04.602585+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

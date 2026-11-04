@@ -1,0 +1,29 @@
+{
+  "answer_id": "A121",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual statement about the paper lacks a citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 gives exact norm preservation, the parameterized family, limiting exponential map and finite-parameter result.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The statement about what the abstract does not provide lacks a citation.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

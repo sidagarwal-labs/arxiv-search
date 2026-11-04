@@ -124,7 +124,7 @@ def test_paired_bootstrap_and_decision_rule():
     def rows(f, p):
         return [{"item_id": str(i), "kind": "answerable", "faithfulness": f, "citation_precision": p,
                  "false_abstain": False} for i in range(20)]
-    base = {"format_valid": 1.0, "false_abstain": 0.0, "abstain_accuracy": 0.9}
+    base = {"format_valid": 1.0, "false_abstain_v2": 0.0, "abstain_accuracy_v2": 0.9}
     summary = {"rows": {"nano": rows(.9, .9), "luna": rows(.98, .97), "mini": rows(1.0, 1.0),
                         "gpt-5.4": rows(1.0, 1.0)},
                "table": {"nano": {**base, "faithfulness": .9, "usd_per_answer": .0005},
@@ -135,10 +135,32 @@ def test_paired_bootstrap_and_decision_rule():
     assert d["best"] == "mini" and d["checks"]["nano"]["qualifies"] is False
     # Luna is within .03 of the best on every item: non-inferior, and cheaper than mini.
     assert d["checks"]["luna"]["qualifies"] is True and d["pick"] == "luna"
-    summary["table"]["luna"]["abstain_accuracy"] = 0.5
+    summary["table"]["luna"]["abstain_accuracy_v2"] = 0.5
     assert ev.decide(summary)["pick"] == "mini"
 
 
 def test_plan_freezes_eligibility_and_grader():
     assert ev.SERVING_ELIGIBLE == ("luna", "mini") and ev.GRADER == "gpt-5.4"
     assert ev.PLAN["held_out_queries_used"] is False and "none" in ev.PLAN["retries"]
+
+
+def test_cost_profile_reports_latency_percentiles_and_projections():
+    usages = [{"input_tokens": 1_000_000, "output_tokens": 0, "latency_seconds": s} for s in (1, 2, 3, 4, 10)]
+    p = ev.cost_profile("luna", usages)
+    assert p["usd_per_answer"] == pytest.approx(0.10) and p["usd_per_1000"] == pytest.approx(100)
+    assert p["seconds_p50"] == 3 and p["seconds_p95"] == 10 and p["seconds_per_answer"] == 4
+    assert ev.cost_profile("luna", [])["usd_per_100000"] is None
+
+
+def test_v2_counts_a_graded_caveat_as_abstaining():
+    item = {"item_id": "B-q", "kind": "abstain", "query_id": "q", "pilot": False,
+            "paper_ids": ["p1", "p2", "p3"], "grade2_in_context": 0}
+    reply = {"outcome": {"status": "ok", "grounded": True, "answer": "None directly; closest [2].", "cited": [2]}}
+    grade = lambda c: {"outcome": {"status": "ok", "answers_request": 1, "not_direct_answer": c,
+                                   "sentences": [{"verdict": "supported"}]}}
+    assert ev.item_metrics(_state(), item, reply, grade(True))["abstained_v2"] is True
+    assert ev.item_metrics(_state(), item, reply, grade(False))["abstained_v2"] is False
+    assert ev.item_metrics(_state(), item, reply, None)["abstained_v2"] is None
+    answerable = {**item, "kind": "answerable", "grade2_in_context": 1}
+    assert ev.item_metrics(_state(), answerable, reply, grade(True))["false_abstain_v2"] is True
+    assert ev.PLAN_V2["version"] == "answer-eval-v2" and ev.PLAN["version"] == "answer-eval-v1"

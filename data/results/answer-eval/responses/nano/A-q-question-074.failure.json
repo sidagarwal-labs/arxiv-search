@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Different retraction maps on the hypersphere change stability only through how they convert the update magnitude into a rotation angle; in the spherical-residual setting studied, the whole retraction-map family effectively collapses to a single scalar \u201cangular\u201d design choice rather than leading to qualitatively different geometric behavior. In particular, all such maps act by rotating in the plane spanned by the hidden state and the update, with one retraction distinguishing itself from another by the angle-from-magnitude rule, while the exponential map is just one endpoint of that spectrum. The resulting p-SpheretNorm family includes norm-preserving, algebraic alternatives (e.g., Proj-SpheretNorm and Cayley-SpheretNorm) whose rotation-angle behavior saturates rather than growing without bound, and the best validation loss is reported at finite p, suggesting the exponential-map choice is not the preferred one for stable spherical residual streams. [1]\\n\\nThe provided results do not directly analyze \u201cstability\u201d of spherical residual connections in the sense of depth-gradient stability metrics; however, they do provide a stability-relevant mechanism for hyperspherical residual streams (norm confinement plus bounded/saturating rotation angle). Other papers in the results instead study different stability mechanisms for residual architectures\u2014gated update reliability in transformers [2] and norm-amplification/damping issues from hyper-connection mixing constraints on manifolds/groups [3,5,6]\u2014which are related but not specific to how spherical retraction maps affect stability.\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_078cdbe8af5b0264016aeb6292c31c87d2b42445824ac43228",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "285443a070baf27245d5e1ffc5d320bcf78ab3941f06da55ef01cb28c1af6745",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3720,
+    "output_tokens": 318,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

@@ -1,0 +1,49 @@
+{
+  "answer_id": "A296",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-019",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Repetition can cost performance relative to fresh data, but the cited abstracts don't establish the especially clause.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "Intermediate peaks and compute loss are reported; increased memorization is not directly demonstrated in the abstract.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract describes increasing loss penalties with scale and growing semantic equivalence.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The study reports loss depends on the structure and ordering of repetition.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The abstract reports both the critical-epoch effect and fixed-corpus size trend.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The abstract reports that consecutive replay and concentrated repetition raise loss.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "The diffusion study reports this crossover with limited unique data.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

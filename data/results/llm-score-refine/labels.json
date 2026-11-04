@@ -1,0 +1,40 @@
+{
+  "judge": "openai-mini",
+  "labels": {
+    "q-keyword-005": {},
+    "q-keyword-008": {
+      "2606.03602": 1
+    },
+    "q-keyword-017": {},
+    "q-keyword-079": {},
+    "q-keyword-081": {},
+    "q-known_item-017": {},
+    "q-known_item-019": {},
+    "q-known_item-031": {},
+    "q-known_item-042": {},
+    "q-known_item-048": {},
+    "q-paraphrase-020": {
+      "2610.23145": 2
+    },
+    "q-paraphrase-043": {},
+    "q-paraphrase-063": {},
+    "q-paraphrase-077": {},
+    "q-paraphrase-096": {
+      "2512.23471": 1
+    },
+    "q-question-040": {
+      "2602.12984": 1
+    },
+    "q-question-056": {
+      "2606.21395": 1
+    },
+    "q-question-077": {
+      "2603.28512": 2,
+      "2609.39786": 1
+    },
+    "q-question-088": {},
+    "q-question-095": {}
+  },
+  "parent": "shared-labels/labels-d46.json",
+  "rubric_version": "b8b0c14a"
+}

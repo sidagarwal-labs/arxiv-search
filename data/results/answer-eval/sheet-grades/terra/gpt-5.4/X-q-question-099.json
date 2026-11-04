@@ -1,0 +1,39 @@
+{
+  "answer_id": "A164",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The proposed user-specific exploration claim has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 8 defines saturation and reports earlier saturation for limited-history users.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Individual exploration levels are supported, but explicit individual goal modeling is not established.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 9 weights multiple fairness objectives to reflect stakeholder priorities.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 9 concerns broader fairness trade-offs and paper 8 reports user-varying exploration effects.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A017",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about several approaches lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 assigns activation importance and selectively freezes essential parameters.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 uses weight, activation, and sensitivity signals to preserve important parameters.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,27 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-keyword-049",
+  "outcome": {
+    "answer": "None of the supplied papers is about multimodal LLM decoding strategies. The results focus on fairness, thresholding, verification, streaming, recommender systems, and distributed learning, but not on decoding methods for multimodal language models.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "ccb7dd3988ea915764ebbcddc75d9e040b226fb28ff28d30195f7b036e22b289",
+  "usage": {
+    "accounted_tokens": 3215,
+    "input_tokens": 3152,
+    "latency_seconds": 1.936220500007039,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 63,
+    "provider_request_id": "req_f3ae1d5a6ff740008e5ee31d96a0ab4a",
+    "reasoning_tokens": 0,
+    "request_id": "5cd3b27e-c63c-4339-8fa8-c896e39a489a",
+    "reserved_input": 21733,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:06:13.110799+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

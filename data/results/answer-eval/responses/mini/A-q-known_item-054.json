@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-054",
+  "outcome": {
+    "answer": "The closest match is the paper by Benjamin Tannenbaum on within-conversation context effects: it directly tests whether omitted preceding turns change AI answers and finds materially different answers in 44.7% of cases when using the full conversation versus the final message alone [1]. It also shows that a compressed prefix reduces, but does not eliminate, the effect [1].\n\nA related Tannenbaum paper focuses on how request state is distributed across turns, arguing that the final prompt often does not capture the full session context, but it explicitly does not estimate the causal effect of history on model answers [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "747140c5924d797f7a9d914ac9b2dfda84319b8c7cd11b3f636203cfd3f6a338",
+  "usage": {
+    "accounted_tokens": 3923,
+    "input_tokens": 3776,
+    "latency_seconds": 2.8654939999978524,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 147,
+    "provider_request_id": "req_cf627c785509465b811c854f038be15c",
+    "reasoning_tokens": 0,
+    "request_id": "bbd11277-0fde-4d47-821b-c71a964bef1e",
+    "reserved_input": 23289,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:38.339143+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

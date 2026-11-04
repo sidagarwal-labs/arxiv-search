@@ -1,0 +1,27 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-032",
+  "outcome": {
+    "answer": "I don\u2019t see a paper specifically about Bekkers\u2019 equivariant neural fields in the supplied results. The closest matches are RAG and QA papers on retrieval, grounding, and domain-specific question answering, but none mention equivariant neural fields or Bekkers.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "b22c1ac9160b8537fb97f8c97e00d0c66532d1ac2ba067350253d6f2f0ba6d92",
+  "usage": {
+    "accounted_tokens": 3830,
+    "input_tokens": 3761,
+    "latency_seconds": 2.1130769999872427,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 69,
+    "provider_request_id": "req_7fa8ff2442724bcb8e277fe6aaced7f2",
+    "reasoning_tokens": 0,
+    "request_id": "7770e18f-8f58-41df-915e-2f901a0ef84c",
+    "reserved_input": 22457,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:31.190355+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "answer_id": "A088",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A bare affirmative is not a factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "RxnCLF uses a condensed reaction graph and contrastive learning for transformation-aware prediction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract reports benchmark gains and potential downstream reaction tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "enviGraph uses synthetic reaction pretraining for graph-to-sequence product and pathway prediction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "ReACT-Drug uses reinforcement learning and reaction templates to generate drug candidates.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Most are language or molecular graph methods, but MolLean is a verification language with reaction tasks.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-021",
+  "outcome": {
+    "answer": "Several papers address transformer recommender popularity bias directly. The closest match is a 2026 paper on scaling transformer-based sequential recommenders, which finds that larger transformer models improve accuracy but also amplify popularity bias, and proposes SPRINT to reduce that effect by constraining attention and feed-forward norms [1]. Another transformer-based sequential recommendation paper introduces BT-SR, which says it mitigates popularity bias and improves long-tail coverage without negative sampling [8].\n\nIf you mean broader popularity-bias mitigation in recommenders, there are also papers on sequential recommendation losses and denoising [3, 9], but [1] is the most directly about transformer recommender scaling and popularity bias.",
+    "cited": [
+      1,
+      8,
+      3,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "26d6e6076b702dda917eb8521b294e5d5450bfe90852c87f5e639dcc4047c055",
+  "usage": {
+    "accounted_tokens": 3410,
+    "input_tokens": 3253,
+    "latency_seconds": 2.673638000007486,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 157,
+    "provider_request_id": "req_0112f5e123d44301a3ac8238a8cca226",
+    "reasoning_tokens": 0,
+    "request_id": "ef34ee88-dcbb-4997-8d54-573afe1f73b2",
+    "reserved_input": 21878,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:16.596634+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

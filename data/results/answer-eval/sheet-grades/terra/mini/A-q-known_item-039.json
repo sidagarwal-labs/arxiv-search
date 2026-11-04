@@ -1,0 +1,29 @@
+{
+  "answer_id": "A199",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 studies hierarchical and core-chunk representations of Brazilian legal documents.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports dense-retrieval gains but inconsistent lexical benefits.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 2, 3 and 7 cover datasets, benchmarks or relevance judging rather than segmentation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

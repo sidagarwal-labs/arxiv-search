@@ -1,0 +1,35 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answer": "The results include several papers on regional-language social media, especially for Bengali and related low-resource languages. The closest match is a study on code-mixed Tulu social media comments for hope speech detection, which uses organically adapted text models on social media data [2]. Another paper analyzes social media polarization in Bengali comments and evaluates multiple classifiers on a manually annotated Bengali dataset [7].\n\nIf you mean broader regional-language social media research, one paper studies place-based language variation on New Zealand Reddit communities [4], while another looks at Hinglish tweets for sentiment analysis [3]. The Bengali papers focus on speech or dialect resources and dialect-aware assistance rather than social media specifically [1, 5, 6].",
+    "cited": [
+      2,
+      7,
+      4,
+      3,
+      1,
+      5,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "4ec25d42176168f1ca16b54b2d0a1145eb9d0fa8fb36ce85415ca914f8c37319",
+  "usage": {
+    "accounted_tokens": 3535,
+    "input_tokens": 3374,
+    "latency_seconds": 2.85813920001965,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 161,
+    "provider_request_id": "req_089a2a6b26214e6fbf09814bfd962f04",
+    "reasoning_tokens": 0,
+    "request_id": "e79f4bc8-6690-41ae-8bd7-f589b336262f",
+    "reserved_input": 21038,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:53.850694+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

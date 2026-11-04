@@ -1,0 +1,27 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-paraphrase-094",
+  "outcome": {
+    "answer": "The supplied papers do not answer that specific request. They cover self-play, shared model components, and moving-average or checkpoint-based stabilization in games and agents, but not improving picture descriptions by generating and checking specific quality rules.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "31622b69b88225c50a79fbb959cda5fec76d8c44f84596ccfa7e31c2d4e96438",
+  "usage": {
+    "accounted_tokens": 3659,
+    "input_tokens": 3598,
+    "latency_seconds": 2.5875203000032343,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 61,
+    "provider_request_id": "req_60b0db28c9014c39b585ee881170bd34",
+    "reasoning_tokens": 0,
+    "request_id": "68dcc77f-1dea-45b0-8fab-2f63c23a1979",
+    "reserved_input": 22238,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:30:25.485672+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

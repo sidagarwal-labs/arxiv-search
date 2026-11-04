@@ -1,0 +1,29 @@
+{
+  "answer_id": "A201",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-known_item-089",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Neither supplied abstract describes fairness limits.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 4 bounds performance degradation, without describing a fairness constraint.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 8 discusses governance topics but does not specify fairness limits.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,44 @@
+{
+  "answer_id": "A032",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-008",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about the papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 uses a simulator, counterfactual trajectories, and temporal symbolic rules.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 3 describes interpretable tree-structured causal queries and confidence.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 8 uses simulator clamping and learns interventional conditionals.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 2 disentangles dynamic components and uses causal intervention for forecasting.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Papers 9 and 10 describe stepwise reasoning constraints and a logic-regularized verifier.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

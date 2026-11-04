@@ -1,0 +1,39 @@
+{
+  "answer_id": "A321",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual claim about length distributions is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The factual claim about prediction methods is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 does not report linear decoding or retraction-related hidden-state shifts.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 does not describe agent token-consumption forecasting or TokenCast.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited papers distinguish completion-length estimation from agent execution cost forecasting.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

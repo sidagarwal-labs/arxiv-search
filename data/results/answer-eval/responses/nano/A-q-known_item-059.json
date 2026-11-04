@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answer": "For \u201cRoth GraphER reranking RAG\u201d, the closest match is GraphER, which proposes a graph-based enrichment and reranking framework for retrieval-augmented generation. It builds a query-time graph using proximity relationships beyond semantic similarity, then applies graph-based ranking to surface top candidate documents, with experiments showing improvements in retrieval completeness across table retrieval, multi-hop retrieval, and long-document retrieval, and noting no additional graph infrastructure and retriever-agnostic integration with standard vector stores. [1]\n\nIf instead you meant listwise reranking without explicit graphs, L2G induces an implicit document graph from listwise reranker logs and enables scalable graph-based retrieval without explicit graph computation or additional LLM calls. [2] If you meant rerankers aligned to downstream generation quality, RRPO uses reinforcement learning with LLM feedback to optimize reranking for context utility. [3]\n\nNone of the provided papers mention \u201cRoth\u201d specifically, so the results only partially address the request via GraphER-related reranking for RAG. [1]",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "394755d014ee13195dd04267460185c6b21734be6d09ec41ec44153a491d20f1",
+  "usage": {
+    "accounted_tokens": 3659,
+    "input_tokens": 3427,
+    "latency_seconds": 2.6946823000034783,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 232,
+    "provider_request_id": "req_cfda732d20b74b63adb80ae6c51d91c3",
+    "reasoning_tokens": 0,
+    "request_id": "57fe5dad-8300-46dc-bd27-3ae7c0e5265c",
+    "reserved_input": 21538,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:50.831180+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

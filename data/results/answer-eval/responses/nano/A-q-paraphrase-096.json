@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-096",
+  "outcome": {
+    "answer": "Use a hierarchical tree of summaries to connect search terms to candidate documents, where you recursively cluster chunks and rank both summary nodes and raw chunks, then navigate the tree at query time to emit only the most relevant leaf chunks. In RAPTOR-style summary trees, indexing-time summaries allow retrieval to avoid missing complementary evidence that flat top-k retrieval can overlook, by using the summary tree to guide which regions to search during query-time ranking and navigation [1].\n\nIf you want to reduce redundant summaries, build the summary tree dynamically by deciding whether a summary tree is necessary and decomposing the question into sub-questions; DTCRS uses sub-question embeddings to form initial cluster centers, aiming to lower construction cost while maintaining summary relevance [2]. If your goal is multi-granularity retrieval without lossy summarization, SproutRAG instead learns an attention-guided chunking tree and performs hierarchical beam search across multiple granularities [3].",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "70ee60af0b1001e41250bb0506aa6d9c8cb083984b90f4cd067449c41d606485",
+  "usage": {
+    "accounted_tokens": 3683,
+    "input_tokens": 3477,
+    "latency_seconds": 2.74225780001143,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 206,
+    "provider_request_id": "req_12b1bd664aa1476881a795aa7dfaa856",
+    "reasoning_tokens": 0,
+    "request_id": "78809e13-45d3-4b72-8591-6d956c8b5fe2",
+    "reserved_input": 22228,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:50:33.760979+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

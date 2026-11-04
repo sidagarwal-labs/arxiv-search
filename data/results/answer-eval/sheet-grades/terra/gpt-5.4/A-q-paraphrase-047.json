@@ -1,0 +1,39 @@
+{
+  "answer_id": "A095",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 explicitly describes seed-guided non-anomalous expansion and isolation of fringe points, noise and emerging clusters.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 targets noisy clustering and reports strong results with 10\u201330 seeds per cluster.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "General transition introducing related papers.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S4",
+        "reason": "Density persistence and topological robustness are supported; separating outliers and absence of markers are not established for both methods.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 7 uses clustering and visual expert criteria; its abstract does not establish that it is not seed-guided.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

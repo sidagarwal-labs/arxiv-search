@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answer": "It is difficult because ambiguity makes the target next-token distribution intrinsically harder for neural networks to represent and fit. More ambiguous distributions require more model capacity, larger embeddings, and more training steps, and they amplify token-sampling noise, which hurts accurate learning of discrete probabilities [1]. One paper calls this a \u201ccurse of ambiguity\u201d and reports both theoretical analysis and matching behavior in synthetic and real language-model settings [1].\n\nA complementary controlled study shows the same effect in a minimal ambiguous task: the model first learns the marginal distribution and gets stuck on a loss plateau whose height is exactly set by the ambiguity level, before only later learning the full conditional distribution in a sharp transition [2]. That work also finds gradient noise stabilizes this ambiguous marginal solution, delaying escape to the correct conditional behavior [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ad9f44028aeb775b86a6f480d2fcebf72d8cad6a12ee7c3eb725c4b18faf27c4",
+  "usage": {
+    "accounted_tokens": 3278,
+    "input_tokens": 3097,
+    "latency_seconds": 4.914722199988319,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 181,
+    "provider_request_id": "req_d9b8470649994355a2ec293933374d7e",
+    "reasoning_tokens": 0,
+    "request_id": "dff40252-961f-49b3-8e05-7f015f636709",
+    "reserved_input": 20004,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:09.079986+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

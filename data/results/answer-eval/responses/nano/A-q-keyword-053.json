@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answer": "Yes\u2014several of these papers use graph-based representations or graph-oriented models for chemical reaction prediction and optimization. RxnCLF builds a condensed reaction graph that unifies reactant and product information into a single graph to learn transformation-aware reaction representations for reactivity/yield prediction [1]. For broader chemical reaction informatics, dynamic reaction-condition representations are learned by encoding textual reaction conditions with a fine-tuned language model inside a multi-objective Bayesian optimization loop [8].",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "bddafe750f2e9c4eec5d7d8c07d6f9b717f865861ec2041336674fc12ace4ced",
+  "usage": {
+    "accounted_tokens": 3989,
+    "input_tokens": 3877,
+    "latency_seconds": 1.9872727999754716,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 112,
+    "provider_request_id": "req_f6f69f2c368d4f9a9b5cbc53a6bce4bb",
+    "reasoning_tokens": 0,
+    "request_id": "50cef813-00e7-4b0c-8982-4efd544e58b9",
+    "reserved_input": 23866,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:39.157352+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

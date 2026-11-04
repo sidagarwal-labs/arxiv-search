@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answer": "For graph-based machine learning on chemical reactions, RxnCLF is the closest match: it combines reactant and product information in a condensed reaction graph and uses contrastive pretraining to learn transformation-aware representations for reaction-yield prediction [1]. enviGraph also uses graph-to-sequence learning for reaction products and biodegradation pathways, with synthetic reaction data for pretraining [6].",
+    "cited": [
+      1,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c20f2ea79bd45e6b322b63d6eee0ed242a4bb3a37af722993202fc366dd98d71",
+  "usage": {
+    "accounted_tokens": 3971,
+    "input_tokens": 3877,
+    "latency_seconds": 5.752541900001233,
+    "model": "gpt-6-luna",
+    "output_tokens": 94,
+    "provider_request_id": "req_ae66ec02d869425d9babaa0e975c93fb",
+    "reasoning_tokens": 0,
+    "request_id": "c99b88ef-aa1a-46c1-95e5-39d250f1abc2",
+    "reserved_input": 23853,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:43.351598+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

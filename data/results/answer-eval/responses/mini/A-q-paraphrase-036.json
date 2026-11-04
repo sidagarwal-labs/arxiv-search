@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-036",
+  "outcome": {
+    "answer": "The closest matches compare fine-tuning or domain adaptation for legal text representations, but they do not all focus on vector embeddings across diverse domains in the same way. One paper shows that legal-domain fine-tuning of multilingual embedding models improves retrieval, with especially strong gains in low-resource languages and transfer to unseen languages [1]. Another compares a base retriever, a legal-only fine-tuned model, and a mixed fine-tuned model for Brazilian legal search, finding legal-only training best for specialized tasks while mixed training is more robust across heterogeneous search types and out-of-domain evaluation [2].\n\nOther papers address related trade-offs rather than broad embedding utility: full fine-tuning outperforms LoRA for unfair ToS detection, though LoRA uses less memory [3]; continued pretraining improves masked-token loss for Russian legal documents but the paper says it does not establish practical legal utility [4]; and a domain-adapted embedding model yields gains on a supervision-aligned Brazilian legal subset while BM25 stays competitive elsewhere [6].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "654888dc6bcbbe8ed0ff2b02bd54e74cc9a4f10faea8d904f9b987056f2b7536",
+  "usage": {
+    "accounted_tokens": 3596,
+    "input_tokens": 3370,
+    "latency_seconds": 2.832694300013827,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 226,
+    "provider_request_id": "req_7c22db96ca7740f9bf75460c20978d82",
+    "reasoning_tokens": 0,
+    "request_id": "9ada3d03-dcb0-4c0a-93d9-3fc2c77cdf02",
+    "reserved_input": 20885,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:34.406223+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

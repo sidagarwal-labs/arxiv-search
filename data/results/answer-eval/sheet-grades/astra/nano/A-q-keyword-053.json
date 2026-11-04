@@ -1,0 +1,29 @@
+{
+  "answer_id": "A029",
+  "candidate": "nano",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim is uncited; only [1] clearly uses a reaction graph, while [8] learns representations from text.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] unifies reactant/product information in condensed reaction graphs to learn transformation-aware yield-prediction representations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[8] explicitly encodes textual conditions with a fine-tuned language model jointly trained within multi-objective Bayesian optimization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

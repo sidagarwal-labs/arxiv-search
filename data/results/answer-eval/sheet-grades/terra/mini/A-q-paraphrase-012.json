@@ -1,0 +1,29 @@
+{
+  "answer_id": "A086",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-012",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "DACT updates drifted identifiers while limiting disruption to learned token alignment.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The drift module and reassignment are supported, but changes are limited, not guaranteed only where needed.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "The paper recommends inserting new items, freezing old identifiers and warm-starting when possible.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

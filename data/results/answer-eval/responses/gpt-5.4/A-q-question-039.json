@@ -1,0 +1,34 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answer": "Use explicit temporal metadata and make validity part of retrieval, not just generation. The papers suggest storing or extracting dates and validity intervals for each item, filtering out invalid or deprecated items before ranking, and then re-ranking with recency or temporal decay so older evidence is trusted less when appropriate [8, 4, 1]. They also suggest checking whether the query actually needs fresh information, since recency requirements vary by question and context; a recency-aware taxonomy can help decide when to retrieve or emphasize newer evidence [3].\n\nIf you build and evaluate such a system, be careful: ordinary search-engine date filters can leak post-cutoff information and have unreliable metadata, so frozen time-stamped snapshots or stronger safeguards are safer for retrospective settings [2]. For time-sensitive domains like news, dynamic daily adaptation can improve freshness and relevance over a fixed retriever [7]. The papers differ in approach: Chronofy adds temporal decay and logical validity into representation, retrieval, and reasoning [4], while NuggetIndex uses atomic records with temporal validity intervals and lifecycle states to prevent outdated information from entering ranking [8].",
+    "cited": [
+      8,
+      4,
+      1,
+      3,
+      2,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "fa72a38992f96e84c924e70b3d70e2457f03af669772e7143cd7f769611721d3",
+  "usage": {
+    "accounted_tokens": 3749,
+    "input_tokens": 3507,
+    "latency_seconds": 6.814208199997665,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 242,
+    "provider_request_id": "req_259cc59ce3e64020bc398d58332eb72f",
+    "reasoning_tokens": 0,
+    "request_id": "2f46e5fc-60a9-44c2-ac75-1ab36e50baa5",
+    "reserved_input": 22080,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:28:20.999267+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

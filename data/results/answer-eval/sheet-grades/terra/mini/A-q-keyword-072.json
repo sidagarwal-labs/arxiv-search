@@ -1,0 +1,29 @@
+{
+  "answer_id": "A331",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-072",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract specifies the collection, size, dates, and benchmark scope.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract lists all three framework components.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 2\u201310 are not among the supplied cited papers.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

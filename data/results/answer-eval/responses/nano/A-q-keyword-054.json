@@ -1,0 +1,29 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-054",
+  "outcome": {
+    "answer": "\u201cBifocal diffusion R2LM throughput\u201d is directly addressed by the paper introducing Bifocal dLLMs and its R2LM instantiation (Right-to-Left Mamba). The paper explains that R2LM uses causal attention for left-context with full KV-cache compatibility, plus a lightweight reverse Mamba sidecar to supply compressed right-side context, resolving the bidirectional-attention vs KV-caching throughput dilemma [1].\n\nIn terms of throughput, the paper reports that R2LM achieves 2.4\u00d7 to 12.9\u00d7 higher throughput than bidirectional dLLMs, and 1.9\u00d7 to 2.9\u00d7 speedups over autoregressive baselines in batch serving via parallel decoding with KV caching [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "758e83f44eceaeee73217a33dbdc799849d40f9e63cac45c287e5e7230db133c",
+  "usage": {
+    "accounted_tokens": 3860,
+    "input_tokens": 3688,
+    "latency_seconds": 2.630484900000738,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 172,
+    "provider_request_id": "req_4f2262971fbb4beea3ad6b8b0233ce0b",
+    "reasoning_tokens": 0,
+    "request_id": "97b6f8f8-d0a8-4e4b-957a-94d44ed3fbbb",
+    "reserved_input": 21861,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:41.164828+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-089",
+  "outcome": {
+    "answer": "Yes. Several papers report machine learning methods that can detect early cognitive decline or early Alzheimer\u2019s disease, including models for early-stage AD, mild cognitive impairment, and early cognitive decline from speech, multimodal behavior, EEG, MRI/PET, and clinical notes [1, 2, 3, 4, 5, 6, 7, 8, 9]. Some focus specifically on early stages, such as early AD detection from clinical and neuroimaging data [1], early Alzheimer\u2019s prediction from fMRI connectivity [7], and NC vs. MCI or MCI vs. AD classification with multimodal imaging [8].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "09bdda66e0b122e604f228f8bb3e97a3f341c2a431bb34f98dc83f658d71105f",
+  "usage": {
+    "accounted_tokens": 3875,
+    "input_tokens": 3726,
+    "latency_seconds": 2.3112588999792933,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 149,
+    "provider_request_id": "req_e25644638dcd4b8e8274af43b7373d52",
+    "reasoning_tokens": 0,
+    "request_id": "42cf2968-7b46-4a6d-9364-43a508354540",
+    "reserved_input": 23336,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:19.029982+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

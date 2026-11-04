@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-057",
+  "outcome": {
+    "answer": "Use LLMs to turn unstructured user data into structured preference representations, then store and use them in a knowledge graph for recommendation. One path is to extract user-preference triples from conversations, ideally RDF-compliant and linked to identifiers such as Wikidata, to build a personal knowledge graph; the resulting graph can then be evaluated directly in downstream recommendation tasks [2]. Another is to have LLMs generate semantic profiles or compressed rationales from diverse knowledge sources, attach those profiles to entities in a knowledge graph, and use graph aggregation plus profile-preference matching to improve recommendations [1].\n\nThe papers differ in what they graph and how they use it. Some focus on explicit PKG construction from conversational data for privacy-preserving user modeling [2], while others enrich entity- and user-side representations inside broader recommender KGs and propagate preferences through the graph [1, 3]. Related work also suggests adding graph-based community summaries for persona prompts [5] or emphasizing inspectable, revisable, portable user representations for governable personalization [8].",
+    "cited": [
+      2,
+      1,
+      3,
+      5,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "47d5713698f8bcb407259430f42bcc454a053c7d0f3f30f549f110cd9ca19918",
+  "usage": {
+    "accounted_tokens": 3453,
+    "input_tokens": 3222,
+    "latency_seconds": 5.796093999990262,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 231,
+    "provider_request_id": "req_57a72d1cc958481282115cf76f44b29a",
+    "reasoning_tokens": 0,
+    "request_id": "dc7aecfd-2e3d-4e12-b044-d298d995dfaf",
+    "reserved_input": 21674,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:28:57.205549+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

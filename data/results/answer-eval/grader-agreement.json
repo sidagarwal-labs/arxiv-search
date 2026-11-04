@@ -1,0 +1,15 @@
+{
+  "answers": 40,
+  "answers_request_agreement": 0.925,
+  "caveat_agreement": 0.975,
+  "faithfulness_gap_terra_minus_astra": {
+    "gpt-5.4": 0.025000000000000012,
+    "luna": 0.03333333333333334,
+    "mini": -0.016666666666666663,
+    "nano": 0.25166666666666665
+  },
+  "note": "A gap that differs by answer-writing model would mean the full-set grader favours some models; neither grader wrote any answer.",
+  "sentence_verdict_agreement": 0.8734939759036144,
+  "sentence_verdict_kappa": 0.7590544650262648,
+  "sentences": 166
+}

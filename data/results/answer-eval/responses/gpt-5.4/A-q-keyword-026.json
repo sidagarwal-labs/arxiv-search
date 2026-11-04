@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answer": "The best match is Inference Auctions, which directly studies an LLM API priority bidding system. It proposes an inference auction for times when demand exceeds compute capacity, letting users bid for faster service instead of using coarse fixed-price priority tiers; the auction is designed to allocate priority efficiently without sacrificing latency, with truthful pricing algorithms and an autobidder that manages bids under a user budget [1].\n\nRelated papers are about bidding around LLMs in advertising rather than API request priority. LLM-OSDA and LERA design auction mechanisms for ad insertion in LLM conversations and chatbots, including truthful payment rules and dynamic dialogue settings [3,4]. LBM and SAGE use LLMs to improve auto-bidding strategies in ad auctions, but they focus on advertiser bidding, not prioritizing LLM API inference requests [2,5].",
+    "cited": [
+      1,
+      3,
+      4,
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2afd9bf9c18a9332dad9092f841b1f84e543b9e36185b47ea9c263ef0d833b47",
+  "usage": {
+    "accounted_tokens": 3779,
+    "input_tokens": 3589,
+    "latency_seconds": 4.742856299999403,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 190,
+    "provider_request_id": "req_5184111f6111455f88facff0ed866972",
+    "reasoning_tokens": 0,
+    "request_id": "ff340cab-8141-4ad1-9611-17269873b6a4",
+    "reserved_input": 22530,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:19.791397+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

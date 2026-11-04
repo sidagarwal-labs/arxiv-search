@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answer": "Yes: the matching paper is On the Computational Complexity of Structural Generalization by Zichao Wei [1]. It argues that structural generalization can be formally defined from compositional structure and unbounded generalization, and frames the key complexity result as a gap between an NC^1 lower bound and the learnable ceiling TC^0 of pure Transformers [1]. Under its Montagovian setup, semantic tree evaluation is an NC^1-complete instance, so under the standard assumption TC^0 \u2260 NC^1, a pure Transformer cannot learn structural generalization [1].\n\nA related Wei paper is more empirical: Structural Generalization on SLOG without Hand-Written Rules presents a neural cellular automaton with a discrete bottleneck that learns compositional rules from data and achieves strong structural generalization on SLOG without hand-written rules [2]. So [1] is the complexity/theory paper, while [2] studies a learned alternative and analyzes its success and failure patterns on a benchmark [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "525c6ddb4cd93ba81f091982547aa979d655bb3199012ce5c2fd861977028e59",
+  "usage": {
+    "accounted_tokens": 3551,
+    "input_tokens": 3329,
+    "latency_seconds": 4.945473900006618,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 222,
+    "provider_request_id": "req_3b6418672f844a838bdd75a0654dc2cc",
+    "reasoning_tokens": 0,
+    "request_id": "66a10e21-baf0-4ef9-84ea-63bac17cd3ae",
+    "reserved_input": 20916,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:17.096456+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

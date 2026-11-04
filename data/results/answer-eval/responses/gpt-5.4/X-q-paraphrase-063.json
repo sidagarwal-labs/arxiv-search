@@ -1,0 +1,12 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-paraphrase-063",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "688ce3d376346c9d1837da39dedacc5830bd29f309412514f382fdb81a2578e8",
+  "usage": {
+    "recorded": true
+  }
+}

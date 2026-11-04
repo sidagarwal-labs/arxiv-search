@@ -1,0 +1,27 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-known_item-032",
+  "outcome": {
+    "answer": "None of the supplied papers appears to be by Bekkers or about equivariant neural fields. The results are about retrieval-augmented generation, question answering, and related retrieval frameworks, not equivariant neural fields.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "181f6053804c9ae6f8d64b5457eb03da23fcdd9f056ebd9800e23fa3099a17a9",
+  "usage": {
+    "accounted_tokens": 3820,
+    "input_tokens": 3761,
+    "latency_seconds": 2.2991563000250608,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 59,
+    "provider_request_id": "req_846ee31c762f4634a17ac82e1329b8e3",
+    "reasoning_tokens": 0,
+    "request_id": "715f3e1c-edc0-4660-8071-4446f5c74efa",
+    "reserved_input": 22452,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:30:08.904707+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

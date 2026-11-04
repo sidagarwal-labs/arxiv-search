@@ -1,0 +1,32 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answer": "To measure whether a model can learn new rules or knowledge from provided text, use benchmarks and probe tasks that explicitly test rule acquisition and application rather than only general text quality. For example, RuleWorld evaluates whether models can reliably understand and apply externally provided procedural rules at scale, including single-rule, multi-rule, and multi-hop scenarios. [2] Transformers can also be tested for \u201clearning rules they\u2019ve never seen\u201d in controlled settings where interpolation fails, requiring genuine rule computation to succeed. [3]\n\nAnother approach is to measure learning reliability from the text\u2019s form: compare instruction/rule descriptions versus input-output examples in identical tasks. [1] You can also test whether models preserve correct rule following over long repeated applications, since failures indicate limits in rule maintenance rather than knowledge recall. [5]\n\nThese differ in what they measure: [2,3] target rule learning/application under controlled rule structure; [1] isolates how rule text vs examples affects in-context learning; [5] focuses on extended, exact state/rule preservation. [grounded_answer]",
+    "cited": [
+      2,
+      3,
+      1,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ec5b46349a225059f57926f7c8c49bcb82d2646a75d56b1fb061823cd2886297",
+  "usage": {
+    "accounted_tokens": 3758,
+    "input_tokens": 3524,
+    "latency_seconds": 2.6232781000144314,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 234,
+    "provider_request_id": "req_88e5bd8157c34d3b81d5e19a3fb58ffc",
+    "reasoning_tokens": 0,
+    "request_id": "af3f3eb1-e5b5-405c-835e-3d254165a406",
+    "reserved_input": 22152,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:47.678506+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

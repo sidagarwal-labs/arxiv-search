@@ -1,0 +1,27 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-096",
+  "outcome": {
+    "answer": "The supplied papers do not address Qiao variable length semantic ids. They are about atmospheric, earth observation, weather, ocean, wildfire, and scientific foundation models, not semantic IDs or a Qiao method.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "d8f9b02fb5ebdaa40af88b48a98733c5e386b4fbab1b84604ffdc5f4b16aa8e4",
+  "usage": {
+    "accounted_tokens": 3676,
+    "input_tokens": 3618,
+    "latency_seconds": 2.0100779999920633,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 58,
+    "provider_request_id": "req_87a29951e0374a42a210744db75c0b62",
+    "reasoning_tokens": 0,
+    "request_id": "3bfd89fe-e781-4cf5-a120-150e8853f252",
+    "reserved_input": 23594,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:39.797787+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-060",
+  "outcome": {
+    "answer": "Feng et al.\u2019s paper proposes recovering a compact, jointly sufficient set of repository evidence for a coding agent\u2019s next decision, conditioned on what the agent has already seen. Its benchmark and experiments report higher complete-set recovery than similarity-based retrieval, emphasizing set construction over reranking individual passages [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "86ca18094e3b0fba24c066bb97163afc2b44e30cbf36283de5dff45330effcc8",
+  "usage": {
+    "accounted_tokens": 3599,
+    "input_tokens": 3521,
+    "latency_seconds": 2.5352504999900702,
+    "model": "gpt-6-luna",
+    "output_tokens": 78,
+    "provider_request_id": "req_8c0063ef413348f79b19f5cb995b5b5a",
+    "reasoning_tokens": 0,
+    "request_id": "ce782f1c-580d-43f8-8e84-d03f059f1608",
+    "reserved_input": 22121,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:07.817042+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

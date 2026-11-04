@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-096",
+  "outcome": {
+    "answer": "Qiao variable length semantic IDs are addressed by VaLiDRec, which proposes variable-length, LLM-aligned semantic identifiers for generative recommendation. VaLiDRec constructs semantic IDs from informative native LLM vocabulary tokens using token importance estimation, semantic-quality-aware pruning, and collision-aware refinement, so identifier lengths adapt to item semantic complexity; it also avoids autoregressive SID generation by reformulating recommendation as token-set prediction with token-level item scoring. [1]\n\nVaLiDRec differs from other variable-length semantic ID approaches by being explicitly LLM-vocabulary-aligned and by eliminating autoregressive SID generation/beam search in favor of token-set prediction. [1] Other works propose variable-length semantic IDs using discrete variational modeling, probabilistic adaptive-length encoding, or learned variable-length tokenization (including popularity-/information-budget-driven length allocation), but they are not presented as LLM-aligned variable-length SIDs in the same way. [2,3]",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "180a7121f9c7eab9de1aed84bae7ab421d78b5da46b841f4853ea64015992177",
+  "usage": {
+    "accounted_tokens": 3587,
+    "input_tokens": 3375,
+    "latency_seconds": 2.696315000008326,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 212,
+    "provider_request_id": "req_99f8fa86f47c4798a3cb701c8482d9a7",
+    "reasoning_tokens": 0,
+    "request_id": "d165f49d-0e8a-4ae0-81f7-85ef253036a1",
+    "reserved_input": 22486,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:20.158609+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

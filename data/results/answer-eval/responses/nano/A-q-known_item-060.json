@@ -1,0 +1,33 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-060",
+  "outcome": {
+    "answer": "For \u201cFeng coding agents sufficient evidence,\u201d the closest match is \u201cThe Missing Complement: State-Conditioned Minimal Sufficient Evidence for Coding Agents.\u201d It argues that coding agents need not just relevant passages, but a set of evidence that is sufficient for what the next decision still lacks, and that sufficiency is not guaranteed by independently scored retrieval results [1]. It formulates state-conditioned minimal sufficient evidence recovery and evaluates it on captured agent states from repositories, crediting only evidence sets that satisfy every annotated evidence requirement of the current decision [1].\n\nThis paper differs from retrieval-focused benchmarks that evaluate context recall/precision or upstream file retrieval, since it treats evidence acquisition as set construction and targets what\u2019s missing for the next decision rather than re-ranking \u201csimilar\u201d issues [1, 4, 9]. It also differs from broader coding-agent evaluation or digitization studies that may measure evidence recall from traces but do not directly optimize or define minimal sufficient evidence sets [7, 8].",
+    "cited": [
+      1,
+      4,
+      9,
+      7,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "dfb931206ca0dda3cfa212af74f33467003d65ae17df3234dc37f1d981b7ee4e",
+  "usage": {
+    "accounted_tokens": 3739,
+    "input_tokens": 3521,
+    "latency_seconds": 2.707595500018215,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 218,
+    "provider_request_id": "req_57602ed9b0554855ace280c65d46c34a",
+    "reasoning_tokens": 0,
+    "request_id": "f111e538-8489-4901-9651-f27a657189b2",
+    "reserved_input": 22134,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:53.543011+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

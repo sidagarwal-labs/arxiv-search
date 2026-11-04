@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"For multimodal LLMs (especially diffusion-style dMLLMs), several decoding strategies target different failure modes by changing which masked/token positions get committed and when. Information-Guided Frontier Decoding (IGFD) improves decoding by ranking candidates using token confidence plus neighborhood uncertainty and a structural commitment risk term, aiming to commit reliable semantic anchors earlier and delay fragile structural tokens, without extra training or extra forward passes. [1] Context-Aware Cluster Decoding (CACD) similarly scores masked positions using a composite of softmax confidence and neighbor proximity, and it uses a block-free design to keep high-readiness semantic anchors globally accessible, also without training. [3]\\n\\nIn parallel diffusion multimodal decoding, Visual-Redundancy-Controlled Decoding (VRCD) addresses the step-level issue that confidence-based top-K selection can commit visually redundant tokens together; it uses a Visual Redundancy Index and prioritizes visually complementary positions via token-to-image attention to reduce redundancy and improve accuracy. [2] If the concern is hallucinations, Causal Decoding intervenes during generation to attenuate spurious dependencies that lead to false object tokens. [4] Learning Inference-time Modality Enhancement (LIME) uses relevance propagation to shift relevance toward perceptual tokens during decoding to reduce multimodal hallucinations. [9]\\n\\nThese differ mainly in what they optimize: commitment order/context propagation (IGFD/CACD), redundancy control in parallel position selection (VRCD), and faithfulness/hallucination mitigation via causal intervention or relevance shifting (Causal decoding/LIME). [1,2,3,4,9]\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_0a621de25f95a286016aeb61a46c2087d29136b0f225371c6f",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "64804ce222bb35039a2e91ed20d018077ea523e07694b93cd3bce17172908bf3",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3298,
+    "output_tokens": 349,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

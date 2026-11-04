@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-005",
+  "outcome": {
+    "answer": "The supplied papers do address RL self-play for strategy games, especially board and adversarial games. One paper trains a transformer with plain policy-gradient self-play on Generals.io and reaches superhuman play [1]. Another adapts AlphaZero-style self-play to the asymmetric game Tablut using separate policy and value heads plus stabilization techniques [2]. A third uses self-play reinforcement learning and test-time search to reach superhuman Stratego play and also applies the approach to Barrage Stratego, Hanabi, and dou dizhu [3].\n\nIf you want the closest match to \u201crl self play strategy games,\u201d [1], [2], and [3] are the most directly relevant; [1] is a real-time strategy game, [2] is an asymmetric board game, and [3] focuses on hidden-information strategy games.",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1b0e982f91571d6d8beb87d06034b0d688131b7e9c746fbcc44517eba3f19010",
+  "usage": {
+    "accounted_tokens": 3771,
+    "input_tokens": 3583,
+    "latency_seconds": 2.6867993000196293,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 188,
+    "provider_request_id": "req_6511d9c2e9dc47488297101c63b4fe1e",
+    "reasoning_tokens": 0,
+    "request_id": "3802cbfb-9785-4f97-adaf-9a8e377f9292",
+    "reserved_input": 22140,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:00.407378+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

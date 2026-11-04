@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-094",
+  "outcome": {
+    "answer": "Measure this with a pretest\u2013posttest: give the model text that teaches unfamiliar rules or knowledge, then test it on questions requiring both direct recall and transfer to new examples. Compare performance before and after, using unfamiliar material to reduce the chance that the model already knew the answers. SLATE uses this design with near- and far-transfer tests and reports learning gains, while noting that gains can be negative and near-transfer performance may differ from far transfer [10].",
+    "cited": [
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "cb46d884fdabc0e623383ae80bba611f412f5c7205bd9c9534d2f85ce7cf22d6",
+  "usage": {
+    "accounted_tokens": 3539,
+    "input_tokens": 3428,
+    "latency_seconds": 7.037262900004862,
+    "model": "gpt-6-luna",
+    "output_tokens": 111,
+    "provider_request_id": "req_a432009a07fb40229eebb810f1fbef59",
+    "reasoning_tokens": 0,
+    "request_id": "e0039b77-fb40-45d4-b4a3-dbf880ced67f",
+    "reserved_input": 22107,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:59:25.298235+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

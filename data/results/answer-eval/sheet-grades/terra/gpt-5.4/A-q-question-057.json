@@ -1,0 +1,44 @@
+{
+  "answer_id": "A021",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-057",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The proposed graph construction method is uncited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 extracts RDF triples linked to Wikidata and evaluates downstream recommendations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 describes entity profiles, graph aggregation, and preference matching.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This is a general transition without a specific factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "Papers 2, 1 and 3 cover conversational PKGs and broader graph-based personalization.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Papers 5 and 8 discuss graph community prompts and governable user representations.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

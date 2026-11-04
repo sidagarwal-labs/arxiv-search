@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-063",
+  "outcome": {
+    "answer": "Yes: the closest match is GRASP, which is specifically built for label-free multi-topic science exams where a student\u2019s answers to several distinct questions are merged into one paragraph with no segmentation [1]. It uses a network over reference answers by encoding each question\u2019s reference answer into an index and building a semantic similarity graph across those reference answers, then retrieves candidate reference nodes and grades each matched segment against its assigned reference [1].\n\nIf by \u201cnetwork of reference answers\u201d you mean a graph connecting references, GRASP is the paper that does that; its graph-based retrieval is meant to recover relevant references that plain cosine retrieval may miss [1]. A related but different line is rubric-based grading: one paper finds grading is most reliable when judges use an explicit rubric, and that within the rubric the official answer does nearly all the work, but it does not address one big paragraph covering several questions or a reference-answer graph [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5a297ea52367bdd59ff994e6160b9c760a606e5273925efdf6a069f18dcc1014",
+  "usage": {
+    "accounted_tokens": 3807,
+    "input_tokens": 3601,
+    "latency_seconds": 5.560487899987493,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 206,
+    "provider_request_id": "req_b8fd3832b243406982c6f652d45b6991",
+    "reasoning_tokens": 0,
+    "request_id": "b1ceeb8f-370c-446c-ac19-46538ca3b7d9",
+    "reserved_input": 22828,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:12:04.158538+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

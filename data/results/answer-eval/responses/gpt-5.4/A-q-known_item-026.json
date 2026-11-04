@@ -1,0 +1,29 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-026",
+  "outcome": {
+    "answer": "The matching paper is Quantum Generator Kernels by Philipp Altmann, Maximilian Mansky, Maximilian Zorn, et al. [1] It proposes Quantum Generator Kernels (QGKs), a generator-based quantum kernel method built from Variational Generator Groups that merge universal generators into a parameterizable operator to scale coverage of available quantum space. [1]\n\nAccording to the abstract, the method is motivated by NISQ-era limits on embedding large real-world data, and it aims to avoid shortcomings of hybrid approaches with fixed intermediate embeddings. [1] It trains a weight vector to parameterize the projection of the generator groups for the current data context, and the reported experiments show superior projection and classification performance versus state-of-the-art quantum and classical kernel approaches, positioning QGK as a versatile framework for quantum machine learning applications. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "10c6cd0f2b86cea3612b656480139fe4d2dcc2a9e2881073e20763f3760a6af2",
+  "usage": {
+    "accounted_tokens": 4411,
+    "input_tokens": 4223,
+    "latency_seconds": 4.471550099988235,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 188,
+    "provider_request_id": "req_dd8d087ba9824dd5a3883d0e778f528b",
+    "reasoning_tokens": 0,
+    "request_id": "baadc5db-f19a-4591-ada1-ca2344819b64",
+    "reserved_input": 24233,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:09:04.895325+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

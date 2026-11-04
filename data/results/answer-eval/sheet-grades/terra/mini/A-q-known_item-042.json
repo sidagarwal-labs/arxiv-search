@@ -1,0 +1,29 @@
+{
+  "answer_id": "A365",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-042",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The author, title, personalization and dense retrieval match the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes purchase-history reasoning and the intent-enhanced embedding.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "PR2 and PBR have the stated personalized retrieval mechanisms.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,39 @@
+{
+  "answer_id": "A305",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-049",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The statement about multiple strategies is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Cited papers 1\u20133 are not supplied.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "STDec uses spatial and temporal stability for faster decoding with comparable performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The papers describe causal hallucination mitigation and relevance shifts toward perceptual inputs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The survey identifies token-level, sequence-level, and parallel generation paradigms.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answer": "For LLM-based popularity prediction in recommendation, TRAIL is the closest match: it fine-tunes an LLM to predict short-term item popularity and produce natural-language explanations, aligning both with structured trend signals [1]. Other papers address related but different problems: one uses LLMs as explainable re-rankers alongside traditional recommenders [2], while another selectively uses LLM pairwise ranking guidance when it is expected to be reliable, including based on item popularity [3].",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ba820d07aa21ad35abd1e0a9710a9e9dfb1b9ca14d5d63adb943c622b7efaacb",
+  "usage": {
+    "accounted_tokens": 3426,
+    "input_tokens": 3311,
+    "latency_seconds": 2.624578399991151,
+    "model": "gpt-6-luna",
+    "output_tokens": 115,
+    "provider_request_id": "req_637ff1b89a384f6c8768fea71033eb6e",
+    "reasoning_tokens": 0,
+    "request_id": "08256f3f-eef0-4ce9-95cf-c266422c9df1",
+    "reserved_input": 22509,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:13.707119+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

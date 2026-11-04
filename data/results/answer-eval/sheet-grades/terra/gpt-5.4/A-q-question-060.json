@@ -1,0 +1,44 @@
+{
+  "answer_id": "A236",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-060",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The explanatory claim is not cited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 describes multiple graph paths, diversity, dependencies, and the likelihood trap.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Transition introducing related papers.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 9 describes tree-induced coupling and multiple latent-token-conditioned trees.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 10 describes preserving topology and topology-aware reranking beyond exact overlap.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The cited abstracts describe these distinct graph, tree, and topological approaches.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

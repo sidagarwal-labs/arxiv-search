@@ -1,0 +1,24 @@
+{
+  "answer_id": "A370",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-060",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual mechanism is described without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Graph paths and evaluator training are supported, but the abstract does not posit one single favored sequence.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

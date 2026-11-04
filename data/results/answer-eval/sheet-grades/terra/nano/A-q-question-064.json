@@ -1,0 +1,39 @@
+{
+  "answer_id": "A257",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The causal explanation has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 explicitly lists these capacity, embedding, optimization, and sampling effects.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The factual account of the conditional-learning experiment has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 2 reports a marginal plateau, but attributes stabilization to gradient noise, not ambiguity alone.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "The papers describe these distinct ambiguity and conditional-learning results.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

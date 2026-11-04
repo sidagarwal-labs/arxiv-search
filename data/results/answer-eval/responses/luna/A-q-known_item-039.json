@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-039",
+  "outcome": {
+    "answer": "The matching paper is \u201cStructural Segmentation for Brazilian Legal Document Retrieval\u201d by Leandro Car\u00edsio Fernandes and coauthors. It studies splitting Brazilian legal acts into structurally organized chunks for retrieval, comparing hierarchical segmentation with simpler article- and component-based chunks. Structural segmentation improves dense retrieval over whole-document indexing, but does not consistently help lexical retrieval; core chunks enriched with document metadata perform comparably to or better than the full hierarchy. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "9fad28835512bf16c2435675b7d5b5dde3236b42db98060a04205320bc5afc6d",
+  "usage": {
+    "accounted_tokens": 3571,
+    "input_tokens": 3464,
+    "latency_seconds": 3.964469700003974,
+    "model": "gpt-6-luna",
+    "output_tokens": 107,
+    "provider_request_id": "req_b3f63e7cd10c4d88b873be118037d1e6",
+    "reasoning_tokens": 0,
+    "request_id": "e8aee15d-7f6c-4cad-9eee-3fdc845952d1",
+    "reserved_input": 21373,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:48.782618+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

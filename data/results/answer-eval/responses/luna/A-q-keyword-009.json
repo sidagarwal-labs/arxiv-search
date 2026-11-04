@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answer": "For automated topic discovery through clustering, several approaches fit: ClusterFusion combines embedding-guided partitioning with LLM topic summarization and assignment [1]; TriTopic uses a graph integrating embeddings, lexical features, and metadata, with consensus clustering and iterative refinement [2]; and TopiCLEAR clusters embeddings after adaptive dimensionality reduction, with a focus on interpretable topics in short texts [5]. For hierarchical topic structure, another method builds multi-scale clusters from embedding density [8]. If you mean communities of arguments rather than document-topic clusters, a graph-based system detects communities among arguments using topic similarity, semantic coherence, keywords, and entities [7].",
+    "cited": [
+      1,
+      2,
+      5,
+      8,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "b02bd6c92e517f0667ea3c6b1746785d34cb882ac6370e14f4fc334dc8601a68",
+  "usage": {
+    "accounted_tokens": 3563,
+    "input_tokens": 3416,
+    "latency_seconds": 4.067883699986851,
+    "model": "gpt-6-luna",
+    "output_tokens": 147,
+    "provider_request_id": "req_a9687b4c19e4480499c2624528e7253c",
+    "reasoning_tokens": 0,
+    "request_id": "d5c6cb2d-bb3f-4e71-b3a5-bf079a3ef07d",
+    "reserved_input": 22473,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:08.204674+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

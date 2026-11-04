@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-096",
+  "outcome": {
+    "answer": "The closest match is VaLiDRec, by Shutong Qiao and coauthors, which proposes variable-length, LLM-aligned semantic identifiers for generative recommendation and adapts identifier length to item semantic complexity [1]. It also builds SIDs from native LLM vocabulary tokens and reformulates recommendation as token-set prediction instead of autoregressive SID generation [1].\n\nA related earlier paper by the same first author, Qiao et al., studies semantic ID learning with OCR-based text representations, but it does not focus on variable-length semantic IDs [8].",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "6c2580a4a523ff6d6f49eda2d0e50e76008aade62c11b4216ffc3c2a404aa1ec",
+  "usage": {
+    "accounted_tokens": 3507,
+    "input_tokens": 3375,
+    "latency_seconds": 2.301699200004805,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 132,
+    "provider_request_id": "req_847658b4f6674449a8a31e173531636d",
+    "reasoning_tokens": 0,
+    "request_id": "efdf021c-8163-4184-869c-51fbbc005da6",
+    "reserved_input": 22486,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:09.787450+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

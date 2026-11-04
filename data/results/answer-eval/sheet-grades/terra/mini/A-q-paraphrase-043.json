@@ -1,0 +1,34 @@
+{
+  "answer_id": "A154",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-043",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 reports context saturation at 10\u201330 turns for roughly 90% of the gain.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Hierarchical sentence representations lose their benefit once turn-level context is available.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 reports frequent parity with reduced history but does not establish that other cases need more.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 studies discourse-marker position rather than first words generally; paper 2 studies context filtering.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

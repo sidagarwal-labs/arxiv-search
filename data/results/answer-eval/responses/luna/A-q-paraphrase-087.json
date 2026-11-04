@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-087",
+  "outcome": {
+    "answer": "For a hidden knowledge graph where you want a training-free way to find useful evidence subgraphs, BubbleRAG is the closest match: it is designed for black-box graphs whose schema and structure are unknown, and its training-free pipeline discovers and ranks candidate evidence graphs [5]. QAFD-RAG is another training-free option, using query-aware traversal to retrieve relevant subgraphs with stated retrieval guarantees, though its abstract does not specifically describe hidden or unknown graph structure [3].",
+    "cited": [
+      5,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3bfaaf6a51681c3f9d3e413263edcef10c31466fb7f9721e682f7daf5fc822af",
+  "usage": {
+    "accounted_tokens": 3710,
+    "input_tokens": 3597,
+    "latency_seconds": 2.7527935999969486,
+    "model": "gpt-6-luna",
+    "output_tokens": 113,
+    "provider_request_id": "req_e341782a312e4586a5a3e0b4718b3f25",
+    "reasoning_tokens": 0,
+    "request_id": "18febda5-ddcd-479d-bf59-1503ab216de7",
+    "reserved_input": 22375,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:56.799722+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

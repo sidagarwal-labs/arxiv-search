@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-099",
+  "outcome": {
+    "answer": "Make user goals explicit rather than inferring them only from clicks or item transitions. Use comments and reviews to capture why someone chose an item, and model motivation and high-level intents to guide recommendations and make them more interpretable [1, 2, 4]. Distinguish a user\u2019s current demand from the policy for what to recommend or avoid, then refine that policy using outcome feedback [10]. Natural-language profiles can also let users state and edit preferences directly, though systems need to be evaluated on whether they actually follow those instructions [9].",
+    "cited": [
+      1,
+      2,
+      4,
+      10,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ed107bb9a11b635c2e36af95083e4b157b26616f8ce26966152d46152e113cca",
+  "usage": {
+    "accounted_tokens": 3530,
+    "input_tokens": 3402,
+    "latency_seconds": 3.3654229000094347,
+    "model": "gpt-6-luna",
+    "output_tokens": 128,
+    "provider_request_id": "req_1ff4aa63c2f6416487bbbf7ba461e2a6",
+    "reasoning_tokens": 0,
+    "request_id": "a5032e78-fabc-4a99-a437-38404b068403",
+    "reserved_input": 22786,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:50.469151+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

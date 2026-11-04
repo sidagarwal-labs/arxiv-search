@@ -1,0 +1,39 @@
+{
+  "answer_id": "A316",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-087",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "QAFD-RAG uses query-aware edge weights and provides conditional statistical recovery guarantees.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "BubbleRAG targets black-box graphs with training-free evidence expansion and ranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The sufficient, minimal subgraph goal and pretrained model are stated; pretraining alone doesn't establish it isn't training-free at retrieval.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "SGR generates compact subgraphs; XoG handles missing paths without task-specific KGQA training.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

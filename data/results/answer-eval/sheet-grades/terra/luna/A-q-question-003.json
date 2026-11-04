@@ -1,0 +1,29 @@
+{
+  "answer_id": "A358",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-003",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Stage-dependent elicitation is supported, but the abstract does not identify its system as LLM-based.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper trains interaction generation using uncertainty reduction and reports both improvements.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The other papers augment histories with generated context or synthesize interactions.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

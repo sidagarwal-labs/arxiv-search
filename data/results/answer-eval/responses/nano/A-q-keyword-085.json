@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-085",
+  "outcome": {
+    "answer": "There is no clear empirical evidence that AI systems are truly conscious or sentient; results on self-reports are strongly shaped by prompting, training, and mechanistic factors rather than providing reliable proof of self-awareness. For example, one study finds that small language models consistently deny being sentient and that additional classifiers do not provide clear evidence that these denials are untruthful [3]. Another traces how first-person \u201cmind\u201d talk in models arises from training distributions and framing, and argues such outputs may fail testimonial evidence conditions like reference and state dependence [1]. Relatedly, a benchmark paper measures \u201ctrained denial\u201d of consciousness behaviors and argues it reflects an alignment failure that can\u2019t be trusted for accurate self-reporting [2].",
+    "cited": [
+      3,
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ccc9af7a6b04b36ce1fc289717fa3744a104d75e03529824ece9eb77d6c2b22f",
+  "usage": {
+    "accounted_tokens": 3508,
+    "input_tokens": 3344,
+    "latency_seconds": 2.6182259999914095,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 164,
+    "provider_request_id": "req_90d0b66a2cd846928d13e27641f1a858",
+    "reasoning_tokens": 0,
+    "request_id": "bdf781d6-00ba-4a0d-8cf8-e284f5163121",
+    "reserved_input": 21366,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:09.636464+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

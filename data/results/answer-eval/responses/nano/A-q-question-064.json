@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answer": "It is difficult for neural networks to learn highly ambiguous token distributions because higher ambiguity makes the target next-token distribution harder to represent and fit accurately. In particular, more ambiguous next-token distributions require more capacity to store, larger embeddings to represent, more optimization steps, and they amplify token-sampling noise, all of which makes accurate learning challenging [1].\n\nRelatedly, when learning involves conditional uncertainty, models may first lock onto easier marginal structure rather than the full conditional distribution; in a controlled setting with K-fold ambiguity, the model learns the marginal first and only later collapses to the full conditional via a sharp transition. This suggests that ambiguous conditional structure can stabilize simpler, lower-accuracy solutions before the network can represent the full conditional behavior [2].\n\nThese effects differ in focus: [1] attributes difficulty directly to ambiguity increasing representational/learning burden and sampling noise, while [2] studies a conditional-learning dynamic where ambiguity produces an initial plateau for the marginal before conditional learning completes.",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "f31a448675980ddaacac05d98324ffbd69c13411d6a10fba74252de8dc74b802",
+  "usage": {
+    "accounted_tokens": 3315,
+    "input_tokens": 3097,
+    "latency_seconds": 2.396046399982879,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 218,
+    "provider_request_id": "req_6e083c590b1a47a2bf1c04b9c484266a",
+    "reasoning_tokens": 0,
+    "request_id": "83bcc409-4a51-4b76-ac4b-2edda0916cde",
+    "reserved_input": 20009,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:29.097434+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "answer_id": "A048",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-094",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited paper's title and abstract match the request.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes the three shared-model roles and inconsistency of separate models.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "An exponential moving average updates the shared generator and judge momentum model.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstract states these inputs, reward mechanism, and policy-only updates.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Five benchmarks and the highest average caption-based question-answering score are reported.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

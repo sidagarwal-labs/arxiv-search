@@ -1,0 +1,32 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-063",
+  "outcome": {
+    "answer": "Yes\u2014paper [1] directly addresses this setup. It studies grading label-free multi-topic science exams where a student\u2019s responses to several distinct topics are merged into one big paragraph with no segmentation indicating which span answers which question [1]. It builds reference answers per question, encodes them, constructs a semantic similarity graph over the references, and uses a combination of retrieval/graph traversal and assignment so each question is graded against its corresponding reference answer independently [1].\n\nRelatedly, rubric-anchored grading is emphasized as a key design principle for reliable open-ended grading [2] and for auditable \u201crubric judge\u201d paradigms [5], though neither specifically targets the \u201cone big paragraph covering multiple questions\u201d/network-of-reference-answers structure described in [1] [2,5]. Paper [9] focuses on AI-assisted scoring for short written texts with human-in-the-loop oversight, but it does not describe the reference-answer network/graph retrieval approach [9].",
+    "cited": [
+      1,
+      2,
+      5,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "e99009418b722bdbc0c5a0ba3ff72cc7b4bba205d568c1906eecf80c036ee0f0",
+  "usage": {
+    "accounted_tokens": 3817,
+    "input_tokens": 3601,
+    "latency_seconds": 2.691225899994606,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 216,
+    "provider_request_id": "req_36c8a4c191f3452e8ecb0fbbfdfbc05b",
+    "reasoning_tokens": 0,
+    "request_id": "ceb1f893-b34f-4dfd-a7a5-e7c09bfa0032",
+    "reserved_input": 22833,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:50:07.916054+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

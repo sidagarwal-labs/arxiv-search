@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-072",
+  "outcome": {
+    "answer": "The BL19 digital collection retrieval benchmark is described in the paper on inclusive evaluation frameworks for historical IR, which uses the British Library BL19 digital collection of more than 35,000 works from 1700\u20131899 to build a benchmark for changes in language, terminology, and retrieval in 19th-century fiction and non-fiction [1]. It combines expert-driven query design, paragraph-level relevance annotation, and LLM assistance to create a scalable evaluation framework [1].\n\nThe other papers are about different benchmarks or retrieval settings, such as maps, multilingual IR, dataset search, legal IR, or coverage evaluation, and do not address BL19 specifically [2-10].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "cd48d448b75beedc7e547668e94778c20afdc7bd7d79cc766a013933ef1ea4b1",
+  "usage": {
+    "accounted_tokens": 3202,
+    "input_tokens": 3041,
+    "latency_seconds": 2.7877541999914683,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 161,
+    "provider_request_id": "req_ff37b8f9d2af4076abab2d1f720f5236",
+    "reasoning_tokens": 0,
+    "request_id": "e9ff4bd4-b7a9-4e7d-9ff0-8b00d1e80277",
+    "reserved_input": 19997,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:46.096158+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

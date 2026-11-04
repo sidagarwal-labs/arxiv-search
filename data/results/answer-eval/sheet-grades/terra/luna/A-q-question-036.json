@@ -1,0 +1,29 @@
+{
+  "answer_id": "A044",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-036",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The surrogate-model description is uncited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 studies global exposure and differing influential factors across models and domains.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 describes confounded engagement signals and counterfactual observability.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

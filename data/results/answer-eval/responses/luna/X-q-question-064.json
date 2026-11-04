@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-064",
+  "outcome": {
+    "answer": "The supplied papers do not address why neural networks struggle to learn highly ambiguous token distributions. One paper uses token entropy and logit margins to estimate uncertainty for deciding when to retrieve, but it does not explain learning ambiguous token distributions [10].",
+    "cited": [
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0d128f02e7c557d8c081db5557bf08baba171ce0adb0c105131b70cb3a43da88",
+  "usage": {
+    "accounted_tokens": 3833,
+    "input_tokens": 3768,
+    "latency_seconds": 3.538921200000914,
+    "model": "gpt-6-luna",
+    "output_tokens": 65,
+    "provider_request_id": "req_20b4df9aa86a4889adc5ba1ec5ac119c",
+    "reasoning_tokens": 0,
+    "request_id": "c6d032d2-17d2-45d3-85c7-f023e19f4cd3",
+    "reserved_input": 22497,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:59:02.247192+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

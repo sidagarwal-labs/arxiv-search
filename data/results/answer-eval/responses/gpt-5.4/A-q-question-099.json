@@ -1,0 +1,35 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-099",
+  "outcome": {
+    "answer": "Use richer models of users\u2019 goals, intents, and motivations\u2014not just clicks or purchases. The papers suggest making goals explicit from text and interaction context: verbal feedback like comments and reviews captures the reasons behind choices and can improve personalization, explainability, and alignment [1, 2]. Natural-language profiles also let users directly state and edit preferences, making recommendations more steerable for nuanced needs [9].\n\nSeveral approaches differ in what part of \u201cuser goals\u201d they model. Intent-focused methods extract high-level, multi-faceted intents from behavior to make sequential recommendation more robust and less driven by spurious recent actions [4]. Motivation-focused methods try to uncover why users choose items, including explicit motivational cues in review text [2]. Other work separates understanding current demand from choosing an effective recommendation policy, arguing that systems need both intent knowledge and feedback-grounded action policies [10]. More user-governable and agentic systems further emphasize inspectable, revisable user representations and interactive, context-aware adaptation [5, 6].",
+    "cited": [
+      1,
+      2,
+      9,
+      4,
+      10,
+      5,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "6939ebbc092aad9acba3b3792789a00db434ef4db6a8ed26cfc4e5d0f97760ad",
+  "usage": {
+    "accounted_tokens": 3627,
+    "input_tokens": 3402,
+    "latency_seconds": 6.710847300011665,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 225,
+    "provider_request_id": "req_1c9ad073691d4be1a4b52f853924d54f",
+    "reasoning_tokens": 0,
+    "request_id": "0835d099-4dd7-43a3-9f80-d307462f5ed8",
+    "reserved_input": 22794,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:59.588622+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

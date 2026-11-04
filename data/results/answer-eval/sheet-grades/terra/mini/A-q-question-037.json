@@ -1,0 +1,29 @@
+{
+  "answer_id": "A075",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract contrasts early naturalistic reading alignment with later ambiguity-processing alignment and underestimation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited papers relate internal measures to reading times and complementary processing signals.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited studies report brain-feature alignment and internally represented grammaticality or syntax.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

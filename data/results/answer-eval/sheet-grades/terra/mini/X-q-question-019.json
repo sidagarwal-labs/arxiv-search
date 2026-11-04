@@ -1,0 +1,29 @@
+{
+  "answer_id": "A245",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-019",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The uncited claim about all supplied papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 reports improved development performance after in-domain adaptation but does not study repetition.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 10 compares monolingual models against mGPT, not the shared multilingual model, in its reported downstream results.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

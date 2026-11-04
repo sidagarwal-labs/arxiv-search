@@ -1,0 +1,29 @@
+{
+  "answer_id": "A361",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper identification and mechanism are uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract supports local losses, the auxiliary classifier and reduced communication.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "FedSparQ compresses federated gradient updates using sparsity and error feedback.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

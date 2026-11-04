@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-089",
+  "outcome": {
+    "answer": "Yes\u2014there is a paper by Khoat Than on fairness limits: No-Free-Fairness: Fundamental Limits and Trade-offs in Learning Systems [1]. It argues that learning systems face fundamental fairness limits from three sources: irreducible subgroup cost creates an inherent fairness\u2013cost frontier, finite-sample learning alone can induce subgroup disparity even when a perfectly fair and accurate solution exists, and limited model expressivity can make fairness unattainable regardless of data or training procedure [1].\n\nMore specifically, the paper states that strict relative fairness can create a statistical bottleneck where achieving low cost may require exponentially many samples, and it rules out distribution-free fairness guarantees in finite-sample settings [1]. Related papers discuss practical fairness trade-offs rather than these impossibility limits, such as tolerating small false-negative-rate differences in criminal justice [2] or balancing fairness with hard resource constraints in threshold optimization [3].",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "72e3734a9bf448b049d4e98084ac068d9f8d95a18d0669c37c87916e97174c36",
+  "usage": {
+    "accounted_tokens": 3349,
+    "input_tokens": 3148,
+    "latency_seconds": 4.957285899989074,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 201,
+    "provider_request_id": "req_ab8a19fa94f143c69b7a633e8e9764f2",
+    "reasoning_tokens": 0,
+    "request_id": "8cb04e34-3926-4499-a2bc-eed4cd002239",
+    "reserved_input": 21714,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:30.379920+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

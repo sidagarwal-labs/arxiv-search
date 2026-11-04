@@ -1,0 +1,39 @@
+{
+  "answer_id": "A071",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about the results is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper studies code-mixed Tulu social media comments using organically adapted text models.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The Bengali study uses manually annotated comments and several classifiers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited papers respectively analyze New Zealand Reddit language and Hinglish tweet sentiment.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited three Bengali studies concern speech, dialect resources and assistance rather than social-media-specific analysis.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

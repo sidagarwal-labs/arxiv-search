@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answer": "Avoiding error-signal propagation across a split point can reduce data exchange in shared neural architectures. In \u201cDecoupled Split Learning via Auxiliary Loss,\u201d the client and server train semi-independently using local loss signals instead of propagated gradients: the client adds a small auxiliary classifier at the split point to provide a local error signal, while the server trains on transmitted activations using the true loss. This decoupling removes the need to send backward gradients, cutting communication and reducing memory overhead. [1]\n\nOther results in the list reduce communication via compression/sparsification or modular sharing, but they do not specifically target error-signal propagation avoidance in shared neural architectures. For example, FedSparQ reduces federated communication using sparse quantization plus error feedback (while keeping updates exchanged), and modular neuromorphic architectures structurally isolate pathways to limit entanglement rather than bypass propagating errors at a split boundary. [2,6]",
+    "cited": [
+      1,
+      2,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "65e71b8b18dae1170ce3a981b4d1d49302283d5905f0607810d0191c090ac3ab",
+  "usage": {
+    "accounted_tokens": 3998,
+    "input_tokens": 3790,
+    "latency_seconds": 2.6223607000138145,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 208,
+    "provider_request_id": "req_22b2764ef6a346009d45e8d542d2e2f4",
+    "reasoning_tokens": 0,
+    "request_id": "a6cb4f76-dbc2-4680-914c-cac6801aca81",
+    "reserved_input": 23910,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:37.992787+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

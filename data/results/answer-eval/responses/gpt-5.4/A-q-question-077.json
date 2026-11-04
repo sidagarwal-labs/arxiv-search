@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "answer": "Yes. One paper shows that vanilla, standard GNNs can do zero-shot link prediction on unseen knowledge graphs if the graph is first reified into a fixed transferable representation; in that setup, textbook GNNs including GAT, GraphSAGE, and R-GCN transferred from one training KG to 40 inductive link-prediction benchmarks, and the best off-the-shelf GAT matched a dedicated KG foundation model [1].\n\nThe key difference is that the transfer mechanism is moved from the architecture into the representation, rather than claiming ordinary GNNs on their usual KG input will generalize automatically [1]. Related papers here discuss specialized KG foundation models for unseen graphs [4] or scalable KG link prediction on large graphs [5], but they do not show standard vanilla GNNs doing zero-shot prediction on unknown KGs in the same way [4,5].",
+    "cited": [
+      1,
+      4,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "bd7ff5b26f1dd990a1c6d52d0a82855e7ef4576d2cd04365b1ef1a77d9ad3161",
+  "usage": {
+    "accounted_tokens": 3548,
+    "input_tokens": 3350,
+    "latency_seconds": 5.207092500000726,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 198,
+    "provider_request_id": "req_513d38be72e24ed596e12591d9874cb1",
+    "reasoning_tokens": 0,
+    "request_id": "cfac93ae-4708-4d72-8b21-a32931ae3d32",
+    "reserved_input": 21077,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:19.478406+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

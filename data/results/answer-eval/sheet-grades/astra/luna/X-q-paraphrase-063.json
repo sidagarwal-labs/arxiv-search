@@ -1,0 +1,29 @@
+{
+  "answer_id": "A017",
+  "candidate": "luna",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "X-q-paraphrase-063",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim excluding the requested grading setup has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The description matches [3], but the supplied segmentation places its citation in a separate sentence unit.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "A standalone citation label contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

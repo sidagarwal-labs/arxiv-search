@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answer": "A better recommender system can use a more detailed view of user goals by adapting not just to relevance, but to how much fairness- or novelty-driven exploration each user actually benefits from. One paper shows that users differ in their \u201cexploration saturation\u201d point: beyond that point, more exploration no longer improves utility and can hurt engagement or perceived relevance, with users who have limited interaction histories tending to saturate earlier [8]. This suggests user goals should be modeled at the individual level rather than with one global exploration setting for everyone [8].\n\nMore broadly, the supplied papers support aligning system behavior with stakeholder priorities through weighted, human-centered objectives instead of a single fixed notion of fairness or utility [9]. That is not specific to recommenders, but it complements the recommender finding by suggesting systems should explicitly represent different objectives and trade-offs, while [8] shows, in recommendation, that these trade-offs vary substantially across users.",
+    "cited": [
+      8,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "7b4863fe3bfe090eec35ac196a4d9bd83da47529977e716bdc3abf5e0147bb3b",
+  "usage": {
+    "accounted_tokens": 3367,
+    "input_tokens": 3162,
+    "latency_seconds": 6.070739399990998,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 205,
+    "provider_request_id": "req_67e927fe89f34d8c820bf97ceb911ecc",
+    "reasoning_tokens": 0,
+    "request_id": "bd86ea9e-9fbf-47d3-811e-22d68916fa0a",
+    "reserved_input": 21790,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:31:20.298778+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

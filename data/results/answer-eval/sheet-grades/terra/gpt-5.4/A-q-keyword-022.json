@@ -1,0 +1,49 @@
+{
+  "answer_id": "A172",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The standalone affirmative asserts existence without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The claim about multiple papers lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "StageMem distinguishes explicit strength from confidence and applies lifecycle settlement.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "MARS tracks preference strength and evidence with the listed lifecycle operations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "A transition introducing related methods.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S6",
+        "reason": "Oblivion reinforces contributing memories and uses accessibility decay rather than deletion.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "The cited abstracts describe those lifecycle mechanisms without naming strength as a central state.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

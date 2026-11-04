@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-057",
+  "outcome": {
+    "answer": "Use LLMs to extract semantic profiles or preference triples from user data, then place those profiles into a knowledge graph so they can be propagated and used for recommendation. One approach generates semantic profiles for KG entities with LLMs, integrates them into the KG, and matches LLM-based and KG-based representations during training [1]. Another builds personal knowledge graphs by extracting RDF-compliant user-preference triples from conversational data and shows they can help downstream recommendations [2].\n\nRelated papers differ in emphasis: some focus on persona modeling from heterogeneous KGs and LLM-derived item embeddings for session-based recommendation [3], while others use LLMs to create personalized world knowledge or user interest personas and then fuse that knowledge into recommendation systems more carefully [4, 6]. A GraphRAG-based approach also combines historical preferences from a knowledge graph with broader graph communities to create personalized prompts [5].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "80c56cdc28e479e5d33608097b9a399e0d34181ed49f4b615c1f9fcc0249f513",
+  "usage": {
+    "accounted_tokens": 3426,
+    "input_tokens": 3222,
+    "latency_seconds": 2.9355791000125464,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 204,
+    "provider_request_id": "req_f66c272d21a6473a8687184ef58ffda9",
+    "reasoning_tokens": 0,
+    "request_id": "106e64df-3673-4aa7-b646-6c5403bec981",
+    "reserved_input": 21679,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:56.950316+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

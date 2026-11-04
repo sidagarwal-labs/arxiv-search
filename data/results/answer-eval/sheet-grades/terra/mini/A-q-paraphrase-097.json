@@ -1,0 +1,29 @@
+{
+  "answer_id": "A360",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-097",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper defines and advocates strategically diverse self-training samples.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Both comparisons are stated in the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited studies use reasoning-path divergence and verified-mode replay respectively.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

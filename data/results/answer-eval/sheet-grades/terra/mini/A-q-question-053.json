@@ -1,0 +1,39 @@
+{
+  "answer_id": "A259",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-053",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 7 decouples observation from inference through asynchronous staging.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 7 reports the overhead and serving properties, but does not state full layer-wise trajectories.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 passively compresses hidden states and attention into descriptors for correctness prediction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 4 collects layer-wise trajectories and steers without additional forward passes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Papers 2, 5, and 9 study activation-based importance, uncertainty, correctness, and early stopping.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

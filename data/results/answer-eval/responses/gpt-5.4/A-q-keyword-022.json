@@ -1,0 +1,34 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answer": "Yes. Several papers explicitly introduce a memory \u201cstrength\u201d control as part of lifecycle management, but they use it differently. One paper directly defines strength as an explicit lifecycle state for retention consequence, distinct from confidence or ordinary validity signals, to control promotion, compression, and eviction pressure in persistent memory [1]. Another uses preference memory with explicit strength and evidence tracking, alongside reinforcement, weakening, consolidation, forgetting, and resynthesis in a scheduled lifecycle [8].\n\nRelated work controls memory strength more indirectly. Oblivion strengthens memories that contribute to responses while using decay-driven reductions in accessibility instead of deletion [2]. Other papers frame memory as lifecycle control through consolidation, forgetting, retrieval-driven reconsolidation, or write routing, without specifically centering \u201cstrength\u201d as a named state variable [6,7,9].",
+    "cited": [
+      1,
+      8,
+      2,
+      6,
+      7,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1be6154a88851502d6531f6755458faee589a0801a0c04825c3946c8ae7d0f19",
+  "usage": {
+    "accounted_tokens": 3945,
+    "input_tokens": 3762,
+    "latency_seconds": 4.720257200009655,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 183,
+    "provider_request_id": "req_387540cbf4e04e4ca204dee45f5dc26c",
+    "reasoning_tokens": 0,
+    "request_id": "f00c5c55-9c50-48df-a18e-f2cd59f526bd",
+    "reserved_input": 23901,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:15.047285+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

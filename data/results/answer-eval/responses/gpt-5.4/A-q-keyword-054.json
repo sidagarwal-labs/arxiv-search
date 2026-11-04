@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-054",
+  "outcome": {
+    "answer": "R2LM, the instantiation of Bifocal Diffusion Language Models, is reported to achieve 2.4x to 12.9x higher throughput than bidirectional dLLMs, and 1.9x to 2.9x speedup over autoregressive baselines in batch serving. The paper attributes this to parallel decoding with KV caching, using causal attention for left context plus a reverse Mamba sidecar for compressed right-side context. It also says R2LM exceeds the causal baseline on most benchmarks and surpasses the bidirectional dLLM on average [1].\n\nFor context, one efficiency study says AR models generally still achieve higher throughput than current diffusion LMs, and that gains from techniques like dual cache and parallel decoding can diminish at scale [3]. So the Bifocal/R2LM result is presented as a way to address the usual throughput limits of bidirectional diffusion models specifically [1,3].",
+    "cited": [
+      1,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "adb7cb1d3a9f6821bb810a6384786a1015b1fb26f64992181054b32ebde042ad",
+  "usage": {
+    "accounted_tokens": 3898,
+    "input_tokens": 3688,
+    "latency_seconds": 5.852219100022921,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 210,
+    "provider_request_id": "req_a0ddbff3b37c46c19ebb96ac63c39cc6",
+    "reasoning_tokens": 0,
+    "request_id": "9bb1917d-1a33-4f3e-bea9-944384f09875",
+    "reserved_input": 21856,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:41.680512+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

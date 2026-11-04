@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-096",
+  "outcome": {
+    "answer": "The supplied search results do not address Qiao or variable-length semantic IDs; they cover atmospheric modeling, scientific generative models, and Earth observation.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "aebf63d0876b3c7ee911cb243796be37987f31850cb3187968a1b8a098bb03bb",
+  "usage": {
+    "accounted_tokens": 3664,
+    "input_tokens": 3618,
+    "latency_seconds": 10.15273710002657,
+    "model": "gpt-6-luna",
+    "output_tokens": 46,
+    "provider_request_id": "req_819482a4619643b3859ac8a1a45dca43",
+    "reasoning_tokens": 0,
+    "request_id": "87035489-6762-4a38-94b4-b2c7d051b0d8",
+    "reserved_input": 23581,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:59:09.868700+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "answer_id": "A266",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract describes seed-guided initialization, expansion by non-anomalous points, and outlier isolation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports as few as 10\u201330 seeds per cluster.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

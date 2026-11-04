@@ -1,0 +1,44 @@
+{
+  "answer_id": "A011",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This technical recommendation about temporal metadata and retrieval validity has no citation; [8] and [4] provide the relevant evidence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[8] supports validity intervals and filtering; [4] supports temporal decay; [1] supports metadata-dependent recency reranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[3] explicitly distinguishes question-dependent recency and stationarity, motivating decisions about fresh evidence and retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[2] documents post-cutoff leakage and unreliable date metadata, recommending stronger safeguards or frozen timestamped snapshots.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "[7] reports daily subtree adaptation, improvements over fixed retrieval selection, and production freshness/relevance gains.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "[4] explicitly spans representation, retrieval, and reasoning; [8] uses atomic records with validity intervals, lifecycle states, and pre-ranking filtering.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answer": "Internal representations of language models correlate with how much effort humans expend during sentence understanding, but the best correspondence depends on what \u201ceffort\u201d is being measured. For syntactically challenging ambiguity processing, later layers\u2019 internal representations track human cognitive effort better than early-layer surprisal, though they still tend to underestimate the human data [1]. For reading difficulty tied to processing load, transformer-derived measures of internal computation can predict reading times, with energy-based transformer signals providing a robust predictor beyond surprisal and attention entropy [9].\n\nBrain-imaging evidence similarly suggests a nontrivial mapping between human language responses and LM representations that incorporates processing difficulty and semantic factors. A framework using sparse features from LMs finds that human language network responses relate to broadly informative LM features, with some fronto-temporal regions predicted by surprisal even without explicit LM-based features [2]. Also, model\u2013brain representational correlations depend on whether models have positional encoding and are specific to models trained on human language [3].",
+    "cited": [
+      1,
+      9,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3be77c45d66c0e893cf6d7143036f20842af68d56a2b93e4152cdf57bd6075d6",
+  "usage": {
+    "accounted_tokens": 3554,
+    "input_tokens": 3335,
+    "latency_seconds": 2.78825370001141,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 219,
+    "provider_request_id": "req_65232625c40b4fc6a6f4a94941532f80",
+    "reasoning_tokens": 0,
+    "request_id": "a4aab6eb-0980-4ebb-a8bb-e6786a2f4d3f",
+    "reserved_input": 21645,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:50:59.594777+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

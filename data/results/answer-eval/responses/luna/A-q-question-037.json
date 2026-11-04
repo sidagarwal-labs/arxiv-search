@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answer": "Language-model representations track human sentence-processing effort, but the best-matching layers depend on the task. For naturalistic reading, earlier layers align better with human behavior; for syntactically ambiguous, challenging sentences, later layers estimate effort better, though they still underestimate it [1]. LM surprisal also predicts reading times, and tracking long-range coreference improves its fit to human reading behavior [4]. Other model-derived measures, including information-theoretic storage cost and energy, predict reading-time variation beyond standard predictors [5, 9]. These findings concern behavioral effort and reading time; the supplied papers do not establish a single, universal correspondence between internal representations and human effort.",
+    "cited": [
+      1,
+      4,
+      5,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "178d1daaa85176b6f75812fa0bb551b91f92a1954e4337cc73c211d886286544",
+  "usage": {
+    "accounted_tokens": 3487,
+    "input_tokens": 3335,
+    "latency_seconds": 4.597668699978385,
+    "model": "gpt-6-luna",
+    "output_tokens": 152,
+    "provider_request_id": "req_3049db3964be48ef90af8282e05db228",
+    "reasoning_tokens": 0,
+    "request_id": "35139fc6-d519-498b-80c7-97218aedd2fe",
+    "reserved_input": 21632,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:40.733646+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

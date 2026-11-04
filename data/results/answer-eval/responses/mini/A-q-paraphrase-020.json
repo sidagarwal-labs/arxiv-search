@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answer": "The closest match is Decoupled Split Learning via Auxiliary Loss, which reduces data exchange by avoiding backward gradient propagation in split learning. It uses local loss signals and an auxiliary classifier at the split point so the client and server train semi-independently, cutting communication roughly in half while preserving performance [1].\n\nA related but different paper, FedSparQ, reduces communication in federated learning by sparsifying gradients and using error feedback, but it still transmits compressed updates rather than eliminating error-signal propagation in a shared neural architecture [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a643a3cad808f9a70fe6125630b4b147d1d4c1c0560203c3abf16f3c76867615",
+  "usage": {
+    "accounted_tokens": 3920,
+    "input_tokens": 3790,
+    "latency_seconds": 2.5191349999804515,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 130,
+    "provider_request_id": "req_55c0c82712c14a4898a9575577f2fec7",
+    "reasoning_tokens": 0,
+    "request_id": "7072333c-d861-4f04-93de-52d3a58ca8b4",
+    "reserved_input": 23910,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:25.008717+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

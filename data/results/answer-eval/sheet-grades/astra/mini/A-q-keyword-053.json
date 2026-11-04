@@ -1,0 +1,29 @@
+{
+  "answer_id": "A033",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This assertion about several papers using graph-based reaction learning has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] supports condensed reaction graphs and yield improvements; [6] explicitly describes synthetic-data graph-to-sequence pretraining for biodegradation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[9] develops layer-to-layer knowledge mixing for molecular-property prediction, with improved GNN accuracy rather than reaction modeling.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

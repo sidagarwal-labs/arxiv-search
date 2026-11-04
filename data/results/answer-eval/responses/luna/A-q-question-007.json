@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answer": "Several approaches are described: use a structure-guided prompt that asks the model to plan and count words as it writes [1]; provide dynamic length feedback during generation so it can adjust toward a target token, word, or sentence count [2]; or add a fixed conciseness reminder to discourage excessive output [7]. For stricter task-specific constraints, reinforcement learning can optimize translation length against timing limits [3].",
+    "cited": [
+      1,
+      2,
+      7,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "602c510254a99d5b8ce0d3a324524debd59c1096789062b2abcd383fdf4d970d",
+  "usage": {
+    "accounted_tokens": 3390,
+    "input_tokens": 3289,
+    "latency_seconds": 2.535483900021063,
+    "model": "gpt-6-luna",
+    "output_tokens": 101,
+    "provider_request_id": "req_cad957581d7b4f5f9d3cae1b3d291368",
+    "reasoning_tokens": 0,
+    "request_id": "7aca63dd-1932-48e2-9bf9-64626be89c34",
+    "reserved_input": 21435,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:28.222837+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

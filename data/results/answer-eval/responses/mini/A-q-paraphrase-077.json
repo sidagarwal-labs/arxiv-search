@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-077",
+  "outcome": {
+    "answer": "The closest match is a set of papers on low-precision training for large language models, but not specifically on private devices. One paper studies FP4 pretraining recipes and shows how selective high-precision layers and improved gradient handling help recover accuracy at scale [1]. Another proposes adaptive block scaling for NVFP4 to reduce quantization error and improve training loss, and a third presents stable FP4 training with transposition-invariant block quantization that closely matches BF16 [2, 3].\n\nFor distributed training efficiency, AGoQ focuses on memory-efficient distributed LLM training with 4-bit activations and 8-bit gradients, improving speed on GPU clusters [7]. None of the supplied papers directly addresses low-precision training across distributed private devices; the closest privacy-related paper is about differentially private fine-tuning, but it does not study low-precision numbers for distributed devices [6].",
+    "cited": [
+      1,
+      2,
+      3,
+      7,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "f437cdc1488df208901f16a5e0688752dbc4a25c8adab6915860608062783a99",
+  "usage": {
+    "accounted_tokens": 3892,
+    "input_tokens": 3691,
+    "latency_seconds": 2.8631098000041675,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 201,
+    "provider_request_id": "req_19389c7856d549b1a21988e2affb92fb",
+    "reasoning_tokens": 0,
+    "request_id": "6e5503c2-e6c5-41db-987f-99b1e7bc90b5",
+    "reserved_input": 22222,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:56.350471+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

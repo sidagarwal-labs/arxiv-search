@@ -1,0 +1,44 @@
+{
+  "answer_id": "A011",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The detailed Plan-and-Write claim has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The summarization result is uncited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "This sentence cites paper 1, not paper 2, which describes dynamic feedback.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "This sentence cites paper 2, not paper 3, which introduces HOMURA.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 3 supports the reinforcement-learning approach but not the other two methods in this comparison.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S6",
+        "reason": "This sentence contains only a citation.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

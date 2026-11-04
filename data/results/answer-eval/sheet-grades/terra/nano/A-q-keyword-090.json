@@ -1,0 +1,44 @@
+{
+  "answer_id": "A025",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-090",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The HEGM description lacks a citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The specific HEGM techniques are uncited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The sentence cites paper 1, but DSI's serving interface is described in paper 2.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "The task-specific readout assertion has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 2 supports DSI's focus but not the statement about HEGM, which is paper 1.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S6",
+        "reason": "This sentence contains citations only.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

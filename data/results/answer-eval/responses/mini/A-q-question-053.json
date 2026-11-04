@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-053",
+  "outcome": {
+    "answer": "You can inspect internal activations during inference by using observability methods that decouple capture from the hot path, so the model keeps serving while internal states are staged asynchronously [7]. One system reports full layer-wise activation trajectories with only 0.4%\u20136.8% overhead offline and about 6% in online serving, while preserving serving optimizations and GPU memory budgets [7]. Another approach passively observes hidden states and attention patterns, compresses them into fixed-budget descriptors, and predicts outcomes with negligible inference cost [1].\n\nIf you want the activations for analysis or control rather than just monitoring, logit-lens and steering-vector tooling can collect layer-wise trajectories and even apply steering without extra forward passes [4]. Other papers use activations to predict importance, uncertainty, or correctness, showing that internal signals can be extracted efficiently for reasoning analysis and early stopping [2, 5, 9].",
+    "cited": [
+      7,
+      1,
+      4,
+      2,
+      5,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "84bbea1abd9c025a83fcc3e9490279a23a93eff7a4db5f37627ecb173648eb72",
+  "usage": {
+    "accounted_tokens": 3226,
+    "input_tokens": 3021,
+    "latency_seconds": 3.3406961000000592,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 205,
+    "provider_request_id": "req_904aae7cec814ccab6a6f3b3fef7daca",
+    "reasoning_tokens": 0,
+    "request_id": "f79e35ea-0fc2-4886-bc1d-2b4e58421340",
+    "reserved_input": 19704,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:49.556321+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

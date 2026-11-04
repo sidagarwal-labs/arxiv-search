@@ -1,0 +1,27 @@
+{
+  "candidate": "nano",
+  "item_id": "X-q-keyword-057",
+  "outcome": {
+    "answer": "None of the supplied papers directly addresses \u201cdense to sparse retrieval\u201d (i.e., converting dense retrieval representations into sparse ones for search).",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "17baf4b302d57b64d372d69bc131552fce5d042f2cf44c6aa9c4b1151e99e1e1",
+  "usage": {
+    "accounted_tokens": 3419,
+    "input_tokens": 3374,
+    "latency_seconds": 1.5144113000133075,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 45,
+    "provider_request_id": "req_abf692adc4094e88b329ebdd0d87b446",
+    "reasoning_tokens": 0,
+    "request_id": "4bc0de0e-f913-459e-b62c-920dda8eb74b",
+    "reserved_input": 21033,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:52:53.088898+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

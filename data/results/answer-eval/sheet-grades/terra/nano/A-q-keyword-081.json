@@ -1,0 +1,39 @@
+{
+  "answer_id": "A242",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This factual description has no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The design and motivation claims have no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The sentence cites TRAIL [1], not the FairLRM paper [8].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "The sentence cites FairLRM [8], not the re-ranker paper [2].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "A standalone citation is not a factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

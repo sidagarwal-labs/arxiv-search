@@ -1,0 +1,54 @@
+{
+  "answer_id": "A254",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-008",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A simple affirmation.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The ruleXplain identification and method claim lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 specifies temporal rules, counterfactual simulation, and closed-loop refinement.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 focuses on causal explanations in time series.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "A transition to related papers.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 4 describes pretrained temporal causal discovery architectures.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "Paper 6 describes LLM-guided graph refinement validated statistically.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S8",
+        "reason": "Papers 9 and 10 describe logical constraints and verifier regularization, not time-series causality.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-060",
+  "outcome": {
+    "answer": "Yes. The strongest match is The Missing Complement: State-Conditioned Minimal Sufficient Evidence for Coding Agents, by Zhexi Feng and coauthors, which is explicitly about recovering \u201cstate-conditioned minimal sufficient evidence\u201d for coding agents and framing retrieval as set construction rather than ranking [1]. It studies how to recover a compact evidence combination that supplies what the agent\u2019s next decision still lacks [1].\n\nRelated papers also discuss evidence retrieval, but with different goals: ContextBench evaluates context recall, precision, and efficiency in coding agents [4], and Agent Retrieval Bench studies repository context retrieval and selective retrieval for the next needed files [9].",
+    "cited": [
+      1,
+      4,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "33c2576cfd2f2dae9e8b34b936ebd2fdf5f453dbd2969a933fab35b45c71e17d",
+  "usage": {
+    "accounted_tokens": 3675,
+    "input_tokens": 3521,
+    "latency_seconds": 3.1927900000009686,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 154,
+    "provider_request_id": "req_4d8349f1d2d041caa53049c400e4ea94",
+    "reasoning_tokens": 0,
+    "request_id": "8fb0cbc1-762d-4c46-8271-a612e77320e4",
+    "reserved_input": 22134,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:43.293389+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-087",
+  "outcome": {
+    "answer": "Yes. The closest match is a training-free method called QAFD-RAG, which is designed to recover query-specific reasoning subgraphs from a graph by dynamically weighting edges according to query relevance, with statistical guarantees that it recovers relevant subgraphs with high probability [3]. Another strong fit is BubbleRAG, also training-free, which targets black-box knowledge graphs and formulates retrieval as finding an optimal informative subgraph, then uses expansion and ranking to improve both recall and precision of evidence retrieval [5].\n\nIf you specifically want minimal or \u201cbest evidence\u201d subgraphs, GFM-Retriever is also relevant because it aims to identify query-conditioned subgraphs that are informationally sufficient and structurally minimal, but it relies on a pre-trained Graph Foundation Model rather than being fully training-free [1]. Related work differs in emphasis: SGR generates compact query-relevant subgraphs for stepwise reasoning [4], while XoG focuses on incomplete knowledge graphs and recovers missing reasoning paths without task-specific KGQA training [6].",
+    "cited": [
+      3,
+      5,
+      1,
+      4,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a35ea4a5da226874a78dded76961870a1892ba8013efbfeff9ce14de014bbf5b",
+  "usage": {
+    "accounted_tokens": 3825,
+    "input_tokens": 3597,
+    "latency_seconds": 5.319526500010397,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 228,
+    "provider_request_id": "req_c8330699518540a28ddfa735d47d70ac",
+    "reasoning_tokens": 0,
+    "request_id": "a6656eb9-1894-46ae-9e7b-56395907b202",
+    "reserved_input": 22383,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:12:31.273595+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

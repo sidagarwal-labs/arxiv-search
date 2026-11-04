@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-096",
+  "outcome": {
+    "answer": "Shutong Qiao coauthors VaLiDRec, a recommendation framework that creates variable-length semantic IDs from informative native LLM vocabulary tokens, letting ID length adapt to item semantic complexity. It also uses token-set prediction rather than autoregressive ID generation [1]. Qiao and coauthors\u2019 earlier empirical study examines OCR-based text representations for semantic ID learning, but does not focus on variable-length IDs [8].",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ca56c90c95b2d7ebf631b1227bd7d81e38f6531ccfc32048da11f5ed273121c9",
+  "usage": {
+    "accounted_tokens": 3477,
+    "input_tokens": 3375,
+    "latency_seconds": 2.8465850000211503,
+    "model": "gpt-6-luna",
+    "output_tokens": 102,
+    "provider_request_id": "req_b2b56853469f4fb595ebb6fc498541f4",
+    "reasoning_tokens": 0,
+    "request_id": "477b315e-2ddb-49ba-b92d-fff04eb2e190",
+    "reserved_input": 22473,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:36.872594+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

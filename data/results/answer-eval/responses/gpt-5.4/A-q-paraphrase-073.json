@@ -1,0 +1,35 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-073",
+  "outcome": {
+    "answer": "Yes. The supplied papers suggest several ways to stop students from getting overly long or repetitive during on-policy distillation or self-distillation. For abrupt length growth and repetition saturation during student-generated rollouts, StableOPD adds a reference-based divergence constraint plus rollout mixture distillation to mitigate repetition-induced length inflation and stabilize training [1]. Another cause is termination-token mismatch between student and teacher; treating equivalent EOS tokens as a shared stopping action substantially reduces mismatch-driven length inflation, though it does not solve all late-stage inflation [2]. Early Stopping Rollout also helps by restricting generation to early response tokens instead of full rollouts [4].\n\nFor self-generated data specifically, some papers directly encourage conciseness. DCE+SRCL adds training on shorter, verified rewrites because stronger revision can otherwise make outputs too verbose and self-critical [3]. BIRD first bootstraps the student with answer-correct concise traces under a brevity instruction, then runs on-policy distillation from this warmer, cleaner rollout distribution [5]. More broadly, long rollouts can weaken teacher feedback on later tokens, which motivates shortening or pruning trajectories during generation [4, 6, 8].",
+    "cited": [
+      1,
+      2,
+      4,
+      3,
+      5,
+      6,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1035eab366120fe69f436fc32754d490aa01fea6fbf4e95a1b7dfd040f4002bb",
+  "usage": {
+    "accounted_tokens": 3782,
+    "input_tokens": 3525,
+    "latency_seconds": 7.0909442999982275,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 257,
+    "provider_request_id": "req_7f0c33cc87494065bdd4526808caf5f8",
+    "reasoning_tokens": 0,
+    "request_id": "d1e38d72-96f2-4a93-971a-8b83f5d7b494",
+    "reserved_input": 22121,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:12:09.742177+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

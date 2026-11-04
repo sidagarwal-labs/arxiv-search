@@ -1,0 +1,27 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-029",
+  "outcome": {
+    "answer": "The results do not answer \u201cZhou wind bridge forecasting.\u201d None of the supplied papers is about wind bridge forecasting or a matching Zhou paper on that topic.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "a8726c8518140edb6eff3303e5a8d6512a143c3a672342a7eee5c2574390349b",
+  "usage": {
+    "accounted_tokens": 3444,
+    "input_tokens": 3390,
+    "latency_seconds": 1.7483039999788161,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 54,
+    "provider_request_id": "req_3c0ff22fcad44310bb34ec5a1ef1b970",
+    "reasoning_tokens": 0,
+    "request_id": "266a3b1a-3981-4bea-acfd-6446d6641112",
+    "reserved_input": 22731,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:57.171069+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

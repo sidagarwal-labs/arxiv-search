@@ -1,0 +1,39 @@
+{
+  "answer_id": "A315",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-063",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "GRASP directly addresses the requested multi-topic grading setup.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract defines label-free science exams with multiple answers merged into one unsegmented paragraph.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The pipeline indexes references, traverses a semantic graph, assigns references, and grades segments independently.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The papers emphasize rubric-based grading, unlike GRASP's specific multi-topic graph retrieval setup.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited paper studies human-in-the-loop short-text scoring and does not describe graph retrieval.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

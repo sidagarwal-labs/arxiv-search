@@ -1,0 +1,29 @@
+{
+  "answer_id": "A032",
+  "candidate": "luna",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The geometric claim matches [1], but this factual sentence provides no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] states algebraic norm preservation, the one-parameter family, GeoNorm's limiting status, and best validation loss at finite p.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The claim about what the abstract omits has no citation in this sentence.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answer": "Two papers describe GNNs as proxies for SDP relaxations. One studies architectures for recovering solutions to linear SDPs and finds that a more expressive model can emulate first-order solver updates; its predictions can also warm-start the solver [1]. The other proposes a Max-Cut-specific proxy that predicts primal- and dual-feasible SDP solutions, is trained without solved SDP labels, and is used to reduce bounding costs in exact branch-and-bound [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ec999d5f93fd3f50ace87461d594e8b856ef8172583ccff544a420c5b44833ed",
+  "usage": {
+    "accounted_tokens": 3056,
+    "input_tokens": 2948,
+    "latency_seconds": 3.3589608000183944,
+    "model": "gpt-6-luna",
+    "output_tokens": 108,
+    "provider_request_id": "req_af9b2ef880084130910de9680c4db8ea",
+    "reasoning_tokens": 0,
+    "request_id": "329d352f-2679-40e6-9680-954119ca7338",
+    "reserved_input": 19099,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:57.417856+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

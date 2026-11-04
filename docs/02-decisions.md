@@ -770,6 +770,81 @@ newest layer; experiments scored on the Decision 45 layer (blend, two-pass) stay
 pinned to it and replay byte-identically. Every score moves down slightly on the
 larger denominator (Decision 45: 0.7583 → 0.7521).
 
+## #47 Top-20 refinement promoted as the reranking baseline (2026-11-04)
+
+Sid approved promoting Experiment E2 as the **Stage 2 reranking baseline**:
+`llm-mini-refine20+d=20+avg2+rrf-d46+c=30+pin1-d46` (saved ID kept). It runs
+Decision 46 unchanged, then adds one step: GPT-5.4 mini re-scores Decision 46's
+top 20 on a finer 0-10 scale with a prompt that separates a paper's main
+contribution from related work. As in Decision 46, it sends two identical
+requests and averages them. That order is fused with the Decision 46 order (RRF
+c=30), and Decision 46's rank-1 paper stays first. Ranks 21-50 are unchanged.
+`config.py` holds `RERANK_REFINE_DEPTH = 20`, `RERANK_REFINE_PASSES = 2` and
+`RERANK_REFINE_PROMPT_VERSION`. Decision 46 stays as a control row
+(`DECISION46_RERANK_SYSTEM`); the experiments built on it are pinned to that
+constant.
+
+Why ([report](../data/results/llm-score-refine-pin/report.md), [finding 36](03-findings.md#36-experiment-e2-refinement-holds-up-on-80-unseen-queries-2026-11-04)).
+The decision used the 80 dev queries the refinement had never scored. The
+Decision 47 shared labels are used for all 100 queries:
+
+| System | nDCG@10 (all 100) | P@10 | Source MRR@10 | Source R@10 | LLM $/query |
+|---|---|---|---|---|---|
+| Stage 1 retrieval baseline | 0.7007 | 0.689 | 0.697 | 86% | free |
+| Decision 46 (two passes + safeguard) | 0.7652 | 0.751 | 0.723 | 87% | $0.028 |
+| **Decision 47 (+ top-20 refinement, keep rank 1)** | **0.7939** | **0.783** | **0.738** | **92%** | **$0.039** |
+
+On new80 it gained +0.027 [+0.014, +0.040], above the 0.0106 noise threshold,
+and source MRR rose (0.688 → 0.709). Every frozen check passed. Question queries
+gained the most (+0.050), then paraphrases (+0.035). Keyword and known-item
+queries gained +0.015, with CIs touching zero. Nothing in it is tuned per query.
+
+**Trade-offs we accept.** It costs about $0.039 per uncached query (+$0.011).
+Latency rises because refinement runs after Decision 46. From saved timings on
+the 80 new queries, with each step's two requests sent in parallel:
+
+- Decision 46 step: p50 2.9 s, p90 3.4 s.
+- Refinement step: p50 2.5 s, p90 3.3 s.
+- Total: **p50 5.5 s, p90 6.6 s, p95 8.0 s.**
+
+Serving should show Stage 1 results immediately and fall back to the Decision 46
+order if refinement times out. The rank-1 pin is a pilot rule. On new80, the
+version without the pin had higher source MRR (0.755), but adopting it now would
+mean choosing after seeing the result. It needs its own confirmation first. Its
+own run-to-run noise is unmeasured, and this is dev-only evidence judged by the
+same model family.
+
+**Labels.** The refinement's 46 new top-10 grades (same frozen judge and rubric)
+form `data/results/shared-labels/labels-d47.json` (3,579 pairs). The layer must
+keep every grade of the Decision 46 layer. Experiments scored on Decision 46
+labels stay pinned to them.
+
+## #48 GPT-5.4 mini writes the AI summary (2026-11-04)
+
+The search page's AI summary uses `gpt-5.4-mini-2026-03-17` with prompt
+`answer-v1`. It answers from the reranked top 10, cites papers as [n], and
+abstains when the top 10 do not answer the query
+([report](../data/results/answer-eval/report.md), [finding 37](03-findings.md#37-choosing-the-ai-summary-model-2026-11-04)).
+
+The four candidates wrote 500 answers. GPT-6.1 Terra graded all 373 gradable
+answers blind, sentence by sentence against the cited papers. GPT-6 ASTRA graded
+a 40-answer sample to check the grader: sentence agreement was 87% (kappa 0.76).
+The pre-registered rule picks the cheapest model whose faithfulness and citation
+precision are within 0.05 of the best (95% CI lower bound), and that also passes
+the format and abstain checks.
+
+| Model | Faithfulness | Format valid | Abstain acc. | $ per 1k searches | p50 s | Qualifies |
+|---|---|---|---|---|---|---|
+| luna | 0.695 | 0.896 | 0.917 | $0.41 | 3.5 | no (faithfulness, format) |
+| **mini** | **0.821** | **0.960** | **0.857** | **$3.24** | **2.6** | **yes** |
+| gpt-5.4 (ceiling) | 0.836 | 0.896 | 0.889 | $11.58 | 5.2 | not eligible |
+
+Nano failed four checks and is deprecated. Abstain accuracy uses the v2 rule: an
+answer that says the papers don't directly answer the query, then points to the
+closest ones, counts as abstaining. Graders are models, not people, and the
+evidence is dev-only. Luna costs about 8x less, so a prompt experiment to close
+its faithfulness gap is the next candidate.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

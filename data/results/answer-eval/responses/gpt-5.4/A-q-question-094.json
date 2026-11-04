@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answer": "Measure it by testing whether the model can correctly apply rules or knowledge from the provided text on new cases, especially cases that require multi-step use, counterfactual disambiguation, or long rule sequences rather than simple recall [2,4,5]. Concretely, one paper introduces RuleWorld, which evaluates understanding of externally provided procedural rules in single-rule, parallel multi-rule, and multi-hop settings [2]. Another proposes decisive probes for different failure modes: Counterfactual Distinction Test for whether text supports one rule versus another, Language Compression Residuals for what text cannot express, and Basin Escape Mapping for rules that are representable but not reached by training [4].",
+    "cited": [
+      2,
+      4,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0c2a4cb7e5e44aabd54cefada9479af4a24697a9127db1cd372a48eb412824a8",
+  "usage": {
+    "accounted_tokens": 3679,
+    "input_tokens": 3524,
+    "latency_seconds": 4.470663299987791,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 155,
+    "provider_request_id": "req_56d4e4e4dec947df9347bb0af289ba83",
+    "reasoning_tokens": 0,
+    "request_id": "39ffc04f-0e57-473d-9598-a202f1aacf79",
+    "reserved_input": 22147,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:49.249942+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

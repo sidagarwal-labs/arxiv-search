@@ -1,0 +1,37 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-025",
+  "outcome": {
+    "answer": "The best match is Probe, Don't Prompt: A Hidden-State Probe for Metadata Filtering in Multi-Meta-RAG, by Mykhailo Poliakov and Nadiya Shvai. It specifically studies metadata filtering in Multi-Meta-RAG and replaces a prompted extractor with a local deterministic probe trained on hidden states, using a fixed source vocabulary for filtering [1].\n\nIf you want broader metadata-aware RAG papers, several others also discuss metadata enrichment or filtering in RAG systems, but they focus on different settings: finance [3, 6], enterprise retrieval [4], historical archives [7], legal RAG [10], and general corpus partitioning or context enrichment [2, 5, 9].",
+    "cited": [
+      1,
+      3,
+      6,
+      4,
+      7,
+      10,
+      2,
+      5,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "f0a1ce6001faf19a3d29f9a8b2deba786dc61941a960b74ee45ac32b721a949f",
+  "usage": {
+    "accounted_tokens": 3628,
+    "input_tokens": 3464,
+    "latency_seconds": 2.4764993999851868,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 164,
+    "provider_request_id": "req_dff2648e71ba4fe3b4c1a78d58d5ed45",
+    "reasoning_tokens": 0,
+    "request_id": "fac8304b-c75a-4993-a511-7fe5d1ba64de",
+    "reserved_input": 22119,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:12.508404+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

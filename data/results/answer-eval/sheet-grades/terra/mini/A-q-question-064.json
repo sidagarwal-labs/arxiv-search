@@ -1,0 +1,34 @@
+{
+  "answer_id": "A072",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract attributes greater representation and fitting difficulty to ambiguity.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract lists all four stated costs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The second paper describes an initial marginal plateau followed by conditional learning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstract reports gradient-noise stabilization and delays from larger learning rates or smaller batches.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

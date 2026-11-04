@@ -1,0 +1,29 @@
+{
+  "answer_id": "A186",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-094",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The proposed measurement procedure is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The suggested comparison and rationale are uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "SLATE uses pretest\u2013posttest near/far transfer and reports gaps and negative gains.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

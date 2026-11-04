@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-039",
+  "outcome": {
+    "answer": "The closest match is Structural Segmentation for Brazilian Legal Document Retrieval, which studies structural segmentation for Brazilian legal documents and compares hierarchy-based and chunk-based representations for retrieval [1]. It reports that structural segmentation improves dense retrieval over whole-document indexing, but not consistently lexical retrieval [1].\n\nIf you meant a different paper by Fernandes, the other Fernandes-authored papers here are about Brazilian Portuguese IR datasets and judge evaluation, Jev-as-a-judge, and legal retrieval benchmarks, but they do not specifically focus on segmentation [2, 3, 7].",
+    "cited": [
+      1,
+      2,
+      3,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c7d61e12cf969f85d91ef3e8394681c0f61ef30bc99a04ea828cb7ac8dfae053",
+  "usage": {
+    "accounted_tokens": 3595,
+    "input_tokens": 3464,
+    "latency_seconds": 2.6042750000196975,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 131,
+    "provider_request_id": "req_9e0a6224f6f24064b198c0b234eece7f",
+    "reasoning_tokens": 0,
+    "request_id": "b8913659-2c49-44bb-8225-3969fed0c9b6",
+    "reserved_input": 21386,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:28.402781+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

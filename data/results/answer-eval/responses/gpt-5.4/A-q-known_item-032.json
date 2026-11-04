@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-032",
+  "outcome": {
+    "answer": "The supplied results do include a paper on equivariant neural fields, but not one with Bekkers as an author. The closest match is Generalized Reduction to the Isotropy for Flexible Equivariant Neural Fields, which extends Equivariant Neural Fields to arbitrary group actions and homogeneous conditioning spaces by reducing invariants on X \u00d7 M to invariants of the isotropy subgroup acting on X alone; the paper says this removes major structural constraints of existing methods [1].\n\nIf you meant broader equivariant neural-field work rather than a specific Bekkers paper, another relevant result is Attentive Latent Fields (MetaLF), described as an equivariant transformer-based neural field focused on meta-learning and latent representation construction rather than symmetry characterization itself [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2b0b45c19d2b6424abfca2fb12827d84c6a60202428e61cd4ec4caefed8eb81c",
+  "usage": {
+    "accounted_tokens": 3517,
+    "input_tokens": 3347,
+    "latency_seconds": 4.480398299987428,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 170,
+    "provider_request_id": "req_f94181318baf40bda92b73b40a57f75e",
+    "reasoning_tokens": 0,
+    "request_id": "45277c73-6f7b-4f73-8705-b6523b95fd6b",
+    "reserved_input": 21288,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:09:18.787880+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

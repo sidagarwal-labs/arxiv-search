@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-029",
+  "outcome": {
+    "answer": "Feiyu Zhou co-authored a paper on forecasting wind-induced bridge responses using a transformer model. It evaluates the approach on measurements from the Hardanger Bridge and describes using differences between predicted and measured vibrations to flag possible structural changes [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "f1ac1472192ca78e4e6e0b97924bc193942aab6140d4e75c3fa63af2d25425b6",
+  "usage": {
+    "accounted_tokens": 3599,
+    "input_tokens": 3533,
+    "latency_seconds": 2.701463600009447,
+    "model": "gpt-6-luna",
+    "output_tokens": 66,
+    "provider_request_id": "req_116d235c61ed46c79e5d25a20ec0635c",
+    "reasoning_tokens": 0,
+    "request_id": "9ec764b1-a1a1-447c-93ca-f06d14d226eb",
+    "reserved_input": 23346,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:39.758686+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

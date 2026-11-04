@@ -221,7 +221,9 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         "", "## Reproducibility and cautions", "",
         f"- Retrieval baseline: `{report['working_baseline']}` (Decision36).",
         *([f"- Reranking baseline: `{rerank}` (Decision{config.RERANK_BASELINE_DECISION}): "
-           f"mean of {config.RERANK_BASELINE_PASSES} identical LLM passes; LLM scores vary "
+           f"Decision46's {config.RERANK_BASELINE_PASSES}-pass top-{config.RERANK_BASELINE_DEPTH} "
+           f"scores, then a {config.RERANK_REFINE_PASSES}-pass top-{config.RERANK_REFINE_DEPTH} "
+           "refinement keeping its rank 1; LLM scores vary "
            "run to run, so its point uses the saved, cached rankings."]
           if rerank in stage2 else []),
         f"- Label snapshot: `{report['label_snapshot']}`; SHA256 `{report['label_snapshot_sha256']}`.",

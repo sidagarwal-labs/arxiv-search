@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answer": "The closest match is a seed-guided method that starts with a small number of user-provided labels, forms initial groups, then expands them by admitting non-anomalous points and excludes outliers\u2014essentially identifying clusters by removing the odd ones out [1]. Its abstract says experiments used as few as 10\u201330 seeds per cluster [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "edee2a03fc924c01376ba0443501fa589c3e88268f4e3a8bf9509f27e01f0fc3",
+  "usage": {
+    "accounted_tokens": 3683,
+    "input_tokens": 3594,
+    "latency_seconds": 3.619550799980061,
+    "model": "gpt-6-luna",
+    "output_tokens": 89,
+    "provider_request_id": "req_02b271a8cc8e471a83bf57c89e537dda",
+    "reasoning_tokens": 0,
+    "request_id": "b70ea43d-6146-4c2b-a9a1-ed871704db18",
+    "reserved_input": 22301,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:27.249095+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

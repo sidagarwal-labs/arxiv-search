@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Low-precision arithmetic can speed up training, but it needs stability, reduced quantization error, and careful handling of communication/memory. For FP4 training, \u201cStable FP4 Training via Transposition-Invariant Block Quantization\u201d shows FP4 instability can come from forward/backward scale inconsistency under tensor transposition, and proposes 2D block FP4 quantization with transposition-invariant scaling, truncation-free scaling, and stochastic rounding; it reports end-to-end FP4 training that closely matches BF16 performance on models up to 30B MoE and training up to 100B tokens [3]. \u201cFour Over Six\u201d improves NVFP4 by adaptively scaling blocks to reduce quantization error, reporting pre-training loss closer to BF16 than other NVFP4 recipes [2]. \u201cWhat Matters for NVFP4 Training?\u201d compares NVFP4 recipes at medium scale and proposes an optimized recipe using ingredients like unbiased gradient estimation to improve accuracy recovery [1].\\n\\nFor distributed settings on private or device-edge systems, the supplied results do not directly cover private devices with low-precision training across the network end-to-end. However, \u201cAGoQ\u201d targets distributed training efficiency by quantizing activations and gradients to reduce memory and shorten communication time, reporting training-speed improvements and convergence/accuracy comparable to prior systems [7]. \u201cRockNet\u201d presents distributed learning on ultra-low-power devices using wireless multi-hop protocols and reports reduced per-device memory/latency/energy when scaling from one device to 20, but it does not focus specifically on low-precision numeric formats for accelerating training [8].\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_08badb44351aec07016aeb6245113c87d283d78b8291777d90",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "60828e79356c07ad2c64c096d154a48c22058e65fb9ad66272140b83d30df836",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3691,
+    "output_tokens": 344,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

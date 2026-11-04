@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-030",
+  "outcome": {
+    "answer": "Yes: Exploration Space Theory and its recommender system are explicitly about prerequisite-aware location recommendation, where some places presuppose knowledge gained from other places [1]. It models valid exploration states as order ideals in a partial order over points of interest and says this yields structurally sound next-step recommendations with validity guarantees [1].\n\nIf you want a more application-oriented system, WalkRAG recommends walkable urban itineraries under spatial constraints and retrieves information about paths and POIs along the way, but it does not describe prerequisite knowledge dependencies between spots [3].",
+    "cited": [
+      1,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2c247c605963b04d78b9a9a978904ace01f294cedaf857dd9c1718cfc8378a9d",
+  "usage": {
+    "accounted_tokens": 4042,
+    "input_tokens": 3911,
+    "latency_seconds": 2.4091957000200637,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 131,
+    "provider_request_id": "req_5d6afc3858bb460c905c39fd98b5c7d1",
+    "reasoning_tokens": 0,
+    "request_id": "c57a6b78-5516-4f64-aabd-f06b58631269",
+    "reserved_input": 24313,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:29.500535+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

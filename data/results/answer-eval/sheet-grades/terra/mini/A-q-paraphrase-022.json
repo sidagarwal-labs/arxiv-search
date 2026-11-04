@@ -1,0 +1,24 @@
+{
+  "answer_id": "A255",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 2 combines structured slot-filling supervised fine-tuning with DPO.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper targets polarization detection, not general political-leaning classification.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

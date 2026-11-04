@@ -1,0 +1,49 @@
+{
+  "answer_id": "A118",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-085",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about stylistic drift and authorship has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 reports stronger temporal gaps worsen verification performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 reports stable features and their changing importance across genre transitions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 6 reports measurable stylistic similarities among academic advisors, students and siblings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 5 finds genre exerts greater influence than source on stylistic features.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 1 supports the described changes, but the single citation does not support several papers.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S7",
+        "reason": "Papers 3, 8 and 10 describe reduced diversity or author-style homogenization in their respective settings.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

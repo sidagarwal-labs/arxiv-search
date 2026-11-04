@@ -1,0 +1,39 @@
+{
+  "answer_id": "A294",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-019",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The reported intermediate loss peak and subset-size comparison match the controlled study.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The repeat-count peak scales with model size and can impose substantial compute-equivalent loss.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "This factual claim about other papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "The study reports benefits of additional epochs and effects of order, concentration, and entropy.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The diffusion study reports downstream performance despite rising validation cross-entropy.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

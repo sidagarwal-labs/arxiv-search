@@ -1,0 +1,29 @@
+{
+  "answer_id": "A260",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about papers targeting dialect data has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes a publicly released regional corpus and the stated research aims.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 3 describes dialect-aware ASR and evaluation on RegSpeech12.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

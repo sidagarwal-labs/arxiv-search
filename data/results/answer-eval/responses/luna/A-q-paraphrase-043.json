@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-043",
+  "outcome": {
+    "answer": "The closest study finds that emotion recognition benefits most from recent conversational context, with roughly 90% of the gain captured by the latest 10\u201330 preceding turns, depending on the emotion-label set. Sadness benefits especially from context, while discourse-marker position\u2014including markers at sentence beginnings\u2014is associated with emotion; sad utterances have fewer left-periphery markers than other emotions. The paper does not establish that sentence starters themselves identify mood or specify a minimum number of turns needed for reliable identification. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "f559968acae8d641e324719973846d1c5b0bbfb94cd560c3b6e9a0f014899a26",
+  "usage": {
+    "accounted_tokens": 4013,
+    "input_tokens": 3895,
+    "latency_seconds": 3.485161999997217,
+    "model": "gpt-6-luna",
+    "output_tokens": 118,
+    "provider_request_id": "req_76d2f0be2ef44b5c982350513725a401",
+    "reasoning_tokens": 0,
+    "request_id": "0868037a-cfa8-4b74-bdfc-c9d4c70c3b96",
+    "reserved_input": 24194,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:23.735488+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

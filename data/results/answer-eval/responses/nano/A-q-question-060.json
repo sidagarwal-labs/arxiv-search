@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-060",
+  "outcome": {
+    "answer": "A graph structure can help stop generative rerankers from producing repetitive item lists by explicitly modeling item dependencies instead of generating each position in a way that collapses onto high-likelihood, low-diversity sequences. In CONGRATS, a graph-structured model generates sequences by exploring multiple paths and explicitly models item dependencies from graph transitions, which targets diversity and avoids the \u201clikelihood trap\u201d where high-likelihood outputs are repetitive. [2]\n\nGraph-based reranking frameworks can also reduce redundancy by refining ranking using relationships across items rather than independent scoring. For example, LoG-Reranker builds a sentence-level graph over the candidate set to globally refine rankings based on relations among candidates, and then organizes top-ranked sentences plus their connected neighbors for generation, which addresses the \u201cflat\u201d and \u201cindependent\u201d limitations that can lead to less comprehensive outputs. [5]\n\nThese approaches differ in focus: CONGRATS modifies the generative reranker\u2019s decoding/diversity mechanism via graph transitions, while LoG-Reranker uses a graph to enrich and re-rank candidates to improve what the generator is fed. [2, 5]",
+    "cited": [
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a1bf9d4da3ab4c3b4a4f3c0fd331ba67d0a9beb6cee6457a4f69c9d6642848e6",
+  "usage": {
+    "accounted_tokens": 3833,
+    "input_tokens": 3582,
+    "latency_seconds": 3.69034170001396,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 251,
+    "provider_request_id": "req_83287c765eec44c29146344a2cab31cb",
+    "reasoning_tokens": 0,
+    "request_id": "d5f88df8-6b7b-4646-b40f-43bf95270dec",
+    "reserved_input": 22915,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:25.384263+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

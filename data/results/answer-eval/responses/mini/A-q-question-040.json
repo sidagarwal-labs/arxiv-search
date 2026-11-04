@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-040",
+  "outcome": {
+    "answer": "Tool specifications can be used as the seed for synthetic test cases by extracting the function names, natural-language descriptions, and typed parameter schemas, then generating graded scenarios, synthetic tool outputs, and multi-turn dialogues from that metadata alone [1]. One paper says this can be done from a single MCP specification with no examples, no live tool access, or domain-specific tuning, and that the result is mock-data-grounded dialogues that test tool-calling correctness and conversational coherence [1].\n\nRelated papers use specifications differently: some synthesize diverse tool-use training data and simulated environments from tasks and tool ecosystems [2], while others generate trajectories from text corpora or cross-tool compositional tasks rather than from specifications alone [8, 10].",
+    "cited": [
+      1,
+      2,
+      8,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "90dd147e37d7b5e92c7e2679c76ca4c242eb89fe8d9dc4eee0290591fbc2dec8",
+  "usage": {
+    "accounted_tokens": 3744,
+    "input_tokens": 3578,
+    "latency_seconds": 2.8173606999916956,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 166,
+    "provider_request_id": "req_074e3772315d4058a61763a624c1480e",
+    "reasoning_tokens": 0,
+    "request_id": "4587813e-f5aa-465d-b363-a784c78f95d5",
+    "reserved_input": 22827,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:41.641502+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answer": "You can improve how AI follows complex rules without needing human labels by using self-generated evaluation or verification signals, and by letting the model refine its own behavior using those signals.\n\nTest-time Recursive Thinking (TRT) proposes an iterative self-improvement framework that conditions candidate generation on rollout-specific strategies and uses self-generated verification signals to select correct answers without ground-truth supervision [1]. Native Reasoning Training (NRT) trains a model to generate its own reasoning traces using only standard question-answer pairs, reframing reasoning as a latent variable and rewarding reasoning paths by likelihood of producing the ground-truth answer, thereby avoiding expert-written demonstrations and external verifiers [5]. Conversation for Non-verifiable Learning (CoNL) uses multi-agent self-play where critiques are rewarded if they help others improve, enabling joint optimization of generation and judging without external judges or ground truth [8].\n\nThese differ in where \u201cfeedback\u201d comes from: TRT emphasizes self-verification during inference [1], NRT emphasizes intrinsically rewarding latent reasoning during training [5], and CoNL emphasizes critique-based rewards from improvement in self-play [8].",
+    "cited": [
+      1,
+      5,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "fead97de5737de9cb7849c8d1451a98a7441ec288e4a9e977d5fb689b042dbb6",
+  "usage": {
+    "accounted_tokens": 3707,
+    "input_tokens": 3463,
+    "latency_seconds": 2.8779762999911327,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 244,
+    "provider_request_id": "req_bb70e601e520424893f3bb867ac3c594",
+    "reasoning_tokens": 0,
+    "request_id": "e272467c-43f3-4126-ab4a-41be5b11f3a9",
+    "reserved_input": 22286,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:59.112102+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

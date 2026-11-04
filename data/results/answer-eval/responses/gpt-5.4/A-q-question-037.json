@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answer": "Language-model internal representations do correlate with human effort in sentence understanding, but the best-matching representation depends on the kind of comprehension. For naturalistic reading, early LM layers can model human sentence processing well, whereas for syntactically challenging ambiguity processing, later layers better estimate human cognitive effort, though they still underestimate it [1]. This suggests a dual alignment: weaker predictive processing in humans resembles earlier LM layers, while harder syntactic processing is better matched by more fully contextualized later-layer representations [1].\n\nRelated work shows that LM-based measures beyond simple next-word probability also track human effort. A probability-update approach using shallow and deep layers complements single-layer surprisal in reading-time modeling [1]. Long-range context helps align LM surprisal with human reading behavior, especially when models can track cross-sentential coreference [4]. An information-theoretic storage-cost measure estimated from neural LMs predicts reading-time variance beyond traditional information-based predictors [5], and an energy-based transformer measure predicts reading times beyond surprisal and attention entropy [9].",
+    "cited": [
+      1,
+      4,
+      5,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "19c6959073cb60be9a46fd4632b0c72edcf9b3453d84a3e9a2fbf403df357a1e",
+  "usage": {
+    "accounted_tokens": 3565,
+    "input_tokens": 3335,
+    "latency_seconds": 5.836667099996703,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 230,
+    "provider_request_id": "req_d5d5617066eb4696b678d1045328979d",
+    "reasoning_tokens": 0,
+    "request_id": "c1b667cd-6249-4977-a83b-5eded1f67234",
+    "reserved_input": 21640,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:28:15.140221+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-070",
+  "outcome": {
+    "answer": "No supplied paper specifically describes a \u201cChenrun Wang research idea benchmark\u201d or a benchmark by that name. However, the results include multiple benchmarks related to research-idea generation and evaluation that could be relevant to the idea of such a benchmark.\n\nLigBench (Chenrun Wang et al.) proposes a unified, human-aligned benchmark for LLM-based research idea generation, along with PAIR-IQ to train pairwise idea-judgment models for more objective comparative evaluation [1]. Other benchmarks focus on narrower aspects: RINoBench evaluates automated novelty judgment of research ideas with human-labeled gold standards and rubric-based novelty scoring/judgments [2], Lit2Test benchmarks falsifiable research ideation using precommitted falsifying outcomes [3], and SoundnessBench benchmarks methodological viability (\u201csoundness\u201d) of research proposals before full review-stage validation [4].",
+    "cited": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "588dc9e683932616454b405043670bb39cb788a90c2c7b03caefc931245c02aa",
+  "usage": {
+    "accounted_tokens": 3760,
+    "input_tokens": 3568,
+    "latency_seconds": 2.789568000007421,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 192,
+    "provider_request_id": "req_7fce5359b16a4e82a4f7074b45917fbe",
+    "reasoning_tokens": 0,
+    "request_id": "29346ed7-71e8-41ea-b3a4-8fe8cb213f88",
+    "reserved_input": 22893,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:04.392500+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

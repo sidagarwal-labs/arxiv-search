@@ -1,0 +1,12 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-002",
+  "outcome": {
+    "detail": "Answer longer than 180 words",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "29860dfb1bb2321be8753573546f364eed1abcab1f96a7dddd754d503d3d3273",
+  "usage": {
+    "recorded": true
+  }
+}

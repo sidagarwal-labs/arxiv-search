@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-007",
+  "outcome": {
+    "answer": "The supplied papers do not directly address synthetic-data curation for LLMs. They examine related issues such as stylistic differences in human- and LLM-written text [5], stylistic diversity in training data for authorship verification [2], and how LLM rewriting can normalize personal narratives [1].",
+    "cited": [
+      5,
+      2,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "666281b451af454a379448711d6b78725867ac2278a989e162db02c0b3460e32",
+  "usage": {
+    "accounted_tokens": 3466,
+    "input_tokens": 3387,
+    "latency_seconds": 3.6748884999833535,
+    "model": "gpt-6-luna",
+    "output_tokens": 79,
+    "provider_request_id": "req_49851fd62a34441fb57ffd12814f0593",
+    "reasoning_tokens": 0,
+    "request_id": "9c7af180-3714-4c69-99cc-1c2ad72b50ab",
+    "reserved_input": 21376,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:09.294100+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "answer_id": "A337",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The recommendations are factual claims without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The evaluation's factual results have no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Citation [1] refers to Ganesh's evaluation, not Bogachov's pooling study.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "Citation [2] is the pooling study, not the ellipsoid-boundary paper.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Citation [4] is the ellipsoid paper, not Chen's training-free comparison.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S6",
+        "reason": "A standalone citation makes no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

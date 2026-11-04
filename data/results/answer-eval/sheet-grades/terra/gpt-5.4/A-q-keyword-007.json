@@ -1,0 +1,54 @@
+{
+  "answer_id": "A340",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The comparative claim has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The group-level curation findings match the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "ADAPT reweights samples online and beats offline approaches at equal FLOPs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This is a general transition.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "The abstract describes the bilevel framework and downstream improvements.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "AutoSynth optimizes synthetic-generation workflows without reference datasets.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "The cited work reports robust scaling laws using a synthetic recommendation curriculum.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S8",
+        "reason": "The cited abstracts describe cultural seed discovery and clinical data evaluation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

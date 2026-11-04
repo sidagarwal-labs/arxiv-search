@@ -1,0 +1,29 @@
+{
+  "answer_id": "A270",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A simple affirmation.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports the named textbook GNNs, zero-shot transfer, and GAT performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 covers directed link prediction and does not address unseen knowledge graphs.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

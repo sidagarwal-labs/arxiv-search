@@ -1,0 +1,34 @@
+{
+  "answer_id": "A103",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-048",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and authorship are factual claims without a citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes the heterogeneous graph, social awareness and community engagement.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 uses a music recommendation GNN, but that citation alone does not establish uniqueness among all supplied papers.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited papers describe sequential, mood-conditioned, generative and conversational recommendation respectively.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A150",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual description of the controller has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "StageMem exposes these lifecycle operations and balances omission against hoarding.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Oblivion reinforces contributing memories; MARS tracks strength and evidence with adaptive lifecycle operations.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

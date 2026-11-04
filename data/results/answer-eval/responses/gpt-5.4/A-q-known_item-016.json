@@ -1,0 +1,29 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-016",
+  "outcome": {
+    "answer": "The matching paper is Rethinking the Role of Efficient Attention in Hybrid Architectures by Ziqing Qiao, Yinuo Xu, Chaojun Xiao, et al. [1] It studies hybrid architectures that mix full attention with efficient modules such as sliding-window attention and recurrent sequence mixers, and finds that efficient-attention design mainly changes how quickly long-context capability emerges, while different hybrids eventually reach similar long-context performance with enough training [1].\n\nQiao et al. also argue that long-range retrieval is mainly handled by full attention, while efficient attention shapes the optimization path; they identify \u201cLarge-Window Laziness,\u201d where larger sliding-window attention windows can delay retrieval-head formation in full-attention layers [1]. Guided by this, they report that applying NoPE only to the full-attention layers of a small-window SWA hybrid substantially improves long-context performance with little effect on short-context performance [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "977b0bfed6c6f2fcf1bf23f3a3f6013349de542dbfcfb6766e11bb22a882c23b",
+  "usage": {
+    "accounted_tokens": 3609,
+    "input_tokens": 3404,
+    "latency_seconds": 4.3032122000004165,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 205,
+    "provider_request_id": "req_0fb6dfd7da594742bc989dad92a1cc7b",
+    "reasoning_tokens": 0,
+    "request_id": "d369bb98-2f6f-4147-8b25-8dff0557540f",
+    "reserved_input": 22298,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:44.405400+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

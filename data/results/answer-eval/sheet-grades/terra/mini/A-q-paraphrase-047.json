@@ -1,0 +1,29 @@
+{
+  "answer_id": "A137",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 describes labels, non-anomalous expansion and isolation of fringe points and noise.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 directly matches seed-guided clustering by exclusion.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 7 uses clustering and visual criteria, but its abstract does not establish that it is not seed-guided.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

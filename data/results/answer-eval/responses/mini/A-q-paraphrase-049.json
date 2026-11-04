@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answer": "The closest matches are papers on self-improving AI systems that create their own training or evaluation signals without human labels. NRT trains reasoning models from standard question-answer pairs by having the model generate its own reasoning traces and using a self-reinforcing feedback loop, without expert-written demonstrations [5]. CoNL also targets tasks without ground-truth labels by using multi-agent self-play and meta-evaluation, where critiques are rewarded if they help others improve [8].\n\nIf you mean improving rule-following or agent behavior from weak or no labels, SynAct allocates feedback to the most consequential decisions and distills corrections into reusable rules [3], while RoboPhD and RuleEvolve use iterative performance feedback to evolve Text-to-SQL agents and coding rules autonomously [6, 10].",
+    "cited": [
+      5,
+      8,
+      3,
+      6,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "82b0b129e7e7926ee7e50897234e4b2c1e188b9bac789438c0c2b94b22a38ea5",
+  "usage": {
+    "accounted_tokens": 3643,
+    "input_tokens": 3463,
+    "latency_seconds": 2.580816400004551,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 180,
+    "provider_request_id": "req_469504282e3c41e98f276f4e872f643b",
+    "reasoning_tokens": 0,
+    "request_id": "ebf4d7cd-6d00-4c0f-9bd6-3b6374110c20",
+    "reserved_input": 22286,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:42.887950+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

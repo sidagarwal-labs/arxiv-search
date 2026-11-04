@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-027",
+  "outcome": {
+    "answer": "Determine compute requirements by fitting scaling laws that relate computational investment to recommendation performance, then use those laws to forecast larger models and allocate compute between model size and training data. Kunlun focuses on predictable scaling and resource allocation in recommendation systems [2], while a behavioral-model study varies training FLOPs, parameter split, batch size, data allocation, and negative sampling to find compute-optimal choices [4]. Profiling each model\u2019s submodules can help identify hardware bottlenecks and guide optimization [5]. For inference, measure workload efficiency and consider request-oriented compute sharing, which can reduce repeated computation across candidates [1].",
+    "cited": [
+      2,
+      4,
+      5,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "311a3226949815e2fdfcaec7b27da560b98e879b091d537aa90322426b1a4eea",
+  "usage": {
+    "accounted_tokens": 3508,
+    "input_tokens": 3368,
+    "latency_seconds": 2.9647979000001214,
+    "model": "gpt-6-luna",
+    "output_tokens": 140,
+    "provider_request_id": "req_d3ed7b31f5084d69aa827f7a8326a757",
+    "reasoning_tokens": 0,
+    "request_id": "8a7e9093-aa14-48c9-b04e-2bf34042c70c",
+    "reserved_input": 21755,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:34.014345+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

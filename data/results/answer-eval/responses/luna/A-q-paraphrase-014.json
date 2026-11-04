@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-014",
+  "outcome": {
+    "answer": "Paper [1] directly addresses this: it gives a high-probability, all-time upper bound on the actor\u2019s distance from the optimal parameter in a two-timescale actor\u2013critic setup. With probability at least 1\u2212\u03b5\u2081\u2212\u03b5\u2082, the actor error remains within the stated bound for every k \u2265 n\u2080, after a sufficiently large n\u2080; the bound depends on k, n\u2080, and \u03b5\u2081, \u03b5\u2082. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "9857dcc05c49947dfa0c1609a3c340e2dcf7db43202e4a887f4a3c71830b992b",
+  "usage": {
+    "accounted_tokens": 3384,
+    "input_tokens": 3268,
+    "latency_seconds": 2.5925467000051867,
+    "model": "gpt-6-luna",
+    "output_tokens": 116,
+    "provider_request_id": "req_38562217219e4c3f96cdf83cd885933a",
+    "reasoning_tokens": 0,
+    "request_id": "8f246634-7b10-4a9c-aa37-00b54bc7c7e3",
+    "reserved_input": 20744,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:53.426654+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

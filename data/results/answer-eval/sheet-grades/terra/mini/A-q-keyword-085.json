@@ -1,0 +1,29 @@
+{
+  "answer_id": "A273",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-085",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited papers cover reports and narrower self-awareness without establishing consciousness.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Papers 1 and 4 discuss framing, training, induced reports, and limits of consciousness evidence.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited studies examine metacognition, belief monitoring, and behavioral self-awareness.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

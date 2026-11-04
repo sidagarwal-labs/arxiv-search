@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-064",
+  "outcome": {
+    "answer": "For Bangla regional spoken-speech data, RegSpeech12 is the closest match: it is a publicly released corpus of spontaneous Bengali speech across dialects, created to support dialect research and regional ASR [1]. BanglaTalk uses RegSpeech12 to evaluate a dialect-aware ASR system covering ten regional dialects [3]. The other dialect resource, 5-Dialects-BN, is an annotated text benchmark rather than spoken-speech data [2].",
+    "cited": [
+      1,
+      3,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "cb33f170a029d07dac583d604984f1be8e5ca996c403bac0a396d58728fafd00",
+  "usage": {
+    "accounted_tokens": 3563,
+    "input_tokens": 3452,
+    "latency_seconds": 2.4935512999945786,
+    "model": "gpt-6-luna",
+    "output_tokens": 111,
+    "provider_request_id": "req_8780e2c68e8b48ceb09109724dd8ff36",
+    "reasoning_tokens": 0,
+    "request_id": "5a5db296-5675-4c49-8d74-0d10972c4c71",
+    "reserved_input": 20784,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:00.793761+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

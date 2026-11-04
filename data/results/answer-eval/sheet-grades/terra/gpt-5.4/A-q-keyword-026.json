@@ -1,0 +1,39 @@
+{
+  "answer_id": "A265",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The identification and match claim has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes priority bidding, efficient allocation, truthful pricing, and budget-aware autobidding.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The uncited claim about related papers is factual.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 3 and 4 describe truthful dynamic or conversational ad auctions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Papers 2 and 5 address LLM-based advertising autobidding.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

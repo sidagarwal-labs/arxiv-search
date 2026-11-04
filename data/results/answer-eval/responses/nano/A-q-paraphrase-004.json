@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answer": "Yes\u2014these papers describe automated fact-checking/verification systems that decide whether an image-based input is reliable and help assess whether an image supports (or conflicts with) an associated claim. For example, VILLAIN verifies image-text claims using vision-language agents that retrieve evidence, analyze inconsistencies, generate question-answer pairs, and output a verdict prediction. [1] MIC (Multimodal Inconsistency Checking) focuses on whether an image\u2019s content is consistent with the context implied by its accompanying claim, detecting contextual inconsistencies in image-claim pairs and explaining them. [4]\n\nSome systems also argue that visual evidence should not be used indiscriminately: AMuFC adaptively uses visual evidence and reports that indiscriminate visual evidence can reduce verification accuracy. [7] Differences among the approaches include emphasis on multi-agent evidence collaboration and QA-based verdicting (VILLAIN) [1], explicit inconsistency detection with world-knowledge explanations (MIC) [4], and adaptive decision-making about whether visual evidence is necessary at all (AMuFC). [7]",
+    "cited": [
+      1,
+      4,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "78430b87d4c35d14f16287d6e198a791139848d190e61d2af8b4ea69ae8f8c24",
+  "usage": {
+    "accounted_tokens": 3491,
+    "input_tokens": 3256,
+    "latency_seconds": 3.0770392999984324,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 235,
+    "provider_request_id": "req_1cd39ef0966d48e8813591e5ceb7ed15",
+    "reasoning_tokens": 0,
+    "request_id": "9575933e-3b54-410a-afce-4bbb88da6bad",
+    "reserved_input": 20574,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:22.871388+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

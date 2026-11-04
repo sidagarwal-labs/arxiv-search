@@ -1,0 +1,44 @@
+{
+  "answer_id": "A058",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A bare affirmative is not a factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited paper combines slot-based supervised fine-tuning and DPO for polarization detection.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract specifies all four slots and automatically generated DPO pairs targeting false negatives.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This transition introduces related papers without a specific factual assertion.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "The paper uses historical user profiles to provide context for political stance detection.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The paper describes target-stance extraction on Reddit with multiple prompting strategies.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

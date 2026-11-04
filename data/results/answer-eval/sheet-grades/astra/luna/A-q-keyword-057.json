@@ -1,0 +1,39 @@
+{
+  "answer_id": "A030",
+  "candidate": "luna",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion that several papers describe dense-to-sparse transitions has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[2] trains generic SAEs on frozen retrievers without retrieval-specific adjustments or sparse supervision, extracting BM25-ready features.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[1] explicitly bridges dense-model effectiveness with learned sparse retrieval and reports substantially lower index memory.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[5] maps local spans to sparse centers for patent retrieval; [7] uses SAEs for multilingual sparse latent retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "[6] introduces LLM-based sparse PROSPER for product search and reports recall comparable to advanced dense retrievers.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

@@ -1,0 +1,39 @@
+{
+  "answer_id": "A002",
+  "candidate": "nano",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-paraphrase-063",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "[1] explicitly studies graph-retrieval grading of label-free multi-topic science exams, matching the requested setup.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] defines label-free exams as merged multi-topic paragraphs without markup or question-span segmentation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[1] describes encoded reference answers, semantic graphs, cosine retrieval, graph traversal, Hungarian assignment, and independent segment grading.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[2] emphasizes rubric-anchored reliability; [5] emphasizes auditable rubric judges; neither abstract specifies [1]'s merged-paragraph graph structure.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "[9] describes short-text AI scoring with human oversight, without a reference-answer graph or graph-retrieval method.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

@@ -1,0 +1,44 @@
+{
+  "answer_id": "A217",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-053",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Introductory framing.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 7 describes asynchronous observability, overhead and latency comparisons.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 reports multi-GPU activation collection, memory and throughput results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The factual efficiency claim has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 1 describes Gnosis and its negligible inference cost.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 9 reports activation-based early correctness prediction and trajectory pruning.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

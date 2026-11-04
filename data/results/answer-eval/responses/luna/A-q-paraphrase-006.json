@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-006",
+  "outcome": {
+    "answer": "For generative recommender systems, FUDLR is the closest match: it identifies bias-inducing training samples and removes their influence on model parameters through machine unlearning, aiming to improve fairness without costly retraining [2]. CRAGRU also avoids retraining, but targets the influence of a specific user\u2019s data and uses retrieval-augmented generation to limit collateral effects on other users [1].",
+    "cited": [
+      2,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0472ee23c90fdf409eaba50f306a6a63d6e879fe8d33c4e5ea4905e62d45c369",
+  "usage": {
+    "accounted_tokens": 3246,
+    "input_tokens": 3148,
+    "latency_seconds": 2.6623164000047836,
+    "model": "gpt-6-luna",
+    "output_tokens": 98,
+    "provider_request_id": "req_f64c6b8edd50458186e014c98a0ae885",
+    "reasoning_tokens": 0,
+    "request_id": "b3cd13a8-ce4f-4e63-b9dd-a05d2e30a673",
+    "reserved_input": 20552,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:43.876779+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

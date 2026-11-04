@@ -1,0 +1,29 @@
+{
+  "answer_id": "A084",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim is uncited and the second paper uses textual rather than graph-based representations.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "RxnCLF combines reactants and products in a condensed graph for transformation-aware yield prediction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The paper combines reaction-condition language representations with Bayesian optimization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

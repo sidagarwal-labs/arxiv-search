@@ -1,0 +1,34 @@
+{
+  "answer_id": "A015",
+  "candidate": "nano",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title, authorship, and complexity claims match [1], but this supplied sentence unit has no numbered paper citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The neuro-symbolic structure-injection claim matches [1], but its citation falls outside this supplied sentence unit.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "As segmented, this cites [1], but the neural cellular automaton and SLOG failure analysis belong to [2].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "[1] is the complexity argument; [2] reports the SLOG system and empirical structural failure diagnostics.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

@@ -1,0 +1,39 @@
+{
+  "answer_id": "A252",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-088",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The general workflow-reuse claim has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "LifeMem clusters trajectories, recalls skills, and reports reduced forgetting and improved transfer.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "TRIAGE reuses identical trajectories and substitutes parameters for similar queries.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "SWIFT transfers priors and demonstrations; MENTOR constructs a reusable procedural shield.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited papers report reduced forgetting and memory-design tradeoffs.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

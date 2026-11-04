@@ -1,0 +1,39 @@
+{
+  "answer_id": "A288",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This factual claim about papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The evaluation examines perturbations, calibration, deployment efficiency, ranking reliability, and intent datasets.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The study finds attention pooling performs better under noise and mean pooling can degrade F1.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited study reports the stated comparative findings on difficult and perturbed tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "EliDecide targets unknown intents; HolUE estimates errors in open-set classification including intent.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

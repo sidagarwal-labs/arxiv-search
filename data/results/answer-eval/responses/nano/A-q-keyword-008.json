@@ -1,0 +1,34 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-008",
+  "outcome": {
+    "answer": "Several papers connect LLMs or learned logic rules to causal reasoning in time series. For extracting verifiable symbolic causal rules with temporal operators and delays from multivariate time-series inputs, ruleXplain uses an LLM with a constrained rule language plus a simulator to generate counterfactual trajectories for candidate explanations [1]. For causal discovery that includes logical/stepwise querying with explicit judgments and confidence, Tree-Query proposes a multi-agent, tree-structured LLM framework to reduce causal discovery to short sequences of queries, aiming for interpretable causal conclusions [3]. For learning causal mechanisms under interventions in time series, SVAR-FM uses a physics-based simulator as a do-operator via variable clamping and then learns interventional conditionals [8].\n\nIf your focus is causality-aware time-series forecasting rather than explicit logical rules, CVAformer targets confounding from dynamic components by variable-level disentanglement and causal intervention during alignment [2]. If you need \u201clogical constraints\u201d as a verifier for LLM reasoning (not necessarily time-series causality), PCRLLM constrains LLM inference to single-step logical forms for verifiability [9], and LOVER enforces logical consistency constraints to regularize a verifier [10].",
+    "cited": [
+      1,
+      3,
+      8,
+      2,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "de6d06060d7a1f0cfbbd7901de8befac634ab50e94c58f7c769ef6b60e129de3",
+  "usage": {
+    "accounted_tokens": 3369,
+    "input_tokens": 3101,
+    "latency_seconds": 3.0049561000196263,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 268,
+    "provider_request_id": "req_bb36386546b449379de913afc245f01d",
+    "reasoning_tokens": 0,
+    "request_id": "ab47cc6f-a9fe-4a13-abf9-ef7f649e24bd",
+    "reserved_input": 19833,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:11.586392+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

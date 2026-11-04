@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answer": "The supplied papers address regional language use on social media in a few related ways, mainly through (1) building or using dialect/regional-variety resources, and (2) analyzing place- and region-linked language patterns in online communities. For example, one thesis studies geographic dialect alignment using place-informed New Zealand Reddit communities, analyzing how users associate language with place and how semantic variation appears across place-based communities [4]. Another paper studies polarization in Bangladeshi social media discourse by analyzing Bengali comments (public vs private university stance) with labeled data and multiple modeling approaches [7].",
+    "cited": [
+      4,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8e955fed97fc015e4d2ed45d0de7859ebc3f8a931163f2037a3a65a6e6fed7a8",
+  "usage": {
+    "accounted_tokens": 3508,
+    "input_tokens": 3374,
+    "latency_seconds": 2.0823834000038914,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 134,
+    "provider_request_id": "req_320e83ce430c447ab11e679c24962730",
+    "reasoning_tokens": 0,
+    "request_id": "3e79fc41-d223-41a1-a6f2-9077d98638ae",
+    "reserved_input": 21038,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:04.700298+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "candidate": "nano",
+  "item_id": "X-q-known_item-032",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "c8c755fd3570a47e28d17e31be84ce68ce1147923f322fdb9b9f9938defb0ff9",
+  "usage": {
+    "recorded": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-054",
+  "outcome": {
+    "answer": "R2LM in Bifocal Diffusion Language Models is designed to improve throughput by combining causal attention with a lightweight reverse Mamba sidecar, while keeping KV caching compatible [1]. The paper reports 2.4\u00d7 to 12.9\u00d7 higher throughput than bidirectional diffusion LMs and 1.9\u00d7 to 2.9\u00d7 speedup over autoregressive baselines in batch serving with parallel decoding and KV caching [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d99b8c6575330272945a2b8d37004168cade33cc47aeae547b42506f8b73041e",
+  "usage": {
+    "accounted_tokens": 3796,
+    "input_tokens": 3688,
+    "latency_seconds": 2.1427402999834158,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 108,
+    "provider_request_id": "req_66034351aa064c49b44167aca3c35582",
+    "reasoning_tokens": 0,
+    "request_id": "d3da9515-140f-47b3-8e7b-f0121dcdcd98",
+    "reserved_input": 21861,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:32.284886+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "answer_id": "A293",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The factual description of the split-learning approach has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The paper reports removing backward gradients and comparable performance at half the communication.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The factual comparison of other papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited papers describe predictive-coding highways and error diffusion for different training settings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The cited approaches compress exchanged gradients, weights, or critic parameters.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

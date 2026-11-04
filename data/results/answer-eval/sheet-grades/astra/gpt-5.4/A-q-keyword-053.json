@@ -1,0 +1,44 @@
+{
+  "answer_id": "A035",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative framing word contains no independently assessable factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] describes condensed reactant/product graphs, self-supervised contrastive learning, transformation-aware representations, and yield prediction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[1] reports superior yield benchmarks and explicitly proposes regioselectivity, enantioselectivity, and condition optimization as potential downstream tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[6] describes graph-to-sequence biodegradation prediction and synthetic-pretraining improvements on BBD, without claiming improvements on every benchmark.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "[4] explicitly uses PPO with chemically valid reaction-template transformations to generate drug candidates.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The cited abstracts describe language-based chemical reasoning or general molecular generation/property graphs, rather than dedicated graph-based reaction predictors.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

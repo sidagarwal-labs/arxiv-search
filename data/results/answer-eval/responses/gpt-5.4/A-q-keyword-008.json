@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-008",
+  "outcome": {
+    "answer": "Yes. The most direct match is ruleXplain, which uses LLMs to learn symbolic causal rules from multivariate time series. It defines a constrained rule language with temporal operators and delay semantics, generates counterfactual trajectories from a simulator, and has the LLM produce verifiable causal rules with closed-loop refinement for consistency and semantic validity [1]. This is specifically about causal explanations in time series, not just forecasting [1].\n\nRelated but different papers cover adjacent ideas. Large Causal Models target temporal causal discovery with pre-trained neural architectures rather than explicit symbolic rules [4]. CauScientist uses LLMs to propose and refine causal graphs with statistical verification, but the abstract does not focus on time-series rule extraction [6]. For logical-rule-constrained LLM reasoning more generally, PCRLLM and LOVER impose stepwise logical constraints or logical-rule regularization, but they are not about time-series causality in their abstracts [9, 10].",
+    "cited": [
+      1,
+      4,
+      6,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c1f3f77336010926259399a30573c23fd39775ee3bd1dc60d9f3bd43ab3f3059",
+  "usage": {
+    "accounted_tokens": 3315,
+    "input_tokens": 3101,
+    "latency_seconds": 5.3094000999990385,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 214,
+    "provider_request_id": "req_cf327bac067e442b851cf99e051e8f42",
+    "reasoning_tokens": 0,
+    "request_id": "3054f26a-40c6-46ca-9135-b8e9aa288f6a",
+    "reserved_input": 19828,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:06:41.802415+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

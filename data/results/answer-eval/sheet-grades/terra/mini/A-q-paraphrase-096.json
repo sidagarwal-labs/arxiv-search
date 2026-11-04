@@ -1,0 +1,34 @@
+{
+  "answer_id": "A157",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-096",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual assertion about several papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "DTCRS dynamically constructs query-relevant trees using sub-question embedding centers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "NavTree uses a deterministic chunk tree; SVD-RAG uses embeddings for extractive tree summaries.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited papers describe these contrasting tree construction methods.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

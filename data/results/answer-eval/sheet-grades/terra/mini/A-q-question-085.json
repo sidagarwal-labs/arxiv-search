@@ -1,0 +1,44 @@
+{
+  "answer_id": "A108",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-085",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual assertion about personal style shifts has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 reports temporal performance degradation and genre-dependent stylistic feature importance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 reports post-2022 changes across these features and differing temporal trajectories.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The claim that genre and rewriting shape style has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 5 reports a stronger influence of genre than source, and model effects.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The cited papers describe normalization, style retention or hybridization after rewriting and personalization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

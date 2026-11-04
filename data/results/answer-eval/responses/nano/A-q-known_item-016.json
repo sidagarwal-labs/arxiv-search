@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-016",
+  "outcome": {
+    "answer": "Paper [1] directly addresses how efficient-attention modules shape hybrid architectures, analyzing scaling and mechanisms. It finds efficient-attention design mainly affects how fast long-context capability emerges, and that long-range retrieval is carried by full attention while efficient attention shapes the optimization trajectory, including the \u201cLarge-Window Laziness\u201d effect where larger SWA windows can delay retrieval head formation in full-attention layers. It also proposes improving long-context performance by applying NoPE only to full-attention layers in a small-window SWA hybrid.\n\nIf you instead meant a hybrid architecture efficiently combining attention types for long-context reasoning, paper [2] introduces Ring-linear models that integrate linear attention and softmax attention to reduce I/O and computation overhead, and explores the ratio between the attention mechanisms to find an optimal structure. Paper [5] focuses on principled head-level hybrid design separating retrieval and positional heads using intervention metrics and instantiating a head-wise hybrid architecture.",
+    "cited": [
+      1,
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "da14ad8b68488006abb2c42399a43ce513b3bedf4257f104f01de2d2e80a0307",
+  "usage": {
+    "accounted_tokens": 3611,
+    "input_tokens": 3404,
+    "latency_seconds": 2.8314086999744177,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 207,
+    "provider_request_id": "req_b5cb2541bfdc4ed18967385d0effd673",
+    "reasoning_tokens": 0,
+    "request_id": "173eb6a0-b58f-47a9-82e8-fe5f4c78fb3b",
+    "reserved_input": 22303,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:15.039158+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

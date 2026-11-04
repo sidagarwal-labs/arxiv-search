@@ -1,0 +1,44 @@
+{
+  "answer_id": "A230",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual summary of the papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes the multi-agent evidence, question-answer and verdict pipeline.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 describes image-claim consistency checking and explanations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 7 reports adaptive visual evidence use and the risks of indiscriminate use.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited abstracts describe those respective approaches.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Citation only.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

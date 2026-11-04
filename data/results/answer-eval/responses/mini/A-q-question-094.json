@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answer": "You can measure this by giving the model a text with new rules or facts, then testing whether it can apply them correctly in held-out cases; several papers frame this as rule-following, in-context learning, or knowledge incorporation [1, 2, 3, 6]. A strong setup is to compare performance when the same task is presented as rules versus examples, and to see whether the model reliably uses the provided rule better than example-only prompting [1]. Another option is a benchmark that treats externally provided rules as reusable abstract units and scores accuracy across single-rule, multi-rule, and multi-hop settings [2]. If you want to test whether the model really learned unseen rule structure, use a controlled task where interpolation should fail and success would require discovering the hidden rule [3].",
+    "cited": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "e36684c9ec1aadda47e4f8a0fff025bf49efbff57a1f897eb68efe9e24e7581e",
+  "usage": {
+    "accounted_tokens": 3700,
+    "input_tokens": 3524,
+    "latency_seconds": 2.6749493000097573,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 176,
+    "provider_request_id": "req_ae10d2c0557b45899f0d9b10a7c11117",
+    "reasoning_tokens": 0,
+    "request_id": "ac274404-5796-4406-9057-a94fab28eaee",
+    "reserved_input": 22152,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:21.359958+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

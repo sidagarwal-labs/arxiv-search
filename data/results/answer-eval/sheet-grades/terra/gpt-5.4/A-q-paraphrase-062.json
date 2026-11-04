@@ -1,0 +1,39 @@
+{
+  "answer_id": "A278",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The distributional recommendation lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 4 reports heavy-tailed prompt-conditioned lengths and multi-generation targets.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 linearly decodes total length from the prompt\u2019s final hidden state.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 5 reports over-order-of-magnitude variability and revisable forecasts for agent runs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited abstracts support the distinctions among the three approaches.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

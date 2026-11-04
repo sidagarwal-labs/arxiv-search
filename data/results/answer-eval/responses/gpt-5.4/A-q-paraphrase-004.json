@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answer": "Yes. The most direct match is AMuFC, which is explicitly designed to decide when visual evidence should be used in multimodal fact-checking. It argues that using images indiscriminately can reduce verification accuracy, and proposes an adaptive framework with two vision-language models to decide the use of visual evidence during claim verification [7].\n\nRelated systems differ in scope. VILLAIN and MEVER are multimodal claim-verification systems that retrieve and reason over textual and visual evidence, but their abstracts do not say they decide whether the image is helpful or harmful before using it [1, 8]. MIC focuses on detecting inconsistencies between AI-generated images and claims, effectively identifying cases where an image conflicts with the claim context, but it is framed as inconsistency checking rather than deciding whether an image should be used for verification [4]. A broader retrieval setting in multimodal RAG also studies whether images are actually needed, proposing post-hoc escalation to visual evidence only when it is expected to help [9].",
+    "cited": [
+      7,
+      1,
+      8,
+      4,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "89cdcb2e3eaff209f8ee288f554a84f7b4ac2eae517ff1d8d7532110d1c8dc36",
+  "usage": {
+    "accounted_tokens": 3478,
+    "input_tokens": 3256,
+    "latency_seconds": 5.657371099980082,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 222,
+    "provider_request_id": "req_80ec16aaade94679add2891bc1869f75",
+    "reasoning_tokens": 0,
+    "request_id": "68825a72-5f41-44ec-8141-4a2f8734ac4f",
+    "reserved_input": 20569,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:40.450019+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

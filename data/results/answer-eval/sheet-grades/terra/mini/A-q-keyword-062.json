@@ -1,0 +1,34 @@
+{
+  "answer_id": "A101",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual assertion about GNN proxies has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 gives standard GNN limitations, a more expressive solver-emulating architecture and warm-start speedups.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 describes a feasibility-preserving Max-Cut GNN proxy integrated into branch-and-bound.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 covers linear SDPs generally; paper 2 specializes in feasibility-preserving exact Max-Cut optimization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

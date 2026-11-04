@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answer": "For prompts whose responses can vary widely in length, the most directly relevant paper treats output length as a prompt-conditioned distribution rather than a single fixed target. It proposes using repeated generations to train either a robust median point estimate or a distributional estimate that preserves uncertainty [4]. Another paper reports that an LLM\u2019s hidden state at the end of the prompt contains a linearly decodable estimate of the eventual response length, though this is an approximate estimate, not exact counting [1].",
+    "cited": [
+      4,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "e66eaa60b4136bd73719cfe64db206c2e246975754edf5e2dca55609c87168c4",
+  "usage": {
+    "accounted_tokens": 3878,
+    "input_tokens": 3764,
+    "latency_seconds": 2.6113292000081856,
+    "model": "gpt-6-luna",
+    "output_tokens": 114,
+    "provider_request_id": "req_a82a9c837edf47659a268b5d59f02ec1",
+    "reasoning_tokens": 0,
+    "request_id": "da8b3b7d-a432-4ec3-bda1-9a1978f9ef07",
+    "reserved_input": 22764,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:40.593662+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

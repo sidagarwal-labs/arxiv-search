@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answer": "Several papers address robust intent classification for chatbots. The closest match is a systematic evaluation of open-weight intent classifiers that studies robustness to realistic input perturbations, calibration, deployment efficiency, and model ranking stability across multiple intent datasets [1]. Another paper focuses specifically on noise-robust conversational intent classification and finds that attention pooling is better under noisy conditions, while mean pooling can hurt performance [2]. A third study reports that training-based classifiers are better on harder intent tasks, while training-free methods are generally more robust to mixed-intent and adversarial prompts [3].\n\nFor broader chatbot settings, one paper proposes an open-intent method with stronger detection of unknown intents and improved open-world robustness [4], and another builds uncertainty estimation for open-set text classification, including intent datasets, to predict when a system will make recognition errors [10].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c5e43f291260d144b0330757b37983e40281cae7742d3451a827a35bd2d66f3d",
+  "usage": {
+    "accounted_tokens": 3644,
+    "input_tokens": 3456,
+    "latency_seconds": 2.7395375999913085,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 188,
+    "provider_request_id": "req_a3f67fb0c4ee4f3588d6819fc63755d6",
+    "reasoning_tokens": 0,
+    "request_id": "a202af9a-6e56-4150-b69d-981a46f147e1",
+    "reserved_input": 21965,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:38.211787+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

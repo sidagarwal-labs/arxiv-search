@@ -1,0 +1,39 @@
+{
+  "answer_id": "A090",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-094",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "SLATE uses a pretest-posttest design to assess knowledge acquisition while avoiding pretraining leakage.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The benchmark includes matched near- and far-transfer tests to assess transfer.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract specifies low-resource puzzles, negligible web presence and pretest-posttest evaluation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited protocol evaluates articulated slate preferences, but does not measure preferences learned from provided text.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "SLATE measures learner knowledge acquisition and reports weak association with content validity.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

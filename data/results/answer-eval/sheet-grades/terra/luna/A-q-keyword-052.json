@@ -1,0 +1,29 @@
+{
+  "answer_id": "A203",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 2 describes activation-based importance and selective freezing.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 4 uses weight magnitude, activations and output sensitivity to preserve important parameters.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Both papers aim to mitigate forgetting during downstream adaptation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

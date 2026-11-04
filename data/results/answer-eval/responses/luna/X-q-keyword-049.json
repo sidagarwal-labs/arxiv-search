@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-049",
+  "outcome": {
+    "answer": "The supplied papers do not address multimodal LLM decoding strategies; they focus on fairness in machine-learning systems and related topics.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "54aeacbef5d1c0988d445053b2ed1f519367d536f1f09d8a4a39cb7068581821",
+  "usage": {
+    "accounted_tokens": 3194,
+    "input_tokens": 3152,
+    "latency_seconds": 5.454753199999686,
+    "model": "gpt-6-luna",
+    "output_tokens": 42,
+    "provider_request_id": "req_98b6dad613374af5b99d0ab34057fbc2",
+    "reasoning_tokens": 0,
+    "request_id": "2814ebf6-c7e3-428d-9904-48a5f343d448",
+    "reserved_input": 21720,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:32.062004+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

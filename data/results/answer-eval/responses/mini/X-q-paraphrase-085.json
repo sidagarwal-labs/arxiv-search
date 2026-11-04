@@ -1,0 +1,27 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-paraphrase-085",
+  "outcome": {
+    "answer": "The supplied papers do not address removing company trademarks or corporate slogans from LLM-generated text without harming general knowledge. They focus on self-play, game AI, social reasoning, and reinforcement learning methods for agents, not text post-processing or content filtering.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "837b2bc6a593f3190f6c198a0b44097dc96e526fbc1a0497738d486f48dfa3d5",
+  "usage": {
+    "accounted_tokens": 3665,
+    "input_tokens": 3598,
+    "latency_seconds": 1.7683510999777354,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 67,
+    "provider_request_id": "req_dd7ee04c642f4151bf8663ed33f6fe2a",
+    "reasoning_tokens": 0,
+    "request_id": "a53d3c32-e497-450e-b2b1-1d7e97b77722",
+    "reserved_input": 22247,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:58.944343+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

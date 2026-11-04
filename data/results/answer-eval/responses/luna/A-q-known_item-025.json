@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-025",
+  "outcome": {
+    "answer": "Mykhailo Poliakov and Nadiya Shvai\u2019s \u201cProbe, Don\u2019t Prompt\u201d directly addresses metadata filtering in RAG. It replaces a prompted GPT-3.5 metadata extractor with a deterministic probe over a small language model\u2019s hidden states, predicting sources from a fixed vocabulary; the abstract reports higher overall set-exact accuracy, with the advantage coming from null-query abstention [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "b2289f3f0093e4424053349d9861de968ac3ae7d51be735599b87b3a4e943ece",
+  "usage": {
+    "accounted_tokens": 3563,
+    "input_tokens": 3464,
+    "latency_seconds": 3.060401800001273,
+    "model": "gpt-6-luna",
+    "output_tokens": 99,
+    "provider_request_id": "req_a07334b4c0b94957a544ef7a5b66da54",
+    "reasoning_tokens": 0,
+    "request_id": "2f78743b-b192-4c5f-8e86-a52918f60781",
+    "reserved_input": 22106,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:33.101173+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-054",
+  "outcome": {
+    "answer": "Yes. A paper by Benjamin Tannenbaum directly studies the conversation-context effect on AI answers and finds that using the full prior conversation versus only the final user message changes answers materially in 44.7% of cases; full-conversation answers also score higher on request satisfaction [1]. Adding a short reconstructed prefix reduces, but does not eliminate, the effect: materially different answers still remain in almost one third of cases, so compressed context is not equivalent to full dialogue history [1].\n\nA related Tannenbaum paper explains why this happens: the final prompt often contains only part of the conversation-conditioned request state, and important request dimensions are often present in earlier turns but missing from the last message [2]. That paper measures how request state is distributed across turns, while the first paper estimates the causal effect of omitted same-conversation history on answer quality and content [1,2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5e9999c48d17029bb96c5443c2f28413f972cd8bf50c69864aa5ce664763905b",
+  "usage": {
+    "accounted_tokens": 3973,
+    "input_tokens": 3776,
+    "latency_seconds": 5.158520500001032,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 197,
+    "provider_request_id": "req_786a85a946f34ddca7af043ca4381122",
+    "reasoning_tokens": 0,
+    "request_id": "51236e14-96d0-4dca-b2a8-220c4804d910",
+    "reserved_input": 23284,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:09:40.605899+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

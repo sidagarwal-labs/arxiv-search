@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answer": "A more detailed understanding of user goals can help recommender systems adapt how much novelty and diversity they offer instead of applying the same exploration level to everyone. Evidence suggests exploration has diminishing or non-monotonic returns, and users differ in when it stops improving utility; users with shorter interaction histories may reach that point earlier [8]. Systems should therefore tune exploration to the individual user and their interaction stage, balancing fairness-driven exposure with relevance and engagement [8].",
+    "cited": [
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2a7fd59891a236287dd403bed76ef8b7aac087610564b3ef9ffbed7f8dc89c67",
+  "usage": {
+    "accounted_tokens": 3270,
+    "input_tokens": 3162,
+    "latency_seconds": 5.702847300010035,
+    "model": "gpt-6-luna",
+    "output_tokens": 108,
+    "provider_request_id": "req_f3a88c5c1f234c769a727d231da3db38",
+    "reasoning_tokens": 0,
+    "request_id": "a2605ee1-c2e1-423a-b297-30f2847715d3",
+    "reserved_input": 21782,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:26.336680+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

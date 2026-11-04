@@ -1,0 +1,38 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-keyword-005",
+  "outcome": {
+    "answer": "The supplied papers do not address RL self-play in strategy games directly. They mostly cover data repetition, replay, continual learning, and post-training effects in language models, plus one world-modeling paper on Rubik\u2019s Cubes rather than self-play strategy games.[1,2,3,4,5,6,7,8,9,10]\n\nThe closest result is that explicit world-modeling on Rubik\u2019s Cubes improves representations and leads to larger gains from Group Relative Policy Optimization, especially on harder cube states.[5] But these results are about Transformer training and post-training on a cube domain, not RL self-play for strategy games.[5]",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1f53d666d5b8c20831229a8291fcc58550bf47e735fb7cc23224c33a6e0a7d6d",
+  "usage": {
+    "accounted_tokens": 3783,
+    "input_tokens": 3630,
+    "latency_seconds": 4.529604899988044,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 153,
+    "provider_request_id": "req_fb7dc52fc09645c697bf81d7e632a617",
+    "reasoning_tokens": 0,
+    "request_id": "a5ef7c4d-f65f-4299-bf68-e0a055e9ef59",
+    "reserved_input": 22123,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:30:35.501262+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

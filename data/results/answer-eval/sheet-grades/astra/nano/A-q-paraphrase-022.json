@@ -1,0 +1,39 @@
+{
+  "answer_id": "A013",
+  "candidate": "nano",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion that no supplied paper directly covers this combination and task has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[2] explicitly combines slot-filling SFT with automatically generated DPO pairs and reports polarization-detection results, including improved post-submission performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[1] uses historical-post user-profile context for stance detection, without describing slot-based training or DPO.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[3] targets granular target-stance extraction on Reddit and evaluates prompting strategies, not slot-filling plus preference optimization.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The training-method comparison is supported, but [2] studies polarization detection; equating it with political-leaning detection is not established.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

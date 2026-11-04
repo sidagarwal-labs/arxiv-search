@@ -1,0 +1,35 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-093",
+  "outcome": {
+    "answer": "Yes: the closest match is to organize manual snippets into structure- or function-based blocks rather than fixed chunks. For chip-design and EDA documentation specifically, one paper groups related typed artifacts into EDA functional units, recorded as hyperedges linked back to source chunks, and retrieves both these units and raw chunks; this improved QA on EDA documentation benchmarks [6]. More broadly, papers on technical and specialized documents find that preserving domain structure improves retrieval and answer quality over flat or fixed-size chunking [2,3,5,7].\n\nIf your bot must answer varied technical questions, there are a few variants. Intent-Driven Dynamic Chunking uses predicted user queries to place chunk boundaries around likely information needs [1]. Adaptive Chunking chooses a chunking method per document using intrinsic quality metrics such as block integrity and cohesion [3]. If your manuals already have links or markup, using hyperlink topology [2] or source structure such as LaTeX labels and sectioning [4] can create more logical blocks for retrieval.",
+    "cited": [
+      6,
+      2,
+      3,
+      5,
+      7,
+      1,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "78673783f5d78c3dfb2a367ddfdf886249fbb7c24058bfd17ad9ac56d55a5e96",
+  "usage": {
+    "accounted_tokens": 3671,
+    "input_tokens": 3446,
+    "latency_seconds": 6.218538100016303,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 225,
+    "provider_request_id": "req_e2023ae9576748e289870eb614d4a066",
+    "reasoning_tokens": 0,
+    "request_id": "5fb7dbf4-5bad-4767-927d-8911764b63f6",
+    "reserved_input": 22163,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:12:41.848447+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

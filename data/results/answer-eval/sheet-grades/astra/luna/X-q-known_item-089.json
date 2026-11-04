@@ -1,0 +1,29 @@
+{
+  "answer_id": "A037",
+  "candidate": "luna",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "X-q-known_item-089",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual assertion that supplied papers do not study fairness limits has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[4] explicitly bounds performance degradation during knowledge fusion and does not present this as a fairness constraint.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[8] lists transparency, privacy, ownership, access, and accountability, without specifying fairness limits.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

@@ -1,0 +1,44 @@
+{
+  "answer_id": "A021",
+  "candidate": "nano",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion that several papers combine these topic/community methods has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[4] combines embedding-based document clustering with iterative LLM taxonomy construction and consistent topic labeling across clusters.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[8] explicitly describes LLM embeddings, progressively relaxed density constraints, merging semantic groups, and a multiscale tree.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[4] supports taxonomy induction, but the Haschka/Bakarji density-hierarchy claim requires [8], which is not cited in this sentence.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "[7] constructs argument graphs using topic similarity, keywords, and entities, then detects communities and summarizes viewpoint distributions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "[7] supports interaction-graph community detection, but does not establish the comparison with embedding-only or density-tree approaches.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

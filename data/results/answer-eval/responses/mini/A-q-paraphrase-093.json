@@ -1,0 +1,36 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-093",
+  "outcome": {
+    "answer": "The closest matches are papers on adaptive chunking and structure-aware retrieval for RAG. Intent-Driven Dynamic Chunking and SmartChunk both adapt chunk boundaries or abstraction levels to user queries, which can help a bot answer questions from long technical documents more accurately [1, 9]. LARAG, Adaptive Chunking, and the EDA function-aware retrieval paper go further by using document structure, metadata, or functional units to retrieve more relevant evidence from technical documentation [2, 3, 6].\n\nFor manuals specifically, AI-Friendly LaTeX and SMART focus on turning technical material into better retrieval units or structured facts, while the oil-and-gas study and engineering-manual model show that preserving domain structure improves retrieval or answer quality in manuals and similar documents [4, 5, 8].",
+    "cited": [
+      1,
+      9,
+      2,
+      3,
+      6,
+      4,
+      5,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "9a4749cfcc4e8dab15407788e084a2ece5ffdd711208189688b1ad9d99fcde05",
+  "usage": {
+    "accounted_tokens": 3628,
+    "input_tokens": 3446,
+    "latency_seconds": 2.794476700015366,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 182,
+    "provider_request_id": "req_f1bc527069bc4ee4aa6748dd104ae6b7",
+    "reasoning_tokens": 0,
+    "request_id": "a8acb2d1-fe9a-49e3-b377-fbb3df68c56a",
+    "reserved_input": 22168,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:08.244419+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

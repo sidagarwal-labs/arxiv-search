@@ -1,0 +1,29 @@
+{
+  "answer_id": "A004",
+  "candidate": "luna",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The lifecycle-strength distinction matches [1], but this factual sentence has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] connects explicit strength to promotion, compression, and eviction, balancing costly-premise omission against indiscriminate retention.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[2] reinforces response-contributing memories; [8] tracks strength/evidence and adaptively schedules reinforcement and weakening.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

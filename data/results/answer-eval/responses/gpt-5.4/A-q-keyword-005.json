@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-005",
+  "outcome": {
+    "answer": "Yes\u2014several supplied papers are directly about reinforcement learning with self-play in strategy games. For board and strategy games, self-play RL is used to reach strong or superhuman play in Generals.io, a real-time strategy game [1], Tablut, an asymmetric board game via an AlphaZero-style setup [2], and Stratego, where self-play RL plus search handles large hidden information and achieves superhuman results [3].\n\nThey differ in the game challenges and the self-play setup. Generals.io uses plain policy-gradient self-play with sparse win/loss reward and studies training ingredients like parameter averaging and highest-advantage sample selection [1]. Tablut focuses on asymmetry, using separate policy and value heads for each role and stabilization methods such as larger replay buffers and games against past checkpoints [2]. Stratego emphasizes imperfect information and combines self-play RL with test-time search, with the same approach also working in Hanabi and dou dizhu [3].",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2cc15925fb23f7d3e7fb2c049df61c519af0693c45e335a3731be5d175bbe690",
+  "usage": {
+    "accounted_tokens": 3800,
+    "input_tokens": 3583,
+    "latency_seconds": 6.115570599999046,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 217,
+    "provider_request_id": "req_9c4fe28885254c7e89c9b31ae38259b3",
+    "reasoning_tokens": 0,
+    "request_id": "90b4ab63-b71c-41a7-b39c-23ba365994b6",
+    "reserved_input": 22135,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:06:28.280395+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

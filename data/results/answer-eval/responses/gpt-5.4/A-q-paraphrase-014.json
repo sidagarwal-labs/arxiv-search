@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-014",
+  "outcome": {
+    "answer": "Yes: the paper most directly addressing a probabilistic upper limit for how far the slow actor stays from the optimal parameter in a slow-fast RL setup is A Concentration Bound for Two-Timescale Actor-Critic Algorithm [1]. It studies a two-timescale actor-critic method where the actor runs on the slower timescale, and derives a uniform all-time concentration bound for the actor parameter with high probability [1]. In particular, after some finite time, the actor enters a safe region and remains there with probability at least 1-\u03b51-\u03b52, while the actor error ||\u03b8k-\u03b8*|| is bounded for all k \u2265 n0 by the stated order term in n0, k, \u03b51, and \u03b52 [1].\n\nIf you want related but weaker matches, [3] proves stability and convergence for general two-timescale Markovian stochastic approximation under Markovian noise, including actor-critic examples, but it does not state a high-probability upper bound on the actor\u2019s distance to optimum in the abstract [3]. [5] uses the two-timescale setting to justify quasi-stationary critic behavior for stable second-order actor updates, but it is not about probabilistic distance-to-optimum bounds [5].",
+    "cited": [
+      1,
+      3,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "b102bd8d8b86715fbc857c60fa00ce5366210f7a2ffd4a3ee4b33972e029ca53",
+  "usage": {
+    "accounted_tokens": 3543,
+    "input_tokens": 3268,
+    "latency_seconds": 6.560921700001927,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 275,
+    "provider_request_id": "req_730b317d1e03428db4b8edf453003461",
+    "reasoning_tokens": 0,
+    "request_id": "d8093ad0-41b8-4e28-8a78-79e1fc8eec17",
+    "reserved_input": 20752,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:11:02.751369+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

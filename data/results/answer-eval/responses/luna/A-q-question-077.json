@@ -1,0 +1,12 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "detail": "Expected one structured response",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "6738f2f094ef560cab25162b3d8f9735d0e53b8106d9b727c3a3c83062b378a6",
+  "usage": {
+    "recorded": true
+  }
+}

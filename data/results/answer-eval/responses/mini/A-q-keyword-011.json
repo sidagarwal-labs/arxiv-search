@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-011",
+  "outcome": {
+    "answer": "Yes\u2014several papers address medical knowledge graphs for clinical LLMs. One focuses on how to integrate biomedical KGs into LLMs for clinical diagnosis, finding that KG-judgment training with KL regularization gives sparse \u201csurgical alignment\u201d updates and can improve reasoning quality [1]. Another builds multimodal patient knowledge graphs with explicit alignment edges so clinical LLMs can link patient evidence to biomedical knowledge, making retrieval traceable and testable [2].\n\nOther papers are more specific: one studies when KG grounding helps clinical QA and finds it mainly helps for out-of-training or novel facts, not public KG facts [3]. Another proposes a biomedical KG with temporal grounding for clinical reasoning and retrieval-augmented systems [6], and another evaluates GraphRAG plus continual pretraining from UMLS for biomedical language models and LLaMA [9].",
+    "cited": [
+      1,
+      2,
+      3,
+      6,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "707603246908856fb71e62c1797e2a505eac79d0d028196b055be22593c2bc2a",
+  "usage": {
+    "accounted_tokens": 4241,
+    "input_tokens": 4049,
+    "latency_seconds": 2.778493499994511,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 192,
+    "provider_request_id": "req_84837fea3faa434a8cf93cce194f9d17",
+    "reasoning_tokens": 0,
+    "request_id": "ac1cee44-5f81-4738-90b2-e7697ec0d09b",
+    "reserved_input": 24161,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:11.205882+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

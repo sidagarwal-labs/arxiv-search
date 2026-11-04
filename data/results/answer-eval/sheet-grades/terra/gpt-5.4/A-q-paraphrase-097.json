@@ -1,0 +1,44 @@
+{
+  "answer_id": "A130",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-097",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative response.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The claim about the paper and its proposal has no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 reports strategic sampling gains and incorrect-trace performance exceeding much larger-teacher IID distillation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The claim about related papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 3 introduces multi-solution training and diverse path selection, improving diversity and pass-at-k.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 2 reports mode concentration and uniform replay of verified examples per discovered mode.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

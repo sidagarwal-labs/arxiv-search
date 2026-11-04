@@ -1,0 +1,49 @@
+{
+  "answer_id": "A152",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The standalone affirmative asserts existence without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The claim about AMuFC has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 7 reports reduced accuracy from indiscriminate image use and adaptive two-model fact-checking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "A transition introducing distinctions among systems.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "Both abstracts describe multimodal verification without the stated helpfulness decision.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "MIC detects and explains image-claim inconsistency rather than selecting whether to use an image.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "Paper 9 proposes selective post-hoc visual escalation based on expected value.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

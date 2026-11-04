@@ -1,0 +1,27 @@
+{
+  "candidate": "nano",
+  "item_id": "X-q-known_item-096",
+  "outcome": {
+    "answer": "None of the provided papers describes \u201cQiao variable length semantic ids\u201d or semantic ID schemes for variable-length inputs. [1\u201310] instead focus on weather/climate foundation models, diffusion-based atmospheric reconstruction, and other Earth-science foundation modeling topics, without any \u201cQiao\u201d variable-length semantic ID mechanism mentioned in their abstracts.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "edc06776a7d4c51d8eb4ccaf44289989acbd9267f432c9aa58bdde7bdcd47621",
+  "usage": {
+    "accounted_tokens": 3702,
+    "input_tokens": 3618,
+    "latency_seconds": 1.811746299994411,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 84,
+    "provider_request_id": "req_8099df42e8ba49e2b1817cb2fbcb24a8",
+    "reasoning_tokens": 0,
+    "request_id": "c78a188d-c7c2-4824-8d77-f0bdaadca040",
+    "reserved_input": 23594,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:52:08.448265+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

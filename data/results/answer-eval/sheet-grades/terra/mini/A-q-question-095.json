@@ -1,0 +1,29 @@
+{
+  "answer_id": "A116",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-095",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative response.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 supports the model and tasks but does not support the claim that several papers say this.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 4 and 6 report the general-purpose forecasting result and lack of a universally best geospatial model.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,35 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answer": "Yes\u2014several papers cover regional language use on social media, mainly through code-mixed or dialectal analysis. For South Asian social media, one paper studies hope speech detection in code-mixed Tulu social media comments [2], another targets sentiment analysis on Hinglish tweets for Indian user-generated content [3], and a third analyzes ideological stance and polarization in Bengali social media comments from Bangladesh [7]. For dialect and place variation in social platforms, a thesis examines geographic dialect alignment in New Zealand-related Reddit communities and argues social media can serve as a natural laboratory for sociolinguistic inquiry [4].\n\nThe papers differ in focus: some are task-oriented NLP on regional or mixed language content such as Tulu, Hinglish, and Bengali comments [2,3,7], while another studies how language variation aligns with geography and identity in social media communities [4]. Related Bengali regional-language work in the results is about dialect speech technology or abusive-text dialect identification, not social media specifically [1,5,6].",
+    "cited": [
+      2,
+      3,
+      7,
+      4,
+      1,
+      5,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d85e323a36aaf1657e6f10503cb5f488a097ea2769407527aadd02fc0a57f04d",
+  "usage": {
+    "accounted_tokens": 3599,
+    "input_tokens": 3374,
+    "latency_seconds": 5.516976499988232,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 225,
+    "provider_request_id": "req_1954474f24134ae29bfebcc80c571574",
+    "reasoning_tokens": 0,
+    "request_id": "16b65ea5-d51f-4ac1-96a5-fe186eb0c5be",
+    "reserved_input": 21033,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:21.487833+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

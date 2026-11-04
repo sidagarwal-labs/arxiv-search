@@ -1,0 +1,34 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-027",
+  "outcome": {
+    "answer": "To determine compute requirements for large-scale recommendation systems, the papers suggest fitting scaling laws that relate model quality to computational investment, then using those laws to choose resource allocation and architecture. Kunlun explicitly targets predictable scaling laws for recommendation systems and says this is crucial for designing and allocating resources; it identifies low scaling efficiency, low Model FLOPs Utilization, and suboptimal resource allocation as key barriers, and improves them with architectural and system changes [2]. For sequential behavioral models, scaling-law analysis can jointly vary parameter split, batch size, model/data allocation, and negative sampling to find compute-optimal recipes, and the best recipe can depend on the evaluation metric [4].\n\nIf you need practical estimation beyond training-law fitting, the papers differ in focus: Component Benchmark profiles recommendation submodules hierarchically to expose where compute is spent in TB-scale models on thousands of GPUs, helping performance analysis and optimization [5]. ROCS, ULTRA-HSTU, and VISTA focus on reducing inference cost through request-oriented compute sharing, model-system co-design, and cached sequence summarization, respectively, which changes the compute requirement by improving efficiency at serving time [1,9,10].",
+    "cited": [
+      2,
+      4,
+      5,
+      1,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "69c366d720300470f932c9ad199e3f9f3c9629ca1adfa5293626a3143fe253c1",
+  "usage": {
+    "accounted_tokens": 3624,
+    "input_tokens": 3368,
+    "latency_seconds": 7.014205500017852,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 256,
+    "provider_request_id": "req_3430e2942a0945088e511c380ee8373d",
+    "reasoning_tokens": 0,
+    "request_id": "6fa73fdf-6247-45f6-b831-b68ba25ac719",
+    "reserved_input": 21763,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:28:01.908330+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

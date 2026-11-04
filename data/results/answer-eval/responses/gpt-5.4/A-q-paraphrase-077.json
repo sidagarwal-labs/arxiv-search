@@ -1,0 +1,12 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-077",
+  "outcome": {
+    "detail": "Answer longer than 180 words",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "83e63ce60e0aec9ec82d049e17f91c7ce63c58b3db7f89bb194bcf06f460910e",
+  "usage": {
+    "recorded": true
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-054",
+  "outcome": {
+    "answer": "In multi-turn AI conversations, the omitted within-conversation context (i.e., using only the final user message versus the full conversation) can materially change the actionable output. Tannenbaum directly tests this by generating answers from (a) the full role-labeled conversation and (b) the final user message alone, finding a materially different answer in 44.7% of cases and higher request-satisfaction scores for full-conversation answers. [1]\n\nCompressing the preceding dialogue into a prefix-only reconstruction reduces, but does not eliminate, the effect: the material-difference rate drops to 30.8%, and the mean satisfaction gap becomes ~0.01 points. However, nearly one third of answers remain materially different, indicating that context beyond the compressed prefix still matters. [1] Separately, Tannenbaum shows that the final prompt often does not reproduce the conversation-conditioned \u201crequest state\u201d observed earlier turns, and that the endpoint can be another state update rather than a summary. [2]",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0691002fb8649f02875f204b9111f42df409b81dbf1736d9b02c06a69af1fe7e",
+  "usage": {
+    "accounted_tokens": 3998,
+    "input_tokens": 3776,
+    "latency_seconds": 3.001208699977724,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 222,
+    "provider_request_id": "req_b3d795b371c54cefa2dabb94143e8aa2",
+    "reasoning_tokens": 0,
+    "request_id": "8758d672-b5e2-4805-8a9d-6035d2cb2e3e",
+    "reserved_input": 23289,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:47.811813+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

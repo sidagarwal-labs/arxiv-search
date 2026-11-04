@@ -1,0 +1,29 @@
+{
+  "answer_id": "A178",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-060",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "CONGRATS expands the decoding space through multiple paths to improve diversity.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 models dependencies via graph transitions and describes repetitive high-likelihood sequences.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "L2G induces document graphs from reranker signals for retrieval rather than generated-list repetition.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

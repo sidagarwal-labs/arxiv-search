@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-062",
+  "outcome": {
+    "answer": "Lucie Flek and coauthors\u2019 MiniFool is a physics-constraint-aware adversarial attack for testing neural-network classifiers in particle and astroparticle physics. It combines a chi-squared-based statistic for experimental uncertainty with deviation from a target score, and the authors apply it to IceCube neutrino data, MNIST, and CMS Open Data [1]. A related study by Flek and coauthors examines how perturbations consistent with experimental uncertainties can alter neural-network outputs in high-energy physics, and proposes a framework for measuring this sensitivity [8].",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1981e77e206e56a75d93874ce2b570392825efa6c53c943a47a6f58c2f9b12e7",
+  "usage": {
+    "accounted_tokens": 3535,
+    "input_tokens": 3406,
+    "latency_seconds": 2.6494530999916606,
+    "model": "gpt-6-luna",
+    "output_tokens": 129,
+    "provider_request_id": "req_41cad0fc42c0487a90c3ce4406aaef60",
+    "reasoning_tokens": 0,
+    "request_id": "94aea2d9-4b0f-42f2-9345-0a92a5598bff",
+    "reserved_input": 22454,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:12.927412+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

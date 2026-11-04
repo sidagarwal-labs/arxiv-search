@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-072",
+  "outcome": {
+    "answer": "Yes. The matching paper by Tripti Shukla is HASTE: Hierarchical and Attribute-aware Supervision for Generative Recommendation [1]. It introduces hierarchical supervision for generative recommendation through a Hierarchical Loss that supervises each level of semantic IDs, plus attribute-specific losses that preserve fine-grained item attributes [1]. The paper says this improves training efficiency, accelerates convergence by about 2x versus standard causal cross-entropy, and improves long-tail recommendation performance across a fashion benchmark and multiple Amazon domains [1].\n\nIf you also mean related hierarchical supervision work beyond Shukla\u2019s paper, several papers differ in focus: HoloRec uses hierarchical semantic encoding and supervised alignment for reasoning-oriented generation [2], HRPO turns item-level outcome feedback into dense token-aligned signals for post-training [4], and EchoRec uses multi-horizon auxiliary supervision for dense preference alignment rather than hierarchy over semantic ID levels [10].",
+    "cited": [
+      1,
+      2,
+      4,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1c3c47c0354db4a165abb7c02e645b11f00d17a25b69fef6045fcd108feec3c2",
+  "usage": {
+    "accounted_tokens": 3803,
+    "input_tokens": 3597,
+    "latency_seconds": 5.034349499997916,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 206,
+    "provider_request_id": "req_5bb636034b8b4a63bb53bbb014ccc6e0",
+    "reasoning_tokens": 0,
+    "request_id": "054b14ac-5556-4870-ad4e-5a4eeb4ec055",
+    "reserved_input": 23976,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:12.037716+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

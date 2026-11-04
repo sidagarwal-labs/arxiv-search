@@ -1,0 +1,44 @@
+{
+  "answer_id": "A050",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-088",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A bare affirmative contains no factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The survey explicitly covers those harness functions and describes executable, verifiable, stateful agents.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The survey presents reusable skills as a composable operational layer supporting robustness and maintainability.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This is a transition to examples rather than a specific factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "The abstract describes typed stubs, scripts, chaining, parallelization, and comparative results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The systems are described, but scientific skill directories only often contain runnable scripts, not necessarily always.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

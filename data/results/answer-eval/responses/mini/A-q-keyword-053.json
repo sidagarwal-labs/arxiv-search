@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answer": "Yes\u2014several of the papers use graph-based machine learning for chemical reactions. RxnCLF builds on a condensed reaction graph to learn transformation-aware representations and improves reaction yield prediction, outperforming graph and sequence baselines [1]. enviGraph uses a graph-to-sequence predictor for biodegradation pathway prediction, pretraining on synthetic reaction data [6]. More broadly, one paper on chemical property prediction shows how graph neural networks can be improved with layer-to-layer knowledge mixing, but it is not specifically about reactions [9].",
+    "cited": [
+      1,
+      6,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8d99ca7bcbb4155b26ba617fd9553c95fa91da3ded0d9f52075ca9ab721c3316",
+  "usage": {
+    "accounted_tokens": 4000,
+    "input_tokens": 3877,
+    "latency_seconds": 2.3871620999998413,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 123,
+    "provider_request_id": "req_204251c10e0a4904aab9487a617a9b47",
+    "reasoning_tokens": 0,
+    "request_id": "0da789f0-255c-489e-9e25-d1a57177051f",
+    "reserved_input": 23866,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:29.875827+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

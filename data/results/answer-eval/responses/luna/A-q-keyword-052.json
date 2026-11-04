@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answer": "For MLLMs, AWARe assigns activation-based importance scores and selectively freezes parameters important for preserving prior capabilities, while allowing less important parameters to adapt [2]. Model-Dowser instead scores parameters using weight magnitudes, input activations, and output sensitivities, then preserves high-importance parameters during sparse fine-tuning [4]. Both methods aim to mitigate catastrophic forgetting while adapting MLLMs to downstream tasks [2, 4].",
+    "cited": [
+      2,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "46bfe681d53c2a2e6a2b59f6ef5b33b725cc418ed16ce0df577982eef903b472",
+  "usage": {
+    "accounted_tokens": 3690,
+    "input_tokens": 3583,
+    "latency_seconds": 3.756504599994514,
+    "model": "gpt-6-luna",
+    "output_tokens": 107,
+    "provider_request_id": "req_868e47608a024264be08097174f94adf",
+    "reasoning_tokens": 0,
+    "request_id": "6f5a983b-0a7e-4546-b3a5-b1a93f7188d2",
+    "reserved_input": 22090,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:39.577517+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

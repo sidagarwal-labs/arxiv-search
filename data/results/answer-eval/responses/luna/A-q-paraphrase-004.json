@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answer": "Yes. AMuFC adaptively decides whether visual evidence is useful for a claim, rather than assuming images always improve verification; the paper reports that indiscriminate visual evidence can reduce accuracy [7]. VILLAIN is a broader image-text claim fact-checking system: it analyzes textual and visual evidence and produces a verification verdict, but its abstract does not describe a separate decision about whether the image helps [1]. MIC focuses on identifying and explaining inconsistencies between an image and its paired claim, especially for AI-generated images [4].",
+    "cited": [
+      7,
+      1,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1232128ab6361aa53d7f8984b2331fc1fb9a6ff463147ad0ae70e692f445fcf5",
+  "usage": {
+    "accounted_tokens": 3381,
+    "input_tokens": 3256,
+    "latency_seconds": 4.115527899994049,
+    "model": "gpt-6-luna",
+    "output_tokens": 125,
+    "provider_request_id": "req_c3244345f50a48c395b5cfffbf0105b5",
+    "reasoning_tokens": 0,
+    "request_id": "71035c5b-fb4a-4c43-b8ee-c2b7411646cc",
+    "reserved_input": 20561,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:39.738146+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

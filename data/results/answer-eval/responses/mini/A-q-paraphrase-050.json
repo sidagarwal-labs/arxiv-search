@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-050",
+  "outcome": {
+    "answer": "The closest match is a paper about checking how search-answer behavior changes when the retrieval tool is modified, but it is about refusal signals, not removing a page to see how the answer changes [6]. Another paper studies search APIs as decision surfaces and compares how different evidence and rankings affect agent answers, which is related to external search results but not specifically page-removal tests [1]. A broader paper on reliability and misinformation in search-backed answers also evaluates groundedness and source credibility, but it does not describe the page-removal method you asked about [9].",
+    "cited": [
+      6,
+      1,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c8761a94b6a2f0b460f739412fe84c50922d69fb16496b9aeb1f5c65e8b98a7c",
+  "usage": {
+    "accounted_tokens": 3427,
+    "input_tokens": 3298,
+    "latency_seconds": 2.6192044999916106,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 129,
+    "provider_request_id": "req_4a9314be03aa477fbef0b106f65da83c",
+    "reasoning_tokens": 0,
+    "request_id": "329afbd0-073b-4f97-a9b0-b9e8fa1fd55e",
+    "reserved_input": 20465,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:45.489066+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

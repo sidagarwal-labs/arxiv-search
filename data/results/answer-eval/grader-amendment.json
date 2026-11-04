@@ -1,0 +1,9 @@
+{
+  "amends": "answer-eval-v2",
+  "date": "2026-11-04",
+  "effect": "Removes the self-preference caveat (the grader wrote no answers); rubric, evidence and decision rule unchanged.",
+  "frozen_before": "any grade exists",
+  "full_set_grader": "GPT-6.1 Terra via the owner's chat session (terra-full.xlsx)",
+  "replaces": "GPT-5.4 API grader (no API grading was run)",
+  "sample_grader": "GPT-6 ASTRA via the owner's chat session (astra-sample.xlsx, 10 per model)"
+}

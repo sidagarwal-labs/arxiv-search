@@ -1,0 +1,39 @@
+{
+  "answer_id": "A205",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-077",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstracts cover low-precision LLM training but do not describe private devices.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 examines FP4 recipes, selective higher precision and gradient estimation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 2 and 3 describe those quantization techniques and training results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 7 describes approximately 4-bit activations, 8-bit gradients and GPU-cluster speed improvements.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 6 concerns private fine-tuning, not low-precision training across devices.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

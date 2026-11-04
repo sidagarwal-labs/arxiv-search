@@ -1,0 +1,49 @@
+{
+  "answer_id": "A253",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-021",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The opening empirical claim is not cited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 attributes scaling-related bias to spectral collapse and proposes SPRINT.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 8 reports improved next-item accuracy, long-tail coverage, and calibration.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "A transition introducing mitigation approaches.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 3 modifies the loss and makes popularity correction context-dependent.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 6 identifies and steers popularity-sensitive neurons post hoc.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "Paper 2 reports positivity bias further amplifying popular-item exposure.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

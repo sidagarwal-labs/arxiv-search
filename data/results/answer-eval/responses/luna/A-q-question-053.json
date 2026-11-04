@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-053",
+  "outcome": {
+    "answer": "Use an asynchronous observability system that captures and stages internal tensors outside the inference hot path. DMI-Lib supports observation points for diverse internal signals and inference backends while preserving serving optimizations; it reports 0.4%\u20136.8% overhead in offline batch inference and an average of 6% in moderate online serving, with lower latency overhead than comparable baselines [7]. For multi-GPU models, another system collects full layer-wise activation trajectories while reducing activation memory and increasing throughput relative to its baseline [4].",
+    "cited": [
+      7,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ef9ed0d4c0add9fc2744912a48f980bcf18f2d59033e9beee270395668d085fa",
+  "usage": {
+    "accounted_tokens": 3146,
+    "input_tokens": 3021,
+    "latency_seconds": 2.9196217999851797,
+    "model": "gpt-6-luna",
+    "output_tokens": 125,
+    "provider_request_id": "req_08f7d69569374bd1839805b17faff16d",
+    "reasoning_tokens": 0,
+    "request_id": "b279b25a-4eb0-47f2-9eb0-33c26865f648",
+    "reserved_input": 19691,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:59.183472+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

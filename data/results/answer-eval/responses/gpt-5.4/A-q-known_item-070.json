@@ -1,0 +1,29 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-070",
+  "outcome": {
+    "answer": "Yes\u2014there is a benchmark paper by Chenrun Wang on research idea evaluation. The matching paper is LigBench: A Unified and Human-Aligned Benchmark for LLM-based Research Idea Generation by Chenrun Wang, Mingxuan Zhu, Tiancheng Huang, et al. [1]\n\nLigBench is presented as an automated benchmark for fine-grained, reliable evaluation of AI research ideas across different generation distributions, addressing fragmented and inconsistent current evaluation practices. The paper also introduces PAIR-IQ, a dataset for training pairwise idea judgment models to support more objective comparative evaluation. Its experiments report stable, interpretable evaluations with improved alignment to expert judgments, and improved ranking accuracy and robustness from models trained on PAIR-IQ. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2fb93bb8512de3707129d0ded9d3ad7ba317a125aa3645981d1a4fc56256db34",
+  "usage": {
+    "accounted_tokens": 3735,
+    "input_tokens": 3568,
+    "latency_seconds": 3.88315850001527,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 167,
+    "provider_request_id": "req_c40ffa4397be437c8c5021d6f795f1d7",
+    "reasoning_tokens": 0,
+    "request_id": "9ecee8b7-52e8-4a34-91d2-8cd419347112",
+    "reserved_input": 22888,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:08.129360+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

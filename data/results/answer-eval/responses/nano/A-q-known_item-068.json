@@ -1,0 +1,32 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answer": "Koh et al. propose \u201cContinual Post-training Small Models via Synthetic Self-distillation,\u201d introducing Synthetic Self-distillation (SynthSelf) to enable self-distillation for smaller models in continual learning when standard self-distillation relies on strong in-context learning. SynthSelf imitates in-distribution rewrite by outsourcing the task to a minimally larger same-family aligner, and uses off-policy supervision plus rejection sampling to provide high-quality supervision without breaking the model\u2019s original distribution. Evaluations report SynthSelf consistently outperforming multiple off- and on-policy distillation methods across small-model scales, including acquisition and retention benchmarks. [1]\n\nOther results focus on different self-distillation settings rather than Koh-style synthetic self-distillation for continual post-training: on-policy self-distillation without supervision (using internal consistency) is studied in U-OPSD [4]; token selection for on-policy self-distillation is addressed by bilevel Top-K selection (BiToK-SD) [5]; and self-distillation for diffusion language models uses masking-mode bidirectional KD (SelFusion) [2]. These differ in task/setting and mechanisms.",
+    "cited": [
+      1,
+      4,
+      5,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "4f8a516c6560f7a074b619f658cc303ec0f40601b858019a9391d7e87cf531d4",
+  "usage": {
+    "accounted_tokens": 3833,
+    "input_tokens": 3590,
+    "latency_seconds": 2.921220299991546,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 243,
+    "provider_request_id": "req_53b4f87d9d8647d2a0f4eb447ce46848",
+    "reasoning_tokens": 0,
+    "request_id": "ee119e92-0efc-406d-b1b8-24a1ac1bfa04",
+    "reserved_input": 21806,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:01.452792+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

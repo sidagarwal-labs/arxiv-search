@@ -1,0 +1,39 @@
+{
+  "answer_id": "A026",
+  "candidate": "nano",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-017",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The Raven mechanism matches [1], but this supplied sentence has no numbered paper citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The recall and extrapolation claims match [1], but its citation falls outside this supplied sentence unit.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "As segmented, this cites [1] (Raven), but the key-normalized KLA update and preserved recurrence are described in [2].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "As segmented, this cites [2] (KLA), but Fenwick-tree input-dependent MLP decay belongs to [3].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "A standalone citation label contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

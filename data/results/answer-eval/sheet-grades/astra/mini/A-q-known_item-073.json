@@ -1,0 +1,29 @@
+{
+  "answer_id": "A016",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "[1] formalizes structural generalization and explicitly contrasts pure Transformers' TC^0 learnable ceiling with the NC^1 computational lower bound.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "[2] describes a discrete-bottleneck neural cellular automaton, no handwritten rules, and strong SLOG benchmark results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The supplied titles, shared Wei authorship, and abstracts support the theory-versus-empirical distinction.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

@@ -1,0 +1,24 @@
+{
+  "answer_id": "A369",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-paraphrase-094",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about supplied results has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited game papers use moving-average parameters and a shared trunk respectively.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

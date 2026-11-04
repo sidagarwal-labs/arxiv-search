@@ -1,0 +1,34 @@
+{
+  "answer_id": "A222",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-090",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual description of supplied papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes HEGM, watch-time distributions and the earlier mixture's failure modes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 describes four watch states, summaries and task-specific readouts.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 3 corrects frozen predictor residuals; paper 7 uses residual quantization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

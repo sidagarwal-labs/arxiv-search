@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answer": "To make retrieval date-aware, store each fact with its evidence, temporal validity interval, and lifecycle state, then exclude invalid or deprecated facts before ranking [8]. You can also encode fact age in representations, apply time-decay during retrieval, and check whether retrieved evidence is still temporally valid before using it [4].\n\nFor time-sensitive questions, signal when older evidence stops applying: dates alone may not make models adapt reliably [1]. Use reliable temporal metadata, since date-filtered web search can still leak post-cutoff information [2].",
+    "cited": [
+      8,
+      4,
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5bb1f3de0e8c3c403b254bbb36041e8e64143863804989ae2d32b3698e82a6f2",
+  "usage": {
+    "accounted_tokens": 3636,
+    "input_tokens": 3507,
+    "latency_seconds": 3.85213109999313,
+    "model": "gpt-6-luna",
+    "output_tokens": 129,
+    "provider_request_id": "req_53d32fa1e2df4e28bb582513db06d2fb",
+    "reasoning_tokens": 0,
+    "request_id": "c0a8e3f1-f77c-4385-b1cb-269215ce2f78",
+    "reserved_input": 22072,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:45.350238+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

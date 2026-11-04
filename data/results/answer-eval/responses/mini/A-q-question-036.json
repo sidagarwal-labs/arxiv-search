@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-036",
+  "outcome": {
+    "answer": "Content creators can use recommendation-system transparency and observability methods to see what factors drive exposure and why items get little visibility. One paper proposes a surrogate model that explains item exposure at a system level by approximating the exposure distribution and identifying the most influential features behind recommendation decisions [1]. Another presents a counterfactual observability framework for creators that estimates what the recommender would have done in the absence of a content item or model decision, helping attribute outcomes beyond raw views and clicks [2].\n\nIf the issue is that an item was ranked below another, a pairwise counterfactual method can explain why item A was ranked higher than item B by identifying profile items that contributed to the relative ranking [4].",
+    "cited": [
+      1,
+      2,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8bf9648688c3e06ae4733697a987fa48099f9bfacd3cd4606dbb5d191ef3804f",
+  "usage": {
+    "accounted_tokens": 3600,
+    "input_tokens": 3438,
+    "latency_seconds": 2.7799405999830924,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 162,
+    "provider_request_id": "req_edb9a6ba3f8c44aeb90c69c49ec29398",
+    "reasoning_tokens": 0,
+    "request_id": "63d6c72f-f4db-429e-84da-033d807eee4c",
+    "reserved_input": 22495,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:33.560596+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

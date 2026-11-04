@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"LLM agents can reuse prior task workflows by extracting and storing reusable \u201cskills\u201d from past experience, then recalling the relevant skills/trajectories to guide new-task actions. LifeMem clusters accumulated interaction trajectories based on underlying workflows, then recalls relevant skills and trajectories at inference time to guide actions, reducing catastrophic forgetting and improving cross-task transfer. TRIAGE similarly turns historical execution trajectories into reusable skills (Trajectory-as-a-Skill) and routes new queries to either direct reuse, deterministic skill substitution, or a full novel run that is stored for future reuse.\\n\\nTo avoid forgetting at the memory level, experience reuse should also use memory representations and retrieval organization that transfer reliably. Hu et al. show that old vs. new experiences compete during retrieval under limited context windows, effectively shifting the continual-learning bottleneck to memory access; they find abstract procedural memories transfer more reliably than detailed trajectories, while some memory organization choices can simultaneously give strong forward transfer and severe forgetting.\\n\\nThese approaches differ in what they reuse: LifeMem clusters trajectories by workflows and recalls skills/trajectories, TRIAGE abstracts trajectories into deterministic skills and uses routing levels, and WebATLAS emphasizes reusing past failures while using look-ahead action simulation to avoid previously unsuccessful behaviors.\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_00212035198edbb2016aeb629d944c87d287e340641f381761",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "b26367fb9ef9881ebc4431cf8c69ccef7aab0c0d4a1a5874db36b0c229ccf593",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3691,
+    "output_tokens": 266,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

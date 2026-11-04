@@ -1,0 +1,27 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-031",
+  "outcome": {
+    "answer": "The supplied papers do not address Boyd clinical provenance categorization. They focus on LLM length control, length prediction, overflow, and related generation behaviors, not clinical provenance categories or Boyd-specific clinical provenance classification.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "094a064752632ba65edbd69ebfdf11eced50c5006db772e5fb4f059f7a6f49e6",
+  "usage": {
+    "accounted_tokens": 3344,
+    "input_tokens": 3279,
+    "latency_seconds": 2.0975600999954622,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 65,
+    "provider_request_id": "req_629bc336bea8462b91b0edec459383a9",
+    "reasoning_tokens": 0,
+    "request_id": "f98a0ec2-1869-4c95-a21e-9ad9d572a4f6",
+    "reserved_input": 21397,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:06:15.065002+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

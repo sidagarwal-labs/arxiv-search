@@ -1,0 +1,39 @@
+{
+  "answer_id": "A246",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual claim about several papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes both failure modes and the combined stabilization method.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 identifies EOS mismatch and a shared stopping action.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 3 uses shorter verified rewrites and reports reduced output length.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 4 truncates rollouts early; paper 8 selects and prunes teacher continuations.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

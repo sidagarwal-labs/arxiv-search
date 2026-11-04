@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answer": "The paper directly on distributional reinforcement learning in chaotic dynamics argues that return distributions can evolve more regularly than individual trajectories, giving a smoother distributional Bellman objective and better-conditioned learning under mild statistical stability assumptions [1]. It contrasts this with standard RL\u2019s scalar expected-return objective, which averages over diverging trajectories [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "bf215ceabbd83ecdf1d989d3571cb37fe3fc8ea7ef57d8aa029f0827871c82f1",
+  "usage": {
+    "accounted_tokens": 3442,
+    "input_tokens": 3360,
+    "latency_seconds": 2.320693600020604,
+    "model": "gpt-6-luna",
+    "output_tokens": 82,
+    "provider_request_id": "req_034c843855d849ee8ea6b8f08f7ab5a5",
+    "reasoning_tokens": 0,
+    "request_id": "588d460f-defe-42c4-ab1c-d42ddfdfdf39",
+    "reserved_input": 22357,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:05.964065+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "answer_id": "A079",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-019",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual summary of pretraining repetition is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited studies report an intermediate-repeat loss peak and larger-model sensitivity to limited uniqueness.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The paper reports all three effects at identical token counts.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The papers describe benefits from additional epochs and dependence on model, data and budget.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The claim about the scope of these findings has no citation.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

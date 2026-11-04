@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answer": "Yes. The clearest match is work that treats GNNs as fast surrogates for semidefinite programs: one paper studies when GNNs can recover optimal linear SDP solutions, showing standard GNNs fail but a more expressive architecture can emulate first-order solver updates and provide strong predictions that can warm-start SDP solving for practical speedups [1]. Another paper gives a Max-Cut-specific GNN proxy for SDP relaxations inside branch-and-bound, predicting primal- and dual-feasible SDP solutions and substantially reducing bounding cost compared with an SDP solver [2].\n\nThey differ in scope: [1] is a general study of expressive power for linear SDPs plus warm-starting on synthetic and SdpLib benchmarks, while [2] is a specialized, feasibility-preserving proxy for Max-Cut SDP relaxations in exact optimization, trained self-supervised and designed to plug directly into branch-and-bound [1,2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "9ac999bdbac818fe1580a964f020cb8e91ddb5691491f90905627e84af7ceafa",
+  "usage": {
+    "accounted_tokens": 3155,
+    "input_tokens": 2948,
+    "latency_seconds": 4.8323041999829,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 207,
+    "provider_request_id": "req_83d33da902b943298e2bbcb0ceb7e4eb",
+    "reasoning_tokens": 0,
+    "request_id": "cfb0c257-2e46-4e18-9a6a-6d484ec2aeb4",
+    "reserved_input": 19107,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:59.730444+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

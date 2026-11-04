@@ -1,0 +1,32 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-025",
+  "outcome": {
+    "answer": "For \u201cmetadata filtering RAG\u201d in the sense of using metadata extracted from the query to filter the vector store before retrieval, [1] directly matches: Multi-Meta-RAG improves multi-hop QA by filtering a vector store on a \u201cnews source\u201d metadata field extracted from each query, and shows replacing a prompted free-form metadata extractor with a local deterministic hidden-state probe trained to predict from a fixed allow-list of sources. It also argues the allow-list constraint prevents drifting outside valid metadata values [1].\n\nRelatedly, [3] and [4] study metadata-driven RAG more broadly: they add LLM-generated metadata to retrieval/indexing (including pre-retrieval filtering and metadata-enriched embeddings) and evaluate retrieval improvements, especially in financial/enterprise settings [3, 4]. These differ from [1] by focusing on metadata enrichment and retrieval quality rather than explicit metadata-based vector-store filtering via a learned extractor.\n\nIf you meant multidimensional partitioning/routing based on metadata dimensions rather than per-query metadata filtering, [2] proposes a conceptual framework (DFM) for governable multidimensional corpus partitioning and controlled fallback when metadata is incomplete [2].",
+    "cited": [
+      1,
+      3,
+      4,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d4e8c527128f5624676683e3dfba10d8462965b46a64b60cf617432780aab192",
+  "usage": {
+    "accounted_tokens": 3722,
+    "input_tokens": 3464,
+    "latency_seconds": 3.0339447999722324,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 258,
+    "provider_request_id": "req_5b533bd4c015447a8ed2202d3a208376",
+    "reasoning_tokens": 0,
+    "request_id": "0792f7bf-67f5-45c5-a819-c5f4f0220e8a",
+    "reserved_input": 22119,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:23.211453+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

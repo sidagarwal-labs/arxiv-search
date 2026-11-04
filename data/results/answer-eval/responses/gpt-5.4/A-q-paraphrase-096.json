@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-096",
+  "outcome": {
+    "answer": "Yes: several papers propose hierarchical retrieval methods that connect search terms to relevant text chunks through summary trees or tree-like navigation. DTCRS dynamically builds a summary tree using document structure and query semantics, decomposes the question, and uses sub-question embeddings as cluster centers so summaries are more relevant to the query [2]. RAPTOR-style approaches are also discussed as recursively clustering chunks and ranking summary nodes alongside raw chunks, though one paper argues the gain mainly comes from the tree\u2019s navigation structure rather than the summary content itself [1].\n\nIf you want alternatives to LLM-written summaries, NavTree uses a deterministic balanced tree over chunks and performs lexical-and-dense frontier walking to emit relevant leaf chunks [1]. SproutRAG builds a binary chunking tree and uses hierarchical beam search for multi-granularity retrieval without compressed summaries [3]. SVD-RAG keeps the hierarchical tree idea but replaces LLM summaries with extractive SVD-based summarization for cheaper tree construction [9].",
+    "cited": [
+      2,
+      1,
+      3,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3f5d8a3527cbb03d356451a1f2defedd3e443b15b06e2daca70b8fa4f99b81ec",
+  "usage": {
+    "accounted_tokens": 3694,
+    "input_tokens": 3477,
+    "latency_seconds": 5.097228700004052,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 217,
+    "provider_request_id": "req_4d4979e995c042a295f16c74f4d49aef",
+    "reasoning_tokens": 0,
+    "request_id": "b1cb7422-f3b3-4b0c-b95a-6a9089cbe73a",
+    "reserved_input": 22223,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:12:52.470204+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "answer_id": "A019",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative framing word contains no independently assessable factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The assertion that several papers explicitly introduce lifecycle strength controls has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "[1] explicitly distinguishes retention strength from confidence and uses lifecycle states at promotion, compression, and eviction pressure points.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[8] specifies preference strength/evidence tracking and adaptively scheduled reinforcement, weakening, consolidation, forgetting, and resynthesis.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The assertion that related work indirectly controls memory strength has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S6",
+        "reason": "[2] reinforces memories contributing to responses and explicitly defines forgetting as reduced accessibility rather than deletion.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "[6] frames lifecycle transitions, [7] retrieval-driven reconsolidation, and [9] write routing/consolidation, without naming strength as a central state.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

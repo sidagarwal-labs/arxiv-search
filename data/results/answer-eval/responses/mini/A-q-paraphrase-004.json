@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answer": "Yes \u2014 the closest match is a multimodal fact-checking system that uses both text and visual evidence, and one paper explicitly argues for adaptively using visual evidence only when it helps verification. VILLAIN verifies image-text claims through multi-agent collaboration and produces a verdict from the claim plus retrieved evidence [1]. AMuFC specifically studies visual evidence necessity and shows that indiscriminate use of visual evidence can reduce accuracy, proposing adaptive use instead [7].\n\nIf you want a system that decides whether an image is useful or harmful for verification, [7] is the best fit; [1] is broader claim verification rather than explicit usefulness/harmfulness gating.",
+    "cited": [
+      1,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "918d13e168e91cf1d2162ffb7afb37c98d61f2b89805022a4b8cccbff8555f13",
+  "usage": {
+    "accounted_tokens": 3408,
+    "input_tokens": 3256,
+    "latency_seconds": 2.5841121000121348,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 152,
+    "provider_request_id": "req_f58e7cacee244b70a3fc889137b85981",
+    "reasoning_tokens": 0,
+    "request_id": "5e4712c0-36ba-4c59-8d8b-57f79606626d",
+    "reserved_input": 20574,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:12.111169+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

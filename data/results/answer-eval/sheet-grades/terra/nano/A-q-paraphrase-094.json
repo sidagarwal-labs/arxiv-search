@@ -1,0 +1,39 @@
+{
+  "answer_id": "A148",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-094",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 describes explicit caption criteria generated and judged by the model.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The shared VLM serves all three roles; the generator and judge provide the stated outputs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Its shared momentum model tracks policy updates through exponential moving average.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 2 disentangles specificity from length and recommends evaluating specificity.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 2 focuses on evaluation while paper 1 uses online momentum-coupled rubric roles.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-048",
+  "outcome": {
+    "answer": "Yes. ViSAR introduces a training-free adaptive-k retrieval method for visual document question answering that dynamically determines how many document pages to retrieve based on the query, aiming to reduce latency while maintaining or improving answer accuracy versus fixed top-k retrieval. [1]\n\nIn addition, LAD-RAG uses a layout-aware dynamic RAG approach where an LLM agent adaptively retrieves the necessary evidence pages at inference rather than using a fixed top-k number, improving evidence recall for multi-page reasoning. [2] D2-ScaleAgent also explicitly targets dynamic scaling at test time by expanding retrieval and pruning evidence based on query difficulty, though it focuses on an agentic retrieval-and-reasoning loop rather than a single page-fetch count rule. [10]\n\nThese differ in mechanism: ViSAR changes the retrieved page count directly via a query-conditioned similarity matrix, LAD-RAG adapts retrieval using both neural and symbolic (layout) indices, and D2-ScaleAgent scales retrieval via dynamic routing and an evidence bank. [1,2,10]",
+    "cited": [
+      1,
+      2,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "62a3bd5604a3e5a35574bdbdfe3a3aa8826c17527bdf5ec5f40e240cc7d13fcd",
+  "usage": {
+    "accounted_tokens": 3964,
+    "input_tokens": 3736,
+    "latency_seconds": 3.251652999984799,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 228,
+    "provider_request_id": "req_406908f704ed41c89accbb414c6b1d24",
+    "reasoning_tokens": 0,
+    "request_id": "d4499186-e91e-448f-a970-c97e0de2b4cd",
+    "reserved_input": 23065,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:08.505839+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

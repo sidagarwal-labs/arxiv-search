@@ -14,8 +14,9 @@ These are the selections summarized in the README, not new promotions:
 | BM25 | Exact terms + stems, authors, title weighted x2; k1=0.8, b=0.75; no stopword removal |
 | Embeddings | `text-embedding-3-large`, 3,072 dimensions; normalized vectors; full-corpus cached embedding cost $0.7439 under the historical $1.25 lifetime cap |
 | Stage 1 | RRF 55% semantic / 45% lexical, c=30, depth 100 selects top10; max-normalized fusion 75% semantic / 25% lexical, depth 500 reorders those ten; tail unchanged (Decision 36) |
-| Stage 2 | `gpt-5.4-mini-2026-03-17` scores top50 0-4 twice; average scores; RRF with retrieval order c=30; ranks below 50 unchanged (Decision 46); Decision 45's single-pass version stays a historical control |
-| Reranker resources | Approximately $0.028 per uncached query; measured p50 2.9 s with parallel passes in the saved experiment, not end-to-end live website latency |
+| Stage 2 | `gpt-5.4-mini-2026-03-17` scores top50 0-4 twice; average scores; RRF with retrieval order c=30 (Decision 46); then re-scores that top20 0-10 twice, averages, RRF c=30 with the Decision 46 order, keeps its rank 1; ranks below 20 unchanged (Decision 47); Decisions 45 and 46 stay historical controls |
+| Reranker resources | Approximately $0.039 per uncached query; measured p50 5.5 s / p90 6.6 s with each step's two passes in parallel in the saved experiment, not end-to-end live website latency |
+| AI summary | `gpt-5.4-mini-2026-03-17`, prompt `answer-v1`, top-10 evidence, [n] citations or abstain (Decision 48); approximately $0.003 per answer, p50 2.6 s |
 | Storage and serving | Offline NumPy arrays with paper-ID metadata and exact cosine search; hosted Postgres/pgvector was a plan, not a deployed service |
 
 See the [decisions](02-decisions.md), [configuration source](../arxiv_search/config.py)
@@ -25,8 +26,8 @@ do not make stochastic model responses deterministic.
 ## Historical retrieval milestones
 
 100 development queries, 23,304 papers, frozen **3,294-pair** label snapshot.
-These original numbers are retained, not rescored. The current Decision 46 layer
-has 3,533 pairs; use the [generated results](05-results.md) and
+These original numbers are retained, not rescored. The current Decision 47 layer
+has 3,579 pairs; use the [generated results](05-results.md) and
 [charts](06-charts.md) for milestones on that common layer.
 
 | Milestone | nDCG@10 | Source MRR@10 | Source R@10 |

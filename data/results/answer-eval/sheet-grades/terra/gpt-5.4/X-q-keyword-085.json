@@ -1,0 +1,34 @@
+{
+  "answer_id": "A213",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-keyword-085",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The supplied forecasting and monitoring abstracts do not discuss consciousness or self-awareness.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The supplied papers concern weather, energy or structural monitoring rather than consciousness.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The factual claims about the papers have no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 1, 3, 9 and 6 match, but paper 10 predicts solar ramps, not wind nowcasting.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

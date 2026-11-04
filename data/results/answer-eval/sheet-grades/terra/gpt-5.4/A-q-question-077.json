@@ -1,0 +1,34 @@
+{
+  "answer_id": "A279",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A simple affirmation.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports reification, zero-shot transfer of standard GNNs, and GAT performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 moves the transfer mechanism from architecture to representation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 4 and 5 address KG foundation-model generalization and scalable KG GNNs respectively.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

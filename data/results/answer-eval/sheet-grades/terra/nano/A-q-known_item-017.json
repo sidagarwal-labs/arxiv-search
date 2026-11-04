@@ -1,0 +1,24 @@
+{
+  "answer_id": "A129",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-017",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 gives the exact GraDE title and Yikang Yang as an author.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The typicality estimator is described, but the abstract does not establish better discovery accuracy than exact enumeration.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

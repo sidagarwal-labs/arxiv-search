@@ -1,0 +1,34 @@
+{
+  "answer_id": "A334",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-063",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "GRASP targets unsegmented multi-topic science answers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes graph construction, retrieval, assignment, and grading.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Graph traversal finds references potentially missed by cosine retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The rubric study emphasizes official answers and does not describe the specified graph or paragraph setup.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

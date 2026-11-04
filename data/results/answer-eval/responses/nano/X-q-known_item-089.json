@@ -1,0 +1,27 @@
+{
+  "candidate": "nano",
+  "item_id": "X-q-known_item-089",
+  "outcome": {
+    "answer": "The results do not address a topic specifically described as \u201cThan fairness limits.\u201d None of the supplied papers mentions \u201cThan fairness limits\u201d or frames it as a fairness limitation problem in recommendation or personalization.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "ae40f684577b1f04a96d8be9067f8bab686f41022cabf5a693b225188c903e0d",
+  "usage": {
+    "accounted_tokens": 3266,
+    "input_tokens": 3210,
+    "latency_seconds": 1.6949042999767698,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 56,
+    "provider_request_id": "req_478b06e5d6d943ac82fda85f246449da",
+    "reasoning_tokens": 0,
+    "request_id": "7bf48bc9-7b82-4c07-9993-a6f8d4c859fe",
+    "reserved_input": 21600,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:52:16.954214+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "answer_id": "A073",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-042",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper identification and method description lack a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The factual description of the framework lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The following citation [1] supports supervised cold-start training followed by retrieval-aligned reinforcement learning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "PR2 and PCDR are described accurately in the cited abstracts.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "AdaQR routes between fast dense reasoning and deep LLM reasoning to manage costs.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

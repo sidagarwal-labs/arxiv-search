@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-paraphrase-096",
+  "outcome": {
+    "answer": "The supplied papers do not describe a method for finding relevant text chunks by linking search terms and documents through a hierarchy of summaries. They focus on adversarial attacks and model robustness instead.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "d983b9f46dc721281aa5a6be1e19c97c3a41f87a05fc8a85f008ef2d6616b78e",
+  "usage": {
+    "accounted_tokens": 3470,
+    "input_tokens": 3417,
+    "latency_seconds": 9.018581499985885,
+    "model": "gpt-6-luna",
+    "output_tokens": 53,
+    "provider_request_id": "req_708031d7e88e4d698b7f91258b91eca8",
+    "reasoning_tokens": 0,
+    "request_id": "992d5998-9d47-4697-b219-e43800d97713",
+    "reserved_input": 22514,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:17.300772+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

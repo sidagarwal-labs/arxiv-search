@@ -1,0 +1,34 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-048",
+  "outcome": {
+    "answer": "Yes. Several papers describe changing how many pages are fetched at inference time without retraining the retriever. ViSAR is the most direct match: it is a training-free adaptive-k retrieval method that dynamically decides the number of pages to retrieve from a query-conditioned page similarity matrix, reducing latency while maintaining or improving answer accuracy versus fixed top-k retrieval [1]. LAD-RAG also adaptively retrieves the necessary evidence based on the query and does so without top-k tuning, improving recall and QA accuracy with minimal latency [2].\n\nRelated methods vary in how they adapt retrieval. MAB-DQA dynamically reallocates retrieval budget across query aspects, and D2-ScaleAgent expands retrieval when more evidence is needed through an agentic routing loop [9,10]. LITTA controls the accuracy-efficiency trade-off by varying the number of query variants rather than directly choosing page count [6]. Q-REACT improves retrieval without retraining or rebuilding the retriever, but its abstract does not specifically say it dynamically changes the number of fetched pages [3].",
+    "cited": [
+      1,
+      2,
+      9,
+      10,
+      6,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "e4e8cf4d87911b14cafbd104b82d078ca1af5e92385c31d9715448191da8f1b9",
+  "usage": {
+    "accounted_tokens": 3966,
+    "input_tokens": 3736,
+    "latency_seconds": 4.932916099991417,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 230,
+    "provider_request_id": "req_d17316658a69490d916a971301630379",
+    "reasoning_tokens": 0,
+    "request_id": "dcd3a260-a1c7-41c7-9b2c-bf1b186c326a",
+    "reserved_input": 23060,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:28:33.138607+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

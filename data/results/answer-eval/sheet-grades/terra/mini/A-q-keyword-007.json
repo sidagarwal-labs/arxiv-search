@@ -1,0 +1,34 @@
+{
+  "answer_id": "A180",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about the supplied papers lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports sample interactions and benefits of group-level synthetic-data curation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 3 reports online reweighting gains in instruction tuning and pretraining.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 4, 9 and 8 describe the specified generation and curation methods.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

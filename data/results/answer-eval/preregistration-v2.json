@@ -1,0 +1,63 @@
+{
+  "answer_prompt": "answer-v1",
+  "budget_usd": {
+    "generate": 3.5,
+    "grade": 7.0
+  },
+  "candidates": {
+    "gpt-5.4": "gpt-5.4-2026-03-05",
+    "luna": "gpt-6-luna",
+    "mini": "gpt-5.4-mini-2026-03-17",
+    "nano": "gpt-5.4-nano-2026-03-17"
+  },
+  "caveat_check": "grader column not_direct_answer (yes/no): the answer clearly tells the reader the supplied papers do not directly answer the request",
+  "changes_baseline": false,
+  "decision_rule": {
+    "best": "highest mean faithfulness among all four candidates",
+    "pick": "cheapest qualifying serving-eligible model by measured $/answer; if none qualifies, no pick (report only)",
+    "qualifies_if": {
+      "abstain_accuracy": ">= 0.80, where abstaining = grounded false OR a graded clear not-a-direct-answer caveat",
+      "citation_precision": "non-inferior to best: 95% CI lower bound >= -0.05",
+      "faithfulness": "non-inferior to best: 95% paired bootstrap CI lower bound of (candidate - best) >= -0.05 (items both answered grounded)",
+      "false_abstain": "<= 0.10 on answerable items with a grade-2 paper, same definition (an unwarranted caveat counts as a false abstention)",
+      "format_valid": ">= 0.95"
+    },
+    "scope": "full stage only (125 items); the pilot is a screen and sanity check"
+  },
+  "evaluation_set": "answer-dev-v1: 100 answerable (Decision46 top10) + 25 should-abstain (least-similar query's top10); pilot = 20 + 10",
+  "frozen_before": "any grade exists; generation responses unchanged",
+  "grader": {
+    "blind_to_writer": true,
+    "caveat": "GPT-5.4 grades its own answers too; owner re-grades a blinded sample with GPT-6 ASTRA to measure agreement and self-preference.",
+    "model": "gpt-5.4-2026-03-05",
+    "version": "answer-grade-v1"
+  },
+  "grader_metrics": [
+    "faithfulness (mean sentence verdict: supported 1, partial .5, unsupported 0; no_claim excluded)",
+    "fully_faithful (all claims supported)",
+    "answers_request (0-2)"
+  ],
+  "held_out_queries_used": false,
+  "label_metrics": [
+    "format_valid",
+    "false_abstain (answerable items with a grade-2 paper)",
+    "abstain_accuracy (abstain items)",
+    "citation_precision (cited papers graded 1-2)",
+    "grade2_coverage (top10 grade-2 papers cited)",
+    "source_cited"
+  ],
+  "not_eligible": {
+    "gpt-5.4": "quality ceiling only",
+    "nano": "deprecated; shuts down 2027-04-01"
+  },
+  "question": "Cheapest serving-eligible model whose grounded answers are as faithful and well-cited as the best candidate.",
+  "reasoning_effort": "none (all candidates and the grader)",
+  "retries": "none; an invalid reply is a format failure and is not resent",
+  "serving_eligible": [
+    "luna",
+    "mini"
+  ],
+  "supersedes": "answer-eval-v1 (no model met abstain >= 0.80)",
+  "version": "answer-eval-v2",
+  "why_changed": "Abstain items were answered with an explicit 'not a direct answer' caveat plus the closest papers; the owner prefers that UX to a bare refusal."
+}

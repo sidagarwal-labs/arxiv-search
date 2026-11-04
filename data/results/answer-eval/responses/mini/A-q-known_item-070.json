@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-070",
+  "outcome": {
+    "answer": "Chenrun Wang appears as an author on LigBench, a unified benchmark for LLM-based research idea generation that aims to provide fine-grained, reliable, and human-aligned evaluation of generated ideas, along with a dataset for pairwise idea judgment [1]. If you meant a benchmark for judging research ideas more broadly, related papers here include novelty judgment, soundness, and falsifiability-focused benchmarks, but only [1] is directly tied to Chenrun Wang.",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2358c0f7d8ed2d786f96d21098ea8f5f51675e16bbe04638e2efc1c1986676d0",
+  "usage": {
+    "accounted_tokens": 3685,
+    "input_tokens": 3568,
+    "latency_seconds": 2.830507700011367,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 117,
+    "provider_request_id": "req_d7037909311248fda214f157e6e23539",
+    "reasoning_tokens": 0,
+    "request_id": "a05b374d-b058-4223-9165-dca006648704",
+    "reserved_input": 22893,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:54.701913+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

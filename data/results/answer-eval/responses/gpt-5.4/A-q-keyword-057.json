@@ -1,0 +1,34 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answer": "Dense-to-sparse retrieval is covered in several ways here. Some papers explicitly convert dense retrievers into sparse ones: Latent Terms shows dense retrievers can be decomposed into BM25-ready sparse features with sparse autoencoders, without sparse supervision or expansion training, and can match or beat the base single-vector scorer [2]. SPLARE likewise uses sparse autoencoders as the basis for learned sparse retrieval, aiming for more structured and expressive sparse features than vocabulary-based methods, with strong multilingual and out-of-domain results [7].\n\nOther papers focus on sparse alternatives that reach dense-like effectiveness or replace dense/multi-vector indexing with sparse coding. LACONIC is a learned sparse retriever designed to bridge the gap to dense models while using much less index memory [1]. SSR replaces multi-vector dense retrieval and clustering with sparse coding and inverted indexing, improving indexing time, latency, and retrieval quality [10]. Sparse Coverage maps local dense span embeddings to sparse centers for patent retrieval [5]. If you mean combining dense and sparse rather than converting between them, one paper studies tuned dense-sparse fusion for hybrid retrieval [9].",
+    "cited": [
+      2,
+      7,
+      1,
+      10,
+      5,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "b602f40eef6c15000904c58a03f5daf9802df214caf310193a716961258999f6",
+  "usage": {
+    "accounted_tokens": 3868,
+    "input_tokens": 3622,
+    "latency_seconds": 5.948467400012305,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 246,
+    "provider_request_id": "req_95121a3aee3b4435badb3a5615e6f407",
+    "reasoning_tokens": 0,
+    "request_id": "9b1523c7-4d4e-4e9c-b9a8-af2f8582b620",
+    "reserved_input": 21874,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:47.556597+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

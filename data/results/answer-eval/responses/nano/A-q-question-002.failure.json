@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Use variable (any-precision) mixture-of-experts by quantizing experts at different bit-widths and selecting the precision at runtime based on router signals or token/expert sensitivity. DyMoE targets edge/mobile constraints by dynamically quantizing experts at runtime using expert importance skewness and depth-adaptive scheduling, and it overlaps I/O via look-ahead prefetching to reduce TTFT and improve TPOT on commercial edge hardware [2]. GEMQ and AlphaQ tackle the expert-wise bit-allocation needed for mixed precision, either via global optimization plus router fine-tuning to handle router shifts after quantization [5] or via calibration-free bit allocation using expert-wise heavy-tailed spectral structure under a global bit-budget [3].\\n\\nTo directly support \u201cvariable precision\u201d at inference, DPA-MoE encodes expert feed-forward weights into prefix-decodable chunks so the routed experts can be any-precision using live router gate scores, letting one checkpoint operate under multiple effective weight budgets without retraining/re-encoding (with modest throughput overhead) [7]. On mobile NPUs, Quant.npu further shows the practicality of fully static integer quantization plus a sensitivity-guided adaptive mixed-precision scheme for lower latency [4]. MoBiQuant complements this by addressing precision-dependent outlier migration with a token-aware router that selects optimal inference precision per token [1].\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_0001ae516d8b93ed016aeb62600acc87d28dcfdd96b9ed4055",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "29860dfb1bb2321be8753573546f364eed1abcab1f96a7dddd754d503d3d3273",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3270,
+    "output_tokens": 294,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-003",
+  "outcome": {
+    "answer": "Large language models can actively gather preference information through multi-turn questions, choosing what to ask based on the conversation stage: attribute questions work well early, while item-based questions are more useful as preferences become clearer [5]. Another approach trains the LLM to generate interactions that reduce its uncertainty over recommendations, improving recommendation quality and conversational efficiency [8]. These approaches focus on eliciting information from users; other work instead enriches existing histories or item data with inferred context and synthetic interactions [1, 6].",
+    "cited": [
+      5,
+      8,
+      1,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "326e44377254a98549f0a33360d3ff7f488adece1876740eedbe0471aa40b727",
+  "usage": {
+    "accounted_tokens": 3487,
+    "input_tokens": 3369,
+    "latency_seconds": 4.45453620000626,
+    "model": "gpt-6-luna",
+    "output_tokens": 118,
+    "provider_request_id": "req_5878258028ca45ec9a542fc04c270195",
+    "reasoning_tokens": 0,
+    "request_id": "f4374534-1527-45b7-b66e-8f8acf0ee131",
+    "reserved_input": 22317,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:23.744540+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

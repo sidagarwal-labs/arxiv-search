@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-085",
+  "outcome": {
+    "answer": "The supplied papers do not address AI consciousness or self-awareness. They focus on forecasting, weather modeling, and other applied AI systems, rather than consciousness or self-awareness [1\u201310].",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "1f6f25ae1f63261abb98af47dca9e18de5c89d79c7555b5b8f97c4039ab3bea4",
+  "usage": {
+    "accounted_tokens": 3588,
+    "input_tokens": 3533,
+    "latency_seconds": 3.7868840000010096,
+    "model": "gpt-6-luna",
+    "output_tokens": 55,
+    "provider_request_id": "req_d34f0cb69f9d44cc9874ba4efd6522b2",
+    "reasoning_tokens": 0,
+    "request_id": "fbabc3b2-ff38-4381-970a-59b5a4392d04",
+    "reserved_input": 23353,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:59:53.799219+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

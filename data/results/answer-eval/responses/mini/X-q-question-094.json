@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-question-094",
+  "outcome": {
+    "answer": "The closest match is SLATE, which evaluates AI-generated teaching slides by instructional effectiveness and learner knowledge acquisition, using a pretest-posttest design so gains reflect learning rather than prior recall [10]. It shows how to judge whether a provided text actually leads to learning, and reports near- vs far-transfer gaps and even negative learning gains for some systems [10].\n\nIf you mean learning new rules or preferences from text more generally, other papers focus on learning preferences from criteria or rankings rather than from instructional text: one learns evaluator preferences robustly under model mismatch [3], and another studies how LLMs can infer pairwise slate preferences for synthetic A/B testing [4].",
+    "cited": [
+      10,
+      3,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "657dbfa53bfc461c964ee35507aa32a40f75335a3bf4de00a18e0857ebaf4b7e",
+  "usage": {
+    "accounted_tokens": 3583,
+    "input_tokens": 3428,
+    "latency_seconds": 2.5405320999852847,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 155,
+    "provider_request_id": "req_ac9b984c2f5b455ba5490f18fc895214",
+    "reasoning_tokens": 0,
+    "request_id": "1538919b-c68c-4f04-8a94-4ccf49839640",
+    "reserved_input": 22120,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:44.299240+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

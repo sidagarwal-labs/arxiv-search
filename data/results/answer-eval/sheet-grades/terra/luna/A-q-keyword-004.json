@@ -1,0 +1,34 @@
+{
+  "answer_id": "A364",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-004",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The study and methods are described without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The reported comparative findings are uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The scope and conclusion are factual claims without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "The standalone citation makes no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

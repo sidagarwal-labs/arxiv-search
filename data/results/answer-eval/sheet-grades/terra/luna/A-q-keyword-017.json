@@ -1,0 +1,34 @@
+{
+  "answer_id": "A174",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-017",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual claim about Raven has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Raven uses sparse input-dependent routing and reports the stated recall and extrapolation behavior.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "KLA adjusts residual-write step size and reports associative recall improvements and 65K stability.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 3 learns input-dependent decay in log-linear attention and reports recall gains.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

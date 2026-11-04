@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-060",
+  "outcome": {
+    "answer": "A graph structure can reduce repetitive item lists by giving the generative reranker multiple valid transition paths instead of favoring a single high-likelihood sequence. In CONGRATS, the graph-structured model explores multiple paths, which expands the decoding space, promotes diversity, and explicitly models item dependencies through graph transitions; the paper presents this as a way to avoid the \u201clikelihood trap,\u201d where high-likelihood generative reranking outputs become repetitive [2].\n\nRelated papers suggest why this helps. Autoregressive generation can impose structural coupling so nearby items in the decoding tree receive similar probabilities, making them harder to distinguish; Latte mitigates this by creating multiple latent-token-conditioned trees, i.e., multiple paths through the decoding space [9]. TopoGR likewise preserves topology in the item ID space and uses topology-aware reranking to better capture item relatedness beyond exact token overlap [10]. These papers differ in the graph/structure used: CONGRATS uses an explicit graph-structured reranker for diversity [2], while Latte and TopoGR reshape or preserve the decoding topology to reduce structural bias in generation [9, 10].",
+    "cited": [
+      2,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ebb395feba295ac58dc6f7187d581c50ca24729d1704e35e5b5d2c928d61663b",
+  "usage": {
+    "accounted_tokens": 3830,
+    "input_tokens": 3582,
+    "latency_seconds": 6.030790999997407,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 248,
+    "provider_request_id": "req_377d646418ca44f99b5649dbcb537ee3",
+    "reasoning_tokens": 0,
+    "request_id": "2207335a-d2df-4c0f-919c-3799f78af3f6",
+    "reserved_input": 22910,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:03.024558+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

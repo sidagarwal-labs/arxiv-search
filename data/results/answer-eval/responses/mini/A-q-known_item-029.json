@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-029",
+  "outcome": {
+    "answer": "The closest match is a paper by Feiyu Zhou on wind-induced bridge response forecasting and bridge structural health monitoring. It uses a transformer-based forecasting model on real measurements from the Hardanger Bridge and says the approach can support digital twin monitoring and early-warning detection of structural change [1].\n\nIt is not specifically about wind bridge forecasting in the sense of bridge wind load prediction alone; rather, it forecasts structural response under wind excitation and compares predicted and measured vibrations [1]. The other papers focus on wind power, weather nowcasting, or urban wind prediction, not bridge forecasting [2-10].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5fc67dbb9c0299b9d8b44fedc447dd8d67bda429cd29da9646e173b5677e10fc",
+  "usage": {
+    "accounted_tokens": 3678,
+    "input_tokens": 3533,
+    "latency_seconds": 3.2920353999943472,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 145,
+    "provider_request_id": "req_b342f49e5fe349319592b4835bf4f643",
+    "reasoning_tokens": 0,
+    "request_id": "3c828b19-662c-45bb-aae4-c0085bf6b110",
+    "reserved_input": 23359,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:19.658575+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

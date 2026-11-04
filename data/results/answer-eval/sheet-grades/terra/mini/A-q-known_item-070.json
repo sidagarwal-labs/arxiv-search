@@ -1,0 +1,24 @@
+{
+  "answer_id": "A028",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-070",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 names Wang and introduces LigBench and PAIR-IQ.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited paper list contains no such other benchmarks and this assertion has no citation.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

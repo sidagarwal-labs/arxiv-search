@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answer": "The closest match to \u201cWei complexity structural generalization\u201d is Zichao Wei\u2019s paper \u201cOn the Computational Complexity of Structural Generalization.\u201d It argues that structural generalization can be framed as a computational-complexity tension between an NC^1 lower bound (via a tree-evaluation component described as BFVP, NC^1-complete) and the learned ceiling of pure Transformers being within TC^0; under the assumption TC^0 \u2260 NC^1, a pure Transformer cannot learn structural generalization. It also claims that neuro-symbolic systems score well by injecting part of the structure, rather than learning the hard component from finite data. [1]\n\nWei also studies structural generalization operationally in \u201cStructural Generalization on SLOG without Hand-Written Rules,\u201d using a neural cellular automaton with a discrete bottleneck to learn compositional rules from data and analyzing where failures concentrate on specific structural mechanisms. [2]\n\nThese two Wei papers differ: [1] is a computational complexity/theory argument about what pure Transformers can learn, while [2] is an empirical/diagnostic study of structural generalization on SLOG without hand-written rules.",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "eefdeaebabce6ed2d356246978169af8c64de4a09b4149cc24f1fcaf23f60f55",
+  "usage": {
+    "accounted_tokens": 3582,
+    "input_tokens": 3329,
+    "latency_seconds": 2.9003781999927014,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 253,
+    "provider_request_id": "req_e093ea39c4f9408590a11080bfca441e",
+    "reasoning_tokens": 0,
+    "request_id": "0fde45f8-e220-4a65-b906-0431e297adf6",
+    "reserved_input": 20921,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:09.724308+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

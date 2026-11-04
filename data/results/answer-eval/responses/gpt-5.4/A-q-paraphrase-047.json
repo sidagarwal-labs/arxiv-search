@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answer": "Yes: the closest match is a seed-guided clustering-by-exclusion method that starts from a few labeled markers and grows clusters by admitting only non-anomalous points, while naturally isolating fringe points, isolated noise, and possible unknown clusters [1]. It is designed specifically for noisy settings where you want to identify clusters by removing the \u201codd ones out,\u201d and it reports strong results with as few as 10\u201330 seeds per cluster [1].\n\nRelated papers cover parts of the idea differently. PLSCAN and ToMAToMP also separate clusters from noise or outliers, but they are unsupervised and do not use starting markers; they focus on multiscale density persistence and topological robustness, respectively [4,10]. Another outlier-detection paper uses clustering plus visual expert criteria to detect outliers, but it is not a seed-guided cluster-growing method [7].",
+    "cited": [
+      1,
+      4,
+      10,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2104e387b4dff645e63d20db325450e9334d0ebb980639ed1cba726c3ce895de",
+  "usage": {
+    "accounted_tokens": 3795,
+    "input_tokens": 3594,
+    "latency_seconds": 5.28414909998537,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 201,
+    "provider_request_id": "req_d51a1bb60bf64ea498558fc523a17ec9",
+    "reasoning_tokens": 0,
+    "request_id": "62758c98-71fa-4afd-9588-6fdf6feb2016",
+    "reserved_input": 22309,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:11:42.602709+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

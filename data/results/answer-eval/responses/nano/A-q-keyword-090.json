@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-090",
+  "outcome": {
+    "answer": "For video watch time mixture modeling, the closest match is HEGM, which builds a hierarchical Exponential-Gaussian mixture for predicting near-zero-inflated, long-tailed, and multimodal watch-time distributions, and is designed to improve mixture stability and interpretability. It addresses issues like variance collapse and component redundancy via a hierarchical skip-watch decomposition and variance regularization. [1]\n\nIf you instead want serving-time outputs beyond a single watch-time expectation (e.g., probabilities for different watch states and uncertainty), DSI provides a distribution provider and low-dimensional summary for watch states, using video duration rules to remove incompatible combinations. This supports task-specific readouts that combine the summary with context. [2]\n\nThese differ in focus: HEGM targets stable mixture distribution prediction, while DSI targets a distributional serving interface over multiple watch states and event times. [1, 2]",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c3b8c5748c293dfee66c159c45c809ee4f0909118a0626ccc694372fb5d4c230",
+  "usage": {
+    "accounted_tokens": 3811,
+    "input_tokens": 3612,
+    "latency_seconds": 2.7482222999969963,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 199,
+    "provider_request_id": "req_3ae0fc8e7cbf4197902ea30bb0c5d944",
+    "reasoning_tokens": 0,
+    "request_id": "f31ebfb9-c70a-471c-9725-517fef851a1e",
+    "reserved_input": 23242,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:12.274715+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

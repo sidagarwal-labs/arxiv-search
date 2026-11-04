@@ -1,0 +1,29 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-088",
+  "outcome": {
+    "answer": "The matching paper is Retrieval Improvements Do Not Guarantee Better Answers: A Study of RAG for AI Policy QA by Saahil Mathur, Ryan David Rittner, Vedant Ajit Thakur, et al. [1] It studies RAG for AI governance and policy analysis on the AGORA corpus of 947 AI policy documents, using a ColBERT-based retriever fine-tuned with contrastive learning and a generator aligned with Direct Preference Optimization. [1]\n\nIts main result is that better retrieval metrics did not consistently improve end-to-end policy question answering. [1] The paper reports that stronger retrieval could even produce more confident hallucinations when relevant documents were missing from the corpus, and frames this as a reliability concern for policy-focused RAG systems over dynamic regulatory corpora. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "64ae4ffd3b416e7927d15b2e93036f0c6a7f80dd3816849acdf5492455b0610f",
+  "usage": {
+    "accounted_tokens": 3941,
+    "input_tokens": 3760,
+    "latency_seconds": 4.177744599990547,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 181,
+    "provider_request_id": "req_2b3732cde84a44c1bd786a5adcf0356e",
+    "reasoning_tokens": 0,
+    "request_id": "3adad682-a2aa-4507-941c-4248e310002a",
+    "reserved_input": 22439,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:26.163341+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-question-094",
+  "outcome": {
+    "answer": "You can measure whether a model learns new rules or knowledge from provided text with a pretest-posttest setup that blocks prior knowledge leakage, then compare performance on matched test items before and after the text exposure [10]. A strong version is to include both near-transfer and far-transfer tests, so you can see whether the model learned surface facts or more generalizable rules [10]. SLATE does this by using low-resource linguistics puzzle content with negligible web presence and a standardized pretest-posttest design, explicitly aiming to ensure gains reflect learning rather than prior recall [10].\n\nIf you also want to judge learned preferences rather than factual or rule learning, one paper proposes a validation protocol based on alignment with target metrics and compliance with preference axioms [4]. But among these results, the clearest answer to learning new knowledge from text is the benchmarking approach in SLATE, which measures learner knowledge acquisition directly and shows that apparent content quality may not track actual learning gains [10].",
+    "cited": [
+      10,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "57a3a63cd438d18f9be869b4db2742d4e05e5c2c6bc331394342544f800a9d99",
+  "usage": {
+    "accounted_tokens": 3644,
+    "input_tokens": 3428,
+    "latency_seconds": 7.38764309999533,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 216,
+    "provider_request_id": "req_82006c3ec69849e995e4e32d9d3b1ab0",
+    "reasoning_tokens": 0,
+    "request_id": "91e7ef60-da22-49d9-87d2-1cf1ba26ee60",
+    "reserved_input": 22115,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:30:28.092805+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

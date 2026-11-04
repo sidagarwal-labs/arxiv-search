@@ -1,0 +1,44 @@
+{
+  "answer_id": "A215",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-054",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The empirical claim has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports the comparison, 44.7% rate and improved satisfaction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 reports the compressed-prefix difference rate and satisfaction gap.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 states nearly one third remain materially different.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 2 reports missing earlier request dimensions and new endpoint dimensions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Citation only.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

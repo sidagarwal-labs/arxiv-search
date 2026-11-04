@@ -1,0 +1,34 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answer": "Yes. The most directly relevant paper argues that chaotic dynamics make standard RL hard because sensitivity to initial conditions creates high-variance bootstrap targets and poorly conditioned gradients, while distributional RL helps because the return distribution evolves more regularly than individual trajectories under the 1-Wasserstein metric, giving a smoother Bellman objective and better conditioned learning in chaotic systems [1].\n\nA different but related distributional RL result does not focus on chaos directly: it studies how return-distribution learning dynamics reveal a dynamic-programming-like propagation structure and uses that to guide sampling in StructRL [2]. Other supplied papers discuss chaos with generative forecasting or deep learning objectives rather than RL, so they are relevant to chaotic dynamics but not specifically to distributional RL [3, 5, 8, 9].",
+    "cited": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5426b0be7338aa512fd8b9e259f712f97c338d70c57a858474f8577758d71eaf",
+  "usage": {
+    "accounted_tokens": 3538,
+    "input_tokens": 3360,
+    "latency_seconds": 4.37155630000052,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 178,
+    "provider_request_id": "req_07b2b79fa7ae43538b64c1e1dade06eb",
+    "reasoning_tokens": 0,
+    "request_id": "8724fd89-c2a9-43ac-914d-c503c8779b85",
+    "reserved_input": 22365,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:12.369167+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

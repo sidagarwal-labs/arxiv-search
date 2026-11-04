@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-049",
+  "outcome": {
+    "answer": "Several papers address multimodal LLM decoding strategies. The closest matches are training-free decoding methods for diffusion-based multimodal language models: IGFD ranks candidates by confidence, neighborhood uncertainty, and commitment risk to favor semantic anchors over fragile structural tokens [1]; VRCD prioritizes visually complementary positions to reduce visual redundancy among jointly committed tokens [2]; and CACD scores masked positions using confidence plus neighbor proximity to improve coherence and reduce hallucination in long-form outputs [3].\n\nIf you want broader decoding methods for multimodal/vision-language models, the survey summarizes token-level, sequence-level, and parallel generation approaches and notes open challenges [5]. Other supplied papers focus on hallucination mitigation rather than decoding order specifically [4, 9].",
+    "cited": [
+      1,
+      2,
+      3,
+      5,
+      4,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8b7d59848fa4e134b597a61b5206e2fde05278e79e6fd4e97d0eb7c4c8f5fdff",
+  "usage": {
+    "accounted_tokens": 3465,
+    "input_tokens": 3298,
+    "latency_seconds": 2.751637800014578,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 167,
+    "provider_request_id": "req_27d5a6f94a534c9b8e9f112d6b8b6444",
+    "reasoning_tokens": 0,
+    "request_id": "9a92d31b-8afa-4a03-a173-443805ba9465",
+    "reserved_input": 21211,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:24.688220+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

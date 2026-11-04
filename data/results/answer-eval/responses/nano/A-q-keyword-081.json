@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answer": "If you want an LLM-based method specifically for popularity prediction (and not just ranking), TRAIL is a fine-tuned LLM that jointly predicts short-term item popularity and generates explanations, using contrastive learning to align scores and explanations with structured trend signals. It\u2019s designed for practical near-term popularity forecasting in recommendation settings where full-catalog per-user ranking is too time-consuming. [1]\n\nIf your goal is to recommend items while addressing popularity bias or improving fairness, FairLRM uses LLMs to semantically decompose popularity bias into item-side and user-side components using instruction-based prompts, and reports gains in both fairness and recommendation accuracy. [8]\n\nIf you instead want LLMs used to improve recommendation quality via re-ranking (with interpretability), the \u201cLLM as Explainable Re-Ranker\u201d approach combines traditional recommenders with an LLM-based two-stage training re-ranker that targets ranking metrics like NDCG. [2]",
+    "cited": [
+      1,
+      8,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "101e39069c0896c5d145ab4e0269eb5cbd4ad7ed9be30168ca40cbe7df4af54e",
+  "usage": {
+    "accounted_tokens": 3525,
+    "input_tokens": 3311,
+    "latency_seconds": 2.8202118999906816,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 214,
+    "provider_request_id": "req_f76fcd3939ef4d7bad1d6cf5cbe8e00b",
+    "reasoning_tokens": 0,
+    "request_id": "8b4a7579-56a6-4871-8445-28c6b6477a42",
+    "reserved_input": 22522,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:06.798645+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

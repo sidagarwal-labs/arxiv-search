@@ -80,7 +80,7 @@ PLAN = {
 
 
 def prepare() -> dict:
-    if config.RERANK_BASELINE_SYSTEM != REFERENCE:
+    if config.DECISION46_RERANK_SYSTEM != REFERENCE:  # these experiments build on Decision46
         raise ValueError("Reranking baseline changed; create a new experiment identity")
     state = pass2.prepare()
     runs = pass2.build(state, *pass2.pass_scores(state))[0]

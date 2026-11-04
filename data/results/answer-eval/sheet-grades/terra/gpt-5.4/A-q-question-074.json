@@ -1,0 +1,39 @@
+{
+  "answer_id": "A214",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The technical claim has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 supports the angle and loss findings, but does not establish exponential retraction is less stable.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 states algebraic norm preservation and the exponential-map limit.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 6 reports unconditional orthogonality and comparative long-horizon stability.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 1 analyzes a spherical retraction family, but its citation does not substantiate the claim about paper 6.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

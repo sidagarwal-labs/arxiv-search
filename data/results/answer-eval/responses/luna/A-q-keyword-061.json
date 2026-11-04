@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answer": "For chatbots handling conversational noise, attention pooling improved intent-classification F1 over alternative pooling strategies in experiments on BANKING77 and CLINC150; mean pooling degraded performance, while last-token pooling was recommended for clean queries [2]. For robustness to mixed-intent and adversarial prompts, training-free methods were generally more robust than training-based classifiers, though training-based methods had an advantage on harder distinctions such as Java versus Python [3]. For systems that must detect unfamiliar intents, EliDecide uses flexible ellipsoid boundaries and reports strong open-intent detection results [4].",
+    "cited": [
+      2,
+      3,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "52db214f4bd57d500812b26bbc65856819c41d1c10a17a55a04ee97ab9b20fa8",
+  "usage": {
+    "accounted_tokens": 3589,
+    "input_tokens": 3456,
+    "latency_seconds": 3.0107406999741215,
+    "model": "gpt-6-luna",
+    "output_tokens": 133,
+    "provider_request_id": "req_36f8126d5cc84b3fa72bd5d716d54088",
+    "reasoning_tokens": 0,
+    "request_id": "57d6e157-458c-4a88-bbda-f42e6138fc58",
+    "reserved_input": 21952,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:54.385011+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

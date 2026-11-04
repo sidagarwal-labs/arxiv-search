@@ -1,0 +1,32 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-026",
+  "outcome": {
+    "answer": "Altmann\u2019s \u201cQuantum Generator Kernels\u201d paper introduces Quantum Generator Kernels (QGKs), a generator-based approach to quantum kernels. It uses a set of Variational Generator Groups (VGGs) that combine universal generators into a parameterizable operator to provide scalable coverage of quantum space, and it trains a weight vector to parameterize how the VGGs project in the current data context for kernel alignment. The paper argues this addresses limitations of hybrid architectures with fixed intermediate embedding processes under NISQ constraints and reports empirical improvements in projection and classification versus state-of-the-art quantum and classical kernel approaches. [1]\n\nIf you meant instead a different \u201cquantum generator\u201d concept, note that the other supplied papers focus on quantum kernel estimation under shot budgets (AQKA) [4], spectral properties of quantum Gaussian process kernels [2], and alternative kernel constructions (e.g., q-Hermite/q-orthogonal kernels) [3], rather than generator-based kernels like QGKs. [1-5]",
+    "cited": [
+      1,
+      4,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "aae2b6eab83d55bc88a3398f3e32923de4be466f877efb20237c838aa65a9bfb",
+  "usage": {
+    "accounted_tokens": 4447,
+    "input_tokens": 4223,
+    "latency_seconds": 3.1243171999813057,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 224,
+    "provider_request_id": "req_189ccf1eb4364926b1069c4fc9b10265",
+    "reasoning_tokens": 0,
+    "request_id": "4f2f7037-4324-445c-bb91-64da379f366e",
+    "reserved_input": 24238,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:26.269884+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answer": "Yes\u2014paper [1] is the match: it is by Woosung Koh and focuses on \u201cContinually Post-training Small Models via Synthetic Self-distillation.\u201d It says standard self-distillation fails on smaller models, and proposes Synthetic Self-Distillation (SynthSelf) to provide high-quality supervision for small models without breaking their original distribution. [1]\n\nIf you meant a different self-distillation paper, [2] is also related but it targets diffusion language models rather than small continual post-training, and [8] is about verifier-guided distillation for small language models rather than synthetic self-distillation. [2, 8]",
+    "cited": [
+      1,
+      2,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "e8421a1fe8454b32ff9260a5ffdf8ec987cfadacaf75112b19c7d2744b7434be",
+  "usage": {
+    "accounted_tokens": 3739,
+    "input_tokens": 3590,
+    "latency_seconds": 2.404200099990703,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 149,
+    "provider_request_id": "req_aad8b0636b5847da9d08193984bb8808",
+    "reasoning_tokens": 0,
+    "request_id": "8d496088-cf01-4d1e-a4e4-75ba16b30cb9",
+    "reserved_input": 21806,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:52.276866+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

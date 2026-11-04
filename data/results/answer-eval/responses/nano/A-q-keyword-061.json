@@ -1,0 +1,32 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answer": "Robust intent classification for chatbots can be improved by (1) choosing an instruction-tuned open-weight model that remains reliable under realistic input perturbations, and (2) using noise-robust architecture choices and uncertainty/open-intent handling.\n\nGanesh, Dozier, and Seals provide a systematic zero-shot evaluation showing how instruction-tuned 3B models can outperform some larger base models and how robustness and confidence calibration differ across models, including analysis of robustness to realistic input perturbations and reliability of model rankings. [1] Bogachov, Letov, and Zhao focus specifically on conversational noise in production-style text (e.g., greetings/politeness/off-topic remarks) and find that attention pooling consistently improves accuracy under noisy conditions, while mean pooling can degrade it. [2]\n\nFor robustness beyond closed-set intents, Zou et al. propose ellipsoid decision boundaries for open intent classification that explicitly target robust detection of unknown intents. [4] Chen, Yang, and Hayou compare training-free vs training-based intent classification and report that training-free methods are generally more robust to mixed-intent and adversarial prompts. [3]",
+    "cited": [
+      1,
+      2,
+      4,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "327fafac96346fdeff53377305d4f7dde4cb43d4c1eefefe51e30599073e205f",
+  "usage": {
+    "accounted_tokens": 3707,
+    "input_tokens": 3456,
+    "latency_seconds": 3.331474899983732,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 251,
+    "provider_request_id": "req_5489ac15ddcd475ebb1cdf7e9afe0a9d",
+    "reasoning_tokens": 0,
+    "request_id": "f7391ca3-5b26-4b72-b35a-1d134b258bac",
+    "reserved_input": 21965,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:47.228914+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

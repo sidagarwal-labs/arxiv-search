@@ -1,0 +1,29 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-017",
+  "outcome": {
+    "answer": "The provided results do not include any paper explicitly titled \u201cYang GraDE frequent subgraph discovery,\u201d but they do include a GraDE paper by Yikang Yang et al.: \u201cGraDE: A Graph Diffusion Estimator for Frequent Subgraph Discovery in Neural Architectures\u201d [1]. GraDE proposes a diffusion-guided search framework with a Graph Diffusion Estimator that scores how \u201ctypical\u201d candidate subgraphs are within a learned distribution to improve frequent subgraph discovery beyond what enumeration or sampling alone can achieve [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d9a9d86a7654b80087b1182005ec861f884d79b6fa62089269221ebdff4c089b",
+  "usage": {
+    "accounted_tokens": 3276,
+    "input_tokens": 3152,
+    "latency_seconds": 2.28019220000715,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 124,
+    "provider_request_id": "req_c178871f62a5465c868a547f5b22f316",
+    "reasoning_tokens": 0,
+    "request_id": "0e4b4fc7-ac2a-4ad3-99c2-f0ae80e5c6bb",
+    "reserved_input": 21130,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:17.889372+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

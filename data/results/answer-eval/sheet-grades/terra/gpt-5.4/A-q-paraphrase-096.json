@@ -1,0 +1,44 @@
+{
+  "answer_id": "A010",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-096",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about the papers' methods is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 describes query-sensitive summary trees and subquestion cluster centers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 describes RAPTOR-style trees and attributes much benefit to navigation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 describes NavTree's balanced tree and hybrid frontier walk.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 3 describes binary chunking and multi-granularity beam search without summaries.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 9 uses SVD for cheaper extractive hierarchical summarization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,39 @@
+{
+  "answer_id": "A027",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-025",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 describes source filtering and the fixed-vocabulary local probe.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 states its output cannot drift outside the fixed source vocabulary.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 3 and 4 evaluate metadata-enriched retrieval in financial and enterprise settings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The comparison makes claims about papers but has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 2 proposes dimensional partitioning and controlled fallback.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,27 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-062",
+  "outcome": {
+    "answer": "The supplied papers do not address Flek physics constraint adversarial attacks. They focus on Bengali dialect speech and NLP, code-mixed sentiment and hope-speech detection, dialect alignment, abusive-text dialect identification, polarization, African language detection, Indian oral traditions in LLMs, and Dravidian language models [1-10].",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "e367f17955f8e7938e3306edceae3fba78d2fe2438b0b33b86189fc1b2a97710",
+  "usage": {
+    "accounted_tokens": 3467,
+    "input_tokens": 3377,
+    "latency_seconds": 2.0815781999845058,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 90,
+    "provider_request_id": "req_5cda282e01124cf298ff715a76fcfd85",
+    "reasoning_tokens": 0,
+    "request_id": "b3196b92-52cf-4f23-9448-f254fed0dfc2",
+    "reserved_input": 21051,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:06:06.152273+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

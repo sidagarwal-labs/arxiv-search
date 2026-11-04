@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-053",
+  "outcome": {
+    "answer": "Yes: the supplied papers suggest two practical ways to inspect activations during inference with low slowdown. For model-serving observability, DMI-Lib decouples internal-state collection from the inference hot path using an asynchronous observability substrate, preserving serving optimizations and tight GPU memory budgets; it reports only modest overhead in offline and online serving and lowers latency overhead versus similar baselines [7]. For multi-GPU interpretability, another system scales activation-level inspection to large models while reducing activation memory and increasing throughput, sustaining collection of full layer-wise activation trajectories during generation [4].\n\nIf you want inspection for decision-making rather than raw tracing, lightweight readers of internal states can also avoid much extra cost. Gnosis passively observes hidden states and attention patterns, compresses them into fixed-budget descriptors, and predicts correctness with negligible inference cost [1]. Related work also uses internal activations for early correctness prediction and early stopping, reducing token usage by pruning weak trajectories early [9].",
+    "cited": [
+      7,
+      4,
+      1,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3e16aa13c45449b2e1ceb2decb2820c57f3197e9ff388932c323089466e0682c",
+  "usage": {
+    "accounted_tokens": 3236,
+    "input_tokens": 3021,
+    "latency_seconds": 5.190940300002694,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 215,
+    "provider_request_id": "req_638617819f4e4a979dcae0538b103cf3",
+    "reasoning_tokens": 0,
+    "request_id": "db3c72c2-db71-4aa8-96cc-a7fa7fc5b345",
+    "reserved_input": 19699,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:28:46.760128+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

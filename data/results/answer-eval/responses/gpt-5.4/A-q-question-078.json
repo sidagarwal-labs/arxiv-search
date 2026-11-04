@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-078",
+  "outcome": {
+    "answer": "Yes: one supplied paper directly proposes an automated way to judge trustworthiness-assessment reports. It uses importance-weighted rubrics of investigative questions and expected short answers, created for news articles, and then applies an AutoJudge to score new system runs against those reusable rubrics. The goal is to evaluate reader-oriented, well-attributed reports that help readers assess whether news is trustworthy, and the automated rankings align well with the original human-assessed evaluation [1].\n\nRelated papers focus more on building such trust reports or verification aids than on judging them. One DRAGUN system generates critical questions, retrieves evidence, and synthesizes concise trustworthiness reports with citations, but it mainly reports system design and performance rather than a general automatic judging method [2]. Other work uses multi-source consensus to estimate factual reliability in AI-generated news summaries [4] or browser tools that surface credibility signals for verification workflows [7], which are adjacent but not the same as automatically evaluating trustworthiness-assessment reports [4, 7].",
+    "cited": [
+      1,
+      2,
+      4,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d427f896d374fbf0ba755068f087f0fa2eaade6e69718d0c9a2630ad022deb10",
+  "usage": {
+    "accounted_tokens": 3720,
+    "input_tokens": 3498,
+    "latency_seconds": 5.820334399992134,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 222,
+    "provider_request_id": "req_ebf1066bda904f1ea5894d8256a2652b",
+    "reasoning_tokens": 0,
+    "request_id": "24284eee-4681-44b1-afb3-5816bf6193e7",
+    "reserved_input": 22121,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:24.708263+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

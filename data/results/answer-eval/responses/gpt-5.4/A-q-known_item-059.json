@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answer": "The matching paper is GraphER: An Efficient Graph-Based Enrichment and Reranking Method for Retrieval-Augmented Generation by Ruizhong Miao, Yuying Wang, Rongguang Wang, and coauthors [1]. It proposes a graph-based enrichment and reranking framework for RAG that builds a graph at query time from proximity relationships in the data, then applies graph-based ranking to surface top candidate documents [1]. The paper emphasizes improved retrieval completeness across table retrieval, multi-hop retrieval, and long-document retrieval, while requiring no additional graph infrastructure and integrating with standard vector stores [1].\n\nRelated reranking papers differ in how they use graphs. L2G also supports graph-based retrieval, but it induces document graphs from listwise reranker logs instead of constructing a query-time graph like GraphER [2]. Other RAG reranking work here focuses on utility-aligned reranking with LLM feedback or efficient listwise reranking rather than graph-based enrichment, such as RRPO and LURE-RAG [3,4].",
+    "cited": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "57b1078d5fa9aa730b2d4628af8e9a9c130776ed1c51284924105a728452e67c",
+  "usage": {
+    "accounted_tokens": 3655,
+    "input_tokens": 3427,
+    "latency_seconds": 4.206453599996166,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 228,
+    "provider_request_id": "req_22aacdb2d32d4b52a1a446d4446db6de",
+    "reasoning_tokens": 0,
+    "request_id": "9e002967-c4b4-486d-a2e7-7f7d9fcb14f7",
+    "reserved_input": 21533,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:09:45.785013+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -577,3 +577,18 @@ def test_pool_oracle_reorders_only_the_pool_by_grade_then_source():
     queries = {"q": {"source_arxiv_id": "c"}}
     assert catalog.pool_oracle_run(run, labels, queries, depth=4) == {
         "q": ["c", "b", "d", "a", "e"]}  # e is outside the pool, so it stays last
+
+
+def test_refinement_cost_adds_its_passes_to_decision46(tmp_path):
+    import json
+    from arxiv_search import config
+    from arxiv_search.evaluate import results_catalog as catalog
+    base = tmp_path / config.DECISION46_RUN_DIR
+    base.mkdir()
+    (base / "report.json").write_text(json.dumps({"cost_per_query_usd": 0.03}), encoding="utf-8")
+    refine = tmp_path / "refine"
+    refine.mkdir()
+    (refine / "report.json").write_text(json.dumps(
+        {"accounting": {"refine": {"accounted_usd": 1.0, "requests": 200}}}), encoding="utf-8")
+    assert catalog._folder_cost_per_query(tmp_path, "refine") == 0.03 + 1.0 / 200 * config.RERANK_REFINE_PASSES
+    assert catalog._folder_cost_per_query(tmp_path, "missing") is None

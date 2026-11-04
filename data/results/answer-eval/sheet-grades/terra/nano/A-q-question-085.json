@@ -1,0 +1,29 @@
+{
+  "answer_id": "A052",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-085",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The broad claim has no citation, and editing-condition shifts are not established in the supplied abstracts.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports the specified features and differing post-2022 trajectories.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The benchmark shows temporal gaps degrade attribution and identifies temporal drift.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,44 @@
+{
+  "answer_id": "A062",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-077",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about the supplied papers lacks citations.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited studies examine FP4 training stability, recipes and adaptive scaling.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "AGoQ quantizes activations and gradients to reduce memory and communication time.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "PULSE communicates compute-visible updates in distributed RL post-training.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The paper addresses private low-rank fine-tuning, without describing low precision or distributed devices.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "RockNet describes distributed low-power devices but not low-precision numbers or privacy guarantees.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

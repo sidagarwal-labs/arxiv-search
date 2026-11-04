@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-005",
+  "outcome": {
+    "answer": "Several papers study reinforcement-learning self-play for strategy games. For real-time strategy, Generals.io agents trained with policy-gradient self-play on win/loss rewards achieved superhuman play [1]. For asymmetric board games, an AlphaZero-style approach for Tablut used separate policy and value heads for each player role, with techniques to stabilize training [2]. In hidden-information strategy games, Ataraxos combined self-play reinforcement learning with test-time search to achieve superhuman Stratego play [3].",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ff6ac03304138188c4122e55e711f365dbd5fa1f7c8f1cb191a5ece73e9049ad",
+  "usage": {
+    "accounted_tokens": 3701,
+    "input_tokens": 3583,
+    "latency_seconds": 3.0802232999994885,
+    "model": "gpt-6-luna",
+    "output_tokens": 118,
+    "provider_request_id": "req_133f40936c344635b859bfd14528c3af",
+    "reasoning_tokens": 0,
+    "request_id": "036d2e56-8dce-4517-ac6e-4fb970b3b62f",
+    "reserved_input": 22127,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:52:57.438840+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

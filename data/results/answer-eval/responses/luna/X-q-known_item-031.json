@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-031",
+  "outcome": {
+    "answer": "None of the supplied papers addresses Boyd\u2019s clinical provenance categorization; the results focus on language-model output length and related topics.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "244c976908ffa79cc05effbf4a6a8f7902dff50b9e993ebb0220d771c740da99",
+  "usage": {
+    "accounted_tokens": 3321,
+    "input_tokens": 3279,
+    "latency_seconds": 5.268683800008148,
+    "model": "gpt-6-luna",
+    "output_tokens": 42,
+    "provider_request_id": "req_a6a5a35232f442f2baff35fd85248f2d",
+    "reasoning_tokens": 0,
+    "request_id": "7706028b-de3d-4b0e-9f3b-83e6e60edfac",
+    "reserved_input": 21384,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:37.540133+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "answer_id": "A313",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited abstracts describe group-level synthetic-data curation and ADAPT's online reweighting and results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Meta-Judge uses controlled degradation; AutoSynth optimizes workflows using LLM judges without reference datasets.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-072",
+  "outcome": {
+    "answer": "Yes. HASTE is the paper by Tripti Shukla and coauthors on hierarchical and attribute-aware supervision for generative recommendation, and it explicitly adds hierarchical supervision to improve training efficiency and long-tail performance [1]. Its Hierarchical Loss supervises each level of semantic IDs and speeds convergence, while attribute-specific losses preserve fine-grained item attributes [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d2426d850a75425713a8e064ab5395014c234a2f2c574e63b73db1e2b8d51e62",
+  "usage": {
+    "accounted_tokens": 3687,
+    "input_tokens": 3597,
+    "latency_seconds": 2.103450700000394,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 90,
+    "provider_request_id": "req_b5fa8b70ac5b419d83e0e90c77245c16",
+    "reasoning_tokens": 0,
+    "request_id": "6d891b14-cad5-4711-9061-86aa93d40f26",
+    "reserved_input": 23981,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:57.555936+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

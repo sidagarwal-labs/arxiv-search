@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-006",
+  "outcome": {
+    "answer": "Yes \u2014 the closest match is a debiasing-unlearning approach that removes the influence of specific problematic data points without full retraining. FUDLR reframes fairness debiasing in LLM-based recommender systems as an efficient machine unlearning task, identifying bias-inducing samples and then estimating and removing their influence on model parameters instead of retraining the whole model [2]. CRAGRU is similar in spirit for recommendation unlearning: it targets a user\u2019s data, reduces collateral impact on others, and avoids retraining the base model by using retrieval and generation stages [1].\n\nIf you mean search-query suggestion engines specifically, none of the supplied papers directly studies that setting; the closest search-related paper only audits query suggestion bias, not removing data-point influence without full model updates [9].",
+    "cited": [
+      2,
+      1,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "dc87c04d84df45b40cd22283d625ae29a7797ab732043c127786cf395a9309fa",
+  "usage": {
+    "accounted_tokens": 3334,
+    "input_tokens": 3148,
+    "latency_seconds": 2.718327300011879,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 186,
+    "provider_request_id": "req_41c7db97310e40c5a4ebffd8cc492a5e",
+    "reasoning_tokens": 0,
+    "request_id": "54a01a27-0638-498f-b7de-a0e297f279c8",
+    "reserved_input": 20565,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:14.714621+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

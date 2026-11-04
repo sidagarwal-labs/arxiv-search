@@ -1,0 +1,27 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-known_item-096",
+  "outcome": {
+    "answer": "None of these papers appears to be by Qiao or about variable-length semantic IDs. The supplied results are about atmospheric and Earth-science foundation models, generative modeling, and evaluation frameworks, not semantic ID methods.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "75bcc2326400b00f506da29994197bf781624c9c175b7eb2238bb9a81b82442a",
+  "usage": {
+    "accounted_tokens": 3678,
+    "input_tokens": 3618,
+    "latency_seconds": 2.7132769000018016,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 60,
+    "provider_request_id": "req_8a96e7d94eec451b85883f3413ea7cc7",
+    "reasoning_tokens": 0,
+    "request_id": "58fd63de-3733-4d74-aa81-87ede9f04347",
+    "reserved_input": 23589,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:30:22.752288+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

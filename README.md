@@ -41,15 +41,18 @@ integration, retrieval-augmented answers and public deployment remain pending.
 
 Search runs in two stages ([Decision 45](docs/02-decisions.md#45-safeguard-promoted-as-the-reranking-baseline-two-stage-leaderboard-2026-11-03)):
 **Stage 1 retrieval** (Decision 36, free and deterministic) finds candidates;
-**Stage 2 reranking** asks GPT-5.4 mini to score the top 50 twice, averages the
-two scores ([Decision 46](docs/02-decisions.md#46-two-pass-score-averaging-promoted-as-the-reranking-baseline-2026-11-03)) and blends that order with the retrieval order. GPT-5.4 mini also grades results offline as the judge.
+**Stage 2 reranking** asks GPT-5.4 mini to score the top 50 twice and blends that order with the
+retrieval order (Decision 46), then re-scores the top 20 on a finer scale
+([Decision 47](docs/02-decisions.md#47-top-20-refinement-promoted-as-the-reranking-baseline-2026-11-04)). GPT-5.4 mini also grades results offline as the judge
+and writes the AI summary ([Decision 48](docs/02-decisions.md#48-gpt-54-mini-writes-the-ai-summary-2026-11-04)).
 
 | Component | Current selection |
 |---|---|
 | Corpus and vectors | 23,304 title/abstract records; normalized OpenAI-large embeddings, 3,072 dimensions; local NumPy exact search |
 | Stage 1 retrieval | Tuned BM25 + semantic retrieval; RRF shortlist followed by score reordering ([Decision 36](docs/02-decisions.md#36-recall-preserving-shortlist-score-baseline-promoted-2026-10-29)) |
-| Stage 2 reranking | Two GPT-5.4 mini passes over the top 50, averaged and fused with retrieval order ([Decision 46](docs/02-decisions.md#46-two-pass-score-averaging-promoted-as-the-reranking-baseline-2026-11-03)); approximately $0.028 per uncached query |
-| Relevance labels | GPT-5.4 mini 0/1/2 grades with 100 ASTRA reference overrides; current Decision 46 layer has 3,533 pairs; no human validation |
+| Stage 2 reranking | Two GPT-5.4 mini passes over the top 50 fused with retrieval order, then two passes re-scoring the top 20, keeping rank 1 ([Decision 47](docs/02-decisions.md#47-top-20-refinement-promoted-as-the-reranking-baseline-2026-11-04)); approximately $0.039 per uncached query, p50 5.5 s |
+| AI summary | GPT-5.4 mini answers from the top 10 with [n] citations or abstains ([Decision 48](docs/02-decisions.md#48-gpt-54-mini-writes-the-ai-summary-2026-11-04)); approximately $0.003 per answer |
+| Relevance labels | GPT-5.4 mini 0/1/2 grades with 100 ASTRA reference overrides; current Decision 47 layer has 3,579 pairs; no human validation |
 | Evaluation | 100 dev / 300 held-out queries; graded relevance, source ranking, coverage, cost and reliability |
 
 Exact weights, model snapshot and cached timing scope are in the
@@ -59,14 +62,15 @@ retrieval fallback. Hosted vector storage and real RAG are not deployed.
 
 ## Development results
 
-100 development queries, 23,304 papers, shared Decision 46 label layer
-(3,533 pairs). Compare scores only within the same corpus, query and label scope.
+100 development queries, 23,304 papers, shared Decision 47 label layer
+(3,579 pairs). Compare scores only within the same corpus, query and label scope.
 
 | Two-stage baselines (shared labels) | nDCG@10 | Source MRR@10 | Source R@10 |
 |---|---|---|---|
-| Stage 1 retrieval baseline | 0.7036 | 0.6967 | 86% |
-| Stage 2: + LLM top-50 reranker, one pass (Decision 45) | 0.7521 | 0.7197 | 87% |
-| **Stage 2: + LLM top-50 reranker, two passes averaged (current)** | **0.7684** | **0.7232** | **87%** |
+| Stage 1 retrieval baseline | 0.7007 | 0.6967 | 86% |
+| Stage 2: + LLM top-50 reranker, one pass (Decision 45) | 0.7490 | 0.7197 | 87% |
+| Stage 2: + LLM top-50 reranker, two passes averaged (Decision 46) | 0.7652 | 0.7232 | 87% |
+| **Stage 2: + top-20 refinement, keep rank 1 (current, Decision 47)** | **0.7939** | **0.7383** | **92%** |
 
 - **nDCG@10:** graded relevance of the top 10 results, using 0/1/2 labels.
 - **Source MRR@10:** how high the paper each query was written from appears.

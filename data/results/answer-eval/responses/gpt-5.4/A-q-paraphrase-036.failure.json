@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"The closest comparisons show that fine-tuning usually helps legal vector representations for retrieval, but the best method depends on whether you want narrow specialization or broader robustness across domains. In multilingual EU environmental law, contrastive legal-domain fine-tuning of multilingual embedding models improved Top-k retrieval over strong baselines, with especially large gains in low-resource languages and transfer to unseen languages, suggesting stronger language-independent legal representations [1]. In Brazilian legal search, a legal-only dense retriever was best on the most specialized legal tasks, while a mixed fine-tuning setup combining legal and general supervised data gave the best overall cross-dataset balance and stronger out-of-domain generalization [2].\\n\\nAcross diverse legal collections, the trade-off is explicit: domain adaptation can help most on supervision-aligned subsets, while gains may weaken or vary on other collections [6]. Not all adaptation strategies improve representation utility: for Czech case-law retrieval, a general-purpose embedder outperformed a domain-specific BERT trained from scratch on decisions [7]. Some other papers study legal adaptation for classification, QA, or language modeling rather than vector retrieval utility across domains, so they are only indirectly relevant [3, 4, 8].\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_01255f6fa82a7d41016aeb6741b26c87d2a1921317c74e13dc",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "6c1df80656a9eab996014bac8389c44755d0ec391618ff1fa60afca653a72204",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3370,
+    "output_tokens": 259,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-040",
+  "outcome": {
+    "answer": "Tool specifications can be used as the main source for synthetic test-case generation by extracting semantics from function names, natural-language descriptions, and typed parameter schemas, then using that information to synthesize scenarios without manual curation, examples, or live tool execution [1]. One paper does this from a single MCP specification by enriching raw schemas, generating graded scenarios with synthetic tool outputs, and expanding them into mock-data-grounded multi-turn dialogues, producing realistic evaluation scenarios for tool-using agents [1].\n\nRelated work broadens this idea into full synthetic environments: one framework has a teacher model create novel tasks and tool ecosystems, then uses a user simulator, mock tool system, and rubric-based rewards to support stable evaluation and training [2]. Another line focuses less on specifications themselves and more on stress-testing agents with simulated environments, dynamic hazards, or hard samples, such as recoverable tool unreliability and failure-driven hard trace generation [3,7].",
+    "cited": [
+      1,
+      2,
+      3,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "11e1484f532ce0a8a779f492a926ed3514617f269390878371acd736eb51619f",
+  "usage": {
+    "accounted_tokens": 3787,
+    "input_tokens": 3578,
+    "latency_seconds": 5.282171200000448,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 209,
+    "provider_request_id": "req_e05c989dab7345bf929dcfc48ab7bf0c",
+    "reasoning_tokens": 0,
+    "request_id": "50b92a45-6a5f-474c-a01d-b5d4f8bf8599",
+    "reserved_input": 22822,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:28:27.834661+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

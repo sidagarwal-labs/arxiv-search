@@ -1,0 +1,29 @@
+{
+  "answer_id": "A284",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-032",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "No citation is supplied, and abbreviated author lists do not establish Bekkers's absence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract states the isotropy reduction and its application to flexible equivariant neural fields.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "MetaLF is described as an equivariant transformer-based neural field centered on latent construction and meta-learning.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-094",
+  "outcome": {
+    "answer": "Yes \u2014 the closest match is MoCo Rubric, which uses a single shared vision-language model for the caption policy, rubric generator, and rubric judge, and updates the generator and judge with an exponential moving average of the policy parameters [1]. It is designed for detailed image captioning and uses rubric-based rewards to improve factual accuracy, information coverage, and clarity [1].\n\nThe other papers are less direct matches: one focuses on evaluating specificity versus length in image descriptions [2], and another uses a judge-corrector pipeline for multimodal machine translation rather than captioning [5].",
+    "cited": [
+      1,
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a375c38bdfb543ce3845e927157e8e5d04f16741383cd4e5ef240dcf1537d621",
+  "usage": {
+    "accounted_tokens": 3658,
+    "input_tokens": 3520,
+    "latency_seconds": 2.244331699999748,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 138,
+    "provider_request_id": "req_6a4f4de21291407d8b10aff99385db52",
+    "reasoning_tokens": 0,
+    "request_id": "f2bac362-084a-4c51-a407-b2747bb2d15a",
+    "reserved_input": 22387,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:11.056912+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

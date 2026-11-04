@@ -1,0 +1,49 @@
+{
+  "answer_id": "A023",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-089",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited studies address early AD, MCI, or early cognitive decline.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited papers describe the listed clinical, behavioral, speech, imaging, EEG, and prognosis signals.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This is a transition introducing differences rather than a specific factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "Papers 2 and 3 support behavioral screening, but paper 6 does not establish a home-based setting.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 4 studies cross-linguistic Alzheimer's detection.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "The summary claim about results is uncited; the diagnostic caution alone does not supply a citation.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

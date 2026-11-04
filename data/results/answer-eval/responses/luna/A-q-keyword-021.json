@@ -1,0 +1,12 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-021",
+  "outcome": {
+    "detail": "Incomplete response",
+    "status": "incomplete"
+  },
+  "request_sha256": "6c9a2f4bd5536cc7cd77eb9e84a12df4a383a78048d650901e56d576057cf06f",
+  "usage": {
+    "recorded": true
+  }
+}

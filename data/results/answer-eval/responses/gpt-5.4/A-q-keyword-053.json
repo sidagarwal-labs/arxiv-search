@@ -1,0 +1,38 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answer": "Yes. The strongest direct match is a graph-based reaction foundation model: RxnCLF represents each reaction as a condensed reaction graph that merges reactants and products, then uses self-supervised contrastive learning to learn transformation-aware reaction embeddings for reactivity and yield prediction [1]. It outperforms graph- and sequence-based baselines on multiple yield prediction benchmarks and is intended to support other reaction informatics tasks such as regioselectivity, enantioselectivity, and condition optimization [1].\n\nOther graph machine learning work is adjacent but differs in focus. enviGraph uses graph-to-sequence pretraining for biodegradation product and pathway prediction, improving some benchmark results with synthetic reaction pretraining [6]. ReACT-Drug applies reinforcement learning over chemically valid, reaction-template-based transformations for de novo drug design rather than reaction prediction itself [4]. The remaining papers are mainly language-model or general molecular graph methods rather than graph ML specifically for chemical reactions [2, 3, 5, 7, 8, 9, 10].",
+    "cited": [
+      1,
+      6,
+      4,
+      2,
+      3,
+      5,
+      7,
+      8,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "685c2f1c3ad82f62c4b8bf36ae03c603231f194fc788ded0d12662e017894010",
+  "usage": {
+    "accounted_tokens": 4108,
+    "input_tokens": 3877,
+    "latency_seconds": 5.0546300999994855,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 231,
+    "provider_request_id": "req_851ac5b00dab44afaddc981dfb85b575",
+    "reasoning_tokens": 0,
+    "request_id": "fbcb4580-3cb8-43fd-97ce-eaca9d6c20df",
+    "reserved_input": 23861,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:36.607268+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

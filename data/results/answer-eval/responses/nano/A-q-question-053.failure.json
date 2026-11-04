@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"You can inspect internal activations during inference with little or no slowdown by (1) using lightweight mechanisms that passively read hidden states and attention patterns without extra forward passes, or (2) engineering an observability system that captures/stages activation tensors asynchronously off the inference hot path.\\n\\nGnosis is a \u201clightweight self-awareness mechanism\u201d that enables frozen LLMs to decode correctness cues from hidden states and attention patterns with negligible inference cost, by passively observing internal traces, compressing them into fixed-budget descriptors, and predicting correctness independently of sequence length [1]. DMI-Lib similarly targets serving performance: it decouples observability from the GPU inference hot path using an asynchronous observability substrate, reporting only 0.4%\u20136.8% offline batch overhead and ~6% in moderate online serving, and reducing latency overhead by 2x\u201315x vs baselines with similar observability features [7].\\n\\nIf instead your goal is to interpret or steer from activations while running efficiently on multi-GPU models, \u201cDistributed Interpretability and Control\u201d provides a practical activation-level logit lens/steering-vector implementation that reduces activation memory (up to 7x) and increases throughput (up to 41x) while collecting full layer-wise activation trajectories without fine-tuning or additional forward passes [4].\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_0f2e76e9b13bdab1016aeb6282f94c87d2bfa14c08749d72ca",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "a550e8453c7538c578d30d2cf637d5c42e1170e7b37ce19584fa180b3e314e25",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3021,
+    "output_tokens": 290,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

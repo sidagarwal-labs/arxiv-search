@@ -1,0 +1,44 @@
+{
+  "answer_id": "A014",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about the closest papers' dense/sparse focus has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] describes learned sparse retrieval, reduced index memory, inverted indexing, and commodity-CPU effectiveness comparable to dense models.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[2] extracts BM25-ready sparse vocabularies from dense retrievers without sparse-retrieval supervision.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[7] trains SAE-based sparse retrieval from dense representations; [10] projects dense token embeddings into sparse retrieval representations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "[9] explicitly tunes a rank/score combination of dense embedding and sparse lexical retrieval lists.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "[3] reconstructs query embeddings through sparse non-negative document combinations and reports improvements over dense inner-product retrieval.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

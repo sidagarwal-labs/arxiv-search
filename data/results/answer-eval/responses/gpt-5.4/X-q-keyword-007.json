@@ -1,0 +1,35 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-keyword-007",
+  "outcome": {
+    "answer": "For synthetic data curation with LLMs, these results do not directly cover curation pipelines or synthetic-data filtering. They mostly address how LLMs change writing style and how personalization or adaptation affects author-style retention, which is relevant if you are curating synthetic text for stylistic diversity or fidelity. LLM rewriting and generation tend to normalize style and homogenize outputs, reducing author-specific signals and stylistic diversity [1, 3, 5, 8, 10].\n\nIf your interest is synthetic data for personalized or authorship-sensitive generation, the papers differ in focus: PersonalBench measures whether personalized generation really matches a target author and finds it does not bridge the human-LLM authorship gap [9]; FAVoR proposes a federated method to mitigate author-style homogenization during multi-author adaptation [10]; AVShift finds fine-tuned LLMs benefit from stylistically diverse training data when generalizing across genres [2]. But none of the supplied papers directly studies synthetic data curation as a standalone topic.",
+    "cited": [
+      1,
+      3,
+      5,
+      8,
+      10,
+      9,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d388b7a8e5c7bbb85ab6414c70aebbbbb7f1839f6c2d40af5ec59a878536e502",
+  "usage": {
+    "accounted_tokens": 3616,
+    "input_tokens": 3387,
+    "latency_seconds": 6.307632400013972,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 229,
+    "provider_request_id": "req_3f6c5c283ba44b0e8aa7e176f587fed0",
+    "reasoning_tokens": 0,
+    "request_id": "2714d556-2cca-4cf5-aef2-534ccefc5469",
+    "reserved_input": 21384,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:31:07.141780+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

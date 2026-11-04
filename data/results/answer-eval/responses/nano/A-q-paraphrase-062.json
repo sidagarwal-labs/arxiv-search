@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answer": "You generally can\u2019t deterministically guess the number of tokens an AI will generate from the prompt alone, because output length varies with a prompt-conditioned output-length distribution that can be heavy-tailed rather than a single scalar target. Robust length prediction therefore needs to treat multiple generations from the same prompt as evidence of that distribution (e.g., via prompt-conditioned methods). [4]\n\nIf the model (or an agent) can internally estimate how much response remains, you may get more consistent length structure: evidence suggests total response length can be linearly decodable from the prompt\u2019s last hidden state, and the model also shows measurable shifts when it retracts and restarts a partial solution. [1]\n\nFor token usage during agent execution, length can vary by over an order of magnitude across runs because tool feedback and context growth change future inputs; methods like TokenCast forecast using composable cost across execution segments and refresh the forecast as new evidence arrives. [5]\n\n(These differ in whether they target pure completion-length forecasting [4,1] versus end-to-end agent token consumption under evolving context [5].)",
+    "cited": [
+      4,
+      1,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "658bc5581f997bd2e2b0ba1828953fbf7f82983693a58338b48ac5b32b2bf5f6",
+  "usage": {
+    "accounted_tokens": 4008,
+    "input_tokens": 3764,
+    "latency_seconds": 3.5362363000167534,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 244,
+    "provider_request_id": "req_cf77d23bee72463b9d7833c262fa86e5",
+    "reasoning_tokens": 0,
+    "request_id": "03e7c247-b6e7-47ee-ad9a-54a35c260289",
+    "reserved_input": 22777,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:50:04.360794+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-087",
+  "outcome": {
+    "answer": "Yes \u2014 the closest matches are training-free graph retrieval methods that aim to find minimal, query-relevant evidence subgraphs from a knowledge graph. GFM-Retriever directly returns a subgraph using a pre-trained Graph Foundation Model and a label-free selector to find an informationally sufficient and structurally minimal \u201ccore set\u201d [1]. BubbleRAG is also training-free and frames retrieval as finding an optimal informative subgraph over black-box knowledge graphs, while QAFD-RAG is training-free and dynamically adapts traversal to the query\u2019s semantics with retrieval guarantees [5, 3].\n\nIf you specifically want \u201cwithout needing to train the system,\u201d [1], [3], and [5] fit best. [1] emphasizes a pre-trained model plus label-free selection; [5] focuses on evidence-driven retrieval over unknown-schema graphs; [3] emphasizes query-aware traversal with statistical guarantees.",
+    "cited": [
+      1,
+      5,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "06364fc411f4ddc083fee763ecc60a43db252af37eb260ee9335a91d2e185467",
+  "usage": {
+    "accounted_tokens": 3798,
+    "input_tokens": 3597,
+    "latency_seconds": 2.8419470000080764,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 201,
+    "provider_request_id": "req_a298b72bc62141febc173cf33ce635ee",
+    "reasoning_tokens": 0,
+    "request_id": "5e8fb3c6-5928-438e-ba62-f78de105aa6d",
+    "reserved_input": 22388,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:01.630778+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

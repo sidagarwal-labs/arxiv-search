@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-048",
+  "outcome": {
+    "answer": "Yes. Several papers describe adaptive or dynamic retrieval at test time without retraining: ViSAR dynamically determines how many pages to retrieve and is training-free [1]. LAD-RAG also adaptively retrieves the necessary evidence without any top-k tuning [2], and LITTA improves retrieval without retriever retraining while making the accuracy-efficiency trade-off controllable by the number of query variants [6]. MAB-DQA and D2-ScaleAgent likewise dynamically reallocate retrieval budgets or expand retrieval based on query difficulty [9, 10].",
+    "cited": [
+      1,
+      2,
+      6,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "17c702c8c7b479c6a313c8f4183a77960d97a47d4c5c83b64a9112b015cb48f7",
+  "usage": {
+    "accounted_tokens": 3863,
+    "input_tokens": 3736,
+    "latency_seconds": 2.381096400000388,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 127,
+    "provider_request_id": "req_54443d6bfecf414ca7deefb1244fbbcb",
+    "reasoning_tokens": 0,
+    "request_id": "2dfe016b-0bb5-449f-bd79-cdca984657c6",
+    "reserved_input": 23065,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:44.481143+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

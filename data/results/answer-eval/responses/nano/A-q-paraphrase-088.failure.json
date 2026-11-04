@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Programmable scripts can serve as a core \u201cagent execution layer\u201d for managing AI assistant reasoning and tool use, offering a more natural way to chain and parallelize tool calls than rigid JSON calls. Patel et al. report that programmatic tool calling exposes tools as typed Python stubs invoked through code, with execution and results handled in a single agent turn, and that it matches or exceeds native JSON tool calling on their benchmark in most models while remaining robust under parallel fan-out and context rot [1].\\n\\nMore broadly, code can function as the operational substrate that connects reasoning, action, and environment modeling, with harness mechanisms including planning, memory, and tool use for long-horizon execution; Ning et al. frame this as \u201ccode as agent harness,\u201d covering how code artifacts support verification, feedback-driven control, and scaling to multi-agent settings [2]. Related work also emphasizes reusable procedural artifacts (\u201cagent skills\u201d) as composable, maintainable operational layers that coordinate tools and runtime context under task constraints [3].\\n\\nThese approaches differ in scope: PTC focuses on replacing JSON tool calling with script-based tool invocation [1], while code-as-harness and agent skills address the wider architecture for executable, verifiable, stateful agent systems and reusable procedural structure [2,3]. Benchmarks and production systems further motivate reliable tool execution and procedural compliance, though not specifically as programmable scripts as the central structure [6,9,10].\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_0511aed7383e81c6016aeb624f3a1c87d287ff5452eacfe258",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "c0c554d62d1b0debc75e41d4a2e16bf6d4ac4e9db41c77f8e49b008490eb7e4f",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3777,
+    "output_tokens": 309,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

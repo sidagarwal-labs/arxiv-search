@@ -1,0 +1,29 @@
+{
+  "answer_id": "A038",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-known_item-075",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The exclusion is uncited, and truncated author lists cannot establish that Hoehndorf is absent.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] explicitly describes SIDEKICK's FDA-label knowledge graph, drug indications/contraindications/adverse reactions, and HPO, MONDO, RxNorm mappings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "TraceDR uses a knowledge graph, but CTG-DB is relational; [4]'s truncated authorship cannot rule out Hoehndorf.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

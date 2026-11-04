@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-006",
+  "outcome": {
+    "answer": "Yes. The closest match is FUDLR, which targets fairness problems in LLM-based recommender systems without costly full retraining by treating debiasing as machine unlearning: it identifies bias-inducing samples, then estimates and removes their influence on model parameters, improving fairness while preserving recommendation accuracy [2]. This directly fits \u201cerasing the impact of problematic data points without full model updates\u201d for generative recommendation engines [2].\n\nRelated work differs in scope and method. CRAGRU also avoids retraining the whole base model, but focuses on user-specific unlearning in recommender systems and mitigating propagation bias via retrieval-augmented generation rather than general fairness debiasing [1]. If protected attributes are unavailable, H-SAL performs post-hoc concept and attribute erasure from textual profiles, showing debiasing can work without direct sensitive labels, though it is studied for helpfulness prediction rather than generative suggestion engines [5].",
+    "cited": [
+      2,
+      1,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "bc404eedbbfe5f63b273e18cfeb07960c88036186e09a42933df6d44e4b0ae95",
+  "usage": {
+    "accounted_tokens": 3357,
+    "input_tokens": 3148,
+    "latency_seconds": 4.4900782000040635,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 209,
+    "provider_request_id": "req_af2e70ad19bc4d25886d6d8dd2dc00c3",
+    "reasoning_tokens": 0,
+    "request_id": "fbaa6160-05d0-4136-b4ed-b6c9f77f0528",
+    "reserved_input": 20560,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:46.126320+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

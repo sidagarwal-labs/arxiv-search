@@ -1,0 +1,24 @@
+{
+  "answer_id": "A089",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract specifies the capacity, embedding, training-step and sampling-noise costs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The controlled study reports a marginal-learning plateau preceding conditional learning.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

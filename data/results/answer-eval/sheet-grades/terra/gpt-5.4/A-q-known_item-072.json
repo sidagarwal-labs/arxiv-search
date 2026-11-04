@@ -1,0 +1,39 @@
+{
+  "answer_id": "A345",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-072",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone yes makes no factual assertion.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The title and author match the cited paper.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract describes hierarchical and attribute-specific losses.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The reported convergence and evaluation findings match the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited abstracts describe each related method's distinct focus.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

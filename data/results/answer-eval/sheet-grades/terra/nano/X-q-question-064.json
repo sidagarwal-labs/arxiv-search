@@ -1,0 +1,39 @@
+{
+  "answer_id": "A167",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-064",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The causal claim is uncited and does not address token distributions.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The sentence's empirical claims have no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 supports missing relevant evidence and hallucinations, not the general claims about structured or conflicting context.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "The RAG-X claim has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "A standalone citation is not a factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

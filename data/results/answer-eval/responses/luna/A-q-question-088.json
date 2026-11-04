@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-088",
+  "outcome": {
+    "answer": "Store prior interactions as reusable procedural skills rather than relying on the agent to recall full transcripts. LifeMem clusters trajectories by underlying workflow, then retrieves relevant skills and trajectories to guide new tasks, aiming to reduce forgetting and support transfer [1]. Another approach abstracts trajectories into skills and routes identical or similar queries to direct reuse or parameter substitution, while saving novel executions for future reuse [10]. Keep memory organized for retrieval: procedural memories may transfer more reliably than detailed trajectories, but retrieval and organization choices can themselves affect forgetting [3].",
+    "cited": [
+      1,
+      10,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a7e814a3f770e75321762105a6adc0774b4fd1dc36973dfa0a060a85b5dca603",
+  "usage": {
+    "accounted_tokens": 3819,
+    "input_tokens": 3691,
+    "latency_seconds": 4.185336900001857,
+    "model": "gpt-6-luna",
+    "output_tokens": 128,
+    "provider_request_id": "req_6d27308c59a743e5909b9f7221362583",
+    "reasoning_tokens": 0,
+    "request_id": "eb7a7823-4eaa-491e-93c6-0cebf224650b",
+    "reserved_input": 23104,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:34.261040+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

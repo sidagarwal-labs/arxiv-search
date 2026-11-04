@@ -1,0 +1,34 @@
+{
+  "answer_id": "A002",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-036",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The comparative description of the papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports retrieval gains, especially for low-resource and unseen languages.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 reports legal-only specialization and greater mixed-training robustness.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The papers support the comparisons, but paper 3 reports strongest precision-recall balance, not unconditional superiority over LoRA.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

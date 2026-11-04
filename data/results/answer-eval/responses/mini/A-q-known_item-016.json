@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-016",
+  "outcome": {
+    "answer": "The closest match is Rethinking the Role of Efficient Attention in Hybrid Architectures, by Ziqing Qiao and coauthors. It studies hybrid architectures that combine full attention with efficient attention modules such as sliding-window attention and recurrent sequence mixers, and analyzes how efficient attention affects scaling, mechanism, and architecture design [1]. It finds that long-range retrieval is mainly carried by full attention, while efficient attention shapes the optimization trajectory, and it shows that applying NoPE only to the full-attention layers can improve long-context performance [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0f564d06270d73b88c437a2fcbebc46053adaf1558320f10e2e5d1720a4b06d1",
+  "usage": {
+    "accounted_tokens": 3530,
+    "input_tokens": 3404,
+    "latency_seconds": 2.3530941999924835,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 126,
+    "provider_request_id": "req_f37b89fe08804685bc407bfef1836306",
+    "reasoning_tokens": 0,
+    "request_id": "d4a80586-d5ba-4703-b052-19de586ba395",
+    "reserved_input": 22303,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:04.997923+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

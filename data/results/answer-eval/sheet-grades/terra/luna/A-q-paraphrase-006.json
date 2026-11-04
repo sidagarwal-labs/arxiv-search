@@ -1,0 +1,24 @@
+{
+  "answer_id": "A262",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-006",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "FUDLR identifies bias-inducing samples and estimates and removes their influence.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "CRAGRU isolates a target user\u2019s influence using retrieval and LLM generation without full retraining.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

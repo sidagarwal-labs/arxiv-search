@@ -26,7 +26,8 @@ FIELDS = ("ndcg@10", "precision@10", "judged@10", "source_mrr@10",
           "source_recall@1", "source_recall@5", "source_recall@10", "source_recall@20",
           "source_recall@50", "grade2_recall@50")
 LEGACY_FIELDS = FIELDS[:8]  # fields frozen reviews were computed with (pre-Decision45)
-STAGE2_FOLDERS = ("llm-score-dev100", "llm-score-blend", "llm-score-pass2", "llm-score-refine")  # full-dev only
+STAGE2_FOLDERS = ("llm-score-dev100", "llm-score-blend", "llm-score-pass2", "llm-score-refine",
+                  "llm-score-refine-pin")  # full-dev only
 # Promoted or turning-point retrieval systems, oldest first (also charted in 06-charts.md).
 RETRIEVAL_MILESTONES = (
     ("Tuned BM25", "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75"),
@@ -100,6 +101,7 @@ def load_snapshot(root: Path) -> tuple[Path, bytes, dict, dict]:
 
 SHARED_LABELS_D45 = Path("shared-labels") / "labels.json"
 SHARED_LABELS_D46 = Path("shared-labels") / "labels-d46.json"
+SHARED_LABELS_D47 = Path("shared-labels") / "labels-d47.json"
 # Each layer is a frozen file; a later layer must keep every grade of the earlier ones.
 SHARED_LABEL_LAYERS = [
     (SHARED_LABELS_D45, ["llm-score-pilot/judge-fill/labels.json",
@@ -108,8 +110,12 @@ SHARED_LABEL_LAYERS = [
     (SHARED_LABELS_D46, ["llm-score-pilot/judge-fill/labels.json",
                          "llm-score-dev100/labels.json", "llm-score-pass2/labels.json"],
      "46: adds the two-pass reranker top-10 fills"),
+    (SHARED_LABELS_D47, ["llm-score-pilot/judge-fill/labels.json",
+                         "llm-score-dev100/labels.json", "llm-score-pass2/labels.json",
+                         "llm-score-refine/labels.json", "llm-score-refine-pin/labels.json"],
+     "47: adds the top-20 refinement (Experiments E and E2) top-10 fills"),
 ]
-SHARED_LABELS = SHARED_LABELS_D46  # newest layer: what the leaderboard reads
+SHARED_LABELS = SHARED_LABELS_D47  # newest layer: what the leaderboard reads
 
 
 def load_shared_labels(root: Path, layer: Path | None = None) -> tuple[Path, bytes, dict, dict]:
@@ -214,6 +220,8 @@ def write_shared_labels(root: Path | None = None) -> Path:
     root = root or config.RESULTS_DIR
     for relative, sources, decision in SHARED_LABEL_LAYERS:
         path = root / relative
+        if not path.exists() and not all((root / s).exists() for s in sources):
+            continue  # a later layer whose experiments have not run here
         text = json.dumps(build_shared_labels(root, sources, decision),
                           indent=2, sort_keys=True) + "\n"
         if path.exists() and path.read_text(encoding="utf-8") != text:
@@ -221,7 +229,22 @@ def write_shared_labels(root: Path | None = None) -> Path:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
         load_shared_labels(root, relative)  # validate exactly what will be read
-    return root / SHARED_LABELS
+    return load_shared_labels(root)[0]
+
+
+def _folder_cost_per_query(root: Path, folder: str) -> float | None:
+    """Saved $/query for a multi-pass folder; refinement adds its calls to Decision46's."""
+    path = root / folder / "report.json"
+    if not path.exists():
+        return None
+    report = json.loads(path.read_text(encoding="utf-8"))
+    if "cost_per_query_usd" in report:
+        return report["cost_per_query_usd"]
+    refine = report.get("accounting", {}).get("refine")
+    base = _folder_cost_per_query(root, config.DECISION46_RUN_DIR)
+    if refine and refine.get("requests") and base is not None:
+        return base + refine["accounted_usd"] / refine["requests"] * config.RERANK_REFINE_PASSES
+    return None
 
 
 def discover_runs(root: Path) -> dict:
@@ -395,8 +418,11 @@ def describe_system(name: str) -> dict[str, str]:
     if name.startswith("llm-mini-refine20+"):
         opts = dict(p.split("=", 1) for p in name.split("+")[1:] if "=" in p)
         guard = (f"; RRF with the Decision46 order, c{opts['c']}" if "c" in opts else "; no safeguard")
+        pin = name.endswith("+pin1-d46")
+        guard += "; Decision46 rank 1 kept first" if pin else ""
         return {
-            "name": "Decision46 + top20 refinement" + (" + safeguard" if "c" in opts else ""),
+            "name": "Decision46 + top20 refinement" + (" + safeguard" if "c" in opts else "")
+                    + (" + keep rank 1" if pin else ""),
             "lexical": "Retrieval baseline candidates (tuned BM25)",
             "embedding": models["openai-large"] + " (retrieval baseline)",
             "ranker": f"Decision46 reranker, then GPT-5.4 mini re-scores its top{opts['d']} 0-10, "
@@ -573,9 +599,7 @@ def stage2_systems(root: Path, snapshot: dict, papers: dict, queries: dict,
                 continue
             if name in runs:
                 raise ValueError(f"Duplicate Stage 2 system {name}")
-            folder_report = root / folder / "report.json"
-            per_query = (json.loads(folder_report.read_text(encoding="utf-8"))
-                         .get("cost_per_query_usd") if folder_report.exists() else None)
+            per_query = _folder_cost_per_query(root, folder)
             runs[name] = {"run": run, "paths": [path.relative_to(root).as_posix()],
                           "metadata": {}, "cost_per_query_usd": per_query, "folder": folder}
     if not runs:
@@ -1034,8 +1058,11 @@ def write_catalog() -> str:
             f"{config.RERANK_BASELINE_MODEL} scores the retrieval top"
             f"{config.RERANK_BASELINE_DEPTH} in {config.RERANK_BASELINE_PASSES} identical "
             "requests whose scores are averaged, fused with the retrieval order by RRF "
-            f"c={config.RERANK_BASELINE_RRF_C}. Decision45's single-pass system stays as a "
-            "control row.",
+            f"c={config.RERANK_BASELINE_RRF_C} (Decision46); then it re-scores that top"
+            f"{config.RERANK_REFINE_DEPTH} 0-10 in {config.RERANK_REFINE_PASSES} more averaged "
+            f"requests, fused with the Decision46 order by RRF c={config.RERANK_BASELINE_RRF_C}, "
+            "keeping the Decision46 rank 1 first (Decision47). Decision45 and Decision46 stay "
+            "as control rows.",
             *([pilots] if pilots else []), full,
         ])
 

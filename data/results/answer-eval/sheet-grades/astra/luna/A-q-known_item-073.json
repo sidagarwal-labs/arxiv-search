@@ -1,0 +1,29 @@
+{
+  "answer_id": "A022",
+  "candidate": "luna",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The uncited claim of two complexity connections is not established; [2] reports an empirical SLOG study rather than a complexity result.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] explicitly gives NC^1-complete semantic tree evaluation, the TC^0 learnable ceiling, and the impossibility conditional on their separation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[2] learns compositional rules using a neural cellular automaton without handwritten rules and evaluates on SLOG.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

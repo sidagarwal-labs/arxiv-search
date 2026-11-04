@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answer": "Yes: the papers suggest you should treat output length as a prompt-conditioned distribution, not a single fixed number, especially when responses can vary a lot. One paper shows that even with a fixed model and decoding setup, the same prompt can produce a heavy-tailed output-length distribution, and proposes using multiple generations per prompt for more robust prediction rather than a one-shot label [4]. Another finds that total response length is linearly decodable from the prompt\u2019s last hidden state before any output is emitted, suggesting models carry an internal estimate of remaining length [1].\n\nIf the variability comes from multi-step agent runs rather than one completion, prediction is even harder: token use can vary by over an order of magnitude across runs, so forecasts should be updated as execution unfolds [5]. Related work differs in focus: [1] studies internal length representations, [4] focuses on robust prompt-only prediction under heavy tails, and [5] handles revisable forecasting during agent execution.",
+    "cited": [
+      4,
+      1,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "461793707fbfb30fbdfa0f80f8bbca98f2a1a9ecfa1766f64965c2c3fa760090",
+  "usage": {
+    "accounted_tokens": 3978,
+    "input_tokens": 3764,
+    "latency_seconds": 5.531744600011734,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 214,
+    "provider_request_id": "req_2e733fa3b4d44878810f69b4cdce5fc3",
+    "reasoning_tokens": 0,
+    "request_id": "26b9f635-2e22-4d84-a1ad-9b269c397410",
+    "reserved_input": 22772,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:11:58.603323+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

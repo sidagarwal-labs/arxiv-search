@@ -1,0 +1,39 @@
+{
+  "answer_id": "A239",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-030",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A brief affirmative response.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes the partial-order prerequisite framework and structurally valid recommendations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 describes structural explanations and dynamic-programming path generation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The comparative assertion about other systems has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited abstracts describe walkability, cognitive maps, geography, temporal patterns, or next-POI prediction.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

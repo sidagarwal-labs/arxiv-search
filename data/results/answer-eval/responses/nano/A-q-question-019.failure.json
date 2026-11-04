@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Repeating (replaying) pretraining data tends to hurt generalization in a systematic way: evaluation loss can rise to a peak at an intermediate repeat count, meaning that repeating a moderately sized subset a moderately number of times is more damaging than repeating a large subset a few times or a small subset many times. In modern \u201ccompute-equivalent\u201d terms, the most damaging repeat count can be large enough to match the loss of running without repetition but using substantially more FLOPs. [1]\\n\\nThe harm is also scale- and model-dependent in how value changes with additional epochs on the same data. When comparing to fresh data at equal compute, repetition\u2019s cost depends on how many extra epochs are taken relative to unique tokens per parameter. Against training on the same data, a second epoch can be nearly as valuable as a fresh one up to a critical epoch count, after which repeated tokens drop in value; additionally, factors like replaying shards consecutively or concentrating repeats on fewer samples can raise loss. [2]\\n\\nAcross \u201csemantic duplicates,\u201d the damage can increase with model capability: gradients from semantically equivalent documents become more aligned as models get better, so limited uniqueness can lead to rapidly increasing loss penalties for larger models under sampling-with-replacement pretraining. [3]\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_009d8c75027ee60c016aeb6269e38887d299167cafadb4aa2e",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "bb86b92f41f132a7c9df5c21180a8b9cc89275c7d54a3892f6aeb374cd547ed6",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3636,
+    "output_tokens": 275,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

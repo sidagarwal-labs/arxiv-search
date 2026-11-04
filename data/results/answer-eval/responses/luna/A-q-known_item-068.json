@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answer": "Woosung Koh and coauthors introduce Synthetic Self-Distillation (SynthSelf) to make continual post-training work better for small models [1]. It uses a minimally larger aligner from the same model family to generate in-distribution rewrites, alongside off-policy supervision and rejection sampling, avoiding the reliance on small models\u2019 weaker in-context learning abilities [1]. The paper reports consistent gains over six methods across three small-model scales, evaluating both learning new capabilities and retaining prior knowledge [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "abc40e7baa1e3fa7478e09b6aa49d9ec72fda5a0dc5f8b91b20f5780a4264610",
+  "usage": {
+    "accounted_tokens": 3707,
+    "input_tokens": 3590,
+    "latency_seconds": 2.548147900000913,
+    "model": "gpt-6-luna",
+    "output_tokens": 117,
+    "provider_request_id": "req_f2ac7f4a29234760afc89da8333e5f9d",
+    "reasoning_tokens": 0,
+    "request_id": "f558eb59-ed8f-4c13-939c-55498570918b",
+    "reserved_input": 21793,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:15.593863+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

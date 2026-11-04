@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Yes\u2014these papers suggest medical or biomedical knowledge graphs can help clinical LLMs, but mainly when the graph is tightly linked to the clinical question or patient evidence rather than added as generic background context [1, 2, 3, 5, 6]. One line of work studies how to train LLMs on biomedical KGs for diagnosis, finding that \u201csurgical alignment\u201d with sparse, localized updates improves reasoning quality compared with dense task-specific finetuning [1]. Another builds multimodal patient-centered graphs that explicitly connect EHR text, imaging, genomic, and biospecimen evidence to biomedical concepts, and reports gains when questions require combining patient evidence with external knowledge [2].\\n\\nThe papers differ in when and why KGs help. One controlled study finds KG grounding does not improve clinical QA when the decisive facts are already in the model\u2019s training data, but helps strongly for novel or private knowledge [3]. Other work emphasizes provenance and temporality: evidence-traceable temporal KGs improve citation verifiability for rare-disease reasoning [5], and temporal biomedical KGs improve longitudinal clinical reasoning by encoding when findings are relevant during disease progression [6]. Related papers also cover biomedical GraphRAG versus continual pretraining [9] and specialized symptom-centric or predictive patient-state clinical KGs [4, 8].\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_072cdf4c5f141b3d016aeb662f34cc87d2911c3a9c8ad2d18f",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "927a42edc91a2b7b510ced2d4f61c4cdbeae3a618fc369ad87e8d561a62749ba",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 4049,
+    "output_tokens": 288,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

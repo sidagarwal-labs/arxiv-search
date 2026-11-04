@@ -1,0 +1,24 @@
+{
+  "answer_id": "A024",
+  "candidate": "luna",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The authorship and framework description match [1], but this supplied sentence has no numbered paper citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] explicitly reports OpenAI HealthBench, zero-shot improvement from 28.4% to 49.8%, and state-of-the-art performance.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

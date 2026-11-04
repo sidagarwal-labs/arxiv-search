@@ -1,0 +1,49 @@
+{
+  "answer_id": "A371",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The general factual claim is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports early-layer naturalistic and later-layer syntactic alignment.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The stated dual-alignment interpretation matches the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The assertion about related work has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "The paper reports probability-update measures complementing single-layer surprisal.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The context-window and coreference findings match the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "Both cited measures predict reading-time variance beyond the specified baselines.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

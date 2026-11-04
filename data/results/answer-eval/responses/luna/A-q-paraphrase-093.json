@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-093",
+  "outcome": {
+    "answer": "For chip-design documentation, the closest match is a method that groups related EDA artifacts into functional units rather than retrieving isolated snippets. It links each unit to its source chunks, retrieves units and chunks together, then reranks the evidence; the paper reports improved QA results on evaluated EDA documentation benchmarks [6]. As a general approach, intent-driven chunking uses predicted questions to choose chunk boundaries, while adaptive chunking selects a segmentation strategy based on document-level quality metrics [1, 3]. The supplied papers do not specifically evaluate chip-design manual snippets, so these methods are relevant approaches rather than a demonstrated solution for that exact corpus.",
+    "cited": [
+      6,
+      1,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d79bceec5fa5ce9e985974bf09589ea384c297f97c892c3522465b812b6017cf",
+  "usage": {
+    "accounted_tokens": 3590,
+    "input_tokens": 3446,
+    "latency_seconds": 3.3537340000038967,
+    "model": "gpt-6-luna",
+    "output_tokens": 144,
+    "provider_request_id": "req_c67b790ce16c43bf9e4ec1e9833de23a",
+    "reasoning_tokens": 0,
+    "request_id": "dcadb495-cf29-49e6-870b-b1f857701c16",
+    "reserved_input": 22155,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:03.801336+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-047",
+  "outcome": {
+    "answer": "No supplied paper specifically mentions or studies \u201cvan der Klis Lorentz neural networks\u201d or \u201cLorentz neural networks\u201d under the specific attribution to van der Klis.\n\nHowever, paper [1] is a Lorentz (Lorentz-model hyperbolic space) neural network method by Robert van der Klis and coauthors. It argues that existing Lorentz linear layers make hyperbolic norms scale logarithmically with the number of gradient descent steps, and proposes a new distance-to-hyperplane grounded Lorentz linear layer to recover linear scaling while maintaining hyperbolic geometry, with additional efficiency mechanisms via Lorentzian activations and caching.\n\nThe other supplied papers are about different architectures (e.g., Clifford algebra networks [2], quadratic-form training [4], nonlinear vector autoregressive models [5], neural operators [6,7], etc.) and do not address Lorentz hyperbolic networks.",
+    "cited": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c20ae10ef2ccaa057bc5378880adb8f9b09e990e54096788bd4b30123d76c8a1",
+  "usage": {
+    "accounted_tokens": 3510,
+    "input_tokens": 3308,
+    "latency_seconds": 2.6072299999941606,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 202,
+    "provider_request_id": "req_287aed6fe3224e1784072b733669eb8f",
+    "reasoning_tokens": 0,
+    "request_id": "06a3d44d-162b-413b-9293-1c870a0406a6",
+    "reserved_input": 21106,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:42.755766+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

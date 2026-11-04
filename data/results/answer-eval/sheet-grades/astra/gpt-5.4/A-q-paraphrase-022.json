@@ -1,0 +1,44 @@
+{
+  "answer_id": "A012",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative framing word contains no independently assessable factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "[2] supports the slot-filling/SFT/DPO recipe, but does not establish that polarization detection directly measures political leaning.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "[2] lists all four slots and automatically generated DPO preference pairs intended to reduce false negatives.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This is a generic transition to related work without a specific factual assertion.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "[1] improves stance detection using user profiles derived from historical posts; its abstract does not describe slot-based training or DPO.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "[3] studies target-stance extraction on Reddit with zero-shot, few-shot, and context-augmented prompting rather than the stated training recipe.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

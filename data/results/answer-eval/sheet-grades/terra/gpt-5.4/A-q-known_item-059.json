@@ -1,0 +1,44 @@
+{
+  "answer_id": "A169",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The stated title and named authors match the available metadata.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "GraphER constructs a query-time proximity graph and uses graph ranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract reports the three benchmark types and vector-store integration without extra graph infrastructure.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "A transition introducing comparisons.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "L2G induces graphs from listwise reranker logs; GraphER builds a query-time proximity graph.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "RRPO uses LLM feedback; LURE-RAG uses efficient utility-guided listwise reranking.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

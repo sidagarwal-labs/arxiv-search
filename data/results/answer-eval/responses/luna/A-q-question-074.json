@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answer": "For spherical residual connections, the supplied paper says retraction maps differ only in how they convert update magnitude into a rotation angle in the hidden-state/update plane. It compares the metric projection and Cayley retractions, which preserve norm exactly using algebraic operations, within a one-parameter family; the exponential map is a limiting case, and the best validation loss occurs at a finite parameter value rather than with the exponential map [1]. The abstract does not provide a detailed stability comparison among individual retractions.",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5c671b574dc9f08b844d54bb6417d4d7caf799b6d45f1a0d1d004383b5f08b4e",
+  "usage": {
+    "accounted_tokens": 3837,
+    "input_tokens": 3720,
+    "latency_seconds": 4.698078100016573,
+    "model": "gpt-6-luna",
+    "output_tokens": 117,
+    "provider_request_id": "req_53c07f7c9c224f748987651e53b72e24",
+    "reasoning_tokens": 0,
+    "request_id": "4c876abd-e553-4ff5-babc-3e84540c99e0",
+    "reserved_input": 22381,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:15.917937+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

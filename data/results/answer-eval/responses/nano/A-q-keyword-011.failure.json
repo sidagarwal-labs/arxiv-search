@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Relevant results on medical knowledge graphs for clinical LLMs include both KG construction/grounding work and studies of when KG grounding helps.\\n\\nOn linking patient evidence to external medical knowledge, MM-KG builds a multimodal typed graph with explicit alignment edges between patient observations (from EHR text, imaging, genomic, biospecimen) and biomedical concepts, enabling query-conditioned retrieval for downstream LLMs or GNNs, and tests that removing the knowledge relation reduces ranking performance back to a no-knowledge baseline [2]. For temporal clinical reasoning, ChronoMedKG introduces a temporally grounded biomedical KG with evidence-linked triples tied to onset/progression components, plus the ChronoTQA benchmark showing retrieval can rescue failures on temporal questions [6]. For clinical diagnosis with LLMs, surgical KG-LLM training is studied via multiple training paradigms and optimization-geometry diagnostics, identifying \u201csurgical alignment\u201d regimes that produce sparse updates and improved reasoning quality [1].\\n\\nDifferences: [2] focuses on multimodal evidence-to-knowledge links and traceable contributions; [6] adds a time axis for longitudinal reasoning; [1] focuses on how KG signal is integrated during LLM training; [3] finds KG grounding helps mainly for out-of-training knowledge (it may not improve known/public facts on clinical QA).\", \"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_05504980055c4dbd016aeb6194d91c87d28afe335842052a57",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "382b48dd71eecc533cfe0768ab928296479d40df37f25661f646205ed7fd2626",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 4049,
+    "output_tokens": 289,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

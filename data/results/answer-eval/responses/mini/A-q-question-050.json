@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-050",
+  "outcome": {
+    "answer": "Yes. One geometry-based optimizer, ArcGD, was tested on a highly non-convex Rosenbrock function and consistently outperformed Adam under one matched-learning-rate setting, while achieving superior final solutions in most cases under the other setting [1]. Another geometry-focused method, Muon, also improved over Adam on equivariant and molecular settings, and it was reported to substantially outperform Adam in interatomic-potential training [2, 4].\n\nThe papers do not show that geometry-based optimizers always beat Adam on all non-convex surfaces. They show improvements in specific non-convex benchmarks and training tasks, while other work focuses on explaining Adam\u2019s behavior or conditions for its convergence rather than proving it is generally worse [7, 9, 10].",
+    "cited": [
+      1,
+      2,
+      4,
+      7,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "89606a515a17a9374dbbc2b84db2d40b636bbe74c7257df23643e1f41633086b",
+  "usage": {
+    "accounted_tokens": 3928,
+    "input_tokens": 3753,
+    "latency_seconds": 2.652621600020211,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 175,
+    "provider_request_id": "req_b28ce844072b4763a8895bbf12e90917",
+    "reasoning_tokens": 0,
+    "request_id": "e98919c4-c9e9-4f77-b3f0-a0a27f27c28b",
+    "reserved_input": 22424,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:46.885879+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

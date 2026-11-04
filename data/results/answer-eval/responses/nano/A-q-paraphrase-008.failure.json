@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"The closest match is POLO, which targets multi-platform delivery dispatching where couriers work for several platforms but each platform can only observe its own orders and couriers due to privacy/operational constraints. POLO formulates the environment as partially observable multi-agent reinforcement learning and trains each platform-grid pair as an independent agent using only platform-local observations, with an attention-based policy to handle incomplete and heterogeneous courier information. It also uses counterfactual reward shaping to mitigate non-stationarity from joint actions.\\n\\nOther papers use multi-agent reinforcement learning for delivery-like problems (e.g., ride-sharing order dispatch, UAV medical supply delivery, and integrated pickup dispatch/routing), but they do not specifically address managing couriers who work across multiple apps with partial observability from multiple platforms. For example, Triple-BERT focuses on order dispatch on ride-sharing platforms using centralized single-agent MARL, and does not describe multi-platform privacy-limited observations; UAV-MARL focuses on limited visibility among UAV agents within a POMDP.\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_016d2d3e2f4fb693016aeb6218007087d2907d522c2ac8e7fb",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "1dce2e80a28bb672f4d0a0ca8bacbf2e003491932b5612bed4ea0c9447502b5b",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3549,
+    "output_tokens": 223,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Grounded answers must cite papers; ungrounded answers must not"
+}

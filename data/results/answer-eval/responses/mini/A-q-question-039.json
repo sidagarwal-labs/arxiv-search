@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answer": "Use a retrieval setup that attaches temporal validity to each retrieved item and filters or down-weights items that are no longer valid. One option is NuggetIndex, which stores atomic records with evidence links, a temporal validity interval, and a lifecycle state, then filters invalid or deprecated nuggets before ranking [8]. Another is Chronofy, which embeds temporal validity into representation, retrieval, and reasoning using temporal decay and explicit validity checks [4].\n\nIf you want a simpler ranking-focused approach, a recency-aware hybrid re-ranker can reduce stale-document poisoning when date metadata is reliable, but performance depends on accurate temporal metadata [1]. For time-sensitive news, DynaTree adapts retrieval over time and improves freshness and relevance in a live system [7].",
+    "cited": [
+      8,
+      4,
+      1,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "6fb5b7177268e83e803bea23eae757625b9b8c9b004623cb55dd879cb7b8ac08",
+  "usage": {
+    "accounted_tokens": 3678,
+    "input_tokens": 3507,
+    "latency_seconds": 2.412702600006014,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 171,
+    "provider_request_id": "req_5ceecbe3466a4512895dd494d0d8fd20",
+    "reasoning_tokens": 0,
+    "request_id": "73f72de3-f4d4-40f3-b53c-e833bed86831",
+    "reserved_input": 22085,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:39.211001+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

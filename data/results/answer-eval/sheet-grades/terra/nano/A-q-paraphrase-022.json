@@ -1,0 +1,39 @@
+{
+  "answer_id": "A363",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The negative claim about supplied papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper [2] describes slot-filling, DPO and social-media polarization results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [1] uses user-history profiles for political stance detection.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper [3] evaluates prompting for Reddit target-stance extraction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited papers distinguish the DPO recipe from profile and prompting approaches.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

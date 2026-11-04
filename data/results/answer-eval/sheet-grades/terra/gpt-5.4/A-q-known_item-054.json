@@ -1,0 +1,39 @@
+{
+  "answer_id": "A194",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-054",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Affirmation only.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports the 44.7% material difference and higher satisfaction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 reports that prefix compression reduces but does not eliminate differences.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 2 reports missing request dimensions, but does not establish that they cause the answer differences.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 2 measures request-state distribution; paper 1 compares answers under controlled history conditions.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

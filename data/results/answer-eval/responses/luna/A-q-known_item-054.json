@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-054",
+  "outcome": {
+    "answer": "Benjamin Tannenbaum\u2019s study finds that preceding turns can materially change an AI\u2019s answer: answers using the full conversation differed from answers using only the final message in 44.7% of cases. Adding a compressed summary of earlier turns reduced that rate, but did not reproduce the full context in every case. The study examines context within the same conversation, not persistent memory across separate conversations. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8aef2b3613037c0c4c5397e28b2e24d181c0424dac9ea2f3529d683d94bbd21c",
+  "usage": {
+    "accounted_tokens": 3875,
+    "input_tokens": 3776,
+    "latency_seconds": 3.0607405000191648,
+    "model": "gpt-6-luna",
+    "output_tokens": 99,
+    "provider_request_id": "req_c3ad7d80547d40f2a9f614b0c0dc4b9d",
+    "reasoning_tokens": 0,
+    "request_id": "263c30fa-7729-4bc5-a4bf-fa0e57cf684a",
+    "reserved_input": 23276,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:00.928492+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

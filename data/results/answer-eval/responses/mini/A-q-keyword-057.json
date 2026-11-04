@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answer": "The closest matches are papers on learned sparse retrieval and ways to bridge dense and sparse methods. LACONIC trains learned sparse retrievers to close the performance gap with dense models while using less index memory and CPU-friendly inverted-index search [1]. Latent Terms shows that dense retrievers contain sparse features that can be extracted into BM25-ready vocabularies, letting dense models be converted into sparse retrieval without sparse supervision [2]. SPLARE and SSR also use sparse autoencoders to turn dense representations into sparse retrieval models [7, 10].\n\nIf you mean hybrid dense-sparse retrieval, the fusion paper studies a tuned combination of dense and sparse lists [9]. If you mean improving dense retrieval by decoding sparsely, NNN decoding reformulates retrieval as sparse non-negative reconstruction and improves over standard dense scoring [3].",
+    "cited": [
+      1,
+      2,
+      7,
+      10,
+      9,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "b2dbf02e2883a1c9fc946a116e81698be5240dd264dc73da3dbc47a7374a42be",
+  "usage": {
+    "accounted_tokens": 3808,
+    "input_tokens": 3622,
+    "latency_seconds": 3.74438730001566,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 186,
+    "provider_request_id": "req_7bf2bee3cea24cb3ade8c39f50716088",
+    "reasoning_tokens": 0,
+    "request_id": "cdc9b938-4fc5-442e-8187-09bbbba61a68",
+    "reserved_input": 21879,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:34.448223+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

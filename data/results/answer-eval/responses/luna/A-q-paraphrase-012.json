@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-012",
+  "outcome": {
+    "answer": "For identifiers that adapt to changing user behavior during training, DACT is the closest match: it detects item-level collaborative drift, then reassigns codes with a relaxed-to-strict strategy that limits unnecessary changes to existing identifiers [5]. If you want to refresh IDs from recent interaction logs while keeping the retriever compatible, another option aligns refreshed IDs to the existing vocabulary and supports warm-start fine-tuning [2].",
+    "cited": [
+      5,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2bcf277448ef6d64a89c636a2b80adc855926af83f3723d75a559fd879b582ce",
+  "usage": {
+    "accounted_tokens": 3853,
+    "input_tokens": 3752,
+    "latency_seconds": 2.6261113999935333,
+    "model": "gpt-6-luna",
+    "output_tokens": 101,
+    "provider_request_id": "req_488c4074935e40ab938921573643bb48",
+    "reasoning_tokens": 0,
+    "request_id": "2d75de6f-5a24-414a-983f-9a1639d6b985",
+    "reserved_input": 23795,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:50.781845+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

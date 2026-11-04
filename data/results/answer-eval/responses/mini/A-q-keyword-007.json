@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-007",
+  "outcome": {
+    "answer": "Yes\u2014these papers directly address synthetic data curation for LLMs. The closest match is about curation methods for synthetic data in LLM training, arguing that group-level signals are necessary because individual-level signals miss interactions among samples and can hurt downstream performance [1]. Another paper proposes online reweighting for data curation and reports better generalization than offline selection/mixing in instruction tuning and pretraining [3].\n\nIf you want generation-focused curation, there are also papers on automated synthetic dataset workflow optimization [4], bilevel offline selection plus online self-refining generation [9], and seed discovery for cultural data synthesis [8].",
+    "cited": [
+      1,
+      3,
+      4,
+      9,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "279c22b36585e93b4fee7502e639356175cdf351cbb576c08b8d418074987efa",
+  "usage": {
+    "accounted_tokens": 3593,
+    "input_tokens": 3444,
+    "latency_seconds": 2.562828599999193,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 149,
+    "provider_request_id": "req_90d474b36e8a42e5b190c6b3e01849f9",
+    "reasoning_tokens": 0,
+    "request_id": "fb58103e-eaca-4c67-a9ff-400652a2ef31",
+    "reserved_input": 22315,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:03.110707+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

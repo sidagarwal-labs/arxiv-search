@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-085",
+  "outcome": {
+    "answer": "Yes. The most directly relevant paper frames this as \u201cLLM unbranding\u201d and specifically targets removing commercial identity markers such as characteristic language, slogans, and stylistic markers from LLM outputs while preserving general capabilities; it proposes an inference-time method, MUTE, to neutralize this textual trade dress without parameter updates [1]. This is the closest match to removing company trademarks or corporate slogans from generated text without breaking general knowledge [1].\n\nRelated papers address adjacent methods rather than brand-specific unbranding. ZeroUnlearn and NULLs are unlearning approaches aimed at targeted removal while preserving overall utility, but they are about sensitive knowledge or source-level information more broadly, not specifically trademarks or slogans [4, 6]. Domain-agnostic redaction and RedacBench cover rule-based selective text removal with utility preservation, which could be relevant for sanitizing outputs, but they focus on redaction of sensitive content in documents rather than brand-identity suppression in LLM generations [2, 8].",
+    "cited": [
+      1,
+      4,
+      6,
+      2,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "bfa5ef68b09649f9a6e8005c53e0abc74558c736dd7e22f02f9253a9798e306b",
+  "usage": {
+    "accounted_tokens": 3576,
+    "input_tokens": 3356,
+    "latency_seconds": 6.050446700013708,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 220,
+    "provider_request_id": "req_1aede62009e8409fa760f38f94c46643",
+    "reasoning_tokens": 0,
+    "request_id": "814ebe18-b453-429b-9f4c-da0e48a7a9f4",
+    "reserved_input": 21478,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:12:25.205292+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "answer_id": "A234",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-096",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The technical retrieval description has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes summary-node ranking, but attributes leaves-only tree navigation to NavTree rather than RAPTOR.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 describes question-dependent tree construction and sub-question embedding cluster centers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 3 describes attention-guided hierarchical beam search without summaries.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

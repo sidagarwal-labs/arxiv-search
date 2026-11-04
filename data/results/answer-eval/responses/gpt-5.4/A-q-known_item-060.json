@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-060",
+  "outcome": {
+    "answer": "The matching paper is The Missing Complement: State-Conditioned Minimal Sufficient Evidence for Coding Agents by Zhexi Feng, Ruiyi Zhang, Yongbo Yang, et al. [1] It argues that for coding agents, relevance-ranked passages are not enough because sufficiency belongs to the set of evidence: individually relevant passages can still miss one requirement needed for the agent\u2019s next decision. [1]\n\nFeng et al. formulate state-conditioned minimal sufficient evidence recovery: given the agent\u2019s current state, recover a compact combination of evidence that supplies what the next decision still lacks. [1] Their MSS-Complement method treats retrieval as set construction rather than ranking, and on SERBench it recovers complete evidence sets more often than a Qwen3 embedding plus reranking baseline. [1] Related work makes a similar sufficiency point for agent memory selection rather than repository retrieval, arguing that rankings cannot identify sufficient subsets under redundant or jointly necessary evidence. [6]",
+    "cited": [
+      1,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "fc9c706aacc079fee626d0617f63d983ddd07eb518dc88032b34dae284d62f57",
+  "usage": {
+    "accounted_tokens": 3734,
+    "input_tokens": 3521,
+    "latency_seconds": 5.115881399979116,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 213,
+    "provider_request_id": "req_e0bfbe00cd2a4f13bec29c03bca80f6b",
+    "reasoning_tokens": 0,
+    "request_id": "c1225ce7-bfe1-429e-975c-5651b2930767",
+    "reserved_input": 22129,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:09:50.017554+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-077",
+  "outcome": {
+    "detail": "Answer longer than 180 words",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "60828e79356c07ad2c64c096d154a48c22058e65fb9ad66272140b83d30df836",
+  "usage": {
+    "recorded": true
+  }
+}

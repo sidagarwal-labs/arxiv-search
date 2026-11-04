@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-008",
+  "outcome": {
+    "answer": "Yes: the closest match is POLO, which targets instant delivery where couriers may work for multiple platforms at the same time, while each platform sees only its own orders and courier interactions because of privacy and operational constraints [2]. It models this as a partially observable multi-platform dispatch problem and uses multi-agent reinforcement learning with platform-local observations only, so it fits \u201cwithout seeing all their data\u201d [2].\n\nPOLO differs from centralized dispatch RL papers because it is built specifically for cross-platform partial observability and non-exclusive couriers; it uses attention to aggregate incomplete courier information and counterfactual reward shaping for stability, and it improves platform revenue and courier travel efficiency in simulation [2]. Other supplied papers cover delivery or mobility RL, but not this exact setting of drivers/couriers working across several apps with only local data visibility [1, 4, 6, 7].",
+    "cited": [
+      2,
+      1,
+      4,
+      6,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1ec097ca83c2ecbaebf1d5132824f303cce5d0bcce179ebcb37eac4fe60a6c31",
+  "usage": {
+    "accounted_tokens": 3748,
+    "input_tokens": 3549,
+    "latency_seconds": 5.152070700016338,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 199,
+    "provider_request_id": "req_d3882eeca66b40fba687f5b9655d6b0a",
+    "reasoning_tokens": 0,
+    "request_id": "403b6c5d-f162-4d7b-b7fe-8eab44355fc1",
+    "reserved_input": 23332,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:50.638145+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

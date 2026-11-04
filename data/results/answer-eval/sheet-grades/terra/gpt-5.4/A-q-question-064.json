@@ -1,0 +1,39 @@
+{
+  "answer_id": "A042",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The representational and learning claims have no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 explicitly lists capacity, embedding, fitting, and sampling-noise costs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 names the curse and validates theory in synthetic and real-model settings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 2 finds an ambiguity-dependent plateau but does not establish the same general representational curse as paper 1.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 2 reports gradient noise stabilizing the marginal solution and delaying transition.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

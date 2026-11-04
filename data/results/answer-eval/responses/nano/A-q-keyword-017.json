@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-017",
+  "outcome": {
+    "answer": "For linear-time long-context recall, the Raven paper directly targets the recall problem by changing how a linear model writes to memory: it uses a fixed set of memory slots and learned input-dependent routing so only a selected subset of slots is decayed/updated at each step, aiming to preserve long-range content while avoiding interference from dense state updates and avoiding SWA\u2019s fixed-window eviction. It reports strong long-context recall on recall-intensive benchmarks and effectiveness when extrapolating to much longer contexts. [1]\n\nIf you specifically want the \u201clinear attention\u201d route, Kaczmarz Linear Attention (KLA) modifies a delta-rule linear recurrent attention approach by deriving a key-norm-normalized step size for residual updates, aiming to improve accuracy, extrapolation, and decode efficiency while keeping the recurrent state shape and linear recurrence structure. [2]\n\nThese differ from Adaptive Memory Decay for Log-Linear Attention, which focuses on making the Fenwick-tree hierarchy\u2019s decay parameter input-dependent (via an MLP) to adapt memory weighting by content while preserving log-linear complexity. [3]",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "dfe5afd5884d646238d4e07d57dc1c023fd5965ad95c4d7386e4552cea484bc0",
+  "usage": {
+    "accounted_tokens": 3674,
+    "input_tokens": 3436,
+    "latency_seconds": 2.828390799986664,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 238,
+    "provider_request_id": "req_f70999120ee946d8aa5c7b2ca9c69dce",
+    "reasoning_tokens": 0,
+    "request_id": "6661df1e-edd0-4044-aad5-d7ccc280208f",
+    "reserved_input": 21712,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:20.593568+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

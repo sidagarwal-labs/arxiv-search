@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-097",
+  "outcome": {
+    "answer": "Yes. The closest match is Strategically Diverse Sampling for Self-Training, which argues that self-training should select substantively different solution strategies rather than mainly filtering for correctness. It builds self-training data by sampling distinct approaches, and finds that strategically diverse data beats IID correctness-filtered data on hard tasks; strikingly, diverse but incorrect traces can outperform IID distillation from a much larger teacher [1].\n\nRelated papers support the same idea in adjacent settings. One proposes a \u201cone problem, multiple solutions\u201d training paradigm, using a metric to curate maximally diverse reasoning paths, and reports more varied outputs and higher pass@k than a one-solution baseline [3]. Another shows RL with verifiable rewards tends to collapse onto fewer correct solution modes, and mitigates this by replaying one verified example per discovered mode so rare correct strategies are preserved [2].",
+    "cited": [
+      1,
+      3,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "30e0d2a77571ed77c8f2f0c54d2822eae16b30f2759811a851dad165c973d968",
+  "usage": {
+    "accounted_tokens": 3738,
+    "input_tokens": 3546,
+    "latency_seconds": 5.285650900012115,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 192,
+    "provider_request_id": "req_426998d3a75f4422a0f197e42510a96e",
+    "reasoning_tokens": 0,
+    "request_id": "4818b884-8999-4e7d-9725-ab50c6e9b53a",
+    "reserved_input": 21601,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:12:57.586249+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

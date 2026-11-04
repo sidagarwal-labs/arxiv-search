@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-005",
+  "outcome": {
+    "answer": "The supplied papers do not address reinforcement-learning self-play in strategy games. One paper studies policy optimization on Rubik\u2019s Cube tasks, but does not describe self-play or strategy games [5].",
+    "cited": [
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "7e6253da5a9d47db22f2673cd90dcb5d8a7df14c7070745ec5d2f75bf84b7916",
+  "usage": {
+    "accounted_tokens": 3686,
+    "input_tokens": 3630,
+    "latency_seconds": 6.368368800001917,
+    "model": "gpt-6-luna",
+    "output_tokens": 56,
+    "provider_request_id": "req_67983cec264244759ec204d5295ee888",
+    "reasoning_tokens": 0,
+    "request_id": "ef9fe309-5020-4e77-a82d-8133cacfca5d",
+    "reserved_input": 22115,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:59:32.359531+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

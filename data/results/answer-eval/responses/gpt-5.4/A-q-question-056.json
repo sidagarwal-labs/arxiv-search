@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-056",
+  "outcome": {
+    "answer": "Yes. In these results, LLMs can suggest new materials-science experiments without training a task-specific model, by using pretrained knowledge with prompting or few-shot interaction rather than supervised retraining [1, 2, 10]. In particular, an LLM-based active-learning framework proposes experiments directly from text descriptions and, in an iterative few-shot setting, outperformed conventional ML across several materials datasets while reducing the number of experiments needed to find top candidates [1]. LLMs were also used as analogy-driven hypothesis generators to propose novel battery-material candidates beyond established compositional spaces [2].\n\nThe papers differ in how \u201ctraining-free\u201d is used. One focuses on experiment selection in an active-learning loop for materials datasets [1], while another emphasizes analogical reasoning for generating new battery materials [2]. A broader review also says LLMs can coordinate multi-agent experimental systems and laboratory automation in materials discovery workflows, though it does not specifically frame this as training-free experiment suggestion [4].",
+    "cited": [
+      1,
+      2,
+      10,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "455732c8ad62dd00cbc24946e5cf54bca63a9b3d9d2c0c680d8ca9aa762826fd",
+  "usage": {
+    "accounted_tokens": 3839,
+    "input_tokens": 3620,
+    "latency_seconds": 5.208955500012962,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 219,
+    "provider_request_id": "req_25342f11145540f689c89c62155122cb",
+    "reasoning_tokens": 0,
+    "request_id": "65bfb413-3694-45cc-af45-027ede9a81af",
+    "reserved_input": 22775,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:28:51.976596+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

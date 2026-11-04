@@ -1,0 +1,44 @@
+{
+  "answer_id": "A228",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The technical prescription has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Papers 8, 4 and 1 describe validity filtering, decay and recency-aware reranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 3 describes question-dependent recency needs and a taxonomy.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 2 reports temporal leakage and recommends snapshots or stronger safeguards.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 7 describes daily news retrieval adaptation and improved freshness and relevance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Papers 4 and 8 describe those distinct temporal mechanisms.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,49 @@
+{
+  "answer_id": "A142",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-095",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The standalone affirmative asserts feasibility without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "WIND's abstract reports these tasks and zero-shot use without task-specific fine-tuning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 states this conclusion for probabilistic medium-range forecasting.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "A transition introducing a comparison of scope.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "WIND's abstract identifies a range of weather and climate tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Papers 3 and 9 describe observation conditioning without retraining and SST adaptation by fine-tuning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "The review reports that no geospatial foundation model is universally best.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

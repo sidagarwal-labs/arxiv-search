@@ -1,0 +1,34 @@
+{
+  "answer_id": "A070",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-030",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "EST models prerequisite relationships and valid exploration states as order ideals.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes fringe-guided validity certificates and structural explanations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "WalkRAG offers interactive itinerary information, but the abstract does not describe use while physically moving.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "SPAR incorporates spatial embeddings and geospatial pretraining into recommendations.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

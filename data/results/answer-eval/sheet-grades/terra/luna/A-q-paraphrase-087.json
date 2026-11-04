@@ -1,0 +1,24 @@
+{
+  "answer_id": "A091",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-087",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "BubbleRAG targets unknown-schema graphs using a training-free pipeline for evidence subgraphs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "QAFD-RAG provides training-free query-aware retrieval with guarantees, without claiming black-box graphs.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

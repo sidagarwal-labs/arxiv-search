@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answer": "Automated community clustering for topic modeling is addressed by several papers that combine clustering/community detection with embeddings and (in some cases) LLM-based steps.\n\nBrady and Islam propose iterative topic taxonomy induction that builds an interpretable hierarchy by clustering documents via embeddings and then using an iterative LLM process to construct and assign consistent topic labels across clusters [4]. Haschka and Bakarji discover multi-scale semantic structure by applying hierarchical density modeling over LLM embeddings, producing a tree that captures how semantic groups merge at progressively relaxed density levels [8]. Haschka and Bakarji\u2019s approach differs from the taxonomy-induction setting of [4] by focusing on multi-resolution hierarchy from data rather than taxonomy induction.\n\nIf you specifically mean \u201ccommunities\u201d via graph-based methods, Saha et al. use a graph of arguments with multiple relationship types (e.g., topic similarity, shared keywords, entities) and then apply community detection to organize argument communities and summarize viewpoint distributions [7]. This differs from embedding-only or hierarchical density trees by emphasizing community detection on an interaction graph rather than topic-label assignment [7].",
+    "cited": [
+      4,
+      8,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "eaee3d9cef11dbe46e7972cd3f8b6d67617f69ba9017886e700952f608fda854",
+  "usage": {
+    "accounted_tokens": 3660,
+    "input_tokens": 3416,
+    "latency_seconds": 2.91685179999331,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 244,
+    "provider_request_id": "req_7cc56ab3cb3841c7be995f2d6c39efbc",
+    "reasoning_tokens": 0,
+    "request_id": "249f5a2c-646a-43ed-a2ba-688d720e0486",
+    "reserved_input": 22486,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:14.607026+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

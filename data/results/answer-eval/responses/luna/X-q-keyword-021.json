@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-021",
+  "outcome": {
+    "answer": "The supplied papers do not address transformer recommender systems or popularity bias. They focus on writing style, authorship, and language-model text generation.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "1b0383127b38ed966114edb91fc1f7cdb8a73dd539861e8447f60b52cb7c19da",
+  "usage": {
+    "accounted_tokens": 3432,
+    "input_tokens": 3386,
+    "latency_seconds": 4.0488258000114,
+    "model": "gpt-6-luna",
+    "output_tokens": 46,
+    "provider_request_id": "req_8e2ab8a2f5ec45b49441f3566a3162ff",
+    "reasoning_tokens": 0,
+    "request_id": "6b2d474d-77dd-40b9-85c4-34d79ea24f95",
+    "reserved_input": 21388,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:59:05.803065+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

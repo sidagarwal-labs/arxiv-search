@@ -1,0 +1,34 @@
+{
+  "answer_id": "A135",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-040",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 uses names, descriptions and schemas without examples, manual curation or live tools.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes schema enrichment, synthetic outputs and mock-data-grounded dialogues from an MCP specification.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 describes synthetic training, simulation and rubric rewards, but does not establish stable evaluation.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 3 and 7 study failure-driven hard traces and recoverable environmental hazards.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

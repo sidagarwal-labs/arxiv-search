@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answer": "For regional languages on social media, the results cover code-mixed Tulu hope-speech detection [2] and Hinglish sentiment analysis of tweets [3]. Other relevant work studies geographic dialect variation in New Zealand Reddit communities [4], Bengali dialect identification in abusive text [6], and ideological polarization in Bengali social-media comments [7].",
+    "cited": [
+      2,
+      3,
+      4,
+      6,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a27092870012ae2f1d87955dea8740bb3d34392d1d370411024325bcad4c5608",
+  "usage": {
+    "accounted_tokens": 3459,
+    "input_tokens": 3374,
+    "latency_seconds": 2.51259550001123,
+    "model": "gpt-6-luna",
+    "output_tokens": 85,
+    "provider_request_id": "req_de3c0fe074f941528bd37d69b19c2f3e",
+    "reasoning_tokens": 0,
+    "request_id": "e1a965e6-5ba6-426c-bf59-bc9267957468",
+    "reserved_input": 21025,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:11.172658+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

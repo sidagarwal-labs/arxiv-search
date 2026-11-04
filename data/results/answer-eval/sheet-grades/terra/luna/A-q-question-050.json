@@ -1,0 +1,39 @@
+{
+  "answer_id": "A317",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-050",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about optimizer results has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports both learning-rate comparisons and their respective outcomes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "EISAM examines loss geometry and reports improved test accuracy and training efficiency versus Adam.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited studies report Muon improvements and matrix-optimizer gains in their respective domains.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The comparative evidence claim is uncited.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

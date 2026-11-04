@@ -1,0 +1,34 @@
+{
+  "answer_id": "A057",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-075",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "No supplied title or displayed author names identify Hoehndorf; SIDEKICK addresses drug safety.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "SIDEKICK's FDA labels, mappings, RDF serialization and safety surveillance are described.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The assertion about the other papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited papers cover the specified DDI, recommendation, redesign and trial-safety topics.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

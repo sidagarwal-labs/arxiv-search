@@ -1,0 +1,39 @@
+{
+  "answer_id": "A342",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-002",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The description of DyMoE and its method has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports TTFT and token-generation speedups on edge hardware.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited abstracts describe global importance allocation and calibration-free spectral allocation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstract reports router-guided chunk allocation, quality gains, and modest overhead.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The claim about the supplied papers lacks a citation.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

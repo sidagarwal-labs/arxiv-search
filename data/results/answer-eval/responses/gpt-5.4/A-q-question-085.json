@@ -1,0 +1,35 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-085",
+  "outcome": {
+    "answer": "A person\u2019s writing style can shift both over time and across text types, and those shifts are strong enough to affect authorship verification. One benchmark study found that temporal drift is among the strongest factors: verification performance drops as the time gap between documents grows [2]. The same study also found that genre changes matter, with some stylistic features staying stable across genres while their importance changes depending on the genre transition [2]. Related work suggests style is also socially shaped: academic advisors and students, and even academic siblings, show measurable style similarity [6].\n\nAcross different kinds of text, genre can outweigh who wrote it in shaping stylistic features [5]. Several papers also show that rewriting changes style in systematic directions: LLM revision of personal narratives reduces function words, contractions, and first-person pronouns while increasing vocabulary diversity, word length, and punctuation elaboration, pushing texts toward a more polished, less situated register [1]. Similar homogenizing effects appear in post-edited LLM text [3], privacy-preserving rewriting [8], and multi-author personalized generation, where author-specific signals can be averaged toward a shared register [10].",
+    "cited": [
+      2,
+      6,
+      5,
+      1,
+      3,
+      8,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "81925c426b143e93738d58e2924988b8b4d9ae95b2d3be39857617464609425c",
+  "usage": {
+    "accounted_tokens": 3643,
+    "input_tokens": 3395,
+    "latency_seconds": 6.223663899989333,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 248,
+    "provider_request_id": "req_48b8cd30d77e41fda1a26a18e4e573cf",
+    "reasoning_tokens": 0,
+    "request_id": "98dae1ec-b653-4346-bb12-e03b2463311d",
+    "reserved_input": 21442,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:30.553096+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answer": "Yes \u2014 several papers match this area. The closest are papers on topic modeling via clustering and LLM-guided topic organization: TriTopic uses a tri-modal graph with consensus clustering and iterative refinement for topic modeling [2], while ClusterFusion uses embedding-guided partitioning plus LLM-driven topic summarization and assignment [1]. Iterative Topic Taxonomy Induction also combines embedding-based clustering with iterative LLM inference to build a topic taxonomy from unlabeled text [4].\n\nIf you mean community clustering specifically, A Community-Based Approach for Stance Distribution and Argument Organization uses graph-based community detection to organize argumentative content, but it is aimed at argument communities rather than topic models [7].",
+    "cited": [
+      2,
+      1,
+      4,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "14e200a969a9092671fb4c87bcc9d1c4226541f5c506d21b78d82d03aadc9faa",
+  "usage": {
+    "accounted_tokens": 3573,
+    "input_tokens": 3416,
+    "latency_seconds": 2.767088699998567,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 157,
+    "provider_request_id": "req_3e6868e7701647d6bb08473f55b4b61c",
+    "reasoning_tokens": 0,
+    "request_id": "625031a2-744f-4a89-9d2e-fd9415d8a1e1",
+    "reserved_input": 22486,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:08.401541+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

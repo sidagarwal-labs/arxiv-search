@@ -1,0 +1,34 @@
+{
+  "answer_id": "A009",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim that the closest papers concern lifecycle strength has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] explicitly introduces strength as a retention-consequence lifecycle state and frames post-admission failures as lifecycle control.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[8] describes recommendation-specific event, preference, and profile tiers, explicit strength/evidence tracking, and a complete six-operation lifecycle.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[2] emphasizes decay-driven forgetting, [7] retrieval-driven reconsolidation, and [9] write routing plus parametric consolidation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

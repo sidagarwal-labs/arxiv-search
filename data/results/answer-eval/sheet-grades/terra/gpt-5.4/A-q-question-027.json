@@ -1,0 +1,39 @@
+{
+  "answer_id": "A039",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-027",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The scaling-law recommendation is an uncited assertion about the papers.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 connects scaling laws to resource allocation and identifies efficiency barriers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 varies these axes and finds metric-dependent compute-optimal recipes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 5 profiles submodules hierarchically for performance analysis.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Papers 1, 9 and 10 describe the corresponding inference-efficiency methods.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

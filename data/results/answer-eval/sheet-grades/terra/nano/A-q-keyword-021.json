@@ -1,0 +1,44 @@
+{
+  "answer_id": "A083",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-021",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The empirical claim about scaling and popularity bias has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract links spectral collapse to transformer components and describes SPRINT's constraints.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The factual characterization of other work lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "PR-entmax affects context-dependent support and gradients without architectural changes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The DDC abstract describes the BPR geometry and asymmetric correction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The cited papers correspond to the three contrasted methods and scopes.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

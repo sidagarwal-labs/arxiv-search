@@ -1,0 +1,29 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-036",
+  "outcome": {
+    "answer": "Content creators can better understand lack of recommendations by getting transparency into how their specific items influence exposure in recommendation lists. One approach trains a surrogate (proxy) model to approximate a recommender\u2019s item exposure distribution and then attributes which features most drive exposure (or non-exposure) across the whole user base, helping providers see factors behind recommendation outcomes at the system level [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "fbc1c5efa58f5ff42d993099fa59b0ef5eb048b6bb670d83561cfe26723f6808",
+  "usage": {
+    "accounted_tokens": 3530,
+    "input_tokens": 3438,
+    "latency_seconds": 1.773299099993892,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 92,
+    "provider_request_id": "req_f7d23df0dc7048dfb90a182193c03904",
+    "reasoning_tokens": 0,
+    "request_id": "4d686e1a-8f77-4419-8639-c553e97f2170",
+    "reserved_input": 22495,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:50:57.802183+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

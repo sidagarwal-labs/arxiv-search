@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-question-064",
+  "outcome": {
+    "answer": "The supplied papers do not directly answer why neural networks struggle with highly ambiguous token distributions. The closest matches discuss uncertainty and ambiguity in retrieval or QA settings: one notes that stronger retrieval can lead to more confident hallucinations when relevant documents are missing [1], and another uses token entropy or logit-margin uncertainty to decide when to retrieve [10]. Another paper shows that repetitive distractors and recall-sensitive settings are hard for RAG systems, motivating structure-aware decomposition [8].",
+    "cited": [
+      1,
+      10,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1f2e07cb3bc326dc1362e678dad57e120c840313c3e7f24bb5456fb300f45d20",
+  "usage": {
+    "accounted_tokens": 3879,
+    "input_tokens": 3768,
+    "latency_seconds": 2.3488339000032283,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 111,
+    "provider_request_id": "req_fd1ab8090f504a8da320710275d50a2f",
+    "reasoning_tokens": 0,
+    "request_id": "f44b4297-bddc-41d7-82e0-9357d7dd91b2",
+    "reserved_input": 22510,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:35.733674+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

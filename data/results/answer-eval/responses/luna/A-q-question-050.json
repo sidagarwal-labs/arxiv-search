@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-050",
+  "outcome": {
+    "answer": "Yes\u2014some papers report that geometry-motivated optimizers outperform Adam on challenging non-convex tasks, though the evidence is specific to the tested settings. ArcGD outperformed Adam on the highly non-convex Rosenbrock benchmark under one learning-rate comparison and achieved better final solutions in most cases under another [1]. EISAM also reports higher test accuracy and training efficiency than Adam across benchmark datasets, using loss-landscape geometry to guide updates [6]. In other domains, Muon improves over Adam on equivariant architectures [2], and matrix-structured optimizers can improve convergence and final accuracy for interatomic potentials [4]. These results do not establish that geometry-based methods generally beat Adam on all non-convex surfaces.",
+    "cited": [
+      1,
+      6,
+      2,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "23f722f3fb3016d446a6d5e9462b3f470933052814383e4dd08bb414f9367644",
+  "usage": {
+    "accounted_tokens": 3919,
+    "input_tokens": 3753,
+    "latency_seconds": 4.456564399995841,
+    "model": "gpt-6-luna",
+    "output_tokens": 166,
+    "provider_request_id": "req_af6defab2dd84f7a9c5adef465bcf9ec",
+    "reasoning_tokens": 0,
+    "request_id": "db12fde2-778c-48d1-a5b9-1054f55d836b",
+    "reserved_input": 22411,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:54.709382+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

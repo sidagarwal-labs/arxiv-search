@@ -1,0 +1,29 @@
+{
+  "answer_id": "A183",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-040",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Agent Seer uses tool names, descriptions and schemas to synthesize scenarios and dialogues.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports these input constraints and evaluates tool correctness and conversational coherence.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited methods use task ecosystems, text corpora, or compositional tasks respectively.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

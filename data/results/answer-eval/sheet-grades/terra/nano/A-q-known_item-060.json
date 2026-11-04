@@ -1,0 +1,34 @@
+{
+  "answer_id": "A357",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-060",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper frames retrieval as recovering sufficient evidence for the next decision.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "SERBench evaluates captured states and complete annotated requirement sets.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstracts distinguish set sufficiency from context and file retrieval benchmarks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited studies address digitization and broader coding-agent evaluation rather than minimal evidence sets.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answer": "Several papers address LLMs for recommendation and popularity-related prediction, but the closest match is a fine-tuned LLM that jointly predicts short-term item popularity and generates explanations [1]. If you want recommendation reranking rather than popularity forecasting, another paper uses an LLM as an explainable re-ranker to improve ranking accuracy and interpretability [2].\n\nFor popularity bias specifically, one paper uses LLMs to model and address popularity bias with a semantically aware fairness framework [8], and another studies how popularity affects variable-length tokenization in generative recommendation [7].",
+    "cited": [
+      1,
+      2,
+      8,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "02925c018280966b391578a7b69424c879dadef60f9fe70f311a72eb9db54798",
+  "usage": {
+    "accounted_tokens": 3447,
+    "input_tokens": 3311,
+    "latency_seconds": 2.427564700017683,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 136,
+    "provider_request_id": "req_cd69a44fe8c24d96ac3cbf9579a373ff",
+    "reasoning_tokens": 0,
+    "request_id": "70c31e62-9cd0-4cf0-b501-5a4e4b752a6c",
+    "reserved_input": 22522,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:56.735996+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

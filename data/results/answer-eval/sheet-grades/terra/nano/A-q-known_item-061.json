@@ -1,0 +1,39 @@
+{
+  "answer_id": "A107",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 gives the DeCode title, authorship, contextualization, training-free setup and HealthBench evaluation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Citation 1 is DeCode, not the RAG-X diagnostic framework described.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 7 separates retrieval and generation diagnosis rather than explicitly separating content and delivery.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Citation 7 describes diagnostic RAG-X, not the comparative fine-tuned model study.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "A standalone citation contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

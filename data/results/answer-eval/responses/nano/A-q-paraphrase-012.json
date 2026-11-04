@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-012",
+  "outcome": {
+    "answer": "To make item IDs change and update automatically during training in a generative search/recommendation system, the papers support using Semantic IDs (SIDs) but carefully managing their drift so already-learned retrieval/generation paths are not disrupted. One approach is to freeze the SID mappings for existing items while inserting new items, and warm-start the model so updates remain compatible; this \u201cinsert new-items, freeze old-items; warm-start when possible\u201d principle helps prevent retrieval degradation from remapping-induced \u201cSID semantic drift.\u201d [1]\n\nFor user-pattern\u2013aware updates, you can refresh interaction-informed SIDs and then align the refreshed SIDs back to the existing SID vocabulary so the retriever checkpoint stays compatible for warm-start fine-tuning, avoiding full rebuild-and-retrain. [2] Alternatively, for collaborative tokenizers, drift-aware continual tokenization can identify item-level drift confidence and reassign codes using a relaxed-to-strict strategy to limit unnecessary token changes. [5]\n\nThese differ in what they update: [1] focuses on topology preservation under dynamic item arrivals, [2] focuses on aligning refreshed collaborative semantics to prevent staleness, and [5] focuses on continual tokenizer updates guided by drift identification and constrained reassignment.",
+    "cited": [
+      1,
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1de98f3e503be591cb69e61f47b3e39febd3d613172ae854d6ab0d2d3ea2b363",
+  "usage": {
+    "accounted_tokens": 4020,
+    "input_tokens": 3752,
+    "latency_seconds": 3.7906789999979082,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 268,
+    "provider_request_id": "req_872644c6a2584ab4b10da51795dbace3",
+    "reasoning_tokens": 0,
+    "request_id": "8745479c-a51d-4d3b-bece-178d75a8d234",
+    "reserved_input": 23808,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:31.499536+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

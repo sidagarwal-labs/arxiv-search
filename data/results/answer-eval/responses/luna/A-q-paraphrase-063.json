@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-063",
+  "outcome": {
+    "answer": "GRASP directly addresses this setup: it grades label-free multi-topic science exams in which answers to several questions are merged into one paragraph. It indexes reference answers, retrieves likely matches using semantic similarity and graph traversal, assigns distinct references to predicted answer segments, and grades each segment against its match [1]. The paper focuses on retrieval and grading across varying essay complexity; it does not establish performance specifically for a network of reference answers beyond the described semantic similarity graph [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "77b7bf88217307b10722c54436cac9ad2525162c785ad7f1b0610e60081196b9",
+  "usage": {
+    "accounted_tokens": 3712,
+    "input_tokens": 3601,
+    "latency_seconds": 3.2954572000016924,
+    "model": "gpt-6-luna",
+    "output_tokens": 111,
+    "provider_request_id": "req_3048a0574f3d40eda23d051beead5ab3",
+    "reasoning_tokens": 0,
+    "request_id": "1db67ff2-b55d-4597-8c28-e2878225be1f",
+    "reserved_input": 22820,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:43.223576+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

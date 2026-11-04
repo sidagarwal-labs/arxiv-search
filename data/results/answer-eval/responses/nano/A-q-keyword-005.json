@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-005",
+  "outcome": {
+    "answer": "Several of the supplied papers use self-play reinforcement learning to train agents for strategy games. One approach trains a transformer policy with plain policy-gradient self-play on sparse win/loss reward for Generals.io (a real-time strategy game), with an ablation showing an exponential moving average deployment policy and training only on highest-advantage samples for better performance [1]. Another adapts AlphaZero-style self-play to Tablut, modifying the architecture to use separate policy/value heads for each player role and stabilizing training with data augmentation, replay buffer changes, and a portion of games against randomly sampled past checkpoints [2]. For games with large hidden information, Ataraxos applies self-play reinforcement learning and test-time search under hidden information, achieving superhuman results in Stratego and extending to other games including Hanabi and dou dizhu [3].",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2277ed089f8e839bb4350c5cd32ec46b1d24e0707936421a9e6d77ad0ec4b424",
+  "usage": {
+    "accounted_tokens": 3770,
+    "input_tokens": 3583,
+    "latency_seconds": 3.015853299992159,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 187,
+    "provider_request_id": "req_ec07e084e5724be7a26e77564f8aa14e",
+    "reasoning_tokens": 0,
+    "request_id": "5aa13149-ec9a-411b-86c5-77aceaef60f0",
+    "reserved_input": 22140,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:05.040650+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

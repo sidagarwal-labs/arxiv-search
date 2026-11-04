@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-019",
+  "outcome": {
+    "answer": "Repeating training data during pretraining usually hurts base-model performance relative to using fresh data, especially when unique data is the bottleneck [1, 2, 3]. The damage is systematic: exact-document repetition can create a worst-case intermediate repeat count, can waste a substantial fraction of compute, and tends to increase memorization while degrading generalization [1]. With finite unique-document pools, the loss penalty is mild for small models but grows quickly for larger models, including for semantically redundant data as models become more capable [3].\n\nHow much repetition hurts depends on how it is done [2]. A second epoch is nearly as valuable as a fresh one, but repeated tokens become much less valuable after a critical epoch count; larger models tolerate fewer epochs when the corpus is fixed [2]. Repeat structure also matters: consecutive shard replay and concentrating repeats on fewer samples both raise loss [2]. One exception is diffusion language models: under limited unique data, they can outperform autoregressive models by training for more epochs on repeated data [10].",
+    "cited": [
+      1,
+      2,
+      3,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "e2674caeba1d6a8c14c58823313e0db35a414f736afe25e4b8e081050dc1c2c8",
+  "usage": {
+    "accounted_tokens": 3865,
+    "input_tokens": 3636,
+    "latency_seconds": 6.14520149998134,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 229,
+    "provider_request_id": "req_333cc9652c414fed8eff65596b88d27f",
+    "reasoning_tokens": 0,
+    "request_id": "3e534200-e4f1-4f41-8b03-db144952fede",
+    "reserved_input": 22173,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:27:55.740617+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

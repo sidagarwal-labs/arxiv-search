@@ -1,0 +1,24 @@
+{
+  "answer_id": "A343",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-keyword-005",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about the supplied papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract studies policy optimization on Rubik's Cube without self-play.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

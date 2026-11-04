@@ -1,0 +1,49 @@
+{
+  "answer_id": "A248",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-012",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A simple affirmation.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The comparison of methods is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 aligns refreshed IDs with the existing vocabulary for warm-start fine-tuning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 5 describes drift detection, differentiated optimization, and constrained reassignment.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 4 makes semantic indexing differentiable to incorporate recommendation gradients.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 1 reports degradation from remapping and recommends preservation plus insertion and warm-starting.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "Paper 3 describes temporal decay, EMA, and exposure-weighted SID change penalties.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

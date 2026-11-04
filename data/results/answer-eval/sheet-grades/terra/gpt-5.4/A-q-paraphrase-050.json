@@ -1,0 +1,34 @@
+{
+  "answer_id": "A306",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-050",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "No citation is provided; neither supplied abstract tests removing suspect pages to detect misinformation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The study removes gold passages and tests explicit refusal, with detector quality a key bottleneck.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The benchmark reports weak off-the-shelf defenses and a more effective baseline with near-zero utility loss.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

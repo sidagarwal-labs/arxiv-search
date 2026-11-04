@@ -1,0 +1,24 @@
+{
+  "answer_id": "A211",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-keyword-005",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "None of the supplied abstracts describes self-play in strategy games.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The supplied papers cover those training topics, and paper 5 reports improved representations and GRPO gains on cubes.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

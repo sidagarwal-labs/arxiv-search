@@ -1,0 +1,49 @@
+{
+  "answer_id": "A171",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-088",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited papers describe reusable skills or procedural memories and retrieval for later tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "LifeMem clusters workflow trajectories and recalls skills and trajectories with reduced forgetting.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "TRIAGE offers exact reuse and parameter-substituted reuse of trajectory-based skills.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 3 highlights memory representation and retrieval organization as key continual-learning design axes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 3 reports both stronger transfer from abstract procedures and forgetting in some retrieval designs.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "MACE reports better retention and retrieval using linked functional units.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "SWIFT transfers structural priors and demonstrations to generate workflows without iterative search.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

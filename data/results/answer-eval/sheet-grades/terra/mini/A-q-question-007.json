@@ -1,0 +1,29 @@
+{
+  "answer_id": "A040",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Papers 1\u20133 describe planning, feedback, and length-aware reinforcement learning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 5 predicts diffusion output length, but paper 6 guarantees grammar-constrained suffixes, not length constraints.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 7 reports that conciseness reminders reduce excessive output tails.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

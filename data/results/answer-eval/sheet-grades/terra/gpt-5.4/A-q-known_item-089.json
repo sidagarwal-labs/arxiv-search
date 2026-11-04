@@ -1,0 +1,34 @@
+{
+  "answer_id": "A156",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-089",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and author match the cited paper.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes all three sources of fairness limitations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract states the statistical bottleneck and distribution-free guarantee limitation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited papers discuss false-negative tolerance and resource-constrained threshold optimization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

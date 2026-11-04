@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-017",
+  "outcome": {
+    "answer": "Yang et al.\u2019s GraDE is a diffusion-guided framework for discovering frequent subgraphs in neural architectures. Its Graph Diffusion Estimator scores candidate subgraphs by typicality in a learned distribution, aiming to balance the accuracy of enumeration with the computational practicality of sampling [1]. The paper reports improved ranking accuracy and discovery of larger, more frequent patterns compared with sampling-based methods [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1afee058a8413e4b0a3961b5f6080d8a9ac3c1fce9aad7bced2b42f4c981f5e8",
+  "usage": {
+    "accounted_tokens": 3248,
+    "input_tokens": 3152,
+    "latency_seconds": 3.1432604000146966,
+    "model": "gpt-6-luna",
+    "output_tokens": 96,
+    "provider_request_id": "req_e793649d44ad4967ab1bb7aefc4c9c2e",
+    "reasoning_tokens": 0,
+    "request_id": "a7484f43-de8b-4c0d-975f-d312068b7980",
+    "reserved_input": 21117,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:27.062754+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

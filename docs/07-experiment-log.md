@@ -43,7 +43,8 @@ Keep benchmark scopes separate: these rows use different corpora, label pools or
 | Original seven-system graded snapshot | Original OpenAI hybrid; GPT-5.4 mini with 100 GPT-6 ASTRA reference overrides | nDCG@10 **0.686** [0.659, 0.712]; P@10 **0.633** [0.595, 0.673]; judged@10 **100%** |
 | Retrieval baseline (Decision 36; historical scoring layers) | RRF shortlist + max-score 75% ordering, score depth 500; 100 dev queries, 3,294-pair snapshot | nDCG@10 0.7176; P@10 0.689; source MRR@10 0.6967; R@1 0.61; R@10 0.86; R@20 0.89; known-item MRR 0.980 (0.7092 on Decision 45's 3,461-pair layer; 0.7036 on Decision 46's 3,533-pair layer) |
 | Reranking baseline (Decision 45, superseded) | Retrieval baseline top 50 scored by GPT-5.4 mini, RRF safeguard c=30; 100 dev queries, shared 3,461-pair labels | nDCG@10 0.7583; P@10 0.736; source MRR@10 0.720; ≈ $0.014 per uncached query |
-| **Reranking baseline (Decision 46)** | Same, but the mean of two identical GPT-5.4 mini passes; 100 dev queries, shared 3,533-pair labels | **nDCG@10 0.7684; P@10 0.751; source MRR@10 0.723**; ≈ $0.028 per uncached query, p50 2.9 s with parallel passes |
+| Reranking baseline (Decision 46, superseded) | Same, but the mean of two identical GPT-5.4 mini passes; 100 dev queries, shared 3,533-pair labels | nDCG@10 0.7684; P@10 0.751; source MRR@10 0.723; ≈ $0.028 per uncached query, p50 2.9 s with parallel passes |
+| **Reranking baseline (Decision 47)** | Decision 46, then two averaged 0-10 GPT-5.4 mini passes over its top 20, RRF c=30 with its order, its rank 1 kept; 100 dev queries, shared 3,579-pair labels | **nDCG@10 0.7939; P@10 0.783; source MRR@10 0.738**; ≈ $0.039 per uncached query, p50 5.5 s |
 | Full-corpus semantic retrieval | OpenAI large alone; same corpus and dev queries | MRR@10 **0.599** [0.518, 0.679]; R@10 **0.82**, R@20 **0.88** |
 
 The pilot has fewer distractors and cannot be compared directly with the full-corpus

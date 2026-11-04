@@ -1,0 +1,34 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-004",
+  "outcome": {
+    "answer": "The supplied results on computational political bias do not directly address \u201ccomputational political bias Wales\u201d specifically, but they do include a Welsh media case study using computational NLP to detect political framing bias in Welsh political news. In particular, one paper tests bias claims about Nation.Cymru\u2019s political reporting by applying a BERT/RoBERTa-based bias detection pipeline and then using an LLM for target-attributed sentiment classification of bias labels, finding measurable differential framing across parties. [1]\n\nMore generally, several papers focus on measuring or mitigating political bias in LLMs and news/media systems rather than Wales: they propose evaluation frameworks for \u201calgorithmic partisanship\u201d in LLMs [3], benchmarks for political bias in LLMs across political contexts [5], comparisons between human and model bias detection [4], and fairness/bias issues in news summarization [10]. Another paper proposes inference-time mitigation for adversarially injected political bias in LLM summaries. [2]\n\nOverall, only [1] is directly about Welsh political media; the others cover political bias measurement/mitigation more broadly and are not Wales-specific.",
+    "cited": [
+      1,
+      3,
+      5,
+      4,
+      10,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ede0704ea410ce0194247aef4e97c83f2fd48ae7490b3fefc7584ec39d4174ad",
+  "usage": {
+    "accounted_tokens": 3451,
+    "input_tokens": 3203,
+    "latency_seconds": 4.8252892999735195,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 248,
+    "provider_request_id": "req_f59f49cb6dbd4d0d9f671ad61e2229ec",
+    "reasoning_tokens": 0,
+    "request_id": "d099ab32-d0e7-477e-9596-e5480888fd51",
+    "reserved_input": 21498,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:00.193480+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

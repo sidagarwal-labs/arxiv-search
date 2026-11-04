@@ -1,0 +1,27 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-paraphrase-096",
+  "outcome": {
+    "answer": "None of the supplied papers answer this. The results are about adversarial attacks, robustness, and stability in neural networks, relational learning, forecasting, and scientific models, not about finding relevant text chunks with a hierarchy of summaries connecting search terms to documents.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "34fe7e198fada0836413cdd4d987c5302e08466d9e9b5a44226cecdba34e51a9",
+  "usage": {
+    "accounted_tokens": 3484,
+    "input_tokens": 3417,
+    "latency_seconds": 2.8476908000011463,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 67,
+    "provider_request_id": "req_fba5d4827c9e458ea3e343744a4032e2",
+    "reasoning_tokens": 0,
+    "request_id": "d52151ea-0763-4b57-9216-016c45222e09",
+    "reserved_input": 22522,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:31:17.429423+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-072",
+  "outcome": {
+    "answer": "One of the supplied papers does build a benchmark using the British Library BL19 digital collection: \u201cCultural Analytics for Good: Building Inclusive Evaluation Frameworks for Historical IR\u201d [1]. It uses the BL19 collection (more than 35,000 works from 1700\u20131899) to construct a benchmark for studying changes in language, terminology, and retrieval in 19th-century fiction and non-fiction, with expert-driven query design and paragraph-level relevance annotation, plus LLM assistance for scalable evaluation [1].\n\nThe other supplied papers use different datasets/benchmarks (e.g., map retrieval over Library of Congress images [2], multi-category integrated retrieval [3], CLIR collections [4,9], coverage-focused suites [8], and other domains like dataset search, legal IR, or retrieval efficiency [5,6,10]) [2-10]. None of them appears to target the BL19 retrieval benchmark specifically [2-10].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      9,
+      8,
+      5,
+      6,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ff78234976935aee918c70056d4b304e8c7edb6f59a6a7325eeb178a9cef7114",
+  "usage": {
+    "accounted_tokens": 3253,
+    "input_tokens": 3041,
+    "latency_seconds": 2.705002400005469,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 212,
+    "provider_request_id": "req_09df29c6ac5d437aba0553ae0448afb4",
+    "reasoning_tokens": 0,
+    "request_id": "f14f1a48-8fab-45cf-a3ea-9a97e149c120",
+    "reserved_input": 19997,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:56.447698+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

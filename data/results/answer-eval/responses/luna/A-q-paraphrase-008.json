@@ -1,0 +1,12 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-008",
+  "outcome": {
+    "detail": "Expected one structured response",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "9e9534ca445000807073ce49ce291616ac6b42611aa68cc89f4f24e7e34a1bd6",
+  "usage": {
+    "recorded": true
+  }
+}

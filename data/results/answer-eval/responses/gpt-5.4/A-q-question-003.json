@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-003",
+  "outcome": {
+    "answer": "Large language models can actively gather information for better product recommendations mainly through conversational preference elicitation and dynamic retrieval. In conversational systems, LLMs can ask users targeted questions to collect informative preference cues; the best questions depend on dialogue stage, with attribute-based questions working better early and item-based questions becoming more effective later [5]. They can also choose interactions that maximize information gain by reducing uncertainty over recommendations, improving both recommendation quality and conversational efficiency [8].\n\nBeyond asking users directly, LLM-based recommenders can gather richer context from behavior and catalog data. They can generate real-time natural-language user personas that combine known interests with novel topics to balance exploitation and exploration [2], infer latent intent and item relationships from metadata to enrich recommendation inputs [1], and operate over live e-commerce catalogues using self-refreshing retrieval so recommendations reflect newly added, changed, or deleted products [7]. These approaches differ: [5,8] focus on interactive information gathering from the user, while [1,2,7] focus on enriching or refreshing the system\u2019s available information.",
+    "cited": [
+      5,
+      8,
+      2,
+      1,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0d84f1eff11e721879853f40e654bf85178a5d62cc56f6a9952a5d3ffbecac13",
+  "usage": {
+    "accounted_tokens": 3602,
+    "input_tokens": 3369,
+    "latency_seconds": 877.8023273999861,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 233,
+    "provider_request_id": "req_1c5f4746bbf549118ad0c31fd1880cd9",
+    "reasoning_tokens": 0,
+    "request_id": "0ac6148c-550a-4e07-9eb8-5f4b21114900",
+    "reserved_input": 22325,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:13:10.118974+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-073",
+  "outcome": {
+    "answer": "Yes: several papers address stopping student models from becoming too wordy or repetitive during on-policy distillation. One focuses on length inflation and repetition saturation in OPD, proposing a reference-based divergence constraint plus rollout mixture distillation to prevent truncation collapse [1]. Another finds termination-token mismatch as a source of excessive length and mitigates it by treating functionally equivalent EOS tokens as a shared stopping action [2]. A third directly notes that stronger revision can make responses too verbose and uses shorter verified rewrites to reduce output length [3].\n\nIf you want methods specifically about controlling generation during distillation, early stopping rollout restricts rollout generation to the first response tokens and improves stability [4], while student-in-the-loop selection prunes unhelpful branches during generation [8].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d6b73388cd7191ab21b4b9f29bac402cea2281e3565dba9c9f72c2c40c4ed0d2",
+  "usage": {
+    "accounted_tokens": 3700,
+    "input_tokens": 3525,
+    "latency_seconds": 2.8671906999952625,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 175,
+    "provider_request_id": "req_5a26e97732684efd961a0eccd7fc3990",
+    "reasoning_tokens": 0,
+    "request_id": "424574cd-7e00-444b-a122-032bb8701a81",
+    "reserved_input": 22126,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:53.465648+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

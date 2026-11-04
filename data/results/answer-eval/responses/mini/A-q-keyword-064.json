@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-064",
+  "outcome": {
+    "answer": "RegSpeech12 is the most direct match: it is a regional corpus of Bengali spontaneous speech across dialects, covering dialect variation in Bangladesh and released as a public dataset for building regional ASR models [1]. BanglaTalk is also relevant because it uses a dialect-aware ASR system for Bengali regional dialects and is designed for real-time speech assistance [3]. For broader Bengali speech processing, other papers focus on long-form ASR and diarization rather than a regional speech corpus specifically [4, 8].",
+    "cited": [
+      1,
+      3,
+      4,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ebd6ebe5c3481f88544e94bb9d2a0022affd3f8e226e2c5f87cb269f5d63d9d9",
+  "usage": {
+    "accounted_tokens": 3573,
+    "input_tokens": 3452,
+    "latency_seconds": 2.352350800007116,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 121,
+    "provider_request_id": "req_1fd8a19026914c379fd81ab678fc23f6",
+    "reasoning_tokens": 0,
+    "request_id": "8aa4712a-66f7-4b8e-bb63-2b1d1c91de27",
+    "reserved_input": 20797,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:43.726422+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

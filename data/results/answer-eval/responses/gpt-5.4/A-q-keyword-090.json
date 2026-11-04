@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-090",
+  "outcome": {
+    "answer": "For video watch time mixture models, the most direct match is a line of work that models the full watch-time distribution with exponential-Gaussian mixtures rather than a single prediction [1]. One paper studies the earlier Exponential-Gaussian Mixture Network and proposes a Hierarchical Exponential-Gaussian Mixture model to better handle near-zero inflation, long tails, and multimodality in watch time, improving mixture stability, interpretability, ranking accuracy, and threshold-event prediction [1].\n\nA related but broader direction is to expose watch-time distributions through a serving interface rather than only a mean estimate [2]. That work does not present a mixture model; instead, it learns a joint distribution over watch states and event times and serves compact summaries such as event probabilities, duration-relative time scales, and uncertainty statistics for downstream tasks [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "7b770e6067e322fe75bd69f4ddf46178242933dc8faf7b619acd01f189607879",
+  "usage": {
+    "accounted_tokens": 3800,
+    "input_tokens": 3612,
+    "latency_seconds": 4.73467299999902,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 188,
+    "provider_request_id": "req_42d49977fe7644b4adaa2978c6184ede",
+    "reasoning_tokens": 0,
+    "request_id": "535bb648-c12c-4892-be7f-2b3ed93814a7",
+    "reserved_input": 23237,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:39.651946+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

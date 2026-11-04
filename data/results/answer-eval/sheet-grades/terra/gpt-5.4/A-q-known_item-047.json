@@ -1,0 +1,39 @@
+{
+  "answer_id": "A197",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-047",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Affirmation only.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1's title and author match.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 states logarithmic norm scaling for existing Lorentz linear layers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 states the new distance-to-hyperplane layer and linear scaling result.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The abstract describes both techniques and the computational goal.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,34 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answer": "Yes. The closest match is decoupled split learning with an auxiliary loss: instead of propagating error signals back across the client-server split, the client uses a local auxiliary classifier for its own error signal while the server trains on transmitted activations with the true loss. This removes the need to send backward gradients, cutting split-learning communication roughly in half while maintaining performance comparable to standard split learning [1].\n\nRelated papers also avoid standard backprop-style credit assignment, but with different goals. Predictive coding with highway error propagation and Error Diffusion both replace backpropagation with alternative error-routing mechanisms for training deep or biologically constrained networks, rather than focusing on reducing data exchange in shared distributed architectures [5,7]. Other communication-efficient work here mainly compresses gradients, weight updates, or critic parameters instead of avoiding error-signal propagation altogether [2,4,10].",
+    "cited": [
+      1,
+      5,
+      7,
+      2,
+      4,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "7fbea5b2da0f9b35e9203b5cb900502a1c7c8b81d4bb09408a122291fe718409",
+  "usage": {
+    "accounted_tokens": 3985,
+    "input_tokens": 3790,
+    "latency_seconds": 5.255866599996807,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 195,
+    "provider_request_id": "req_ffef1325584146da830bdaee5d4fde09",
+    "reasoning_tokens": 0,
+    "request_id": "c11526ba-747b-4148-9438-47b90682c951",
+    "reserved_input": 23905,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:11:09.334813+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

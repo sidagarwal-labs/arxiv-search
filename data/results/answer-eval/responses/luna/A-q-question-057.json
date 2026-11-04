@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-057",
+  "outcome": {
+    "answer": "A practical approach is to extract preference triples from users\u2019 conversations with an LLM, link entities to identifiers in a knowledge base, and assemble the triples into a personal knowledge graph; one study evaluates lightweight models for this pipeline and tests whether the resulting graphs help downstream recommendations [2]. The graph can then propagate and enrich user profiles: SPiKE uses LLM-generated semantic profiles for graph entities, aggregates those profiles into the graph, and matches profile-based preferences during recommendation training [1].\n\nOther approaches infer user personas from graph relations and combine them with item representations for session recommendations [3], or use a graph to summarize personal preferences and relevant community patterns for a persona-aware assistant [5]. These papers describe recommendation methods, but do not establish a single best design for personal knowledge graphs [1, 2, 3, 5].",
+    "cited": [
+      2,
+      1,
+      3,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2ff038a632fef47060ad826bad243f2ecee7eab68b1e58539c500376d22998e3",
+  "usage": {
+    "accounted_tokens": 3410,
+    "input_tokens": 3222,
+    "latency_seconds": 3.739732100017136,
+    "model": "gpt-6-luna",
+    "output_tokens": 188,
+    "provider_request_id": "req_18772501d16f44e98b9e72c3eb322e38",
+    "reasoning_tokens": 0,
+    "request_id": "d923205b-a67c-468c-bd9e-46fc80c2409f",
+    "reserved_input": 21666,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:05.219462+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

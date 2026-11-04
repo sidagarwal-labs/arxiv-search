@@ -1,0 +1,29 @@
+{
+  "answer_id": "A298",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-095",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "WIND's abstract reports zero-shot inverse-problem inference across atmospheric tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "All listed tasks appear in the abstract.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

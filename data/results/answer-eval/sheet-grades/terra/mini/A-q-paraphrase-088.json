@@ -1,0 +1,39 @@
+{
+  "answer_id": "A283",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-088",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "No citation supports this comparison; the supplied survey explicitly reviews code as agent infrastructure.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The survey describes these harness functions and open challenges.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The survey defines skills as procedural artifacts supporting execution while agents plan and reason.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The paper evaluates typed Python stubs and finds programmatic calling a viable alternative.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Both papers describe those respective skills and tool-making designs.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

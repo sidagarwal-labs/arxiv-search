@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-047",
+  "outcome": {
+    "answer": "The matching paper is Fast and Geometrically Grounded Lorentz Neural Networks by Robert van der Klis and coauthors [1]. It presents a Lorentz-model hyperbolic neural network, argues that the current Lorentz linear layer has a scaling problem, and proposes a new distance-to-hyperplane-based Lorentz linear layer with faster propagation and hyperbolic geometry guarantees [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3af2914022b78fb6227190623815bab11b9b67e651b6a6907d4685efe1a5bb31",
+  "usage": {
+    "accounted_tokens": 3404,
+    "input_tokens": 3308,
+    "latency_seconds": 2.124681999994209,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 96,
+    "provider_request_id": "req_8e0d0afa4f2f42e6883ca66d19258147",
+    "reasoning_tokens": 0,
+    "request_id": "ea562e74-f8b9-4ff5-815e-e1f7167551d7",
+    "reserved_input": 21106,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:33.591675+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

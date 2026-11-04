@@ -1,0 +1,34 @@
+{
+  "answer_id": "A117",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about the papers has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 5 uses question-answer pairs, self-generated traces and intrinsic feedback without expert demonstrations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 8 describes label-free self-play, meta-evaluation and rewards for useful critiques.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "These methods are described, but SynAct relies on expert corrections rather than feedback without human labels.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

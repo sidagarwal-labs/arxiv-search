@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-048",
+  "outcome": {
+    "answer": "Yes. ViSAR is explicitly training-free: it dynamically chooses how many pages to retrieve based on the query, rather than using a fixed top-k [1]. LAD-RAG also adapts the evidence retrieved at inference without top-k tuning, using an LLM agent and document structure [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8221a810379337e0010c20736b3cdcff6d0c317f639921f516191ec43fff9c0e",
+  "usage": {
+    "accounted_tokens": 3813,
+    "input_tokens": 3736,
+    "latency_seconds": 2.4823160000087228,
+    "model": "gpt-6-luna",
+    "output_tokens": 77,
+    "provider_request_id": "req_e8138a05e2f646f7b3da1d8af59a5c0a",
+    "reasoning_tokens": 0,
+    "request_id": "dc31a04b-d412-4954-8350-32e15ed84289",
+    "reserved_input": 23052,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:52.211072+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

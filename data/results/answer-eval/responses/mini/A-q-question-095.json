@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-095",
+  "outcome": {
+    "answer": "Yes. Several papers say a single general-purpose or foundation model can handle multiple atmospheric tasks without task-specific retraining, including probabilistic forecasting, downscaling, reconstruction, and conservation constraints [1]. Another paper says scaling a general-purpose model is sufficient for state-of-the-art medium-range prediction across probabilistic frameworks [4], and a separate review notes that foundation models are intended for broad adaptation, though no single geospatial foundation model is universally best [6].",
+    "cited": [
+      1,
+      4,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "287169fa157b3bbfb9d836f6d1de639a450df0727324249708c5c7e7e9dc6277",
+  "usage": {
+    "accounted_tokens": 3735,
+    "input_tokens": 3625,
+    "latency_seconds": 2.2045330999826547,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 110,
+    "provider_request_id": "req_7c99e6e4be2c4f1c8cfa637154160ef9",
+    "reasoning_tokens": 0,
+    "request_id": "f66a3dc3-460e-498d-9d61-0d74ab5f2913",
+    "reserved_input": 23642,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:24.056478+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

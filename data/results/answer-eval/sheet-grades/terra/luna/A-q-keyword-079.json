@@ -1,0 +1,24 @@
+{
+  "answer_id": "A322",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited studies examine Tulu hope speech and Hinglish tweet sentiment.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The papers address New Zealand Reddit dialects, Bengali dialect identification, and Bengali social-media polarization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

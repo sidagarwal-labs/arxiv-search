@@ -1,0 +1,44 @@
+{
+  "answer_id": "A112",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-060",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual claim about graph-structured rerankers has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The claims about CONGRATS have no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 supports graph-generated diversity, but does not establish refining independent candidate rankings as described.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "The detailed claims about LoG-Reranker have no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 5 supports the LoG-Reranker description, but does not substantiate the CONGRATS comparison.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S6",
+        "reason": "A standalone citation list makes no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

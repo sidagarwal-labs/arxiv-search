@@ -1,0 +1,39 @@
+{
+  "answer_id": "A350",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-011",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about the papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes sparse KL-regularized KG-judgment updates and improved reasoning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "MM-KG aligns patient observations to biomedical knowledge through explicit edges.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The study reports benefits for novel facts but not its tested public-KG facts.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited abstracts cover temporal clinical knowledge and UMLS GraphRAG and pretraining.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

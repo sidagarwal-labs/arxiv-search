@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-085",
+  "outcome": {
+    "answer": "Across time, genre, and editing conditions, writing style can shift in measurable ways rather than remaining fixed. In a study of scientific preprints, the authors find post-2022 changes in multiple linguistic feature families (e.g., increases in average word length, reduced formula-based readability, and changes in dependency-tree depth), with different features showing different trajectories (some rising persistently and others rising then receding) [4]. Across genre and years, a German authorship-verification benchmark shows performance degradation as the time gap between documents increases, indicating temporal drift affects stylistic patterns used for attribution [2].",
+    "cited": [
+      4,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "86e5d41198804d1470fc3265e22c408162cd7939b0395f079dcd61a1c4af38b3",
+  "usage": {
+    "accounted_tokens": 3534,
+    "input_tokens": 3395,
+    "latency_seconds": 2.1749918999848887,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 139,
+    "provider_request_id": "req_f20d90d075df45c3a5355fbcff92f5ef",
+    "reasoning_tokens": 0,
+    "request_id": "60299fb2-f0e8-4729-956c-8e75e6d6b11e",
+    "reserved_input": 21447,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:40.044566+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

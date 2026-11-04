@@ -1,0 +1,44 @@
+{
+  "answer_id": "A308",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-003",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about approaches to information gathering has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Stage-dependent elicitation is supported; the cited abstract does not identify its system as LLM-based.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "The LLM method rewards entropy reduction and improves recommendation quality and dialogue efficiency.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The factual claim about recommender capabilities has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited papers describe personas, inferred metadata signals, and self-refreshing catalog retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The cited works have the stated interaction versus enrichment and retrieval emphases.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

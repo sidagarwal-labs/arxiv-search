@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-056",
+  "outcome": {
+    "answer": "Yes\u2014at least some materials-science workflows suggest you can use an LLM to propose experiments without training a model. For example, Wang et al. propose an LLM-based active learning framework (LLM-AL) that leverages pretrained knowledge to propose experiments from text-based descriptions, operating in an iterative few-shot setting rather than training a new model on the materials task. [1]\n\nRelated approaches embed LLMs inside optimization/search loops to guide which experiments to run next, also avoiding training task-specific predictive models. Chen et al. (LABO) uses LLM predictions and a gating criterion within a Bayesian optimization loop to decide when to rely on LLM evaluation versus costly experiments. [6] Guo\u2019s LacMaterial uses analogical reasoning to generate novel battery materials candidates beyond conventional substitutions via prompt-based strategies. [2]\n\nThese papers differ in emphasis: [1] is specifically an \u201cactive learning\u201d experiment-selection framework; [6] focuses on sample-efficient Bayesian optimization with LLM evaluations; [2] focuses on analogical hypothesis generation for materials candidates rather than explicit experimental active learning.",
+    "cited": [
+      1,
+      6,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0e14f8e42d6b8923b90b7c87fc400e92f4c069d33b61ed73349da19ab689cee7",
+  "usage": {
+    "accounted_tokens": 3862,
+    "input_tokens": 3620,
+    "latency_seconds": 3.19628860001103,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 242,
+    "provider_request_id": "req_e530c51b88754bdabbb73b27009bce8f",
+    "reasoning_tokens": 0,
+    "request_id": "155e59e4-e78a-4b4f-90a7-0c6184e079bf",
+    "reserved_input": 22780,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:19.014312+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

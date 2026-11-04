@@ -1,0 +1,24 @@
+{
+  "answer_id": "A080",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-047",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited metadata names the paper and author.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract discusses Lorentz layer scaling, distance-to-hyperplane reformulation and computational efficiencies.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

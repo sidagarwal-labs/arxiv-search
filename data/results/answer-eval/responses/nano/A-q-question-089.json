@@ -1,0 +1,33 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-089",
+  "outcome": {
+    "answer": "Yes. The supplied papers propose multiple machine learning approaches for detecting early cognitive decline and early-stage Alzheimer\u2019s/mild cognitive impairment (MCI), using clinical/neuropsychological data and neuroimaging (among others) [1], multimodal contactless behavioral signals from structured voice interactions (video/audio/text) [2], multimodal temporal behavioral decay modeling for MCI over multiple sessions [3], multilingual speech-based detection with cross-linguistic transfer learning [4], and statistical/machine learning models using linguistic features from speech transcripts [6].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a82ad0b6742477dfdbb59cc0aa70e0dd6c9f49b563c0639a092522c7137d952a",
+  "usage": {
+    "accounted_tokens": 3852,
+    "input_tokens": 3726,
+    "latency_seconds": 2.305422899982659,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 126,
+    "provider_request_id": "req_f4fa35afb2fa4621b881dfb83f053aef",
+    "reasoning_tokens": 0,
+    "request_id": "6af4c431-d274-4835-bd15-e8bc4ebab3d4",
+    "reserved_input": 23336,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:45.357201+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

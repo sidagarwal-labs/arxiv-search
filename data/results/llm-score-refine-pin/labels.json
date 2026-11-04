@@ -1,0 +1,190 @@
+{
+  "judge": "openai-mini",
+  "labels": {
+    "q-keyword-004": {},
+    "q-keyword-005": {},
+    "q-keyword-007": {},
+    "q-keyword-008": {
+      "2606.03602": 1
+    },
+    "q-keyword-009": {
+      "2608.16269": 1
+    },
+    "q-keyword-011": {},
+    "q-keyword-017": {},
+    "q-keyword-021": {
+      "2510.04502": 1
+    },
+    "q-keyword-022": {
+      "2606.09483": 0
+    },
+    "q-keyword-026": {},
+    "q-keyword-049": {},
+    "q-keyword-052": {
+      "2511.08500": 2,
+      "2604.18159": 1
+    },
+    "q-keyword-053": {
+      "2608.16111": 2
+    },
+    "q-keyword-054": {},
+    "q-keyword-057": {
+      "2607.00004": 2
+    },
+    "q-keyword-061": {
+      "2602.02270": 1,
+      "2607.20450": 2
+    },
+    "q-keyword-062": {},
+    "q-keyword-064": {},
+    "q-keyword-072": {},
+    "q-keyword-074": {
+      "2602.05890": 1
+    },
+    "q-keyword-078": {},
+    "q-keyword-079": {},
+    "q-keyword-081": {},
+    "q-keyword-085": {},
+    "q-keyword-090": {
+      "2607.17092": 1
+    },
+    "q-known_item-016": {
+      "2510.20787": 1,
+      "2610.05842": 2
+    },
+    "q-known_item-017": {},
+    "q-known_item-019": {},
+    "q-known_item-025": {},
+    "q-known_item-026": {},
+    "q-known_item-029": {
+      "2607.17037": 1
+    },
+    "q-known_item-031": {},
+    "q-known_item-032": {
+      "2604.09130": 0
+    },
+    "q-known_item-039": {},
+    "q-known_item-042": {},
+    "q-known_item-047": {},
+    "q-known_item-048": {},
+    "q-known_item-054": {},
+    "q-known_item-059": {},
+    "q-known_item-060": {},
+    "q-known_item-061": {
+      "2607.00570": 0
+    },
+    "q-known_item-062": {},
+    "q-known_item-068": {
+      "2610.26397": 1
+    },
+    "q-known_item-070": {
+      "2512.07847": 0
+    },
+    "q-known_item-072": {},
+    "q-known_item-073": {},
+    "q-known_item-075": {
+      "2601.11560": 1
+    },
+    "q-known_item-088": {
+      "2510.07233": 1,
+      "2602.13647": 1
+    },
+    "q-known_item-089": {},
+    "q-known_item-096": {},
+    "q-paraphrase-004": {
+      "2601.07985": 1
+    },
+    "q-paraphrase-006": {
+      "2510.18914": 2,
+      "2601.15488": 1
+    },
+    "q-paraphrase-008": {},
+    "q-paraphrase-012": {},
+    "q-paraphrase-014": {},
+    "q-paraphrase-020": {
+      "2610.23145": 2
+    },
+    "q-paraphrase-022": {},
+    "q-paraphrase-030": {},
+    "q-paraphrase-032": {},
+    "q-paraphrase-036": {},
+    "q-paraphrase-043": {},
+    "q-paraphrase-047": {
+      "2511.09202": 1,
+      "2512.18977": 0
+    },
+    "q-paraphrase-049": {},
+    "q-paraphrase-050": {},
+    "q-paraphrase-062": {
+      "2601.11518": 1
+    },
+    "q-paraphrase-063": {},
+    "q-paraphrase-073": {
+      "2605.19433": 1,
+      "2610.06671": 1
+    },
+    "q-paraphrase-077": {},
+    "q-paraphrase-085": {
+      "2601.13264": 1
+    },
+    "q-paraphrase-087": {
+      "2609.19622": 1
+    },
+    "q-paraphrase-088": {
+      "2606.00135": 1
+    },
+    "q-paraphrase-093": {
+      "2603.18409": 2,
+      "2604.15802": 2
+    },
+    "q-paraphrase-094": {},
+    "q-paraphrase-096": {
+      "2512.23471": 1
+    },
+    "q-paraphrase-097": {},
+    "q-question-002": {},
+    "q-question-003": {},
+    "q-question-007": {},
+    "q-question-019": {},
+    "q-question-027": {},
+    "q-question-036": {
+      "2602.03608": 1
+    },
+    "q-question-037": {},
+    "q-question-039": {},
+    "q-question-040": {
+      "2602.12984": 1
+    },
+    "q-question-048": {
+      "2607.24748": 1
+    },
+    "q-question-050": {},
+    "q-question-053": {},
+    "q-question-056": {
+      "2606.21395": 1
+    },
+    "q-question-057": {},
+    "q-question-060": {},
+    "q-question-064": {},
+    "q-question-074": {},
+    "q-question-077": {
+      "2603.28512": 2,
+      "2609.39786": 1
+    },
+    "q-question-078": {
+      "2608.28643": 1
+    },
+    "q-question-085": {
+      "2510.13939": 1
+    },
+    "q-question-088": {},
+    "q-question-089": {},
+    "q-question-094": {
+      "2601.17869": 2
+    },
+    "q-question-095": {},
+    "q-question-099": {}
+  },
+  "parent": "shared-labels/labels-d46.json",
+  "rubric_version": "b8b0c14a"
+}

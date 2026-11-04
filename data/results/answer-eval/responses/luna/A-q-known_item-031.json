@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-031",
+  "outcome": {
+    "answer": "The matching paper is \u201cTowards Multidisciplinary Summarization of Hospital Stays: Efficient Sentence-Level Clinical Provenance Categorization.\u201d It presents a pipeline for categorizing sentence-level provenance in clinical notes and evaluates fine-tuned Llama-3 models, including transfer to multidisciplinary NICU summaries. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "524cf1d6359b290be569407688dbc7842f388fa9ef413d3cc51b9ee96c1c8ee0",
+  "usage": {
+    "accounted_tokens": 4136,
+    "input_tokens": 4057,
+    "latency_seconds": 2.440221199998632,
+    "model": "gpt-6-luna",
+    "output_tokens": 79,
+    "provider_request_id": "req_2a40d1c562204a41bb79e46205c28f97",
+    "reasoning_tokens": 0,
+    "request_id": "82aced39-b361-40d2-8350-93ee71883eca",
+    "reserved_input": 24486,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:42.478114+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "answer_id": "A226",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-005",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual assertion about supplied papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited papers describe self-play in Generals.io, Tablut and Stratego.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "General transition without a specific factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 describes sparse-reward policy-gradient self-play and those training ingredients.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 2 describes separate role heads, replay buffers and past-checkpoint opponents.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 3 combines self-play and search and also studies Hanabi and dou dizhu.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

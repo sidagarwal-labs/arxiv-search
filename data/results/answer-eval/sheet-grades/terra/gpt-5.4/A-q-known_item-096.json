@@ -1,0 +1,39 @@
+{
+  "answer_id": "A286",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-096",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Qiao's VaLiDRec proposes variable-length LLM-aligned identifiers for generative recommendation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract specifies native tokens, adaptive length, and token-set prediction with item scoring.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstract reports baseline, cold-start, and inference speed improvements.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The three cited abstracts describe the stated distinct mechanisms.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

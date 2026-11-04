@@ -1,0 +1,29 @@
+{
+  "answer_id": "A026",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-064",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This accurately states the absence of a direct answer, rather than claiming a topic result.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Papers 1 and 10 describe missing-evidence hallucinations and uncertainty-based retrieval gating.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 8 discusses distractors, exhaustive QA, and structure-aware decomposition.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

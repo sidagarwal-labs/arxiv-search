@@ -1,0 +1,44 @@
+{
+  "answer_id": "A016",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-078",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative contains no factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 4 tests pairwise synthetic slate preferences and stable Rao-Kupper rankings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 positions synthetic evaluation as screening before live tests.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The factual comparison of related papers lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Papers 1 and 2 describe the specified preference planning and slate-alignment methods.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 6 studies synthetic recommendation data for learning user preference patterns.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

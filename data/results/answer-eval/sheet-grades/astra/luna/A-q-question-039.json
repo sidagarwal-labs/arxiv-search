@@ -1,0 +1,34 @@
+{
+  "answer_id": "A020",
+  "candidate": "luna",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "[8] explicitly stores evidence, temporal validity intervals, and lifecycle states, filtering invalid or deprecated facts before ranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "[4] encodes temporal information, applies learnable retrieval decay, and checks knowledge validity with temporal logic.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[1] reports modest adaptation from dates alone and much stronger adaptation when evidence-expiration information is explicit.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[2] documents post-cutoff leakage despite search-engine date filters and identifies unreliable metadata among the causes.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

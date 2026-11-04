@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-042",
+  "outcome": {
+    "answer": "Angqing Jiang is a coauthor of \u201cThink-to-Personalize,\u201d which combines explicit reasoning over a user\u2019s purchase history with dense retrieval to infer personalized needs and create an intent-enhanced query [1]. Its two-stage training uses supervised fine-tuning for cold-start capability, then reinforcement learning to align reasoning with retrieval utility [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8b54e1f88c4e8580637c2f1473b9ff98c07a8918888a8d0584a4599bedf47b1c",
+  "usage": {
+    "accounted_tokens": 3470,
+    "input_tokens": 3384,
+    "latency_seconds": 3.0278327999985777,
+    "model": "gpt-6-luna",
+    "output_tokens": 86,
+    "provider_request_id": "req_734e411820fd4b1f8a8264467ae3d4a0",
+    "reasoning_tokens": 0,
+    "request_id": "f6a3c48f-01c4-4ead-b12e-e90f056cf7e8",
+    "reserved_input": 21901,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:52.766440+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

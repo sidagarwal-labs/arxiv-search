@@ -1,0 +1,34 @@
+{
+  "answer_id": "A160",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-085",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The broad empirical and mechanistic claims are uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 3 reports consistent denials and no clear classifier evidence of untruthfulness.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 traces training and framing effects and discusses reference and state dependence.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "DenialBench measures denial and argues systematic misrepresentation undermines self-report trustworthiness.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

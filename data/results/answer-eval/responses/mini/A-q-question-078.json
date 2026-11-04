@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-078",
+  "outcome": {
+    "answer": "You can judge these reports automatically by using a reusable rubric-based evaluator built from trusted news-assessment questions and expected short answers. One paper describes creating importance-weighted rubrics for 30 news articles and then using an automated process, AutoJudge, to score new report-generation runs against those rubrics, with strong agreement with human evaluation [1]. Another paper describes a similar task pipeline for generating trustworthiness reports, where retrieved evidence is synthesized into concise cited reports and judged on official evaluation [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2747bbd40b358f5ab0c6fa3ef92aed1cffa1383fe0717aea959b1f7b084c531d",
+  "usage": {
+    "accounted_tokens": 3615,
+    "input_tokens": 3498,
+    "latency_seconds": 2.213241499994183,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 117,
+    "provider_request_id": "req_570539c9719d4baebb5fd21be227cc02",
+    "reasoning_tokens": 0,
+    "request_id": "37a623e7-815d-4d37-a41c-76999ec9fa94",
+    "reserved_input": 22126,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:10.647102+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

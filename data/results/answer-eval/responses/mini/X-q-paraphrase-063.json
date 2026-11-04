@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-paraphrase-063",
+  "outcome": {
+    "answer": "No supplied paper addresses grading science tests with a network of reference answers for one big paragraph per several questions. The closest papers discuss evaluator preferences in general [3], slate recommendation and preference ranking in recommendation systems [1, 2, 4, 8], and benchmark or alignment settings unrelated to science-test grading [10].",
+    "cited": [
+      3,
+      1,
+      2,
+      4,
+      8,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "edd4833ab51d10f8669178160cbd36311212b36fb129092ab2bc1cf501962253",
+  "usage": {
+    "accounted_tokens": 3514,
+    "input_tokens": 3431,
+    "latency_seconds": 1.9627735000103712,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 83,
+    "provider_request_id": "req_08066a1f3acc4bddb9825a97c0b6098f",
+    "reasoning_tokens": 0,
+    "request_id": "b125e833-235c-499e-9cfd-3043d16f65f3",
+    "reserved_input": 22166,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:50.862334+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

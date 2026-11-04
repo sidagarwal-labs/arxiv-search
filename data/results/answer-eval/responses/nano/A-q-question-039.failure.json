@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"To make a retrieval system care about the date of the information, you need to (1) represent temporal validity explicitly, (2) use that validity during retrieval and reasoning, and (3) ensure your evaluation and corpora don\u2019t accidentally leak post-cutoff content.\\n\\nChronofy proposes a temporal-decay RAG architecture that embeds fact age into the representation, applies learnable temporal decay in retrieval, and uses Signal Temporal Logic to evaluate the temporal validity of retrieved knowledge (not just model confidence), triggering re-acquisition when temporal context is insufficient. NuggetIndex also stores retrieved items as governed atomic nuggets with a temporal validity interval and lifecycle state, filtering invalid/deprecated nuggets before ranking to prevent outdated information from being included.\\n\\nIf you also want the system to decide when recency matters, RecencyQA introduces a recency/stationarity taxonomy and dataset to benchmark context-dependent recency requirements. Finally, be careful: date-filtered retrieval can fail due to temporal leakage (Temporal Leakage), and stale retrieval can actively poison answers (Stale-Document Poisoning), so your pipeline needs safeguards beyond simple recency filters.\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_00397aeffb7c1616016aeb6275adf487d2a468738ea70e2eb9",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "30528512bbc59e3a2203d3996f713c2b0a9214b817828a8a9af0731241d12c47",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3507,
+    "output_tokens": 244,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Grounded answers must cite papers; ungrounded answers must not"
+}

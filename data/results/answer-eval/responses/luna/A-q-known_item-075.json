@@ -1,0 +1,12 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-075",
+  "outcome": {
+    "detail": "Expected one structured response",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "66b3d665019b3efe73e4a8cc1992b6dff0e2127b3f060b0b4c7e8a1d6d71b04f",
+  "usage": {
+    "recorded": true
+  }
+}

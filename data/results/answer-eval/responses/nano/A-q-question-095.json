@@ -1,0 +1,29 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-095",
+  "outcome": {
+    "answer": "Yes. WIND presents a single pre-trained foundation model for \u201czero-shot atmospheric modeling\u201d that replaces specialized baselines across a wide range of weather and climate tasks, framed as inverse problems solved via posterior sampling, without any task-specific fine-tuning [1]. It supports diverse tasks including probabilistic forecasting, spatial/temporal downscaling, reconstruction from sparse observations, and enforcing global dry air mass conservation [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "08889b1540ade138586daf0a89b0b0148f9366f55f7c71b8aba885ee1cff6b8f",
+  "usage": {
+    "accounted_tokens": 3726,
+    "input_tokens": 3625,
+    "latency_seconds": 2.2319824999722186,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 101,
+    "provider_request_id": "req_052a234385a34a4cad46d71124c73df1",
+    "reasoning_tokens": 0,
+    "request_id": "2ea2690a-209f-4849-843a-a28ba5c3e8c5",
+    "reserved_input": 23642,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:50.320603+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

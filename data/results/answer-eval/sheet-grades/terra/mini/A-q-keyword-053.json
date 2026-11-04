@@ -1,0 +1,29 @@
+{
+  "answer_id": "A033",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-053",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about several graph-reaction papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Papers 1 and 6 describe reaction-graph yield prediction and synthetic-pretrained biodegradation prediction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 9 studies graph neural networks for chemical properties, not specifically reactions.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

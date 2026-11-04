@@ -1,0 +1,29 @@
+{
+  "answer_id": "A302",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual description of a paper is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "ProD uses multiple generations for median-based or distributional targets.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The paper reports approximate linear decoding of total length from the final prompt hidden state.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

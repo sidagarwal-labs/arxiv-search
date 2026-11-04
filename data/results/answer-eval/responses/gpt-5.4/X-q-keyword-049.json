@@ -1,0 +1,12 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-keyword-049",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "bbe0e5ca618b7d2c9caa493efa448c5f310c34bcb5a0534e94e18ba5c334cda5",
+  "usage": {
+    "recorded": true
+  }
+}

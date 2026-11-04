@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-036",
+  "outcome": {
+    "answer": "Creators can understand why their items receive little or no exposure through a system-level surrogate model that approximates the recommender\u2019s exposure patterns and identifies which item features influence them. The approach explains overall exposure across users rather than individual user-item recommendations, and its influential factors can differ across models and domains [1]. They can also use counterfactual observability to separate the effects of content, recommender decisions, presentation bias, and audience reach; raw views and clicks alone conflate these causes [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c6f94882ea3cbf29d6b1f27eddef0218644450fb46da24f1ff63070234a2355d",
+  "usage": {
+    "accounted_tokens": 3556,
+    "input_tokens": 3438,
+    "latency_seconds": 3.712821299995994,
+    "model": "gpt-6-luna",
+    "output_tokens": 118,
+    "provider_request_id": "req_694b2a971d024963982bb0e8c8da4fd6",
+    "reasoning_tokens": 0,
+    "request_id": "620679e8-ead1-4b8e-97dc-cf436064f901",
+    "reserved_input": 22482,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:36.998566+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

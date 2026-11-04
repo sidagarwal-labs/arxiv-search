@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answer": "Several approaches address \u201cparameter importance\u201d when deciding what to freeze in multimodal/LLM fine-tuning. AWARe assigns activation-based importance scores to parameters and then selectively freezes parameters deemed essential for preserving upstream capabilities, aiming to mitigate catastrophic forgetting during MLLM fine-tuning [2]. Model-Dowser measures an importance score for each parameter using weight magnitudes, input activations, and output sensitivities, then selectively preserves high-importance parameters during sparse fine-tuning to mitigate catastrophic forgetting [4].",
+    "cited": [
+      2,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c16005447d9e533f25c13e5f3f777c0f7348896449e6cc38c2657fd69b3b853f",
+  "usage": {
+    "accounted_tokens": 3704,
+    "input_tokens": 3583,
+    "latency_seconds": 2.0340713000041433,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 121,
+    "provider_request_id": "req_7298f5f0789d4aebbbd84d28ba64a86e",
+    "reasoning_tokens": 0,
+    "request_id": "285f894c-8d9b-4b87-aafb-ea0d39ce2559",
+    "reserved_input": 22103,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:37.105433+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

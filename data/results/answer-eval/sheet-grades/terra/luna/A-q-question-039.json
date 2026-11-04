@@ -1,0 +1,34 @@
+{
+  "answer_id": "A146",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "NuggetIndex records evidence, validity intervals and lifecycle state, filtering before ranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Chronofy uses temporal embeddings, decay-based retrieval, and validity checks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Explicit applicability information helped models where dates alone led to modest adaptation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 2 documents leakage from date filters and unreliable metadata.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

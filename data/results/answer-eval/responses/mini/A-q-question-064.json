@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answer": "Neural networks struggle with highly ambiguous token distributions because the ambiguity itself makes the target harder to represent and fit accurately [1]. The paper says more ambiguous distributions require more capacity to store, larger embeddings to represent, more training steps to fit, and they amplify token-sampling noise [1].\n\nA related study finds that with K-fold ambiguity, models first learn the marginal distribution and stay on a plateau at log K before a later transition to the full conditional [2]. That plateau is stabilized by gradient noise, and higher learning rates or smaller batch sizes delay escaping it [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c8e21538c40d8d4fa877bd42dc4a03f2d5b3122cd35e9531e163b6843d4b6834",
+  "usage": {
+    "accounted_tokens": 3233,
+    "input_tokens": 3097,
+    "latency_seconds": 2.5608306000067387,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 136,
+    "provider_request_id": "req_851fbfa53d344b3686d241f4a7643e6c",
+    "reasoning_tokens": 0,
+    "request_id": "0f65f57f-3c26-41b3-8a55-568564eaf11d",
+    "reserved_input": 20009,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:02.363094+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

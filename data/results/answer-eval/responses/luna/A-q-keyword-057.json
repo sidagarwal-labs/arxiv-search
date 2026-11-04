@@ -1,0 +1,33 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answer": "Several papers describe ways to move from dense retrieval toward sparse representations. Latent Terms decomposes dense retriever representations into sparse, BM25-ready features without retrieval-specific training [2]. LACONIC instead trains learned sparse retrievers to approach dense-model effectiveness with lower index memory [1]. Sparse Coverage converts local span embeddings into sparse center-based representations for patent search [5], while SPLARE uses sparse autoencoders to create multilingual latent retrieval features [7]. For product search, PROSPER uses LLMs to produce sparse representations and reports recall comparable to advanced dense retrievers [6].",
+    "cited": [
+      2,
+      1,
+      5,
+      7,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "58624f389dd345b11d5b508f818bf7f3776fa5496da97785c46b271f7a3bfde9",
+  "usage": {
+    "accounted_tokens": 3759,
+    "input_tokens": 3622,
+    "latency_seconds": 2.7696057000139263,
+    "model": "gpt-6-luna",
+    "output_tokens": 137,
+    "provider_request_id": "req_5103f866b7044e048cd39b0e380f88a0",
+    "reasoning_tokens": 0,
+    "request_id": "71f34113-f292-4c8b-b774-d46959796435",
+    "reserved_input": 21866,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:51.592698+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

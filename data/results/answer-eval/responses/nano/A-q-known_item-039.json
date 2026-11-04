@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-039",
+  "outcome": {
+    "answer": "The results do not include a paper specifically about \u201cFernandes\u201d Brazilian legal document segmentation beyond a retrieval-focused structural chunking approach. \u201cStructural Segmentation for Brazilian Legal Document Retrieval\u201d by Leandro Car\u00edsio Fernandes et al. studies structural segmentation of Brazilian legal acts by representing each document as a collection of hierarchical chunks, and compares several simplified core-chunk-based strategies for Brazilian legal retrieval. The paper reports improved dense retrieval versus whole-document indexing, while lexical retrieval does not consistently benefit; it also finds full hierarchy representation is not necessary because core chunks enriched with metadata can perform comparably or better. [1]\n\nRelated segmentation ideas for Brazilian legal text are addressed differently: \u201cLegal Nugget Extraction for Granular Retrieval over Long Jurisprudential Texts\u201d extracts short self-contained \u201clegal theses\u201d (\u201cnuggets\u201d) for granular retrieval and aggregates nugget hits back to document rankings, improving some jurisprudence benchmarks but not others. [5] \u201cPRecG\u201d segments legal judgments based on rhetorical roles and uses the segments to build graph-enhanced representations for precedent retrieval (but the paper is on Indian legal data). [8]",
+    "cited": [
+      1,
+      5,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ed02ec6e7641460e175abc7605b263dd8cc54833910bb3f1a86f9d014cb3d894",
+  "usage": {
+    "accounted_tokens": 3711,
+    "input_tokens": 3464,
+    "latency_seconds": 3.03844519998529,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 247,
+    "provider_request_id": "req_fa111fa2174245b3a4bc002dc95a39dd",
+    "reasoning_tokens": 0,
+    "request_id": "d17f5385-24d6-4c83-ace4-2d356532edab",
+    "reserved_input": 21386,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:37.148873+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

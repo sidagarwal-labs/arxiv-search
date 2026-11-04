@@ -1,0 +1,35 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-027",
+  "outcome": {
+    "answer": "You can determine compute requirements by measuring how model quality and efficiency change as you vary compute budgets, then fitting scaling laws or compute-allocation rules from those runs [2, 4, 6]. For recommendation systems, this means profiling low-level bottlenecks and estimating how much compute is wasted by inefficient modules, then using architectural changes that improve model FLOPs utilization and scaling efficiency [2, 5].\n\nThe supplied papers also show that inference compute can be reduced by sharing request-side work across many candidates, by caching summarized user history, or by redesigning attention and sequence modules to improve training and inference efficiency at scale [1, 9, 10]. If you mean \u201clarge scale suggesting systems\u201d as recommender systems, these papers cover how to estimate and lower compute needs, but they do not give a single universal formula [1, 2, 5].",
+    "cited": [
+      2,
+      4,
+      6,
+      5,
+      1,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3f42c69e90bcfbb390863f97630eb0ff190dfa3f1a0ccd3825182de5441c1b58",
+  "usage": {
+    "accounted_tokens": 3565,
+    "input_tokens": 3368,
+    "latency_seconds": 2.930893600016134,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 197,
+    "provider_request_id": "req_e3b1f57415244082907536cd7a3ff7aa",
+    "reasoning_tokens": 0,
+    "request_id": "f86d0ffd-a94f-4156-8f70-dfffad2754e7",
+    "reserved_input": 21768,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:30.604892+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

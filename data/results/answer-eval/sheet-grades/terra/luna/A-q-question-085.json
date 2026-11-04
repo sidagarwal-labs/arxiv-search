@@ -1,0 +1,39 @@
+{
+  "answer_id": "A105",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-085",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual assertion about style and identification has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 reports temporal and genre effects on verification and stable features across genres.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 reports changes across these feature families and differing feature trajectories.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 5 finds genre exerts stronger influence on stylistic features than source.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Papers 1 and 8 describe normalization of personal narratives and loss of interactive and contextual markers.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

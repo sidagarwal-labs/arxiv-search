@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-019",
+  "outcome": {
+    "answer": "Repeating training data can hurt pretraining performance when it creates too much duplication: one study finds that eval loss peaks at an intermediate repeat count, and that repeating a moderate subset a moderate number of times can damage performance more than either many repeats of a small subset or a few repeats of a large subset [1]. It also reports that the most damaging repeat count changes with model size, and that certain repetition settings can waste a large share of compute compared with no repetition [1].\n\nOther papers show the effect is not always purely negative. With limited unique data, one study finds that more epochs can improve pretraining outcomes, and that factors like shard order, concentrating repeats, and source entropy change the loss penalty from repetition [2]. Another finds that repeating standard pre-training data can support strong downstream performance for a diffusion language model, even as validation cross-entropy rises [10].",
+    "cited": [
+      1,
+      2,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8cc6bb94efa2e57af06a3f233f4e8a46f8080ab41810f7be756d5813c2616e60",
+  "usage": {
+    "accounted_tokens": 3832,
+    "input_tokens": 3636,
+    "latency_seconds": 3.140855100005865,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 196,
+    "provider_request_id": "req_d86d91aa180b4087b9e261c3a8796520",
+    "reasoning_tokens": 0,
+    "request_id": "cefeb642-827a-44d7-b716-84416306779b",
+    "reserved_input": 22178,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:27.439742+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

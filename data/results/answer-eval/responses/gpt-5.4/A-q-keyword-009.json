@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answer": "Yes: several papers describe automated topic modeling built around clustering, including community-style graph clustering. TriTopic is an automated topic modeling framework that fuses embeddings, TF-IDF, and metadata in a graph and uses Consensus Leiden Clustering plus iterative refinement to produce stable topic partitions [2]. TopiCLEAR also does automated topic discovery by clustering embeddings with adaptive dimensionality reduction, with an emphasis on interpretable topics, especially for short texts [5].\n\nIf by \u201ccommunity clustering\u201d you mean graph/community detection, the closest match is TriTopic\u2019s graph-based topic modeling with Leiden clustering [2]. A related but not exactly topic-modeling paper organizes arguments into communities by building an interaction graph and applying community detection [7]. For hierarchical topic structure, EviMap and the density-tree method provide automated multi-level topic organization rather than flat clusters [9, 8].",
+    "cited": [
+      2,
+      5,
+      7,
+      9,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a141da71ceb51c4e05c8e061c771b056c4dc1cc694bcf00eae24fefd19682636",
+  "usage": {
+    "accounted_tokens": 3610,
+    "input_tokens": 3416,
+    "latency_seconds": 5.4767332000192255,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 194,
+    "provider_request_id": "req_081d71bb0e11434b928ca401f09481e1",
+    "reasoning_tokens": 0,
+    "request_id": "e31578ba-b137-43c2-a6a7-27d766116256",
+    "reserved_input": 22481,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:06:47.130329+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

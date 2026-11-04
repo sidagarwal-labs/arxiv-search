@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-088",
+  "outcome": {
+    "answer": "The closest match is Mathur et al.\u2019s \u201cRetrieval Improvements Do Not Guarantee Better Answers: A Study of RAG for AI Policy QA,\u201d which studies RAG for AI governance and policy analysis using the AGORA corpus and finds that better retrieval does not consistently improve end-to-end QA [1]. It specifically reports that domain-specific fine-tuning improves retrieval metrics but can still fail to improve answer quality, and may even increase confident hallucinations when relevant documents are missing [1].\n\nIf you meant a broader RAG-for-policy search, this set is otherwise mostly about medical, industrial, financial, multimodal, or general QA rather than policy QA [2-10].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "7ea6b1eb99579e5c929ccb3599687a52d1ec58d083d5b2f3e8876ee3dfb320b1",
+  "usage": {
+    "accounted_tokens": 3916,
+    "input_tokens": 3760,
+    "latency_seconds": 2.5439202999987174,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 156,
+    "provider_request_id": "req_8fb87ee846744fb0b900227391c867ed",
+    "reasoning_tokens": 0,
+    "request_id": "6d1c0d27-388c-4b0e-919d-53efa74d2fa6",
+    "reserved_input": 22444,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:04.957863+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

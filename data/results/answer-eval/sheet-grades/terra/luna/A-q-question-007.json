@@ -1,0 +1,24 @@
+{
+  "answer_id": "A144",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "All three cited abstracts describe the stated length-control techniques.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "HOMURA uses reinforcement learning to balance translation fidelity and timing constraints.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

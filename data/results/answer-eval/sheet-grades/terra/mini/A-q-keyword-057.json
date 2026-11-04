@@ -1,0 +1,44 @@
+{
+  "answer_id": "A261",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The comparison of the supplied papers lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "LACONIC bridges dense effectiveness with lower memory and CPU-based sparse retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Latent Terms extracts BM25-ready features without sparse supervision.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Both papers use sparse autoencoders for sparse retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 9 studies tuned hybrid dense-sparse rank fusion.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 3 uses sparse non-negative reconstruction and reports improvements over dense retrieval.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A224",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-078",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper identification and method claim have no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 4 describes the preference validation, ranking stability and screening role.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 1 and 2 focus on preference-aligned slate generation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

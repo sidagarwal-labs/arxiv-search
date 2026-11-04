@@ -1,0 +1,12 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-031",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "979b6845629562ec71cd285817a362a865ba2042b1833f4838365d4a6126ccf3",
+  "usage": {
+    "recorded": true
+  }
+}

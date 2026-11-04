@@ -1,0 +1,34 @@
+{
+  "answer_id": "A100",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative framing response.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 states these chaos-induced difficulties and the smoother distributional objective under 1-Wasserstein.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 discusses distributional learning dynamics, propagation structure and StructRL-guided sampling, not chaos.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 3, 5, 8 and 9 study chaotic prediction or forecasting, not distributional reinforcement learning.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

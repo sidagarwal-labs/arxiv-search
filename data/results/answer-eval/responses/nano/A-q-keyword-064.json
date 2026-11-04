@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-064",
+  "outcome": {
+    "answer": "Yes\u2014at least one paper in the results directly targets Bangla spoken regional/dialect data. RegSpeech12: A Regional Corpus of Bengali Spontaneous Speech Across Dialects introduces a released Bengali spontaneous speech dataset across dialects, aiming at documenting phonetic and morphological properties and enabling dialect-tailored ASR systems (including ASR for regional varieties) [1].\n\nBanglaTalk also addresses Bengali regional dialects, but it focuses on a real-time speech assistance system using an ASR model fine-tuned across ten Bengali regional dialects, evaluated using performance reported on RegSpeech12 rather than presenting a new speech dataset itself [3].",
+    "cited": [
+      1,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0dad2994bbff3f52cdb0433b71af6c58671031d9b96c427e3956ebd4d9939336",
+  "usage": {
+    "accounted_tokens": 3600,
+    "input_tokens": 3452,
+    "latency_seconds": 2.8564890999987256,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 148,
+    "provider_request_id": "req_4762ea51496d4c3dbfa08528442117b9",
+    "reasoning_tokens": 0,
+    "request_id": "d51d0f9c-d5eb-4be3-89f9-73124b7279bd",
+    "reserved_input": 20797,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:53.576306+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

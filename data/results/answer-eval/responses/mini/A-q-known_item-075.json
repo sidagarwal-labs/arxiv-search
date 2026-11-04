@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-075",
+  "outcome": {
+    "answer": "No supplied paper specifically identifies a Hoehndorf drug safety knowledge graph. The closest match is SIDEKICK, a semantically integrated drug safety knowledge graph for indications, contraindications, and adverse reactions, built from FDA Structured Product Labels and mapped to HPO, MONDO, and RxNorm [1].\n\nOther papers address related drug-safety or medication-recommendation knowledge-graph methods, such as traceable drug recommendation over medical knowledge graphs [4] and ontology-based clinical trial safety analysis [9], but they do not match the Hoehndorf-specific request [4, 9].",
+    "cited": [
+      1,
+      4,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "daa4bdc250f19119e05ca72daff8e207c065cbfc0f329a65bc39f51a16fdf28f",
+  "usage": {
+    "accounted_tokens": 3521,
+    "input_tokens": 3374,
+    "latency_seconds": 2.3931703999987803,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 147,
+    "provider_request_id": "req_f82c8f22ebd0424691867a90a251769f",
+    "reasoning_tokens": 0,
+    "request_id": "caa66ad1-8b65-425b-8c8b-f518766dac1d",
+    "reserved_input": 21400,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:02.546001+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

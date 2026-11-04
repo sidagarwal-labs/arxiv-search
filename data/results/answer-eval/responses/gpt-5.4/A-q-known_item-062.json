@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-062",
+  "outcome": {
+    "answer": "Yes. The matching paper is MiniFool by Lucie Flek and coauthors, which presents a physics-constraint-aware adversarial attack for neural-network classification in particle and astroparticle physics [1]. MiniFool minimizes a cost function combining a chi-squared-based test statistic with deviation from a target score, where the test statistic measures perturbation likelihood using experimental uncertainties [1]. The paper applies the method to IceCube-related tau-neutrino work, MNIST, and CMS Open Data, and uses an attack parameter scaling experimental uncertainties to quantify robustness, including for unlabeled experimental data [1].\n\nA related Lucie Flek paper studies the same general theme from the uncertainty side rather than introducing the attack algorithm itself [8]. It shows that perturbations consistent with experimental uncertainties can substantially change neural-network outputs in high-energy-physics tasks while leaving input distributions nearly unchanged, and proposes a framework to measure this hidden sensitivity [8].",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "7c0a13223d55c89e2cd3368f8f8d3daab2c6483751cd877add3229ce6ed6681a",
+  "usage": {
+    "accounted_tokens": 3615,
+    "input_tokens": 3406,
+    "latency_seconds": 5.208218999992823,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 209,
+    "provider_request_id": "req_d812ddac61a640d9b24cc860ae40ef16",
+    "reasoning_tokens": 0,
+    "request_id": "e6fed2f3-252c-473c-abfc-9144215c9f57",
+    "reserved_input": 22462,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:09:58.989092+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-064",
+  "outcome": {
+    "answer": "Neural networks that predict discrete token distributions struggle more as those distributions become more ambiguous: accurately representing them requires more model capacity and larger embeddings, takes more training steps, and is more vulnerable to token-sampling noise [1]. In a controlled task, a network first learns an ambiguous marginal distribution and can plateau there before learning the additional information that resolves the ambiguity [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "77e668a6906e83e74e7d793e4141e29698c8f59c6e720f78dc1bbd911f9b0d9a",
+  "usage": {
+    "accounted_tokens": 3189,
+    "input_tokens": 3097,
+    "latency_seconds": 3.1590670000005048,
+    "model": "gpt-6-luna",
+    "output_tokens": 92,
+    "provider_request_id": "req_25135629a3854c50a00959901e23d1df",
+    "reasoning_tokens": 0,
+    "request_id": "508e7a2a-dcbe-4715-9d4a-b77e6127c586",
+    "reserved_input": 19996,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:12.736107+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

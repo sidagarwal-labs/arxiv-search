@@ -1,0 +1,49 @@
+{
+  "answer_id": "A249",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-056",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The general claim about papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The detailed LLM-AL description has no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 supports training-free LLM active learning, but not the broader plural claim about other optimization approaches.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "An author-name fragment contains no substantive claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "The LABO method description has no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S6",
+        "reason": "The LacMaterial claim cites LABO [6], not LacMaterial [2].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S7",
+        "reason": "The citations support the distinct active-learning, Bayesian-optimization, and analogical-generation emphases.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

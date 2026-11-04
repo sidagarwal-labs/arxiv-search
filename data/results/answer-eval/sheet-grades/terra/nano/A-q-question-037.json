@@ -1,0 +1,44 @@
+{
+  "answer_id": "A251",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The summary claim lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports stronger late-layer alignment for ambiguity and continuing underestimation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 9 reports energy as a robust predictor beyond surprisal and attention entropy.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The claim about brain-imaging evidence has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 2 describes sparse features and surprisal prediction in frontal regions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 3 finds dependence on positional encoding and human-language training.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

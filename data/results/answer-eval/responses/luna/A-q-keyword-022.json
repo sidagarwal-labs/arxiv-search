@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answer": "The closest match is a lifecycle memory controller that treats retention strength as an explicit state, separate from confidence or validity evidence. It uses that state to guide promotion, compression, and eviction, aiming to prevent both forgetting important premises and retaining everything indiscriminately [1]. Other approaches strengthen memories when they help generate a response [2], or track preference strength and evidence while adaptively reinforcing and weakening memories [8].",
+    "cited": [
+      1,
+      2,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8f37cd0bfb028446af074eeb30e5afc3d97bbd3c412fb29a328ad8d80a106b5b",
+  "usage": {
+    "accounted_tokens": 3862,
+    "input_tokens": 3762,
+    "latency_seconds": 3.3989263999974355,
+    "model": "gpt-6-luna",
+    "output_tokens": 100,
+    "provider_request_id": "req_6a1cba18c4d3400e97e52d2fbd661d2b",
+    "reasoning_tokens": 0,
+    "request_id": "4270cc90-841a-4324-be8b-5ed4b14fa491",
+    "reserved_input": 23893,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:29.144114+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

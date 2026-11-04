@@ -1,0 +1,34 @@
+{
+  "answer_id": "A352",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The characterization of the paper is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The study reports user-dependent saturation and earlier saturation for shorter histories.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Adaptive exploration follows the study, but it does not explicitly model user goals.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "The claim about other papers is uncited and they are not supplied.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

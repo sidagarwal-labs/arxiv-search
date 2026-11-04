@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answer": "Yes. One supplied paper directly matches that setup for social media text: it detects polarization in social posts with a two-stage method that combines structured supervised fine-tuning using an interpretable slot-filling template with Direct Preference Optimization refinement [2]. The slots are target, claim type, manifestation checklist, and justification, and the DPO stage uses automatically generated preference pairs to reduce false negatives [2].\n\nRelated papers cover nearby but different tasks. One improves political stance detection in informal online discourse by adding user-profile context from historical posts, rather than slot-based training plus preference optimization [1]. Another extracts target and stance from Reddit political posts for more granular opinion analysis, using prompting strategies rather than the supervised-fine-tuning-plus-DPO recipe [3].",
+    "cited": [
+      2,
+      1,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "f692cf416e58e72e38ee10b795c36cd0903dbbc96580f1eb5e0b55a8d67a0717",
+  "usage": {
+    "accounted_tokens": 3368,
+    "input_tokens": 3198,
+    "latency_seconds": 4.985745000012685,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 170,
+    "provider_request_id": "req_1ee4a05827b344a093106e84f79b9d82",
+    "reasoning_tokens": 0,
+    "request_id": "d229d5c6-e29c-4191-baf8-59977c80fb7e",
+    "reserved_input": 20797,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:11:14.614038+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

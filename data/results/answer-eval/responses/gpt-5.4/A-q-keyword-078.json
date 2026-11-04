@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-078",
+  "outcome": {
+    "answer": "Yes. One paper directly studies LLM synthetic slate preference for recommendation: it asks whether LLMs can express pairwise preferences between slates for synthetic A/B testing, and finds that LLM-based synthetic preferences can recover stable rankings when combined with a generalized Rao-Kupper model [4]. It frames this as a screening stage before live experiments, not a replacement for real A/B testing [4].\n\nRelated slate recommendation papers focus on generating and aligning slates with user preferences rather than using LLMs as synthetic preference judges. OGR uses list-wise preference planning and reward-guided optimization to align generated slates with user preferences [1], while HiGR uses hierarchical planning and listwise alignment for ranking fidelity, user interest, and diversity at industrial scale [2]. A broader recommendation paper also shows principled synthetic data can help LLMs learn generalizable user preference patterns, but it is not specifically about slate preference evaluation [6].",
+    "cited": [
+      4,
+      1,
+      2,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "35673498414011315343fe14720238d1f97b67e0130dbd7a4930783d86acdbaf",
+  "usage": {
+    "accounted_tokens": 3624,
+    "input_tokens": 3416,
+    "latency_seconds": 4.698432700010017,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 208,
+    "provider_request_id": "req_4bc2fa4845d24045bb241466f3209c42",
+    "reasoning_tokens": 0,
+    "request_id": "4a384dc9-13b4-4d42-9b73-dd9251159589",
+    "reserved_input": 22061,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:16.764919+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

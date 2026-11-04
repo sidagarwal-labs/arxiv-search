@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-032",
+  "outcome": {
+    "answer": "The supplied papers do not directly identify a paper by Bekkers, but the closest match on equivariant neural fields is Generalized Reduction to the Isotropy for Flexible Equivariant Neural Fields, which applies a reduction to Equivariant Neural Fields and extends them to arbitrary group actions and homogeneous conditioning spaces [1]. Another related paper discusses equivariant transformer-based neural fields for latent pointclouds, but it is focused on optimization encoders rather than Bekkers specifically [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5c226bcc041e670beaf85d605a5db499d8ba4cf7629d0c9ee0cdbf6564174a29",
+  "usage": {
+    "accounted_tokens": 3460,
+    "input_tokens": 3347,
+    "latency_seconds": 3.053808900003787,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 113,
+    "provider_request_id": "req_56e54603ec644ea990512beb39fb6323",
+    "reasoning_tokens": 0,
+    "request_id": "81431381-570f-4de9-a2a2-bc0f83d22a48",
+    "reserved_input": 21293,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:25.330522+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

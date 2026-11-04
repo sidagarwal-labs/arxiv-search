@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-002",
+  "outcome": {
+    "answer": "Use a dynamic mixed-precision scheme that assigns different bit-widths to experts at runtime based on expert importance and sensitivity. DyMoE does this with importance-aware prioritization, depth-adaptive scheduling, and look-ahead prefetching to cut latency on edge hardware, while GEMQ uses global expert-level allocation plus router fine-tuning to reduce memory and accelerate inference [2, 5]. For a more runtime-focused approach, DPA-MoE makes routed experts any-precision by encoding weights into prefix-decodable chunks and allocating them using live router scores [7]. These papers target MoE inference on constrained devices, but they differ in whether they emphasize edge scheduling, global bit allocation, or post-routing precision control [2, 5, 7].",
+    "cited": [
+      2,
+      5,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d2563a320797e074996244726781fa70d5ffd902dfc2057ba30f65c8b353dc23",
+  "usage": {
+    "accounted_tokens": 3442,
+    "input_tokens": 3270,
+    "latency_seconds": 2.6408154999953695,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 172,
+    "provider_request_id": "req_0fe78c3669644c1b932df322f5dbad25",
+    "reasoning_tokens": 0,
+    "request_id": "53497a1f-fad3-4b56-9c2f-41c15259b613",
+    "reserved_input": 20615,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:19.409202+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

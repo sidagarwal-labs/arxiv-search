@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-095",
+  "outcome": {
+    "answer": "Yes. One paper explicitly argues that a single general-purpose atmospheric model can handle many tasks: WIND is presented as a single pre-trained foundation model that replaces specialized baselines across tasks without task-specific fine-tuning, covering probabilistic forecasting, spatial and temporal downscaling, reconstruction from sparse observations, dry air mass conservation, and exploration of extreme weather under perturbations [1]. Another paper similarly finds that scaling a general-purpose model is sufficient for state-of-the-art probabilistic medium-range forecasting, without tailored training recipes [4].\n\nThe papers differ in scope. WIND is the clearest evidence for one model serving various atmospheric science tasks within weather and climate modeling [1]. Other papers show narrower forms of reuse rather than a single model for many tasks: one pretrained atmospheric diffusion model is conditioned on heterogeneous observations for super-resolution without retraining [3], while another atmospheric foundation model is adapted to sea surface temperature forecasting by fine-tuning [9]. A review of Earth observation foundation models cautions that no single geospatial foundation model is universally best [6].",
+    "cited": [
+      1,
+      4,
+      3,
+      9,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5fa0a3e324a07256e50b92a6b129c5f7b52af926943570f0692e1d15971586e6",
+  "usage": {
+    "accounted_tokens": 3855,
+    "input_tokens": 3625,
+    "latency_seconds": 5.828671700000996,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 230,
+    "provider_request_id": "req_9da3f6c5bd38496e8521806be7ca1eea",
+    "reasoning_tokens": 0,
+    "request_id": "c59c9569-ab25-4c6b-8fc6-55da0c5ea70e",
+    "reserved_input": 23637,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:53.740788+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

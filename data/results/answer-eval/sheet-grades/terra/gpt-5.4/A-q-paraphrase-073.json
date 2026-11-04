@@ -1,0 +1,59 @@
+{
+  "answer_id": "A068",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The bare affirmative contains no factual claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The assertion about what the papers suggest has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "StableOPD combines the stated constraints to mitigate repetition and length inflation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The EOS alignment reduces mismatch-driven inflation but not a distinct late-stage inflation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Early Stopping Rollout restricts generation to early response tokens.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "This is a transition introducing examples, without a specific factual assertion.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S7",
+        "reason": "The abstract states the shorter verified rewrites address verbosity and self-criticism.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S8",
+        "reason": "BIRD bootstraps on correct concise traces before on-policy self-distillation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S9",
+        "reason": "Later-token feedback decay and early stopping are supported; paper [8] prunes teacher branches for learnability, not decaying feedback.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

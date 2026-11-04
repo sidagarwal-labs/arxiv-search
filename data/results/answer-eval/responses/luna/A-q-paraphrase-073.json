@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-073",
+  "outcome": {
+    "answer": "For on-policy distillation, StableOPD targets repetition-driven length inflation with a reference-based divergence constraint and rollout-mixture distillation [1]. Another approach treats functionally equivalent EOS tokens as a shared stopping action, mitigating inflation caused by student\u2013teacher termination mismatch, though it does not eliminate all late-training inflation [2]. For shorter reasoning traces, BIRD first trains on correct concise self-generated solutions, then applies on-policy distillation with a concise self-teacher [5].",
+    "cited": [
+      1,
+      2,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "baebe79cf2c9f6594fcdcc4628796690b9df23a3883018e637bf5c9ea78962ae",
+  "usage": {
+    "accounted_tokens": 3639,
+    "input_tokens": 3525,
+    "latency_seconds": 2.7185075000161305,
+    "model": "gpt-6-luna",
+    "output_tokens": 114,
+    "provider_request_id": "req_6b5fc1e395ba4eff9c3c628896c27423",
+    "reasoning_tokens": 0,
+    "request_id": "1f71f12e-c5f1-44e7-a243-c2f8757fcb62",
+    "reserved_input": 22113,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:46.537808+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

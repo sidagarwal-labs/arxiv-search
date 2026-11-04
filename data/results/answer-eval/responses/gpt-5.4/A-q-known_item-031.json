@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-031",
+  "outcome": {
+    "answer": "The supplied results do not show a paper by Boyd. The closest match on \u201cclinical provenance categorization\u201d is a pilot study on sentence-level clinical provenance categorization for multidisciplinary hospital-stay summarization, which fine-tunes Llama-3 models to label provenance across multi-source clinical notes and tests cross-domain transfer from MIMIC-III to NICU summaries [1].\n\nRelated papers use \u201cprovenance\u201d differently: one addresses evidence-traceable clinical reasoning with temporal knowledge graphs to close a citation \u201cprovenance gap\u201d in rare disease AI [2], another studies over-crediting same-trial evidence in medical verification [3], and another measures redundancy in LLM-generated clinical corpora for provenance classification [5]. So the results cover clinical provenance categorization in general, but not a Boyd-specific categorization.",
+    "cited": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "72feaa348eafcf6b1da28ab2b32c1ca13faafd2b376f658df5a92f13c0045e1e",
+  "usage": {
+    "accounted_tokens": 4242,
+    "input_tokens": 4057,
+    "latency_seconds": 4.7955100999970455,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 185,
+    "provider_request_id": "req_2b755ffabf274d9e9c8ae1e6fda3dd1c",
+    "reasoning_tokens": 0,
+    "request_id": "c7525ed8-0e0c-4c01-a72e-9e3a840eaf39",
+    "reserved_input": 24494,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:09:13.959499+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

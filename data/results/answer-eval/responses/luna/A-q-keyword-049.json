@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-049",
+  "outcome": {
+    "answer": "Several inference-time strategies target different weaknesses in multimodal LLM decoding. For diffusion-based multimodal models, IGFD prioritizes useful semantic anchors, VRCD selects tokens with complementary visual grounding, and Context-Aware Cluster Decoding favors tokens supported by nearby context [1\u20133]. STDec uses spatial and temporal stability to improve throughput while maintaining comparable task performance [7]. For reducing hallucinations, causal decoding intervenes on generation dynamics to curb unsupported object mentions, while LIME shifts relevance toward perceptual input [4, 9]. A survey organizes broader LLM and vision-language decoding methods into token-level, sequence-level, and parallel-generation paradigms [5].",
+    "cited": [
+      7,
+      4,
+      9,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "bc0aa7dbc582a4bc015bb1088de7e649fab19ea72111ad44088677a56e3e156b",
+  "usage": {
+    "accounted_tokens": 3449,
+    "input_tokens": 3298,
+    "latency_seconds": 3.304431600001408,
+    "model": "gpt-6-luna",
+    "output_tokens": 151,
+    "provider_request_id": "req_edceb36f7930484d842fe5783eb3d0a7",
+    "reasoning_tokens": 0,
+    "request_id": "35dffd43-60dc-47a7-b022-c1a5a7128893",
+    "reserved_input": 21198,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:36.256416+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

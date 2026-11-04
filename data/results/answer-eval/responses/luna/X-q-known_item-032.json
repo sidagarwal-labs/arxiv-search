@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-032",
+  "outcome": {
+    "answer": "None of the supplied papers addresses Bekkers or equivariant neural fields; the results are about retrieval-augmented question-answering systems.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "364f6e958daa8311dedd999e6dcacc099ddbd042b0e89f818c52f0b10162af0b",
+  "usage": {
+    "accounted_tokens": 3805,
+    "input_tokens": 3761,
+    "latency_seconds": 2.579403599986108,
+    "model": "gpt-6-luna",
+    "output_tokens": 44,
+    "provider_request_id": "req_12e75d830ce44ae79dcdc0e09888c80c",
+    "reasoning_tokens": 0,
+    "request_id": "d5015cd0-af28-4253-95a7-7c9327f4bf3a",
+    "reserved_input": 22444,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:56.200627+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

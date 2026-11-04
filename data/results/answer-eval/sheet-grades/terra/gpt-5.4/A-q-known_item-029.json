@@ -1,0 +1,34 @@
+{
+  "answer_id": "A155",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-029",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 describes the authors, transformer approach, wind response forecasting and bridge digital twin.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract reports Hardanger measurements, vibration comparisons, early warning and environmental or traffic changes.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited abstracts concern wind energy forecasting or wind nowcasting rather than bridges.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 directly matches Zhou and wind-induced bridge response forecasting.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

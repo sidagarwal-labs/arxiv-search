@@ -1,0 +1,39 @@
+{
+  "answer_id": "A018",
+  "candidate": "nano",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "[1] supports DeCode's authorship, training-free/model-agnostic design, patient-context motivation, and HealthBench evaluation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "As segmented, this cites [1] (DeCode), while the RAG-X diagnostic framework is described in [7].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "[7] explicitly separates faulty retrieval from flawed generation and does not describe content-delivery decoupling.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "As segmented, this cites [7] (RAG-X), but the fine-tuned open-LLM comparative study is [2].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "A standalone citation label contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

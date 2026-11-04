@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-040",
+  "outcome": {
+    "answer": "Tool specifications can serve as the starting point for generating test cases without hand-written examples or live tool access. Agent Seer uses function names, descriptions, and typed parameter schemas to enrich the specifications, create graded scenarios with synthetic tool outputs, and turn them into mock-data-grounded, multi-turn dialogues for testing tool-call correctness and conversational coherence [1]. The resulting cases can be checked for argument accuracy as well as whether agents select the right tools [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "8d390f14b7a0848c332a7790e5832945a1c45073b99b6f5e815beff167cb6aa8",
+  "usage": {
+    "accounted_tokens": 3687,
+    "input_tokens": 3578,
+    "latency_seconds": 2.966899999999441,
+    "model": "gpt-6-luna",
+    "output_tokens": 109,
+    "provider_request_id": "req_8bd3a544e83844d0b011c128236e2496",
+    "reasoning_tokens": 0,
+    "request_id": "70eda538-0081-4cef-8bc6-10c66ce98b9b",
+    "reserved_input": 22814,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:49.225960+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

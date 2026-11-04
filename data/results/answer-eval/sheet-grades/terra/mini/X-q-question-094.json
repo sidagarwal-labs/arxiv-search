@@ -1,0 +1,29 @@
+{
+  "answer_id": "A140",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-094",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 10 evaluates instructional effectiveness and learning using a pretest-posttest design.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 10 reports transfer gaps and negative gains, but studies teaching slides rather than arbitrary provided text.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 3 and 4 address evaluator preference learning and synthetic pairwise slate judgments.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answer": "The closest matches are AWARe and Model-Dowser, both for multimodal large language models. AWARe assigns activation-based importance scores and selectively freezes parameters to preserve prior capabilities during fine-tuning [2]. Model-Dowser also targets catastrophic forgetting in MLLMs, but its importance score combines weight magnitudes, input activations, and output sensitivities, then preserves high-importance parameters while updating the rest [4].\n\nIf you mean parameter importance for freezing in general rather than specifically MLLMs, Guarded Freezing derives freezing scores for pretrained models using removal-value and drift-value, including language-model settings [1].",
+    "cited": [
+      2,
+      4,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "59587377e1ac3b6aede39ee167f77b7c5c202083eeb5efec3775838a909312d7",
+  "usage": {
+    "accounted_tokens": 3732,
+    "input_tokens": 3583,
+    "latency_seconds": 2.3919828000070993,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 149,
+    "provider_request_id": "req_9a80ed1b232245b5821af9db5825a457",
+    "reasoning_tokens": 0,
+    "request_id": "0dd6f916-ddab-4d31-b9d4-9617b5dfa726",
+    "reserved_input": 22103,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:27.460246+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

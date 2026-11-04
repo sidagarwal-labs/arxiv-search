@@ -1,0 +1,54 @@
+{
+  "answer_id": "A007",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion that the supplied papers cover dense-to-sparse retrieval has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[2] explicitly supports SAE extraction, BM25-ready features, no sparse supervision/expansion objective, and matching or outperforming base single-vector scoring.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[7] introduces SAE-based SPLARE and reports expressive latent features plus strong multilingual and out-of-domain retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The claims about dense-like effectiveness and replacing dense indexing with sparse coding lack citations in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "[1] explicitly targets dense-level effectiveness and reports 74% less index memory than an equivalent dense model.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "[10] uses sparse token coding and inverted indexing, reporting 15x faster indexing, halved latency, and improved retrieval performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "[5] maps local span embeddings to sparse embedding-space centers for patent prior-art retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S8",
+        "reason": "[9] explicitly studies parameterized dense-sparse rank/score fusion and train-then-freeze tuning for hybrid retrieval.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

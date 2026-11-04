@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-037",
+  "outcome": {
+    "answer": "The supplied papers do not address how language-model representations correlate with the effort people use to understand sentences; they focus on algorithmic fairness and related topics.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "bb157df699902600ce2edd3d95034451dce0e8a85c823a5f615a915c8a31658f",
+  "usage": {
+    "accounted_tokens": 3208,
+    "input_tokens": 3161,
+    "latency_seconds": 4.8337753000087105,
+    "model": "gpt-6-luna",
+    "output_tokens": 47,
+    "provider_request_id": "req_58c4e50bea214ad294dc8b6e91f4c423",
+    "reasoning_tokens": 0,
+    "request_id": "92d432c3-6e23-4167-bfd0-e3c63c797c2e",
+    "reserved_input": 21798,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:48.121542+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

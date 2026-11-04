@@ -1,0 +1,39 @@
+{
+  "answer_id": "A202",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-026",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual paper description has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The technical claims have no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 reports the architectural motivation and empirical projection and classification improvements.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited abstracts describe shot-budget acquisition, quantum GP spectra and q-orthogonal kernels.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Citation only.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

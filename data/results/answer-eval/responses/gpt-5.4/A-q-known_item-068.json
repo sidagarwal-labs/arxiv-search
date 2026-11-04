@@ -1,0 +1,29 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answer": "Yes: the matching paper is Continually Post-training Small Models via Synthetic Self-distillation by Woosung Koh, Hyunsoo Lee, Kyungjae Lee, et al. [1] It targets small models specifically, arguing that prior self-distillation fine-tuning fails on smaller models because it depends on strong in-context learning and instruction-following abilities. [1]\n\nThe paper introduces Synthetic Self-Distillation (SynthSelf), which uses a minimally larger, same-family aligner to produce in-distribution rewrites for the small model, combined with off-policy supervision and rejection sampling. [1] According to the abstract, SynthSelf consistently outperforms six baselines across multiple acquisition datasets, retention benchmarks, and three small model scales, aiming at effective continual learning for low-latency, on-device small models. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "26836ddcf79e8592bf97c2bb33dc016e9d381181bef48e9bf0ed72c3822e6f59",
+  "usage": {
+    "accounted_tokens": 3779,
+    "input_tokens": 3590,
+    "latency_seconds": 3.8928481000184547,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 189,
+    "provider_request_id": "req_598ce37b6fa7487b9628f9b38c0de56d",
+    "reasoning_tokens": 0,
+    "request_id": "b3adfa86-5315-48af-b0e5-16872063249f",
+    "reserved_input": 21801,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:04.217563+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

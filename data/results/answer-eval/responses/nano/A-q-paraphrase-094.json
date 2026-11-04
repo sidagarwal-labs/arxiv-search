@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-094",
+  "outcome": {
+    "answer": "The closest match is MoCo Rubric (Momentum-Coupled Rubric Adaptation for Detailed Image Captioning) [1], which builds and checks explicit rubric criteria for detailed image captions. It uses a two-stage framework where a single shared vision-language model serves as the caption policy, rubric generator, and rubric judge; the rubric generator constructs rubrics online from sampled captions and image evidence, and the judge provides rubric-based rewards [1]. To keep rubric roles aligned with caption updates, MoCo Rubric uses an exponential moving average (\u201cmomentum model\u201d) of the policy parameters to update one momentum model shared by the generator and judge, smoothing parameter changes that could disrupt their rubric capabilities [1].\n\nIf your goal is specifically about improving picture descriptions via (a) disentangling quality notions like specificity vs length, and (b) better evaluation targets, When More Words Say Less (Decoupling Length and Specificity) directly studies specificity-focused evaluation rather than verbosity-based scoring [2]. It differs from MoCo Rubric in focusing on evaluation design for description quality, not an online shared model with momentum-updated rubric rules [1,2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "20f60ab4bf7f9f221f5f661a7e82504b251f63bfa5f7b06932b1c74d43768ca2",
+  "usage": {
+    "accounted_tokens": 3770,
+    "input_tokens": 3520,
+    "latency_seconds": 3.1495790000190027,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 250,
+    "provider_request_id": "req_8bedb5ec1ae14d9da65bd4672e09a939",
+    "reasoning_tokens": 0,
+    "request_id": "991271a9-8443-4934-9eff-e7f36ff69d4f",
+    "reserved_input": 22387,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:50:30.590135+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

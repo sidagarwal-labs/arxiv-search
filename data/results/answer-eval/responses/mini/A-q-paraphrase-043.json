@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-043",
+  "outcome": {
+    "answer": "The closest match is a paper on emotion recognition in conversation that directly studies how much prior context is needed: it finds performance saturates quickly, with about 90% of the gain coming from the most recent 10\u201330 preceding turns, depending on the label set [1]. It also reports that sentence-level structure helps mainly when no turn-level context is available, but that benefit disappears once conversational history is included [1].\n\nA second paper on multi-turn dialogue shows that much less history can often be enough for language models: using only the most recent user\u2013assistant exchange or compact summaries of prior assistant turns often matches full-context performance, though some cases still need more of the conversation [2]. None of the supplied papers specifically isolates \u201csentence starters\u201d in the sense of first words or discourse openings for mood detection, beyond the discussion of discourse-marker position in emotion recognition [1].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5b4aec77fd9f7c31b6e2b3382ab7a3c92905f4c410d828a514357f811304faed",
+  "usage": {
+    "accounted_tokens": 4092,
+    "input_tokens": 3895,
+    "latency_seconds": 3.0298927999974694,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 197,
+    "provider_request_id": "req_ab05016f1ef14d86ac1a60b910b60a28",
+    "reasoning_tokens": 0,
+    "request_id": "a90816a1-72cc-45eb-a18d-bb0b9d696db4",
+    "reserved_input": 24207,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:37.261142+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

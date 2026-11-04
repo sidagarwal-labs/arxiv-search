@@ -1,0 +1,29 @@
+{
+  "answer_id": "A241",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-072",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A simple affirmation.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "HASTE is authored by Shukla and combines hierarchical and attribute supervision.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract describes both losses and faster convergence.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

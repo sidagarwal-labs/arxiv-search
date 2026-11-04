@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-042",
+  "outcome": {
+    "answer": "Jiang\u2019s paper is Think-to-Personalize, which unifies explicit user-centric intent reasoning with dense retrieval for personalized e-commerce search [1]. It reasons over a user\u2019s historical purchase sequence to infer latent personalized needs, then generates an intent-enhanced query for a unified dense embedding [1].\n\nIf you meant a broader match on personalized reasoning for retrieval, other close papers include PR2, which learns adaptive retrieval-reasoning policies over personal context in QA [4], and PBR, which personalizes query expansion before retrieval using user history and corpus structure [8].",
+    "cited": [
+      1,
+      4,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "6368ecd761691144cc58aa9c2517199b2c49f6e7aee7028e7bd1988c5b0e22ea",
+  "usage": {
+    "accounted_tokens": 3520,
+    "input_tokens": 3384,
+    "latency_seconds": 2.5369551999901887,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 136,
+    "provider_request_id": "req_23052b04420d42ff98a8c278572cc4ca",
+    "reasoning_tokens": 0,
+    "request_id": "c2f953b6-b639-4b10-884e-a177ce7fc963",
+    "reserved_input": 21914,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:31.025665+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

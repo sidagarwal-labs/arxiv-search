@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-089",
+  "outcome": {
+    "answer": "If you mean limits on fairness, the supplied papers do not directly study fairness limits. The closest related work, LWGR, constrains recommendation knowledge fusion to bound performance degradation, but its abstract does not describe this as a fairness constraint [4]. Another paper discusses transparency, privacy, ownership, and accountability in governable personalization, without specifying fairness limits [8].",
+    "cited": [
+      4,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ca848760461854c2b5dddd0cb06c343d0e1abd54334ac7af9820e1eef92b7d7a",
+  "usage": {
+    "accounted_tokens": 3300,
+    "input_tokens": 3210,
+    "latency_seconds": 5.463240899989614,
+    "model": "gpt-6-luna",
+    "output_tokens": 90,
+    "provider_request_id": "req_2e059637e6fc4e37be0dc3968c502403",
+    "reasoning_tokens": 0,
+    "request_id": "30eec9fa-1287-40ec-970d-3cd3a2709626",
+    "reserved_input": 21587,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:59:38.747700+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

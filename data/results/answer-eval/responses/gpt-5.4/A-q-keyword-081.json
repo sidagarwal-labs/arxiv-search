@@ -1,0 +1,34 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answer": "Yes\u2014these results include LLM approaches that use popularity prediction inside recommendation. TRAIL is the most direct match: a fine-tuned LLM for recommendation that jointly predicts short-term item popularity and generates explanations, reporting stronger popularity prediction and explainability than baselines [1]. Related work also uses popularity signals more indirectly: one method activates LLM guidance based partly on item popularity and improves accuracy especially in cold-start and long-tail settings [3], while FairLRM targets popularity bias by helping RecLLMs semantically interpret and address item-side and user-side sources of that bias, improving fairness and accuracy [8].\n\nIf you mean broader LLM recommendation rather than explicit popularity prediction, the papers differ: some use LLMs as explainable re-rankers instead of standalone recommenders [2], some generate temporal user profiles to improve recommendation quality and interpretability in certain domains [5], and one studies when LLM-generated profiles help in production, finding benefits mainly for exploratory users and also observing a popularity-attractor effect [10].",
+    "cited": [
+      1,
+      3,
+      8,
+      2,
+      5,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a72574151a4d8a6715aeeefcd818b09a0861c975ce4a31080db3ff1f0a0970e9",
+  "usage": {
+    "accounted_tokens": 3539,
+    "input_tokens": 3311,
+    "latency_seconds": 6.194241699995473,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 228,
+    "provider_request_id": "req_b0389186a5954421a972a143cc497235",
+    "reasoning_tokens": 0,
+    "request_id": "b891f4d0-9202-4172-b86e-556dd2349a82",
+    "reserved_input": 22517,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:27.029287+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

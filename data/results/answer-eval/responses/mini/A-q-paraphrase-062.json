@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answer": "Yes\u2014these papers address estimating output length or token consumption for prompts whose response size can vary a lot. One paper finds that total response length is linearly decodable from the prompt\u2019s last hidden state before any output is emitted, and frames this as approximate estimation of remaining generation length [1]. Another treats prompt-only length prediction as a robust estimation problem because the same prompt induces a prompt-conditioned output-length distribution rather than a single deterministic target [4]. A third predicts token consumption during agent execution by updating forecasts as new evidence arrives, reflecting that total cost can vary greatly across runs [5].\n\nThey differ in scope: [1] focuses on internal length signals inside LLMs, [4] on robust prompt-conditioned length prediction, and [5] on forecasting consumption over multi-step agent executions.",
+    "cited": [
+      1,
+      4,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c7d1ad2a9e2e37444e3c06bba06260e3da60edd3df6060c24d647eff0fa48f14",
+  "usage": {
+    "accounted_tokens": 3943,
+    "input_tokens": 3764,
+    "latency_seconds": 2.6986577000061516,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 179,
+    "provider_request_id": "req_40ef7e750bb64480bdbdb85395ea11f0",
+    "reasoning_tokens": 0,
+    "request_id": "42537dd5-e4bc-4772-ae5c-dcc46fe31333",
+    "reserved_input": 22777,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:48.134281+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

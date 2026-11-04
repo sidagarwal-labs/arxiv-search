@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answer": "The closest match is the paper by Zichao Wei on the computational complexity of structural generalization, which formalizes structural generalization and argues that learning it with a pure Transformer is limited by a TC^0 ceiling versus an NC^1 lower bound [1]. A separate Wei paper presents a system for structural generalization on SLOG without hand-written rules, using a neural cellular automaton with a discrete bottleneck and reporting strong benchmark results [2].\n\nIf you meant \u201cWei\u201d in the sense of complexity of structural generalization, [1] is the direct match; if you meant empirical structural generalization systems, [2] is the relevant paper.",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "757b5bbb84e8e23711b0cf53f04faacf66ccaf23e84bbef105a344981c9365ad",
+  "usage": {
+    "accounted_tokens": 3488,
+    "input_tokens": 3329,
+    "latency_seconds": 2.849818000016967,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 159,
+    "provider_request_id": "req_89ef0d93318446f09f00d45baf6ce03b",
+    "reasoning_tokens": 0,
+    "request_id": "6b90e69f-dc64-4b73-be2f-64776033393e",
+    "reserved_input": 20921,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:59.678070+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A175",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The analysis is described correctly, but its impossibility conclusion depends on the TC\u2070 \u2260 NC\u00b9 assumption.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 reports a discrete-bottleneck NCA and SLOG results without hand-written rules.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The two papers respectively study complexity and an empirical SLOG system.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

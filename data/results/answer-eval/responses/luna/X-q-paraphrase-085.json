@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-paraphrase-085",
+  "outcome": {
+    "answer": "The supplied papers do not address removing company trademarks or corporate slogans from LLM-generated text while preserving general knowledge. They cover topics such as reinforcement learning, game-playing agents, and LLM social reasoning instead.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "122c0bc8a3c9a28686748af78d1afdf82a02905f71f6ddc1b22e0f05eed2561e",
+  "usage": {
+    "accounted_tokens": 3656,
+    "input_tokens": 3598,
+    "latency_seconds": 3.454835800017463,
+    "model": "gpt-6-luna",
+    "output_tokens": 58,
+    "provider_request_id": "req_fbcb108b0bc942a98b49d79a63bc957c",
+    "reasoning_tokens": 0,
+    "request_id": "312696bf-4af1-409a-857e-b1c59c6d3f00",
+    "reserved_input": 22234,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:02.123611+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

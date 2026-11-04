@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-062",
+  "outcome": {
+    "answer": "A direct \u201cGNN proxy for SDP relaxations\u201d is addressed in the Max-Cut setting: Chen, Qian, Morris, et al. propose a Max-Cut-specific graph neural network that acts as a lightweight, validity-preserving neural proxy for the semidefinite programming (SDP) relaxations used inside exact branch-and-bound. The model predicts both primal- and dual-feasible SDP solutions and yields feasible Max-Cut solutions via the Goemans\u2013Williamson algorithm, allowing it to be plugged into an exact solver framework. It is trained self-supervised (without requiring solved SDP relaxations as labels) and empirically reduces the cost of bounding by up to 10.6\u00d7 versus using Mosek. [2]\n\nQian and Morris study when GNNs can (or cannot) recover SDP solutions, proving negative results for standard GNN architectures on linear SDPs and identifying a more expressive architecture that can emulate updates of a standard first-order solver; it also reports speedups when using learned predictions to warm-start a first-order solver. This is more about expressivity and optimization recovery than a Max-Cut-style drop-in SDP solver proxy. [1]",
+    "cited": [
+      2,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2a5bc4ca337ddcdaad377884db7cc6e3d3e94e81caeb7aef89a31bcdb5f99d25",
+  "usage": {
+    "accounted_tokens": 3205,
+    "input_tokens": 2948,
+    "latency_seconds": 2.9819453999807592,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 257,
+    "provider_request_id": "req_ed170f8ca9b94a76a647660856e749c2",
+    "reasoning_tokens": 0,
+    "request_id": "2f2c6fad-9296-4d43-ba1f-6c188891c39e",
+    "reserved_input": 19112,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:50.576807+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

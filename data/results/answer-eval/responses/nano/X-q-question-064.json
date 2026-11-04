@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "X-q-question-064",
+  "outcome": {
+    "answer": "It\u2019s difficult because systems that rely on retrieval and generation can become overconfident even when the evidence needed to resolve ambiguity is missing, and stronger retrieval alone may not reliably fix that. In a policy-focused RAG study, domain-specific fine-tuning improved retrieval metrics but did not consistently improve end-to-end question answering, and in some cases stronger retrieval led to more confident hallucinations when relevant documents were absent\u2014suggesting ambiguity can\u2019t always be disambiguated from what\u2019s retrieved. [1]\n\nMore generally, handling ambiguity often depends on how well the system locates the right, structured evidence; otherwise, fixed or noisy context selection can force the model to infer from insufficient or conflicting signals. For example, RAG-X isolates whether errors come from retrieval versus generation to diagnose failures when grounding is deceptive rather than verified. [6]",
+    "cited": [
+      1,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "168db0de23d2e1861e985f0c090f10a79fd00f008f329d0a36218d57f863988a",
+  "usage": {
+    "accounted_tokens": 3955,
+    "input_tokens": 3768,
+    "latency_seconds": 2.6771427000057884,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 187,
+    "provider_request_id": "req_041f0863f09448a490a198f1872bb793",
+    "reasoning_tokens": 0,
+    "request_id": "ec861c9a-8ae3-4221-9061-f422c11864dc",
+    "reserved_input": 22510,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:52:02.422486+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

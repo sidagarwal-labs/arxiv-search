@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-paraphrase-087",
+  "outcome": {
+    "answer": "The supplied papers do not address finding evidence subgraphs in a hidden knowledge graph or doing so without training. They focus on writing style, authorship, and language-model text generation.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "ac037b5169d390cd606f8b88db897b4923cc3bbda73cdd7436e04af1638e05ed",
+  "usage": {
+    "accounted_tokens": 3450,
+    "input_tokens": 3397,
+    "latency_seconds": 3.4247134999895934,
+    "model": "gpt-6-luna",
+    "output_tokens": 53,
+    "provider_request_id": "req_29a7c540bfaf4d388e88815df556dd53",
+    "reasoning_tokens": 0,
+    "request_id": "af304a2c-cdfa-4410-bcb6-702f86417763",
+    "reserved_input": 21450,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:58.798260+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

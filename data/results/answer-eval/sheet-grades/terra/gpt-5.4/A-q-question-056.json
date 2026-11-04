@@ -1,0 +1,49 @@
+{
+  "answer_id": "A141",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-056",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative response.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 supports training-free materials experiments, but paper 10 concerns retrosynthesis rather than suggesting materials experiments.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 describes iterative few-shot experiment selection and improved efficiency versus conventional models.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 2 reports analogy-driven battery-material candidates beyond established compositional spaces.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The claim about how the papers differ has no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S6",
+        "reason": "Papers 1 and 2 address materials active learning and analogical candidate generation respectively.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "Paper 4 reviews multi-agent experimental systems and automation without claiming training-free experiment suggestion.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

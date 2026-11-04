@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-paraphrase-096",
+  "outcome": {
+    "answer": "The closest match is a paper on building and searching a hierarchy of summaries for long documents: it proposes Deselective Summarization, which creates a summary tree and uses hierarchical summaries to support abstractive query-based summarization and passage retrieval from long documents [1]. Another related paper uses a hierarchical document model for document retrieval, but it is about improving retrieval with tree-structured representation learning rather than connecting search terms to text chunks through summaries [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "bd9d7a93800ecd9a0b2268177ccc7302a99b4730b21f5f569d969e9f3da453d6",
+  "usage": {
+    "accounted_tokens": 3525,
+    "input_tokens": 3417,
+    "latency_seconds": 2.323712500015972,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 108,
+    "provider_request_id": "req_ce12f77ae85642cb9dfac59b28b2b745",
+    "reasoning_tokens": 0,
+    "request_id": "f85703aa-4b3f-4089-8416-0a7e795221a6",
+    "reserved_input": 22527,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:06:08.254459+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

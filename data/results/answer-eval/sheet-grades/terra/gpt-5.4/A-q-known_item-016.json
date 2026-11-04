@@ -1,0 +1,34 @@
+{
+  "answer_id": "A332",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-016",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual identification has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes the hybrid modules and scaling convergence.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract attributes retrieval to full attention and describes Large-Window Laziness.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstract states the selective NoPE result and short-context impact.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

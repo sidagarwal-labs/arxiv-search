@@ -1,0 +1,49 @@
+{
+  "answer_id": "A250",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The recommendation makes factual measurement claims without citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The RuleWorld benchmark description has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The claim about unseen-rule computation cites RuleWorld [2], not paper 3.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "The comparison of rule descriptions and examples cites paper 3, not paper 1.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Extended rule-following claims cite paper 1, not paper 5.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S6",
+        "reason": "The cited abstracts describe these different evaluation focuses.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "A standalone marker contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

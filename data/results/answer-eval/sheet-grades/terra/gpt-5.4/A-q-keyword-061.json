@@ -1,0 +1,34 @@
+{
+  "answer_id": "A005",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Papers 1\u20133 support perturbation testing, attention pooling, and training-free robustness findings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 6 reports improved slot F1 and overall accuracy with stable intent accuracy.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 4 and 10 describe ellipsoidal open-intent boundaries and uncertainty-based error prediction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 7 finds translated tests overestimate performance on noisy native queries.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

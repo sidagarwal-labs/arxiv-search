@@ -1,0 +1,24 @@
+{
+  "answer_id": "A151",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-032",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The neural-field extension is supported, but abbreviated author metadata cannot establish Bekkers is absent.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 describes an equivariant transformer-based field and optimization encoders.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

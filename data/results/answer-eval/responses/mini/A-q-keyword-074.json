@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answer": "The most direct match is On Distributional Reinforcement Learning in Chaotic Dynamical Systems, which specifically studies distributional RL in chaotic systems and argues that return distributions evolve more regularly than individual trajectories under a Wasserstein metric, leading to smoother Bellman objectives and better conditioned learning [1]. A related but broader paper, Distributional Reinforcement Learning with Diffusion Bridge Critics, proposes a distributional critic that models the inverse CDF of Q values, but it is focused on continuous control rather than chaos [7]. Another paper on joint generative forecasting addresses chaotic dynamical systems and distributional prediction, but it is about forecasting rather than reinforcement learning [9].",
+    "cited": [
+      1,
+      7,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "575835b093a7a2d1ef389f8b4be9f1559ae1092ce8220bbd0dc8440b85c0231c",
+  "usage": {
+    "accounted_tokens": 3515,
+    "input_tokens": 3360,
+    "latency_seconds": 2.611991499987198,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 155,
+    "provider_request_id": "req_1002eafb516a450689966d85679922c5",
+    "reasoning_tokens": 0,
+    "request_id": "7f0db4f8-7042-43e6-9d9a-6898fe2d4f8b",
+    "reserved_input": 22370,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:48.905048+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

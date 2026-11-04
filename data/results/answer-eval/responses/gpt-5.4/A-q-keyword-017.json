@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-017",
+  "outcome": {
+    "answer": "Yes\u2014recent papers suggest linear-time long-context recall can be improved, but different methods target different bottlenecks. Raven directly targets recall in linear-time sequence models by reducing interference from dense state updates and avoiding hard eviction, reporting strong long-context recall where sliding-window attention and state-space models degrade, including at much longer contexts than seen in training [1]. Kaczmarz Linear Attention improves state updates in delta-rule recurrent models and reports strong retrieval and associative recall results while remaining stable at long contexts [2]. Adaptive Memory Decay for log-linear attention also improves long-range memory by making decay input-dependent while preserving its log-linear complexity [3].\n\nThe papers also explain why recall is hard: fixed-size recurrent memory causes shared storage, interference, and capacity limits, with memory load hurting recall more than elapsed context in the tested regime [5]. A related ARMT approach extends LLM context with associative recurrent memory, reporting processing beyond original context limits and better generalization to out-of-distribution context lengths with lower FLOPs [9].",
+    "cited": [
+      1,
+      2,
+      3,
+      5,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "930726960cc8db8738ca23c1309b85d40bba09834d76d35dff2bda733e639916",
+  "usage": {
+    "accounted_tokens": 3663,
+    "input_tokens": 3436,
+    "latency_seconds": 6.556658500019694,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 227,
+    "provider_request_id": "req_4eb15186cf224653969218e62a5e30c8",
+    "reasoning_tokens": 0,
+    "request_id": "404e9c21-b683-4727-8d3f-a0263d4d6824",
+    "reserved_input": 21707,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:03.163098+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

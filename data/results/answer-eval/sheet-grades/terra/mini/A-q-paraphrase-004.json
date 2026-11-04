@@ -1,0 +1,34 @@
+{
+  "answer_id": "A165",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-004",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual description of papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "VILLAIN uses multi-agent analysis and retrieved evidence to verify claims.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "AMuFC reports harm from indiscriminate visual evidence and proposes adaptive use.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 7 studies visual necessity; paper 1 describes broader verification.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-paraphrase-063",
+  "outcome": {
+    "answer": "The supplied results do not address grading science tests where a student writes one paragraph covering several questions, or using a network of reference answers for that task. One paper studies learning evaluators\u2019 preferences across multiple assessment criteria, but it does not describe this grading setup. [3]",
+    "cited": [
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5978a73543c3e77c18423127d02f4a0263af467c29a9c984c7ac699c1b965812",
+  "usage": {
+    "accounted_tokens": 3504,
+    "input_tokens": 3431,
+    "latency_seconds": 5.24863099999493,
+    "model": "gpt-6-luna",
+    "output_tokens": 73,
+    "provider_request_id": "req_9b373547131148958e2ca13944c564a9",
+    "reasoning_tokens": 0,
+    "request_id": "155aced7-f803-42ba-a4cb-0ad5786e4b85",
+    "reserved_input": 22153,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:59:44.234512+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answer": "The closest match is a two-stage method combining structured supervised fine-tuning with Direct Preference Optimization (DPO) to detect polarization in social-media text. It trains the model to fill slots for the target, claim type, manifestations, and justification, then uses preference pairs to reduce false negatives [2]. This detects polarization rather than directly assigning each post a left\u2013right political leaning. For political stance detection in informal posts, another paper improves classification by supplying summaries of users\u2019 past posts as context, but does not describe slot-based training or preference optimization [1].",
+    "cited": [
+      2,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "e278c56faaa3622913f684935a8670317941bafaaa219e128da0a94e96bfdbdb",
+  "usage": {
+    "accounted_tokens": 3328,
+    "input_tokens": 3198,
+    "latency_seconds": 4.629448500025319,
+    "model": "gpt-6-luna",
+    "output_tokens": 130,
+    "provider_request_id": "req_716427216ddf43d7a86aedf9fbf58322",
+    "reasoning_tokens": 0,
+    "request_id": "72ec5d1f-bb32-492a-9060-fe70f4e69c05",
+    "reserved_input": 20789,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:00.134513+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

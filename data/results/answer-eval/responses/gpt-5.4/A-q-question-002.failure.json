@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Use mixed or variable precision at the expert level, and make the precision decision dynamically from routing and expert importance so critical experts stay higher-bit while less important ones are quantized more aggressively. For MoE on edge/mobile-class hardware, DyMoE is the most direct match: it dynamically quantizes experts at runtime with importance-aware prioritization, uses depth-adaptive scheduling to protect sensitive layers, and adds look-ahead prefetching to hide I/O stalls, yielding large TTFT and TPOT speedups on commercial edge hardware while preserving accuracy [2]. DPA-MoE is similar but controls precision after routing by allocating prefix-decodable weight chunks using live router gate scores, so one encoded checkpoint can run at multiple effective weight budgets with only modest throughput overhead [7].\\n\\nIf your target is specifically mobile NPUs, Quant.npu shows that mobile hardware may require fully static quantization, and it adds a sensitivity-guided adaptive mixed-precision scheme to trade off accuracy and latency, reducing latency on real mobile NPUs [4]. For bit allocation itself, GEMQ, AlphaQ, and NatScale differ in how they choose expert precisions: global optimization with router adaptation [5], calibration-free allocation from expert weight spectra [3], and contrast-calibrated objective-aware allocation [6].\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_0c7f47920553a267016aeb679e72fc87d2b42bd570ed0f814e",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "63c6b6d8edfdeec8b1a4e89ea8fe9529f22536cd366accd8933a543149013c3f",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3270,
+    "output_tokens": 281,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

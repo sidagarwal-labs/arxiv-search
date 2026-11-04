@@ -1,0 +1,29 @@
+{
+  "answer_id": "A162",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited papers test multi-step rule reasoning, counterfactual distinctions and extended rule following.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "RuleWorld evaluates externally supplied rules in the listed scenarios.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The three probes correspond to the stated learning limitations.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

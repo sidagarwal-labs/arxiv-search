@@ -1,0 +1,39 @@
+{
+  "answer_id": "A043",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-keyword-007",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The characterization of supplied papers lacks a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports the stated stylistic normalization.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 3 reports increased personal-style similarity with residual LLM traces.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 5 finds model and genre more influential than prompting or decoding, with exceptions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Papers 9 and 10 discuss the authorship gap and preserving author-specific signals.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

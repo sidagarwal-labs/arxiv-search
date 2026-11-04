@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-062",
+  "outcome": {
+    "answer": "Yes \u2014 the closest match is \u201cMiniFool -- Physics-Constraint-Aware Minimizer-Based Adversarial Attacks in Deep Neural Networks,\u201d by Lucie Flek and colleagues. It presents physics-inspired adversarial attacks for particle and astroparticle physics, using a cost function that combines a chi-squared-based test statistic with deviation from a target score, and it studies robustness under experimental-uncertainty constraints [1].\n\nA related paper by the same first author, \u201cUncovering Hidden Systematics in Neural Network Models for High Energy Physics,\u201d also looks at perturbations consistent with experimental uncertainties, but its focus is on probing hidden sensitivity and systematic uncertainty rather than introducing a new attack algorithm [8].",
+    "cited": [
+      1,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "01ef8a7245cf28760ec6a21482f1ef56247d860f8372050ff0e65f5d173e3f63",
+  "usage": {
+    "accounted_tokens": 3575,
+    "input_tokens": 3406,
+    "latency_seconds": 2.9048431999981403,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 169,
+    "provider_request_id": "req_0250dbfbcd254b0181630554bdecfe5a",
+    "reasoning_tokens": 0,
+    "request_id": "8f5f8d24-efd1-46da-90f2-d96bc5817386",
+    "reserved_input": 22467,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:49.355057+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

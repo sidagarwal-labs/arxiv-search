@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-072",
+  "outcome": {
+    "answer": "No supplied paper directly addresses \u201cShukla generative recommendation hierarchical supervision\u201d beyond the general hierarchical-supervision generative recommendation framing. The closest match is HASTE (Tripti Shukla et al.), which proposes Hierarchical and Attribute-aware Supervision for generative recommendation by explicitly incorporating hierarchical and attribute-level supervision into the generative training objective [1]. It uses a Hierarchical Loss to exploit the multi-level structure of semantic IDs with supervision at each hierarchy level, and Attribute-Specific Losses to preserve fine-grained item attributes, improving long-tail performance and training efficiency [1].\n\nOther supplied generative recommendation papers also involve hierarchical ideas but differ in focus: HoloRec uses hierarchical semantic encoding and interleaved reasoning mechanisms for generative recommendation [2], while HRPO performs hierarchical residual policy optimization at the level of SID prefix utilities for post-training with outcome feedback [4].",
+    "cited": [
+      1,
+      2,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3f24cdea7f0205d1edd91f2cd201e5a7287f28eb20c81f4fb2a705c700e2cf1c",
+  "usage": {
+    "accounted_tokens": 3794,
+    "input_tokens": 3597,
+    "latency_seconds": 2.503640599985374,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 197,
+    "provider_request_id": "req_b06667beffe64a918737ebceccc0ebf7",
+    "reasoning_tokens": 0,
+    "request_id": "b53174f2-e4ac-4b17-86bb-f10c7e4d2f3c",
+    "reserved_input": 23981,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:07.199665+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A113",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-050",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 6 examines search-tool refusal signals, not page-removal attribution.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 compares search API evidence and rankings, without page-removal tests.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 9 evaluates source credibility and groundedness, without the requested removal method.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

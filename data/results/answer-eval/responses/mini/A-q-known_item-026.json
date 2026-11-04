@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-026",
+  "outcome": {
+    "answer": "Altmann et al. present Quantum Generator Kernels, a generator-based approach to quantum kernels that uses Variational Generator Groups to merge universal generators into a parameterizable operator for scalable coverage of quantum space [1]. They train a weight vector to align the kernel with the target domain and report superior projection and classification performance versus state-of-the-art quantum and classical kernel approaches [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "ddf16be7c0ec62fa3fc0904ebed79a2168c800fd6207f2bba5ff2f07cec4fbb4",
+  "usage": {
+    "accounted_tokens": 4322,
+    "input_tokens": 4223,
+    "latency_seconds": 4.629214999993565,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 99,
+    "provider_request_id": "req_0ee9f1930a654f659296cf7fc9368c46",
+    "reasoning_tokens": 0,
+    "request_id": "fd4acb41-9c47-4416-8392-3161be7d3c9c",
+    "reserved_input": 24238,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:15.009091+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

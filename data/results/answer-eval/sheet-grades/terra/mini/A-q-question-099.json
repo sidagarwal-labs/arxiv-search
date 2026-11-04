@@ -1,0 +1,34 @@
+{
+  "answer_id": "A210",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-099",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 advocates context feedback for alignment, diversity and explainability.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Papers 2 and 4 discuss motivation and explicit intent-guided reasoning.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 3 develops semantic profiles; paper 9 discusses editable natural-language profiles.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The surveys discuss human-aligned recommendation and governable, transparent, revisable representations.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

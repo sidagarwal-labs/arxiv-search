@@ -1,0 +1,44 @@
+{
+  "answer_id": "A094",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-060",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The following citation [1] matches the title and authors.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The following citation [1] supports set-level sufficiency and missing decision requirements.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The following citation [1] states the compact, state-conditioned evidence-recovery objective.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The following citation [1] supports the set-construction method and benchmark comparison.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The following citation [6] describes sufficient memory subsets under redundancy and joint necessity.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The standalone citation contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

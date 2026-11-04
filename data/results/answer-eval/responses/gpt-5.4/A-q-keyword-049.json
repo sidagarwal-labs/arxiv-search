@@ -1,0 +1,35 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-049",
+  "outcome": {
+    "answer": "Multimodal LLM decoding strategies in these papers are mostly inference-time, training-free methods that change which tokens to commit and when, especially for diffusion-based multimodal LLMs. The survey paper groups decoding methods into token-level control, sequence-level generation, and parallel token generation for LLMs and LVLMs [5]. For multimodal diffusion models specifically, proposed strategies include information-guided token ordering with semantic anchors and neighborhood uncertainty [1], visual-complementary parallel selection to reduce redundant grounding [2], context-aware cluster decoding using confidence plus neighbor proximity [3], causal interventions to reduce object hallucination during generation [4], and relevance-based decoding that shifts attention toward perceptual inputs to reduce hallucinations [9].\n\nThese methods differ by objective: IGFD and CACD emphasize contextual readiness and semantic anchors [1, 3]; VRCD focuses on avoiding overlapping visual grounding among tokens decoded together [2]; causal decoding and LIME target hallucination resistance and stronger grounding [4, 9]. STDec is related but aims at spatio-temporal stability and speed while maintaining comparable performance, including on multimodal understanding benchmarks [7].",
+    "cited": [
+      5,
+      1,
+      2,
+      3,
+      4,
+      9,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "92eb6a7615da83a5bb10a3ffb3cfeb3a2747af9990328e61718b755fccb3c817",
+  "usage": {
+    "accounted_tokens": 3549,
+    "input_tokens": 3298,
+    "latency_seconds": 6.143367000011494,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 251,
+    "provider_request_id": "req_7afa3d5c1fac42288fab9c2a83f4f355",
+    "reasoning_tokens": 0,
+    "request_id": "6514992a-7b75-4f6d-bb3a-04aa745fc52d",
+    "reserved_input": 21206,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:24.552231+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

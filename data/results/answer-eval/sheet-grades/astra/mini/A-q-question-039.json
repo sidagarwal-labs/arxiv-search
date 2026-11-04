@@ -1,0 +1,39 @@
+{
+  "answer_id": "A039",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This technical recommendation lacks a citation; the relevant validity-filtering and decay methods are described in [8] and [4].",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[8] explicitly stores evidence links, temporal validity intervals, and lifecycle states, filtering invalid or deprecated nuggets before ranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[4] embeds validity across representation, retrieval, and reasoning through temporal decay and explicit temporal-logic checks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[1] reports that recency-aware hybrid reranking reduces poisoning when dates are accurate, with gains dependent on reliable temporal metadata.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "[7] reports daily adaptive news retrieval and production A/B improvements in freshness, relevance, and coverage.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answer": "The closest match is *Inference Auctions*: it proposes an auction for LLM API users to bid for faster service when inference demand exceeds capacity, with priority allocation and pricing designed to encourage truthful bids. It also describes an autobidder that adjusts bids to meet a user\u2019s budget [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a52e66bdfba8220aa0b69cb13fafedbad3bd24f4d95e8b1ebbee445a5b82a3fa",
+  "usage": {
+    "accounted_tokens": 3665,
+    "input_tokens": 3589,
+    "latency_seconds": 3.670067700004438,
+    "model": "gpt-6-luna",
+    "output_tokens": 76,
+    "provider_request_id": "req_fa8da0c07187444e8408b70ee5be269e",
+    "reasoning_tokens": 0,
+    "request_id": "7a9c9167-fcff-47c8-b990-88e9990ab55b",
+    "reserved_input": 22522,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:32.568917+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

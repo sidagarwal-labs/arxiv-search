@@ -1,0 +1,37 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-063",
+  "outcome": {
+    "answer": "Yes. GRASP is specifically about grading label-free multi-topic science exams where a student\u2019s several answers are merged into one paragraph, and it uses reference answers encoded in a vector index plus a semantic similarity graph to retrieve and assign the right reference for each question before grading each segment independently [1]. It is the closest match to using a network of reference answers for one long student paragraph covering several questions [1].\n\nThe other papers are about rubric-based grading, short-answer grading, synthetic training data, transparency, or broader educational scoring, but they do not describe this multi-question single-paragraph setting with graph-based reference-answer retrieval [2, 3, 4, 5, 6, 8, 9, 10].",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "4273df33f623aa2d87d526f58753bcf340e620138bddd5678bfa4dfa878391d4",
+  "usage": {
+    "accounted_tokens": 3776,
+    "input_tokens": 3601,
+    "latency_seconds": 2.5965522000042256,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 175,
+    "provider_request_id": "req_b1344c67032346178484cda3a7ded386",
+    "reasoning_tokens": 0,
+    "request_id": "3ff42c10-993f-43cf-9679-e76ad88329ed",
+    "reserved_input": 22833,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:50.850907+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-085",
+  "outcome": {
+    "answer": "The closest match is LLM unbranding, which defines the task of neutralizing brand-related language, slogans, and stylistic markers in LLM outputs while preserving the model\u2019s general capabilities and utility [1]. It proposes an inference-time method, MUTE, that aims to eliminate brand leakage without fragile parameter updates [1].\n\nFor broader text sanitization, another paper introduces domain-agnostic redaction from natural-language rules, with transparent justifications for each redaction and high reconstruction error / high redaction precision [2]. A related benchmark, RedacBench, evaluates policy-conditioned redaction across domains and measures both security and utility preservation [8].",
+    "cited": [
+      1,
+      2,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "6431ce73669c4a3cdf88cef8cd9122977e2d4ca1594586adc571c32e4024434a",
+  "usage": {
+    "accounted_tokens": 3507,
+    "input_tokens": 3356,
+    "latency_seconds": 2.371569900016766,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 151,
+    "provider_request_id": "req_cad4e6ef61184b45b97ea494efef7015",
+    "reasoning_tokens": 0,
+    "request_id": "313d8b77-6911-46b0-ab18-2464102bc7c0",
+    "reserved_input": 21483,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:59.237388+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

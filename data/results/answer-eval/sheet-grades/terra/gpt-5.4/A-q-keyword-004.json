@@ -1,0 +1,39 @@
+{
+  "answer_id": "A131",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-004",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "A standalone affirmative response.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes Nation.Cymru analysis with a RoBERTa detector and target-attributed LLM sentiment classification.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 reports the relative framing rates and secondary favorable-framing result.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 4, 3, 5 and 10 cover the described broader political-bias evaluation topics.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 1 studies Welsh political media, but its citation alone does not establish uniqueness across all other papers.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

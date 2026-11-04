@@ -1,0 +1,12 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-036",
+  "outcome": {
+    "detail": "Incomplete response",
+    "status": "incomplete"
+  },
+  "request_sha256": "7e3d57bcaabdea4095a1c45db4fe5c5606ead9de55a3c0e526074ed16deff57b",
+  "usage": {
+    "recorded": true
+  }
+}

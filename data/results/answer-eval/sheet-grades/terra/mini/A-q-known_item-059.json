@@ -1,0 +1,24 @@
+{
+  "answer_id": "A076",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The cited abstract describes query-time proximity graphs and graph-based ranking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The claim about supplied papers is uncited.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

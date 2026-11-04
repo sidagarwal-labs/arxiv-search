@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-014",
+  "outcome": {
+    "answer": "Paper [1] directly provides a probabilistic upper bound on how far the actor parameter stays from the optimal value in a two-timescale actor-critic (slow actor, fast critic) setting. It derives a uniform all-time high-probability concentration bound showing that after some finite time the actor parameter enters a \u201csafe region\u201d and remains within it thereafter with high probability, with an explicit bound on the actor error ||\u03b8_k\u2212\u03b8*|| that holds for all k beyond a threshold.\n\nSpecifically, [1] states that with probability at least 1\u2212\u00b51\u2212\u00b52, the actor error is bounded by an expression that decreases with k (and depends on algorithm parameters \u00b51, \u00b52 and n0), and it reports experiments where actor error diminishes with the number of actor updates. Other provided papers discuss two-timescale actor-critic in different ways (e.g., convergence under Markovian noise [3] or second-order actor-critic under two-timescale assumptions [5]), but only [1] gives the requested probabilistic \u201cdistance-from-optimum\u201d upper limit.",
+    "cited": [
+      1,
+      3,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "221ed3e9155724241b8c69cc3a945502c44d256e718f259efb7c13b4e07c39f0",
+  "usage": {
+    "accounted_tokens": 3509,
+    "input_tokens": 3268,
+    "latency_seconds": 2.650303600006737,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 241,
+    "provider_request_id": "req_24be115ad9f041439f12cb88b9d22c20",
+    "reasoning_tokens": 0,
+    "request_id": "f33b43c2-9b90-44a3-8e4f-5b4b4095b824",
+    "reserved_input": 20757,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:35.325329+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

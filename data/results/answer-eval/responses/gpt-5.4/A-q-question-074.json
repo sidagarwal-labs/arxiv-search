@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answer": "Different retraction maps affect spherical residual stability mainly through how they turn update magnitude into a rotation angle on the hypersphere. On the sphere, the papers say all retractions reduce to this single scalar choice; some produce angles that saturate instead of growing without bound, and finite-p angular retractions gave the best validation loss, suggesting the exponential map is not the most stable or preferred choice for spherical residual streams [1]. In particular, projection- and Cayley-based spherical normalizations are exactly norm-preserving and use only algebraic operations, while the exponential map is just one endpoint in the same spectrum [1].\n\nA related result also favors Cayley-style spherical/orthogonal updates for stability: an adaptive Cayley rotation preserves orthogonality for all inputs and achieved the best long-horizon stability among compared residual methods, with strong norm preservation [6]. However, that paper studies orthogonal residual connections more broadly rather than the specific one-parameter spherical retraction family analyzed in [1].",
+    "cited": [
+      1,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "5e4d3068669534c561723b8c9914b3bd19832cd09144b522f8970517a4dcfc51",
+  "usage": {
+    "accounted_tokens": 3939,
+    "input_tokens": 3720,
+    "latency_seconds": 5.4438112000061665,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 219,
+    "provider_request_id": "req_8d48965f2a044bc7b64c0c48618a946b",
+    "reasoning_tokens": 0,
+    "request_id": "091dc1f3-27d9-4116-a841-ebbf087a89e3",
+    "reserved_input": 22389,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:14.015028+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

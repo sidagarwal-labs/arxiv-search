@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-072",
+  "outcome": {
+    "answer": "The matching paper is HASTE: Hierarchical and Attribute-aware Supervision for Generative Recommendation, co-authored by Tripti Shukla [1]. It adds hierarchical supervision at each level of semantic IDs and attribute-specific losses to preserve fine-grained item information, aiming to speed training convergence and improve recommendations for tail items [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c24de90a36489f1891f645297a212c7a3bbcd88df38f669d6aa80d290c10e7cc",
+  "usage": {
+    "accounted_tokens": 3682,
+    "input_tokens": 3597,
+    "latency_seconds": 2.742273500014562,
+    "model": "gpt-6-luna",
+    "output_tokens": 85,
+    "provider_request_id": "req_633ab5c7695541bbbe105e9320cee388",
+    "reasoning_tokens": 0,
+    "request_id": "e363551d-0211-4ae9-8430-0cc8a3f44fa5",
+    "reserved_input": 23968,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:20.967616+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

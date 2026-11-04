@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-088",
+  "outcome": {
+    "answer": "The closest match is a set of surveys and systems on code- or script-centered agent infrastructure, rather than a single paper devoted specifically to reviewing programmable scripts as the core structure for reasoning and tool execution. Code as Agent Harness frames code as the operational substrate for agent reasoning, action, environment modeling, planning, memory, and tool use, and surveys open challenges for executable, verifiable, stateful agent systems [2]. A Comprehensive Survey on Agent Skills also treats reusable procedural artifacts as the operational layer that supports reliable, reusable, composable execution while agents handle higher-level reasoning and planning [3].\n\nFor more direct script-like tool execution, The Bitter Lesson of Tool Calling studies programmatic tool calling with typed Python stubs and finds it a viable alternative to JSON tool calls [1]. Scientific Agent Skills describes skills as versioned instruction files, often with runnable scripts, while Tool-Making and Self-Evolving LLM Agents describes compiling repeated procedural steps into validated, versioned tools [7, 8].",
+    "cited": [
+      2,
+      3,
+      1,
+      7,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d9a04e349c3cdf66b1107365a69418cc8b4546c5544c33f48abf41c82f5efefa",
+  "usage": {
+    "accounted_tokens": 3998,
+    "input_tokens": 3777,
+    "latency_seconds": 3.7298663000110537,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 221,
+    "provider_request_id": "req_f63755ca86474a7db6e17b3371358e4f",
+    "reasoning_tokens": 0,
+    "request_id": "6a66f82a-8a02-4ce9-abbc-d54bcd1f1db7",
+    "reserved_input": 23247,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:04.494366+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answer": "Yes: several papers describe improving AI with self-generated feedback instead of human labels, including for following complex rules. RuleEvolve directly targets rules for coding agents by mutating candidate rules and using a judge module to evaluate and keep the best ones, outperforming manual rule engineering and prompt optimization baselines [10]. More broadly, self-improvement frameworks let models generate data, evaluate outputs, and iteratively refine capabilities with minimal or no external supervision [4].\n\nIf you mean self-feedback during reasoning or agent behavior, there are a few variants. TRT uses self-generated verification signals at test time to improve answers without external feedback [1]. CoNL uses multi-agent critique and meta-evaluation, rewarding critiques that help improve solutions, so generation and judging improve together without external judges or ground truth [8]. NRT trains reasoning models from standard question-answer pairs by having the model generate its own reasoning traces, avoiding expert-written demonstrations and external verifiers [5].",
+    "cited": [
+      10,
+      4,
+      1,
+      8,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a58cc635f46278641c17ef6dd9e1226dc997c4f9398835ca9dd87dbda7886009",
+  "usage": {
+    "accounted_tokens": 3674,
+    "input_tokens": 3463,
+    "latency_seconds": 5.826983300008578,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 211,
+    "provider_request_id": "req_3e1ccc2d71fb438dade7c238d582370b",
+    "reasoning_tokens": 0,
+    "request_id": "a7d7efce-c0df-4411-93a9-a4b4314e8438",
+    "reserved_input": 22281,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:11:47.907906+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

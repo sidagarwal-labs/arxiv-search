@@ -1,0 +1,34 @@
+{
+  "answer_id": "A225",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-029",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper identification has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes the bridge measurements, forecasting and early-warning application.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 forecasts structural response and compares predictions with observed vibrations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited paper labels 2\u201310 are absent from the provided evidence.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

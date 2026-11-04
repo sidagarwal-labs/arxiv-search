@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answer": "GraphER is the closest match: it is a graph-based enrichment and reranking method for retrieval-augmented generation, using query-time graph construction from proximity relationships and graph-based ranking to surface top documents [1]. If you meant a different reranking RAG paper by Roth, none of the supplied papers mentions Roth by name.",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2e2f96f6a0cc431cf9168cf98c10d31ff79a53ad70c43fba0cfce793bd8ae6a1",
+  "usage": {
+    "accounted_tokens": 3510,
+    "input_tokens": 3427,
+    "latency_seconds": 2.048078199994052,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 83,
+    "provider_request_id": "req_d327d03b873040eda8c1c0d0fbb5b515",
+    "reasoning_tokens": 0,
+    "request_id": "831f23d9-cbd0-4de9-9342-27c8bc57e434",
+    "reserved_input": 21538,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:41.224352+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

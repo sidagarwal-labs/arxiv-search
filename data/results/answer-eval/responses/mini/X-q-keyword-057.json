@@ -1,0 +1,38 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-keyword-057",
+  "outcome": {
+    "answer": "The supplied papers do not directly address dense-to-sparse retrieval. They mainly cover Bengali dialect datasets and speech systems [1, 5, 6], code-mixed text classification and other NLP tasks [2, 3, 7], and broader language modeling or sociolinguistic studies [4, 8, 9, 10].",
+    "cited": [
+      1,
+      5,
+      6,
+      2,
+      3,
+      7,
+      4,
+      8,
+      9,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "b51c5ad35859bfa46862e896c39af9c4d4d4780c0bf94dd6597573ff8225760e",
+  "usage": {
+    "accounted_tokens": 3463,
+    "input_tokens": 3374,
+    "latency_seconds": 2.2317105999973137,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 89,
+    "provider_request_id": "req_9df22119a08d4aa9a87b3c85d7a630d4",
+    "reasoning_tokens": 0,
+    "request_id": "faf69df8-408f-4e04-930b-884cd9053213",
+    "reserved_input": 21033,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:06:21.234386+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

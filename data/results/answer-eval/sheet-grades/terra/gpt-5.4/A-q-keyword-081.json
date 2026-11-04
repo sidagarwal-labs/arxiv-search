@@ -1,0 +1,34 @@
+{
+  "answer_id": "A346",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-081",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about the results is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "TRAIL predicts short-term popularity and generates explanations, outperforming baselines.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Both cited papers describe the stated popularity-related methods and results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited abstracts support reranking, temporal profiling, and exploratory-user findings.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

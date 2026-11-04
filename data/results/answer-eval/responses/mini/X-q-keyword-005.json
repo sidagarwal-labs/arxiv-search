@@ -1,0 +1,12 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-keyword-005",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "f932533a9baa584328a032aa23befddf93625a9f809c6b4f85aa63600772f361",
+  "usage": {
+    "recorded": true
+  }
+}

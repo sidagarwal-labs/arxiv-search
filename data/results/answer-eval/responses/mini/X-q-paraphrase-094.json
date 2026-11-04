@@ -1,0 +1,35 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-paraphrase-094",
+  "outcome": {
+    "answer": "The closest match is not about picture descriptions. The supplied papers are about self-play reinforcement learning, hidden-information games, and social reasoning, including shared trunks or shared models in game settings, but none describes making image captions or using a moving average to create and check specific quality rules for picture descriptions [2, 3, 4, 8, 9, 10].\n\nOne paper does mention an exponential moving average as a stronger deployment policy in self-play training, but it is for a game-playing agent, not image description quality checking [1]. Another uses a shared residual trunk with separate heads for an asymmetric board game, but again this is not about picture descriptions [2].",
+    "cited": [
+      2,
+      3,
+      4,
+      8,
+      9,
+      10,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "211f6b30af9c6115104367e275b0aadb1c8504658e0cfd86c4367b20d5ebf999",
+  "usage": {
+    "accounted_tokens": 3762,
+    "input_tokens": 3598,
+    "latency_seconds": 2.449495400011074,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 164,
+    "provider_request_id": "req_da5050a758ce426789a319e2747590dd",
+    "reasoning_tokens": 0,
+    "request_id": "381b360e-c241-4a39-b276-7871c46bdf6e",
+    "reserved_input": 22243,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:41.830841+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

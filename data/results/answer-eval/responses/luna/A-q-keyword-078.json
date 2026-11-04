@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-078",
+  "outcome": {
+    "answer": "The closest match is a study using LLMs to generate pairwise preferences between recommendation slates for synthetic A/B testing. It evaluates whether those preferences align with recommendation metrics and preference axioms, and finds that the resulting system can recover rankings stable across utility weightings; the authors position it as a screening step, not a replacement for live A/B tests [4]. Other papers focus on generating recommendation slates with models aligned to user preferences, rather than using LLMs to synthesize slate comparisons [1, 2].",
+    "cited": [
+      4,
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "34395ad680f178b7044cea8b1bbabc104af2892b6b90439df85371a740b14114",
+  "usage": {
+    "accounted_tokens": 3540,
+    "input_tokens": 3416,
+    "latency_seconds": 2.822866200003773,
+    "model": "gpt-6-luna",
+    "output_tokens": 124,
+    "provider_request_id": "req_a84a05a8080846d79b23e4a5b6375244",
+    "reasoning_tokens": 0,
+    "request_id": "0080d34c-ce1f-42cd-91fb-f1cc9788a267",
+    "reserved_input": 22053,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:08.303415+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

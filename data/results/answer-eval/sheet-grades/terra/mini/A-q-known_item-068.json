@@ -1,0 +1,29 @@
+{
+  "answer_id": "A319",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Koh's paper describes SynthSelf and the difficulty of standard self-distillation at small scales.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The cited papers address diffusion self-distillation and verifier-guided small-model training respectively.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The sentence consists only of citations.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

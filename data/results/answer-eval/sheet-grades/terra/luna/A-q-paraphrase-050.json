@@ -1,0 +1,24 @@
+{
+  "answer_id": "A008",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-050",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 10 evaluates defenses against distorted retrieved pages without describing page-removal testing.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 9 studies source credibility, response groundedness, and misinformation amplification.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

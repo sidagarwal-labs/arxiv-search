@@ -1,0 +1,34 @@
+{
+  "answer_id": "A136",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-002",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The recommendation about dynamic expert precision has no citation in the sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Papers 2 and 5 describe these respective edge scheduling and global quantization approaches.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 7 describes prefix-decodable weights and live gate-score-based allocation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The differences are supported, but papers 5 and 7 do not specifically establish constrained-device targeting.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

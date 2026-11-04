@@ -1,0 +1,29 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answer": "The matching paper is DeCode: Decoupling Content and Delivery for Medical QA by Po-Jen Ko, Chen-Han Tsai, and Yu-Shao Peng [1]. It presents DeCode, a training-free, model-agnostic framework that adapts existing LLMs to produce contextualized answers in clinical settings by decoupling content and delivery [1].\n\nAccording to the abstract, DeCode is evaluated on OpenAI HealthBench and improves zero-shot performance from 28.4% to 49.8%, achieving a new state of the art compared to existing methods [1]. The paper\u2019s focus is improving clinical relevance and validity of LLM responses, especially when standard models are factually correct but poorly aligned with individual patient contexts [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "f963bf2afff83f8c7be56d548cc89ff121eba8d7cd24ed21cc681172da3fdb46",
+  "usage": {
+    "accounted_tokens": 3752,
+    "input_tokens": 3578,
+    "latency_seconds": 3.8103940000000875,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 174,
+    "provider_request_id": "req_a64d0e9cb4bf4e0d87988939a9757779",
+    "reasoning_tokens": 0,
+    "request_id": "6adc0e9d-e941-431c-8717-b6f8cff61996",
+    "reserved_input": 21675,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:09:55.159018+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

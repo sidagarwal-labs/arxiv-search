@@ -1,0 +1,34 @@
+{
+  "answer_id": "A191",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-031",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The provided author metadata does not list Boyd.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes sentence-level categorization and MIMIC-III to NICU transfer.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 2, 3 and 5 address the stated distinct provenance topics.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The results contain provenance categorization but no listed Boyd author.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

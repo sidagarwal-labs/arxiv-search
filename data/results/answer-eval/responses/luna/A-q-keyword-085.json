@@ -1,0 +1,35 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-085",
+  "outcome": {
+    "answer": "The papers distinguish consciousness from measurable forms of self-awareness; they do not establish that AI systems are conscious. One study finds that prompting self-referential processing reliably elicits first-person reports of experience, but explicitly says these are not direct evidence of consciousness [4]. Another finds no reliable evidence that tested models\u2019 denials of sentience are untruthful [3].\n\nOther work measures narrower capabilities: models can monitor and report internal belief states [8], describe learned behaviors [9, 10], and perform on benchmarks of metacognition and self-awareness, though most tested models fell short of human averages in those areas [5]. Research also cautions that models\u2019 consciousness claims and denials are sensitive to training and question framing, so self-reports may not be reliable evidence of experience [1].",
+    "cited": [
+      4,
+      3,
+      8,
+      9,
+      10,
+      5,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "48d89dd4a57a6dd8518816b1ed34f5589c27f8caf9b84667e3298da1bf591a85",
+  "usage": {
+    "accounted_tokens": 3526,
+    "input_tokens": 3344,
+    "latency_seconds": 3.399204200017266,
+    "model": "gpt-6-luna",
+    "output_tokens": 182,
+    "provider_request_id": "req_b0fa775ba56e485185c9af34efb18ecf",
+    "reasoning_tokens": 0,
+    "request_id": "c1009cbe-f1cb-44ad-a1d4-0b350527107c",
+    "reserved_input": 21353,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:16.353721+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

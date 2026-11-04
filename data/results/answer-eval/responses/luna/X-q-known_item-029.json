@@ -1,0 +1,12 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-029",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "d8d4b5c20ee948c2b4ff60f98de8febd1a18cf54735bdc49908b7104c16a2563",
+  "usage": {
+    "recorded": true
+  }
+}

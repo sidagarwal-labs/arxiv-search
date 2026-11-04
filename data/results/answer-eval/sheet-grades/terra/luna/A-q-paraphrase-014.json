@@ -1,0 +1,29 @@
+{
+  "answer_id": "A122",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-014",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 gives a uniform high-probability actor-parameter error bound for two-timescale actor-critic.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The detailed probability and bound claim has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "A standalone citation is not a factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

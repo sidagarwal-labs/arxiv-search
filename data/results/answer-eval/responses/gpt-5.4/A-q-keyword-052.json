@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-052",
+  "outcome": {
+    "answer": "Yes\u2014several papers address parameter importance for selective freezing, including in MLLMs. AWARe explicitly computes activation-based importance scores and dynamically freezes parameters that are important for preserving prior capabilities while letting less important parameters adapt during MLLM fine-tuning, reducing catastrophic forgetting without architecture changes [2]. Model-Dowser also targets MLLMs, but uses a data-free importance probe based on weight magnitudes, input activations, and output sensitivities to preserve high-importance parameters and update the rest [4].\n\nRelated but broader work differs in scope or mechanism. Guarded Freezing studies how to choose what to freeze in pretrained models using removal-value or drift-value depending on connectivity, rather than focusing specifically on MLLMs [1]. GRASS estimates layer importance from mean gradient norms to adaptively sample layers for LLM fine-tuning [10], and LayerTracer argues for training shallow layers while freezing deep layers in continued pre-training based on layer sensitivity and stability [5].",
+    "cited": [
+      2,
+      4,
+      1,
+      10,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "b1565bb254a593f2c21f71218ee1ba162791fe98d9bf90e459dd5b542131ac34",
+  "usage": {
+    "accounted_tokens": 3802,
+    "input_tokens": 3583,
+    "latency_seconds": 5.865614899987122,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 219,
+    "provider_request_id": "req_8579458d39884af6bb087aa6404677d9",
+    "reasoning_tokens": 0,
+    "request_id": "071d504b-3b41-4426-820a-2b74266a646b",
+    "reserved_input": 22098,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:30.718234+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

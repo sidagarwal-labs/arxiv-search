@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answer": "DeCode, by Po-Jen Ko, Chen-Han Tsai, and Yu-Shao Peng, is a training-free, model-agnostic framework that decouples answer content from delivery to tailor medical QA responses to individual patient contexts. On OpenAI HealthBench, it improves zero-shot performance from 28.4% to 49.8%, and the authors report state-of-the-art performance against existing methods [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "81ee1bdc57d7b9f2b7fd1b10c2d4b8335c6945a119daea18e917ca5c831ed144",
+  "usage": {
+    "accounted_tokens": 3683,
+    "input_tokens": 3578,
+    "latency_seconds": 2.512624599999981,
+    "model": "gpt-6-luna",
+    "output_tokens": 105,
+    "provider_request_id": "req_77e288231989419ab5edb35f69665d23",
+    "reasoning_tokens": 0,
+    "request_id": "2e509d34-6d47-4a44-b76e-deead2182e9c",
+    "reserved_input": 21667,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:10.393936+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-096",
+  "outcome": {
+    "answer": "Yes: several papers describe hierarchical or tree-based retrieval that can connect search terms to documents through summaries or chunk structure. The closest match is DTCRS, which dynamically generates summary trees, uses sub-question embeddings as initial cluster centers, and improves relevance between summaries and the question while reducing redundant nodes [2]. NavTree and SVD-RAG also use tree-structured retrieval over chunks; NavTree navigates a deterministic tree over chunks without LLM summaries, while SVD-RAG builds an extractive tree-organized retriever from dense embeddings [1, 9].\n\nIf you want an approach specifically for finding relevant text chunks through a hierarchy of summaries, the papers differ mainly in how the hierarchy is built: recursive summary trees [2], navigation over leaf chunks with no summaries [1], or extractive tree construction from embeddings [9].",
+    "cited": [
+      2,
+      1,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "a636083d9331d14c550d0befb597fa3c3aad3a2cf3df22984d512a5a144298cf",
+  "usage": {
+    "accounted_tokens": 3666,
+    "input_tokens": 3477,
+    "latency_seconds": 3.0362039000028744,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 189,
+    "provider_request_id": "req_75b7f66e3eea457ba80acac6464005db",
+    "reasoning_tokens": 0,
+    "request_id": "b25a829b-43e0-4ae0-9c51-f98a06fb00d1",
+    "reserved_input": 22228,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:04:13.320207+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

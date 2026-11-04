@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-known_item-062",
+  "outcome": {
+    "answer": "The supplied papers do not address Flek, physics constraints, or adversarial attacks. They cover language and dialect research, speech systems, and NLP tasks instead.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "fb197cfa746de0bd1879bbb9c2fa7c5469044042a193fb678f6c58c8ef8ef87f",
+  "usage": {
+    "accounted_tokens": 3426,
+    "input_tokens": 3377,
+    "latency_seconds": 4.284585099987453,
+    "model": "gpt-6-luna",
+    "output_tokens": 49,
+    "provider_request_id": "req_1169f7ce77fc460f81443e31c9695792",
+    "reasoning_tokens": 0,
+    "request_id": "73cf4176-34e2-4504-9b50-e81d65696338",
+    "reserved_input": 21038,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:12.993040+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

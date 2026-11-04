@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-050",
+  "outcome": {
+    "answer": "The closest match is Counter-GEO-Bench: it evaluates defenses against misleading pages that are retrieved and distort generated answers, though its abstract does not describe testing whether removing a page changes the answer [10]. For broader search reliability, another paper measures source credibility and answer groundedness, including the risk of amplifying misinformation from low-credibility sources [9].",
+    "cited": [
+      10,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "dab6a0483e01e844bcc0ae11fb897970fd31c966ff07cbe06ed2de0bbd291007",
+  "usage": {
+    "accounted_tokens": 3388,
+    "input_tokens": 3298,
+    "latency_seconds": 2.55075759999454,
+    "model": "gpt-6-luna",
+    "output_tokens": 90,
+    "provider_request_id": "req_21f52cc9835940adaaf951758ec11a48",
+    "reasoning_tokens": 0,
+    "request_id": "db9a66ea-2964-4404-b1b5-f7e35f13bfbd",
+    "reserved_input": 20452,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:38.023481+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

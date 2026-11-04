@@ -1,0 +1,34 @@
+{
+  "answer_id": "A181",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about the papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "TriTopic and ClusterFusion use the specified clustering and topic-organization mechanisms.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 combines embedding clustering and iterative LLM inference for unlabeled taxonomy induction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 7 uses community detection to organize argumentative content.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

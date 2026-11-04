@@ -1,0 +1,37 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-089",
+  "outcome": {
+    "answer": "Yes. Several papers suggest machine learning can help detect very early dementia-related impairment, especially mild cognitive impairment and early Alzheimer\u2019s disease [1,2,3,6,7,8,9]. They use different signals: clinical, neuropsychological, and neuroimaging measures for early Alzheimer\u2019s detection [1]; video, audio, and text from naturalistic interactions to distinguish MCI from healthy aging [2,3]; speech and linguistic features as early markers of cognitive decline [4,6]; MRI and PET imaging for MCI and AD classification [8]; EEG for classifying MCI and dementia-related conditions [9]; and longitudinal clinical notes for dementia prognosis [5].\n\nThe papers differ mainly in setting and modality. Some target contactless or home-based screening using multimodal behavior or speech [2,3,6], while others focus on clinical imaging or records [1,5,8,9]. One speech study emphasizes multilingual Alzheimer\u2019s detection across languages [4]. Overall, these results support ML as a useful aid for first-stage detection, though the abstracts do not show that it is sufficient on its own for diagnosis.",
+    "cited": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      4,
+      5
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "f3c83ad220453e0cd6dd1ae1f0f9ab42edd03712538ab0c2331f8c45955b2676",
+  "usage": {
+    "accounted_tokens": 3974,
+    "input_tokens": 3726,
+    "latency_seconds": 6.278149799996754,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 248,
+    "provider_request_id": "req_1731533207f34c529e5bc5b8f8057d2c",
+    "reasoning_tokens": 0,
+    "request_id": "ace90497-cac9-41e0-8c62-ebeef6e75ae0",
+    "reserved_input": 23331,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:29:42.947872+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

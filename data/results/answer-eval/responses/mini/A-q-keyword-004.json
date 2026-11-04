@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-004",
+  "outcome": {
+    "answer": "Yes \u2014 the supplied results do address computational political bias in Wales. The most direct match is a study of Welsh media that uses an NLP pipeline to detect political bias in Nation.Cymru, a Welsh political news outlet, and reports measurable differential framing across parties in Wales [1].\n\nA second paper is only partially related: it is about political bias detection in news media using LLMs and RoBERTa, but it is not Wales-specific [4]. The other papers focus on political bias in LLMs, summaries, encyclopedias, or non-Welsh media, so they do not directly answer the Wales-focused query [2-10].",
+    "cited": [
+      1,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "7deb68553544c711764ecbb8fa544e52d97f1ad71016f747641879407566e7d2",
+  "usage": {
+    "accounted_tokens": 3361,
+    "input_tokens": 3203,
+    "latency_seconds": 2.454915299982531,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 158,
+    "provider_request_id": "req_e0f59da7a1f849eea4f509e102a7a667",
+    "reasoning_tokens": 0,
+    "request_id": "3c32f8e2-8fb9-4971-bf13-569bce0fd915",
+    "reserved_input": 21498,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:00:57.931258+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

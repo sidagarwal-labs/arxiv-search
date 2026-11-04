@@ -1,0 +1,31 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-017",
+  "outcome": {
+    "answer": "The closest match is Raven, a linear-time sequence model for long-context recall that uses fixed memory slots and learned input-dependent routing to reduce interference and hard eviction, improving long-range content recovery over prior linear-time baselines [1]. It is described as competitive with or better than prior linear-time models on recall-intensive benchmarks and effective when extrapolating to context lengths up to 16x training length [1].\n\nIf you want other linear-time recall methods, Kaczmarz Linear Attention improves retrieval in a linear recurrent model and reaches 100% on single-needle retrieval, while Adaptive Memory Decay for Log-Linear Attention learns input-dependent decay and improves associative recall and selective copying [2, 3].",
+    "cited": [
+      1,
+      2,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "66927de65b86590e6f6f81928364ab1dc488bd3d27521eb2a64dce097d10e808",
+  "usage": {
+    "accounted_tokens": 3599,
+    "input_tokens": 3436,
+    "latency_seconds": 2.565256900008535,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 163,
+    "provider_request_id": "req_0698c1b08eb44c49b2fa4bdc4a5a305d",
+    "reasoning_tokens": 0,
+    "request_id": "928c6c2c-8829-46ef-881e-cc23292a4caf",
+    "reserved_input": 21712,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:14.008896+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

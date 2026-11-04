@@ -1,0 +1,44 @@
+{
+  "answer_id": "A300",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This factual claim about papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Clustering and iterative LLM labeling are described, but a hierarchical taxonomy is not established.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited paper constructs multiscale density trees from LLM embeddings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited taxonomy paper supports its own focus, but the Haschka paper is not cited here.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "The paper builds an argument interaction graph and detects communities for viewpoint organization.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The cited work uses graph communities, but it does not establish the comparison with the other methods.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

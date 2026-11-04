@@ -1,0 +1,29 @@
+{
+  "answer_id": "A015",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper-related recommendation has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 8 reports varying saturation and earlier saturation for users with limited histories.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 8 advocates individualized exploration to balance exposure and user experience.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

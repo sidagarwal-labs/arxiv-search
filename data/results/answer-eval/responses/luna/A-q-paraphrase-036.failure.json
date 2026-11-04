@@ -1,0 +1,28 @@
+{
+  "model": "gpt-6-luna",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"The closest comparisons are legal dense-retrieval studies. On Brazilian legal search, legal-only fine-tuning favors specialized legal tasks, while mixing legal data with general question-answer supervision offers a stronger balance across legal and out-of-domain search [2]. For multilingual EU environmental legislation, contrastive fine-tuning in monolingual and bilingual settings improves retrieval over baselines, with gains transferring to unseen languages [1]. A Brazilian benchmark also finds domain-adaptation gains clearest on the supervision-aligned subset, with other retrieval approaches remaining competitive across collections [6]. These papers compare retrieval utility across legal domains and settings; they do not provide a single controlled comparison of fine-tuning methods across diverse legal technical-document domains.\",\"grounded\":true} \n</|im_end|>startof final } \n{\"answer\":\"The closest comparisons are legal dense-retrieval studies. On Brazilian legal search, legal-only fine-tuning favors specialized legal tasks, while mixing legal data with general question-answer supervision offers a stronger balance across legal and out-of-domain search [2]. For multilingual EU environmental legislation, contrastive fine-tuning in monolingual and bilingual settings improves retrieval over baselines, with gains transferring to unseen languages [1]. A Brazilian benchmark also finds domain-adaptation gains clearest on the supervision-aligned subset, while other retrieval approaches remain competitive across collections [6]. These papers compare retrieval utility across legal domains and settings, but do not provide one controlled comparison of fine-tuning methods across diverse legal technical-document domains.\",\"grounded\":true} \n} \n<|im_end|> \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_08fac567c9f659ac016aeb63b0e76887d2860dfd4440d788ae",
+      "phase": "commentary",
+      "role": "assistant",
+      "status": "incomplete",
+      "type": "message"
+    }
+  ],
+  "request_key": "7e3d57bcaabdea4095a1c45db4fe5c5606ead9de55a3c0e526074ed16deff57b",
+  "status": "incomplete",
+  "usage": {
+    "input_tokens": 3370,
+    "output_tokens": 700,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Incomplete response"
+}

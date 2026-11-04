@@ -1,0 +1,27 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-question-037",
+  "outcome": {
+    "answer": "None of the supplied papers addresses how internal representations of language models correlate with the effort humans use to understand sentences. The results are about fairness in machine learning, optimization, streaming, verification, recommender systems, and distributed learning, not language-model representations or sentence-processing effort.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "ba476c4a9f06e6e5e86f301d0fd68e780735a43e310ba72e292052ffda5eccc9",
+  "usage": {
+    "accounted_tokens": 3232,
+    "input_tokens": 3161,
+    "latency_seconds": 2.0038955000054557,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 71,
+    "provider_request_id": "req_e2ba2269914141adb89c8cd2e35d6778",
+    "reasoning_tokens": 0,
+    "request_id": "7dc5150a-cf7b-407f-bc88-1259fdb66f9c",
+    "reserved_input": 21811,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:06:19.212463+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

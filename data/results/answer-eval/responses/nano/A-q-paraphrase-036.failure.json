@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"The supplied results do not directly compare \u201cdifferent fine-tuning methods\u201d for how they affect the utility of vector representations specifically for legal technical documents across diverse domains. Instead, the papers address related but different questions: fine-tuning for legal dense retrieval (embedding utility), and fine-tuning strategies for other legal NLP tasks (e.g., legal machine translation), or for long-document domain adaptation that does not establish practical utility.\\n\\nFor legal dense retrieval/embeddings, [1] fine-tunes multilingual law embedding models with contrastive objectives (monolingual and bilingual) on a multilingual EU environmental legislation corpus, reporting improved Top-k retrieval accuracy and transfer to unseen languages, with gains attributed to enhanced language-independent content-level representations. [2] compares training setups for a dense retriever (no fine-tuning vs legal-only vs mixed legal + question-answer supervision), finding legal-only is better on specialized tasks while mixed training is more robust across retrieval types and question-based search. [6] presents a benchmark that enables studying retrieval across heterogeneous Brazilian legal domains and includes a domain-adapted dense embedding model fine-tuned on JU\u00c3\u0192\u00c2\u00a1-aligned supervision, but it does not isolate which fine-tuning methods change representation utility.\\n\\nFor other adaptation settings, [4] continues pretraining a Russian ModernBERT variant on legislative documents and reports reduced masked-token prediction loss, but it does not isolate contribution of context or establish practical legal utility; [3] studies full fine-tuning vs LoRA/QLoRA vs zero-shot prompting for unfair ToS clause detection (not vector utility for legal technical documents across domains); [5] focuses on fine-tuning vs from-scratch for legal machine translation (not document embedding utility); [8] uses synthetic data with parameter-efficient fine-tuning for German legal question answering (not an embedding utility comparison across domains); [7] compares embedding methods under noisy labels for Czech decisions (not fine-tuning method comparison); [9] and [10] are classification/prompting and small-model reasoning studies, respectively.\",\"grounded\":false}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_0a61babd8781d022016aeb622c965c87d2aa55887a71014b09",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "f85ef826b5016f9abeaee0e8eb54db768a3f9b1d6e05516e52164ee451893e2a",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3370,
+    "output_tokens": 432,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

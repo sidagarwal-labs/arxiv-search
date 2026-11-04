@@ -1,0 +1,27 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-known_item-089",
+  "outcome": {
+    "answer": "The results do not answer the fairness limits question. They mostly cover recommender systems, user personas, knowledge graphs, and LLM-based personalization, but none discusses fairness limits specifically.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "4e1c992de6f3ac0a4135787ae55c9f8a10d73acaf460cf880e68270ef26f0258",
+  "usage": {
+    "accounted_tokens": 3270,
+    "input_tokens": 3210,
+    "latency_seconds": 1.953463899990311,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 60,
+    "provider_request_id": "req_31be270accde46ab977f9c41dc391d2a",
+    "reasoning_tokens": 0,
+    "request_id": "59c54b22-cfee-4edc-a879-2743708eee26",
+    "reserved_input": 21600,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:48.891346+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

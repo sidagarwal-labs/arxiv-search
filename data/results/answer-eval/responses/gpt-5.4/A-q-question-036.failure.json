@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Content creators can understand why their items are not being recommended by using provider-facing transparency and observability tools that separate system behavior from raw outcome signals. One approach is to train a surrogate or proxy model that approximates an item\u2019s exposure distribution and then quantify which item features most influenced exposure or lack of exposure across the user base; this explains system-level drivers of visibility and can reveal that the important factors differ by recommender model and domain [1]. Another approach is counterfactual observability: instead of relying on views and clicks alone, estimate what the recommender would have done and what engagement would have followed without a specific item or model decision, helping attribute poor exposure to model behavior, bias, presentation, audience reach, or content effects [2].\\n\\nRelated work differs in focus. Pairwise counterfactual explanations answer comparative questions like why one item ranked above another by tracing ranking differences back to items in a user profile [4]. Work on familiarity bias shows that structural exposure imbalances can suppress emerging creators, suggesting one concrete reason items may be under-recommended in video systems [7].\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_0658fd06a54afcbc016aeb6b287b4c87d2ad865fb610a8ba72",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "a44ad50efd76f320eae3266ad2341f2e978375ea6df0fd8735b40d072d1ca5c0",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3438,
+    "output_tokens": 238,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

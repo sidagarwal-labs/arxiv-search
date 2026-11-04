@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-020",
+  "outcome": {
+    "answer": "Decoupled Split Learning via Auxiliary Loss reduces data exchange by training client and server partitions semi-independently with local loss signals, avoiding the transmission of backward gradients across the split. The paper reports communication costs roughly halved while maintaining performance on par with standard split learning [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0886ba43dd1f43fda4f87e0c478891eeac9bfecf19e3c4c14ad725b1942f203e",
+  "usage": {
+    "accounted_tokens": 3864,
+    "input_tokens": 3790,
+    "latency_seconds": 4.0442575000051875,
+    "model": "gpt-6-luna",
+    "output_tokens": 74,
+    "provider_request_id": "req_ab8dc83ac72846a7920cb37b3de5de36",
+    "reasoning_tokens": 0,
+    "request_id": "cf426210-c0d5-4e5d-a3ef-e1e718a6cc52",
+    "reserved_input": 23897,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:56.070831+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

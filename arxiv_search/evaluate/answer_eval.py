@@ -119,6 +119,36 @@ PLAN = {
     "budget_usd": {"generate": GENERATE_CAP_USD, "grade": GRADE_CAP_USD},
 }
 
+# v2 (2026-11-04, after generation, before any grading): every model mostly answered the
+# mismatched items with "none of these directly answer it; the closest are [n]", which the
+# prompt allows and v1 counted as a failure (no model reached 0.80). The owner chose to keep
+# that behaviour and count a clear caveat as a correct abstention, checked by the grader.
+PLAN_V2 = {
+    **PLAN, "version": "answer-eval-v2", "supersedes": "answer-eval-v1 (no model met abstain >= 0.80)",
+    "why_changed": "Abstain items were answered with an explicit 'not a direct answer' caveat plus "
+                   "the closest papers; the owner prefers that UX to a bare refusal.",
+    "caveat_check": "grader column not_direct_answer (yes/no): the answer clearly tells the reader "
+                    "the supplied papers do not directly answer the request",
+    "decision_rule": {**PLAN["decision_rule"], "qualifies_if": {
+        **PLAN["decision_rule"]["qualifies_if"],
+        "abstain_accuracy": ">= 0.80, where abstaining = grounded false OR a graded clear "
+                            "not-a-direct-answer caveat",
+        "false_abstain": "<= 0.10 on answerable items with a grade-2 paper, same definition "
+                         "(an unwarranted caveat counts as a false abstention)"}},
+    "frozen_before": "any grade exists; generation responses unchanged",
+}
+
+# Owner's choice before any grading: the full set is graded by GPT-6.1 Terra in a chat session
+# (blinded workbook), not by GPT-5.4 through the API. Terra is not a candidate.
+GRADER_AMENDMENT = {
+    "amends": "answer-eval-v2", "date": "2026-11-04", "frozen_before": "any grade exists",
+    "full_set_grader": "GPT-6.1 Terra via the owner's chat session (terra-full.xlsx)",
+    "sample_grader": "GPT-6 ASTRA via the owner's chat session (astra-sample.xlsx, 10 per model)",
+    "replaces": "GPT-5.4 API grader (no API grading was run)",
+    "effect": "Removes the self-preference caveat (the grader wrote no answers); rubric, evidence "
+              "and decision rule unchanged.",
+}
+
 
 # --- Evaluation set -----------------------------------------------------------------
 
@@ -229,6 +259,22 @@ def grade_path(candidate: str, item: dict):
     return OUT / "grades" / candidate / f"{item['item_id']}.json"
 
 
+def sheet_grade_path(candidate: str, item: dict, sheet: str = "terra"):
+    """Grades the owner produced with a chat model from a blinded workbook (answer_grade_sheets)."""
+    return OUT / "sheet-grades" / sheet / candidate / f"{item['item_id']}.json"
+
+
+def load_grade(state: dict, candidate: str, item: dict, reply: dict | None) -> dict | None:
+    """API grade if one exists, otherwise the GPT-6.1 Terra workbook grade."""
+    if not gradable(reply):
+        return None
+    api_grade = _read(grade_path(candidate, item), grade_payload(state, item, reply["outcome"]))
+    if api_grade is not None:
+        return api_grade
+    path = sheet_grade_path(candidate, item)
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+
+
 def _read(path, encoded: bytes) -> dict | None:
     if not path.exists():
         return None
@@ -253,8 +299,7 @@ def _send(path, encoded: bytes, ledger: client.TaskLedger, validate, meta: dict)
                                          failure_path=path.with_suffix(".failure.json"))
         outcome = {"status": "ok", **result}
     except client.InvalidAnswer as error:  # a measured format failure, never resent
-        attempt = ledger.attempted(key)
-        outcome, usage = {"status": error.status, "detail": error.detail}, {"recorded": attempt}
+        outcome, usage = {"status": error.status, "detail": error.detail}, ledger.attempt(key) or {}
     _write(path, {**meta, "request_sha256": key, "outcome": outcome, "usage": usage})
 
 
@@ -378,6 +423,12 @@ def item_metrics(state: dict, item: dict, reply: dict | None, grade: dict | None
             out["citation_precision"] = sum(labels[p] >= 1 for p in cited) / len(cited)
             out["grade2_coverage"] = (sum(p in cited for p in grade2) / len(grade2)) if grade2 else None
             out["source_cited"] = (source in cited) if source in item["paper_ids"] else None
+    caveat = (grade or {}).get("outcome", {}).get("not_direct_answer")
+    declined = True if not o["grounded"] else caveat  # None until the caveat is graded
+    if item["kind"] == "abstain":
+        out["abstained_v2"] = declined
+    elif item["grade2_in_context"]:
+        out["false_abstain_v2"] = declined
     if grade is not None and grade["outcome"]["status"] == "ok":
         verdicts = [s["verdict"] for s in grade["outcome"]["sentences"] if s["verdict"] != "no_claim"]
         out["faithfulness"] = statistics.fmean(VERDICT_VALUE[v] for v in verdicts) if verdicts else None
@@ -404,8 +455,39 @@ def paired(rows_a: list[dict], rows_b: list[dict], key: str) -> dict | None:
             "ci95": [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))]}
 
 
+PROJECTION_VOLUMES = (1_000, 100_000)
+
+
+def _percentile(values: list[float], q: float) -> float:
+    ordered = sorted(values)
+    return ordered[min(len(ordered) - 1, round(q * (len(ordered) - 1)))]
+
+
+def cost_profile(candidate: str, usages: list[dict]) -> dict:
+    """Measured $ and latency per answer (every attempt, valid or not) plus volume projections.
+
+    Latency is client wall-clock for one sequential request from this machine (network included),
+    so treat it as a relative comparison between models, not a production SLA.
+    """
+    if not usages:
+        return {"usd_per_answer": None, "seconds_per_answer": None, "seconds_p50": None,
+                "seconds_p95": None, "output_tokens_per_answer": None,
+                **{f"usd_per_{n}": None for n in PROJECTION_VOLUMES}}
+    usd = [client.cost_nanodollars(client.MODELS[candidate], u["input_tokens"], u["output_tokens"]) / 1e9
+           for u in usages]
+    seconds = [u["latency_seconds"] for u in usages if u.get("latency_seconds")]
+    per_answer = statistics.fmean(usd)
+    return {"usd_per_answer": per_answer,
+            "seconds_per_answer": statistics.fmean(seconds) if seconds else None,
+            "seconds_p50": _percentile(seconds, 0.5) if seconds else None,
+            "seconds_p95": _percentile(seconds, 0.95) if seconds else None,
+            "output_tokens_per_answer": statistics.fmean(u["output_tokens"] for u in usages),
+            **{f"usd_per_{n}": per_answer * n for n in PROJECTION_VOLUMES}}
+
+
 def summarize(state: dict, stage: str) -> dict:
     items = stage_items(state, stage)
+    ledger = client.TaskLedger(GENERATE_TASK, int(GENERATE_CAP_USD * 1e9), GENERATE_MAX_REQUESTS)
     rows, cost = {}, {}
     for candidate in CANDIDATES:
         rows[candidate] = []
@@ -413,15 +495,14 @@ def summarize(state: dict, stage: str) -> dict:
         for item in items:
             gen = generation_payload(state, item, candidate)
             reply = _read(response_path(candidate, item), gen)
-            grade = (_read(grade_path(candidate, item), grade_payload(state, item, reply["outcome"]))
-                     if gradable(reply) else None)
+            grade = load_grade(state, candidate, item, reply)
             rows[candidate].append(item_metrics(state, item, reply, grade))
             u = (reply or {}).get("usage", {})
+            if reply and "input_tokens" not in u:  # early invalid-answer files kept only a flag
+                u = ledger.attempt(reply["request_sha256"]) or {}
             if u.get("input_tokens") is not None:
-                spent.append((client.cost_nanodollars(client.MODELS[candidate], u["input_tokens"],
-                                                      u["output_tokens"]) / 1e9, u.get("latency_seconds")))
-        cost[candidate] = {"usd_per_answer": statistics.fmean(c for c, _ in spent) if spent else None,
-                           "seconds_per_answer": statistics.fmean(s for _, s in spent if s) if spent else None}
+                spent.append(u)
+        cost[candidate] = cost_profile(candidate, spent)
     table = {}
     for c, r in rows.items():
         answerable = [x for x in r if x["kind"] == "answerable"]
@@ -430,6 +511,9 @@ def summarize(state: dict, stage: str) -> dict:
             "items": len(r), "format_valid": _mean(r, "format_valid"),
             "false_abstain": _mean(answerable, "false_abstain"),
             "abstain_accuracy": _mean(abstain, "abstained"),
+            "false_abstain_v2": _mean(answerable, "false_abstain_v2"),
+            "abstain_accuracy_v2": _mean(abstain, "abstained_v2"),
+            "caveat_graded": sum(x.get("abstained_v2") is not None for x in abstain),
             **{k: _mean(answerable, k) for k in ("citation_precision", "grade2_coverage", "source_cited",
                                                   "faithfulness", "fully_faithful", "answers_request",
                                                   "words", "n_cited")},
@@ -454,8 +538,8 @@ def decide(summary: dict) -> dict:
             p = None if c == best else paired(answerable[c], answerable[best], key)
             result[key] = c == best or (p is not None and p["ci95"][0] >= -MARGIN)
             result[f"{key}_vs_best"] = p
-        result["abstain_accuracy"] = (t["abstain_accuracy"] or 0) >= 0.80
-        result["false_abstain"] = t["false_abstain"] is not None and t["false_abstain"] <= 0.10
+        result["abstain_accuracy"] = (t["abstain_accuracy_v2"] or 0) >= 0.80  # PLAN_V2
+        result["false_abstain"] = t["false_abstain_v2"] is not None and t["false_abstain_v2"] <= 0.10
         result["format_valid"] = (t["format_valid"] or 0) >= 0.95
         result["qualifies"] = all(result[k] for k in ("faithfulness", "citation_precision",
                                                      "abstain_accuracy", "false_abstain", "format_valid"))
@@ -468,7 +552,7 @@ def decide(summary: dict) -> dict:
 def report(state: dict, stage: str, ledgers: dict) -> dict:
     summary = summarize(state, stage)
     decision = decide(summary)
-    value = {"stage": stage, "plan": PLAN, "table": summary["table"], "decision": decision,
+    value = {"stage": stage, "plan": PLAN_V2, "grader_amendment": GRADER_AMENDMENT, "table": summary["table"], "decision": decision,
              "decision_applies": stage == "full", "rows": summary["rows"],
              "accounting": {k: l.summary() for k, l in ledgers.items()}, "promoted": False}
     name = "pilot-report" if stage == "pilot" else "report"
@@ -486,17 +570,32 @@ def write_markdown(report_value: dict, path) -> None:
     lines = [f"# Answer-model comparison ({report_value['stage']} stage)", "",
              "Same prompt (answer-v1), same Decision46 top10 evidence, reasoning effort none. "
              "Label metrics use existing relevance labels; faithfulness and answers-request are "
-             f"graded blind by {client.MODELS[GRADER]} (also a candidate: self-preference caveat).", "",
+             "graded blind by GPT-6.1 Terra (not a candidate).", "",
+             "Abstain columns use the v2 rule (no citations, or a graded clear not-a-direct-answer "
+             "caveat); v1 strict values are in report.json.", "",
              "| Model | Format valid | False abstain | Abstain acc. | Citation precision | Grade-2 coverage "
              "| Source cited | Faithfulness | Fully faithful | Answers request (0-2) | Words | $/answer | s/answer |",
              "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for c in CANDIDATES:
         r = t[c]
-        lines.append(f"| {c} (`{client.MODELS[c]}`) | {f(r['format_valid'])} | {f(r['false_abstain'])} | "
-                     f"{f(r['abstain_accuracy'])} | {f(r['citation_precision'])} | {f(r['grade2_coverage'])} | "
+        lines.append(f"| {c} (`{client.MODELS[c]}`) | {f(r['format_valid'])} | {f(r['false_abstain_v2'])} | "
+                     f"{f(r['abstain_accuracy_v2'])} | {f(r['citation_precision'])} | {f(r['grade2_coverage'])} | "
                      f"{f(r['source_cited'])} | {f(r['faithfulness'])} | {f(r['fully_faithful'])} | "
                      f"{f(r['answers_request'], '{:.2f}')} | {f(r['words'], '{:.0f}')} | "
                      f"{f(r['usd_per_answer'], '${:.5f}')} | {f(r['seconds_per_answer'], '{:.1f}')} |")
+    lines += ["", "## Price and latency trade-off", "",
+              "Measured on every attempt (including invalid answers). Latency is wall-clock for one "
+              "request at a time from the dev machine, network included: compare models, not SLAs. "
+              "Projections multiply measured $/answer by volume (one summary per search, standard "
+              "uncached prices).", "",
+              "| Model | $/answer | $ per 1k searches | $ per 100k searches | Output tokens | "
+              "Latency mean / p50 / p95 (s) | Faithfulness |", "|---|---|---|---|---|---|---|"]
+    for c in CANDIDATES:
+        r = t[c]
+        lines.append(f"| {c} | {f(r['usd_per_answer'], '${:.5f}')} | {f(r['usd_per_1000'], '${:.2f}')} | "
+                     f"{f(r['usd_per_100000'], '${:,.0f}')} | {f(r['output_tokens_per_answer'], '{:.0f}')} | "
+                     f"{f(r['seconds_per_answer'], '{:.1f}')} / {f(r['seconds_p50'], '{:.1f}')} / "
+                     f"{f(r['seconds_p95'], '{:.1f}')} | {f(r['faithfulness'])} |")
     lines += ["", f"Best faithfulness: `{d['best']}`. "
               + (f"Pick (cheapest qualifying serving-eligible): `{d['pick']}`."
                  if report_value["decision_applies"] else
@@ -510,8 +609,10 @@ def write_markdown(report_value: dict, path) -> None:
                      + ("yes" if ch["qualifies"] else "no (" + ", ".join(
                          k for k in ("faithfulness", "citation_precision", "abstain_accuracy",
                                      "false_abstain", "format_valid") if not ch[k]) + ")") + " |")
-    lines += ["", "Cautions: dev queries only; one prompt; the grader is a model, not a person, and "
-              "grades its own family; abstain items are constructed (mismatched results), not natural; "
+    lines += ["", "Grades come from the GPT-6.1 Terra blinded workbook the owner graded in a chat "
+              "session (same rubric and evidence as the API grader, many answers per session instead "
+              "of one per request); a GPT-6 ASTRA sample measures grader agreement.", "",
+              "Cautions: dev queries only; one prompt; the graders are models, not people; abstain items are constructed (mismatched results), not natural; "
               "cost uses standard uncached prices. Nano is deprecated and GPT-5.4 is a ceiling, so "
               "neither can be picked."]
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -528,6 +629,8 @@ def main(argv: list[str] | None = None) -> None:
     args = parser.parse_args(argv)
     OUT.mkdir(parents=True, exist_ok=True)
     freeze(OUT / "preregistration.json", PLAN)
+    freeze(OUT / "preregistration-v2.json", PLAN_V2)
+    freeze(OUT / "grader-amendment.json", GRADER_AMENDMENT)
     if args.build or not SET_PATH.exists():
         data = build_set()
         print(f"answer-dev-v1: {len(data['items'])} items frozen at {SET_PATH}")

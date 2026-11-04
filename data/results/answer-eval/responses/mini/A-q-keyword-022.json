@@ -1,0 +1,33 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-022",
+  "outcome": {
+    "answer": "Yes \u2014 the closest matches are papers on lifecycle memory control and strength-like memory management. [1] explicitly introduces strength as a lifecycle state for retention consequence and frames memory as a lifecycle-control problem. [8] also has a complete memory lifecycle with explicit strength and evidence tracking, but it is for recommendation and uses event, preference, and profile tiers. [2], [7], and [9] focus more on forgetting, reconsolidation, or consolidation control than on lifecycle strength specifically.",
+    "cited": [
+      1,
+      8,
+      2,
+      7,
+      9
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "59638e6e180fd8ffe6cc9c8b6fbfc77032fa41a261e12727f277e44d791dbe0c",
+  "usage": {
+    "accounted_tokens": 3884,
+    "input_tokens": 3762,
+    "latency_seconds": 2.5669540999806486,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 122,
+    "provider_request_id": "req_1f0ccc1d632f4cb1b7f35c09be370e04",
+    "reasoning_tokens": 0,
+    "request_id": "82071e44-e9e7-406d-a25f-2a097a940b86",
+    "reserved_input": 23906,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:19.287874+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

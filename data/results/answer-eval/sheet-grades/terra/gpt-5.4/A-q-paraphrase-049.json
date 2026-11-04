@@ -1,0 +1,49 @@
+{
+  "answer_id": "A301",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual claim about papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "RuleEvolve mutates rules, judges candidates, and reports gains over the named baselines.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The survey describes autonomous data generation, evaluation, and iterative refinement.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This is a framing sentence introducing examples.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "TRT uses self-generated verification without external feedback at test time.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "CoNL uses critique usefulness as reward and jointly improves generation and judging without ground truth.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "NRT uses question-answer pairs and self-generated traces without expert demonstrations or external verifiers.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

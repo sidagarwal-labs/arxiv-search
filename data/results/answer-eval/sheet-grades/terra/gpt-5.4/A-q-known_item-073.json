@@ -1,0 +1,39 @@
+{
+  "answer_id": "A024",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper 1 has the stated title and author.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 frames structural generalization via composition, unboundedness, and the complexity gap.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 1 makes the NC1-completeness and conditional impossibility claims.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 2 describes a discrete-bottleneck neural cellular automaton tested on SLOG.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Both cited studies have the stated theoretical and empirical emphases.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

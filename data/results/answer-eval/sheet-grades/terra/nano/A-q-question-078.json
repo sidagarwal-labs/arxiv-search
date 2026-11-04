@@ -1,0 +1,39 @@
+{
+  "answer_id": "A063",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-078",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual description of the automated evaluation approach is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The DRAGUN abstract describes grounded reports and AutoJudge using assessor-created importance-weighted rubrics.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The factual description of an approach has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "UR_Trecking uses the listed pipeline, but the abstract does not identify MS MARCO as a news corpus.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited papers respectively focus on reusable automated evaluation and trust-report generation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

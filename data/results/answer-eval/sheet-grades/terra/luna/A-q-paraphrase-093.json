@@ -1,0 +1,34 @@
+{
+  "answer_id": "A036",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-093",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about EDA functional units is uncited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 6 describes source-linked units, combined retrieval, reranking, and benchmark improvements.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 1 and 3 describe intent-driven boundaries and quality-based adaptive chunking.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The precise corpus is unspecified, but paper 6 explicitly evaluates EDA documentation QA; the blanket caveat is overstated.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

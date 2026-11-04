@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-078",
+  "outcome": {
+    "answer": "The closest match is a paper on synthetic LLM-based slate preference for offline A/B testing in slate recommender systems, where LLMs articulate pairwise preferences between slates and help screen candidates before live experiments [4]. Another related paper focuses on slate recommendation more broadly, using generative ordered slate generation and preference alignment, but not specifically synthetic slate preference judgments by LLMs [1].",
+    "cited": [
+      4,
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "55670540667aab0cfec567f51441150f3e7ff6428243fcba81ef9ad0a50ac32f",
+  "usage": {
+    "accounted_tokens": 3513,
+    "input_tokens": 3416,
+    "latency_seconds": 2.2937778000195976,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 97,
+    "provider_request_id": "req_b369423e1e394b8c96026bd452c65534",
+    "reasoning_tokens": 0,
+    "request_id": "74007a92-d7f5-4fbd-b1f4-11c5a8fcf8d5",
+    "reserved_input": 22066,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:51.539188+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

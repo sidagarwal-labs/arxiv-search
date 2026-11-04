@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-078",
+  "outcome": {
+    "answer": "Automatically judging reports that help readers evaluate whether news is trustworthy can be done by generating reader-oriented, well-attributed trustworthiness reports and then using an automated judge to score the submissions against human-created rubrics. In the TREC 2025 DRAGUN Track, Task 2 produces a grounded report with citations, and the track\u2019s AutoJudge process automatically judges new runs by comparing them to human importance-weighted rubrics derived from critical questions assessors expect readers to answer for trustworthiness assessment [1].\n\nA related approach is to build an end-to-end system that generates critical questions, retrieves relevant evidence, and synthesizes concise trustworthiness reports with citations. One DRAGUN submission (UR_Trecking) combines LLM question generation with retrieval from a news corpus, evidence re-ranking and filtering, and LLM synthesis into trustworthiness reports grounded in selected evidence [2].\n\nThese differ mainly in scope: [1] emphasizes reusable automated evaluation (AutoJudge) against question-based trust rubrics, while [2] focuses on producing the trustworthiness reports themselves (with LLM-IR retrieval and synthesis).",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "11411762f024359278afb719423441333176f54af89765d82cdb4f3ac297ad11",
+  "usage": {
+    "accounted_tokens": 3743,
+    "input_tokens": 3498,
+    "latency_seconds": 3.192240300006233,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 245,
+    "provider_request_id": "req_c3e0b22e9b3a487490728191fb0fe928",
+    "reasoning_tokens": 0,
+    "request_id": "91688389-2363-4350-8764-64cc1d873e06",
+    "reserved_input": 22126,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:36.835159+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

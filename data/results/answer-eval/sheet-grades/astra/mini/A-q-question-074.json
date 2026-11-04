@@ -1,0 +1,34 @@
+{
+  "answer_id": "A010",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-question-074",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "This uncited causal stability claim goes beyond [1]'s angular parameterization and validation-loss findings.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] supports the scalar angle rule, exact norm preservation, projection/Cayley variants, and identity/GeoNorm limits.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[1] explicitly reports best validation loss at finite p and calls the exponential map an unpreferred endpoint.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[3,6] link orthogonality/norm preservation to stability; [3] identifies unconstrained amplification and [2] identifies convex-gate vanishing gradients.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

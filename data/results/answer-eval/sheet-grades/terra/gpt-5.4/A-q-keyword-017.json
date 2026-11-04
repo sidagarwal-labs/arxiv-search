@@ -1,0 +1,44 @@
+{
+  "answer_id": "A012",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-017",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about recent papers and methods has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes sparse routing and strong extrapolating recall.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 reports improved recurrent updates, retrieval, and long-context stability.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 3 reports adaptive decay and improved long-range memory at log-linear cost.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 5 describes shared recurrent storage and load-driven interference.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 9 reports longer-context processing, improved extrapolation, and fewer FLOPs.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

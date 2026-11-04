@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answer": "Ko decoupling content delivery for medical QA is addressed by DeCode (Decoupling Content and Delivery), which introduces a training-free, model-agnostic framework that adapts existing LLMs to produce contextualized clinical answers by separating \u201ccontent\u201d from \u201cdelivery.\u201d [1] It is designed to handle cases where answers may be clinically correct but not aligned with individual patient contexts, and it evaluates on OpenAI HealthBench. [1]\n\nRelated approaches to improving medical QA with external knowledge include RAG-X, which proposes a diagnostic framework to separately evaluate retrieval vs generation in retrieval-augmented medical QA. [7] RAG-X focuses on identifying whether errors come from faulty retrieval or flawed generation, rather than explicitly decoupling content and delivery. [7] Retrieval-augmented systems with grounded evidence are also discussed in a comparative study using fine-tuned open LLMs plus retrieval for factual correctness and reduced hallucinations. [2]",
+    "cited": [
+      1,
+      7,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "7a498427f92994c120e2eaaecc178492f0ddcbd5b31138bcd6e55be9a3cd2b26",
+  "usage": {
+    "accounted_tokens": 3789,
+    "input_tokens": 3578,
+    "latency_seconds": 2.514400400017621,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 211,
+    "provider_request_id": "req_00387eb0761d4de6bdbdc2d97dda29de",
+    "reasoning_tokens": 0,
+    "request_id": "a3e761ff-a0d5-40a1-96a4-4a2e8b142662",
+    "reserved_input": 21680,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:56.272306+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

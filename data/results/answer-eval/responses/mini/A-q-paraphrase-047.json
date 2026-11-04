@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answer": "The closest match is Seed-Guided Semi-Supervised Clustering by A-Contrario Anomaly Detection, which explicitly uses minimal user-provided labels to start groups and then expands them by admitting non-anomalous points, in an iterative \u201cclustering-by-exclusion\u201d scheme that isolates outliers and fringe points [1]. It fits your description of identifying clusters by removing odd ones out using a few starting markers [1].\n\nA related but less direct option is the outlier-detection paper based on cluster analysis and visual expert criteria, which also treats outliers as points identified after clustering, but it is not seed-guided clustering [7].",
+    "cited": [
+      1,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "b509a6687e0fb9593d9eded3426ab146f3625161f95b9b47ad46f8db670161b2",
+  "usage": {
+    "accounted_tokens": 3746,
+    "input_tokens": 3594,
+    "latency_seconds": 2.550951899989741,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 152,
+    "provider_request_id": "req_bab236c1e59d49f882ee357164180660",
+    "reasoning_tokens": 0,
+    "request_id": "8eecf129-5064-483f-86f9-b8ec31f81936",
+    "reserved_input": 22314,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:40.312435+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-061",
+  "outcome": {
+    "answer": "For robust intent classification in chatbots, the papers point to a few complementary strategies: use models and evaluations that explicitly test perturbation robustness [1], prefer attention pooling over mean pooling when user messages contain conversational noise like greetings or off-topic remarks [2], and consider training-free methods if you expect mixed-intent or adversarial prompts, since they are generally more robust in those settings [3]. For multi-intent spoken interactions, a semantic-frame self-consistency method improves overall accuracy and slot F1, though intent accuracy stays mostly stable [6].\n\nIf robustness includes unknown or out-of-scope intents, open-intent methods are relevant: ellipsoid-based decision boundaries improve open intent detection and generalization [4], while uncertainty estimation for open-set text classification helps predict recognition errors and reject unknowns, including on intent datasets [10]. For multilingual customer-service chatbots, translated benchmarks can overestimate robustness on noisy native queries, so realistic native-query evaluation is important [7].",
+    "cited": [
+      1,
+      2,
+      3,
+      6,
+      4,
+      10,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c5edafc2096c759b595d71982ff0be7b79b34b77c11315b098a62d3a105bc551",
+  "usage": {
+    "accounted_tokens": 3672,
+    "input_tokens": 3456,
+    "latency_seconds": 6.173218099982478,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 216,
+    "provider_request_id": "req_f11159554a244baebe9c6a81d3822c19",
+    "reasoning_tokens": 0,
+    "request_id": "91ea660f-d369-4341-8959-b72dc23c1779",
+    "reserved_input": 21960,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:53.531701+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

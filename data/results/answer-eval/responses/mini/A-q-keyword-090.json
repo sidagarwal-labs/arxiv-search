@@ -1,0 +1,32 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-090",
+  "outcome": {
+    "answer": "Several supplied papers address watch-time prediction with distributional or mixture-style modeling. The closest match is a hierarchical exponential-Gaussian mixture model for watch-time distribution prediction, which says watch-time is near-zero-inflated, long-tailed, and multimodal, and proposes HEGM to address variance collapse, component redundancy, and inactive components in a prior mixture network [1]. Another closely related paper proposes a distributional serving interface that learns a joint distribution over four watch states and exposes compact summaries and task-specific readouts rather than only a single watch-time estimate [2].\n\nIf you want a more general watch-time regression paper, DADF corrects predictable residual structure in a frozen watch-time predictor rather than replacing it with a mixture model [3], and RQ-Reg predicts continuous values like watch-time using residual quantization instead of a parametric mixture [7].",
+    "cited": [
+      1,
+      2,
+      3,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "925c092290a0f0fcb337163ae8246f40b00a520d3166714a1bf8161572ab246a",
+  "usage": {
+    "accounted_tokens": 3805,
+    "input_tokens": 3612,
+    "latency_seconds": 2.93021800002316,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 193,
+    "provider_request_id": "req_d28d890c1da24fbcbc28e38609e0aa5a",
+    "reasoning_tokens": 0,
+    "request_id": "93e9900c-e467-481c-b00e-58411078a02f",
+    "reserved_input": 23242,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:02:02.039076+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

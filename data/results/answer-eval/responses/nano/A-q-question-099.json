@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-question-099",
+  "outcome": {
+    "answer": "You can make recommender systems better for \u201cuser goals\u201d by explicitly modeling the reasons and intents behind user choices, rather than only inferring preferences from implicit interactions. For example, LLM-based recommendation can prioritize \u201cexplicit context feedback\u201d such as reviews and comments to capture the semantic reasons behind decisions and improve preference alignment and explainability [1]. You can also extract and use high-level intents in sequential recommendation by anchoring reasoning to intents, improving robustness and moving from surface item-to-item memorization toward intrinsic behavior patterns [4].",
+    "cited": [
+      1,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "55cb52d8db55f3fb5c1ec75dd4fe66c48f2070859e94ed4b4b128c8aa90da4a1",
+  "usage": {
+    "accounted_tokens": 3526,
+    "input_tokens": 3402,
+    "latency_seconds": 1.965163399989251,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 124,
+    "provider_request_id": "req_a91e4e3ae71b41289406f5bc58d6893c",
+    "reasoning_tokens": 0,
+    "request_id": "2e5702b9-31f1-4ab5-81d5-337e3d9e0bf2",
+    "reserved_input": 22799,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:51:52.571348+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

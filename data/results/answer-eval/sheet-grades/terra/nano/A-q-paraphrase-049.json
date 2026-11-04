@@ -1,0 +1,39 @@
+{
+  "answer_id": "A104",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-049",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual assertion has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes rollout-specific strategies, verification signals and selection without ground-truth supervision.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 5 describes latent reasoning, ground-truth likelihood rewards and avoiding expert demonstrations and external verifiers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 8 describes critique-based diagnostic rewards and self-play without external judges or ground truth.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The three cited abstracts describe these respective test-time, latent-reasoning and critique-driven mechanisms.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,37 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answer": "For distributional RL in chaotic dynamical systems, Paper [1] directly argues that chaotic dynamics make scalar-value RL objectives ill-conditioned due to exponential sensitivity to initial conditions, while the return distribution evolves more regularly. It shows that, under mild statistical stability assumptions, aligning distributional RL with the 1-Wasserstein metric yields a smoother distributional Bellman objective and better-conditioned learning. \n\nIf you instead mean \u201cchaos\u201d through model/forecast multiplicity, Paper [3] studies how predictive equivalence (Rashomon sets) changes with prediction horizon under chaos, providing Lyapunov-weighted metrics and horizon-constrained selection algorithms. These are forecasting/selection results rather than a distributional RL mechanism.\n\nOther supplied works use distributional or related generative modeling tools but do not specifically target distributional RL chaotic dynamics: Paper [2] focuses on extracting dynamic-programming structure from distributional RL learning dynamics in general; Papers [7] and [6] propose distributional RL methods for other settings; Paper [5] studies extrapolation of global chaotic dynamics using transformers; Paper [9] develops generative joint probability models for chaotic forecasting; Paper [4] is distributionally robust RL theory; and Paper [10] is distributional control for jump-diffusion games.",
+    "cited": [
+      1,
+      3,
+      2,
+      7,
+      6,
+      5,
+      9,
+      4,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "c8472a76bd53c83cdf83dd18ce92da253b9d0bad5b596370d79b56e2b828d564",
+  "usage": {
+    "accounted_tokens": 3639,
+    "input_tokens": 3360,
+    "latency_seconds": 3.537538099975791,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 279,
+    "provider_request_id": "req_af84c1401fb745bfbeba22329dae62c7",
+    "reasoning_tokens": 0,
+    "request_id": "28b0c685-a8f2-4a43-bbc6-1b97697b352a",
+    "reserved_input": 22370,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:59.170947+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

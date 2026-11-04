@@ -1,0 +1,31 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-043",
+  "outcome": {
+    "answer": "About 10\u201330 preceding turns seem to be enough for most of the gain in identifying a speaker\u2019s emotion or mood: one ERC study found conversational context is the main driver, but performance saturates quickly, with roughly 90% of the benefit captured within the most recent 10\u201330 prior turns, and strong results are achievable using only past turns in a strictly causal setup [1]. A related paper also argues that speaker mood often persists across multiple utterances and can be better recognized by modeling each speaker\u2019s emotional history and likely emotion shifts [6].\n\nOn sentence starters, the supplied papers do not study generic sentence-openers directly, but one paper does analyze discourse-marker position and finds emotion is reliably associated with where markers appear: sad utterances use fewer left-periphery markers than other emotions, suggesting weaker local pragmatic cues and greater dependence on context [1]. A different paper on \u201cstarters\u201d is about personalized conversation-opening prompts for initiating chats, not identifying mood within an ongoing conversation [10].",
+    "cited": [
+      1,
+      6,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "55d3ded32178e1649602749cd5140e914551c3f97599bc74bd860cce4ab11fc3",
+  "usage": {
+    "accounted_tokens": 4117,
+    "input_tokens": 3895,
+    "latency_seconds": 6.374071199999889,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 222,
+    "provider_request_id": "req_fee151c8ba4b4e40a43977a5a5076679",
+    "reasoning_tokens": 0,
+    "request_id": "68c16810-b6fb-4ec8-b894-cfa965e6d5e5",
+    "reserved_input": 24202,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:11:36.207692+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

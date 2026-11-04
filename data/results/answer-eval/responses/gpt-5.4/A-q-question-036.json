@@ -1,0 +1,12 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-036",
+  "outcome": {
+    "detail": "Answer longer than 180 words",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "a44ad50efd76f320eae3266ad2341f2e978375ea6df0fd8735b40d072d1ca5c0",
+  "usage": {
+    "recorded": true
+  }
+}

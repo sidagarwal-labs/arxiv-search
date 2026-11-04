@@ -1,0 +1,29 @@
+{
+  "answer_id": "A125",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claims about inference auctions and autobidding have no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes efficient priority allocation and maintaining latency benefits.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 2, 5 and 8 concern advertising auctions or bidding; 3 and 4 address chatbot advertising.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

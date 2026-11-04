@@ -1,0 +1,32 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-known_item-042",
+  "outcome": {
+    "answer": "The closest match to \u201cJiang personalized dense retrieval reasoning\u201d is Think-to-Personalize (TTP), which unifies user-centric intent reasoning with dense retrieval. It reasons over a user\u2019s historical purchase sequence to deduce latent personalized needs, generates an intent-enhanced query, and then encodes it into a unified dense embedding for retrieval. It also uses a two-stage training approach: supervised fine-tuning for cold-start capabilities, followed by reinforcement learning that aligns the reasoning process with retrieval utility. [1]\n\nOther papers address related \u201creasoning + retrieval\u201d personalization ideas but differ: PR2 focuses on personalized question answering with multi-step reasoning and retrieval decisions via reinforcement learning [4], and PCDR targets conversational user profile denoising by learning joint embeddings for conversation history and user profile [3]. AdaQR focuses on routing queries between dense reasoning in embedding space and deeper LLM reasoning to control cost [2].",
+    "cited": [
+      1,
+      4,
+      3,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "6035a0e43ee2077c7a991f9fa3d25ae4d52e22fba0ed9c618f47aee872090395",
+  "usage": {
+    "accounted_tokens": 3589,
+    "input_tokens": 3384,
+    "latency_seconds": 2.537635299988324,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 205,
+    "provider_request_id": "req_46e4b2bbbfaa42e99b8f780baa7d3f9d",
+    "reasoning_tokens": 0,
+    "request_id": "522a6c83-adfb-4951-b83e-b40728b99e59",
+    "reserved_input": 21914,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:48:40.202525+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

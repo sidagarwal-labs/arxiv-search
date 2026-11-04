@@ -1,0 +1,29 @@
+{
+  "answer_id": "A013",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-019",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and author identification are factual but uncited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports broad subgroup alignment with statistically significant differences.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 3, 6, 10 and 9 cover the named related areas.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

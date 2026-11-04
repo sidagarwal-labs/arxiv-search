@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-keyword-054",
+  "outcome": {
+    "answer": "R2LM, the Right-to-Left Mamba model in Bifocal Diffusion Language Models, reports 2.4\u00d7\u201312.9\u00d7 higher throughput than bidirectional diffusion language models and 1.9\u00d7\u20132.9\u00d7 speedup over autoregressive baselines in batch serving, using parallel decoding with KV caching [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "babce21c23dbcb0feb2fcab7bd5f7f7fc8a8a685a1d52f5b85fbec14c82475b9",
+  "usage": {
+    "accounted_tokens": 3777,
+    "input_tokens": 3688,
+    "latency_seconds": 2.452697000000626,
+    "model": "gpt-6-luna",
+    "output_tokens": 89,
+    "provider_request_id": "req_e762aab7c6274039af15cea5c81a9c09",
+    "reasoning_tokens": 0,
+    "request_id": "af7d2bd8-6d6e-4e3d-8438-183f4b14eb1a",
+    "reserved_input": 21848,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:53:49.123138+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

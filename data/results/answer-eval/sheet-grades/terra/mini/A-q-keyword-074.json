@@ -1,0 +1,29 @@
+{
+  "answer_id": "A147",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The abstract states the distributional regularity and learning benefits under statistical stability assumptions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "DBC models the inverse Q-value CDF and evaluates continuous robot control.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 9 studies joint generative forecasting in chaotic systems, not reinforcement learning.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

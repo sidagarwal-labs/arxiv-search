@@ -1,0 +1,29 @@
+{
+  "answer_id": "A231",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual paper description has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes query-time graphs, ranking and minimal infrastructure or latency overhead.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The provided metadata and abstract do not name Roth.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

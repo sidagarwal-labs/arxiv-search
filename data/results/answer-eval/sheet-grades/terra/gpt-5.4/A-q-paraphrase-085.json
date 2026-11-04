@@ -1,0 +1,44 @@
+{
+  "answer_id": "A182",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-085",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The standalone affirmative asserts a match without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 introduces MUTE for textual brand identity with preserved utility and no parameter updates.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The unbranding paper directly targets slogans and other textual brand markers.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "A transition introducing related methods.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "The papers target sensitive inputs or source-specific information while retaining utility.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Both address selective redaction, but utility preservation is explicitly evaluated only in RedacBench.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

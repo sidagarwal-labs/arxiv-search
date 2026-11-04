@@ -1,0 +1,39 @@
+{
+  "answer_id": "A008",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "[1]'s title and author exactly match the requested Wei structural-generalization complexity paper.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] defines structural generalization from the two premises and contrasts an NC^1 lower bound with Transformers' TC^0 learnable ceiling.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[1] explicitly states Montagovian semantic tree evaluation is NC^1-complete and derives the impossibility under TC^0 != NC^1.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "[2] describes a discrete-bottleneck neural cellular automaton learning rules from data and reports strong SLOG results without handwritten rules.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "[1] establishes complexity theory; [2] evaluates the learned alternative and analyzes benchmark success/failure mechanisms.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

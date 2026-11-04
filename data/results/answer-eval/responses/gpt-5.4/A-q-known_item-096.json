@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-096",
+  "outcome": {
+    "answer": "Yes. The matching paper is VaLiDRec by Shutong Qiao and coauthors, which proposes variable-length, LLM-aligned semantic IDs for generative recommendation [1]. It builds semantic IDs directly from native LLM vocabulary tokens, lets identifier length adapt to item semantic complexity, and replaces autoregressive SID generation with token-set prediction and token-level item scoring [1]. The abstract says it outperforms strong baselines, improves zero-shot item cold-start, and is much faster at inference than LC-Rec [1].\n\nRelated variable-length semantic-ID papers differ in approach: one introduces adaptive-length IDs with a discrete variational autoencoder and Gumbel-Softmax under a probabilistic framework [2]; another learns variable-length tokenization based on item popularity using PIBA, hyperbolic residual quantization, and a soft length controller [3]; and CapsID uses soft capsule routing with confidence-driven SID termination [4].",
+    "cited": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "eca78695ab3bb4441eed51e43d54ec4d0d45fd8d039ff3974d9912d7a06efa1a",
+  "usage": {
+    "accounted_tokens": 3584,
+    "input_tokens": 3375,
+    "latency_seconds": 5.06570519998786,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 209,
+    "provider_request_id": "req_6fc49876574d4d3587ee2c8b19b2b10f",
+    "reasoning_tokens": 0,
+    "request_id": "b7c19c92-f1fe-4bd5-b4e0-98b2aa66ea20",
+    "reserved_input": 22481,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:35.359893+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

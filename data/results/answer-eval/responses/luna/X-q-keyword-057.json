@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-keyword-057",
+  "outcome": {
+    "answer": "The supplied papers do not address dense-to-sparse retrieval; they cover topics such as speech recognition, dialect datasets, and language modeling instead.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "e07b43f117514eacfcff794edbe2d60a849e0df0e3bac77c12bb2f1d46441bce",
+  "usage": {
+    "accounted_tokens": 3419,
+    "input_tokens": 3374,
+    "latency_seconds": 4.934249500016449,
+    "model": "gpt-6-luna",
+    "output_tokens": 45,
+    "provider_request_id": "req_372b8a8e56594905ace4ac56ca149997",
+    "reasoning_tokens": 0,
+    "request_id": "22869d15-3d00-4a95-add1-073e288829d1",
+    "reserved_input": 21020,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:52.972170+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

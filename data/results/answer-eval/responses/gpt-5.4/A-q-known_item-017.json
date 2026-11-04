@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-017",
+  "outcome": {
+    "answer": "Yes. The matching paper is GraDE: A Graph Diffusion Estimator for Frequent Subgraph Discovery in Neural Architectures by Yikang Yang, Zhengxin Yang, Minghao Luo, et al. [1] It presents GraDE as a diffusion-guided framework for frequent subgraph discovery in neural architectures, aiming to keep both computational feasibility and discovery capability as subgraph size grows. [1]\n\nAccording to the abstract, GraDE\u2019s core idea is a Graph Diffusion Estimator that scores subgraphs by their typicality in a learned distribution, and the paper reports superior ranking accuracy versus sampling-based baselines, along with discovery of larger-scale frequent patterns with higher median frequency. [1] The other returned papers involve related subgraph mining or retrieval, but not this specific GraDE frequent subgraph discovery paper by Yang. [2, 3, 4, 10]",
+    "cited": [
+      1,
+      2,
+      3,
+      4,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "957a0c60d3e51c86eee749379c9afaafcb7210b0620fe5dd8fa16dddea9c16ae",
+  "usage": {
+    "accounted_tokens": 3350,
+    "input_tokens": 3152,
+    "latency_seconds": 4.085253700002795,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 198,
+    "provider_request_id": "req_87b48f075561436288a2cdb0d0fbecf4",
+    "reasoning_tokens": 0,
+    "request_id": "11fa6ef5-bee3-4d95-9ec9-8cd20ba77b5d",
+    "reserved_input": 21125,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:48.734231+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

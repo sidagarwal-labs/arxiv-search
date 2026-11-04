@@ -1,0 +1,34 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-088",
+  "outcome": {
+    "answer": "Yes. The closest match is a survey that treats code or scripts as the core \u201cagent harness\u201d for reasoning, action, environment modeling, execution-based verification, planning, memory, tool use, feedback control, and multi-agent coordination; it explicitly presents code as the basis for executable, verifiable, and stateful agent systems [2]. A complementary survey argues for reusable procedural artifacts or \u201cagent skills\u201d as the operational layer beneath high-level reasoning, emphasizing composable execution, maintainability, and robustness [3].\n\nMore focused papers show how this looks in practice. Programmatic tool calling exposes tools as typed Python stubs and lets models invoke them through scripts, often matching or outperforming native JSON tool calling while supporting chaining and parallelization in a single turn [1]. Other systems encode procedures as DAGs with persistent code execution and parallel sub-agents [9], compile repeated script-like steps into validated versioned tools for faster and more reliable execution [8], or use versioned instruction files plus runnable scripts as reusable scientific procedures [7].",
+    "cited": [
+      2,
+      3,
+      1,
+      9,
+      8,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "2fe0142f3a2be68aa3df307a96f9ab5e169fed752d6799d2b4b016e5f1e0f90a",
+  "usage": {
+    "accounted_tokens": 4006,
+    "input_tokens": 3777,
+    "latency_seconds": 5.207190299988724,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 229,
+    "provider_request_id": "req_d56585f1692648daa6ce954004cd8e75",
+    "reasoning_tokens": 0,
+    "request_id": "5eafea99-36a3-4aff-aaf3-97aa786b9564",
+    "reserved_input": 23242,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:12:36.617451+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

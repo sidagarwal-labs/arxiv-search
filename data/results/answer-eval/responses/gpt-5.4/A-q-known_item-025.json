@@ -1,0 +1,35 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-known_item-025",
+  "outcome": {
+    "answer": "Yes: the matching Poliakov paper is Probe, Don't Prompt: A Hidden-State Probe for Metadata Filtering in Multi-Meta-RAG by Mykhailo Poliakov and Nadiya Shvai [1]. It studies metadata filtering in RAG by replacing a prompted extractor with a local, deterministic hidden-state probe that predicts metadata from a fixed 49-source vocabulary for Multi-Meta-RAG queries [1]. The paper reports 90.9% set-exact accuracy on all 2556 queries, compared with 88.0% for a substring baseline and 80.9% for GPT-3.5, with the advantage coming from null queries because GPT-3.5 never abstains [1].\n\nIf you want related metadata-aware RAG work beyond Poliakov, the other papers are broader and differ in focus: some study metadata enrichment or filtering pipelines in financial, enterprise, legal, or historical RAG settings [3, 4, 6, 7, 10], while one argues for principled corpus partitioning and hierarchical routing using metadata dimensions [2].",
+    "cited": [
+      1,
+      3,
+      4,
+      6,
+      7,
+      10,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "fa26c7106e796c1b6946bbf2e6d2f796e811c062cd7578459180e57a93ddbf14",
+  "usage": {
+    "accounted_tokens": 3704,
+    "input_tokens": 3464,
+    "latency_seconds": 7.5923546999983955,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 240,
+    "provider_request_id": "req_1d9db6a2885444ba91b89d0d5f1658fc",
+    "reasoning_tokens": 0,
+    "request_id": "7e00cf6f-80bb-42f7-9b51-45322824902e",
+    "reserved_input": 22114,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:08:57.278794+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

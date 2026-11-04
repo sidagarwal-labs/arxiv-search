@@ -1,0 +1,30 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-077",
+  "outcome": {
+    "answer": "Yes. One paper reports that five textbook GNNs, including GAT, GINE, GraphSAGE, and R-GCN, trained on one knowledge graph can transfer zero-shot to 40 inductive link-prediction benchmarks on unseen graphs, and the best off-the-shelf GAT matches a dedicated foundation model [1]. Another paper says a GraphSAGE backbone can be used for directed link prediction and outperforms state-of-the-art GDL techniques on several benchmarks, but it does not focus on unknown knowledge graphs specifically [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3dd5458d7159a80f8eb35d4a34e4e0219051e4d39d033842a0f5d85cd3de6ded",
+  "usage": {
+    "accounted_tokens": 3479,
+    "input_tokens": 3350,
+    "latency_seconds": 2.4575183000124525,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 129,
+    "provider_request_id": "req_ea1734d98a6b4f8cb90e795b7695b3f3",
+    "reasoning_tokens": 0,
+    "request_id": "3efc692e-9dde-49b6-87b4-77e514906895",
+    "reserved_input": 21082,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:08.163021+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

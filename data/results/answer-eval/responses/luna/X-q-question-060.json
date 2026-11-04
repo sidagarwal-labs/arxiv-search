@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-060",
+  "outcome": {
+    "answer": "The supplied papers do not address graph structures or generative rerankers, so they do not explain how graphs might prevent repetitive item lists.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "f6c5c66fed83fe8b65ace59a817cbcddcb7810db72b44cd63349e99c2157b1f8",
+  "usage": {
+    "accounted_tokens": 3400,
+    "input_tokens": 3355,
+    "latency_seconds": 3.6726888999983203,
+    "model": "gpt-6-luna",
+    "output_tokens": 45,
+    "provider_request_id": "req_49fb3b11600f441ca66bcb4d2b552a19",
+    "reasoning_tokens": 0,
+    "request_id": "8d1535f4-9158-4194-a507-e35447200dc5",
+    "reserved_input": 21407,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T17:00:05.598087+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A069",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-017",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual paper description has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract describes typicality scoring and the enumeration-versus-sampling tradeoff.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Ranking and frequency gains are stated, but the abstract does not compare discovered pattern sizes against baselines.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

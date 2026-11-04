@@ -1,0 +1,39 @@
+{
+  "answer_id": "A035",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-087",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The generalized claim about the papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 uses a pretrained graph model and label-free minimal sufficient core selector.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Papers 5 and 3 describe training-free black-box retrieval and query-aware traversal.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 3 and 5 explicitly say training-free; paper 1 describes a label-free selector but not an entirely training-free pipeline.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited papers describe the corresponding pretrained, black-box, and query-aware emphases.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

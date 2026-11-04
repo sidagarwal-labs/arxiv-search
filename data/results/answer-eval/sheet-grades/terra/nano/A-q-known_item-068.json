@@ -1,0 +1,39 @@
+{
+  "answer_id": "A303",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-068",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper identification and method description have no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The method details have no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The claimed evaluation findings have no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S4",
+        "reason": "The cited abstracts describe those distinct distillation settings and methods.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "This comparative factual claim is uncited.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

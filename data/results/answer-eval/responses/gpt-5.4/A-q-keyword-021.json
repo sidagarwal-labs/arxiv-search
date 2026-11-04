@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-keyword-021",
+  "outcome": {
+    "answer": "Yes\u2014recent papers directly link transformer-based recommenders to popularity bias, and some show scaling can make it worse. In transformer-based sequential recommenders, increasing model size improves accuracy but also amplifies popularity bias, over-recommending popular items and hurting niche items; one paper attributes this to spectral collapse caused by attention aggregation and feed-forward projections, and proposes SPRINT to improve both accuracy and long-tail fairness during scaling [1]. Another transformer-based sequential model, BT-SR, reports better long-tail item coverage and recommendation calibration while improving next-item prediction accuracy [8].\n\nSeveral mitigation approaches differ in where they intervene. PR-entmax changes only the training loss, making popularity correction context-dependent and reducing popularity bias without architectural changes [3]. PopSteer is a post-hoc method for sequential recommendation that identifies neurons encoding popularity signals and steers them to improve fairness with minimal accuracy impact [6]. More broadly, popularity bias is also studied alongside other biases such as positivity bias, which can further amplify exposure unfairness toward popular items [2].",
+    "cited": [
+      1,
+      8,
+      3,
+      6,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "fde8f169457a356979d41781bc53859da7a32c477d2b90599fea2d8a7cec4773",
+  "usage": {
+    "accounted_tokens": 3482,
+    "input_tokens": 3253,
+    "latency_seconds": 5.27812719999929,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 229,
+    "provider_request_id": "req_b4daa9e9f5d340daad3c0f88b0c28937",
+    "reasoning_tokens": 0,
+    "request_id": "df2247a0-c736-4488-a887-75e798057dfb",
+    "reserved_input": 21873,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:07:09.744032+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

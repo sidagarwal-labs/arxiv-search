@@ -1,0 +1,39 @@
+{
+  "answer_id": "A323",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-054",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The numerical throughput findings are uncited in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The architectural explanation has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract reports both benchmark comparisons.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The efficiency study reports generally higher AR throughput and diminishing acceleration benefits at scale.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "R2LM is presented as addressing throughput and caching limitations of bidirectional diffusion models.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

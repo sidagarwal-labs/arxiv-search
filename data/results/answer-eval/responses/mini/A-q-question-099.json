@@ -1,0 +1,35 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-question-099",
+  "outcome": {
+    "answer": "Use explicit, goal-rich signals instead of only clicks and purchases: user comments and reviews can reveal the reasons behind decisions, helping align preferences, improve diversity, and make recommendations more explainable [1]. A related line of work models motivation or high-level intent so the system can understand not just what users choose, but why, and can ground reasoning in extracted intents rather than surface interaction patterns [2, 4].\n\nOther papers extend this idea with richer user profiling and natural-language profiles that are editable and steerable, so users can directly express preferences that are hard to infer from behavior [3, 9]. More broadly, the surveys argue for LLM-based systems that make user representations more transparent, revisable, and aligned with user goals [5, 6].",
+    "cited": [
+      1,
+      2,
+      4,
+      3,
+      9,
+      5,
+      6
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "556487c59f6214273eb083a5180971ba3b5009d4e1d739138b796c2145da4730",
+  "usage": {
+    "accounted_tokens": 3577,
+    "input_tokens": 3402,
+    "latency_seconds": 3.069315100001404,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 175,
+    "provider_request_id": "req_d40e190ea2704fa2a4b78458b3d5a121",
+    "reasoning_tokens": 0,
+    "request_id": "83983748-4ce7-4582-a136-a7003a8637a1",
+    "reserved_input": 22799,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:05:26.280908+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

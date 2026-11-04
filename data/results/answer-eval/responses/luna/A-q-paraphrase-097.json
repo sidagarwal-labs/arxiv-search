@@ -1,0 +1,31 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-097",
+  "outcome": {
+    "answer": "Yes. Strategically Diverse Sampling for Self-Training directly studies this approach: it selects substantially different strategies rather than relying on IID samples filtered mainly for correctness, and reports gains on difficult tasks [1]. A related method curates multiple valid reasoning paths using a divergence metric, finding more varied outputs and improved pass@k [3]. Re:Max addresses diversity among correct solutions during RL by replaying verified examples from different solution modes [2].",
+    "cited": [
+      1,
+      3,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "4aa170930d8336dfd31395eddd6b787b5f93da5ba2fcc27d5242575c7b318076",
+  "usage": {
+    "accounted_tokens": 3652,
+    "input_tokens": 3546,
+    "latency_seconds": 3.202005300001474,
+    "model": "gpt-6-luna",
+    "output_tokens": 106,
+    "provider_request_id": "req_1e3b46edf0e64d519d371c98f8c81784",
+    "reasoning_tokens": 0,
+    "request_id": "368f6c24-6416-470b-9185-b46f955bf0c3",
+    "reserved_input": 21593,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:16.907680+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

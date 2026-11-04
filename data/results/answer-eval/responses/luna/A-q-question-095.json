@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-095",
+  "outcome": {
+    "answer": "Yes. WIND is a single pretrained atmospheric model designed to handle diverse weather and climate tasks\u2014including forecasting, downscaling, and reconstruction\u2014without task-specific fine-tuning [1]. This supports using one general-purpose model across multiple atmospheric science tasks, though the paper describes a particular approach rather than establishing that one model is best for every task [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d8ef19e677b67ba935f739f9adbb07b4afd239edc544c169a9fc3a7d3a36cbe8",
+  "usage": {
+    "accounted_tokens": 3713,
+    "input_tokens": 3625,
+    "latency_seconds": 3.365198200015584,
+    "model": "gpt-6-luna",
+    "output_tokens": 88,
+    "provider_request_id": "req_c649fdaedc4e48c682102b1cc0fee994",
+    "reasoning_tokens": 0,
+    "request_id": "c37ff2c6-a4a3-4fc1-b60b-6727ef0b09dd",
+    "reserved_input": 23629,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:47.080814+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

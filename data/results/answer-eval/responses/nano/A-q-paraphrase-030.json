@@ -1,0 +1,31 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-030",
+  "outcome": {
+    "answer": "A way to suggest places where visiting one spot requires prior knowledge from others is provided by Exploration Space Theory (EST): it models \u201cprerequisite dependencies\u201d among points of interest as a prerequisite-aware structure, and recommends the next \u201cvalid\u201d location based on the user\u2019s allowable exploration states (order ideals) rather than treating all POIs as independent [1]. The Exploration Space Recommender System (ESRS) then produces fringe-guided recommendations that come with a structural validity certificate and explains why each recommendation is a sound next step [1].\n\nIf you instead want route-style discovery with interactive information about places along the way, WalkRAG recommends walkable urban itineraries while retrieving information conversationally as you move through POIs under spatial constraints [3]. If your focus is geospatially consistent recommendation rather than prerequisites, SPAR builds and preserves urban spatial knowledge in the recommendation process using geospatial embeddings and geospatial pretraining [2].",
+    "cited": [
+      1,
+      3,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3b8a89d644646fa4d010d0d198ff198f906a1432fdc9761299c59481cfadd955",
+  "usage": {
+    "accounted_tokens": 4120,
+    "input_tokens": 3911,
+    "latency_seconds": 3.123855999991065,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 209,
+    "provider_request_id": "req_0fa1b749dd56408887da8846ae5bb024",
+    "reasoning_tokens": 0,
+    "request_id": "7c21e3ef-e561-4979-be32-8c76cdcf521f",
+    "reserved_input": 24313,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:43.295769+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "candidate": "nano",
+  "item_id": "X-q-paraphrase-063",
+  "outcome": {
+    "answer": "The provided papers do not describe a method that grades science tests by using a network of reference answers to grade students\u2019 long multi-question paragraphs. None of the supplied abstracts address science-test grading, reference-answer networks, or evaluating one large paragraph that covers several different questions.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "6a51dded3651d93972244a66c00883df6058a23e8c2634dc88bdd0f4c0d7ee06",
+  "usage": {
+    "accounted_tokens": 3501,
+    "input_tokens": 3431,
+    "latency_seconds": 2.0502387000015005,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 70,
+    "provider_request_id": "req_c6e21d6de93e424fb2d3c0f2cf5e62c8",
+    "reasoning_tokens": 0,
+    "request_id": "a3116a0e-8eba-4363-b7a6-218e1de60ec7",
+    "reserved_input": 22166,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:52:18.667624+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

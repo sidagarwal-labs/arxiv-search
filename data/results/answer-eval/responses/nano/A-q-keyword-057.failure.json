@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"\u201cDense to sparse\u201d retrieval can be done by extracting sparse, BM25-compatible features from dense retrievers, or by training learned sparse retrievers that approximate dense semantic matching while using inverted-index search.\\n\\nLatent Terms shows that dense retrievers trained for inner-product scoring can be decomposed into \u201cretrieval-ready sparse features\u201d using Sparse Autoencoders, producing a latent vocabulary with Zipfian statistics that is directly suitable for classical sparse scoring via BM25. This sparse decomposition can match or outperform single-vector scoring from the base dense model and SPLADE variants. [2]\\n\\nAlternatively, learned sparse retrievers can be trained end-to-end from dense-leaning representations into sparse models: SPLARE trains Sparse Autoencoder-based learned sparse retrieval to produce semantically structured sparse features optimized for retrieval, outperforming vocabulary-based learned sparse retrieval in multilingual and out-of-domain settings. [7] LACONIC similarly trains learned sparse retrievers with a two-phase curriculum to bridge performance with dense models while reducing index memory. [1]\\n\\nThese differ in mechanism: Latent Terms focuses on extracting BM25-ready structure from an existing dense retriever, while SPLARE/LACONIC focus on training sparse retrievers directly (with sparse autoencoders or a Llama-based sparse retriever). [2, 7, 1]\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_036d9f8543dd31d4016aeb61af2cc487d2b989be316aeb3a71",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "0be9f2f0c6215a21c7a05da98cf56405d575ff7d889d259167ed39c8660ef14e",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3622,
+    "output_tokens": 289,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

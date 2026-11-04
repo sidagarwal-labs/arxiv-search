@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "X-q-question-099",
+  "outcome": {
+    "answer": "The closest match is not a recommender-system design paper, but one paper does address how to better tailor fairness-driven recommendation to users. It argues that fairness-aware recommenders should adapt the amount of exploration to individual users, because novelty and diversity interventions show diminishing or non-monotonic returns and users with shorter interaction histories may reach saturation earlier [8].\n\nSo, a more detailed understanding of user goals would mean modeling when extra exploration still helps and when it starts to hurt engagement or perceived relevance, instead of using one global exploration level for everyone [8]. None of the other papers directly discusses recommender systems or user goals.",
+    "cited": [
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "85f5a1ed223e948c28f7b021d88eaa9a4dde84a1b3edcede6f3360f4cd0af4e4",
+  "usage": {
+    "accounted_tokens": 3306,
+    "input_tokens": 3162,
+    "latency_seconds": 2.482976100000087,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 144,
+    "provider_request_id": "req_d927d0edc8614bea8be90b791b544208",
+    "reasoning_tokens": 0,
+    "request_id": "2b0b4140-f59f-4d7e-8f45-e166a9ca7f3c",
+    "reserved_input": 21795,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:06:10.605797+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

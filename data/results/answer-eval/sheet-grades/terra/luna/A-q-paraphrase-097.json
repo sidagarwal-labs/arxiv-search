@@ -1,0 +1,34 @@
+{
+  "answer_id": "A188",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-097",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The standalone affirmative asserts existence without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 studies strategic diversity and reports difficult-task self-training gains.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 3 uses reasoning-path divergence to curate diverse valid solutions and improves pass@k.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Re:Max replays verified examples uniformly across discovered solution modes.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

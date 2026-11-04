@@ -1,0 +1,33 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answer": "The closest match to an \u201cLLM API priority bidding system\u201d is \u201cInference Auctions,\u201d which explicitly studies how users can bid for faster priority when inference demand exceeds compute capacity. It proposes an inference auction that allocates priority in an economically efficient way without sacrificing latency, and develops fast algorithms for price implementation to incentivize truthful bidding; it also includes an autobidding agent that dynamically adjusts bids over time based on a user\u2019s inference budget to maximize utility subject to budget constraints. [1]\n\nRelated but different directions include \u201cLLM-OSDA,\u201d which uses bids inside an LLM-based dynamic auction for native advertising timing across multi-turn conversations (allocation tied to stopping time, with truthful bidding in expectation). [3] If your goal is auto-bidding strategy learning rather than explicit API priority auctions, several papers focus on auto-bidding in ad auctions using LLM-guided or auction mechanisms (e.g., LLM-based auto-bidding models and strategies). [2,5,8]",
+    "cited": [
+      1,
+      3,
+      2,
+      5,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1e1b12bbecb5f71f18b84aa33bac7226f2cbe54b8042addde9d0ae840ab8f38b",
+  "usage": {
+    "accounted_tokens": 3807,
+    "input_tokens": 3589,
+    "latency_seconds": 3.2332714999793097,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 218,
+    "provider_request_id": "req_1bf478724ff541b59e7d5ef9f802c7f7",
+    "reasoning_tokens": 0,
+    "request_id": "ba4c9226-e962-44ca-9460-63deb94f665a",
+    "reserved_input": 22535,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:47:30.074655+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"Use Query-Aware Flow Diffusion RAG (QAFD-RAG) to find query-relevant evidence subgraphs without training: it is a training-free framework that dynamically weights edges during traversal based on alignment with the query\u2019s embedding, recovering relevant subgraphs with high probability and providing statistical retrieval guarantees. It is designed to avoid irrelevant but structurally connected regions by adapting exploration to each query\u2019s holistic semantics. [3]\\n\\nIf you need a \u201cbest evidence\u201d subgraph even when the knowledge graph is a black box with unknown schema, BubbleRAG formalizes retrieval as Optimal Informative Subgraph Retrieval and provides a training-free pipeline to optimize recall and precision via candidate evidence graph discovery, composite ranking, and reasoning-aware expansion. This directly targets selecting informative evidence subgraphs under black-box constraints. [5]\\n\\nIf your setting is \u201chidden KG\u201d but you specifically want a compact, label-free selector for informationally sufficient and structurally minimal subgraphs, GFM-Retriever uses a pre-trained Graph Foundation Model as a cross-domain retriever and then derives a label-free subgraph selector optimized by an Information Bottleneck objective to produce a minimal \u201ccore set\u201d of golden evidence for the query. [1]\\n\\nThese differ in guarantees and assumptions: QAFD-RAG emphasizes training-free query-aware traversal with retrieval probability guarantees; BubbleRAG emphasizes black-box schema handling and explicit recall/precision optimization; GFM-Retriever emphasizes an Information Bottleneck-based label-free minimal subgraph selection on top of Graph Foundation Model retrieval. [1,3,5]\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_03b344b5dbb33deb016aeb624b446087d2a63ab4d81b78755c",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "1f329d9f613ddbb1dbfa08ec673ac5837b96c1a1a8188cd1b81d5a3fe2a2cb1d",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3597,
+    "output_tokens": 337,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

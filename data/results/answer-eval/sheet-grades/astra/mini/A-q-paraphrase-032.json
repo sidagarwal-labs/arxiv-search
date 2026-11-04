@@ -1,0 +1,29 @@
+{
+  "answer_id": "A025",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-paraphrase-032",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "[1] embeds measured battery/electrolyser characteristics in optimization for Danish electricity and ancillary-service markets.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] explicitly names ramp limits, efficiency, tracking accuracy, price-driven optimization, and daily profits for both systems.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[2] concerns EV battery prediction; [3] concerns provider-income fairness in search/recommendation, not electricity-market profit optimization.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

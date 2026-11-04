@@ -4,32 +4,32 @@
 
 ## Hill climbing: major comparable milestones
 
-Every point is rescored against the **same 3,533-pair dev label set (`shared-labels/labels-d46.json`)**, 100 dev queries, 23,304 searchable papers. Stage 1 points are retrieval baselines and turning points; the Stage 2 point adds the LLM reranker on top of the current retrieval baseline. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order. **Zoomed linear y-axis: 0.50-1.00, not zero-based.** This focuses on score changes, not their magnitude relative to zero. All plotted top10s are fully judged; no pilot/test scores are mixed in. Scores shifted down slightly from older versions of this page when reranker top-10 grades joined the shared labels (167 in Decision45, 72 in Decision46); the curve's shape is unchanged.
+Every point is rescored against the **same 3,579-pair dev label set (`shared-labels/labels-d47.json`)**, 100 dev queries, 23,304 searchable papers. Stage 1 points are retrieval baselines and turning points; the Stage 2 point adds the LLM reranker on top of the current retrieval baseline. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order. **Zoomed linear y-axis: 0.50-1.00, not zero-based.** This focuses on score changes, not their magnitude relative to zero. All plotted top10s are fully judged; no pilot/test scores are mixed in. Scores shifted down slightly from older versions of this page when reranker top-10 grades joined the shared labels (167 in Decision45, 72 in Decision46); the curve's shape is unchanged.
 
-**First plotted baseline to current: 0.5090 to 0.7684 (+0.2594 nDCG, +51.0% relative); retrieval alone reaches 0.7036, the reranker adds +0.0649.** The first point is tuned BM25, not the original plain-BM25 control, whose graded coverage is incomplete. Use a linear scale: nDCG is a bounded relevance score, not a quantity spanning orders of magnitude; a log axis would obscure additive improvements.
+**First plotted baseline to current: 0.5068 to 0.7939 (+0.2871 nDCG, +56.6% relative); retrieval alone reaches 0.7007, the reranker adds +0.0932.** The first point is tuned BM25, not the original plain-BM25 control, whose graded coverage is incomplete. Use a linear scale: nDCG is a bounded relevance score, not a quantity spanning orders of magnitude; a log axis would obscure additive improvements.
 
 ```mermaid
 xychart-beta
     title "Hill climbing: graded relevance nDCG@10"
     x-axis ["Tuned BM25", "GTE dense", "GTE hybrid", "OpenAI hybrid", "RRF75 c100", "RRF55 c30", "Shortlist scores", "LLM rerank + safeguard", "2-pass LLM rerank + safeguard"]
     y-axis "nDCG@10 (zoomed, higher is better)" 0.5 --> 1
-    line [0.5090, 0.5688, 0.6188, 0.6476, 0.6913, 0.6925, 0.7036, 0.7521, 0.7684]
-    line [0.9784, 0.9784, 0.9784, 0.9784, 0.9784, 0.9784, 0.9784, 0.9784, 0.9784]
+    line [0.5068, 0.5664, 0.6162, 0.6450, 0.6885, 0.6897, 0.7007, 0.7490, 0.7939]
+    line [0.9803, 0.9803, 0.9803, 0.9803, 0.9803, 0.9803, 0.9803, 0.9803, 0.9803]
 ```
 
-**North star (flat upper line): 0.9784** — a perfect reranker of the retrieval top50 under the same labels. Not a system; optimistic because labels were pooled from saved systems' results. The current reranking baseline is 0.2100 below it.
+**North star (flat upper line): 0.9803** — a perfect reranker of the retrieval top50 under the same labels. Not a system; optimistic because labels were pooled from saved systems' results. The current reranking baseline is 0.1864 below it.
 
 | Stage | Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |
 |---|---|---|---|---|---|---|
-| 1 retrieval | Tuned BM25 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | 0.5090 | - | 0.5687 | 71% |
-| 1 retrieval | GTE dense | `dense-gte-small` | 0.5688 | +0.0598 | 0.5254 | 71% |
-| 1 retrieval | GTE hybrid | `hybrid-gte-small+rrf+w=0.5+c=10` | 0.6188 | +0.0499 | 0.6350 | 80% |
-| 1 retrieval | OpenAI hybrid | `hybrid-openai-large+rrf+w=0.5+c=10` | 0.6476 | +0.0288 | 0.6534 | 84% |
-| 1 retrieval | RRF75 c100 | `fusion-rrf+w=0.75+d=100+c=100` | 0.6913 | +0.0438 | 0.6181 | 84% |
-| 1 retrieval | RRF55 c30 | `fusion-rrf+w=0.55+d=100+c=30` | 0.6925 | +0.0012 | 0.6459 | 86% |
-| 1 retrieval | Shortlist scores | `fusion-shortlist+a=1+d=500` | 0.7036 | +0.0111 | 0.6967 | 86% |
-| 2 reranking | LLM rerank + safeguard | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | 0.7521 | +0.0485 | 0.7197 | 87% |
-| 2 reranking | 2-pass LLM rerank + safeguard | `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | 0.7684 | +0.0163 | 0.7232 | 87% |
+| 1 retrieval | Tuned BM25 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | 0.5068 | - | 0.5687 | 71% |
+| 1 retrieval | GTE dense | `dense-gte-small` | 0.5664 | +0.0596 | 0.5254 | 71% |
+| 1 retrieval | GTE hybrid | `hybrid-gte-small+rrf+w=0.5+c=10` | 0.6162 | +0.0498 | 0.6350 | 80% |
+| 1 retrieval | OpenAI hybrid | `hybrid-openai-large+rrf+w=0.5+c=10` | 0.6450 | +0.0287 | 0.6534 | 84% |
+| 1 retrieval | RRF75 c100 | `fusion-rrf+w=0.75+d=100+c=100` | 0.6885 | +0.0435 | 0.6181 | 84% |
+| 1 retrieval | RRF55 c30 | `fusion-rrf+w=0.55+d=100+c=30` | 0.6897 | +0.0012 | 0.6459 | 86% |
+| 1 retrieval | Shortlist scores | `fusion-shortlist+a=1+d=500` | 0.7007 | +0.0109 | 0.6967 | 86% |
+| 2 reranking | LLM rerank + safeguard | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | 0.7490 | +0.0483 | 0.7197 | 87% |
+| 2 reranking | 2-pass LLM rerank + safeguard | `llm-mini-refine20+d=20+avg2+rrf-d46+c=30+pin1-d46` | 0.7939 | +0.0449 | 0.7381 | 92% |
 
 **Reading the curve:** big earlier jumps came from complementary lexical/semantic retrieval and better embeddings. The 75%-RRF point was a challenger, not an approved baseline. The balanced RRF55% point recovered known-paper ranks. The current shortlist-score baseline improves ordering while preserving its top10 membership. These steps also change other parameters, so step differences are not isolated causal effects of one feature. The reranker step is one of the largest on the curve. Without the safeguard, the top-50 reranker scores higher on nDCG but pushes source papers down; the safeguard keeps most of the gain and improves source MRR.
 
@@ -42,17 +42,17 @@ xychart-beta
     title "Latest dev leaderboard nDCG@10"
     x-axis [L1, L2, L3, L4, L5, L6]
     y-axis "nDCG@10" 0 --> 1
-    bar [0.7071, 0.7067, 0.7061, 0.7061, 0.7061, 0.7036]
+    bar [0.7042, 0.7038, 0.7033, 0.7032, 0.7032, 0.7007]
 ```
 
 | Chart key / rank | Ranker | nDCG@10 | Source MRR@10 | R@10 | Status |
 |---|---|---|---|---|---|
-| L1 / #1 | 25% lexical / 75% semantic; 10% title / 90% abstract; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7071 | 0.6985 | 86% | experiment / control |
-| L2 / #2 | 25% lexical / 75% semantic; abstract only; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7067 | 0.6799 | 86% | experiment / control |
-| L3 / #3 | 25% lexical / 75% semantic; 25% title / 75% abstract; 50% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7061 | 0.6940 | 86% | experiment / control |
-| L4 / #4 | separate title 25% / abstract 75%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail | 0.7061 | 0.7047 | 86% | experiment / control |
-| L5 / #5 | 25% lexical / 75% semantic; 25% title / 75% abstract; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7061 | 0.7047 | 86% | experiment / control |
-| L6 / #13 | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail | 0.7036 | 0.6967 | 86% | **APPROVED BASELINE** (retrieval) |
+| L1 / #1 | 25% lexical / 75% semantic; 10% title / 90% abstract; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7042 | 0.6985 | 86% | experiment / control |
+| L2 / #2 | 25% lexical / 75% semantic; abstract only; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7038 | 0.6799 | 86% | experiment / control |
+| L3 / #3 | 25% lexical / 75% semantic; 25% title / 75% abstract; 50% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7033 | 0.6940 | 86% | experiment / control |
+| L4 / #4 | separate title 25% / abstract 75%; max-score25% lexical / 75% field semantic; reorder baseline top10 only, preserve tail | 0.7032 | 0.7047 | 86% | experiment / control |
+| L5 / #5 | 25% lexical / 75% semantic; 25% title / 75% abstract; 0% combined-text anchor; candidate-max normalization; reorder baseline top10 only, preserve tail | 0.7032 | 0.7047 | 86% | experiment / control |
+| L6 / #13 | RRF55%/c30/depth100 selects top10; order by max-score 75% semantic / 25% lexical at depth 500; preserve tail | 0.7007 | 0.6967 | 86% | **APPROVED BASELINE** (retrieval) |
 
 ## Latest scores: Stage 2 reranking (retrieval + reranker)
 
@@ -61,26 +61,27 @@ Every row reorders the same retrieval-baseline candidates for all 100 dev querie
 ```mermaid
 xychart-beta
     title "Stage 2 nDCG@10 (100 dev queries)"
-    x-axis [S1, S2, S3, S4, S5, S6, S7, S8]
+    x-axis [S1, S2, S3, S4, S5, S6, S7, S8, S9]
     y-axis "nDCG@10" 0 --> 1
-    bar [0.7877, 0.7742, 0.7726, 0.7719, 0.7684, 0.7639, 0.7521, 0.7036]
+    bar [0.7939, 0.7845, 0.7711, 0.7695, 0.7688, 0.7652, 0.7608, 0.7490, 0.7007]
 ```
 
 | Chart key | System | nDCG@10 | Δ vs retrieval baseline | Source MRR@10 | R@10 | LLM $/query | Status |
 |---|---|---|---|---|---|---|---|
-| S1 | `llm-mini-score-pilot+d=50+avg2` | 0.7877 | +0.084 [+0.057, +0.111] | 0.6863 | 88% | $0.0275 | experiment |
-| S2 | `llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | 0.7742 | +0.071 [+0.046, +0.096] | 0.6860 | 88% | $0.0138 | experiment |
-| S3 | `llm-mini-score-pilot+d=50` | 0.7726 | +0.069 [+0.044, +0.095] | 0.6775 | 88% | $0.0138 | experiment |
-| S4 | `llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | 0.7719 | +0.068 [+0.046, +0.091] | 0.6966 | 89% | $0.0138 | experiment |
-| S5 | `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | 0.7684 | +0.065 [+0.048, +0.081] | 0.7232 | 87% | $0.0275 | **APPROVED BASELINE** (reranking) |
-| S6 | `llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | 0.7639 | +0.060 [+0.040, +0.081] | 0.7023 | 89% | $0.0138 | experiment |
-| S7 | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | 0.7521 | +0.049 [+0.034, +0.063] | 0.7197 | 87% | $0.0138 | experiment |
-| S8 | `fusion-shortlist+a=1+d=500` | 0.7036 | — | 0.6967 | 86% | $0.0000 | **APPROVED BASELINE** (retrieval, no reranker) |
+| S1 | `llm-mini-refine20+d=20+avg2+rrf-d46+c=30+pin1-d46` | 0.7939 | +0.093 [+0.071, +0.115] | 0.7381 | 92% | $0.0389 | **APPROVED BASELINE** (reranking) |
+| S2 | `llm-mini-score-pilot+d=50+avg2` | 0.7845 | +0.084 [+0.057, +0.110] | 0.6863 | 88% | $0.0275 | experiment |
+| S3 | `llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | 0.7711 | +0.070 [+0.046, +0.095] | 0.6860 | 88% | $0.0138 | experiment |
+| S4 | `llm-mini-score-pilot+d=50` | 0.7695 | +0.069 [+0.044, +0.095] | 0.6775 | 88% | $0.0138 | experiment |
+| S5 | `llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | 0.7688 | +0.068 [+0.046, +0.090] | 0.6966 | 89% | $0.0138 | experiment |
+| S6 | `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | 0.7652 | +0.065 [+0.047, +0.081] | 0.7232 | 87% | $0.0275 | experiment |
+| S7 | `llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | 0.7608 | +0.060 [+0.040, +0.080] | 0.7023 | 89% | $0.0138 | experiment |
+| S8 | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | 0.7490 | +0.048 [+0.034, +0.063] | 0.7197 | 87% | $0.0138 | experiment |
+| S9 | `fusion-shortlist+a=1+d=500` | 0.7007 | — | 0.6967 | 86% | $0.0000 | **APPROVED BASELINE** (retrieval, no reranker) |
 
 ## Where the next big jump would have to come from
 
-- Retrieval baseline nDCG: **0.7036** (diagnostics below are for Stage 1, the candidates the reranker sees).
-- Perfect label-aware ordering of the **same selected ten papers** reaches only **0.7632** on this snapshot. This is a diagnostic oracle, not a measured model or a prediction of achievable gains.
+- Retrieval baseline nDCG: **0.7007** (diagnostics below are for Stage 1, the candidates the reranker sees).
+- Perfect label-aware ordering of the **same selected ten papers** reaches only **0.7600** on this snapshot. This is a diagnostic oracle, not a measured model or a prediction of achievable gains.
 - Current shortlist contains the source in **86/100** queries. The raw lexical/semantic union contains it in **97/100** at depth100 per retriever and **100/100** at depth500. Candidate availability is not final ranking quality.
 - Of 1000 selected results, **311 are grade0**, 423 grade1, and 266 grade2. A fixed shortlist cannot replace the grade0s.
 
@@ -89,8 +90,8 @@ Next hypotheses: improve candidate selection with query-document interaction or 
 ## Reproducibility and cautions
 
 - Retrieval baseline: `fusion-shortlist+a=1+d=500` (Decision36).
-- Reranking baseline: `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` (Decision46): mean of 2 identical LLM passes; LLM scores vary run to run, so its point uses the saved, cached rankings.
-- Label snapshot: `shared-labels/labels-d46.json`; SHA256 `7f6145f8443267fef8393cabc10ab7170f3e85538e07e47e80ef2258a8cd10d0`.
+- Reranking baseline: `llm-mini-refine20+d=20+avg2+rrf-d46+c=30+pin1-d46` (Decision47): Decision46's 2-pass top-50 scores, then a 2-pass top-20 refinement keeping its rank 1; LLM scores vary run to run, so its point uses the saved, cached rankings.
+- Label snapshot: `shared-labels/labels-d47.json`; SHA256 `342a220338b805445f0b17c4f80f18c40d1671a3669975ddbda54debb34c82d2`.
 - Original plain-BM25 graded coverage is incomplete, so it is excluded from the hill curve.
 - Frozen experiment reports retain their original controls; only the unified leaderboard uses the latest working baseline for paired differences.
 - All intervals elsewhere are exploratory after repeated dev selection. No fresh-human validation or held-out claim is implied.

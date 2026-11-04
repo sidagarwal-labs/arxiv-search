@@ -1,0 +1,30 @@
+{
+  "candidate": "nano",
+  "item_id": "A-q-paraphrase-047",
+  "outcome": {
+    "answer": "The closest match to \u201cidentifying clusters by removing odd ones out using a few starting markers\u201d is Seed-Guided Semi-Supervised Clustering by A-Contrario Anomaly Detection. It uses a seed-guided, \u201cclustering-by-exclusion\u201d mechanism where clusters are defined as maximal subsets containing no anomalies under an a-contrario null hypothesis, and an iterative process admits non-anomalous points to expand groups initialized from robust cluster medians. It also claims that few seeds per cluster (as few as 10\u201330) can work well without manual parameter tuning, which aligns with the \u201cfew starting markers\u201d aspect. [1]\n\nOther papers here don\u2019t directly focus on \u201cremoving odd ones out\u201d with seed markers. Persistent Multiscale Density-based Clustering proposes a density-based method that avoids manual hyperparameter selection via persistence-based cluster selection, but it\u2019s not seed-guided. [4]",
+    "cited": [
+      1,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "567dc607175e2600d2fa1e0c24af1ecd838f76a17b47e13b4d1ff094a407d50b",
+  "usage": {
+    "accounted_tokens": 3801,
+    "input_tokens": 3594,
+    "latency_seconds": 2.6504440999997314,
+    "model": "gpt-5.4-nano-2026-03-17",
+    "output_tokens": 207,
+    "provider_request_id": "req_68403251689e4c6a8369eef87691b860",
+    "reasoning_tokens": 0,
+    "request_id": "04c3fabe-96ab-43f8-8d8b-184be0776b04",
+    "reserved_input": 22314,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-nano-2026-03-17",
+    "started_utc": "2026-11-04T16:49:56.445163+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

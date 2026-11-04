@@ -1,0 +1,32 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answer": "Some effective ways are: prompt-engineered planning and explicit word counting, dynamic feedback during generation, and training-based optimization for length-constrained tasks. A prompt-only method asks the model to deliberately plan its response structure and count words as it writes, improving adherence without retraining, especially for shorter-to-medium targets [1]. Another training-free approach adds dynamic length feedback during generation so the model can adaptively adjust toward a target token, word, or sentence count [2].\n\nIf retraining is possible, papers also describe stronger task-specific methods. Reinforcement learning can optimize compliance with strict duration or syllable constraints in translation while preserving meaning [3]. More generally, supervised fine-tuning on top of dynamic feedback can help length control generalize to broader text-generation tasks [2]. A lightweight mitigation for overly long outputs is also to add a fixed conciseness reminder to the prompt, which reduces excessive output tails across many prompting strategies [7].",
+    "cited": [
+      1,
+      2,
+      3,
+      7
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "3ef4cab3a112134e869be5170395cd9f8278fa78fe7e324b30f67fdc2fa8f481",
+  "usage": {
+    "accounted_tokens": 3498,
+    "input_tokens": 3289,
+    "latency_seconds": 7.759518800012302,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 209,
+    "provider_request_id": "req_4abcc2ae20ea431b86c4b77377e53a1e",
+    "reasoning_tokens": 0,
+    "request_id": "c87e6271-3db1-4e77-bcc6-c6cb4357732c",
+    "reserved_input": 21443,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:27:47.957098+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

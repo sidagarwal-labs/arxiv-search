@@ -1,0 +1,39 @@
+{
+  "answer_id": "A235",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The technical recommendation has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 8 describes evidence-linked nuggets, validity intervals and filtering.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 describes temporal representation, decay and logical validity checks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 1 reports reduced poisoning with a recency-aware reranker when dates are accurate.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 7 describes adaptive live news retrieval and improved freshness and relevance.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

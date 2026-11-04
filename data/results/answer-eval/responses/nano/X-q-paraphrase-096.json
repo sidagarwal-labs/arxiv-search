@@ -1,0 +1,12 @@
+{
+  "candidate": "nano",
+  "item_id": "X-q-paraphrase-096",
+  "outcome": {
+    "detail": "Grounded answers must cite papers; ungrounded answers must not",
+    "status": "invalid_answer"
+  },
+  "request_sha256": "a07cef715f474a4ea9ae8a5c0c6cfc001cd0a505f46a60b28a676e46f2e9b909",
+  "usage": {
+    "recorded": true
+  }
+}

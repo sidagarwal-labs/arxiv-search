@@ -1,0 +1,39 @@
+{
+  "answer_id": "A373",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-096",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual identification and description are uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The detailed VaLiDRec mechanism is stated without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Citation [1] supports VaLiDRec's design but does not establish distinctions from other approaches.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "Citation [1] concerns VaLiDRec rather than the other approaches described.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Standalone citations make no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

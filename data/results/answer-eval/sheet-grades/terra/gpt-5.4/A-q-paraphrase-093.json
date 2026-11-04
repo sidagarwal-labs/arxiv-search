@@ -1,0 +1,49 @@
+{
+  "answer_id": "A161",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-093",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The assertion about the closest method is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The EDA paper describes typed-artifact hyperedges linked to chunks and improved benchmark QA.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Several papers support improved retrieval or answers, but not every cited study measures both.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "A transition introducing possible alternatives.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "IDC uses predicted queries to guide chunk boundary selection.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Adaptive Chunking selects per-document methods using intrinsic cohesion and integrity metrics.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "The cited methods exploit hyperlink structure or LaTeX sectioning and labels.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

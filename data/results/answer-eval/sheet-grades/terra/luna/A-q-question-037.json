@@ -1,0 +1,39 @@
+{
+  "answer_id": "A060",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-037",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual characterization of layer-dependent alignment has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The abstract contrasts earlier naturalistic-reading layers with later layers for ambiguity, which still underestimate effort.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The cited study links long-range coreference to better surprisal alignment with reading behavior.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Both abstracts report reading-time prediction beyond traditional or standard predictors.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The empirical characterization and universal-correspondence claim have no citation.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

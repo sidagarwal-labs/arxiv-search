@@ -1,0 +1,34 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answer": "Yes\u2014Inference Auctions is the closest match: it proposes an auction for LLM inference when demand exceeds compute, where users bid for faster service and an autobidding agent adjusts bids under a budget constraint. It aims to allocate priority efficiently while preserving latency benefits, which fits an LLM API priority bidding system [1].\n\nIf you meant a broader bidding system for ads or auctions rather than LLM API priority, several other papers are related but not the same: some study auto-bidding in ad auctions [2, 5, 8], and others focus on ad auction mechanisms inside LLM chatbots [3, 4].",
+    "cited": [
+      1,
+      2,
+      5,
+      8,
+      3,
+      4
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "27bf0113678a1b5034f5aa393d7f537948456da5a6f69e18ae1bc585cbc57506",
+  "usage": {
+    "accounted_tokens": 3736,
+    "input_tokens": 3589,
+    "latency_seconds": 2.7886744999850634,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 147,
+    "provider_request_id": "req_abbc95725d8443129d0577a7fe9ab29d",
+    "reasoning_tokens": 0,
+    "request_id": "09ae7f1c-38d1-4c74-9e47-cc183dba75c3",
+    "reserved_input": 22535,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:01:21.878510+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

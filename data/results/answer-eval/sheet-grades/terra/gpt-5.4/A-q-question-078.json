@@ -1,0 +1,44 @@
+{
+  "answer_id": "A082",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-078",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual paper description has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The factual description of AutoJudge and rubrics lacks a citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract describes reader-oriented reports and strong ranking agreement with human assessments.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "This is a transition introducing related examples rather than a specific claim.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S5",
+        "reason": "The cited paper describes question generation, retrieval and cited trustworthiness-report synthesis.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The cited works address news-summary verification and browser-based credibility signals.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

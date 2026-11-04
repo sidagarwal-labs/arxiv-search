@@ -1,0 +1,39 @@
+{
+  "answer_id": "A349",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-074",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Paper [1] describes chaotic sensitivity and smoother return distributions.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The technical assertion has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper [3] studies chaotic predictive multiplicity and proposes those metrics and algorithms.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The comparison is a factual claim without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "The individually cited papers have the described topics rather than distributional RL under chaos.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

@@ -1,0 +1,29 @@
+{
+  "answer_id": "A040",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "A-q-known_item-061",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and authors match [1], but this supplied sentence has no numbered paper citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[1] states training-free, model-agnostic clinical contextualization and improved HealthBench performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "[2,7,9] concern medical retrieval/RAG; [8] concerns localized knowledge-graph and multi-hop reasoning, not content-delivery decoupling.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

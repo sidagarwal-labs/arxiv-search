@@ -1,0 +1,32 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-019",
+  "outcome": {
+    "answer": "Repeating pretraining data generally risks worse performance than using fresh data, but the effect depends on how repetition is structured. Controlled studies find that degradation can peak at an intermediate repeat count, and that limited data uniqueness becomes more costly as model size increases [1, 3]. At the same total token counts, consecutive replay, concentrating repeats on fewer samples, and repeatedly using lower-entropy sources can also worsen loss [2].\n\nRepetition is not always harmful: when unique data is constrained, some models or training setups can benefit from additional epochs, and the optimal amount depends on the model, corpus, and training budget [2, 10]. These findings concern different settings, so they do not establish one universally best number of repeats.",
+    "cited": [
+      1,
+      3,
+      2,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "7ea1b9d2d7852ce96cf34559d96c1a9e3eb2e1beba22f0f6df7e41b5778745fb",
+  "usage": {
+    "accounted_tokens": 3803,
+    "input_tokens": 3636,
+    "latency_seconds": 3.214339400001336,
+    "model": "gpt-6-luna",
+    "output_tokens": 167,
+    "provider_request_id": "req_6d9e68103e384cd2bce286cafaaa142d",
+    "reasoning_tokens": 0,
+    "request_id": "e58eb4cc-25e2-467f-a856-56c86259b176",
+    "reserved_input": 22165,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:30.777635+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

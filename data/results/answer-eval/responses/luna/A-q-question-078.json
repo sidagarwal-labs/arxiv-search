@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-question-078",
+  "outcome": {
+    "answer": "Automatically judge reader-oriented news trustworthiness reports with importance-weighted rubrics: assessors define key questions and expected short answers for each article, then an automated judge scores reports against those rubrics. In a TREC evaluation, this AutoJudge ranked reports similarly to human judgments, especially for report generation [1]. A report-generation system can support this process by retrieving and reranking evidence, then producing concise reports with citations [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d42c8187504a9d54e69ca2250947e188325bf5262f3b6b6bcf035b067dcf0ce6",
+  "usage": {
+    "accounted_tokens": 3602,
+    "input_tokens": 3498,
+    "latency_seconds": 3.4307857000094373,
+    "model": "gpt-6-luna",
+    "output_tokens": 104,
+    "provider_request_id": "req_d08b09d628a242a285848048cca63604",
+    "reasoning_tokens": 0,
+    "request_id": "cb0050f1-0c89-43a7-9302-0c823c93a10a",
+    "reserved_input": 22113,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:58:26.333861+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

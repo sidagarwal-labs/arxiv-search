@@ -1,0 +1,39 @@
+{
+  "answer_id": "A372",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-042",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual paper identification is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The paper describes purchase-history reasoning and intent-enhanced dense embeddings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract explicitly critiques query-centric and implicit-interaction retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The two-stage SFT and GRPO training description matches the abstract.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The other cited retrieval studies are not presented as personalized; TTP is user-centric.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

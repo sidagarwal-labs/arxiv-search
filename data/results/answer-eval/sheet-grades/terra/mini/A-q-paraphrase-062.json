@@ -1,0 +1,39 @@
+{
+  "answer_id": "A111",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual claim about papers addressing variable response size has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 reports linear decoding from the prompt hidden state and approximate remaining-length estimates.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 4 models prompt-conditioned output length distributions and robust prediction.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 5 updates forecasts from observed execution evidence and reports large run-to-run variation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "The three cited papers respectively address internal length signals, robust prompt prediction and agent execution cost.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

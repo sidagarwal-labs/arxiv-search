@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-094",
+  "outcome": {
+    "answer": "MoCo Rubric improves detailed image captions by using one shared vision-language model as caption generator, rubric creator, and rubric judge. The rubric creator builds specific quality criteria from generated captions, reference captions, and image evidence; the judge scores captions against those criteria, while only the caption policy is updated. An exponential moving average of the policy parameters updates the shared model used for rubric creation and judging, helping those roles track policy changes smoothly [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "0427d626cccc8795b5aec218eede519bc955f1f7f34eef159fcedd1cb9c5a016",
+  "usage": {
+    "accounted_tokens": 3627,
+    "input_tokens": 3520,
+    "latency_seconds": 3.714876199985156,
+    "model": "gpt-6-luna",
+    "output_tokens": 107,
+    "provider_request_id": "req_bb7f60f981b24309a4b9d86858fc9328",
+    "reasoning_tokens": 0,
+    "request_id": "1ab6c734-d245-4256-aba3-59b34abc6b55",
+    "reserved_input": 22374,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:57:07.177633+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

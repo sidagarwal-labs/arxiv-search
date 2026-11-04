@@ -1,0 +1,35 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-077",
+  "outcome": {
+    "answer": "The papers cover low-precision training and distributed learning, but not a single approach combining low precision, distributed training, and private devices. For large-model training, FP4 methods aim to improve efficiency while preserving accuracy: studies examine stable FP4 recipes and scaling, and adaptive block scaling to reduce quantization error [1, 2, 3]. AGoQ quantizes activations and gradients to reduce memory and communication time in multi-GPU LLM training [7]. For distributed reinforcement-learning post-training, PULSE reduces communication by sending only updates that affect low-precision forward passes [4]. For privacy, a separate study speeds differentially private fine-tuning through low-rank gradient methods, but does not address low-precision arithmetic or distributed devices [6]. RockNet trains across ultra-low-power devices, but its abstract does not describe low-precision numbers or privacy guarantees [8].",
+    "cited": [
+      1,
+      2,
+      3,
+      7,
+      4,
+      6,
+      8
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "6b112c380368dcddf03d3de02537fb2e21eda85716558e59827e6f9e59d20715",
+  "usage": {
+    "accounted_tokens": 3888,
+    "input_tokens": 3691,
+    "latency_seconds": 3.5276032999972813,
+    "model": "gpt-6-luna",
+    "output_tokens": 197,
+    "provider_request_id": "req_04263afdad724dabbc84c3349ebf12d7",
+    "reasoning_tokens": 0,
+    "request_id": "2fe54e9c-469a-4eec-a9f0-f203b66f31ed",
+    "reserved_input": 22209,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:49.278351+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

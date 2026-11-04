@@ -1,0 +1,39 @@
+{
+  "answer_id": "A220",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "X-q-keyword-007",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The supplied papers do not describe synthetic-data curation pipelines or filtering.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The factual description of the papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "Several cited studies find normalization or homogenization, but paper 5 does not establish that general conclusion.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 9, 10 and 2 report the described authorship, adaptation and training-diversity findings.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "No supplied abstract directly studies standalone synthetic-data curation.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

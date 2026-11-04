@@ -1,0 +1,29 @@
+{
+  "answer_id": "A176",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-017",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and author identification is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "GraDE uses diffusion-model typicality scores for frequent subgraph discovery.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "References 2\u201310 are absent from the supplied paper text.",
+        "verdict": "unsupported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

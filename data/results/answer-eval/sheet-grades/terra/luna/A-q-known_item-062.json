@@ -1,0 +1,29 @@
+{
+  "answer_id": "A258",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-062",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The statement about MiniFool is not cited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes the cost and MNIST/CMS applications, but says IceCube motivated development, not that it was applied there.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 8 describes uncertainty-consistent perturbations and a framework for sensitivity.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

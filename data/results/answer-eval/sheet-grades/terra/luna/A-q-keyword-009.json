@@ -1,0 +1,29 @@
+{
+  "answer_id": "A329",
+  "candidate": "luna",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-009",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The three cited abstracts describe those respective clustering pipelines.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The density-tree method exposes hierarchical multiscale clusters in embedding space.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The argument graph incorporates the stated relationships and uses community detection.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

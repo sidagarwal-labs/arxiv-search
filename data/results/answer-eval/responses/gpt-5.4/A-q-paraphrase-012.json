@@ -1,0 +1,33 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-012",
+  "outcome": {
+    "answer": "Yes. For automatically updating item IDs during training while still capturing changing user behavior, the closest matches are methods that refresh or refine Semantic IDs using recent interaction data, while trying to avoid breaking what the generator already learned. One option is SID alignment: refresh IDs from recent logs, then align them to the existing vocabulary so the model checkpoint stays compatible and can be warm-start fine-tuned instead of fully retrained [2]. Another is drift-aware continual tokenization, which detects item-level collaborative drift and updates token sequences with differentiated optimization and constrained reassignment to limit unnecessary ID changes [5].\n\nIf you want IDs themselves to evolve from recommendation training signals, differentiable semantic IDs let recommendation gradients directly influence SID learning, addressing the mismatch between static indexing and recommendation objectives [4]. For dynamic production settings, one paper instead argues against changing learned IDs too much: preserve old-item SIDs, insert new items, and warm-start, because changing existing SIDs can sharply hurt retrieval quality [1]. A codebook-based alternative updates IDs with temporal decay, EMA center updates, and an exposure-weighted penalty on SID changes [3].",
+    "cited": [
+      2,
+      5,
+      4,
+      1,
+      3
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "739f91e533a8e18da5a2199d3b077d9a9ed8e1c706b8af33718a1e610d58d77a",
+  "usage": {
+    "accounted_tokens": 3996,
+    "input_tokens": 3752,
+    "latency_seconds": 6.909261499997228,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 244,
+    "provider_request_id": "req_fc3b3882bfb44bd19b3df3ae5b494053",
+    "reasoning_tokens": 0,
+    "request_id": "4e111895-597b-4c6d-abed-0c97ac0c6961",
+    "reserved_input": 23803,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:10:55.813942+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

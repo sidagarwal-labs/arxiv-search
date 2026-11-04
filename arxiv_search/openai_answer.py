@@ -105,6 +105,13 @@ class TaskLedger(api.Ledger):
             return db.execute("SELECT 1 FROM answer_task_attempts WHERE request_key=? AND task=?",
                               (key, self.task)).fetchone() is not None
 
+    def attempt(self, key: str) -> dict | None:
+        """The ledger row (tokens, latency, status) for this task's attempt at a request key."""
+        with self._connect() as db:
+            row = db.execute("""SELECT a.* FROM attempts a JOIN answer_task_attempts t USING(request_id)
+                WHERE t.request_key=? AND t.task=?""", (key, self.task)).fetchone()
+        return dict(row) if row else None
+
     def reserve_request(self, key: str, model: str, input_tokens: int, output_tokens: int) -> str:
         if model not in PRICES:
             raise api.OpenAIError("Model has no recorded price; no request sent")

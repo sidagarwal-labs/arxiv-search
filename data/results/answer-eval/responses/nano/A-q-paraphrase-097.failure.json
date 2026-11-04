@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"To improve LLM self-training by choosing varied ways to solve a problem (not only correct ones), the most directly aligned paper is \u201cStrategically Diverse Sampling for Self-Training.\u201d It argues that self-training data is often built by sampling i.i.d. responses and filtering mainly for correctness, overrepresenting strategies a model already prefers, and proposes \u201cstrategically diverse\u201d data that varies the substantive approach to the problem. It introduces GROOT (sampling distinct paths from a hierarchical tree of approaches) and Verbalized Sampling (producing an unstructured set of approaches), and reports improved performance on difficult tasks versus IID-trained counterparts, including cases where training on strategically diverse but incorrect traces can outperform IID distillation from a much larger teacher. [1]\\n\\nRelated work measures and mitigates diversity collapse: \u201cMeasuring and Mitigating Solution Mode Collapse in RLVR\u201d finds that RL with verifiable rewards concentrates probability onto fewer correct solution modes, and proposes Re:Max to store one verified example per discovered mode and train uniformly on those stored modes. [2] \u201cReasoning Path Divergence\u201d instead focuses on a \u201cone problem, multiple solutions\u201d paradigm, using Reasoning Path Divergence to curate maximally diverse reasoning trajectories and fine-tune a model for higher output diversity and pass@k. [3] Finally, \u201cVocabulary Dropout\u201d targets diversity in co-evolutionary self-play curricula by masking proposer logits to prevent collapse toward a narrow problem distribution. [6]\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_072783f43bb7bbe7016aeb625bb09487d2b36155a8e3206e5e",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "7087661d9d882f8d96aa0b0f892e6b877ffa4cf0e4eebacebcb937311a56bc3a",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3546,
+    "output_tokens": 316,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

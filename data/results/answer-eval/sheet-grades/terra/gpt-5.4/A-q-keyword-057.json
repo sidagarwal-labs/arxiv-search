@@ -1,0 +1,54 @@
+{
+  "answer_id": "A256",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-057",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The claim about supplied papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 2 extracts BM25-ready sparse features without sparse supervision or expansion training.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 7 describes SAE-based learned sparse retrieval and multilingual out-of-domain gains.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The comparative claim about other papers has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 1 describes dense-level effectiveness with substantially less index memory.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 10 replaces clustering and dense compression with sparse coding and inverted indexing.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "Paper 5 maps span embeddings to sparse centers for patent retrieval.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S8",
+        "reason": "Paper 9 studies tuned hybrid dense-sparse rank fusion.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

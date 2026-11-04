@@ -1,0 +1,27 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-known_item-031",
+  "outcome": {
+    "answer": "The supplied papers do not address \u201cBoyd clinical provenance categorization.\u201d They are about output-length control, prediction, and bias in large language models, not clinical provenance or a Boyd categorization scheme.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "d39f6c78c77712c6afc35039258353a788b8fc025a0ee86073beffcb379cce00",
+  "usage": {
+    "accounted_tokens": 3336,
+    "input_tokens": 3279,
+    "latency_seconds": 2.6194410000171047,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 57,
+    "provider_request_id": "req_b53347fb434341cc9091869e2c7e6043",
+    "reasoning_tokens": 0,
+    "request_id": "9b6cfdf8-eee0-4509-ac52-d88a976da423",
+    "reserved_input": 21392,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:31:30.442542+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

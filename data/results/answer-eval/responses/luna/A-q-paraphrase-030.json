@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-paraphrase-030",
+  "outcome": {
+    "answer": "Exploration Space Theory is a direct match: it models prerequisite relationships between places, where experiencing some points of interest presupposes context gained from others, and recommends structurally valid next places based on what a user has already explored [1]. The system also offers explanations for its recommendations [1].",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d18c7c74a4e752f93698c393075201efc8b30cbf0c30e7ae3cbdd52850086482",
+  "usage": {
+    "accounted_tokens": 3988,
+    "input_tokens": 3911,
+    "latency_seconds": 6.540416400006507,
+    "model": "gpt-6-luna",
+    "output_tokens": 77,
+    "provider_request_id": "req_ea68f35a863c4212be5d34bbd91be954",
+    "reasoning_tokens": 0,
+    "request_id": "d6bc9b32-e55a-43cb-9537-f1e16f054ad9",
+    "reserved_input": 24300,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:56:04.791976+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

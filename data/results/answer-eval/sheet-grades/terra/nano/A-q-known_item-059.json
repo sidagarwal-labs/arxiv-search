@@ -1,0 +1,44 @@
+{
+  "answer_id": "A054",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-059",
+  "outcome": {
+    "answers_request": 1,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper identification is a factual claim without a citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The following citation [1] corresponds to the described query-time graph and evaluation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The following citation [2] supports implicit graphs from reranker logs without extra LLM calls.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The following citation [3] supports RRPO's LLM-feedback optimization of context utility.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Roth is not named in the supplied paper text, and the GraphER match is related.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "The standalone citation contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

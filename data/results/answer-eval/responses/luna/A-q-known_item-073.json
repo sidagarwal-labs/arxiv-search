@@ -1,0 +1,30 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-073",
+  "outcome": {
+    "answer": "Zichao Wei\u2019s work connects structural generalization to computational complexity in two ways. One paper argues that, under the assumption TC\u2070 \u2260 NC\u00b9, pure Transformers cannot learn structural generalization because the relevant tree-evaluation problem is NC\u00b9-complete, while their learnable class is contained in TC\u2070 [1]. Another presents a neural cellular automaton that learns compositional rules from data without hand-written rules and evaluates its structural generalization on SLOG [2].",
+    "cited": [
+      1,
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "1b849dd73ce0884be87af1f02a05c27761d07548d061392c2a5c528efcf6313f",
+  "usage": {
+    "accounted_tokens": 3444,
+    "input_tokens": 3329,
+    "latency_seconds": 2.9702814999909606,
+    "model": "gpt-6-luna",
+    "output_tokens": 115,
+    "provider_request_id": "req_b0f58e8560034633a34a7a45dd32b090",
+    "reasoning_tokens": 0,
+    "request_id": "8c5a2317-f988-4ec5-a012-e762dcfafb7b",
+    "reserved_input": 20908,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:55:23.730087+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

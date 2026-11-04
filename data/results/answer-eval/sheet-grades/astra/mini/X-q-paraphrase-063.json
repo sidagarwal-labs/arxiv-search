@@ -1,0 +1,24 @@
+{
+  "answer_id": "A031",
+  "candidate": "mini",
+  "grader": "GPT-6 ASTRA",
+  "item_id": "X-q-paraphrase-063",
+  "outcome": {
+    "answers_request": 0,
+    "not_direct_answer": true,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The exclusion claim about all supplied papers has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "[3] concerns evaluator preferences and [1,2,4] recommendation, but [8] studies humor alignment, not recommendation systems.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6 ASTRA via owner chat session from astra-sample-labeled.xlsx (not the API)"
+}

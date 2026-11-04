@@ -1,0 +1,34 @@
+{
+  "answer_id": "A324",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-004",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual claim about the supplied results is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "The Welsh study uses NLP on Nation.Cymru and reports differential political framing.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The second paper studies political bias detection without a Wales-specific focus.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The available second paper is not Wales-specific; the other cited papers are not supplied.",
+        "verdict": "partial"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

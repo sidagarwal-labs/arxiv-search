@@ -1,0 +1,28 @@
+{
+  "model": "gpt-5.4-nano-2026-03-17",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"answer\":\"To stop student models from becoming too wordy and repetitive during their own data generation in distillation, the papers suggest addressing specific on-policy dynamics that drive length inflation. One approach is to directly stabilize on-policy distillation against repetition-induced length inflation, e.g., StableOPD combines a reference-based divergence constraint with rollout mixture distillation to mitigate repetition-triggered truncation collapse [1]. Another approach is to handle termination behavior more carefully: termination-token mismatch between students and teachers can suppress stopping and cause excessive length, and treating functionally equivalent EOS tokens as shared semantic stopping actions substantially mitigates length inflation [2]. Also, limiting what rollouts the distillation objective scores can help; Early Stopping Rollout restricts generation to the first response tokens to improve stability and reduce off-policy teacher decay across later tokens [4].\\n\\nThese methods differ in what they target: [1] focuses on repetition causing truncation collapse and unstable training; [2] focuses on EOS/termination mismatch; [4] focuses on teacher supervision fidelity across later tokens via rollout truncation. A related route for \u201cconciseness\u201d is to train on shorter, verified rewrites of the model\u2019s own on-policy responses (SRCL) alongside a co-evolving teacher/student process, specifically to reduce verbosity during self-distillation [3].\",\"grounded\":true}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_00cc3051251f31cd016aeb6241d33c87d28cc591fc18c0875b",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "request_key": "5beef473f370b412f19415e3a8df91e14addce7cfdf3115220091eb7a551fad0",
+  "status": "invalid_answer",
+  "usage": {
+    "input_tokens": 3525,
+    "output_tokens": 283,
+    "reasoning_tokens": 0
+  },
+  "validation_error": "Answer longer than 180 words"
+}

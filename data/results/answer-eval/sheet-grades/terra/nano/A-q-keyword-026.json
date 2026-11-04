@@ -1,0 +1,39 @@
+{
+  "answer_id": "A221",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-026",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper identification and priority-bidding claim have no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes efficient priority allocation, pricing and budget-constrained autobidding.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 3 combines conversational ad timing and allocation with expected truthful bidding.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 2, 5 and 8 concern advertising autobidding and learning or optimization.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Citation only.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

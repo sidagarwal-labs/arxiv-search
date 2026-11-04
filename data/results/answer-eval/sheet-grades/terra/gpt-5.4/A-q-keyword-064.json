@@ -1,0 +1,39 @@
+{
+  "answer_id": "A198",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-064",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Affirmation only.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes a public regional Bengali speech dataset and ASR research.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 3 evaluates dialect-aware ASR on RegSpeech12 across ten dialects.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Papers 2 and 5 describe text datasets; paper 6 is speech without specified regional coverage.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 6 describes podcast speech but does not specify regional dialect coverage.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

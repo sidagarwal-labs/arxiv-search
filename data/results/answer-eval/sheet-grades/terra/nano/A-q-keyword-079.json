@@ -1,0 +1,29 @@
+{
+  "answer_id": "A193",
+  "candidate": "nano",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-keyword-079",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual synthesis has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 4 studies geographic dialect alignment and semantic variation in New Zealand Reddit communities.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 7 analyzes Bengali social media stance using annotated comments and several models.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

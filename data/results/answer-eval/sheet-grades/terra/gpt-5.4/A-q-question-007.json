@@ -1,0 +1,49 @@
+{
+  "answer_id": "A106",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-007",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The factual effectiveness assertion has no citation in this sentence.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 describes planning and word counting, improved length fidelity, and shorter-to-medium targets.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 describes training-free dynamic feedback for token, word and sentence counts.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The comparative claim about stronger methods has no citation.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S5",
+        "reason": "Paper 3 describes constrained reinforcement learning for duration and syllable compliance with semantic preservation.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S6",
+        "reason": "Paper 2 reports supervised fine-tuning improves generalization to broader text-generation tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "Paper 7 reports a fixed conciseness reminder attenuated long-output tails across strategies for most models.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

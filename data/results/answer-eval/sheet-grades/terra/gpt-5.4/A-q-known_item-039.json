@@ -1,0 +1,34 @@
+{
+  "answer_id": "A327",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-known_item-039",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The title and first author match the supplied paper.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The study chunks Brazilian legal acts according to hierarchical structure.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The paper compares a full hierarchy with simplified context-enriched core chunks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The reported dense, lexical, and metadata-enriched results match the abstract.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

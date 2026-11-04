@@ -1,0 +1,30 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "A-q-paraphrase-050",
+  "outcome": {
+    "answer": "Yes. The supplied papers support blocking fake or distorted external-search information by testing counterfactual retrieval conditions, especially removing or refusing suspect pages and seeing whether the agent abstains or changes its answer. One paper directly removes gold passages from the index and shows that when the retrieval tool explicitly refuses instead of returning irrelevant text, compliant agents sharply increase abstention on unanswerable questions and cut wrong answers almost one-for-one; it also notes that the main bottleneck is detecting when to trigger that refusal [6]. Another paper proposes a benchmark for defenses against misinformation injected through generative-engine-optimized pages, showing that standard guardrails help little while a benchmark baseline can substantially reduce attack success with near-zero utility loss [10].",
+    "cited": [
+      6,
+      10
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "48e751abc7d7e1788cb12cce7c9d18d788918d55baafdacd586f53aae210f9ea",
+  "usage": {
+    "accounted_tokens": 3459,
+    "input_tokens": 3298,
+    "latency_seconds": 4.81587479999871,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 161,
+    "provider_request_id": "req_4fe7ab19a84844e7a6ea5a4662d0997b",
+    "reasoning_tokens": 0,
+    "request_id": "33cf4280-f153-4411-9e30-a028a1ced3f8",
+    "reserved_input": 20460,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:11:53.753287+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

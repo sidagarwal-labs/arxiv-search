@@ -1,0 +1,29 @@
+{
+  "candidate": "luna",
+  "item_id": "A-q-known_item-016",
+  "outcome": {
+    "answer": "The matching paper is \u201cRethinking the Role of Efficient Attention in Hybrid Architectures\u201d by Ziqing Qiao and coauthors. It studies how efficient attention affects hybrid models, reporting that full attention primarily supports long-range retrieval while efficient attention shapes its optimization, and that larger sliding-window attention can delay retrieval-head formation. It also finds that applying NoPE only to full-attention layers in a small-window hybrid improves long-context performance with little effect on short-context performance. [1]",
+    "cited": [
+      1
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "472592305f4667b3d1c1abdad2533cd5b35fe48f5f77deed3c86fd73f3bf19b6",
+  "usage": {
+    "accounted_tokens": 3520,
+    "input_tokens": 3404,
+    "latency_seconds": 4.484895600005984,
+    "model": "gpt-6-luna",
+    "output_tokens": 116,
+    "provider_request_id": "req_a15f967aa2834b9a9496d7fecab859c5",
+    "reasoning_tokens": 0,
+    "request_id": "2524c126-519f-46d2-84bc-57e277fac8c8",
+    "reserved_input": 22290,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:54:22.555112+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

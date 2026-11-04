@@ -1,0 +1,27 @@
+{
+  "candidate": "gpt-5.4",
+  "item_id": "X-q-question-037",
+  "outcome": {
+    "answer": "None of the supplied papers answer that question. These results are about algorithmic fairness, fairness trade-offs, verification, strategic classification, streaming fairness, and fairness in recommender or distributed learning, not about correlations between language-model internal representations and human sentence-processing effort.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "2ed99a05da16ccfbfa1223c83076b5c74514d35f2f9e41caf812529250477089",
+  "usage": {
+    "accounted_tokens": 3230,
+    "input_tokens": 3161,
+    "latency_seconds": 2.615231500007212,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 69,
+    "provider_request_id": "req_cc6723ea763f4ab58ae5e964ac9826c2",
+    "reasoning_tokens": 0,
+    "request_id": "eb5f29e2-3cd9-402f-b7c7-66bea920bc54",
+    "reserved_input": 21806,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-04T17:31:36.828499+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

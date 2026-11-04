@@ -1,0 +1,29 @@
+{
+  "candidate": "mini",
+  "item_id": "A-q-paraphrase-022",
+  "outcome": {
+    "answer": "The closest match is a two-stage polarization detector that combines structured supervised fine-tuning with Direct Preference Optimization, using an interpretable slot-filling template before DPO refinement [2]. It is designed for online polarization in social media text, not specifically for general political leaning classification in posts [2].",
+    "cited": [
+      2
+    ],
+    "grounded": true,
+    "status": "ok"
+  },
+  "request_sha256": "d8898981237ccaf7c82c76b1fe8ba3fdcd0181985ef94309a0d5887d66cda97d",
+  "usage": {
+    "accounted_tokens": 3275,
+    "input_tokens": 3198,
+    "latency_seconds": 1.908623900002567,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "output_tokens": 77,
+    "provider_request_id": "req_b301105307504a29b4c299f62635a32a",
+    "reasoning_tokens": 0,
+    "request_id": "5d355535-5d5e-46fa-b41e-fb274a467911",
+    "reserved_input": 20802,
+    "reserved_output": 700,
+    "response_model": "gpt-5.4-mini-2026-03-17",
+    "started_utc": "2026-11-04T17:03:27.549384+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}

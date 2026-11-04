@@ -1,0 +1,34 @@
+{
+  "answer_id": "A051",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-paraphrase-014",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "The paper presents a high-probability actor error bound in a two-timescale actor-critic setting.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S2",
+        "reason": "The following citation [1] applies to this sentence; the abstract states the safe region and bound.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "The following citation [3] points to stability and convergence under Markovian noise.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The standalone citation contains no factual claim.",
+        "verdict": "no_claim"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

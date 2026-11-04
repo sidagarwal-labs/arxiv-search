@@ -1,0 +1,54 @@
+{
+  "answer_id": "A339",
+  "candidate": "gpt-5.4",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-048",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "An affirmative response makes no standalone factual assertion.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S2",
+        "reason": "The claim about several papers is uncited.",
+        "verdict": "unsupported"
+      },
+      {
+        "id": "S3",
+        "reason": "The abstract describes training-free adaptive page selection and its results.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "The abstract describes adaptive retrieval, no top-k tuning, and reported performance.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S5",
+        "reason": "This is a non-specific transition.",
+        "verdict": "no_claim"
+      },
+      {
+        "id": "S6",
+        "reason": "Both cited abstracts describe their respective adaptive retrieval mechanisms.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S7",
+        "reason": "LITTA varies query variants to control its accuracy-efficiency trade-off.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S8",
+        "reason": "Q-REACT keeps the retriever fixed and does not claim adaptive page counts.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

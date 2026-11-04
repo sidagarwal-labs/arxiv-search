@@ -1,0 +1,34 @@
+{
+  "answer_id": "A030",
+  "candidate": "mini",
+  "grader": "GPT-6.1 Terra",
+  "item_id": "A-q-question-094",
+  "outcome": {
+    "answers_request": 2,
+    "not_direct_answer": false,
+    "sentences": [
+      {
+        "id": "S1",
+        "reason": "Papers 1 and 2 support testing provided rules; paper 3 tests learning from training rather than rules supplied in text.",
+        "verdict": "partial"
+      },
+      {
+        "id": "S2",
+        "reason": "Paper 1 compares rule-based instructions with examples on the same tasks.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S3",
+        "reason": "Paper 2 describes reusable rules and single-, multi-, and multi-hop evaluations.",
+        "verdict": "supported"
+      },
+      {
+        "id": "S4",
+        "reason": "Paper 3 constructs a controlled task where interpolation fails.",
+        "verdict": "supported"
+      }
+    ],
+    "status": "ok"
+  },
+  "provenance": "GPT-6.1 Terra via owner chat session from terra-reviewed.xlsx (not the API)"
+}

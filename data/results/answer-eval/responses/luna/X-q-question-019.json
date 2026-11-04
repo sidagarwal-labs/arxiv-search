@@ -1,0 +1,27 @@
+{
+  "candidate": "luna",
+  "item_id": "X-q-question-019",
+  "outcome": {
+    "answer": "The supplied papers do not directly study the effects of repeating training data during pretraining. They report results from domain adaptation, fine-tuning, and training language models from scratch, but do not compare repeated versus non-repeated pretraining data.",
+    "cited": [],
+    "grounded": false,
+    "status": "ok"
+  },
+  "request_sha256": "6881f27e860afd3a14791ea4264929e45b7ea6bb0374f9ac2d2084e52943740e",
+  "usage": {
+    "accounted_tokens": 3446,
+    "input_tokens": 3381,
+    "latency_seconds": 4.261571799986996,
+    "model": "gpt-6-luna",
+    "output_tokens": 65,
+    "provider_request_id": "req_fa24ed7951cd4f5fa6be2be2641930b3",
+    "reasoning_tokens": 0,
+    "request_id": "b8823992-7e33-4f61-8cd4-3878cad8b95f",
+    "reserved_input": 21072,
+    "reserved_output": 700,
+    "response_model": "gpt-6-luna",
+    "started_utc": "2026-11-04T16:59:49.503927+00:00",
+    "status": "completed",
+    "tier": "mini"
+  }
+}
