@@ -2495,3 +2495,35 @@ Why it failed (diagnostics, not tuned on):
 Lesson: explicit hard requirement checks need semantic, not literal, facet
 matching. Ranking quality depends on the holistic judgement the baseline prompt
 already makes. Decision46 stays the reranking baseline.
+
+## 34. Storing the embeddings smaller for hosting (2026-11-04)
+
+Hosting question, not a ranking change ([report](../data/results/embedding-compression/report.md)).
+The 23,304 x 3,072 float32 paper vectors take 286 MB of a 500 MB Python function
+bundle. We rebuilt Stage 1 (Decision36) from the cached vectors in smaller stored
+forms, keeping BM25 scores and every setting frozen. Only the paper vectors change.
+The query vector stays float32 and is cut the same way. Dev only, existing labels,
+zero API calls. The equivalence rule was frozen before scoring.
+
+| Stored form | MB | nDCG@10 Δ vs float32 | Top50 overlap | Identical top50 sets | Equivalent |
+|---|---|---|---|---|---|
+| float32, 3,072 (control) | 286 | — | 1.000 | 100/100 | yes |
+| float16, 3,072 | 143 | -.0005 | 1.000 | 98/100 | yes |
+| int8 + per-paper scale, 3,072 | 72 | +.0024 | .997 | 83/100 | yes |
+| float16, 1,536 | 72 | -.0076 | .921 | 1/100 | no |
+| float16, 1,024 | 48 | -.0124 | .881 | 0/100 | no |
+| float16, 768 | 36 | -.0182 | .839 | 0/100 | no |
+| float16, 256 | 12 | -.0801 | .688 | 0/100 | no |
+
+- **Lower precision is nearly free; fewer dimensions is not.** Halving the
+  numbers to 1,536 already moves 8% of the reranker's top-50 inputs and costs
+  .008 nDCG@10. Each further cut costs more.
+- **Recommendation: float16 at 3,072 (143 MB).** Only 2 of 100 queries change
+  their top-50 set, so the reranker's inputs and Decision46's measured results
+  carry over almost exactly. The frozen rule's smallest pick, int8 (72 MB), also
+  passes, but changes 17 top-50 sets. Its +.0024 is noise, and Decision46 was
+  never measured on those inputs. Use int8 only if the bundle size forces it.
+- The planned 768-number hosted Gemini vectors ([Which LLMs](02-decisions.md#which-llms))
+  would need their own measurement. 768 OpenAI numbers lose .018 here.
+
+No baseline changes; this sets the storage format for the planned backend.

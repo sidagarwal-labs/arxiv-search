@@ -1,0 +1,332 @@
+{
+  "api_calls": 0,
+  "control_vs_frozen_baseline": {
+    "top10_identical_queries": 100,
+    "top50_overlap_mean": 1.0
+  },
+  "inputs": {
+    "frozen_baseline_run": "shortlist-score-dev/fusion-shortlist+a=1+d=500.run.json",
+    "labels_sha256": "7f6145f8443267fef8393cabc10ab7170f3e85538e07e47e80ef2258a8cd10d0",
+    "lexical_scores_sha256": "f8c4ea47d4a37b2beab2f6ae03af0ae71d8c93995f2f5436fe42241a60f9d828"
+  },
+  "plan": {
+    "api_calls": 0,
+    "changes_baseline": false,
+    "control": "f32-3072: cached float32 vectors, rebuilt through the same code path",
+    "equivalent_if": {
+      "coverage": "top10 judged share >= 0.98 (otherwise label gaps hide the effect)",
+      "quality": "nDCG@10 mean difference vs control >= -0.005 and grade2_recall@50 difference >= -0.01",
+      "reranker_input": "mean top50 overlap with the control >= 0.98 (the Decision46 reranker sees exactly the Stage 1 top50)",
+      "top10": "mean top10 overlap with the control >= 0.95"
+    },
+    "fixed": "Frozen BM25 top500 scores; Decision36 settings; query vector float32, truncated and re-normalized like the papers; int8 = symmetric per-paper scale max|x|/127.",
+    "held_out_queries_used": false,
+    "labels": "shared-labels/labels-d46.json (no new judging; unjudged top10 pairs count as 0).",
+    "question": "Smallest stored form of the paper vectors that leaves Stage 1 effectively unchanged, for hosting.",
+    "recommendation": "Smallest equivalent variant by bytes; ties prefer float16 (no dequantization step).",
+    "variants": {
+      "f16-1024": {
+        "dimensions": 1024,
+        "storage": "float16"
+      },
+      "f16-1536": {
+        "dimensions": 1536,
+        "storage": "float16"
+      },
+      "f16-256": {
+        "dimensions": 256,
+        "storage": "float16"
+      },
+      "f16-3072": {
+        "dimensions": 3072,
+        "storage": "float16"
+      },
+      "f16-512": {
+        "dimensions": 512,
+        "storage": "float16"
+      },
+      "f16-768": {
+        "dimensions": 768,
+        "storage": "float16"
+      },
+      "f32-1536": {
+        "dimensions": 1536,
+        "storage": "float32"
+      },
+      "f32-3072": {
+        "dimensions": 3072,
+        "storage": "float32"
+      },
+      "int8-1536": {
+        "dimensions": 1536,
+        "storage": "int8"
+      },
+      "int8-3072": {
+        "dimensions": 3072,
+        "storage": "int8"
+      },
+      "int8-768": {
+        "dimensions": 768,
+        "storage": "int8"
+      }
+    },
+    "version": "embedding-compression-v1"
+  },
+  "promoted": false,
+  "recommended": "int8-3072",
+  "variants": {
+    "f16-1024": {
+      "batched_similarity_ms_per_query": 1.1384189999080263,
+      "checks": {
+        "coverage": true,
+        "quality": false,
+        "reranker_input": false,
+        "top10": false
+      },
+      "dimensions": 1024,
+      "equivalent": false,
+      "grade2_recall@50": 0.9303878220544887,
+      "grade2_recall@50_diff_vs_control": -0.02127964627964628,
+      "megabytes": 47.726592,
+      "ndcg@10": 0.6911597895705551,
+      "ndcg@10_diff_vs_control": -0.01240428732200257,
+      "queries_ndcg_changed": 94,
+      "source_mrr@10": 0.68475,
+      "storage": "float16",
+      "top10_judged_share": 0.9810000000000001,
+      "top10_overlap": 0.8480000000000003,
+      "top50_overlap": 0.8807999999999998,
+      "top50_set_identical_queries": 0
+    },
+    "f16-1536": {
+      "batched_similarity_ms_per_query": 1.654495999973733,
+      "checks": {
+        "coverage": true,
+        "quality": false,
+        "reranker_input": false,
+        "top10": false
+      },
+      "dimensions": 1536,
+      "equivalent": false,
+      "grade2_recall@50": 0.9414628581295248,
+      "grade2_recall@50_diff_vs_control": -0.010204610204610205,
+      "megabytes": 71.589888,
+      "ndcg@10": 0.6959250897397274,
+      "ndcg@10_diff_vs_control": -0.00763898715283031,
+      "queries_ndcg_changed": 84,
+      "source_mrr@10": 0.6873452380952381,
+      "storage": "float16",
+      "top10_judged_share": 0.995,
+      "top10_overlap": 0.9110000000000003,
+      "top50_overlap": 0.9207999999999998,
+      "top50_set_identical_queries": 1
+    },
+    "f16-256": {
+      "batched_similarity_ms_per_query": 0.41809500005911104,
+      "checks": {
+        "coverage": false,
+        "quality": false,
+        "reranker_input": false,
+        "top10": false
+      },
+      "dimensions": 256,
+      "equivalent": false,
+      "grade2_recall@50": 0.8402541902541903,
+      "grade2_recall@50_diff_vs_control": -0.11141327807994475,
+      "megabytes": 11.931648,
+      "ndcg@10": 0.6234995322722949,
+      "ndcg@10_diff_vs_control": -0.08006454462026269,
+      "queries_ndcg_changed": 98,
+      "source_mrr@10": 0.6569722222222222,
+      "storage": "float16",
+      "top10_judged_share": 0.8440000000000001,
+      "top10_overlap": 0.6359999999999999,
+      "top50_overlap": 0.6877999999999999,
+      "top50_set_identical_queries": 0
+    },
+    "f16-3072": {
+      "batched_similarity_ms_per_query": 3.0501209999783896,
+      "checks": {
+        "coverage": true,
+        "quality": true,
+        "reranker_input": true,
+        "top10": true
+      },
+      "dimensions": 3072,
+      "equivalent": true,
+      "grade2_recall@50": 0.951667468334135,
+      "grade2_recall@50_diff_vs_control": 0.0,
+      "megabytes": 143.179776,
+      "ndcg@10": 0.703090876476585,
+      "ndcg@10_diff_vs_control": -0.0004732004159726955,
+      "queries_ndcg_changed": 3,
+      "source_mrr@10": 0.6967341269841271,
+      "storage": "float16",
+      "top10_judged_share": 1.0,
+      "top10_overlap": 0.996,
+      "top50_overlap": 0.9996,
+      "top50_set_identical_queries": 98
+    },
+    "f16-512": {
+      "batched_similarity_ms_per_query": 0.7231849999516271,
+      "checks": {
+        "coverage": false,
+        "quality": false,
+        "reranker_input": false,
+        "top10": false
+      },
+      "dimensions": 512,
+      "equivalent": false,
+      "grade2_recall@50": 0.9082457665790998,
+      "grade2_recall@50_diff_vs_control": -0.04342170175503509,
+      "megabytes": 23.863296,
+      "ndcg@10": 0.6681122715801686,
+      "ndcg@10_diff_vs_control": -0.03545180531238908,
+      "queries_ndcg_changed": 97,
+      "source_mrr@10": 0.672,
+      "storage": "float16",
+      "top10_judged_share": 0.931,
+      "top10_overlap": 0.747,
+      "top50_overlap": 0.7924,
+      "top50_set_identical_queries": 0
+    },
+    "f16-768": {
+      "batched_similarity_ms_per_query": 0.8983609999995679,
+      "checks": {
+        "coverage": false,
+        "quality": false,
+        "reranker_input": false,
+        "top10": false
+      },
+      "dimensions": 768,
+      "equivalent": false,
+      "grade2_recall@50": 0.9258984842318175,
+      "grade2_recall@50_diff_vs_control": -0.025768984102317437,
+      "megabytes": 35.794944,
+      "ndcg@10": 0.6853405138928921,
+      "ndcg@10_diff_vs_control": -0.018223562999665623,
+      "queries_ndcg_changed": 95,
+      "source_mrr@10": 0.6831666666666666,
+      "storage": "float16",
+      "top10_judged_share": 0.9690000000000001,
+      "top10_overlap": 0.806,
+      "top50_overlap": 0.8390000000000002,
+      "top50_set_identical_queries": 0
+    },
+    "f32-1536": {
+      "batched_similarity_ms_per_query": 0.9527750000415836,
+      "checks": {
+        "coverage": true,
+        "quality": false,
+        "reranker_input": false,
+        "top10": false
+      },
+      "dimensions": 1536,
+      "equivalent": false,
+      "grade2_recall@50": 0.9414628581295248,
+      "grade2_recall@50_diff_vs_control": -0.010204610204610205,
+      "megabytes": 143.179776,
+      "ndcg@10": 0.6959250897397274,
+      "ndcg@10_diff_vs_control": -0.00763898715283031,
+      "queries_ndcg_changed": 84,
+      "source_mrr@10": 0.6873452380952381,
+      "storage": "float32",
+      "top10_judged_share": 0.995,
+      "top10_overlap": 0.9110000000000003,
+      "top50_overlap": 0.9207999999999998,
+      "top50_set_identical_queries": 1
+    },
+    "f32-3072": {
+      "batched_similarity_ms_per_query": 1.528552999952808,
+      "checks": {
+        "coverage": true,
+        "quality": true,
+        "reranker_input": true,
+        "top10": true
+      },
+      "dimensions": 3072,
+      "equivalent": true,
+      "grade2_recall@50": 0.951667468334135,
+      "grade2_recall@50_diff_vs_control": 0.0,
+      "megabytes": 286.359552,
+      "ndcg@10": 0.7035640768925577,
+      "ndcg@10_diff_vs_control": 0.0,
+      "queries_ndcg_changed": 0,
+      "source_mrr@10": 0.6967341269841271,
+      "storage": "float32",
+      "top10_judged_share": 1.0,
+      "top10_overlap": 1.0,
+      "top50_overlap": 1.0,
+      "top50_set_identical_queries": 100
+    },
+    "int8-1536": {
+      "batched_similarity_ms_per_query": 1.3771830000041518,
+      "checks": {
+        "coverage": true,
+        "quality": false,
+        "reranker_input": false,
+        "top10": false
+      },
+      "dimensions": 1536,
+      "equivalent": false,
+      "grade2_recall@50": 0.9414628581295248,
+      "grade2_recall@50_diff_vs_control": -0.010204610204610205,
+      "megabytes": 35.88816,
+      "ndcg@10": 0.6970429330435398,
+      "ndcg@10_diff_vs_control": -0.006521143849017904,
+      "queries_ndcg_changed": 85,
+      "source_mrr@10": 0.6870277777777778,
+      "storage": "int8",
+      "top10_judged_share": 0.9940000000000001,
+      "top10_overlap": 0.9050000000000001,
+      "top50_overlap": 0.9207999999999998,
+      "top50_set_identical_queries": 1
+    },
+    "int8-3072": {
+      "batched_similarity_ms_per_query": 2.5078640000720043,
+      "checks": {
+        "coverage": true,
+        "quality": true,
+        "reranker_input": true,
+        "top10": true
+      },
+      "dimensions": 3072,
+      "equivalent": true,
+      "grade2_recall@50": 0.951667468334135,
+      "grade2_recall@50_diff_vs_control": 0.0,
+      "megabytes": 71.683104,
+      "ndcg@10": 0.7060031913660727,
+      "ndcg@10_diff_vs_control": 0.002439114473515027,
+      "queries_ndcg_changed": 10,
+      "source_mrr@10": 0.6970674603174604,
+      "storage": "int8",
+      "top10_judged_share": 1.0,
+      "top10_overlap": 0.9930000000000001,
+      "top50_overlap": 0.9966000000000002,
+      "top50_set_identical_queries": 83
+    },
+    "int8-768": {
+      "batched_similarity_ms_per_query": 0.8194309999817051,
+      "checks": {
+        "coverage": false,
+        "quality": false,
+        "reranker_input": false,
+        "top10": false
+      },
+      "dimensions": 768,
+      "equivalent": false,
+      "grade2_recall@50": 0.9261315844649177,
+      "grade2_recall@50_diff_vs_control": -0.0255358838692172,
+      "megabytes": 17.990688,
+      "ndcg@10": 0.685576317643311,
+      "ndcg@10_diff_vs_control": -0.017987759249246754,
+      "queries_ndcg_changed": 95,
+      "source_mrr@10": 0.684,
+      "storage": "int8",
+      "top10_judged_share": 0.9690000000000001,
+      "top10_overlap": 0.807,
+      "top50_overlap": 0.8386,
+      "top50_set_identical_queries": 0
+    }
+  }
+}

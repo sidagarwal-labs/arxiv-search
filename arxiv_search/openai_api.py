@@ -40,6 +40,11 @@ MODEL_TIERS = {
     "gpt-5.4-mini-2026-03-17": "mini",
     "gpt-4.1-mini": "mini",
     "gpt-4o-mini": "mini",
+    # Answer-model comparison (2026-11-04). Luna's free-pool status is unconfirmed, so it is
+    # counted against the mini guard (conservative); GPT-5.4 uses the large-model guard.
+    "gpt-5.4-nano-2026-03-17": "mini",
+    "gpt-6-luna": "mini",
+    "gpt-5.4-2026-03-05": "large",
 }
 
 
