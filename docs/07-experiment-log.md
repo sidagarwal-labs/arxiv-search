@@ -9,6 +9,12 @@ For the full leaderboard, confidence intervals and caveats, see [Results](05-res
 For the reasoning behind each choice, see [Decisions](02-decisions.md) and
 [Findings](03-findings.md).
 
+This is a historical narrative: a baseline or label count in an older section
+belongs to that experiment's scope. For current selections use the
+[README](../README.md#current-working-baselines); for comparable scores use the
+generated [leaderboard](05-results.md#unified-dev-scorecard).
+Maintenance follows [provenance and retention](08-provenance-and-retention.md).
+
 ## Best measured scores by scope
 
 Keep benchmark scopes separate: these rows use different corpora, label pools or purposes.

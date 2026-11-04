@@ -53,9 +53,12 @@ with the retrieval order. GPT-5.4 mini also grades results offline as the judge.
 
 ## Development results
 
-Selected milestones from the [hill-climbing charts](docs/06-charts.md). Every row
-is rescored against the same frozen 3,294-pair label snapshot: 100 development
+### Historical retrieval milestones
+
+These rows preserve the earlier frozen 3,294-pair label snapshot: 100 development
 queries over all 23,304 papers.
+The [generated charts](docs/06-charts.md) rescore milestones on the newer shared
+layer; their numbers should not be substituted into this historical table.
 
 | Milestone | nDCG@10 | Source MRR@10 | Source R@10 |
 |---|---|---|---|
@@ -113,6 +116,10 @@ selection: 133 known highly relevant query-paper pairs currently rank in positio
 
 ## Read more
 
+Start with the current baselines above, then the generated results and charts.
+Decisions, findings and the experiment log preserve the learning history; older
+plans and controls are not necessarily current configurations.
+
 | Doc | What's in it |
 |---|---|
 | [How it works](docs/01-how-it-works.md) | Every step and every file in plain English, plus the folder layout |
@@ -122,6 +129,13 @@ selection: 133 known highly relevant query-paper pairs currently rank in positio
 | [Results](docs/05-results.md) | Stage 1 retrieval and Stage 2 reranker progress; links to the full every-system tables |
 | [Charts](docs/06-charts.md) | Hill-climbing milestones (retrieval + reranker), latest Stage 1 and Stage 2 scores, and measured remaining headroom |
 | [Experiment log](docs/07-experiment-log.md) | Detailed experiment history, budgets and caveats |
+| [Provenance and retention](docs/08-provenance-and-retention.md) | Experiment evidence checklist and what maintenance must preserve |
+| [Labeler comparison](docs/09-labeler-comparison.md) | Matched-pair comparisons, human validation and higher-reasoning label provenance |
+
+Repository maintenance follows [the working rules](AGENTS.md): investigate,
+coordinate with development, propose exact changes, obtain user approval, then
+apply and verify. Cleanup does not automatically delete historical experiments
+or promote a new baseline.
 
 ## Run it
 

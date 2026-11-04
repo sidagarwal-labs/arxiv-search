@@ -503,16 +503,18 @@ def write_results_doc() -> None:
     pilot_report = config.EVAL_DIR / "judge_pilot" / "report.md"
     if pilot_report.exists():
         parts += ["", "## Relevance judge calibration (separate from retrieval scores)", "",
-                  pilot_report.read_text(encoding="utf-8").replace("# Judge pilot", "### Judge pilot", 1)]
+                  "[Calibration report](../data/eval/judge_pilot/report.md). "
+                  "Historical calibration evidence; not independent held-out validation."]
     embedding_report = config.RESULTS_DIR / "embedding-pilot" / "report.md"
     if embedding_report.exists():
         parts += ["", "## Embedding pilot (reduced corpus; separate benchmark)", "",
-                  embedding_report.read_text(encoding="utf-8")]
+                  "[Embedding pilot report](../data/results/embedding-pilot/report.md). "
+                  "Reduced-corpus pilot; do not compare directly with full-corpus scores."]
     graded_report = config.RESULTS_DIR / "graded-dev" / "report.md"
     if graded_report.exists():
         parts += ["", "## Graded full-corpus dev retrieval", "",
-                  graded_report.read_text(encoding="utf-8").replace(
-                      "# Graded dev retrieval", "### Graded dev retrieval", 1)]
+                  "[Graded retrieval report](../data/results/graded-dev/report.md). "
+                  "Historical label snapshot; use the unified scorecard for current comparisons."]
     for folder, title in (("fusion-dev", "Cached OpenAI fusion experiments"),
                           ("fusion-review-dev", "Pre-promotion fusion review"),
                           ("score-fusion-dev", "Score-fusion experiments (historical snapshot)"),
@@ -534,7 +536,10 @@ def write_results_doc() -> None:
                           ("failure-analysis", "Frozen baseline failure analysis")):
         report = config.RESULTS_DIR / folder / "report.md"
         if report.exists():
-            parts += ["", f"## {title}", "", report.read_text(encoding="utf-8")]
+            parts += ["", f"## {title}", "",
+                      f"[Detailed report](../data/results/{folder}/report.md). "
+                      "Saved experiment evidence with its original scope, controls and caveats; "
+                      "not an automatic baseline promotion."]
     (config.PROJECT_ROOT / "docs" / "05-results.md").write_text(
         "\n".join(parts).rstrip() + "\n", encoding="utf-8")
 

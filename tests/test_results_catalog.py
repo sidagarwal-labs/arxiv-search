@@ -230,18 +230,36 @@ def test_results_document_puts_catalog_first_and_keeps_historical_reports(inputs
     report = root / "score-fusion-dev" / "report.md"
     report.parent.mkdir()
     report.write_text("# New score-fusion report\n\nSaved results.")
+    frozen_report = report.read_bytes()
+    eval_dir = root.parents[1] / "eval"
+    for path in (eval_dir / "judge_pilot" / "report.md",
+                 root / "embedding-pilot" / "report.md",
+                 root / "graded-dev" / "report.md"):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("# Historical detail sentinel", encoding="utf-8")
     monkeypatch.setattr(experiments, "write_catalog", lambda: "## Unified catalog sentinel")
     monkeypatch.setattr(experiments, "load_results", lambda split: {})
     monkeypatch.setattr(experiments, "hybrid_comparison", lambda results: None)
     monkeypatch.setattr(experiments, "factor_analysis", lambda results: None)
     monkeypatch.setattr(experiments, "tuning_tables", lambda: None)
-    monkeypatch.setattr(experiments.config, "EVAL_DIR", root.parents[1] / "eval")
+    monkeypatch.setattr(experiments.config, "EVAL_DIR", eval_dir)
     experiments.write_results_doc()
     text = (docs / "05-results.md").read_text(encoding="utf-8")
     assert text.index("## Unified catalog sentinel") < text.index("## Historical source-paper")
     assert "## Historical dev (100 queries): source-paper experiments" in text
     assert "## Test (300 queries): finalists only" in text
-    assert "# New score-fusion report" in text
+    assert "[Detailed report](../data/results/score-fusion-dev/report.md)" in text
+    assert "../data/eval/judge_pilot/report.md" in text
+    assert "../data/results/embedding-pilot/report.md" in text
+    assert "../data/results/graded-dev/report.md" in text
+    assert "# New score-fusion report" not in text
+    assert "# Historical detail sentinel" not in text
+    assert report.read_bytes() == frozen_report
+    assert "Local cross-encoder experiments" not in text
+    for path in (eval_dir / "judge_pilot" / "report.md",
+                 root / "embedding-pilot" / "report.md",
+                 root / "graded-dev" / "report.md"):
+        assert path.read_text(encoding="utf-8") == "# Historical detail sentinel"
 
 
 def test_additive_snapshot_preferred_and_all_systems_share_revised_denominator(inputs):

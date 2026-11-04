@@ -2,6 +2,20 @@
 
 Short, plain definitions of every term used in this project, grouped by topic.
 
+## Reading experiment evidence
+
+| Term | Meaning |
+|---|---|
+| **Working baseline** | The explicitly selected configuration, not necessarily the highest leaderboard score. |
+| **Historical control** | A preserved earlier configuration used to explain an experiment's original comparison. |
+| **Label snapshot** | A frozen set of relevance grades; comparisons need the same snapshot and query/corpus scope. |
+| **Preregistration** | A plan saved before measuring the outcome; a retrospective explanation is not a preregistration. |
+| **Calibration vs. validation** | Calibration guides rubric/model selection; fresh validation checks quality on evidence not used for that tuning. |
+| **Matched-pair labeler comparison** | Compare graders on the same query-paper text pairs, with compatible rubrics and explicit exclusions. |
+
+See [provenance and retention](08-provenance-and-retention.md) and
+[labeler comparison](09-labeler-comparison.md) for the project-specific rules.
+
 ## Data
 
 | Term | Meaning |

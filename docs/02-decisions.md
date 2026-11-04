@@ -4,6 +4,11 @@ Every design choice we made, in plain language. Each one says **what we chose**,
 (where we have it) **the evidence**. The numbers (#1, #2…) are the order we decided in.
 Measurements behind the evidence are in [Findings](03-findings.md).
 
+This is a historical decision record, not a single current configuration.
+Use the [README baselines](../README.md#current-working-baselines) for selected
+settings and [generated results](05-results.md) for scoped comparisons.
+Decision numbers and anchors remain stable when choices are superseded.
+
 ---
 
 ## What goes into the search system
@@ -716,6 +721,10 @@ from the ones being tested.
 
 **#17 Google Gemini free tier**, with a model chosen for each job.
 
+*Status: historical plan, superseded for the selected embedding model, relevance
+judge and reranker by the subsequent OpenAI experiments and decisions. Retained
+to explain the original cost-driven approach; not the current model table.*
+
 **#20 The model for each job** (all set in `config.py`):
 
 | Job | Model |
@@ -737,6 +746,8 @@ judging, timed against the API before we choose.
 ## Hosting
 
 **#6 Website setup.**
+
+*Status: planned, not deployed. These are hosting options, not running services.*
 
 | Part | Runs where |
 |---|---|

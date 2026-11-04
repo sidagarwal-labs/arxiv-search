@@ -3,6 +3,18 @@
 Measurements we took to make decisions. Each section names the decision it supports
 (see [Decisions](02-decisions.md)).
 
+## Reading this historical record
+
+Sections preserve measurements at the time of each experiment, including failed
+approaches and superseded controls. Their corpus, label pools and baselines can
+differ. Use [current results](05-results.md) for comparable leaderboard rows and
+the [experiment log](07-experiment-log.md) for a shorter narrative.
+The [README](../README.md) summarizes implemented versus planned work.
+
+Do not update an old score to match a newer label layer without preserving its
+scope. Follow [provenance and retention](08-provenance-and-retention.md); labeler
+agreement has its own [comparison method](09-labeler-comparison.md).
+
 ---
 
 ## 1. The corpus (download of 2026-10-20)

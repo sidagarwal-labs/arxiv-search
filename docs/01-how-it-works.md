@@ -3,6 +3,19 @@
 A plain-English tour of the system: what each step does, which file does it, and what it
 produces. Read this before the code.
 
+## Current state versus learning history
+
+For selected configurations and current scores, start with the
+[README](../README.md#current-working-baselines), [results](05-results.md) and
+[charts](06-charts.md). This tour also preserves earlier implementation steps
+and experiment designs; those sections are learning history, not a claim that
+every former model or plan remains selected.
+
+Offline hybrid retrieval and LLM reranking have been evaluated on dev. Final
+held-out evaluation, fresh human validation, RAG and the deployed website remain
+open work. Detailed measurements belong in [Findings](03-findings.md), with
+[provenance and retention](08-provenance-and-retention.md) governing maintenance.
+
 ## The big picture
 
 ```
@@ -16,8 +29,8 @@ produces. Read this before the code.
 |---|---|---|
 | 1. Download | ✅ Done | Ask arXiv for every paper in three categories from the last year, and save its answers untouched. |
 | 2. Clean up | ✅ Done | Turn those saved pages into one row per paper, and keep only the papers we want. |
-| 3. Search | 🔨 In progress | Rank papers for a query using word matching (BM25), meaning (embeddings), or both. BM25 baseline ✅. |
-| 4. Test | 🔨 In progress | Score each search method on 400 test queries whose right answers we know. Scoring code ✅; test queries ✅; results table ✅. |
+| 3. Search | ✅ Offline pipeline built | BM25, embeddings, hybrid retrieval and LLM reranking evaluated on development queries; live deployment remains planned. |
+| 4. Test | 🔨 Final validation pending | Evaluation tooling and 100-query dev runs complete; 300 held-out queries and fresh human validation remain pending. |
 | 5. Answer (RAG) | Later | Send the top papers to an LLM and have it answer the question, citing them. |
 | 6. Website | Later | A public page where anyone can search. |
 
@@ -819,10 +832,12 @@ decisions. Their results are in [Findings](03-findings.md).
 
 ## The data folder
 
-`data/` is **not** in git: it's big, and anyone can rebuild it by running the steps above.
+Most raw data, indexes and model artifacts are **not** in git.
 **Exceptions:** `data/eval/queries.jsonl`, `labels.json` and `split.json` *are* in git, because
 an LLM wouldn't write the same 400 queries twice, and every score we report must use the same
-test set. `data/results/` is in git too: it's small, and the results table is rebuilt from it.
+test set. `data/results/` is in git too: it preserves experiment evidence and
+the results table is rebuilt from it. It is no longer negligible in size;
+follow the [retention policy](08-provenance-and-retention.md) before proposing cleanup.
 `data/eval/judgments/` (LLM grades) and `data/eval/judge_pilot/` (human grades and the
 agreement report) are in git as well: neither an LLM nor a person would grade exactly the
 same way twice.
