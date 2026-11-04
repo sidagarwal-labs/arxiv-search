@@ -80,7 +80,6 @@ button { font: inherit; color: inherit; }
 .masthead__name { color: var(--ink); text-decoration: none; }
 .masthead__name:hover { color: var(--link); }
 .masthead__role { margin-top: 8px; font-size: 17px; line-height: 1.55; }
-.masthead__location { margin-top: 4px; font-size: 15px; color: var(--muted); }
 
 .masthead__bar {
   display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px;
