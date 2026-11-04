@@ -56,9 +56,14 @@ Reranking baseline: `llm-mini-score-pilot+d=50+rrf-baseline+c=30` (Decision45): 
 
 | Rank | System | Stage 1 retrieval | Stage 2 reranker | Status | nDCG@10 (n) | P@10 | Source MRR@10 | R@1 | R@10 | Δ nDCG vs retrieval baseline [95% CI] W/L | Δ nDCG vs reranking baseline [95% CI] W/L | LLM $/query | API s/query | Run-to-run noise (SD of 100-q mean; MDD) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4 in one request; sort by score, ties keep retrieval order | covered | 0.7789 (100) | 0.777 | 0.677 | 0.570 | 0.880 | +0.070 [+0.045, +0.095] W/L 68/22 | +0.021 [+0.004, +0.036] W/L 56/32 | $0.0138 | 2.48 | 0.0063; 0.018 |
-| 2 | **LLM reranker + safeguard (RERANKING BASELINE)**<br>`llm-mini-score-pilot+d=50+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4 in one request; RRF of LLM order with retrieval order, c30 | covered | 0.7583 (100) | 0.736 | 0.720 | 0.640 | 0.870 | +0.049 [+0.035, +0.063] W/L 69/21 | itself | $0.0138 | 2.48 | 0.0033; 0.009 |
-| 3 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE, no reranker)**<br>`fusion-shortlist+a=1+d=500` | Retrieval baseline (Decision36) | None | covered | 0.7092 (100) | 0.689 | 0.697 | 0.610 | 0.860 | itself | -0.049 [-0.063, -0.035] W/L 21/69 | $0.0000 | 0.00 | deterministic |
+| 1 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 2·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7804 (100) | 0.777 | 0.686 | 0.580 | 0.880 | +0.071 [+0.046, +0.097] W/L 68/22 | +0.022 [+0.007, +0.037] W/L 57/31 | $0.0138 | 2.48 | unmeasured |
+| 2 | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score, ties keep retrieval order | covered | 0.7789 (100) | 0.777 | 0.677 | 0.570 | 0.880 | +0.070 [+0.045, +0.095] W/L 68/22 | +0.021 [+0.004, +0.036] W/L 56/32 | $0.0138 | 2.48 | 0.0063; 0.018 |
+| 3 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 3·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7782 (100) | 0.767 | 0.697 | 0.590 | 0.890 | +0.069 [+0.047, +0.092] W/L 71/19 | +0.020 [+0.007, +0.032] W/L 56/31 | $0.0138 | 2.48 | unmeasured |
+| 4 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 4·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7702 (100) | 0.753 | 0.702 | 0.590 | 0.890 | +0.061 [+0.041, +0.081] W/L 69/21 | +0.012 [+0.001, +0.023] W/L 52/32 | $0.0138 | 2.48 | unmeasured |
+| 5 | **LLM reranker + safeguard (RERANKING BASELINE)**<br>`llm-mini-score-pilot+d=50+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; RRF of LLM order with retrieval order, c30 | covered | 0.7583 (100) | 0.736 | 0.720 | 0.640 | 0.870 | +0.049 [+0.035, +0.063] W/L 69/21 | itself | $0.0138 | 2.48 | 0.0033; 0.009 |
+| 6 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE, no reranker)**<br>`fusion-shortlist+a=1+d=500` | Retrieval baseline (Decision36) | None | covered | 0.7092 (100) | 0.689 | 0.697 | 0.610 | 0.860 | itself | -0.049 [-0.063, -0.035] W/L 21/69 | $0.0000 | 0.00 | deterministic |
+| - | LLM reranker + safeguard<br>`llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, average of two independent requests; RRF of LLM order with retrieval order, c30 | PROVISIONAL | 0.7724 (100) | 0.747 | 0.723 | 0.630 | 0.870 | itself | withheld | $0.0275 | parallel | unmeasured |
+| - | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50+avg2` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, average of two independent requests; sort by score, ties keep retrieval order | PROVISIONAL | 0.7629 (100) | 0.737 | 0.686 | 0.570 | 0.880 | itself | withheld | $0.0275 | parallel | unmeasured |
 
 **Full tables:** [all 176 retrieval systems, unranked diagnostics, per-query-type results and system IDs](../data/results/catalog-dev/report.md) · [machine report](../data/results/catalog-dev/report.json) · [shared labels](../data/results/shared-labels/labels.json)
 
@@ -100,8 +105,12 @@ All graded scores are recomputed from the **same immutable `shared-labels/labels
 - [graded-dev/report.md](../data/results/graded-dev/report.md)
 - [llm-reranker-pilot/report.json](../data/results/llm-reranker-pilot/report.json)
 - [llm-reranker-pilot/report.md](../data/results/llm-reranker-pilot/report.md)
+- [llm-score-blend/report.json](../data/results/llm-score-blend/report.json)
+- [llm-score-blend/report.md](../data/results/llm-score-blend/report.md)
 - [llm-score-dev100/report.json](../data/results/llm-score-dev100/report.json)
 - [llm-score-dev100/report.md](../data/results/llm-score-dev100/report.md)
+- [llm-score-pass2/report.json](../data/results/llm-score-pass2/report.json)
+- [llm-score-pass2/report.md](../data/results/llm-score-pass2/report.md)
 - [llm-score-pilot/judge-fill/report.json](../data/results/llm-score-pilot/judge-fill/report.json)
 - [llm-score-pilot/judge-fill/report.md](../data/results/llm-score-pilot/judge-fill/report.md)
 - [llm-score-pilot/report.json](../data/results/llm-score-pilot/report.json)

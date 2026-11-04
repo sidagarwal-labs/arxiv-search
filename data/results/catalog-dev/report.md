@@ -56,9 +56,14 @@ Reranking baseline: `llm-mini-score-pilot+d=50+rrf-baseline+c=30` (Decision45): 
 
 | Rank | System | Stage 1 retrieval | Stage 2 reranker | Status | nDCG@10 (n) | P@10 | Source MRR@10 | R@1 | R@10 | Δ nDCG vs retrieval baseline [95% CI] W/L | Δ nDCG vs reranking baseline [95% CI] W/L | LLM $/query | API s/query | Run-to-run noise (SD of 100-q mean; MDD) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4 in one request; sort by score, ties keep retrieval order | covered | 0.7789 (100) | 0.777 | 0.677 | 0.570 | 0.880 | +0.070 [+0.045, +0.095] W/L 68/22 | +0.021 [+0.004, +0.036] W/L 56/32 | $0.0138 | 2.48 | 0.0063; 0.018 |
-| 2 | **LLM reranker + safeguard (RERANKING BASELINE)**<br>`llm-mini-score-pilot+d=50+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4 in one request; RRF of LLM order with retrieval order, c30 | covered | 0.7583 (100) | 0.736 | 0.720 | 0.640 | 0.870 | +0.049 [+0.035, +0.063] W/L 69/21 | itself | $0.0138 | 2.48 | 0.0033; 0.009 |
-| 3 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE, no reranker)**<br>`fusion-shortlist+a=1+d=500` | Retrieval baseline (Decision36) | None | covered | 0.7092 (100) | 0.689 | 0.697 | 0.610 | 0.860 | itself | -0.049 [-0.063, -0.035] W/L 21/69 | $0.0000 | 0.00 | deterministic |
+| 1 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 2·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7804 (100) | 0.777 | 0.686 | 0.580 | 0.880 | +0.071 [+0.046, +0.097] W/L 68/22 | +0.022 [+0.007, +0.037] W/L 57/31 | $0.0138 | 2.48 | unmeasured |
+| 2 | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score, ties keep retrieval order | covered | 0.7789 (100) | 0.777 | 0.677 | 0.570 | 0.880 | +0.070 [+0.045, +0.095] W/L 68/22 | +0.021 [+0.004, +0.036] W/L 56/32 | $0.0138 | 2.48 | 0.0063; 0.018 |
+| 3 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 3·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7782 (100) | 0.767 | 0.697 | 0.590 | 0.890 | +0.069 [+0.047, +0.092] W/L 71/19 | +0.020 [+0.007, +0.032] W/L 56/31 | $0.0138 | 2.48 | unmeasured |
+| 4 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 4·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7702 (100) | 0.753 | 0.702 | 0.590 | 0.890 | +0.061 [+0.041, +0.081] W/L 69/21 | +0.012 [+0.001, +0.023] W/L 52/32 | $0.0138 | 2.48 | unmeasured |
+| 5 | **LLM reranker + safeguard (RERANKING BASELINE)**<br>`llm-mini-score-pilot+d=50+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; RRF of LLM order with retrieval order, c30 | covered | 0.7583 (100) | 0.736 | 0.720 | 0.640 | 0.870 | +0.049 [+0.035, +0.063] W/L 69/21 | itself | $0.0138 | 2.48 | 0.0033; 0.009 |
+| 6 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE, no reranker)**<br>`fusion-shortlist+a=1+d=500` | Retrieval baseline (Decision36) | None | covered | 0.7092 (100) | 0.689 | 0.697 | 0.610 | 0.860 | itself | -0.049 [-0.063, -0.035] W/L 21/69 | $0.0000 | 0.00 | deterministic |
+| - | LLM reranker + safeguard<br>`llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, average of two independent requests; RRF of LLM order with retrieval order, c30 | PROVISIONAL | 0.7724 (100) | 0.747 | 0.723 | 0.630 | 0.870 | itself | withheld | $0.0275 | parallel | unmeasured |
+| - | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50+avg2` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, average of two independent requests; sort by score, ties keep retrieval order | PROVISIONAL | 0.7629 (100) | 0.737 | 0.686 | 0.570 | 0.880 | itself | withheld | $0.0275 | parallel | unmeasured |
 
 ### Stage 1 — full retrieval leaderboard (fully judged)
 
@@ -960,6 +965,26 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 | `llm-mini-score-pilot+d=50` | question | 25 | 0.843 (25) | 0.860 | 1.000 | 0.585 | 0.440 | 0.800 | 0.840 | 0.920 | 0.920 | 0.932 |
 | `llm-mini-score-pilot+d=50` | paraphrase | 25 | 0.769 (25) | 0.768 | 1.000 | 0.493 | 0.320 | 0.720 | 0.800 | 0.840 | 0.840 | 0.958 |
 | `llm-mini-score-pilot+d=50` | known_item | 25 | 0.751 (25) | 0.680 | 1.000 | 0.980 | 0.960 | 1.000 | 1.000 | 1.000 | 1.000 | 0.967 |
+| `llm-mini-score-pilot+d=50+avg2` | keyword | 25 | 0.722 (25) | 0.736 | 0.908 | 0.618 | 0.520 | 0.800 | 0.840 | 0.920 | 1.000 | 0.948 |
+| `llm-mini-score-pilot+d=50+avg2` | question | 25 | 0.834 (25) | 0.812 | 0.916 | 0.644 | 0.480 | 0.840 | 0.920 | 0.920 | 0.920 | 0.932 |
+| `llm-mini-score-pilot+d=50+avg2` | paraphrase | 25 | 0.758 (25) | 0.732 | 0.944 | 0.503 | 0.320 | 0.760 | 0.760 | 0.800 | 0.840 | 0.958 |
+| `llm-mini-score-pilot+d=50+avg2` | known_item | 25 | 0.737 (25) | 0.668 | 0.944 | 0.980 | 0.960 | 1.000 | 1.000 | 1.000 | 1.000 | 0.967 |
+| `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | keyword | 25 | 0.763 (25) | 0.780 | 0.984 | 0.697 | 0.560 | 0.880 | 0.920 | 0.960 | 1.000 | 0.948 |
+| `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | question | 25 | 0.807 (25) | 0.816 | 1.000 | 0.646 | 0.520 | 0.760 | 0.800 | 0.920 | 0.920 | 0.932 |
+| `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | paraphrase | 25 | 0.774 (25) | 0.736 | 1.000 | 0.550 | 0.440 | 0.680 | 0.760 | 0.840 | 0.840 | 0.958 |
+| `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | known_item | 25 | 0.745 (25) | 0.656 | 0.996 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 0.967 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | keyword | 25 | 0.755 (25) | 0.800 | 1.000 | 0.665 | 0.560 | 0.800 | 0.880 | 0.920 | 1.000 | 0.948 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | question | 25 | 0.844 (25) | 0.860 | 1.000 | 0.606 | 0.480 | 0.840 | 0.840 | 0.920 | 0.920 | 0.932 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | paraphrase | 25 | 0.773 (25) | 0.772 | 1.000 | 0.493 | 0.320 | 0.720 | 0.800 | 0.840 | 0.840 | 0.958 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | known_item | 25 | 0.750 (25) | 0.676 | 1.000 | 0.980 | 0.960 | 1.000 | 1.000 | 1.000 | 1.000 | 0.967 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | keyword | 25 | 0.759 (25) | 0.800 | 1.000 | 0.690 | 0.600 | 0.840 | 0.920 | 0.960 | 1.000 | 0.948 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | question | 25 | 0.836 (25) | 0.852 | 1.000 | 0.605 | 0.480 | 0.800 | 0.840 | 0.920 | 0.920 | 0.932 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | paraphrase | 25 | 0.772 (25) | 0.752 | 1.000 | 0.511 | 0.320 | 0.760 | 0.800 | 0.840 | 0.840 | 0.958 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | known_item | 25 | 0.745 (25) | 0.664 | 1.000 | 0.980 | 0.960 | 1.000 | 1.000 | 1.000 | 1.000 | 0.967 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | keyword | 25 | 0.761 (25) | 0.796 | 1.000 | 0.701 | 0.600 | 0.880 | 0.920 | 0.960 | 1.000 | 0.948 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | question | 25 | 0.823 (25) | 0.840 | 1.000 | 0.612 | 0.480 | 0.800 | 0.840 | 0.920 | 0.920 | 0.932 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | paraphrase | 25 | 0.759 (25) | 0.724 | 1.000 | 0.517 | 0.320 | 0.760 | 0.800 | 0.840 | 0.840 | 0.958 |
+| `llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | known_item | 25 | 0.738 (25) | 0.652 | 1.000 | 0.980 | 0.960 | 1.000 | 1.000 | 1.000 | 1.000 | 0.967 |
 | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | keyword | 25 | 0.760 (25) | 0.784 | 1.000 | 0.709 | 0.600 | 0.920 | 0.920 | 0.960 | 1.000 | 0.948 |
 | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | question | 25 | 0.785 (25) | 0.812 | 1.000 | 0.595 | 0.480 | 0.760 | 0.800 | 0.840 | 0.920 | 0.932 |
 | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | paraphrase | 25 | 0.752 (25) | 0.704 | 1.000 | 0.574 | 0.480 | 0.720 | 0.760 | 0.840 | 0.840 | 0.958 |
@@ -1171,8 +1196,12 @@ Sorted by diagnostic nDCG only; these runs are not eligible to win.
 - [graded-dev/report.md](../graded-dev/report.md) — historical report/configuration; original scope
 - [llm-reranker-pilot/report.json](../llm-reranker-pilot/report.json) — historical report/configuration; original scope
 - [llm-reranker-pilot/report.md](../llm-reranker-pilot/report.md) — historical report/configuration; original scope
+- [llm-score-blend/report.json](../llm-score-blend/report.json) — historical report/configuration; original scope
+- [llm-score-blend/report.md](../llm-score-blend/report.md) — historical report/configuration; original scope
 - [llm-score-dev100/report.json](../llm-score-dev100/report.json) — historical report/configuration; original scope
 - [llm-score-dev100/report.md](../llm-score-dev100/report.md) — historical report/configuration; original scope
+- [llm-score-pass2/report.json](../llm-score-pass2/report.json) — historical report/configuration; original scope
+- [llm-score-pass2/report.md](../llm-score-pass2/report.md) — historical report/configuration; original scope
 - [llm-score-pilot/judge-fill/report.json](../llm-score-pilot/judge-fill/report.json) — historical report/configuration; original scope
 - [llm-score-pilot/judge-fill/report.md](../llm-score-pilot/judge-fill/report.md) — historical report/configuration; original scope
 - [llm-score-pilot/report.json](../llm-score-pilot/report.json) — historical report/configuration; original scope

@@ -199,6 +199,47 @@ Repeated global fusion tuning is showing diminishing returns. See the
 [experiment/promotion findings](03-findings.md#23-rankscore-experiments-and-recall-preserving-baseline)
 and [interaction experiment design](02-decisions.md#37-local-query-document-interaction-and-field-score-experiments-2026-10-29).
 
+## Reranker follow-ups after Decision 45
+
+**Diagnosis (cached responses, no API calls).** The safeguard keeps the reranker
+gain on keyword queries but gives back 0.058 of it on question queries, where the
+LLM was right. Keyword losses come from the LLM under-scoring terse queries
+(q-keyword-009: source paper scored 0/4). LLM scores line up with the judge only at
+the correct candidate position (correlation 0.53 vs ≈0 when shifted one position),
+so the losses are not a label mix-up.
+
+**A: score-aware blend ([report](../data/results/llm-score-blend/report.md)), free.**
+Rule `LLM score + β·31/(30 + retrieval rank)`. One formula for every query, c
+reused from the baseline, β ∈ {2, 3, 4} fixed before scoring.
+
+| System | nDCG@10 | Source MRR@10 | Run-to-run MDD (20-query repeat) |
+|---|---|---|---|
+| Safeguard (reranking baseline) | 0.7583 | 0.720 | 0.011 |
+| Blend β=2 | 0.7804 | 0.686 | 0.017 |
+| Blend β=4 | 0.7702 | 0.702 | 0.014 |
+
+β=4 met the pre-registered checks (+0.012 nDCG, CI lower bound +0.001), but the
+gain is inside its own run-to-run noise and it costs 0.017 source MRR. It is a
+different point on the same trade-off curve, not a better system. **Not promoted.**
+
+**B: two-pass score averaging ([report](../data/results/llm-score-pass2/report.md)), $1.10 + $0.04 judge.**
+Sent the identical top-50 request a second time and averaged the two 0-4 scores
+before the unchanged safeguard. Scored on shared labels plus 72 new top-10
+grades (the reference is rescored on the same labels: 0.7521).
+
+| System | nDCG@10 | Δ vs safeguard [95% CI] | Source MRR@10 | Cost / query |
+|---|---|---|---|---|
+| Safeguard (reranking baseline) | 0.7521 | — | 0.720 | $0.014 |
+| Two-pass average + safeguard | 0.7684 | +0.016 [+0.009, +0.024] | 0.723 | $0.028 |
+| Two-pass average, no safeguard | 0.7877 | +0.036 | 0.686 | $0.028 |
+
+Two-pass average + safeguard met every pre-registered check. The gain is above the
+100-query noise threshold (MDD 0.0106 single pass), shows up on both pilot20
+(+0.022) and new80 (+0.015) queries, improves all four query types, and keeps
+source MRR. 30% of single-pass LLM scores change between identical requests, so
+averaging removes real noise rather than tuning to dev. The cost is that it
+doubles the LLM spend per query. **Awaiting promotion decision.**
+
 ## Unified leaderboard
 
 The [dev leaderboard](05-results.md#unified-dev-scorecard) includes saved BM25,

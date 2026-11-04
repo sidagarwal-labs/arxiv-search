@@ -1,0 +1,12 @@
+{
+  "attempted_uncached_no_retry": 0,
+  "expected_tokens": 1606565,
+  "expected_usd": 1.309923675,
+  "max_single_reservation_tokens": 104268,
+  "new_requests": 80,
+  "pass2_cap_usd": 1.4,
+  "pass2_spent_usd": 0.0,
+  "serialized_input_token_estimate": 1435059,
+  "shared_remaining_tokens_today": 2500000,
+  "worst_case_usd": 1.552563675
+}

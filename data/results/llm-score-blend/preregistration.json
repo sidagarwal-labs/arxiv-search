@@ -1,0 +1,25 @@
+{
+  "automatic_promotion": false,
+  "betas": [
+    2,
+    3,
+    4
+  ],
+  "c": 30,
+  "depth": 50,
+  "generalization_guard": "Same formula for all queries; no query-type/ID/label inputs; grid fixed a priori; held-out queries never touched.",
+  "held_out_queries_used": false,
+  "hypothesis": "Keeping the 0-4 LLM score and adding a smooth retrieval-rank prior keeps more of the top50 gain than rank-only RRF while protecting strong retrieval matches.",
+  "inputs": "Cached llm-score-dev100 responses (one pass, 100 dev queries); no reranker calls.",
+  "labels": "shared-labels/labels.json; unjudged top10 pairs graded by the frozen judge (human overrides preserved) before scoring.",
+  "qualifies_if": {
+    "consistency": "nDCG delta vs reference > 0 on both the pilot20 and new80 subsets",
+    "fully_judged_top10": true,
+    "ndcg@10_delta_vs_reference": "> the reference's run-to-run MDD (0.009) with paired 95% CI lower bound > 0",
+    "source_mrr@10": ">= reference - 0.02"
+  },
+  "reference": "llm-mini-score-pilot+d=50+rrf-baseline+c=30",
+  "rule": "blended = LLM score + beta*(c+1)/(c+retrieval rank) over the top50; ties keep retrieval order; ranks 51-100 unchanged.",
+  "selection": "Among qualifiers, highest all-100 nDCG@10; 3 configs on dev, so the winner's gain is optimistic. Report all configs.",
+  "version": "score-blend-v1"
+}

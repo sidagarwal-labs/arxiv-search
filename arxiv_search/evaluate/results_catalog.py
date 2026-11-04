@@ -25,7 +25,7 @@ FIELDS = ("ndcg@10", "precision@10", "judged@10", "source_mrr@10",
           "source_recall@1", "source_recall@5", "source_recall@10", "source_recall@20",
           "source_recall@50", "grade2_recall@50")
 LEGACY_FIELDS = FIELDS[:8]  # fields frozen reviews were computed with (pre-Decision45)
-STAGE2_FOLDERS = ("llm-score-dev100",)  # full-dev reranker runs; 20-query pilots are subsets
+STAGE2_FOLDERS = ("llm-score-dev100", "llm-score-blend", "llm-score-pass2")  # full-dev only
 # Promoted or turning-point retrieval systems, oldest first (also charted in 06-charts.md).
 RETRIEVAL_MILESTONES = (
     ("Tuned BM25", "bm25+exact+stems+authors+title2x+k1=0.8,b=0.75"),
@@ -333,13 +333,22 @@ def describe_system(name: str) -> dict[str, str]:
     if name.startswith("llm-mini-score-pilot+"):
         opts = dict(p.split("=", 1) for p in name.split("+")[1:] if "=" in p)
         safeguard = "+rrf-baseline+" in name
+        blend = "+blend-rank-prior+" in name
+        passes = "average of two independent requests" if "+avg2" in name else "one request"
+        if blend:
+            tail = (f"; sort by score + {opts['b']}·31/({opts['c']}+retrieval rank), "
+                    "ties keep retrieval order")
+        elif safeguard:
+            tail = f"; RRF of LLM order with retrieval order, c{opts['c']}"
+        else:
+            tail = "; sort by score, ties keep retrieval order"
         return {
-            "name": "LLM reranker + safeguard" if safeguard else "LLM reranker (scores only)",
+            "name": ("LLM reranker + rank blend" if blend else "LLM reranker + safeguard"
+                     if safeguard else "LLM reranker (scores only)"),
             "lexical": "Retrieval baseline candidates (tuned BM25)",
             "embedding": models["openai-large"] + " (retrieval baseline)",
-            "ranker": f"GPT-5.4 mini scores retrieval-baseline top{opts['d']} 0-4 in one "
-                      "request" + (f"; RRF of LLM order with retrieval order, c{opts['c']}"
-                                   if safeguard else "; sort by score, ties keep retrieval order"),
+            "ranker": f"GPT-5.4 mini scores retrieval-baseline top{opts['d']} 0-4, "
+                      f"{passes}{tail}",
         }
     if name.startswith("oai-field-recovery+"):
         opts = dict(p.split("=", 1) for p in name.split("+")[1:])
@@ -512,8 +521,11 @@ def stage2_systems(root: Path, snapshot: dict, papers: dict, queries: dict,
                 continue
             if name in runs:
                 raise ValueError(f"Duplicate Stage 2 system {name}")
+            folder_report = root / folder / "report.json"
+            per_query = (json.loads(folder_report.read_text(encoding="utf-8"))
+                         .get("cost_per_query_usd") if folder_report.exists() else None)
             runs[name] = {"run": run, "paths": [path.relative_to(root).as_posix()],
-                          "metadata": {}}
+                          "metadata": {}, "cost_per_query_usd": per_query, "folder": folder}
     if not runs:
         return {}
     if retrieval not in stage1:
@@ -521,7 +533,9 @@ def stage2_systems(root: Path, snapshot: dict, papers: dict, queries: dict,
     runs[retrieval] = {"run": json.loads((root / stage1[retrieval]["paths"][0])
                                          .read_text(encoding="utf-8")),
                        "paths": stage1[retrieval]["paths"], "metadata": {}}
-    systems = score_catalog(runs, snapshot, papers, queries, dev_ids,
+    systems = score_catalog({n: {k: v for k, v in r.items()
+                                 if k not in ("cost_per_query_usd", "folder")}
+                             for n, r in runs.items()}, snapshot, papers, queries, dev_ids,
                             config.RERANK_BASELINE_SYSTEM)
     report = json.loads((root / config.RERANK_BASELINE_RUN_DIR / "report.json")
                         .read_text(encoding="utf-8"))
@@ -541,7 +555,11 @@ def stage2_systems(root: Path, snapshot: dict, papers: dict, queries: dict,
             "paired_ndcg_vs_reranking_baseline": (
                 _paired(rerank, result) if rerank and name != config.RERANK_BASELINE_SYSTEM
                 else None),
-            "cost": ({"usd_per_query": spend["accounted_usd"] / spend["requests"],
+            "cost": ({"usd_per_query": runs[name]["cost_per_query_usd"],
+                      "api_seconds_per_query": None,
+                      "scope": f"{runs[name]['folder']}/report.json (multiple LLM passes)"}
+                     if is_llm and runs[name].get("cost_per_query_usd") is not None else
+                     {"usd_per_query": spend["accounted_usd"] / spend["requests"],
                       "api_seconds_per_query": spend["api_seconds"] / spend["requests"],
                       "scope": f"{spend['requests']} uncached {config.RERANK_BASELINE_RUN_DIR} "
                                "requests; pilot queries reused cached responses"}
@@ -593,7 +611,8 @@ def _stage2_table(systems: dict) -> str:
                  _signed(result["paired_ndcg_vs_retrieval_baseline"], "itself"),
                  _signed(result["paired_ndcg_vs_reranking_baseline"],
                          "itself" if result["reranking_baseline"] else "withheld"),
-                 f"${cost['usd_per_query']:.4f}", f"{cost['api_seconds_per_query']:.2f}",
+                 f"${cost['usd_per_query']:.4f}", (f"{cost['api_seconds_per_query']:.2f}" if cost["api_seconds_per_query"] is not None
+                  else "parallel"),
                  (f"{noise['est_sd_of_100q_mean']:.4f}; {noise['min_detectable_difference']:.3f}"
                   if noise else "deterministic" if result["retrieval_baseline"] else "unmeasured")]
         lines.append("| " + " | ".join(cells) + " |")

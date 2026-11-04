@@ -26,13 +26,17 @@ DEV100_MAX_REQUESTS = 80  # The 80 dev queries the v2 pilot did not cover, top50
 REPEAT_VERSION = "scores-repeat-v1"
 REPEAT_TASK_CAP = 350_000_000  # Decision44: 20 identical top50 requests, expected ~$0.28.
 REPEAT_MAX_REQUESTS = 20
-VERSIONS = ("list-v1", "scores-v2", DEV100_VERSION, REPEAT_VERSION)
+PASS2_VERSION = "scores-pass2-v1"
+PASS2_TASK_CAP = 1_400_000_000  # Second identical pass for the 80 non-pilot dev queries, expected ~$1.10.
+PASS2_MAX_REQUESTS = 80
+VERSIONS = ("list-v1", "scores-v2", DEV100_VERSION, REPEAT_VERSION, PASS2_VERSION)
 
 
 def separate_caps() -> dict[str, tuple[int, int]]:
     """Versions with their own dollar/request ceiling; the pilots share TASK_CAP."""
     return {DEV100_VERSION: (DEV100_TASK_CAP, DEV100_MAX_REQUESTS),
-            REPEAT_VERSION: (REPEAT_TASK_CAP, REPEAT_MAX_REQUESTS)}
+            REPEAT_VERSION: (REPEAT_TASK_CAP, REPEAT_MAX_REQUESTS),
+            PASS2_VERSION: (PASS2_TASK_CAP, PASS2_MAX_REQUESTS)}
 
 
 def repeat_key(encoded: bytes, run: int = 1) -> str:
@@ -166,7 +170,8 @@ def validate_answer(value: dict, size: int) -> Ranking:
 
 class PilotLedger(api.Ledger):
     def __init__(self, path: Path | None = None, *,
-                 version: Literal["list-v1", "scores-v2", "scores-dev100", "scores-repeat-v1"] = "list-v1"):
+                 version: Literal["list-v1", "scores-v2", "scores-dev100", "scores-repeat-v1",
+                                      "scores-pass2-v1"] = "list-v1"):
         if version not in VERSIONS:
             raise ValueError("Unknown reranker experiment version")
         self.version = version

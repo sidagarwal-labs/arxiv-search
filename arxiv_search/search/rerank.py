@@ -16,6 +16,22 @@ def rerank_prefix(ranking: list[str], scores: dict[str, float], depth: int) -> l
     return sorted(selected, key=lambda p: -scores[p]) + ranking[depth:]
 
 
+def score_rank_blend(ranking: list[str], scores: dict[str, float], depth: int,
+                     beta: float, c: int) -> list[str]:
+    """Order the top `depth` by LLM score + beta * (c+1)/(c+retrieval rank).
+
+    The retrieval prior is worth `beta` points at rank 1 and decays smoothly, so a
+    large LLM score gap still wins while near-ties fall back to retrieval evidence.
+    Ties keep retrieval order; ranks below `depth` are unchanged.
+    """
+    if not math.isfinite(beta) or beta < 0 or type(c) is not int or c < 0:
+        raise ValueError("beta must be finite and >= 0; c a nonnegative int")
+    rank = {p: i for i, p in enumerate(ranking[:depth], 1)}
+    blended = {p: scores[p] + beta * (c + 1) / (c + rank[p]) if p in scores else math.nan
+               for p in rank}
+    return rerank_prefix(ranking, blended, depth)
+
+
 def rerank_pool(pool: list[str], scores: dict[str, float], baseline: list[str],
                 *, cross_weight: float = 1.0, k: int = 100) -> list[str]:
     """Pure cross-encoder or rank blend; ties retain the declared pool order."""
