@@ -7,44 +7,33 @@ The project treats search quality as a measurement problem. Every ranking change
 tested on the same development queries before it becomes the working baseline, and
 a 300-query held-out test set is reserved for the final evaluation.
 
-## Highlights
+<a id="highlights"></a>
+
+## What this project demonstrates
 
 - **Hybrid retrieval:** BM25 keyword search and OpenAI `text-embedding-3-large`
   semantic search, combined with rank fusion and score-based reordering.
-- **Measured progress:** on the same 3,533-pair label layer, nDCG@10 rose from
-  **0.5090** (tuned BM25) to **0.7036** (hybrid retrieval) and **0.7684**
-  (two-pass LLM reranking) on 100 development queries.
-- **Evaluation set:** 400 LLM-generated keyword, question, paraphrase and
-  known-item queries, split into 100 development and 300 held-out test queries.
-- **Calibrated LLM judge:** GPT-5.4 mini grades relevance offline. Against
-  100 reference labels from a higher-reasoning model (GPT-6 ASTRA), it reached
-  **77% exact agreement** and **0.802 quadratic kappa**, with no opposite (0 vs. 2)
-  grades. This is model-to-model agreement; no human labels exist yet.
-- **Cost-controlled experiments:** cached embeddings and rankings make most
-  experiments free to rerun. Paid API steps run under explicit budget caps; the
-  full-corpus OpenAI embeddings cost $0.74.
+- **Evaluation discipline:** frozen query splits, shared relevance labels,
+  paired comparisons, noise checks and explicit promotion gates.
+- **Grounded answers:** model selection based on citation quality, faithfulness,
+  abstention, cost and latency, not fluency alone.
+- **Engineering tradeoffs:** cached experiments, API budget controls and
+  measured storage compression. Failed experiments remain part of the evidence.
 
 ## How it works
 
-```
- 1. DOWNLOAD     →   2. CLEAN UP     →   3. SEARCH        →   4. TEST          →   5. ANSWER
- arXiv catalog       23,304 papers       BM25 + embeddings     400 test queries     LLM answers
- (raw pages)         (corpus.jsonl)      find top papers       score each method    using top papers
-```
+Download and clean title/abstract records, retrieve candidates, rerank them,
+then generate cited answers. Evaluate each stage separately.
 
-The offline search and development-evaluation pipeline is built. A
-[mock-backed search UI](web/README.md) is being developed locally; its demo
-ranking and summaries are not measurements of the real system. Backend/API
-integration, retrieval-augmented answers and public deployment remain pending.
+Retrieval, reranking and cited answer generation have been evaluated offline.
+Serving: **local preview, not deployed**. Saved experiment timings are not
+end-to-end production latency.
 
 ## Current working baselines
 
-Search runs in two stages ([Decision 45](docs/02-decisions.md#45-safeguard-promoted-as-the-reranking-baseline-two-stage-leaderboard-2026-11-03)):
-**Stage 1 retrieval** (Decision 36, free and deterministic) finds candidates;
-**Stage 2 reranking** asks GPT-5.4 mini to score the top 50 twice and blends that order with the
-retrieval order (Decision 46), then re-scores the top 20 on a finer scale
-([Decision 47](docs/02-decisions.md#47-top-20-refinement-promoted-as-the-reranking-baseline-2026-11-04)). GPT-5.4 mini also grades results offline as the judge
-and writes the AI summary ([Decision 48](docs/02-decisions.md#48-gpt-54-mini-writes-the-ai-summary-2026-11-04)).
+Stage 1 finds candidates; Stage 2 reranks them. GPT-5.4 mini also serves as the
+offline relevance judge and the selected answer writer. These roles have
+separate prompts and evaluations.
 
 | Component | Current selection |
 |---|---|
@@ -57,8 +46,7 @@ and writes the AI summary ([Decision 48](docs/02-decisions.md#48-gpt-54-mini-wri
 
 Exact weights, model snapshot and cached timing scope are in the
 [configuration details](docs/10-reproduction-guide.md#selected-configuration-details).
-Reranker scores vary between calls; live serving must account for caching and
-retrieval fallback. Hosted vector storage and real RAG are not deployed.
+Reranker scores vary between calls; offline evaluation is not a serving guarantee.
 
 ## Development results
 
@@ -72,9 +60,8 @@ retrieval fallback. Hosted vector storage and real RAG are not deployed.
 | Stage 2: + LLM top-50 reranker, two passes averaged (Decision 46) | 0.7652 | 0.7232 | 87% |
 | **Stage 2: + top-20 refinement, keep rank 1 (current, Decision 47)** | **0.7939** | **0.7383** | **92%** |
 
-- **nDCG@10:** graded relevance of the top 10 results, using 0/1/2 labels.
-- **Source MRR@10:** how high the paper each query was written from appears.
-- **Source R@10:** share of queries whose source paper appears in the top 10.
+nDCG measures graded relevance; source MRR measures the source paper's rank;
+source recall measures whether it appears in the top 10.
 
 <a id="historical-retrieval-milestones"></a>
 
@@ -89,36 +76,34 @@ held-out test has not been run. Judge/reranker model-family overlap and the lack
 of human validation limit quality claims. Milestones can change several settings,
 so their gains are not isolated causal effects.
 
-### Tested but not adopted
+<a id="tested-but-not-adopted"></a>
+
+### Lessons from experiments
 
 - Unrestricted score fusion traded source-paper recall for graded relevance.
 - Local MiniLM cross-encoder reranking regressed on the measured task.
 - Separate title/abstract embeddings did not justify promotion.
 - LLM scores without the safeguard improved graded relevance but hurt source ranking.
+- Compression changed the tradeoff: full-dimensional float16 nearly preserved
+  retrieval quality, while reducing dimensions lost candidate overlap.
 
-The [experiment log](docs/07-experiment-log.md) has the full history, budgets and
-caveats.
+The [experiment digest](docs/07-experiment-log.md#recent-experiments-at-a-glance)
+connects hypotheses, outcomes and lessons to detailed reports.
 
 ## Status
 
-- [x] Download and clean 23,304 papers
-- [x] Keyword, embedding and hybrid search, tuned on development queries
-- [x] Evaluation tooling: 400 queries, metrics, results table, calibrated LLM judge and full development evaluation
-- [ ] Final held-out test on 300 queries
-- [ ] Human validation of judge labels (none collected yet)
-- [ ] Retrieval-augmented answers with an LLM
-- [ ] Integrate the locally developed mock-backed UI with the real API
-- [ ] Public deployment and serving measurements
+**Selected:** Decision 47 reranking and Decision 48 AI summaries.
+**In progress:** Experiment L.
+**Still open:** final held-out evaluation, human validation, public deployment
+and end-to-end serving measurements.
 
 ## Read more
 
-Start with the current baselines above, then the generated results and charts.
-Decisions, findings and the experiment log preserve the learning history; older
-plans and controls are not necessarily current configurations.
+Older plans and controls in the learning history are not necessarily current selections.
 
 | Doc | What's in it |
 |---|---|
-| [How it works](docs/01-how-it-works.md) | Every step and every file in plain English, plus the folder layout |
+| [How it works](docs/01-how-it-works.md) | Architecture, worked examples and historical walkthroughs |
 | [Decisions](docs/02-decisions.md) | Every choice and why it was made |
 | [Findings](docs/03-findings.md) | Measurements behind the decisions |
 | [Glossary](docs/04-glossary.md) | What BM25, embedding, MRR, etc. mean |
@@ -126,45 +111,21 @@ plans and controls are not necessarily current configurations.
 | [Charts](docs/06-charts.md) | Hill-climbing milestones (retrieval + reranker), latest Stage 1 and Stage 2 scores, and measured remaining headroom |
 | [Experiment log](docs/07-experiment-log.md) | Detailed experiment history, budgets and caveats |
 | [Provenance and retention](docs/08-provenance-and-retention.md) | Experiment evidence checklist and what maintenance must preserve |
-| [Labeler comparison](docs/09-labeler-comparison.md) | Matched-pair comparisons and GPT-6 ASTRA reference-label provenance |
+| [Labeler comparison](docs/09-labeler-comparison.md) | Separate relevance-label and answer-grading provenance |
 | [Reproduction guide](docs/10-reproduction-guide.md) | Setup, historical milestones, local reproduction and explicitly separated API-spending commands |
-| [Web UI](web/README.md) | Local demo, API contract and deployment plan; not live benchmark evidence |
 
-Repository maintenance follows [the working rules](AGENTS.md): investigate,
-coordinate with development, propose exact changes, obtain user approval, then
-apply and verify. Cleanup does not automatically delete historical experiments
-or promote a new baseline.
+Maintenance follows [the working rules](AGENTS.md).
 
 ## Run it
 
 **Read results without setup:** open the [complete metrics tables](data/results/catalog-dev/report.md)
 or [charts](docs/06-charts.md). No credentials or model calls are needed.
 
-**Local development setup:**
+<a id="quick-offline-experiment-loop"></a>
+<a id="folders"></a>
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[dev,experiments]"   # experiments = embedding models
-.\.venv\Scripts\python.exe -m pytest -q
-```
-
-For corpus/index reconstruction and model experiments, follow the
-[reproduction guide](docs/10-reproduction-guide.md). API steps require relevant
-credentials and separate approval; do not run the historical commands as a
-blanket setup script.
-
-### Quick offline experiment loop
-
-The [cached-experiment commands](docs/10-reproduction-guide.md#cached-experiment-loop)
-preserve the historical controls. They require the original local inputs and can
-write derived reports; they are not necessary just to inspect the metrics.
-
-## Folders
-
-```
-arxiv_search/       the system (settings in config.py)
-tests/              automatic checks
-experiments/        one-off measurements
-docs/               explanations
-data/               eval queries, labels and results are in git; downloads, corpus and embeddings are rebuilt locally
-```
+For [local setup](docs/10-reproduction-guide.md#local-environment-and-input-requirements)
+and [cached experiments](docs/10-reproduction-guide.md#cached-experiment-loop),
+use the reproduction guide. Full replay needs original local artifacts.
+API steps require credentials and separate approval; historical commands are
+not a blanket setup script.

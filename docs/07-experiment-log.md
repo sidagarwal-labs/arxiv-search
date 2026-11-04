@@ -30,6 +30,27 @@ Maintenance follows [provenance and retention](08-provenance-and-retention.md).
 - [Complete metrics tables](../data/results/catalog-dev/report.md): all systems
   and query-type comparisons, not only the selected summaries on this page.
 
+## Recent experiments at a glance
+
+Read this digest for the learning trajectory; use the linked reports for exact
+metrics, frozen checks and costs. Rows have different scopes and label layers,
+so their scores must not be joined into a new leaderboard.
+
+| Experiment / hypothesis | Outcome | Lesson and evidence |
+|---|---|---|
+| Two-pass scoring: averaging identical requests reduces reranker noise | Promoted as Decision 46; now a historical control | Repetition can improve stability, but doubles calls. [Report](../data/results/llm-score-pass2/report.md) |
+| D: a requirement checklist makes relevance scoring more precise | Not adopted | More explicit reasoning need not improve ranking. [Finding 33](03-findings.md#33-experiment-d-a-requirement-checklist-made-the-reranker-worse-2026-11-03) |
+| E: refine the top 20 on a finer score scale | Failed the pilot source-ranking guard | Better graded relevance is not enough to preserve known-paper lookup. [Pilot](../data/results/llm-score-refine/pilot-report.md) |
+| E2: refine while preserving Decision 46 rank 1 | Promoted as Decision 47, current reranking baseline | Confirm on queries not used to design the rule; the pin's benefit did not replicate on new80. [Finding 36](03-findings.md#36-experiment-e2-refinement-holds-up-on-80-unseen-queries-2026-11-04) |
+| Compression: lower precision versus fewer dimensions | Full-dimensional float16 recommended in the findings; no ranking-baseline change | Storage and candidate overlap must be measured together. This Stage 1 check is not Stage 2 parity evidence. [Report](../data/results/embedding-compression/report.md), [interpretation](03-findings.md#34-storing-the-embeddings-smaller-for-hosting-2026-11-04) |
+| Answer evaluation: choose the cheapest qualifying grounded-answer model | GPT-5.4 mini selected as Decision 48 | Citation precision alone misses unsupported claims; compare faithfulness, format and abstention too. [Report](../data/results/answer-eval/report.md), [grader provenance](09-labeler-comparison.md#answer-evaluation-terra-full-set-and-astra-sample) |
+| Experiment L | In progress | No result claim. |
+
+Decision 47's comparable ranking metrics use the 3,579-pair
+`shared-labels/labels-d47.json` snapshot in the
+[current results](05-results.md). Decision 48's answer comparison used
+Decision 46 evidence; it is a separate evaluation, not another retrieval score.
+
 ## Best measured scores by scope
 
 Keep benchmark scopes separate: these rows use different corpora, label pools or purposes.
@@ -264,9 +285,13 @@ averaging removes real noise rather than tuning to dev. The cost is that it
 doubles the LLM spend per query.
 
 **Promoted ([Decision 46](02-decisions.md#46-two-pass-score-averaging-promoted-as-the-reranking-baseline-2026-11-03)):**
-two-pass average + safeguard is the reranking baseline. Its 72 grades form the new
+two-pass average + safeguard became the reranking baseline at that point. Its 72 grades form the new
 shared layer `shared-labels/labels-d46.json` (3,533 pairs). With the two requests
 sent in parallel, p50 latency is 2.9 s vs 2.4 s for one pass.
+
+It was subsequently superseded by Decision 47; keep these historical numbers
+on their original label layer. The [digest](#recent-experiments-at-a-glance)
+links the later refinement and answer-model decisions.
 
 ## Unified leaderboard
 

@@ -52,7 +52,12 @@ and configuration records. The full metrics have not been removed:
 - [Complete catalog](../data/results/catalog-dev/report.md): all-system and segment tables.
 - [Machine catalog](../data/results/catalog-dev/report.json): detailed metrics and provenance.
 - [Findings](03-findings.md): measurements, failures and limitations.
-- [Labeler comparison](09-labeler-comparison.md): ASTRA reference provenance, not human validation.
+- [Labeler comparison](09-labeler-comparison.md): separate ASTRA relevance references
+  and Terra/ASTRA answer grading; neither is human validation.
+- [Answer-model report](../data/results/answer-eval/report.md): Decision 48 selection
+  using Decision 46 evidence, with cost, latency and quality tradeoffs.
+- [Recent experiment digest](07-experiment-log.md#recent-experiments-at-a-glance):
+  hypotheses, outcomes and links to the original evidence.
 
 ## Local environment and input requirements
 

@@ -1,7 +1,8 @@
 # How It Works
 
-A plain-English tour of the system: what each step does, which file does it, and what it
-produces. Read this before the code.
+A plain-English architecture tour with worked examples and preserved experiments.
+Use the reading route below for the current system; expand the historical
+walkthroughs for earlier designs.
 
 ## Current state versus learning history
 
@@ -11,10 +12,9 @@ For selected configurations and current scores, start with the
 and experiment designs; those sections are learning history, not a claim that
 every former model or plan remains selected.
 
-Offline hybrid retrieval and LLM reranking have been evaluated on dev. A
-[mock-backed UI](../web/README.md) is being developed locally; real API integration,
-RAG, final held-out evaluation, human validation and public deployment remain
-open work. Demo outputs are not measured live-search results.
+Hybrid retrieval, LLM reranking and cited answer generation have been evaluated
+on dev. Serving: **local preview, not deployed**. Final held-out evaluation and
+human validation remain open; offline timings are not production measurements.
 Detailed measurements belong in [Findings](03-findings.md), with
 [provenance and retention](08-provenance-and-retention.md) governing maintenance.
 
@@ -26,13 +26,17 @@ Detailed measurements belong in [Findings](03-findings.md), with
    [dense search](#step-3b-meaning-search-embeddings-searchdensepy) and
    [hybrid fusion](#step-3c-hybrid-search-searchhybridpy) supply candidates.
 3. Reranking: the [current configuration](../README.md#current-working-baselines)
-   averages two GPT-5.4 mini scoring passes over the top 50 and applies the
-   retrieval-order safeguard. The experiments below explain how we got there.
+   averages two GPT-5.4 mini scoring passes over the top 50, applies the
+   retrieval-order safeguard, then refines the top 20 with two more passes
+   while keeping the previous rank 1 (Decision 47).
 4. Evaluation: [metrics](#step-4-scoring-evaluatemetricspy),
    [experiment tooling](#step-4c-experiments-evaluateexperimentspy) and the
    [judge](#step-4d-llm-relevance-judge-evaluatejudgepy-judge_promptspy-judge_pilotpy)
    measure source ranking, graded relevance and coverage.
-5. Evidence: [complete metrics tables](../data/results/catalog-dev/report.md),
+5. Answers: GPT-5.4 mini uses top-10 evidence with citations or abstains
+   (Decision 48). Read the [answer evaluation](../data/results/answer-eval/report.md)
+   separately from retrieval metrics; its experiment used Decision 46 evidence.
+6. Evidence: [complete metrics tables](../data/results/catalog-dev/report.md),
    [charts](06-charts.md) and [labeler provenance](09-labeler-comparison.md).
 
 For setup and commands grouped by cost/side effects, use the
@@ -41,36 +45,23 @@ For setup and commands grouped by cost/side effects, use the
 ## The big picture
 
 ```
- 1. DOWNLOAD        2. CLEAN UP          3. SEARCH              4. TEST
- ───────────        ──────────           ──────────             ──────────
- arXiv website  →   one tidy file    →   find papers for    →   did we find the
- (raw pages)        of 23,304 papers     a user's query         right papers?
+ arXiv pages -> title/abstract corpus -> BM25 + dense retrieval
+             -> top-50 reranking -> top-20 refinement -> cited answer
+                         |                  |                 |
+                         +------- offline evaluation ---------+
 ```
 
-| Step | Status | In one sentence |
-|---|---|---|
-| 1. Download | ✅ Done | Ask arXiv for every paper in three categories from the last year, and save its answers untouched. |
-| 2. Clean up | ✅ Done | Turn those saved pages into one row per paper, and keep only the papers we want. |
-| 3. Search | ✅ Offline pipeline built | BM25, embeddings, hybrid retrieval and LLM reranking evaluated on development queries; live deployment remains planned. |
-| 4. Test | 🔨 Final validation pending | Evaluation tooling and 100-query dev runs complete; 300 held-out queries and fresh human validation remain pending. |
-| 5. Answer (RAG) | Planned integration | The UI can demonstrate cited summaries with mock data; real grounded generation remains pending. |
-| 6. Website | Local UI in development | Mock-backed page built locally; API integration and public deployment remain pending. |
+The corpus is title/abstract evidence, not full text. Retrieval finds candidates;
+reranking changes their order; answer generation must support claims from the
+supplied evidence. Each stage needs its own evaluation rather than borrowing
+another stage's score.
 
 ## Recommended reading order
 
-1. [`config.py`](../arxiv_search/config.py): every setting in one place
-2. [`download.py`](../arxiv_search/ingest/download.py): step 1
-3. [`parse.py`](../arxiv_search/ingest/parse.py): step 2a
-4. [`clean.py`](../arxiv_search/ingest/clean.py): step 2b
-5. [`test_ingest.py`](../tests/test_ingest.py): small examples showing exactly what steps 1–2 do
-6. [`metrics.py`](../arxiv_search/evaluate/metrics.py): step 4 scoring, with
-   [`test_metrics.py`](../tests/test_metrics.py) as worked examples
-7. [`prompts.py`](../arxiv_search/evaluate/prompts.py): the exact words we send the LLM to
-   write test queries, then [`make_queries.py`](../arxiv_search/evaluate/make_queries.py)
-8. [`text.py`](../arxiv_search/search/text.py) and [`bm25.py`](../arxiv_search/search/bm25.py):
-   step 3 keyword search, with [`test_bm25.py`](../tests/test_bm25.py) as a worked example
-9. [`experiments.py`](../arxiv_search/evaluate/experiments.py): runs a search system on the
-   test queries and updates the [results table](05-results.md)
+Follow the architecture route above, then read the
+[experiment digest](07-experiment-log.md#recent-experiments-at-a-glance) for
+hypotheses and outcomes. Use [selected configuration details](10-reproduction-guide.md#selected-configuration-details)
+for current settings rather than treating historical examples as defaults.
 
 ---
 
@@ -761,92 +752,28 @@ largest gains/regressions with full abstracts, ranks, grades and label provenanc
 
 ## Settings (`config.py`)
 
-Every number that changes the results lives here, so nothing important is hidden inside the code.
-
-| Setting | Value | Meaning |
-|---|---|---|
-| `CATEGORIES` | cs.IR, cs.CL, cs.LG | Which arXiv areas we include |
-| `WINDOW_DAYS` | 365 | How far back to go |
-| `MAX_PER_CATEGORY` | 10,000 | Balancing cap |
-| `MIN_ABSTRACT_WORDS` | 20 | Shorter abstracts are treated as stubs |
-| `RANDOM_SEED` | 6188 | Makes random sampling repeatable |
-| `REQUEST_DELAY_SECONDS` | 3 | Politeness delay for arXiv |
-| `QUERY_WRITER_MODEL` | `gemma-4-31b-it` | LLM that writes test queries |
-| `JUDGES` | Gemma 4 31B (API) and Qwen 2.5 7B (local), piloted | LLMs that grade whether a result is relevant (Decision 33) |
-| `RAG_MODEL_CANDIDATES` | two Gemini models | LLMs we'll compare for writing answers |
-| `HOSTED_EMBEDDING_MODEL` | `gemini-embedding-2` (768 numbers) | A cloud embedding model to compare with local ones |
-| `RECALL_KS` | 1, 5, 10, 20 | Which top-k cutoffs Recall is reported at |
-| `MRR_CUTOFF` | 10 | Right paper below rank 10 scores 0 |
-| `NDCG_K` | 10 | nDCG looks at the top 10 |
-| `BOOTSTRAP_SAMPLES` | 1,000 | Redraws used for error bars |
-| `LLM_SECONDS_BETWEEN_CALLS` | 6 | At most 10 LLM calls a minute |
-| `LLM_MAX_RETRIES` | 6 | How often to retry when Google is busy |
-| `EVAL_QUERIES_PER_TYPE` | 100 | Test queries per type (× 4 types = 400) |
-| `EVAL_PAPERS_PER_CALL` | 4 | Papers per LLM call |
-| `EVAL_MAX_CALLS_PER_RUN` | 150 | Safety cap on calls per run |
-| `RUN_DEPTH` | 100 | Papers kept per query in experiments |
-| `BASELINE_SYSTEM` | `bm25-baseline` | The row every other system is compared with |
-| `EMBEDDING_MODELS` | minilm, bge-small, e5-small, gte-small | Local embedding models and their prefixes |
-| `EMBEDDING_BATCH_SIZE` | 32 | Papers embedded at a time |
+Use [selected configuration details](10-reproduction-guide.md#selected-configuration-details)
+for the active retrieval, reranking and answer profiles.
+[`config.py`](../arxiv_search/config.py) also retains historical controls;
+a configured model is not necessarily the selected model. Saved reports record
+the settings and fingerprints used for each experiment.
 
 ---
 
 ## Tests (`tests/`)
 
-Tests are small examples that check the code does what we say. They run in under a second
-without the internet.
+Tests serve as executable worked examples, not evidence that a model is relevant
+or faithful. Start with:
 
-**`test_ingest.py`** (uses a tiny made-up XML page):
-| Test | What it proves |
-|---|---|
-| `test_set_spec` | `cs.IR` is converted to arXiv's naming, `cs:cs:IR` |
-| `test_submitted_month_from_id` | `2308.09419` → `2023-08` |
-| `test_parse_page_extracts_fields_and_skips_deleted` | Fields are read correctly and deleted papers are skipped |
-| `test_resumption_token_and_errors` | The bookmark and the "no results" reply are both understood |
-| `test_clean_corpus_filters` | Duplicates, wrong categories, old papers, stubs and withdrawn papers are all removed |
-| `test_stratified_sample_caps_and_is_deterministic` | The cap works, and the same seed gives the same papers |
+- [Ingestion](../tests/test_ingest.py): parsing, filtering and repeatable sampling.
+- [Metrics](../tests/test_metrics.py): hand-checkable relevance scores and intervals.
+- [BM25](../tests/test_bm25.py) and [hybrid fusion](../tests/test_hybrid.py):
+  scoring, ties and ranking consistency.
+- [Judge](../tests/test_judge.py): grade mapping, validation and cache boundaries.
 
-**`test_metrics.py`** (18 tests, papers named A–E so you can check each number by hand):
-
-| Tests | What they prove |
-|---|---|
-| `test_recall_*` | One answer → hit or miss; several answers → share found; grade 0 doesn't count |
-| `test_reciprocal_rank*` | 1 ÷ rank; the first relevant paper counts; rank 11 scores 0 |
-| `test_dcg_*`, `test_ndcg_*` | The worked example above (0.670); perfect = 1; unjudged = 0; no relevant papers → left out |
-| `test_judged_at_k` | 2 of 5 graded → 0.4 |
-| `test_score_run_*` | Skipping a query scores 0 rather than being ignored |
-| `test_bootstrap_*`, `test_paired_*` | Intervals contain the mean, the same seed gives the same answer, a consistent +0.1 gain is detected |
-| `test_summarize_groups` | Per-group averages are correct |
-
-**`test_make_queries.py`** (16 tests, using a fake LLM so no internet or quota is needed):
-
-| Tests | What they prove |
-|---|---|
-| plan tests | 400 slots, 100 per type, 300 specific / 100 broad, categories balanced |
-| check tests | Each rejection rule fires on a bad example and passes a good one |
-| resume test | Stopping after 3 calls and rerunning finishes the rest without redoing anything |
-| retry test | A failing paper is retried with the rejection reason, then replaced |
-
-**`test_split.py`** (3 tests): dev is exactly 100 and never overlaps test; each type is 25 dev;
-specificity and category stay balanced; the split doesn't depend on file order.
-
-**`test_bm25.py`** (7 tests): the tokenizer on tricky text, with stopwords, stemming and
-exact+stems; the authors and title×2 options; BM25 scores for three tiny papers worked out by
-hand; unknown words and ties; and identical scores to the `rank_bm25` library.
-
-**`test_dense.py`** (3 tests): dense search ranks tiny 2-number vectors by cosine similarity;
-ties keep corpus order; every model in config has its prefixes. (No model is downloaded.)
-
-**`test_hybrid.py`** (13 tests): hand-worked RRF and linear scores, weights, ties,
-candidate limits, empty inputs, invalid settings and duplicates; live/offline fusion
-agreement; rejection of incomplete saved rankings. No models are downloaded.
-
-**`test_judge.py`** (6 tests, with a fake LLM): Cohen's kappa on a hand-worked example;
-shuffled labels map back to the right papers and the prompt hides rank/source; bad answers
-are rejected and retried; cached pairs are skipped but re-graded if the paper text changes,
-and judges don't share caches; `--max-calls` stops and a re-run resumes.
-
-**Run them:** `python -m pytest -q`
+See the [setup guide](10-reproduction-guide.md#local-environment-and-input-requirements)
+for the test command. Test counts and runtimes change with the implementation;
+experiment quality still requires the separate evaluation evidence.
 
 ---
 
@@ -863,6 +790,13 @@ decisions. Their results are in [Findings](03-findings.md).
 ---
 
 ## The data folder
+
+<details>
+<summary>Historical ingestion-era folder map</summary>
+
+The maps below explain the original pipeline, not the complete current tree.
+In particular, the 384-dimensional embedding example is a historical local model;
+the selected OpenAI embeddings have 3,072 dimensions.
 
 Most raw data, indexes and model artifacts are **not** in git.
 **Exceptions:** `data/eval/queries.jsonl`, `labels.json` and `split.json` *are* in git, because
@@ -933,8 +867,13 @@ arxiv-search/
 └── .gitignore                    keeps data/, .env, .venv/ out of git
 ```
 
-Future steps get their own folder inside `arxiv_search/` when we build them: `rag/`, `api/`.
+Current answer generation is implemented in
+[`answer.py`](../arxiv_search/answer.py) and
+[`openai_answer.py`](../arxiv_search/openai_answer.py); it is not shown in this
+historical tree.
 
 **Things you may see that aren't ours:** `.venv/` (installed libraries), `__pycache__/`,
 `.pytest_cache/` and `arxiv_search.egg-info/` are generated automatically by Python. They're not
 in git and are hidden in the VS Code Explorer.
+
+</details>
