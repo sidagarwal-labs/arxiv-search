@@ -34,7 +34,7 @@ RUN = 1
 AVG = f"{dev.LLM}+avg2"
 AVG_SAFE = f"{dev.LLM}+avg2+rrf-baseline+c={guard.C}"
 B_LLM, B_SAFE = "passB-top50", "passB-safeguard"  # diagnostics only, never published as runs
-REFERENCE = config.RERANK_BASELINE_SYSTEM
+REFERENCE = config.DECISION45_RERANK_SYSTEM  # frozen reference for this experiment
 JUDGE_TASK_CAP_USD = 0.15
 
 PLAN = {

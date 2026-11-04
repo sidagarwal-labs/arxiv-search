@@ -36,8 +36,8 @@ Steps 1-4 are built. Step 5, retrieval-augmented answers, and a web app are plan
 
 Search runs in two stages ([Decision 45](docs/02-decisions.md#45-safeguard-promoted-as-the-reranking-baseline-two-stage-leaderboard-2026-11-03)):
 **Stage 1 retrieval** (Decision 36, free and deterministic) finds candidates;
-**Stage 2 reranking** asks GPT-5.4 mini to score the top 50 and blends that order
-with the retrieval order. GPT-5.4 mini also grades results offline as the judge.
+**Stage 2 reranking** asks GPT-5.4 mini to score the top 50 twice, averages the
+two scores ([Decision 46](docs/02-decisions.md#46-two-pass-score-averaging-promoted-as-the-reranking-baseline-2026-11-03)) and blends that order with the retrieval order. GPT-5.4 mini also grades results offline as the judge.
 
 | Component | Selected configuration | Status |
 |---|---|---|
@@ -45,7 +45,7 @@ with the retrieval order. GPT-5.4 mini also grades results offline as the judge.
 | Keyword retrieval | BM25 with exact terms + stems, authors and title weighted x2; k1=0.8, b=0.75; no stopword removal | Measured on full corpus |
 | Embeddings | OpenAI `text-embedding-3-large`, 3,072 dimensions; normalized vectors | Full-corpus vectors cached; $0.7439 under a separate $1.25 cap |
 | Stage 1: hybrid selection + ordering | RRF (55% semantic / 45% lexical, c=30, depth 100) selects the top 10; max-normalized score fusion (75% semantic / 25% lexical, depth 500) reorders those ten; the tail is unchanged | **Retrieval baseline**, [Decision 36](docs/02-decisions.md#36-recall-preserving-shortlist-score-baseline-promoted-2026-10-29); deterministic |
-| Stage 2: LLM reranker | GPT-5.4 mini (`2026-03-17` snapshot) scores the retrieval top 50 from 0-4 in one request; RRF of LLM order and retrieval order (c=30); ranks below 50 unchanged | **Reranking baseline**, [Decision 45](docs/02-decisions.md#45-safeguard-promoted-as-the-reranking-baseline-two-stage-leaderboard-2026-11-03); ≈ $0.014 and 2.5 s per uncached query; scores vary slightly run to run, so production must cache and fall back to Stage 1 |
+| Stage 2: LLM reranker | GPT-5.4 mini (`2026-03-17` snapshot) scores the retrieval top 50 from 0-4 in two identical requests; the two scores are averaged; RRF of LLM order and retrieval order (c=30); ranks below 50 unchanged | **Reranking baseline**, [Decision 46](docs/02-decisions.md#46-two-pass-score-averaging-promoted-as-the-reranking-baseline-2026-11-03) (single-pass [Decision 45](docs/02-decisions.md#45-safeguard-promoted-as-the-reranking-baseline-two-stage-leaderboard-2026-11-03) kept as a control); ≈ $0.028 per uncached query, p50 2.9 s with the two requests in parallel; scores vary run to run, so production must cache and fall back to Stage 1 |
 | Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29; the 3,294-pair dev pool is covered for finalists; some older exploratory rows may be provisional; fresh human validation deferred |
 | Evaluation | 100 dev / 300 held-out test queries; source-paper MRR and recall, plus graded nDCG and judgment coverage | Full dev evaluation complete; held-out test untouched |
 | Vector storage | Offline NumPy arrays + paper-ID metadata; exact cosine search | Hosted Postgres/pgvector planned, not deployed |
@@ -69,14 +69,15 @@ layer; their numbers should not be substituted into this historical table.
 | RRF, 55% semantic, c=30 | 0.7064 | 0.6459 | 86% |
 | **Shortlist + score reordering (retrieval baseline)** | **0.7176** | **0.6967** | **86%** |
 
-After the LLM-reranker work added 167 grades, the leaderboard moved to a shared
-3,461-pair label layer; every score drops about 0.009 on that larger denominator,
-so compare rows only within one label set:
+After the LLM-reranker work added 239 grades (167 in Decision 45, 72 in Decision 46),
+the leaderboard uses a shared 3,533-pair label layer; scores drop slightly on that
+larger denominator, so compare rows only within one label set:
 
 | Two-stage baselines (shared labels) | nDCG@10 | Source MRR@10 | Source R@10 |
 |---|---|---|---|
-| Stage 1 retrieval baseline | 0.7092 | 0.6967 | 86% |
-| **Stage 2: + LLM top-50 reranker with safeguard (current)** | **0.7583** | **0.7197** | **87%** |
+| Stage 1 retrieval baseline | 0.7036 | 0.6967 | 86% |
+| Stage 2: + LLM top-50 reranker, one pass (Decision 45) | 0.7521 | 0.7197 | 87% |
+| **Stage 2: + LLM top-50 reranker, two passes averaged (current)** | **0.7684** | **0.7232** | **87%** |
 
 - **nDCG@10:** graded relevance of the top 10 results, using 0/1/2 labels.
 - **Source MRR@10:** how high the paper each query was written from appears.

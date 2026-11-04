@@ -713,6 +713,56 @@ before it can replace candidates. A reranker challenger must beat the reranking
 baseline in Stage 2 by more than the noise band with a paired CI above zero.
 Nothing is promoted automatically.
 
+## #46 Two-pass score averaging promoted as the reranking baseline (2026-11-03)
+
+Sid approved promoting two-pass averaging as the **Stage 2 reranking baseline**:
+`llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` (saved ID kept). It changes
+one thing from Decision 45: the identical top-50 request is sent **twice**, and the
+two 0-4 scores for each paper are averaged before the unchanged RRF safeguard
+(c=30). Model, prompt, candidates and safeguard are the same. `config.py` now holds
+`RERANK_BASELINE_PASSES = 2`; Decision 45's single-pass system stays as a control
+row (`DECISION45_RERANK_SYSTEM`).
+
+Why ([report](../data/results/llm-score-pass2/report.md)): identical requests change
+30% of the LLM's per-paper scores, so one pass carries real noise. On 100 dev
+queries, scored on the same labels:
+
+| System | nDCG@10 | Δ vs Decision 45 [95% CI] | P@10 | Source MRR@10 | LLM $/query |
+|---|---|---|---|---|---|
+| Stage 1 retrieval baseline | 0.7036 | −0.049 | 0.689 | 0.697 | free |
+| Decision 45 (single pass + safeguard) | 0.7521 | — | 0.736 | 0.720 | $0.014 |
+| **Decision 46 (two passes + safeguard)** | **0.7684** | **+0.016 [+0.009, +0.024]**, 57 wins / 22 losses | **0.751** | **0.723** | $0.028 |
+
+It met every rule we set before the run: gain above the 0.009 noise threshold
+with CI above zero, source MRR not lower by more than 0.02, positive on both the
+20 pilot (+0.022) and 80 newer (+0.015) queries, fully judged top 10. It also
+improved all four query types. There are no query-specific rules or new tuned
+settings, so nothing in it is fitted to the dev set.
+
+**Trade-offs we accept.** Twice the LLM cost (about $0.028 per uncached query).
+Latency, from saved timings on the 80 new queries: with the two requests sent
+**in parallel**, p50 2.9 s / p90 3.4 s vs 2.4 s / 2.8 s for one pass; sent one after
+the other, p50 5.4 s. Serving should send both in parallel. Same caveats as
+Decision 45: the judge and reranker are the same model family, and this is
+dev-only evidence. Run-to-run noise of the two-pass system itself is not measured
+yet; if the passes were independent, its minimum detectable difference would be
+about 0.0075, so use the single-pass 0.0106 as a conservative bar until it is
+measured.
+
+**Cheaper later, not yet verified.** OpenAI bills cached input at 10% of the
+normal price. Sending the second request after the first finishes may hit that
+cache and cut the second pass to roughly a fifth of its cost, at the price of
+sequential latency. This needs a small paid check: confirm cached tokens are
+reported and that the second pass still varies.
+
+**Labels.** The 72 new top-10 grades (same frozen judge and rubric) form a new,
+separate layer, `data/results/shared-labels/labels-d46.json` (3,533 pairs). It must
+keep every grade of the Decision 45 layer (`labels.json`, unchanged) and the
+score-fusion parent; the loader refuses any change. The leaderboard reads the
+newest layer; experiments scored on the Decision 45 layer (blend, two-pass) stay
+pinned to it and replay byte-identically. Every score moves down slightly on the
+larger denominator (Decision 45: 0.7583 → 0.7521).
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

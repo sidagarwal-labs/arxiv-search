@@ -97,20 +97,40 @@ def load_snapshot(root: Path) -> tuple[Path, bytes, dict, dict]:
     return expanded_path, raw, expanded, provenance
 
 
-SHARED_LABELS = Path("shared-labels") / "labels.json"
+SHARED_LABELS_D45 = Path("shared-labels") / "labels.json"
+SHARED_LABELS_D46 = Path("shared-labels") / "labels-d46.json"
+# Each layer is a frozen file; a later layer must keep every grade of the earlier ones.
+SHARED_LABEL_LAYERS = [
+    (SHARED_LABELS_D45, ["llm-score-pilot/judge-fill/labels.json",
+                         "llm-score-dev100/labels.json"],
+     "45: shared additive label layer for the two-stage leaderboard"),
+    (SHARED_LABELS_D46, ["llm-score-pilot/judge-fill/labels.json",
+                         "llm-score-dev100/labels.json", "llm-score-pass2/labels.json"],
+     "46: adds the two-pass reranker top-10 fills"),
+]
+SHARED_LABELS = SHARED_LABELS_D46  # newest layer: what the leaderboard reads
 
 
-def load_shared_labels(root: Path) -> tuple[Path, bytes, dict, dict]:
-    """Return the newest shared label layer for leaderboards (Decision45).
+def load_shared_labels(root: Path, layer: Path | None = None) -> tuple[Path, bytes, dict, dict]:
+    """Return a shared label layer for leaderboards (newest existing one by default).
 
     `load_snapshot` stays pinned to the score-fusion expansion so frozen experiments
-    replay byte-identically. The shared layer must be a strict additive extension of
-    it: same judge/model/rubric/queries/workbook, every grade preserved.
+    replay byte-identically. Each shared layer must be a strict additive extension of
+    it: same judge/model/rubric/queries/workbook, every grade preserved. Frozen
+    experiments pass `layer` to pin the layer they were scored on.
     """
     parent_path, parent_raw, parent, provenance = load_snapshot(root)
-    path = root / SHARED_LABELS
-    if not path.exists():
-        return parent_path, parent_raw, parent, provenance
+    if layer is not None:
+        if not (root / layer).exists():
+            raise FileNotFoundError(f"Pinned shared label layer missing: {layer}")
+        relative = layer
+    else:
+        existing = [p for p, *_ in SHARED_LABEL_LAYERS if (root / p).exists()]
+        if not existing:
+            return parent_path, parent_raw, parent, provenance
+        relative = existing[-1]
+    path = root / relative
+    index = [p for p, *_ in SHARED_LABEL_LAYERS].index(relative)
     raw = path.read_bytes()
     shared = json.loads(raw)
     if not isinstance(shared, dict):
@@ -131,6 +151,12 @@ def load_shared_labels(root: Path) -> tuple[Path, bytes, dict, dict]:
                 added.get(pid) != grade or type(added.get(pid)) is not int
                 for pid, grade in grades.items()):
             raise ValueError(f"Shared label snapshot changed or removed a parent grade: {qid}")
+    for earlier, *_ in SHARED_LABEL_LAYERS[:index]:
+        if (root / earlier).exists():
+            older = json.loads((root / earlier).read_text(encoding="utf-8"))["labels"]
+            newer = labels
+            if any(newer.get(q, {}).get(p) != g for q, gs in older.items() for p, g in gs.items()):
+                raise ValueError(f"{relative} changed or removed a grade from {earlier}")
     parent_pairs = sum(len(g) for g in parent["labels"].values())
     layer_pairs = sum(len(g) for g in labels.values()) - parent_pairs
     if layer_pairs <= 0:
@@ -138,12 +164,14 @@ def load_shared_labels(root: Path) -> tuple[Path, bytes, dict, dict]:
     provenance = {**provenance, "added_pairs": provenance["added_pairs"] + layer_pairs,
                   "denominator_revised": True,
                   "layers": [parent_path.relative_to(root).as_posix(),
-                             SHARED_LABELS.as_posix()],
+                             *(p.as_posix() for p, *_ in SHARED_LABEL_LAYERS[:index + 1])],
+                  "shared_layer_decision": shared.get("decision"),
                   "shared_layer_added_pairs": layer_pairs}
     return path, raw, shared, provenance
 
 
-def build_shared_labels(root: Path, sources: list[str]) -> dict:
+def build_shared_labels(root: Path, sources: list[str],
+                        decision: str = SHARED_LABEL_LAYERS[0][2]) -> dict:
     """Merge saved child label files into the shared layer; refuse any regrade."""
     parent_path, parent_raw, parent, provenance = load_snapshot(root)
     labels = {q: dict(g) for q, g in parent["labels"].items()}
@@ -171,28 +199,28 @@ def build_shared_labels(root: Path, sources: list[str]) -> dict:
         "parent": parent_path.relative_to(root).as_posix(),
         "parent_sha256": hashlib.sha256(parent_raw).hexdigest(),
         "sources": sources, "added_pairs_by_source": added,
-        "decision": "45: shared additive label layer for the two-stage leaderboard",
+        "decision": decision,
         "labels": {q: dict(sorted(labels[q].items())) for q in sorted(labels)},
     })
     return shared
 
 
-SHARED_LABEL_SOURCES = ["llm-score-pilot/judge-fill/labels.json",
-                        "llm-score-dev100/labels.json"]
+SHARED_LABEL_SOURCES = SHARED_LABEL_LAYERS[0][1]  # Decision45 layer sources
 
 
 def write_shared_labels(root: Path | None = None) -> Path:
-    """Build (or verify) the Decision45 shared layer; never silently rewrite it."""
+    """Build (or verify) every shared layer in order; never silently rewrite one."""
     root = root or config.RESULTS_DIR
-    shared = build_shared_labels(root, SHARED_LABEL_SOURCES)
-    path = root / SHARED_LABELS
-    text = json.dumps(shared, indent=2, sort_keys=True) + "\n"
-    if path.exists() and path.read_text(encoding="utf-8") != text:
-        raise ValueError(f"{path} exists with different content; refusing to overwrite")
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding="utf-8")
-    load_shared_labels(root)  # validate exactly what the leaderboard will read
-    return path
+    for relative, sources, decision in SHARED_LABEL_LAYERS:
+        path = root / relative
+        text = json.dumps(build_shared_labels(root, sources, decision),
+                          indent=2, sort_keys=True) + "\n"
+        if path.exists() and path.read_text(encoding="utf-8") != text:
+            raise ValueError(f"{path} exists with different content; refusing to overwrite")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+        load_shared_labels(root, relative)  # validate exactly what will be read
+    return root / SHARED_LABELS
 
 
 def discover_runs(root: Path) -> dict:
@@ -343,8 +371,9 @@ def describe_system(name: str) -> dict[str, str]:
         else:
             tail = "; sort by score, ties keep retrieval order"
         return {
-            "name": ("LLM reranker + rank blend" if blend else "LLM reranker + safeguard"
-                     if safeguard else "LLM reranker (scores only)"),
+            "name": ("2-pass " if "+avg2" in name else "")
+                    + ("LLM reranker + rank blend" if blend else "LLM reranker + safeguard"
+                       if safeguard else "LLM reranker (scores only)"),
             "lexical": "Retrieval baseline candidates (tuned BM25)",
             "embedding": models["openai-large"] + " (retrieval baseline)",
             "ranker": f"GPT-5.4 mini scores retrieval-baseline top{opts['d']} 0-4, "
@@ -537,7 +566,7 @@ def stage2_systems(root: Path, snapshot: dict, papers: dict, queries: dict,
                                  if k not in ("cost_per_query_usd", "folder")}
                              for n, r in runs.items()}, snapshot, papers, queries, dev_ids,
                             config.RERANK_BASELINE_SYSTEM)
-    report = json.loads((root / config.RERANK_BASELINE_RUN_DIR / "report.json")
+    report = json.loads((root / config.RERANK_SINGLE_PASS_DIR / "report.json")
                         .read_text(encoding="utf-8"))
     spend = report["reranker_accounting"]
     noise_path = root / config.RERANK_BASELINE_NOISE_DIR / "report.json"
@@ -561,7 +590,7 @@ def stage2_systems(root: Path, snapshot: dict, papers: dict, queries: dict,
                      if is_llm and runs[name].get("cost_per_query_usd") is not None else
                      {"usd_per_query": spend["accounted_usd"] / spend["requests"],
                       "api_seconds_per_query": spend["api_seconds"] / spend["requests"],
-                      "scope": f"{spend['requests']} uncached {config.RERANK_BASELINE_RUN_DIR} "
+                      "scope": f"{spend['requests']} uncached {config.RERANK_SINGLE_PASS_DIR} "
                                "requests; pilot queries reused cached responses"}
                      if is_llm else {"usd_per_query": 0.0, "api_seconds_per_query": 0.0,
                                      "scope": "no LLM call"}),
@@ -670,7 +699,7 @@ def _stage1_progress(systems: dict) -> str:
 def _pilot_progress(root: Path, snapshot: dict, queries: dict, stage1: dict,
                     base_dir: Path) -> str:
     """Score the 20-query reranker pilots on the shared labels, same 20 queries each."""
-    plan_path = root / config.RERANK_BASELINE_RUN_DIR / "report.json"
+    plan_path = root / config.RERANK_SINGLE_PASS_DIR / "report.json"
     retrieval = config.WORKING_BASELINE_SYSTEM
     if not plan_path.exists() or retrieval not in stage1:
         return ""
@@ -841,8 +870,10 @@ def write_catalog() -> str:
         + (f"**Revised shared ideal-DCG denominator:** approved additive expansion preserves "
            f"all {provenance['original_pairs']} original labels and adds "
            f"{provenance['added_pairs']} labels"
-           + (f" ({provenance['shared_layer_added_pairs']} of them from the Decision45 "
-              "shared layer: LLM-reranker top-10 fills)" if "layers" in provenance else "")
+           + (f" ({provenance['shared_layer_added_pairs']} of them from the shared "
+              f"reranker label layers, latest Decision"
+              f"{str(provenance.get('shared_layer_decision')).split(':')[0]} shared layer: "
+              "LLM-reranker top-10 fills)" if "layers" in provenance else "")
            + ". Every system is rescored against this "
            "expanded denominator; original reports remain unchanged and their nDCG values "
            "must not be mixed with these revised scores. "
@@ -890,10 +921,13 @@ def write_catalog() -> str:
             f"recall@50 show what the top-{config.RERANK_BASELINE_DEPTH} reranker can reach.",
             _stage1_progress(systems) if systems else "_No saved dev rankings._",
             "### Stage 2 — reranker progress",
-            f"Reranking baseline: `{config.RERANK_BASELINE_SYSTEM}` (Decision45): "
+            f"Reranking baseline: `{config.RERANK_BASELINE_SYSTEM}` "
+            f"(Decision{config.RERANK_BASELINE_DECISION}): "
             f"{config.RERANK_BASELINE_MODEL} scores the retrieval top"
-            f"{config.RERANK_BASELINE_DEPTH}, fused with the retrieval order by RRF "
-            f"c={config.RERANK_BASELINE_RRF_C}.",
+            f"{config.RERANK_BASELINE_DEPTH} in {config.RERANK_BASELINE_PASSES} identical "
+            "requests whose scores are averaged, fused with the retrieval order by RRF "
+            f"c={config.RERANK_BASELINE_RRF_C}. Decision45's single-pass system stays as a "
+            "control row.",
             *([pilots] if pilots else []), full,
         ])
 

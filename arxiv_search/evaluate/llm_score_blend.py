@@ -34,7 +34,7 @@ DEPTH = 50
 C = config.RERANK_BASELINE_RRF_C
 BETAS = (2, 3, 4)
 JUDGE_TASK_CAP_USD = 0.10
-REFERENCE = config.RERANK_BASELINE_SYSTEM
+REFERENCE = config.DECISION45_RERANK_SYSTEM  # frozen reference for this experiment
 
 
 def system_name(beta: float) -> str:
@@ -84,7 +84,8 @@ def build(state: dict) -> dict:
 
 
 def shared_snapshot() -> dict:
-    _, _, shared, _ = catalog.load_shared_labels(config.RESULTS_DIR)
+    # Pinned to the Decision45 layer so this frozen experiment replays byte-identically.
+    _, _, shared, _ = catalog.load_shared_labels(config.RESULTS_DIR, catalog.SHARED_LABELS_D45)
     return shared
 
 

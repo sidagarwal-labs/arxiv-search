@@ -47,7 +47,8 @@ def bottlenecks(run: dict, labels: dict, inputs: dict, queries: dict) -> dict:
     }
 
 
-RERANK_MILESTONE = "LLM rerank + safeguard"
+RERANK_MILESTONE = "2-pass LLM rerank + safeguard"  # current reranking baseline
+PRIOR_RERANK_MILESTONE = "LLM rerank + safeguard"  # Decision45, single pass
 
 
 def render_charts(report: dict, diagnosis: dict) -> str:
@@ -56,6 +57,9 @@ def render_charts(report: dict, diagnosis: dict) -> str:
     rerank = report.get("reranking_baseline")
     # Stage 2 points share the same labels and dev queries, so they extend the same curve.
     points = [(label, name, "1 retrieval", systems.get(name)) for label, name in MILESTONES]
+    prior = config.DECISION45_RERANK_SYSTEM
+    if prior in stage2 and prior != rerank:
+        points.append((PRIOR_RERANK_MILESTONE, prior, "2 reranking", stage2[prior]))
     if rerank in stage2:
         points.append((RERANK_MILESTONE, rerank, "2 reranking", stage2[rerank]))
     milestone_rows = []
@@ -99,8 +103,9 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         f"milestone order. **Zoomed linear y-axis: {lower:.2f}-{upper:.2f}, not zero-based.** "
         "This focuses on score changes, not their magnitude relative to zero. "
         "All plotted top10s are fully judged; no pilot/test scores are mixed in. Scores "
-        "shifted about 0.009 down from older versions of this page when the 167 reranker "
-        "grades joined the shared labels (Decision45); the curve's shape is unchanged.",
+        "shifted down slightly from older versions of this page when reranker top-10 grades "
+        "joined the shared labels (167 in Decision45, 72 in Decision46); the curve's shape "
+        "is unchanged.",
         "",
         f"**First plotted baseline to current: {scores[0]:.4f} to {current:.4f} "
         f"({gain:+.4f} nDCG, {gain / scores[0]:+.1%} relative)"
@@ -208,8 +213,10 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         "LLM judge are not proof of generalization. The held-out 300 queries remain untouched.",
         "", "## Reproducibility and cautions", "",
         f"- Retrieval baseline: `{report['working_baseline']}` (Decision36).",
-        *([f"- Reranking baseline: `{rerank}` (Decision45); LLM scores vary slightly run "
-           "to run, so its point uses the saved, cached rankings."] if rerank in stage2 else []),
+        *([f"- Reranking baseline: `{rerank}` (Decision{config.RERANK_BASELINE_DECISION}): "
+           f"mean of {config.RERANK_BASELINE_PASSES} identical LLM passes; LLM scores vary "
+           "run to run, so its point uses the saved, cached rankings."]
+          if rerank in stage2 else []),
         f"- Label snapshot: `{report['label_snapshot']}`; SHA256 `{report['label_snapshot_sha256']}`.",
         "- Original plain-BM25 graded coverage is incomplete, so it is excluded from the hill curve.",
         "- Frozen experiment reports retain their original controls; only the unified leaderboard "

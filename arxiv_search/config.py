@@ -73,16 +73,21 @@ WORKING_BASELINE_SHORTLIST_SIZE = 10
 # Decision 45: the Decision36 system above is the Stage 1 RETRIEVAL baseline. Its top-K
 # candidates feed the Stage 2 reranking baseline below; changing either is a separate decision.
 
-# --- Working reranking baseline (Decision 45; approved 2026-11-03) ---------
-RERANK_BASELINE_SYSTEM = "llm-mini-score-pilot+d=50+rrf-baseline+c=30"  # saved ID, never renamed
+# --- Working reranking baseline (Decision 46; approved 2026-11-03) ---------
+# Decision45's single-pass system stays saved as a control under its original ID.
+DECISION45_RERANK_SYSTEM = "llm-mini-score-pilot+d=50+rrf-baseline+c=30"
+RERANK_BASELINE_DECISION = 46
+RERANK_BASELINE_SYSTEM = "llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30"  # saved ID, never renamed
 RERANK_BASELINE_MODEL = "gpt-5.4-mini-2026-03-17"  # pinned snapshot; reasoning effort none
 RERANK_BASELINE_PROMPT_VERSION = "scores-v2"  # 0-4 per-paper scores, one listwise request
+RERANK_BASELINE_PASSES = 2  # mean of two identical requests; send them in parallel when serving
 RERANK_BASELINE_DEPTH = 50  # retrieval-baseline candidates the LLM scores per query
 RERANK_BASELINE_RRF_C = 30  # safeguard: RRF of LLM order with retrieval order
-RERANK_BASELINE_RUN_DIR = "llm-score-dev100"  # reference rankings for all 100 dev queries
+RERANK_BASELINE_RUN_DIR = "llm-score-pass2"  # reference rankings for all 100 dev queries
+RERANK_SINGLE_PASS_DIR = "llm-score-dev100"  # first-pass responses, spend and pilot query list
 RERANK_BASELINE_NOISE_DIR = "llm-score-repeat"  # Decision44 run-to-run repeatability check
-# Production contract: cache scores per (query, candidates, prompt, model) and fall back to
-# the retrieval baseline order if the API fails or the daily token guard is exhausted.
+# Production contract: cache scores per (query, candidates, prompt, model, pass) and fall back
+# to the retrieval baseline order if the API fails or the daily token guard is exhausted.
 
 # --- Relevance judge (Decision 33) -----------------------------------------
 DEFAULT_JUDGE = "openai-mini"  # GPT-5.4 mini; selected against 100 human pairs

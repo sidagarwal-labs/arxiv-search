@@ -8,7 +8,7 @@
 
 ## Dev leaderboard
 
-Search has two stages, each with its own baseline and progress table: **Stage 1 retrieval** finds candidates; **Stage 2 reranking** reorders the retrieval top 50 with an LLM. All scores: 100 dev queries, 23,304 papers, nDCG@10 on one shared label set (`shared-labels/labels.json`, 3,461 graded pairs), so every row is comparable. Settings were chosen on these queries, so scores are optimistic.
+Search has two stages, each with its own baseline and progress table: **Stage 1 retrieval** finds candidates; **Stage 2 reranking** reorders the retrieval top 50 with an LLM. All scores: 100 dev queries, 23,304 papers, nDCG@10 on one shared label set (`shared-labels/labels-d46.json`, 3,533 graded pairs), so every row is comparable. Settings were chosen on these queries, so scores are optimistic.
 
 ### Stage 1 — retrieval progress
 
@@ -18,63 +18,63 @@ Retrieval baseline: `fusion-shortlist+a=1+d=500` (Decision36). Free and determin
 
 | Step | System | nDCG@10 | Δ vs previous | P@10 | Source MRR@10 | R@10 | R@50 | Grade-2 recall@50 |
 |---|---|---|---|---|---|---|---|---|
-| Tuned BM25 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | 0.5137 | — | 0.512 | 0.569 | 0.710 | 0.770 | 0.710 |
-| GTE dense | `dense-gte-small` | 0.5742 | +0.0604 | 0.581 | 0.525 | 0.710 | 0.870 | 0.717 |
-| GTE hybrid | `hybrid-gte-small+rrf+w=0.5+c=10` | 0.6242 | +0.0501 | 0.611 | 0.635 | 0.800 | 0.880 | 0.840 |
-| OpenAI hybrid | `hybrid-openai-large+rrf+w=0.5+c=10` | 0.6530 | +0.0288 | 0.633 | 0.653 | 0.840 | 0.940 | 0.946 |
-| RRF75 c100 | `fusion-rrf+w=0.75+d=100+c=100` | 0.6971 | +0.0440 | 0.690 | 0.618 | 0.840 | 0.940 | 0.926 |
-| RRF55 c30 | `fusion-rrf+w=0.55+d=100+c=30` | 0.6982 | +0.0011 | 0.689 | 0.646 | 0.860 | 0.940 | 0.951 |
-| **Shortlist scores (RETRIEVAL BASELINE)** | `fusion-shortlist+a=1+d=500` | 0.7092 | +0.0110 | 0.689 | 0.697 | 0.860 | 0.940 | 0.951 |
+| Tuned BM25 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | 0.5090 | — | 0.512 | 0.569 | 0.710 | 0.770 | 0.691 |
+| GTE dense | `dense-gte-small` | 0.5688 | +0.0598 | 0.581 | 0.525 | 0.710 | 0.870 | 0.706 |
+| GTE hybrid | `hybrid-gte-small+rrf+w=0.5+c=10` | 0.6188 | +0.0499 | 0.611 | 0.635 | 0.800 | 0.880 | 0.819 |
+| OpenAI hybrid | `hybrid-openai-large+rrf+w=0.5+c=10` | 0.6476 | +0.0288 | 0.633 | 0.653 | 0.840 | 0.940 | 0.945 |
+| RRF75 c100 | `fusion-rrf+w=0.75+d=100+c=100` | 0.6913 | +0.0438 | 0.690 | 0.618 | 0.840 | 0.940 | 0.928 |
+| RRF55 c30 | `fusion-rrf+w=0.55+d=100+c=30` | 0.6925 | +0.0012 | 0.689 | 0.646 | 0.860 | 0.940 | 0.952 |
+| **Shortlist scores (RETRIEVAL BASELINE)** | `fusion-shortlist+a=1+d=500` | 0.7036 | +0.0111 | 0.689 | 0.697 | 0.860 | 0.940 | 0.952 |
 
 **Current top 5 retrieval systems** (fully judged; a lead inside the confidence interval is not a promotion):
 
 | Rank | System | nDCG@10 | Δ vs retrieval baseline [95% CI] | P@10 | Source MRR@10 | R@10 | R@50 | Grade-2 recall@50 |
 |---|---|---|---|---|---|---|---|---|
-| 1 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=title10+anchor=0+d=10` | 0.713 | +0.004 [-0.001, +0.009] | 0.689 | 0.698 | 0.860 | 0.940 | 0.951 |
-| 2 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=abstract+anchor=0+d=10` | 0.712 | +0.003 [-0.002, +0.009] | 0.689 | 0.680 | 0.860 | 0.940 | 0.951 |
-| 3 | OpenAI-large semantic field ablation<br>`oai-field-hybrid+text=title25+d=10` | 0.712 | +0.003 [-0.002, +0.008] | 0.689 | 0.705 | 0.860 | 0.940 | 0.951 |
-| 4 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=title25+anchor=0+d=10` | 0.712 | +0.003 [-0.002, +0.008] | 0.689 | 0.705 | 0.860 | 0.940 | 0.951 |
-| 5 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=title25+anchor=0.5+d=10` | 0.712 | +0.003 [-0.000, +0.006] | 0.689 | 0.694 | 0.860 | 0.940 | 0.951 |
-| 13 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE)**<br>`fusion-shortlist+a=1+d=500` | 0.709 | itself | 0.689 | 0.697 | 0.860 | 0.940 | 0.951 |
+| 1 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=title10+anchor=0+d=10` | 0.707 | +0.004 [-0.001, +0.009] | 0.689 | 0.698 | 0.860 | 0.940 | 0.952 |
+| 2 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=abstract+anchor=0+d=10` | 0.707 | +0.003 [-0.002, +0.009] | 0.689 | 0.680 | 0.860 | 0.940 | 0.952 |
+| 3 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=title25+anchor=0.5+d=10` | 0.706 | +0.003 [-0.000, +0.006] | 0.689 | 0.694 | 0.860 | 0.940 | 0.952 |
+| 4 | OpenAI-large semantic field ablation<br>`oai-field-hybrid+text=title25+d=10` | 0.706 | +0.003 [-0.002, +0.007] | 0.689 | 0.705 | 0.860 | 0.940 | 0.952 |
+| 5 | OpenAI-large paraphrase recovery<br>`oai-field-recovery+text=title25+anchor=0+d=10` | 0.706 | +0.003 [-0.002, +0.007] | 0.689 | 0.705 | 0.860 | 0.940 | 0.952 |
+| 13 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE)**<br>`fusion-shortlist+a=1+d=500` | 0.704 | itself | 0.689 | 0.697 | 0.860 | 0.940 | 0.952 |
 
 ### Stage 2 — reranker progress
 
-Reranking baseline: `llm-mini-score-pilot+d=50+rrf-baseline+c=30` (Decision45): gpt-5.4-mini-2026-03-17 scores the retrieval top50, fused with the retrieval order by RRF c=30.
+Reranking baseline: `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` (Decision46): gpt-5.4-mini-2026-03-17 scores the retrieval top50 in 2 identical requests whose scores are averaged, fused with the retrieval order by RRF c=30. Decision45's single-pass system stays as a control row.
 
 **Pilot history** — the same 20 dev queries, rescored on the shared labels. Missing rankings (failed LLM responses) score zero, so they show the reliability problem as well as quality. These queries were used to design the safeguard rule, so they are not the evidence for it.
 
 | Step | Method | Valid rankings | nDCG@10 | Δ vs retrieval baseline (W/L) | P@10 | Source MRR@10 | Unjudged top-10 pairs | Report |
 |---|---|---|---|---|---|---|---|---|
-| 0 | Retrieval baseline, no reranker | 20/20 | 0.6959 | — | 0.675 | 0.838 | 0 | — |
-| 1 | v1 listwise order, top10 | 16/20 | 0.5841 | -0.1119 (9/10) | 0.535 | 0.700 | 0 | [report](../data/results/llm-reranker-pilot/report.md) |
-| 2 | v1 listwise order, top50 | 7/20 | 0.2441 | -0.4518 (2/17) | 0.225 | 0.208 | 15 | [report](../data/results/llm-reranker-pilot/report.md) |
-| 3 | v2 0-4 scores, top10 | 20/20 | 0.7095 | +0.0136 (13/4) | 0.675 | 0.842 | 0 | [report](../data/results/llm-score-pilot/report.md) |
-| 4 | v2 0-4 scores, top50 | 20/20 | 0.7553 | +0.0593 (13/4) | 0.770 | 0.688 | 0 | [report](../data/results/llm-score-pilot/report.md) |
-| 5 | v2 top50 + RRF safeguard c30 | 20/20 | 0.7344 | +0.0385 (11/6) | 0.720 | 0.829 | 0 | [report](../data/results/llm-score-pilot/safeguard/report.md) |
+| 0 | Retrieval baseline, no reranker | 20/20 | 0.6904 | — | 0.675 | 0.838 | 0 | — |
+| 1 | v1 listwise order, top10 | 16/20 | 0.5781 | -0.1123 (9/10) | 0.535 | 0.700 | 0 | [report](../data/results/llm-reranker-pilot/report.md) |
+| 2 | v1 listwise order, top50 | 7/20 | 0.2530 | -0.4375 (2/17) | 0.235 | 0.208 | 13 | [report](../data/results/llm-reranker-pilot/report.md) |
+| 3 | v2 0-4 scores, top10 | 20/20 | 0.7036 | +0.0131 (13/4) | 0.675 | 0.842 | 0 | [report](../data/results/llm-score-pilot/report.md) |
+| 4 | v2 0-4 scores, top50 | 20/20 | 0.7503 | +0.0598 (13/4) | 0.770 | 0.688 | 0 | [report](../data/results/llm-score-pilot/report.md) |
+| 5 | v2 top50 + RRF safeguard c30 | 20/20 | 0.7290 | +0.0386 (11/6) | 0.720 | 0.829 | 0 | [report](../data/results/llm-score-pilot/safeguard/report.md) |
 
 **Full dev set (100 queries)** — every row reranks the same retrieval-baseline candidates. Paired deltas against BOTH baselines. LLM cost and API time are measured means over uncached requests; saved rankings replay cached responses (LLM scores are not deterministic). Differences smaller than the MDD (1.96·√2·SD of the 100-query mean, from the Decision44 repeat run) are within run-to-run noise.
 
 | Rank | System | Stage 1 retrieval | Stage 2 reranker | Status | nDCG@10 (n) | P@10 | Source MRR@10 | R@1 | R@10 | Δ nDCG vs retrieval baseline [95% CI] W/L | Δ nDCG vs reranking baseline [95% CI] W/L | LLM $/query | API s/query | Run-to-run noise (SD of 100-q mean; MDD) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 2·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7804 (100) | 0.777 | 0.686 | 0.580 | 0.880 | +0.071 [+0.046, +0.097] W/L 68/22 | +0.022 [+0.007, +0.037] W/L 57/31 | $0.0138 | 2.48 | unmeasured |
-| 2 | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score, ties keep retrieval order | covered | 0.7789 (100) | 0.777 | 0.677 | 0.570 | 0.880 | +0.070 [+0.045, +0.095] W/L 68/22 | +0.021 [+0.004, +0.036] W/L 56/32 | $0.0138 | 2.48 | 0.0063; 0.018 |
-| 3 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 3·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7782 (100) | 0.767 | 0.697 | 0.590 | 0.890 | +0.069 [+0.047, +0.092] W/L 71/19 | +0.020 [+0.007, +0.032] W/L 56/31 | $0.0138 | 2.48 | unmeasured |
-| 4 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 4·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7702 (100) | 0.753 | 0.702 | 0.590 | 0.890 | +0.061 [+0.041, +0.081] W/L 69/21 | +0.012 [+0.001, +0.023] W/L 52/32 | $0.0138 | 2.48 | unmeasured |
-| 5 | **LLM reranker + safeguard (RERANKING BASELINE)**<br>`llm-mini-score-pilot+d=50+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; RRF of LLM order with retrieval order, c30 | covered | 0.7583 (100) | 0.736 | 0.720 | 0.640 | 0.870 | +0.049 [+0.035, +0.063] W/L 69/21 | itself | $0.0138 | 2.48 | 0.0033; 0.009 |
-| 6 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE, no reranker)**<br>`fusion-shortlist+a=1+d=500` | Retrieval baseline (Decision36) | None | covered | 0.7092 (100) | 0.689 | 0.697 | 0.610 | 0.860 | itself | -0.049 [-0.063, -0.035] W/L 21/69 | $0.0000 | 0.00 | deterministic |
-| - | LLM reranker + safeguard<br>`llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, average of two independent requests; RRF of LLM order with retrieval order, c30 | PROVISIONAL | 0.7724 (100) | 0.747 | 0.723 | 0.630 | 0.870 | itself | withheld | $0.0275 | parallel | unmeasured |
-| - | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50+avg2` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, average of two independent requests; sort by score, ties keep retrieval order | PROVISIONAL | 0.7629 (100) | 0.737 | 0.686 | 0.570 | 0.880 | itself | withheld | $0.0275 | parallel | unmeasured |
+| 1 | 2-pass LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50+avg2` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, average of two independent requests; sort by score, ties keep retrieval order | covered | 0.7877 (100) | 0.788 | 0.686 | 0.570 | 0.880 | +0.084 [+0.057, +0.111] W/L 73/22 | +0.019 [+0.002, +0.036] W/L 56/39 | $0.0275 | parallel | unmeasured |
+| 2 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=2+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 2·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7742 (100) | 0.777 | 0.686 | 0.580 | 0.880 | +0.071 [+0.046, +0.096] W/L 68/22 | +0.006 [-0.010, +0.022] W/L 54/38 | $0.0138 | 2.48 | unmeasured |
+| 3 | LLM reranker (scores only)<br>`llm-mini-score-pilot+d=50` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score, ties keep retrieval order | covered | 0.7726 (100) | 0.777 | 0.677 | 0.570 | 0.880 | +0.069 [+0.044, +0.095] W/L 68/22 | +0.004 [-0.013, +0.020] W/L 54/38 | $0.0138 | 2.48 | 0.0063; 0.018 |
+| 4 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=3+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 3·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7719 (100) | 0.767 | 0.697 | 0.590 | 0.890 | +0.068 [+0.046, +0.091] W/L 71/19 | +0.003 [-0.010, +0.017] W/L 49/43 | $0.0138 | 2.48 | unmeasured |
+| 5 | **2-pass LLM reranker + safeguard (RERANKING BASELINE)**<br>`llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, average of two independent requests; RRF of LLM order with retrieval order, c30 | covered | 0.7684 (100) | 0.751 | 0.723 | 0.630 | 0.870 | +0.065 [+0.048, +0.081] W/L 76/16 | itself | $0.0275 | parallel | unmeasured |
+| 6 | LLM reranker + rank blend<br>`llm-mini-score-pilot+d=50+blend-rank-prior+b=4+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; sort by score + 4·31/(30+retrieval rank), ties keep retrieval order | covered | 0.7639 (100) | 0.753 | 0.702 | 0.590 | 0.890 | +0.060 [+0.040, +0.081] W/L 69/21 | -0.005 [-0.017, +0.008] W/L 44/46 | $0.0138 | 2.48 | unmeasured |
+| 7 | LLM reranker + safeguard<br>`llm-mini-score-pilot+d=50+rrf-baseline+c=30` | Retrieval baseline (Decision36) | GPT-5.4 mini scores retrieval-baseline top50 0-4, one request; RRF of LLM order with retrieval order, c30 | covered | 0.7521 (100) | 0.736 | 0.720 | 0.640 | 0.870 | +0.049 [+0.034, +0.063] W/L 69/21 | -0.016 [-0.024, -0.009] W/L 22/57 | $0.0138 | 2.48 | 0.0033; 0.009 |
+| 8 | **Fixed-shortlist score ordering (RETRIEVAL BASELINE, no reranker)**<br>`fusion-shortlist+a=1+d=500` | Retrieval baseline (Decision36) | None | covered | 0.7036 (100) | 0.689 | 0.697 | 0.610 | 0.860 | itself | -0.065 [-0.081, -0.048] W/L 16/76 | $0.0000 | 0.00 | deterministic |
 
-**Full tables:** [all 176 retrieval systems, unranked diagnostics, per-query-type results and system IDs](../data/results/catalog-dev/report.md) · [machine report](../data/results/catalog-dev/report.json) · [shared labels](../data/results/shared-labels/labels.json)
+**Full tables:** [all 176 retrieval systems, unranked diagnostics, per-query-type results and system IDs](../data/results/catalog-dev/report.md) · [machine report](../data/results/catalog-dev/report.json) · [shared labels](../data/results/shared-labels/labels-d46.json)
 
 <details>
 <summary>Scoring rules and caveats</summary>
 
-176 distinct saved systems; 100 dev queries; current corpus: 23,304 papers. **Two-stage tracking (Decision45):** Stage 1 **retrieval baseline** `fusion-shortlist+a=1+d=500` (Decision36) produces candidates; Stage 2 **reranking baseline** `llm-mini-score-pilot+d=50+rrf-baseline+c=30` reorders its top50. Retrieval experiments compete in Stage 1 (watch R@50 / grade-2 recall@50: what a top-50 reranker can reach); reranker experiments compete in Stage 2 on the same retrieval candidates. **Success score = nDCG@10**, descending using unrounded means; exact ties use stable system ID. Only fully judged runs with defined nDCG receive positions. The baseline stays at its actual position, not pinned first. Provisional runs appear separately, unranked. A leaderboard lead is not automatic baseline promotion.
+176 distinct saved systems; 100 dev queries; current corpus: 23,304 papers. **Two-stage tracking (Decision45):** Stage 1 **retrieval baseline** `fusion-shortlist+a=1+d=500` (Decision36) produces candidates; Stage 2 **reranking baseline** `llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30` reorders its top50. Retrieval experiments compete in Stage 1 (watch R@50 / grade-2 recall@50: what a top-50 reranker can reach); reranker experiments compete in Stage 2 on the same retrieval candidates. **Success score = nDCG@10**, descending using unrounded means; exact ties use stable system ID. Only fully judged runs with defined nDCG receive positions. The baseline stays at its actual position, not pinned first. Provisional runs appear separately, unranked. A leaderboard lead is not automatic baseline promotion.
 
 **Technique guide:** Embedding identifies the vector model; Ranker / fusion identifies how retrieval results are ordered, not a separate LLM reranker. Tuned BM25 means exact terms + stems, authors, title x2, k1=0.8, b=0.75, no stopword removal. RRF uses reciprocal ranks; score fusion combines normalized BM25/cosine values. Depth is candidates per retriever, not final results. Frozen aliases can represent identical rankings under different experiment IDs. Readable names are presentation only: original IDs and files are preserved below.
 
-All graded scores are recomputed from the **same immutable `shared-labels/labels.json`**, including its 100 frozen human overrides. **Revised shared ideal-DCG denominator:** approved additive expansion preserves all 3190 original labels and adds 271 labels (167 of them from the Decision45 shared layer: LLM-reranker top-10 fills). Every system is rescored against this expanded denominator; original reports remain unchanged and their nDCG values must not be mixed with these revised scores. Other report scores/label pools and later judge-cache or workbook changes are NOT combined. Linear-gain nDCG@10 uses that shared ideal DCG; undefined queries are excluded only from nDCG (n shown). P@10 counts grades ≥1 with denominator 10. Unjudged gains count as zero. judged@10 is the judged fraction of returned results; short/missing lists still fail the full top-10 coverage gate. R@50 = source paper in the top 50; grade-2 recall@50 = share of known grade-2 papers in the top 50 (judged pool only, so an upper-bound-style reachability check for a top-50 reranker, not a complete recall).
+All graded scores are recomputed from the **same immutable `shared-labels/labels-d46.json`**, including its 100 frozen human overrides. **Revised shared ideal-DCG denominator:** approved additive expansion preserves all 3190 original labels and adds 343 labels (239 of them from the shared reranker label layers, latest Decision46 shared layer: LLM-reranker top-10 fills). Every system is rescored against this expanded denominator; original reports remain unchanged and their nDCG values must not be mixed with these revised scores. Other report scores/label pools and later judge-cache or workbook changes are NOT combined. Linear-gain nDCG@10 uses that shared ideal DCG; undefined queries are excluded only from nDCG (n shown). P@10 counts grades ≥1 with denominator 10. Unjudged gains count as zero. judged@10 is the judged fraction of returned results; short/missing lists still fail the full top-10 coverage gate. R@50 = source paper in the top 50; grade-2 recall@50 = share of known grade-2 papers in the top 50 (judged pool only, so an upper-bound-style reachability check for a top-50 reranker, not a complete recall).
 
 **PROVISIONAL** means a dev top-10 position is missing or unjudged: source-paper MRR/recall remain valid on the full dev denominator (missing queries score zero), but graded scores are lower-bound diagnostics, not winner evidence. Paired nDCG against the CURRENT retrieval baseline is withheld unless BOTH runs have every dev top-10 position judged. Intervals are exploratory query bootstraps conditional on these labels, not judge accuracy; no multiple-testing correction or test-query scoring. Known-item MRR is source-paper MRR on that type only.
 

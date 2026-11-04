@@ -457,6 +457,9 @@ def _shared_layer_inputs(root, snapshot):
     child2 = copy.deepcopy(child)
     child2["labels"]["q2"]["p22"] = 2
     save(root / "llm-score-dev100" / "labels.json", child2)
+    child3 = {"judge": "frozen-judge", "rubric_version": "frozen-rubric",
+              "labels": {"q3": {"p23": 1}}}
+    save(root / "llm-score-pass2" / "labels.json", child3)
     return expanded
 
 
@@ -467,15 +470,20 @@ def test_shared_label_layer_is_additive_and_leaves_frozen_snapshot_pinned(inputs
     path = catalog.write_shared_labels(root)
     assert catalog.write_shared_labels(root) == path  # idempotent
     shared_path, _, shared, provenance = catalog.load_shared_labels(root)
-    assert shared_path == path
+    assert shared_path == path == root / "shared-labels" / "labels-d46.json"
     assert catalog.load_snapshot(root)[1] == pinned[1]  # frozen experiments unaffected
     assert shared["added_pairs_by_source"] == {
-        "llm-score-pilot/judge-fill/labels.json": 1, "llm-score-dev100/labels.json": 1}
-    assert provenance["added_pairs"] == 3 and provenance["shared_layer_added_pairs"] == 2
+        "llm-score-pilot/judge-fill/labels.json": 1, "llm-score-dev100/labels.json": 1,
+        "llm-score-pass2/labels.json": 1}
+    assert provenance["added_pairs"] == 4 and provenance["shared_layer_added_pairs"] == 3
+    # The Decision45 layer stays frozen and can still be pinned by older experiments.
+    d45_path, _, d45, d45_prov = catalog.load_shared_labels(root, catalog.SHARED_LABELS_D45)
+    assert d45_path.name == "labels.json" and "p23" not in d45["labels"]["q3"]
+    assert d45_prov["shared_layer_added_pairs"] == 2
     catalog.write_catalog()
     report = json.loads((root / "catalog-dev" / "report.json").read_text())
-    assert report["label_snapshot"] == "shared-labels/labels.json"
-    assert "Decision45 shared layer" in (root / "catalog-dev" / "report.md").read_text(
+    assert report["label_snapshot"] == "shared-labels/labels-d46.json"
+    assert "Decision46 shared layer" in (root / "catalog-dev" / "report.md").read_text(
         encoding="utf-8")
 
 
@@ -504,6 +512,12 @@ def test_shared_label_layer_fails_closed_when_parent_or_grades_change(inputs):
     shared["labels"]["q0"]["p0"] = 0
     save(path, shared)
     with pytest.raises(ValueError, match="changed or removed a parent grade"):
+        catalog.load_shared_labels(root)
+    shared["labels"]["q0"]["p0"] = json.loads(
+        (root / "shared-labels" / "labels.json").read_text())["labels"]["q0"]["p0"]
+    shared["labels"]["q1"]["p21"] = 0  # a Decision45-layer grade, not a parent grade
+    save(path, shared)
+    with pytest.raises(ValueError, match="changed or removed a grade from"):
         catalog.load_shared_labels(root)
     expanded["labels"]["q3"]["p23"] = 0
     save(root / "score-fusion-dev" / "labels.json", expanded)
