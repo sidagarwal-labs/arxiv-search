@@ -1,14 +1,15 @@
-"""Decide which LLM judge to trust, by comparing both with a person (Decision 33).
+"""Decide which LLM judge to trust, by comparing each with reference labels (Decision 33).
 
 1. pilot_query_ids: 12 dev queries, 3 of each type, chosen at random with a fixed seed.
 2. Both judges grade the same pairs: each pilot query's pooled top 10s, plus its source
    paper as a sanity check (the paper the query was written from should usually get 2).
        python -m arxiv_search.evaluate.judge --judge gemma-31b --queries pilot
        python -m arxiv_search.evaluate.judge --judge qwen2.5-7b --queries pilot
-3. A person grades 100 of those pairs blind in a spreadsheet (no LLM grades, no ranks,
-   no hint which paper is the source):
+3. A reference labeler grades 100 of those pairs blind in a spreadsheet (no LLM grades, no
+   ranks, no hint which paper is the source). The project owner declared that GPT-6 ASTRA
+   produced all 100 saved grades; none were hand-graded. Legacy "human" names are kept:
        python -m arxiv_search.evaluate.judge_pilot sheet
-4. Report: agreement of each judge with the person, and with each other:
+4. Report: agreement of each judge with the reference labels, and with each other:
        python -m arxiv_search.evaluate.judge_pilot report
 """
 
@@ -28,6 +29,7 @@ PILOT_DIR = config.EVAL_DIR / "judge_pilot"
 SHEET_PATH = PILOT_DIR / "human_grades.xlsx"
 PAIRS_PATH = PILOT_DIR / "human_pairs.json"  # sheet row -> query/paper (kept out of the sheet)
 REPORT_PATH = PILOT_DIR / "report.md"
+REFERENCE = "ASTRA reference"  # display name for the legacy "human" grades
 QUERY_TYPES = ("keyword", "question", "paraphrase", "known_item")
 
 
@@ -134,7 +136,7 @@ def write_sheet(sample: list[tuple[str, str]], queries: dict, papers: dict) -> N
 
 
 def read_human_grades() -> dict[tuple[str, str], int]:
-    """(query_id, arxiv_id) -> the person's grade, for every row filled in so far."""
+    """(query_id, arxiv_id) -> reference grade (GPT-6 ASTRA, per owner declaration) per filled row."""
     from openpyxl import load_workbook
 
     pairs = {p["row"]: (p["query_id"], p["arxiv_id"]) for p in json.loads(PAIRS_PATH.read_text())}
@@ -192,10 +194,16 @@ def build_report(queries: dict, papers: dict, split: dict) -> str:
     graded = {k: judge_rows(k, pairs, queries, papers) for k in config.JUDGES}
     human = read_human_grades() if SHEET_PATH.exists() else {}
     out = [f"# Judge pilot (rubric {judge.RUBRIC_VERSION})", "",
-           f"{len(pairs)} dev queries, {total} query-paper pairs. Human grades so far: {len(human)}.", "",
-           "Preliminary calibration on one person's pilot labels, not held-out validation. "
+           f"{len(pairs)} dev queries, {total} query-paper pairs. "
+           f"Reference grades ({REFERENCE}): {len(human)}.", "",
+           f"**Provenance:** the {len(human)} reference grades in `human_grades.xlsx` came from "
+           f"{config.REFERENCE_LABELER} (project owner's declaration, 2026-11-03); none were "
+           "hand-graded. Agreement below is **model-to-model**, not human validation. Legacy "
+           "`human` file, key and CLI names are kept so frozen hashes stay valid "
+           "([provenance](reference-provenance.json)).", "",
+           "Preliminary calibration on pilot labels, not held-out validation. "
            "Models with different coverage must be compared on the same pair subset. "
-           "OpenAI's human-only run intentionally grades 100 pairs, not all 266 pooled pairs.", "",
+           "OpenAI's reference-pair-only run intentionally grades 100 pairs, not all 266 pooled pairs.", "",
            "| Judge | Pairs graded | Calls | Mean s/call | Source papers graded 2 | Grade 0/1/2 shares |",
            "|---|---|---|---|---|---|"]
     for key, rows in graded.items():
@@ -211,7 +219,7 @@ def build_report(queries: dict, papers: dict, split: dict) -> str:
                    f"{sources.count(2)} / {len(sources)} | "
                    + " / ".join(f"{shares[g] / len(rows):.0%}" for g in (0, 1, 2)) + " |")
 
-    comparisons = [(k, "human", graded[k], human) for k in config.JUDGES]
+    comparisons = [(k, REFERENCE, graded[k], human) for k in config.JUDGES]
     keys = list(config.JUDGES)
     comparisons.append((keys[0], keys[1], graded[keys[0]], graded[keys[1]]))
     out += ["", "**Exact** = same grade. **κ** = Cohen's kappa (1 perfect, 0 chance; quadratic: "
@@ -241,7 +249,7 @@ def build_report(queries: dict, papers: dict, split: dict) -> str:
     active = {k: v for k, v in graded.items() if set(v) & set(human)}
     if len(active) > 1:
         common = sorted(set(human).intersection(*(set(rows) for rows in active.values())))
-        out += ["", f"## Fair comparison: identical {len(common)} human-labeled pairs", "",
+        out += ["", f"## Fair comparison: identical {len(common)} reference-labeled pairs", "",
                 "| Judge | Exact | Quadratic kappa | Relevant agreement | 0-vs-2 errors |",
                 "|---|---|---|---|---|"]
         if common:

@@ -88,7 +88,7 @@ See [provenance and retention](08-provenance-and-retention.md) and
 | **95% confidence interval** | The range the true average likely falls in, e.g. `0.62 [0.57–0.67]`. |
 | **Paired comparison** | Comparing two systems query by query on the same queries; this removes noise from some queries simply being harder. |
 | **Pooling** | Grading the combined top results from every system, so no system's finds go unjudged. |
-| **LLM judge** | An LLM that grades how relevant a result is. We check it against human grades. |
+| **LLM judge** | An LLM that grades how relevant a result is. We check it against 100 reference grades from a higher-reasoning model (GPT-6 ASTRA); no human grades exist yet. |
 | **Cohen's kappa** | Agreement between two graders after removing the agreement expected by chance. 1 = perfect, 0 = no better than chance. "Quadratic" kappa punishes a 0-vs-2 disagreement 4× more than 0-vs-1. Above ~0.6 is usually called substantial. |
 | **Rubric version** | A fingerprint of `judge_prompts.py` saved with every LLM grade; changing the rubric re-grades everything. |
 | **Blind grading** | The grader doesn't see which system found a paper, its rank, or which paper the query came from. |

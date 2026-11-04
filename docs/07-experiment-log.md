@@ -23,9 +23,9 @@ Keep benchmark scopes separate: these rows use different corpora, label pools or
 |---|---|---|
 | Full-corpus retrieval reference | BM25 + **GTE-small**, RRF 0.5/0.5, c=10; 23,304 papers, 100 dev queries | MRR@10 **0.635** [0.56, 0.72]; R@1 **0.54**, R@10 **0.80**, R@20 **0.84**; one warm run **26.4 ms/query** |
 | Selected embedding pilot | OpenAI large **alone**; 2,000 papers, same 100 dev queries | MRR@10 **0.844** [0.784, 0.902]; R@10 **0.95**, R@20 **0.98**; embedding cost **$0.0701** including queries |
-| Selected judge calibration | GPT-5.4 mini vs. 100 human-labeled pairs from 12 dev searches | Exact agreement **77%**; quadratic kappa **0.802**; relevant/not agreement **84%**; **0** opposite 0-vs-2 errors |
+| Selected judge calibration | GPT-5.4 mini vs. 100 GPT-6 ASTRA reference-labeled pairs from 12 dev searches (model-to-model) | Exact agreement **77%**; quadratic kappa **0.802**; relevant/not agreement **84%**; **0** opposite 0-vs-2 errors |
 | Original OpenAI hybrid control | BM25 + **OpenAI large**, equal-weight RRF c=10; 23,304 papers, 100 dev queries | MRR@10 **0.653** [0.572, 0.737]; R@1 **0.56**, R@10 **0.84**, R@20 **0.90** |
-| Original seven-system graded snapshot | Original OpenAI hybrid; GPT-5.4 mini with 100 human overrides | nDCG@10 **0.686** [0.659, 0.712]; P@10 **0.633** [0.595, 0.673]; judged@10 **100%** |
+| Original seven-system graded snapshot | Original OpenAI hybrid; GPT-5.4 mini with 100 GPT-6 ASTRA reference overrides | nDCG@10 **0.686** [0.659, 0.712]; P@10 **0.633** [0.595, 0.673]; judged@10 **100%** |
 | **Current working baseline** | **RRF shortlist + max-score 75% ordering, score depth 500**; 100 dev queries, same 3,294-pair snapshot | **nDCG@10 0.7176; P@10 0.689; source MRR@10 0.6967; R@1 0.61; R@10 0.86; R@20 0.89; known-item MRR 0.980** (0.7092 on the Decision45 shared 3,461-pair labels) |
 | Reranking baseline (Decision 45, superseded) | Retrieval baseline top 50 scored by GPT-5.4 mini, RRF safeguard c=30; 100 dev queries, shared 3,461-pair labels | nDCG@10 0.7583; P@10 0.736; source MRR@10 0.720; ≈ $0.014 per uncached query |
 | **Reranking baseline (Decision 46)** | Same, but the mean of two identical GPT-5.4 mini passes; 100 dev queries, shared 3,533-pair labels | **nDCG@10 0.7684; P@10 0.751; source MRR@10 0.723**; ≈ $0.028 per uncached query, p50 2.9 s with parallel passes |
@@ -111,7 +111,7 @@ historical experiments retain the previous RRF control and reports. See the
 [loss review](../data/results/score-candidate-review-dev/report.md) and
 [explanation](03-findings.md#22-leaderboard-and-score-fusion-challenger-loss-review).
 
-The label-collection UI is deferred; the existing 100 human labels remain the
+The label-collection UI is deferred; the existing 100 GPT-6 ASTRA reference labels remain the
 calibration set.
 
 ## Cross-encoder and field-score experiments

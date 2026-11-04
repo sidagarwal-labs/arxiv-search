@@ -2,7 +2,8 @@
 
 No system registry, judge cache, or historical summary supplies scores here. An
 explicit additive score-fusion snapshot may expand the shared denominator, but
-must preserve every original grade, including frozen human overrides.
+must preserve every original grade, including frozen reference overrides (legacy key
+`human_overrides`; GPT-6 ASTRA grades per the owner's 2026-11-03 declaration).
 """
 
 from __future__ import annotations
@@ -831,6 +832,7 @@ def write_catalog() -> str:
         "label_snapshot_provenance": provenance,
         "human_overrides": provenance["frozen_human_overrides"],
         "human_workbook_sha256": snapshot.get("human_workbook_sha256"),
+        "reference_labeler": config.REFERENCE_LABELER,  # who produced the legacy human_* grades
         "judge": snapshot.get("judge"), "model": snapshot.get("model"),
         "rubric_version": snapshot.get("rubric_version"),
         "graded_labels_sha256": _fingerprint(snapshot["labels"]),
@@ -866,7 +868,8 @@ def write_catalog() -> str:
         "Readable names are presentation only: original IDs and files are preserved below.\n\n"
         f"All graded scores are recomputed from the **same immutable "
         f"`{report['label_snapshot']}`**, "
-        f"including its {report['human_overrides']} frozen human overrides. "
+        f"including its {report['human_overrides']} frozen reference overrides "
+        f"({config.REFERENCE_LABELER} grades; legacy key `human_overrides`, no human labels). "
         + (f"**Revised shared ideal-DCG denominator:** approved additive expansion preserves "
            f"all {provenance['original_pairs']} original labels and adds "
            f"{provenance['added_pairs']} labels"

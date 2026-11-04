@@ -16,8 +16,9 @@ a 300-query held-out test set is reserved for the final evaluation.
 - **Evaluation set:** 400 LLM-generated keyword, question, paraphrase and
   known-item queries, split into 100 development and 300 held-out test queries.
 - **Calibrated LLM judge:** GPT-5.4 mini grades relevance offline. Against
-  100 human labels, it reached **77% exact agreement** and **0.802 quadratic
-  kappa**, with no opposite (0 vs. 2) grades.
+  100 reference labels from a higher-reasoning model (GPT-6 ASTRA), it reached
+  **77% exact agreement** and **0.802 quadratic kappa**, with no opposite (0 vs. 2)
+  grades. This is model-to-model agreement; no human labels exist yet.
 - **Cost-controlled experiments:** cached embeddings and rankings make most
   experiments free to rerun. Paid API steps run under explicit budget caps; the
   full-corpus OpenAI embeddings cost $0.74.
@@ -46,7 +47,7 @@ two scores ([Decision 46](docs/02-decisions.md#46-two-pass-score-averaging-promo
 | Embeddings | OpenAI `text-embedding-3-large`, 3,072 dimensions; normalized vectors | Full-corpus vectors cached; $0.7439 under a separate $1.25 cap |
 | Stage 1: hybrid selection + ordering | RRF (55% semantic / 45% lexical, c=30, depth 100) selects the top 10; max-normalized score fusion (75% semantic / 25% lexical, depth 500) reorders those ten; the tail is unchanged | **Retrieval baseline**, [Decision 36](docs/02-decisions.md#36-recall-preserving-shortlist-score-baseline-promoted-2026-10-29); deterministic |
 | Stage 2: LLM reranker | GPT-5.4 mini (`2026-03-17` snapshot) scores the retrieval top 50 from 0-4 in two identical requests; the two scores are averaged; RRF of LLM order and retrieval order (c=30); ranks below 50 unchanged | **Reranking baseline**, [Decision 46](docs/02-decisions.md#46-two-pass-score-averaging-promoted-as-the-reranking-baseline-2026-11-03) (single-pass [Decision 45](docs/02-decisions.md#45-safeguard-promoted-as-the-reranking-baseline-two-stage-leaderboard-2026-11-03) kept as a control); ≈ $0.028 per uncached query, p50 2.9 s with the two requests in parallel; scores vary run to run, so production must cache and fall back to Stage 1 |
-| Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; human labels override | Selected 2026-10-29; the 3,294-pair dev pool is covered for finalists; some older exploratory rows may be provisional; fresh human validation deferred |
+| Relevance judge | OpenAI `gpt-5.4-mini`; blind 0/1/2 pair labels; 100 GPT-6 ASTRA reference labels override | Selected 2026-10-29; the 3,294-pair dev pool is covered for finalists; some older exploratory rows may be provisional; human validation not yet done |
 | Evaluation | 100 dev / 300 held-out test queries; source-paper MRR and recall, plus graded nDCG and judgment coverage | Full dev evaluation complete; held-out test untouched |
 | Vector storage | Offline NumPy arrays + paper-ID metadata; exact cosine search | Hosted Postgres/pgvector planned, not deployed |
 | RAG | Not implemented | Planned |
@@ -108,7 +109,7 @@ caveats.
 - [x] Keyword, embedding and hybrid search, tuned on development queries
 - [x] Evaluation tooling: 400 queries, metrics, results table, calibrated LLM judge and full development evaluation
 - [ ] Final held-out test on 300 queries
-- [ ] Fresh human validation of judge labels
+- [ ] Human validation of judge labels (none collected yet)
 - [ ] Retrieval-augmented answers with an LLM
 - [ ] Web app: database, API, web page and deployment
 
@@ -131,7 +132,7 @@ plans and controls are not necessarily current configurations.
 | [Charts](docs/06-charts.md) | Hill-climbing milestones (retrieval + reranker), latest Stage 1 and Stage 2 scores, and measured remaining headroom |
 | [Experiment log](docs/07-experiment-log.md) | Detailed experiment history, budgets and caveats |
 | [Provenance and retention](docs/08-provenance-and-retention.md) | Experiment evidence checklist and what maintenance must preserve |
-| [Labeler comparison](docs/09-labeler-comparison.md) | Matched-pair comparisons, human validation and higher-reasoning label provenance |
+| [Labeler comparison](docs/09-labeler-comparison.md) | Matched-pair comparisons and GPT-6 ASTRA reference-label provenance |
 
 Repository maintenance follows [the working rules](AGENTS.md): investigate,
 coordinate with development, propose exact changes, obtain user approval, then
@@ -164,7 +165,7 @@ copy .env.example .env        # then add GEMINI_API_KEY; OPENAI_API_KEY is optio
 
 # Step 4d: LLM relevance judge (resumable; see docs/01-how-it-works.md)
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge --judge gemma-31b --queries pilot
-.\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge_pilot report   # agreement with human grades
+.\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge_pilot report   # agreement with GPT-6 ASTRA reference grades
 
 # OpenAI pilots: set OPENAI_API_KEY in .env first (never commit a key)
 .\.venv\Scripts\python.exe -m arxiv_search.evaluate.judge --judge openai-nano --queries human --max-calls 1

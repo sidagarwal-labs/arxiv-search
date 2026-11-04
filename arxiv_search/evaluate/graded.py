@@ -1,4 +1,7 @@
-"""Score dev retrieval with one selected judge's cached labels and human overrides.
+"""Score dev retrieval with one selected judge's cached labels and reference overrides.
+
+The 100 reference overrides come from GPT-6 ASTRA (owner declaration, 2026-11-03); legacy
+`human_*` names are kept for schema and hash stability.
 
 python -m arxiv_search.evaluate.graded             # no API calls; publish coverage
 python -m arxiv_search.evaluate.graded --label --max-calls 20
@@ -138,13 +141,14 @@ def publish(runs: dict, labels: dict, pairs: dict, queries: dict, overrides: int
     lines = ["# Graded dev retrieval", "",
              f"Judge: `{judge_key}` (`{config.JUDGES[judge_key]['model']}`); "
              f"rubric `{judge.RUBRIC_VERSION}`. {len(pairs)} dev queries, "
-             f"{covered}/{total} pooled pairs judged; {overrides} human pair labels take priority.",
-             "", "**Calibration limitation:** one person's 100 pilot labels, no fresh-human "
+             f"{covered}/{total} pooled pairs judged; {overrides} {config.REFERENCE_LABELER} reference "
+             "pair labels (legacy `human` overrides) take priority.",
+             "", "**Calibration limitation:** 100 pilot labels from one reference model, no human "
              "validation. Selecting the judge on these labels is calibration, not independent "
              "confirmation. Gemma wrote the queries. No held-out test scores here.",
              "", "**Metric definitions:** linear-gain nDCG@10; P@10 counts grades 1 and 2 as "
              "relevant; unjudged papers count as zero. Ideal DCG uses the same pooled labels "
-             "plus human overrides for every system. nDCG is undefined if no relevant label "
+             "plus reference overrides for every system. nDCG is undefined if no relevant label "
              "exists; the nDCG n column shows how many queries are included. P@10 and judged@10 "
              "include all dev queries.",
              "", "**INCOMPLETE / PROVISIONAL: do not rank systems by these scores until "

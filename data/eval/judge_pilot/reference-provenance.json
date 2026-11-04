@@ -1,0 +1,47 @@
+{
+  "reference_labeler": "GPT-6 ASTRA",
+  "declared_by": "project owner (Sid Agarwal)",
+  "declared_on": "2026-11-03",
+  "declaration": "All 100 reference grades in human_grades.xlsx came from GPT-6 ASTRA; none were hand-graded.",
+  "human_labels": 0,
+  "reference_pairs": 100,
+  "grade_counts": {
+    "0": 42,
+    "1": 40,
+    "2": 18
+  },
+  "files": {
+    "workbook": "human_grades.xlsx",
+    "workbook_sha256": "50a718ea4e152bd078c4cd69e5226e15e60622fa128b640ee7330c88822f524f",
+    "pair_map": "human_pairs.json",
+    "pair_map_sha256": "11fb857df75fb1315480d02f31db843688568ca0d64c8a70a2e1fee2538b1626",
+    "pair_map_git_content_sha256": "caf1eb72ad8e7f91c1fcbfca91b7f3c94d62b8df0663d2d8a6ea361d8eab8d82",
+    "hash_note": "pair_map_sha256 hashes the existing Windows checkout (CRLF); pair_map_git_content_sha256 hashes committed LF content. They differ only in line endings. Workbook bytes are identical to the committed file."
+  },
+  "verified_offline_2026-11-03": {
+    "graded_rows": 100,
+    "rows_mapped_through_pair_map": 100,
+    "pair_map_matches_deterministic_sampler": true,
+    "notes_and_reasoning_columns_filled": 100,
+    "rubric_sheet": "How to grade (same 0/1/2 rubric and title/authors/abstract evidence as the judge)"
+  },
+  "not_recorded": [
+    "exact model snapshot",
+    "reasoning settings",
+    "prompt wrapper",
+    "collection date",
+    "token usage and cost",
+    "raw API responses"
+  ],
+  "legacy_names_kept": [
+    "human_grades.xlsx",
+    "human_pairs.json",
+    "read_human_grades()",
+    "human_overrides",
+    "human_workbook_sha256",
+    "provenance value \"human\"",
+    "judge --queries human",
+    "JUDGE_PILOT_HUMAN_PAIRS_PER_TYPE"
+  ],
+  "interpretation": "Judge agreement against these grades (GPT-5.4 mini: 77% exact, 0.802 quadratic kappa) is model-to-model agreement, not human validation. Grade values and hashes are unchanged."
+}

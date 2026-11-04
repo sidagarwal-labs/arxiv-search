@@ -37,5 +37,7 @@ def test_report_compares_identical_pairs_and_deduplicates_usage(monkeypatch):
     monkeypatch.setattr(jp, "judge_rows", lambda key, *args: rows)
     monkeypatch.setattr(jp, "read_human_grades", lambda: human)
     report = jp.build_report(q, {}, {})
-    assert "identical 2 human-labeled pairs" in report
+    assert "identical 2 reference-labeled pairs" in report
+    assert "model-to-model" in report and "vs human" not in report
+    assert "GPT-6 ASTRA" in report and "none were hand-graded" in report
     assert "| gemma-31b | 10 | 5 | 0 |" in report

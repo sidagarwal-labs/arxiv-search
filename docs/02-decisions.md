@@ -9,6 +9,13 @@ Use the [README baselines](../README.md#current-working-baselines) for selected
 settings and [generated results](05-results.md) for scoped comparisons.
 Decision numbers and anchors remain stable when choices are superseded.
 
+> **Provenance correction (2026-11-03):** the 100 "human" reference labels
+> (`human_grades.xlsx`) were produced by **GPT-6 ASTRA**, not hand-graded, per the
+> project owner. Wherever older text below says *human* labels, grades or overrides,
+> read *GPT-6 ASTRA reference*; judge agreement is model-to-model, not human validation.
+> Grade values, file names and legacy `human_*` keys are unchanged. See
+> [labeler comparison](09-labeler-comparison.md).
+
 ---
 
 ## What goes into the search system
@@ -296,7 +303,7 @@ explain, and with only 3 grades it rarely changes which system wins. Counting un
 is standard (TREC); the % judged shows when that is unfair. With ~33 queries per group, error bars
 are needed to tell a real win from noise.
 
-**#33 An LLM judge grades (search, paper) pairs 0/1/2, checked against human grades.**
+**#33 An LLM judge grades (search, paper) pairs 0/1/2, checked against reference grades (GPT-6 ASTRA; see correction above).**
 
 | Choice | Picked | Alternative we rejected |
 |---|---|---|
@@ -305,7 +312,7 @@ are needed to tell a real win from noise.
 | What the grader sees | Search text + title + authors (first 10) + full abstract | Title only (too little); full paper (slow, costly, and we only index abstracts) |
 | Blindness | No rank, no system name, no "source paper" flag; papers shuffled and labelled P1…Pn | Showing the ranked list (graders favour rank 1) |
 | Calls | One call per search, each paper graded on its own, reason (≤ 20 words) before grade | One call per pair (~23× more calls) |
-| Judge | Pilot Gemma 4 31B (API) vs. Qwen 2.5 7B (local) on the same 266 pairs, pick by agreement with Sid's 100 blind human grades | Picking a judge without measuring it |
+| Judge | Pilot Gemma 4 31B (API) vs. Qwen 2.5 7B (local) on the same 266 pairs, pick by agreement with 100 blind GPT-6 ASTRA reference grades | Picking a judge without measuring it |
 | Re-use | Grades cached by (judge, rubric version, search text, paper text); human grades override LLM grades | Re-grading every run |
 
 *Why:* grading pairs once means every system — including future rerankers and OpenAI models —

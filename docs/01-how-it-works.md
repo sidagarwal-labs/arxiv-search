@@ -558,7 +558,7 @@ Here **dev means development/validation**, not a subset of a training split.
 We do not currently train or fine-tune an embedding model, so there is no
 supervised training set and no third, separate validation split. All 23,304
 papers are searchable in both evaluations; the 400 queries, not the corpus,
-are split into dev and test. The 100 human judgments calibrate the judge on
+are split into dev and test. The 100 GPT-6 ASTRA reference judgments calibrate the judge on
 dev queries; they are pair labels, not another 100-query split. If we later
 train a reranker, define a training/validation protocol using development data
 or new labels without consuming the frozen 300-query test set.
@@ -644,29 +644,30 @@ alongside the original `openai-mini` (GPT-5.4 mini) and nano. All use the
 same persistent shared mini-pool ledger; there is no automatic daily reset.
 Calibrate with `judge --judge <key> --queries human`. Then
 `graded --judge <key> --label --max-calls 20` labels the expanded dev pool
-with that one model, not a mixture with Gemma. Human overrides still apply.
+with that one model, not a mixture with Gemma. Reference overrides still apply.
 The published graded snapshot identifies the selected judge and model;
 raw per-model caches remain separate even when the displayed report changes.
-The original judge CLI remains restricted to human-only OpenAI pilots;
+The original judge CLI remains restricted to reference-pair OpenAI pilots;
 expanded labeling is explicit through the graded CLI.
 
 **The pilot** (`judge_pilot.py`) picks which judge to trust: 12 dev queries (3 per type),
-266 pairs (including source-paper checks, also used by the pilot CLI). Sid grades
-100 of them blind in `human_grades.xlsx` (25 per type), then the report
-compares each judge with Sid: exact agreement, Cohen's kappa (quadratic), agreement on
+266 pairs (including source-paper checks, also used by the pilot CLI). 100 of them
+(25 per type) were graded blind in `human_grades.xlsx` by a higher-reasoning model,
+GPT-6 ASTRA (none hand-graded; the legacy file name is kept), then the report
+compares each judge with those reference grades: exact agreement, Cohen's kappa (quadratic), agreement on
 relevant-vs-not, a confusion table, seconds per call, and how often source papers got a 2.
 
 | Command | Does |
 |---|---|
-| `python -m arxiv_search.evaluate.judge_pilot sheet` | write the blind human grading sheet (won't overwrite) |
+| `python -m arxiv_search.evaluate.judge_pilot sheet` | write the blind reference grading sheet (won't overwrite) |
 | `python -m arxiv_search.evaluate.judge --judge gemma-31b --queries pilot` | grade the pilot pairs (resumable) |
 | `python -m arxiv_search.evaluate.judge --judge qwen2.5-7b --queries pilot` | same, with the local model via Ollama |
 | `python -m arxiv_search.evaluate.judge_pilot report` | agreement report → `data/eval/judge_pilot/report.md` |
 | `python -m arxiv_search.evaluate.judge --judge <key> --queries dev --max-calls 20` | grade all dev pairs, at most 20 calls this run |
 
 **OpenAI calibration:** `--judge openai-nano` and `--judge openai-mini` select
-`gpt-5.4-nano` and `gpt-5.4-mini`. `--queries human` grades only the pairs with
-completed human labels, never sending the human grades, notes or reasoning.
+`gpt-5.4-nano` and `gpt-5.4-mini`. `--queries human` (legacy name) grades only the pairs with
+completed reference labels, never sending the reference grades, notes or reasoning.
 Only the query, paper title/authors/abstract and rubric go to the API.
 These runs use batches of up to 10, strict JSON output, no reasoning budget,
 bounded retries and `OPENAI_API_KEY` from the local `.env`.
@@ -688,13 +689,13 @@ agreement remain separate: a better judge does not itself improve search ranking
 five original finalists plus OpenAI large dense/hybrid results, all on the same
 100 dev queries. It defaults to GPT-5.4 mini (`DEFAULT_JUDGE = "openai-mini"`),
 reuses only that judge's current-rubric labels, skips API calls for
-human-graded pairs and applies human labels last (including grade 0). The default
+reference-graded pairs and applies reference labels last (including grade 0). The default
 command only scores cached labels. `--label --max-calls 20` grades up to 20
 successful batches then publishes progress; API/validation failures also publish
 the saved partial coverage before propagating the error.
 
 Outputs in `data/results/graded-dev/` include the merged label snapshot, rubric
-version, human-workbook fingerprint, ranking fingerprints, per-query graded
+version, reference-workbook (`human_workbook_sha256`) fingerprint, ranking fingerprints, per-query graded
 scores and a report. nDCG uses linear gains from the shared pool, P@10 treats
 grades 1/2 as relevant, and judged@10 shows coverage. Undefined nDCG queries are
 counted explicitly. Until every compared top 10 is judged, the table is marked
@@ -838,9 +839,9 @@ an LLM wouldn't write the same 400 queries twice, and every score we report must
 test set. `data/results/` is in git too: it preserves experiment evidence and
 the results table is rebuilt from it. It is no longer negligible in size;
 follow the [retention policy](08-provenance-and-retention.md) before proposing cleanup.
-`data/eval/judgments/` (LLM grades) and `data/eval/judge_pilot/` (human grades and the
-agreement report) are in git as well: neither an LLM nor a person would grade exactly the
-same way twice.
+`data/eval/judgments/` (LLM grades) and `data/eval/judge_pilot/` (GPT-6 ASTRA reference grades, their
+[provenance](../data/eval/judge_pilot/reference-provenance.json) and the agreement report)
+are in git as well: an LLM would not grade exactly the same way twice.
 
 ```
 data/

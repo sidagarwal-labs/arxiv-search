@@ -90,8 +90,13 @@ RERANK_BASELINE_NOISE_DIR = "llm-score-repeat"  # Decision44 run-to-run repeatab
 # to the retrieval baseline order if the API fails or the daily token guard is exhausted.
 
 # --- Relevance judge (Decision 33) -----------------------------------------
-DEFAULT_JUDGE = "openai-mini"  # GPT-5.4 mini; selected against 100 human pairs
-# Pilot: both judges grade the same pairs; the user's blind grades decide which to keep.
+DEFAULT_JUDGE = "openai-mini"  # GPT-5.4 mini; selected by agreement with 100 GPT-6 ASTRA reference pairs
+# Pilot: judges grade the same pairs; agreement with the reference labels decides which to keep.
+# Reference labels: the 100 pilot grades in judge_pilot/human_grades.xlsx. The legacy "human"
+# file and key names are kept for byte/schema stability; the project owner declared on 2026-11-03
+# that all 100 grades came from GPT-6 ASTRA and none were hand-graded.
+REFERENCE_LABELER = "GPT-6 ASTRA"
+REFERENCE_LABEL_PROVENANCE = EVAL_DIR / "judge_pilot" / "reference-provenance.json"
 JUDGES = {
     "gemma-31b": {"backend": "gemini", "model": "gemma-4-31b-it"},  # API; same model wrote the queries
     "qwen2.5-7b": {"backend": "ollama", "model": "qwen2.5:7b"},  # local; independent of the writer
@@ -122,7 +127,7 @@ JUDGE_POOL_DEPTH = 10  # = NDCG_K: the papers nDCG@10 looks at (~23 unique per q
 JUDGE_MAX_PAPERS_PER_CALL = 30  # one call per query; a bigger pool is split into calls
 GEMMA_JUDGE_MAX_PAPERS_PER_CALL = 10  # smaller replies reduce missing/mistyped labels
 JUDGE_PILOT_QUERIES_PER_TYPE = 3  # 12 pilot queries
-JUDGE_PILOT_HUMAN_PAIRS_PER_TYPE = 25  # 100 pairs graded blind by a person
+JUDGE_PILOT_HUMAN_PAIRS_PER_TYPE = 25  # 100 reference pairs (legacy name; graded by GPT-6 ASTRA)
 OLLAMA_URL = "http://localhost:11434"
 OLLAMA_CONTEXT_TOKENS = 16_384  # Ollama's default window is too small for ~25 abstracts
 

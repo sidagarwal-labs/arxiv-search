@@ -11,6 +11,13 @@ differ. Use [current results](05-results.md) for comparable leaderboard rows and
 the [experiment log](07-experiment-log.md) for a shorter narrative.
 The [README](../README.md) summarizes implemented versus planned work.
 
+> **Provenance correction (2026-11-03):** the 100 "human" reference labels
+> (`human_grades.xlsx`) were produced by **GPT-6 ASTRA**, not hand-graded, per the
+> project owner. Wherever older text below says *human* labels, grades or overrides,
+> read *GPT-6 ASTRA reference*; judge agreement is model-to-model, not human validation.
+> Grade values, file names and legacy `human_*` keys are unchanged. See
+> [labeler comparison](09-labeler-comparison.md).
+
 Do not update an old score to match a newer label layer without preserving its
 scope. Follow [provenance and retention](08-provenance-and-retention.md); labeler
 agreement has its own [comparison method](09-labeler-comparison.md).
@@ -416,11 +423,11 @@ paid-model fallback was added.
 ## 13. First OpenAI pilots (2026-10-28)
 
 **Judging:** Gemma completed all 266 pilot pairs after the reliability changes.
-OpenAI nano and mini each graded exactly the 100 frozen human-labeled pairs,
-blind and with the same rubric/evidence. Neither model received human grades or
-notes. The human workbook is preserved, including its original reasoning.
+OpenAI nano and mini each graded exactly the 100 frozen reference-labeled pairs
+(GPT-6 ASTRA), blind and with the same rubric/evidence. Neither model received the
+reference grades or notes. The reference workbook is preserved, including its original reasoning.
 
-| Judge | Human pairs compared | Exact | Quadratic kappa | Relevant agreement | 0-vs-2 errors |
+| Judge | Reference pairs compared | Exact | Quadratic kappa | Relevant agreement | 0-vs-2 errors |
 |---|---|---|---|---|---|
 | Gemma 4 31B | 100 | 79% | 0.81 | 83% | 0 |
 | GPT-5.4 mini | 100 | 77% | 0.80 | 84% | 0 |
@@ -516,7 +523,9 @@ The run was resumed from its cache with the same model, rubric, full abstracts
 and 10-paper cap. These changes improve observability and retry compliance;
 they do not establish that Google's 500/503 error rate is reduced.
 
-## 15. Four OpenAI judges against the same human labels (2026-10-29)
+<a id="15-four-openai-judges-against-the-same-human-labels-2026-10-29"></a>
+
+## 15. Four OpenAI judges against the same reference labels (2026-10-29)
 
 GPT-4.1 mini and GPT-4o mini each graded exactly the same 100 frozen human
 pairs, without seeing human grades, notes or reasoning. Full title/authors/
