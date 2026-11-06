@@ -13,8 +13,10 @@ and experiment designs; those sections are learning history, not a claim that
 every former model or plan remains selected.
 
 Hybrid retrieval, LLM reranking and cited answer generation have been evaluated
-on dev. Serving: **local preview, not deployed**. Final held-out evaluation and
-human validation remain open; offline timings are not production measurements.
+on dev and are available on the [live site](https://arxiv.agarwal-labs.com/).
+The deployed frontend and serving code are not yet committed to this repository.
+Final held-out evaluation and human validation remain open; offline timings are
+not production latency measurements.
 Detailed measurements belong in [Findings](03-findings.md), with
 [provenance and retention](08-provenance-and-retention.md) governing maintenance.
 
@@ -27,8 +29,8 @@ Detailed measurements belong in [Findings](03-findings.md), with
    [hybrid fusion](#step-3c-hybrid-search-searchhybridpy) supply candidates.
 3. Reranking: the [current configuration](../README.md#current-working-baselines)
    averages two GPT-5.4 mini scoring passes over the top 50, applies the
-   retrieval-order safeguard, then refines the top 20 with two more passes
-   while keeping the previous rank 1 (Decision 47).
+   retrieval-order safeguard, then averages two GPT-5.4 top-20 scores and orders
+   by score while keeping the Decision 46 rank 1 (Decision 50).
 4. Evaluation: [metrics](#step-4-scoring-evaluatemetricspy),
    [experiment tooling](#step-4c-experiments-evaluateexperimentspy) and the
    [judge](#step-4d-llm-relevance-judge-evaluatejudgepy-judge_promptspy-judge_pilotpy)
@@ -52,7 +54,7 @@ For setup and commands grouped by cost/side effects, use the
                          +------- offline evaluation ---------+
 ```
 
-The corpus is title/abstract evidence, not full text. Retrieval finds candidates;
+The search index uses titles, abstracts and authors, not full text. Retrieval finds candidates;
 reranking changes their order; answer generation must support claims from the
 supplied evidence. Each stage needs its own evaluation rather than borrowing
 another stage's score.
@@ -84,9 +86,16 @@ Reservations use full uncached Luna prices and the full 1,200-token output cap;
 the module computes reservations but does not enforce a budget or send requests.
 
 **Not implemented in these modules:** fetching, caching, budgets or HTTP endpoints.
-The live website's serving layer adds those statelessly: the browser resends the
-conversation history, which is treated as untrusted context, and each question is
-one Luna call reserved against the same daily budget as search.
+The live website's serving layer adds those statelessly: it prefers arXiv HTML,
+then PDF text, then the abstract, and displays available coverage. The browser
+resends tab-local conversation history as untrusted context; each question is
+one Luna call reserved against the shared daily model budget. Citations point to
+available sections or pages, but do not prove an answer is correct. Missing paper
+text limits discussion coverage; model and budget failures may downgrade search.
+
+Queries and evidence go to OpenAI. LangSmith records queries, questions, answers,
+paper identifiers and operational metadata; abstracts and visitor IDs are not
+intentionally logged. Live functionality is distinct from explicit UI demo modes.
 
 ## Recommended reading order
 

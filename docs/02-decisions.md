@@ -152,7 +152,7 @@ Sid selected **Gemma as relevance judge and OpenAI large as the embedding model*
 The judge selection was updated to **GPT-5.4 mini on 2026-10-29** after
 the four-OpenAI-model human calibration below; Gemma caches are retained.
 Keep the best BM25 recipe and start hybrid testing with equal-weight RRF c=10.
-The [README summary](../README.md#current-working-baseline)
+The [README summary](../README.md#current-working-baselines)
 tracks the selected configuration alongside the best measured scores and their scopes.
 This does not rename or overwrite the original `bm25-baseline` control.
 
@@ -897,9 +897,11 @@ blend with the previous order; with the stronger model the blend held it back.
 
 Remaining80 wins/losses/ties 59/20/1; every query type improved. On all 100 dev
 queries source MRR@10 0.738 → 0.766 and source recall@10 92% → 93%.
-**Resources:** about $0.038 per uncached query for this step ($0.019 more than
-GPT-5.4 mini twice), so about $0.066 per search with Decision 46 and the Luna
-summary. Two passes in parallel took 3.24 s mean provider time (p95 3.76 s).
+**Resources:** about $0.038 per uncached query for this step (approximately
+$0.0266 more than D47's two mini refinement calls), so about $0.066 per search
+with Decision 46 and the Luna summary. The maximum of two sequential provider
+call durations was 3.24 s mean (p95 3.76 s): a hypothetical parallel estimate,
+not measured concurrent or end-to-end latency.
 
 **How this was decided, and its limits.** The model swap, then scores-only ordering,
 were chosen on the same 20 dev queries ([pilot](../data/results/top20-model-pilot/report.md),
@@ -909,7 +911,8 @@ once on the other 80 dev queries with no retries
 passed. One pass scored +0.0039 lower (CI includes zero); the owner chose two passes.
 Low reasoning effort scored higher on the pilot but was not significant and more than
 doubled latency. Labels are pooled AI judgments; the held-out test has not been run.
-Serving still runs Decision 47 until a new release adopts this configuration.
+The frontend handoff reports D50 deployed in release `d36-d50-d49-serving-f16-v4`;
+the deployed serving implementation is not yet committed to this repository.
 
 ## Which LLMs
 
@@ -945,7 +948,8 @@ judging, timed against the API before we choose.
 
 **#6 Website setup.**
 
-*Status: planned, not deployed. These are hosting options, not running services.*
+*Status: historical hosting plan, not a description of the current deployment.
+See the [README](../README.md#status) for the live service.*
 
 | Part | Runs where |
 |---|---|

@@ -14,8 +14,8 @@ These are the selections summarized in the README, not new promotions:
 | BM25 | Exact terms + stems, authors, title weighted x2; k1=0.8, b=0.75; no stopword removal |
 | Embeddings | `text-embedding-3-large`, 3,072 dimensions; normalized vectors; full-corpus cached embedding cost $0.7439 under the historical $1.25 lifetime cap |
 | Stage 1 | RRF 55% semantic / 45% lexical, c=30, depth 100 selects top10; max-normalized fusion 75% semantic / 25% lexical, depth 500 reorders those ten; tail unchanged (Decision 36) |
-| Stage 2 | `gpt-5.4-mini-2026-03-17` scores top50 0-4 twice; average scores; RRF with retrieval order c=30 (Decision 46); then `gpt-5.4-2026-03-05` (reasoning none) re-scores that top20 0-10 twice with `refine20-v1`, averages, sorts by score (Decision 46 order breaks ties), keeps its rank 1; ranks below 20 unchanged (Decision 50; Decision 47's mini + RRF refinement is the historical control and still the served release) |
-| Reranker resources | Approximately $0.066 per uncached query (Decision 46 ~$0.028 + GPT-5.4 refinement ~$0.038); refinement provider time 3.24 s mean / 3.76 s p95 with both passes in parallel; not end-to-end website latency |
+| Stage 2 | `gpt-5.4-mini-2026-03-17` scores top50 0-4 twice; average scores; RRF with retrieval order c=30 (Decision 46); then `gpt-5.4-2026-03-05` (reasoning none) re-scores that top20 0-10 twice with `refine20-v1`, averages, sorts by score (Decision 46 order breaks ties), keeps its rank 1; ranks below 20 unchanged (Decision 50; Decision 47's mini + RRF refinement is the historical control) |
+| Reranker resources | Approximately $0.066 per uncached search with summary (Decision 46 ~$0.028 + GPT-5.4 refinement ~$0.038 plus summary); maximum of two sequential refinement-call durations: 3.24 s mean / 3.76 s p95, a hypothetical parallel estimate, not measured concurrent or end-to-end latency |
 | AI summary | `gpt-6-luna`, prompt `answer-v2`, answer contract B (an ungrounded answer may cite the closest papers), top-10 evidence (Decision 49; Decision 48's GPT-5.4 mini / `answer-v1` is the historical control); approximately $0.0004 per answer, p50 2.4 s |
 | Storage and serving | Offline NumPy arrays with paper-ID metadata and exact cosine search; hosted Postgres/pgvector was a plan, not a deployed service |
 
@@ -26,7 +26,7 @@ do not make stochastic model responses deterministic.
 ## Historical retrieval milestones
 
 100 development queries, 23,304 papers, frozen **3,294-pair** label snapshot.
-These original numbers are retained, not rescored. The current Decision 47 layer
+These original numbers are retained, not rescored. The historical Decision 47 layer
 has 3,579 pairs; use the [generated results](05-results.md) and
 [charts](06-charts.md) for milestones on that common layer.
 

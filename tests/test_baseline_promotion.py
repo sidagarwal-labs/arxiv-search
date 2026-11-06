@@ -1,4 +1,6 @@
 import copy
+import json
+import shutil
 
 import pytest
 
@@ -6,6 +8,58 @@ from arxiv_search import config
 from arxiv_search.evaluate import baseline_promotion as promotion
 from arxiv_search.search.hybrid import fuse_working_baseline
 from arxiv_search.search.rank_score import rescore_shortlist
+
+
+def test_d50_saved_evidence_and_chart():
+    root = config.RESULTS_DIR
+    comparison = promotion.load_d50_comparison(root)
+    report = json.loads((root / "catalog-dev" / "report.json").read_bytes())
+    diagnosis = json.loads((root / "baseline-promotion-dev" / "report.json").read_bytes())
+    text = promotion.render_charts(report, diagnosis, comparison)
+    assert comparison["pair_count"] == 3678
+    assert "0.5068, 0.5664, 0.6162, 0.6450, 0.6885, 0.6897, 0.7007, 0.7490, 0.7939, 0.7886, 0.8418" in text
+    assert "benchmark change, not a ranking gain" in text
+    assert "0.7886 → **0.8418** (+0.0531)" in text
+    assert "0.7912 → **0.8449**" in text
+    assert "| S1 | `D50 (expanded labels)` | 0.8418 | — |" in text
+    assert "**APPROVED BASELINE** (D50; expanded labels)" in text
+    assert "historical reranking baseline (D47)" in text
+    assert "**Historical north star: 0.9803**" in text
+    assert "line [0.9803" not in text
+
+
+def test_d50_rejects_missing_or_incompatible_evidence(tmp_path):
+    root = config.RESULTS_DIR
+    files = [
+        "shared-labels/labels-d47.json",
+        "top20-label-completion/labels.json",
+        "top20-confirm/dev100-summary.json",
+        "top20-confirm/report.json",
+        "top20-confirm/preregistration.json",
+        "llm-score-refine-pin/llm-mini-refine20+d=20+avg2+rrf-d46+c=30+pin1-d46.run.json",
+        "top20-confirm/llm-gpt54-refine20+d=20+avg2+scores+pin1-d46.run.json",
+    ]
+    for name in files:
+        target = tmp_path / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(root / name, target)
+    promotion.load_d50_comparison(tmp_path)
+    expanded_path = tmp_path / files[1]
+    expanded = json.loads(expanded_path.read_bytes())
+    expanded["parent_sha256"] = "wrong"
+    expanded_path.write_text(json.dumps(expanded), encoding="utf-8")
+    with pytest.raises(ValueError, match="parent snapshot"):
+        promotion.load_d50_comparison(tmp_path)
+    shutil.copyfile(root / files[1], expanded_path)
+    summary_path = tmp_path / files[2]
+    summary = json.loads(summary_path.read_bytes())
+    summary["d50"]["ndcg@10"] = 0.5
+    summary_path.write_text(json.dumps(summary), encoding="utf-8")
+    with pytest.raises(ValueError, match="saved summary"):
+        promotion.load_d50_comparison(tmp_path)
+    expanded_path.unlink()
+    with pytest.raises(FileNotFoundError):
+        promotion.load_d50_comparison(tmp_path)
 
 
 def test_headroom_is_exact_ordering_bound_with_fixed_membership():

@@ -25,9 +25,13 @@ a 300-query held-out test set is reserved for the final evaluation.
 Download and clean title/abstract records, retrieve candidates, rerank them,
 then generate cited answers. Evaluate each stage separately.
 
-Retrieval, reranking and cited answer generation have been evaluated offline.
-Serving: **local preview, not deployed**. Saved experiment timings are not
-end-to-end production latency.
+The [live site](https://arxiv.agarwal-labs.com/) searches title/abstract records,
+produces cited summaries, and opens an arXiv PDF with paper-scoped discussion.
+Discussion separately loads available paper text: HTML first, then PDF text,
+then abstract fallback. Source coverage is displayed in the UI.
+
+The deployed UI and serving implementation are not yet committed to this
+repository. Offline experiment timings are not end-to-end production latency.
 
 ## Current working baselines
 
@@ -39,9 +43,9 @@ separate prompts and evaluations.
 |---|---|
 | Corpus and vectors | 23,304 title/abstract records; normalized OpenAI-large embeddings, 3,072 dimensions; local NumPy exact search |
 | Stage 1 retrieval | Tuned BM25 + semantic retrieval; RRF shortlist followed by score reordering ([Decision 36](docs/02-decisions.md#36-recall-preserving-shortlist-score-baseline-promoted-2026-10-29)) |
-| Stage 2 reranking | Two GPT-5.4 mini passes over the top 50 fused with retrieval order (Decision 46), then two GPT-5.4 passes re-score the top 20, ordered by averaged score, keeping rank 1 ([Decision 50](docs/02-decisions.md#50-gpt-54-re-scores-the-top-20-ordered-by-its-scores-2026-11-06)); approximately $0.066 per uncached query; serving still runs [Decision 47](docs/02-decisions.md#47-top-20-refinement-promoted-as-the-reranking-baseline-2026-11-04) until a new release |
+| Stage 2 reranking | Two GPT-5.4 mini passes over the top 50 fused with retrieval order (Decision 46), then two GPT-5.4 passes re-score the top 20, ordered by averaged score, keeping rank 1 ([Decision 50](docs/02-decisions.md#50-gpt-54-re-scores-the-top-20-ordered-by-its-scores-2026-11-06)); approximately $0.066 per uncached search with summary |
 | AI summary | GPT-6 Luna (prompt `answer-v2`) answers from the top 10 with an [n] citation in every sentence, or says the results don't answer and cites the closest papers ([Decision 49](docs/02-decisions.md#49-gpt-6-luna-writes-the-ai-summary-2026-11-04)); approximately $0.0004 per answer, p50 2.4 s |
-| Relevance labels | GPT-5.4 mini 0/1/2 grades with 100 ASTRA reference overrides; current Decision 47 layer has 3,579 pairs; no human validation |
+| Relevance labels | GPT-5.4 mini 0/1/2 grades with 100 ASTRA reference overrides; D50 uses a completed top-20 layer with additional GPT-6 Terra grades; no human validation |
 | Evaluation | 100 dev / 300 held-out queries; graded relevance, source ranking, coverage, cost and reliability |
 
 Exact weights, model snapshot and cached timing scope are in the
@@ -58,22 +62,29 @@ Reranker scores vary between calls; offline evaluation is not a serving guarante
 | Stage 1 retrieval baseline | 0.7007 | 0.6967 | 86% |
 | Stage 2: + LLM top-50 reranker, one pass (Decision 45) | 0.7490 | 0.7197 | 87% |
 | Stage 2: + LLM top-50 reranker, two passes averaged (Decision 46) | 0.7652 | 0.7232 | 87% |
-| **Stage 2: + top-20 refinement, keep rank 1 (current, Decision 47)** | **0.7939** | **0.7383** | **92%** |
+| **Stage 2: + top-20 refinement, keep rank 1 (historical control, Decision 47)** | **0.7939** | **0.7383** | **92%** |
 
 nDCG measures graded relevance; source MRR measures the source paper's rank;
 source recall measures whether it appears in the top 10.
 
-**Decision 50** (GPT-5.4 top-20 re-scoring) is measured on the completed top-20
-label layer, so compare it with D47 on that layer: nDCG@10 0.7886 → **0.8418**,
-source MRR 0.738 → 0.766, source R@10 92% → 93% (100 dev); on the 80 queries not
-used to choose it, 0.7912 → **0.8449** (+0.054 [+0.037, +0.071]).
+**Decision 50** (GPT-5.4 top-20 re-scoring) uses the completed top-20 label
+layer. Compare it with D47 on that same layer, not with the older table above:
+
+| Same expanded labels | D47 nDCG@10 | D50 nDCG@10 | D50 gain [95% CI] |
+|---|---:|---:|---:|
+| All 100 dev queries | 0.7886 | **0.8418** | +0.0531 [+0.0374, +0.0686] |
+| 80 confirmation queries | 0.7912 | **0.8449** | +0.0537 [+0.0371, +0.0713] |
+
+Across all 100, source MRR rose 0.738 → 0.766 and source R@10 92% → 93%.
+The 80 queries confirm the frozen selection; the other 20 informed it. See the
+[confirmation report](data/results/top20-confirm/report.md).
 
 <a id="historical-retrieval-milestones"></a>
 
-**Complete metrics remain available:** [all-system metrics tables](data/results/catalog-dev/report.md),
-[machine-readable results](data/results/catalog-dev/report.json),
-[results and historical comparisons](docs/05-results.md), and
-[milestone charts](docs/06-charts.md). The earlier 3,294-pair milestone table is
+**Historical D47-layer metrics remain available:** [all-system metrics tables](data/results/catalog-dev/report.md),
+[machine-readable results](data/results/catalog-dev/report.json), and
+[results and historical comparisons](docs/05-results.md). The
+[milestone charts](docs/06-charts.md) include D50. The earlier 3,294-pair milestone table is
 preserved in the [reproduction guide](docs/10-reproduction-guide.md#historical-retrieval-milestones).
 
 Repeated selection on these 100 dev queries makes scores optimistic; the 300-query
@@ -88,20 +99,27 @@ so their gains are not isolated causal effects.
 - Unrestricted score fusion traded source-paper recall for graded relevance.
 - Local MiniLM cross-encoder reranking regressed on the measured task.
 - Separate title/abstract embeddings did not justify promotion.
-- LLM scores without the safeguard improved graded relevance but hurt source ranking.
+- Early LLM scoring without a safeguard improved graded relevance but hurt source
+  ranking; D50 retains the rank-one safeguard.
 - Compression changed the tradeoff: full-dimensional float16 nearly preserved
   retrieval quality, while reducing dimensions lost candidate overlap.
-- Requiring a citation in every sentence turned the cheapest answer model into
-  the most faithful one; most unsupported sentences had simply lacked their own [n].
+- On the answer-dev set, requiring a citation in every sentence improved Luna's
+  model-graded faithfulness; the format-rule change was post hoc.
 
 The [experiment digest](docs/07-experiment-log.md#recent-experiments-at-a-glance)
 connects hypotheses, outcomes and lessons to detailed reports.
 
 ## Status
 
-**Selected:** Decision 50 reranking (serving still on Decision 47) and Decision 49 AI summaries.
-**Still open:** final held-out evaluation, human validation, public deployment
-and end-to-end serving measurements.
+**Live:** Decision 50 reranking and Decision 49 AI summaries, alongside paper
+discussion. The service uses a shared $5/day model budget and visitor limits;
+provider or budget failures may downgrade ranking, and paper coverage varies.
+
+Queries and evidence are sent to OpenAI. LangSmith records queries, questions,
+answers, paper identifiers and operational metadata; abstracts and visitor IDs
+are not intentionally logged. Citations are not proof of correctness.
+**Still open:** final held-out evaluation, human validation and representative
+end-to-end latency measurements.
 
 ## Read more
 

@@ -41,15 +41,20 @@ so their scores must not be joined into a new leaderboard.
 | Two-pass scoring: averaging identical requests reduces reranker noise | Promoted as Decision 46; now a historical control | Repetition can improve stability, but doubles calls. [Report](../data/results/llm-score-pass2/report.md) |
 | D: a requirement checklist makes relevance scoring more precise | Not adopted | More explicit reasoning need not improve ranking. [Finding 33](03-findings.md#33-experiment-d-a-requirement-checklist-made-the-reranker-worse-2026-11-03) |
 | E: refine the top 20 on a finer score scale | Failed the pilot source-ranking guard | Better graded relevance is not enough to preserve known-paper lookup. [Pilot](../data/results/llm-score-refine/pilot-report.md) |
-| E2: refine while preserving Decision 46 rank 1 | Promoted as Decision 47, current reranking baseline | Confirm on queries not used to design the rule; the pin's benefit did not replicate on new80. [Finding 36](03-findings.md#36-experiment-e2-refinement-holds-up-on-80-unseen-queries-2026-11-04) |
+| E2: refine while preserving Decision 46 rank 1 | Promoted as Decision 47; superseded by Decision 50 | Confirm on queries not used to design the rule; the pin's benefit did not replicate on new80. [Finding 36](03-findings.md#36-experiment-e2-refinement-holds-up-on-80-unseen-queries-2026-11-04) |
 | Compression: lower precision versus fewer dimensions | Full-dimensional float16 recommended in the findings; no ranking-baseline change | Storage and candidate overlap must be measured together. This Stage 1 check is not Stage 2 parity evidence. [Report](../data/results/embedding-compression/report.md), [interpretation](03-findings.md#34-storing-the-embeddings-smaller-for-hosting-2026-11-04) |
 | Answer evaluation: choose the cheapest qualifying grounded-answer model | GPT-5.4 mini selected as Decision 48 (superseded) | Citation precision alone misses unsupported claims; compare faithfulness, format and abstention too. [Report](../data/results/answer-eval/report.md), [grader provenance](09-labeler-comparison.md#answer-evaluation-terra-full-set-and-astra-sample) |
 | L: a citation in every sentence makes cheap GPT-6 Luna faithful enough | Luna faithfulness 0.695 → 0.935; qualified only after a post-hoc format-rule change (contract B); selected as Decision 49 on dev evidence | Read why sentences fail before switching models; check that prompt rules and validators don't contradict each other. [Report](../data/results/answer-eval-v2/report.md), [recheck](../data/results/answer-eval-v2/report-recheck.md), [Finding 38](03-findings.md#38-experiment-l-a-citation-rule-made-the-cheapest-model-the-most-faithful-2026-11-04) |
-| Top-20 model swap: GPT-5.4 scores, no RRF blend | Pilot20 0.778 → 0.829; confirmed once on the remaining 80 dev, 0.791 → 0.845 (+0.054 [+0.037, +0.071]); Decision 50 | A stronger scorer needs less anchoring to the old order; screen on a pilot, then confirm a frozen plan on unseen queries. [Confirmation](../data/results/top20-confirm/report.md), [ablations](../data/results/top20-ablations/report.md) |
+| Top-20 oracle and label completion | Remaining headroom motivated testing a broader candidate reorder | The 99 added grades are owner-attributed to GPT-6 Terra; they change the evaluation layer, not old results. [Finding 39](03-findings.md#39-d47-loss-decomposition-better-top-ten-selection-is-the-largest-known-opportunity-2026-11-05), [attribution](../data/results/top20-label-completion/evaluator-correction.json) |
+| Sparse pairwise comparisons | Pilot failed its nDCG gate; no expansion | Order-sensitive judgments and sparse voting can undermine a plausible design. [Pilot](../data/results/top20-compare/report.md) |
+| Top-20 model swap and score-only ordering | Pilot20 selected the variant; frozen remaining80 confirmation improved 0.791 → 0.845 (+0.054 [+0.037, +0.071]); Decision 50 | Stronger scoring benefited from less anchoring in this experiment; keep pilot selection separate from confirmation. [Confirmation](../data/results/top20-confirm/report.md), [ablations](../data/results/top20-ablations/report.md) |
+| Low reasoning and one-pass alternatives | Exploratory, not selected; incremental advantages were not established | Higher pilot scores or fewer calls do not by themselves prove a better quality/latency tradeoff. [Reasoning pilot](../data/results/top20-reasoning-pilot/report.json), [confirmation diagnostics](../data/results/top20-confirm/report.md) |
 
-Decision 47's comparable ranking metrics use the 3,579-pair
+Historical Decision 47 leaderboard metrics use the 3,579-pair
 `shared-labels/labels-d47.json` snapshot in the
-[current results](05-results.md). Decisions 48 and 49's answer comparisons used
+[generated results](05-results.md); D50's confirmation uses the separately
+completed top-20 label layer and is not directly comparable to that table.
+Decisions 48 and 49's answer comparisons used
 Decision 46 evidence; they are separate evaluations, not another retrieval score.
 
 ## Best measured scores by scope
@@ -118,7 +123,7 @@ The selected profile is versioned as `WORKING_BASELINE_*` in `arxiv_search/confi
 `fuse_working_baseline` applies it to best-BM25/OpenAI-large rankings. Generic
 `fuse` defaults and historical experiment controls stay unchanged. The saved
 pre-promotion report remains a historical review, not a mutable promotion record.
-The selection is recorded in Decision 35; live serving is not deployed.
+The selection is recorded in Decision 35; later decisions superseded it.
 
 ## Score-based fusion and candidate depth
 

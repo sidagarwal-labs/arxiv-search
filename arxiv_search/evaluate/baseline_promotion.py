@@ -5,8 +5,10 @@ python -m arxiv_search.evaluate.baseline_promotion
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
+import statistics
 
 from arxiv_search import config
 from arxiv_search.evaluate import fusion_experiment as fusion, judge, metrics, results_catalog
@@ -47,7 +49,7 @@ def bottlenecks(run: dict, labels: dict, inputs: dict, queries: dict) -> dict:
     }
 
 
-RERANK_MILESTONE = "2-pass LLM rerank + safeguard"  # current reranking baseline
+RERANK_MILESTONE = "2-pass LLM rerank + safeguard"  # D47 historical baseline
 PRIOR_RERANK_MILESTONE = "LLM rerank + safeguard"  # Decision45, single pass
 
 
@@ -58,7 +60,72 @@ def _comparison_bounds(scores: list[float]) -> tuple[float, float]:
     )
 
 
-def render_charts(report: dict, diagnosis: dict) -> str:
+def load_d50_comparison(root) -> dict:
+    old_raw = (root / "shared-labels" / "labels-d47.json").read_bytes()
+    old = json.loads(old_raw)["labels"]
+    expanded_raw = (root / "top20-label-completion" / "labels.json").read_bytes()
+    expanded = json.loads(expanded_raw)
+    labels = expanded["labels"]
+    if expanded["parent_sha256"] != hashlib.sha256(old_raw).hexdigest():
+        raise ValueError("D50 labels do not match the D47 parent snapshot")
+    if len(labels) != 100 or set(labels) != set(old) or any(
+        labels[q].get(p) != grade for q, grades in old.items() for p, grade in grades.items()
+    ):
+        raise ValueError("D50 label layer must preserve the D47 queries and grades")
+    summary = json.loads((root / "top20-confirm" / "dev100-summary.json").read_bytes())
+    confirm = json.loads((root / "top20-confirm" / "report.json").read_bytes())
+    plan = json.loads((root / "top20-confirm" / "preregistration.json").read_bytes())
+    if plan["fingerprints"]["labels"] != hashlib.sha256(expanded_raw).hexdigest():
+        raise ValueError("D50 confirmation used a different label layer")
+    if not confirm["confirmed"] or not all(confirm["checks"].values()):
+        raise ValueError("D50 confirmation is not complete")
+    runs = {
+        "d47": root / "llm-score-refine-pin" / (
+            "llm-mini-refine20+d=20+avg2+rrf-d46+c=30+pin1-d46.run.json"),
+        "d50": root / "top20-confirm" / (
+            "llm-gpt54-refine20+d=20+avg2+scores+pin1-d46.run.json"),
+    }
+    scored = {}
+    for name, path in runs.items():
+        run = json.loads(path.read_bytes())
+        if name == "d47" and plan["fingerprints"]["d47"] != hashlib.sha256(path.read_bytes()).hexdigest():
+            raise ValueError("D50 confirmation used a different D47 ranking")
+        if set(run) != set(labels) or any(
+            len(run[q]) < 10 or any(p not in labels[q] for p in run[q][:10])
+            for q in labels
+        ):
+            raise ValueError(f"{name} must have fully judged top-10s for every query")
+        values = [metrics.ndcg_at_k(run[q], labels[q]) for q in sorted(labels)]
+        if any(value is None for value in values):
+            raise ValueError(f"{name} has undefined nDCG")
+        score = statistics.fmean(value for value in values if value is not None)
+        if not math.isclose(score, summary[name]["ndcg@10"], abs_tol=1e-10):
+            raise ValueError(f"{name} saved summary does not match rankings and labels")
+        scored[name] = dict(zip(sorted(labels), values))
+    rows = confirm["rows"]
+    if len(rows) != 80 or {row["query_id"] for row in rows} != set(plan["query_ids"]) or any(
+        row["query_id"] not in labels or not row["candidate_fully_judged"] for row in rows
+    ):
+        raise ValueError("D50 confirmation must contain 80 fully judged dev queries")
+    if any(not math.isclose(row[key], scored[name][row["query_id"]], abs_tol=1e-10)
+           for row in rows for name, key in (("d47", "d47"), ("d50", "candidate"))):
+        raise ValueError("D50 confirmation scores do not match the saved rankings")
+    if not math.isclose(summary["ndcg_delta"],
+                        summary["d50"]["ndcg@10"] - summary["d47"]["ndcg@10"],
+                        abs_tol=1e-10):
+        raise ValueError("D50 summary delta does not match the scores")
+    return {
+        "summary": summary,
+        "confirm_d47": statistics.fmean(row["d47"] for row in rows),
+        "confirm_d50": statistics.fmean(row["candidate"] for row in rows),
+        "pair_count": sum(len(grades) for grades in labels.values()),
+        "parent_sha256": expanded["parent_sha256"],
+    }
+
+
+def render_charts(report: dict, diagnosis: dict, d50: dict | None = None) -> str:
+    if d50 and report["label_snapshot_sha256"] != d50["parent_sha256"]:
+        raise ValueError("Historical chart and D50 comparison use different parent labels")
     systems = report["systems"]
     stage2 = report.get("stage2", {}).get("systems", {})
     rerank = report.get("reranking_baseline")
@@ -89,7 +156,12 @@ def render_charts(report: dict, diagnosis: dict) -> str:
     oracle = report.get("stage2", {}).get("oracle")
     ceiling = oracle["all"]["ndcg@10"]["mean"] if oracle else None
     lower = min(0.5, math.floor(min(scores) * 20) / 20)
-    upper = max(0.75, math.ceil(max(scores + ([ceiling] if ceiling else [])) * 20) / 20)
+    if d50:
+        scores_for_bounds = scores + [d50["summary"]["d50"]["ndcg@10"]]
+    else:
+        scores_for_bounds = scores
+    upper = max(0.75, math.ceil(max(
+        scores_for_bounds + ([ceiling] if ceiling and not d50 else [])) * 20) / 20)
     current = scores[-1]
     gain = current - scores[0]
     retrieval_score = systems[report["working_baseline"]]["all"]["ndcg@10"]["mean"]
@@ -104,23 +176,28 @@ def render_charts(report: dict, diagnosis: dict) -> str:
                            key=lambda point: systems[point[1]]["all"]["ndcg@10"]["mean"])
     latest_scores = [systems[n]["all"]["ndcg@10"]["mean"] for _, n in latest_points]
     latest_lower, latest_upper = _comparison_bounds(latest_scores)
+    new_scores = ([d50["summary"]["d47"]["ndcg@10"], d50["summary"]["d50"]["ndcg@10"]]
+                  if d50 else [])
     lines = [
         "# Search quality charts", "",
         "*Generated by `python -m arxiv_search.evaluate.baseline_promotion`; do not edit by hand.*",
-        "", "## Hill climbing: major comparable milestones", "",
-        f"Every point is rescored against the **{label_text}**, "
+        "", '<a id="hill-climbing-major-comparable-milestones"></a>', "",
+        "## Hill climbing: major milestones", "",
+        f"The historical milestones use the **{label_text}**, "
         "100 dev queries, 23,304 searchable papers. Stage 1 points are retrieval baselines "
         "and turning points; the Stage 2 point adds the LLM reranker on top of the current "
         "retrieval baseline. These are selected milestones, not "
         "every trial, independent experiments, or equally spaced dates. The x-axis is "
         f"milestone order. **Zoomed linear y-axis: {lower:.2f}-{upper:.2f}, not zero-based.** "
         "This focuses on score changes, not their magnitude relative to zero. "
-        "All plotted top10s are fully judged; no pilot/test scores are mixed in. Scores "
+        "All plotted top10s are fully judged; no held-out test scores are included. "
+        + ("D50 includes 20 queries used to select it. " if d50 else "") +
+        "Scores "
         "shifted down slightly from older versions of this page when reranker top-10 grades "
         "joined the shared labels (167 in Decision45, 72 in Decision46); the curve's shape "
         "is unchanged.",
         "",
-        f"**First plotted baseline to current: {scores[0]:.4f} to {current:.4f} "
+        f"**First plotted baseline to D47 on the historical layer: {scores[0]:.4f} to {current:.4f} "
         f"({gain:+.4f} nDCG, {gain / scores[0]:+.1%} relative)"
         + (f"; retrieval alone reaches {retrieval_score:.4f}, the reranker adds "
            f"{current - retrieval_score:+.4f}.** " if len(points) > len(MILESTONES) else ".** ")
@@ -131,17 +208,32 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         "orders of magnitude; a log axis would obscure additive improvements.",
         "", "```mermaid", "xychart-beta",
         '    title "Hill climbing: graded relevance nDCG@10"',
-        "    x-axis [" + ", ".join(f'\"{label}\"' for label, *_ in points) + "]",
+        "    x-axis [" + ", ".join(
+            [f'\"{label}\"' for label, *_ in points]
+            + (['"D47 expanded labels"', '"D50 expanded labels"'] if d50 else [])) + "]",
         f'    y-axis "nDCG@10 (zoomed, higher is better)" {lower:g} --> {upper:g}',
-        "    line [" + ", ".join(f"{v:.4f}" for v in scores) + "]",
-        *(["    line [" + ", ".join(f"{ceiling:.4f}" for _ in scores) + "]"] if ceiling else []),
+        "    line [" + ", ".join(f"{v:.4f}" for v in scores + new_scores) + "]",
+        *(["    line [" + ", ".join(f"{ceiling:.4f}" for _ in scores) + "]"]
+          if ceiling and not d50 else []),
         "```", "",
-        *([f"**North star (flat upper line): {ceiling:.4f}** — a perfect reranker of the "
+        *([f"**Historical north star: {ceiling:.4f}** — a perfect reranker of the "
            f"retrieval top{oracle['depth']} under the same labels. Not a system; optimistic "
-           "because labels were pooled from saved systems' results. The current reranking "
-           f"baseline is {ceiling - current:.4f} below it.", ""] if ceiling else []),
+           "because labels were pooled from saved systems' results. D47 on that historical "
+           f"layer is {ceiling - current:.4f} below it.", ""] if ceiling else []),
+        *([f"**Label-layer transition:** the last two points use the same expanded "
+           f"{d50['pair_count']:,}-pair pool. The preceding D47 point uses the older "
+           "pool: its change to D47 expanded labels is a benchmark change, not a ranking "
+           "gain. Only the D47-to-D50 change within the expanded pool is comparable. "
+           "The old oracle is not plotted across the label-layer boundary.", ""] if d50 else []),
         "| Stage | Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |",
-        "|---|---|---|---|---|---|---|", *milestone_rows, "",
+        "|---|---|---|---|---|---|---|", *milestone_rows,
+        *([f"| 2 reranking | D47, expanded labels | D47 control | {new_scores[0]:.4f} | — | "
+           f"{d50['summary']['d47']['source_mrr@10']:.4f} | "
+           f"{d50['summary']['d47']['source_recall@10']:.0%} |",
+           f"| 2 reranking | D50, expanded labels | D50 baseline | {new_scores[1]:.4f} | "
+           f"{d50['summary']['ndcg_delta']:+.4f} | "
+           f"{d50['summary']['d50']['source_mrr@10']:.4f} | "
+           f"{d50['summary']['d50']['source_recall@10']:.0%} |"] if d50 else []), "",
         "**Reading the curve:** big earlier jumps came from complementary lexical/semantic "
         "retrieval and better embeddings. The 75%-RRF point was a challenger, not an approved "
         "baseline. The balanced RRF55% point recovered known-paper ranks. The current "
@@ -151,6 +243,12 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         "curve. Without the safeguard, the top-50 reranker scores higher on "
         "nDCG but pushes source papers down; the safeguard keeps most of the gain and "
         "improves source MRR.", "",
+        *([f"**D47 → D50, same expanded labels (100 dev):** "
+           f"{new_scores[0]:.4f} → **{new_scores[1]:.4f}** "
+           f"({d50['summary']['ndcg_delta']:+.4f}). "
+           f"On the 80 confirmation queries: {d50['confirm_d47']:.4f} → "
+           f"**{d50['confirm_d50']:.4f}**; the other 20 informed selection. "
+           "[Confirmation report](../data/results/top20-confirm/report.md).", ""] if d50 else []),
         "## Latest scores: Stage 1 retrieval leaders", "",
         "Labels L1 onward below are chart keys, not separate system names. "
         "The top five ranked retrieval systems are shown, plus the retrieval baseline if it falls "
@@ -182,12 +280,26 @@ def render_charts(report: dict, diagnosis: dict) -> str:
             f"{result['all']['source_recall@10']['mean']:.0%} | {status} |")
     if stage2:
         order = report["stage2"].get("ranked", []) + report["stage2"].get("unranked", [])
+        if d50:
+            stage2 = dict(stage2)
+            for name in ("d47", "d50"):
+                result = d50["summary"][name]
+                stage2[f"{name.upper()} (expanded labels)"] = {
+                    "all": {key: {"mean": result[key]} for key in
+                            ("ndcg@10", "source_mrr@10", "source_recall@10")},
+                    "expanded_d50": name == "d50", "expanded_d47": name == "d47",
+                }
+            order = sorted(order + ["D47 (expanded labels)", "D50 (expanded labels)"],
+                           key=lambda n: -stage2[n]["all"]["ndcg@10"]["mean"])
         stage2_points = sorted(enumerate(order, 1),
                                key=lambda point: stage2[point[1]]["all"]["ndcg@10"]["mean"])
         stage2_scores = [stage2[n]["all"]["ndcg@10"]["mean"] for _, n in stage2_points]
         stage2_lower, stage2_upper = _comparison_bounds(stage2_scores)
         lines += [
             "", "## Latest scores: Stage 2 reranking (retrieval + reranker)", "",
+            ("Historical rows use D47 labels; rows marked expanded use a different label pool. "
+             "Cross-pool differences are not measured gains. "
+             if d50 else "") +
             "Every row reorders the same retrieval-baseline candidates for all 100 dev "
             "queries. Δ is paired against the retrieval baseline; the noise band comes from "
             "re-sending identical requests (Decision44). "
@@ -209,9 +321,17 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         for index, name in enumerate(order, 1):
             result = stage2[name]
             paired = result.get("paired_ndcg_vs_retrieval_baseline")
-            status = ("**APPROVED BASELINE** (reranking)" if result.get("reranking_baseline")
-                      else "**APPROVED BASELINE** (retrieval, no reranker)"
-                      if result.get("retrieval_baseline") else "experiment")
+            if result.get("expanded_d50"):
+                status = "**APPROVED BASELINE** (D50; expanded labels)"
+            elif result.get("expanded_d47"):
+                status = "D47 control (expanded labels)"
+            elif result.get("reranking_baseline"):
+                status = ("historical reranking baseline (D47)" if d50 else
+                          "**APPROVED BASELINE** (reranking)")
+            elif result.get("retrieval_baseline"):
+                status = "**APPROVED BASELINE** (retrieval, no reranker)"
+            else:
+                status = "experiment"
             lines.append(
                 f"| S{index} | `{name}` | {result['all']['ndcg@10']['mean']:.4f} | "
                 + (f"{paired['difference']:+.3f} [{paired['ci95'][0]:+.3f}, "
@@ -245,16 +365,18 @@ def render_charts(report: dict, diagnosis: dict) -> str:
         "LLM judge are not proof of generalization. The held-out 300 queries remain untouched.",
         "", "## Reproducibility and cautions", "",
         f"- Retrieval baseline: `{report['working_baseline']}` (Decision36).",
-        *([f"- Reranking baseline: `{rerank}` (Decision{config.RERANK_BASELINE_DECISION}): "
+        *([f"- {'Historical reranking baseline' if d50 else 'Reranking baseline'}: `{rerank}` (Decision{config.RERANK_BASELINE_DECISION}): "
            f"Decision46's {config.RERANK_BASELINE_PASSES}-pass top-{config.RERANK_BASELINE_DEPTH} "
            f"scores, then a {config.RERANK_REFINE_PASSES}-pass top-{config.RERANK_REFINE_DEPTH} "
            "refinement keeping its rank 1; LLM scores vary "
            "run to run, so its point uses the saved, cached rankings."]
           if rerank in stage2 else []),
+        *(["- Current reranking baseline: Decision50; its expanded-label comparison is above."]
+          if d50 else []),
         f"- Label snapshot: `{report['label_snapshot']}`; SHA256 `{report['label_snapshot_sha256']}`.",
         "- Original plain-BM25 graded coverage is incomplete, so it is excluded from the hill curve.",
-        "- Frozen experiment reports retain their original controls; only the unified leaderboard "
-        "uses the latest working baseline for paired differences.",
+        "- Frozen experiment reports retain their original controls; the historical unified "
+        "leaderboard uses its D47-era baseline for paired differences.",
         "- All intervals elsewhere are exploratory after repeated dev selection. No fresh-human "
         "validation or held-out claim is implied.",
         "- Charts use Mermaid, rendered by GitHub; the tables are an exact readable fallback.",
@@ -296,7 +418,7 @@ def main() -> None:
     out = root / "baseline-promotion-dev"
     out.mkdir(parents=True, exist_ok=True)
     fusion._write_json(out / "report.json", diagnosis)
-    charts = render_charts(report, diagnosis)
+    charts = render_charts(report, diagnosis, load_d50_comparison(root))
     (config.PROJECT_ROOT / "docs" / "06-charts.md").write_text(charts, encoding="utf-8")
     print(f"Verified {len(run)} approved rankings; baseline rank "
           f"{diagnosis['leaderboard_rank']}; generated charts; zero API calls.")
