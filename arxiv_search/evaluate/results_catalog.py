@@ -708,12 +708,14 @@ def _headroom(result: dict) -> str:
     return "—" if value is None else f"{value:.0%}"
 
 
-def _stage2_table(systems: dict, oracle: dict | None = None) -> str:
+def _stage2_table(systems: dict, oracle: dict | None = None, d50: dict | None = None) -> str:
     ranked, unranked = leaderboard_order(systems)
     lines = [
         "| Rank | System | Stage 1 retrieval | Stage 2 reranker | Status | nDCG@10 (n) | P@10 | "
         "Source MRR@10 | R@1 | R@10 | Δ nDCG vs retrieval baseline [95% CI] W/L | "
-        "Δ nDCG vs reranking baseline [95% CI] W/L | Headroom closed | LLM $/query | "
+        + ("Δ nDCG vs Decision47 [95% CI] W/L | " if d50 else
+           "Δ nDCG vs reranking baseline [95% CI] W/L | ")
+        + "Headroom closed | LLM $/query | "
         "API s/query | Run-to-run noise (SD of 100-q mean; MDD) |",
         "|" + "---|" * 16,
     ]
@@ -729,15 +731,32 @@ def _stage2_table(systems: dict, oracle: dict | None = None) -> str:
             _signed(oracle["paired_ndcg_vs_retrieval_baseline"], "withheld"),
             _signed(oracle["paired_ndcg_vs_reranking_baseline"], "withheld"),
             "100%", "—", "—", "deterministic"]) + " |")
-    for index, name in enumerate(ranked + unranked, 1):
+    if d50:
+        summary = d50["summary"]
+        result = summary["d50"]
+        low, high = summary["ci95"]
+        lines.append("| " + " | ".join([
+            "1", "**GPT-5.4 two-pass top-20 refinement (RERANKING BASELINE)**"
+            "<br>`llm-gpt54-refine20+d=20+avg2+scores+pin1-d46`",
+            "Retrieval baseline (Decision36)",
+            "Decision46 top50, then GPT-5.4 scores the top20 twice; average scores, "
+            "use Decision46 order for ties, keep its rank 1",
+            "covered", f"{result['ndcg@10']:.4f} (100)", f"{d50['precision_at_10']:.3f}",
+            f"{result['source_mrr@10']:.3f}", "—",
+            f"{result['source_recall@10']:.3f}", "—",
+            f"{summary['ndcg_delta']:+.3f} [{low:+.3f}, {high:+.3f}]",
+            "—", "—", "—", "unmeasured"]) + " |")
+    for index, name in enumerate(ranked + unranked, 1 + bool(d50)):
         result = systems[name]
         summary = result["all"]
         d = describe_system(name)
         title = d["name"]
         if result["retrieval_baseline"]:
             title = f"**{title} (RETRIEVAL BASELINE, no reranker)**"
-        elif result["reranking_baseline"]:
+        elif result["reranking_baseline"] and not d50:
             title = f"**{title} (RERANKING BASELINE)**"
+        elif result["reranking_baseline"]:
+            title = f"{title} (Decision47 control)"
         noise = result["noise"]
         cost = result["cost"]
         cells = [str(index) if name in ranked else "-", f"{title}<br>`{name}`",
@@ -916,7 +935,7 @@ def _table(systems: dict) -> str:
     return "\n".join(lines)
 
 
-def write_catalog() -> str:
+def write_catalog(*, persist: bool = True, include_d50: bool = False) -> str:
     """Persist deterministic catalog reports and return the near-top docs section."""
     root = config.RESULTS_DIR
     out = root / "catalog-dev"
@@ -940,7 +959,8 @@ def write_catalog() -> str:
     stage2 = stage2_systems(root, snapshot, papers, queries, splits["dev"], systems)
     oracle = stage2_oracle(root, snapshot, papers, queries, splits["dev"], systems, stage2)
     stage2_ranked, stage2_unranked = leaderboard_order(stage2) if stage2 else ([], [])
-    out.mkdir(parents=True, exist_ok=True)
+    if persist:
+        out.mkdir(parents=True, exist_ok=True)
     inventory = sorted({
         path for path in root.rglob("*")
         if path.is_file() and "catalog-dev" not in path.relative_to(root).parts
@@ -972,8 +992,16 @@ def write_catalog() -> str:
         "stage2": {"systems": stage2, "ranked": stage2_ranked, "unranked": stage2_unranked,
                    "folders": list(STAGE2_FOLDERS), "oracle": oracle},
     }
-    (out / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n",
-                                    encoding="utf-8")
+    if persist:
+        (out / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n",
+                                        encoding="utf-8")
+    d50 = None
+    if include_d50:
+        from arxiv_search.evaluate.baseline_promotion import load_d50_comparison
+
+        d50 = load_d50_comparison(root)
+        if d50["parent_sha256"] != report["label_snapshot_sha256"]:
+            raise ValueError("Catalog and D50 comparison use different parent labels")
     caveats = (
         f"{len(systems)} distinct saved systems; {len(splits['dev'])} dev queries; "
         f"current corpus: {len(papers):,} papers. **Two-stage tracking (Decision45):** "
@@ -1036,7 +1064,7 @@ def write_catalog() -> str:
         "Historical reports retain their original labels, denominators, and controls."
     )
     table = _table(systems) if systems else "_No saved dev rankings._"
-    def progress(base_dir: Path) -> str:
+    def progress(base_dir: Path, comparison: dict | None = None) -> str:
         pilots = _pilot_progress(root, snapshot, queries, systems, base_dir)
         full = ("**Full dev set (100 queries)** — every row reranks the same retrieval-"
                 "baseline candidates. Paired deltas against BOTH baselines. LLM cost and API "
@@ -1044,8 +1072,21 @@ def write_catalog() -> str:
                 "responses (LLM scores are not deterministic). Differences smaller than the "
                 "MDD (1.96·√2·SD of the 100-query mean, from the Decision44 repeat run) are "
                 "within run-to-run noise.\n\n" + _north_star(stage2, oracle)
-                + _stage2_table(stage2, oracle)
+                + _stage2_table(stage2, oracle, comparison)
                 if stage2 else "_No saved full-dev reranker runs._")
+        if comparison:
+            full = ("**Full dev set (100 queries)** — the GPT-5.4 baseline uses "
+                    "the completed 3,678-judgment pool; other rows use 3,579 judgments. "
+                    "Its paired delta is against D47 on the completed pool "
+                    f"(D47 {comparison['summary']['d47']['ndcg@10']:.4f}); "
+                    "other paired columns and the oracle use the historical pool. "
+                    "A dash means not measured on the corresponding pool. On the 80 "
+                    f"confirmation queries, {comparison['confirm_d47']:.4f} → "
+                    f"{comparison['confirm_d50']:.4f}; the other 20 informed selection. "
+                    "[Confirmation report](../data/results/top20-confirm/report.md).\n\n"
+                    + _north_star(stage2, oracle).replace(
+                        "The reranking baseline closes", "The Decision47 control closes")
+                    + _stage2_table(stage2, oracle, comparison))
         return "\n\n".join([
             "### Stage 1 — retrieval progress",
             f"Retrieval baseline: `{config.WORKING_BASELINE_SYSTEM}` (Decision36). Free and "
@@ -1053,7 +1094,12 @@ def write_catalog() -> str:
             f"recall@50 show what the top-{config.RERANK_BASELINE_DEPTH} reranker can reach.",
             _stage1_progress(systems) if systems else "_No saved dev rankings._",
             "### Stage 2 — reranker progress",
-            f"Reranking baseline: `{config.RERANK_BASELINE_SYSTEM}` "
+            ("Reranking baseline (Decision50): GPT-5.4 mini scores the top50 twice "
+             "and fuses with retrieval order; GPT-5.4 then scores the top20 twice, "
+             "averages scores, preserves Decision46 order for ties, and keeps its "
+             "rank 1. Decision47 is a control."
+             if comparison else
+             f"Reranking baseline: `{config.RERANK_BASELINE_SYSTEM}` "
             f"(Decision{config.RERANK_BASELINE_DECISION}): "
             f"{config.RERANK_BASELINE_MODEL} scores the retrieval top"
             f"{config.RERANK_BASELINE_DEPTH} in {config.RERANK_BASELINE_PASSES} identical "
@@ -1062,7 +1108,7 @@ def write_catalog() -> str:
             f"{config.RERANK_REFINE_DEPTH} 0-10 in {config.RERANK_REFINE_PASSES} more averaged "
             f"requests, fused with the Decision46 order by RRF c={config.RERANK_BASELINE_RRF_C}, "
             "keeping the Decision46 rank 1 first (Decision47). Decision45 and Decision46 stay "
-            "as control rows.",
+            "as control rows."),
             *([pilots] if pilots else []), full,
         ])
 
@@ -1095,7 +1141,8 @@ def write_catalog() -> str:
         identities.append(f"| `{name}` | {d['name']} | {d['lexical']} | {d['embedding']} | {d['ranker']} |")
     identities += ["", "</details>"]
     lines += ["", *identities, "", "## Report inventory (separate historical scopes)", "", *inventory_lines]
-    (out / "report.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    if persist:
+        (out / "report.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
     docs = config.PROJECT_ROOT / "docs"
     docs_inventory = [
         f"- [{p.relative_to(root).as_posix()}]({_link(p, docs)})" for p in inventory
@@ -1106,15 +1153,22 @@ def write_catalog() -> str:
         "Search has two stages, each with its own baseline and progress table: **Stage 1 "
         "retrieval** finds candidates; **Stage 2 reranking** reorders the retrieval top "
         f"{config.RERANK_BASELINE_DEPTH} with an LLM. All scores: {len(splits['dev'])} dev "
-        f"queries, {len(papers):,} papers, nDCG@10 on one shared label set "
-        f"(`{report['label_snapshot']}`, {labelled_pairs:,} graded pairs), so every row "
-        "is comparable. Settings were chosen on these queries, so scores are optimistic.",
-        progress(docs),
+        f"queries, {len(papers):,} papers. "
+        + (f"Earlier rows use `{report['label_snapshot']}` ({labelled_pairs:,} pairs); "
+           "the latest reranker uses the completed 3,678-pair layer. "
+           if d50 else
+           f"nDCG@10 on one shared label set (`{report['label_snapshot']}`, "
+           f"{labelled_pairs:,} graded pairs), so every row is comparable. ")
+        + "Settings were chosen on these queries, so scores are optimistic.",
+        progress(docs, d50),
         f"**Full tables:** [all {len(systems)} retrieval systems, unranked diagnostics, "
         f"per-query-type results and system IDs]({_link(out / 'report.md', docs)}) · "
         f"[machine report]({_link(out / 'report.json', docs)}) · "
         f"[shared labels]({_link(snapshot_path, docs)})",
-        "<details>\n<summary>Scoring rules and caveats</summary>\n\n" + caveats
+        "<details>\n<summary>Scoring rules and caveats</summary>\n\n"
+        + (caveats.replace("Stage 2 **reranking baseline**", "Stage 2 **Decision47 control**")
+           .replace("All graded scores are recomputed from", "Historical catalog scores are recomputed from")
+           if d50 else caveats)
         + "\n\n</details>",
         "<details>\n<summary>Report inventory (historical / separate scopes)</summary>\n\n"
         + ("\n".join(docs_inventory) or "_No additional reports._") + "\n\n</details>",

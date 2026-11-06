@@ -6,6 +6,7 @@ import pytest
 
 from arxiv_search import config
 from arxiv_search.evaluate import baseline_promotion as promotion
+from arxiv_search.evaluate import results_catalog
 from arxiv_search.search.hybrid import fuse_working_baseline
 from arxiv_search.search.rank_score import rescore_shortlist
 
@@ -17,15 +18,22 @@ def test_d50_saved_evidence_and_chart():
     diagnosis = json.loads((root / "baseline-promotion-dev" / "report.json").read_bytes())
     text = promotion.render_charts(report, diagnosis, comparison)
     assert comparison["pair_count"] == 3678
-    assert "0.5068, 0.5664, 0.6162, 0.6450, 0.6885, 0.6897, 0.7007, 0.7490, 0.7939, 0.7886, 0.8418" in text
-    assert "benchmark change, not a ranking gain" in text
-    assert "0.7886 → **0.8418** (+0.0531)" in text
+    assert "0.5068, 0.5664, 0.6162, 0.6450, 0.6885, 0.6897, 0.7007, 0.7490, 0.7939, 0.8418" in text
+    assert "same-pool D47 control scores 0.7886" in text
+    assert "not the measured step gain" in text
+    assert f"| 2 reranking | {promotion.D50_MILESTONE} | `{promotion.D50_SYSTEM}` | 0.8418 | +0.0531 |" in text
     assert "0.7912 → **0.8449**" in text
-    assert "| S1 | `D50 (expanded labels)` | 0.8418 | — |" in text
-    assert "**APPROVED BASELINE** (D50; expanded labels)" in text
+    assert f"| S1 | GPT-5.4 two-pass top-20 scoring; average scores; keep rank 1<br>`{promotion.D50_SYSTEM}` | 0.8418 | — |" in text
+    assert "**APPROVED BASELINE** (GPT-5.4 two-pass top-20 refinement)" in text
     assert "historical reranking baseline (D47)" in text
     assert "**Historical north star: 0.9803**" in text
     assert "line [0.9803" not in text
+    table = results_catalog._stage2_table(
+        report["stage2"]["systems"], report["stage2"]["oracle"], comparison)
+    assert "GPT-5.4 two-pass top-20 refinement (RERANKING BASELINE)" in table
+    assert f"`{promotion.D50_SYSTEM}`" in table
+    assert "0.8418 (100)" in table and "+0.053 [+0.037, +0.069]" in table
+    assert "Decision47 control" in table
 
 
 def test_d50_rejects_missing_or_incompatible_evidence(tmp_path):

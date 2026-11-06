@@ -85,6 +85,13 @@ def test_automatic_discovery_dedup_and_current_baseline(inputs):
     assert "_No saved full-dev reranker runs._" in text
 
 
+def test_catalog_document_render_can_avoid_writing_reports(inputs):
+    root, _, _, _, _, _ = inputs
+    text = catalog.write_catalog(persist=False)
+    assert "## Dev leaderboard" in text
+    assert not (root / "catalog-dev").exists()
+
+
 def test_cross_encoder_friendly_names_distinguish_candidate_selection_and_ordering():
     prefix = catalog.describe_system("cross-minilm-l6+pool=baseline+d=10")
     union = catalog.describe_system("cross-minilm-l6+pool=union100+w=0.5")
@@ -237,7 +244,7 @@ def test_results_document_puts_catalog_first_and_keeps_historical_reports(inputs
                  root / "graded-dev" / "report.md"):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("# Historical detail sentinel", encoding="utf-8")
-    monkeypatch.setattr(experiments, "write_catalog", lambda: "## Unified catalog sentinel")
+    monkeypatch.setattr(experiments, "write_catalog", lambda **kwargs: "## Unified catalog sentinel")
     monkeypatch.setattr(experiments, "load_results", lambda split: {})
     monkeypatch.setattr(experiments, "hybrid_comparison", lambda results: None)
     monkeypatch.setattr(experiments, "factor_analysis", lambda results: None)

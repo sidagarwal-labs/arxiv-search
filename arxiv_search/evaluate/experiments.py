@@ -461,7 +461,7 @@ def write_results_doc() -> None:
         "",
         "[Hill-climbing charts and latest scores](06-charts.md)",
         "",
-        write_catalog(),
+        write_catalog(persist=False, include_d50=True),
         "",
         "## Historical source-paper experiment tables (original BM25 control)",
         "",

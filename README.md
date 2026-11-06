@@ -54,30 +54,26 @@ Reranker scores vary between calls; offline evaluation is not a serving guarante
 
 ## Development results
 
-100 development queries, 23,304 papers, shared Decision 47 label layer
-(3,579 pairs). Compare scores only within the same corpus, query and label scope.
+100 development queries, 23,304 papers. Each row shows the saved result for
+that stage of the system's development.
 
-| Two-stage baselines (shared labels) | nDCG@10 | Source MRR@10 | Source R@10 |
+| Two-stage baselines | nDCG@10 | Source MRR@10 | Source R@10 |
 |---|---|---|---|
 | Stage 1 retrieval baseline | 0.7007 | 0.6967 | 86% |
 | Stage 2: + LLM top-50 reranker, one pass (Decision 45) | 0.7490 | 0.7197 | 87% |
 | Stage 2: + LLM top-50 reranker, two passes averaged (Decision 46) | 0.7652 | 0.7232 | 87% |
-| **Stage 2: + top-20 refinement, keep rank 1 (historical control, Decision 47)** | **0.7939** | **0.7383** | **92%** |
+| Stage 2: + GPT-5.4 mini top-20 refinement, keep rank 1 (Decision 47) | 0.7939 | 0.7383 | 92% |
+| **Stage 2: + GPT-5.4 two-pass top-20 scoring, average scores, keep rank 1 (Decision 50)** | **0.8418** | **0.7659** | **93%** |
 
 nDCG measures graded relevance; source MRR measures the source paper's rank;
 source recall measures whether it appears in the top 10.
 
-**Decision 50** (GPT-5.4 top-20 re-scoring) uses the completed top-20 label
-layer. Compare it with D47 on that same layer, not with the older table above:
-
-| Same expanded labels | D47 nDCG@10 | D50 nDCG@10 | D50 gain [95% CI] |
-|---|---:|---:|---:|
-| All 100 dev queries | 0.7886 | **0.8418** | +0.0531 [+0.0374, +0.0686] |
-| 80 confirmation queries | 0.7912 | **0.8449** | +0.0537 [+0.0371, +0.0713] |
-
-Across all 100, source MRR rose 0.738 → 0.766 and source R@10 92% → 93%.
-The 80 queries confirm the frozen selection; the other 20 informed it. See the
-[confirmation report](data/results/top20-confirm/report.md).
+The GPT-5.4 refinement improved nDCG@10 by **+0.0531** on all 100 queries;
+on the 80 confirmation queries it improved **0.7912 → 0.8449**
+(+0.0537 [95% CI +0.0371, +0.0713]). The other 20 informed selection.
+The earlier rows use 3,579 judgments; the latest comparison uses an additive
+3,678-judgment pool, on which the D47 control scores 0.7886.
+See the [confirmation report](data/results/top20-confirm/report.md).
 
 <a id="historical-retrieval-milestones"></a>
 
