@@ -1,0 +1,9 @@
+{
+  "authority": "Owner explicitly approved remaining38 calls with $1.25 cap and process-only daily guard750000. No retries or remaining80.",
+  "cap_usd": 1.25,
+  "date": "2026-11-05",
+  "max_new_requests": 38,
+  "plan_sha256": "6c7b12c9a05714082112abd22cdde2bc43bb44b9660569a176a19e633a691d95",
+  "process_large_daily_guard": 750000,
+  "reuse": "First query's two saved feasibility replies; never resend."
+}

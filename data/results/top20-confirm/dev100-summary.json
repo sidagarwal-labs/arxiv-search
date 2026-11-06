@@ -1,0 +1,19 @@
+{
+  "caution": "Pilot20 selected the variant; only the remaining80 half is confirmation.",
+  "ci95": [
+    0.03743784668496726,
+    0.06861285055672879
+  ],
+  "d47": {
+    "ndcg@10": 0.7886286910895238,
+    "source_mrr@10": 0.7380952380952381,
+    "source_recall@10": 0.92
+  },
+  "d50": {
+    "ndcg@10": 0.8417577503361956,
+    "source_mrr@10": 0.7659444444444445,
+    "source_recall@10": 0.93
+  },
+  "labels": "completed top20 labels",
+  "ndcg_delta": 0.05312905924667177
+}

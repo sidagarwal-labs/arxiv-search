@@ -18,6 +18,7 @@ import httpx
 from dotenv import load_dotenv
 
 from arxiv_search import config, openai_api as api
+from arxiv_search.answer import final_parts, structured_text  # noqa: F401  (re-exported)
 
 # Pinned snapshots where OpenAI publishes one. gpt-6-luna has no dated snapshot yet, so its
 # responses record the model string the API returns.
@@ -129,21 +130,6 @@ class TaskLedger(api.Ledger):
             db.execute("INSERT INTO answer_task_attempts (request_key, task, request_id) VALUES (?,?,?)",
                        (key, self.task, request_id))
         return request_id
-
-
-def final_parts(output: list) -> list[dict]:
-    """Content parts of the reply's messages; GPT-6 drafts in a commentary phase first."""
-    messages = [item for item in output if item.get("type") == "message"]
-    if any(item.get("phase") for item in messages):
-        messages = [item for item in messages if item.get("phase") == "final_answer"]
-    return [part for item in messages for part in item.get("content", [])]
-
-
-def structured_text(parts: list[dict]) -> str:
-    texts = [part["text"] for part in parts if part.get("type") == "output_text"]
-    if len(texts) != 1:
-        raise ValueError("Expected one structured response")
-    return texts[0]
 
 
 def call_once(encoded: bytes, ledger: TaskLedger, *, validate, attempt_key: str | None = None,

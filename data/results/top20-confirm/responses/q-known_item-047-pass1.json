@@ -1,0 +1,42 @@
+{
+  "outcome": {
+    "P1": 0,
+    "P10": 0,
+    "P11": 10,
+    "P12": 1,
+    "P13": 1,
+    "P14": 1,
+    "P15": 1,
+    "P16": 1,
+    "P17": 1,
+    "P18": 0,
+    "P19": 5,
+    "P2": 0,
+    "P20": 0,
+    "P3": 1,
+    "P4": 0,
+    "P5": 0,
+    "P6": 1,
+    "P7": 1,
+    "P8": 1,
+    "P9": 0,
+    "status": "ok"
+  },
+  "request_sha256": "153f38d62c3a6138532ec442c4f3d807a257dfb8f32cb7d0f3f1a23c9af298ed",
+  "usage": {
+    "accounted_tokens": 6905,
+    "input_tokens": 6794,
+    "latency_seconds": 2.780490900040604,
+    "model": "gpt-5.4-2026-03-05",
+    "output_tokens": 111,
+    "provider_request_id": "req_c0c59d12ac2e460cb4ff4ceff0c0c48c",
+    "reasoning_tokens": 0,
+    "request_id": "ef9fb450-c9b8-4dc9-9d25-9d27b271cd02",
+    "reserved_input": 39775,
+    "reserved_output": 512,
+    "response_model": "gpt-5.4-2026-03-05",
+    "started_utc": "2026-11-06T18:07:41.284665+00:00",
+    "status": "completed",
+    "tier": "large"
+  }
+}

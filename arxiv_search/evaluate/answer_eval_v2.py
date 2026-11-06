@@ -105,7 +105,7 @@ def recheck_reply(reply: dict | None, item: dict, candidate: str) -> dict | None
         return reply
     raw = json.loads(failure.read_text(encoding="utf-8"))
     try:
-        value = json.loads(client.structured_text(client.final_parts(raw["output"] or [])))
+        value = json.loads(answer.structured_text(answer.final_parts(raw["output"] or [])))
         result = answer.validate(value, len(item["paper_ids"]), ungrounded_may_cite=True)
     except (ValueError, TypeError, KeyError, AttributeError):
         return reply

@@ -881,6 +881,36 @@ margin is large on every check and the change only affects abstention format.
 The prompt was also written after reading answer-v1 failures on the same dev
 items, graders are models, and the evidence used Decision 46 top 10s.
 
+## #50 GPT-5.4 re-scores the top 20, ordered by its scores (2026-11-06)
+
+Replaces Decision 47's top-20 step; Decision 46's top-50 step is unchanged.
+`gpt-5.4-2026-03-05` (reasoning none) scores the Decision 46 top 20 twice with the
+same `refine20-v1` prompt, presentation and 512-token output cap. The two scores are
+averaged and the 20 papers are sorted by that average (Decision 46 order breaks ties).
+Decision 46's rank 1 stays first; ranks below 20 are unchanged. There is no RRF
+blend with the previous order; with the stronger model the blend held it back.
+
+| Completed top-20 labels | D47 | **D50** | Delta [95% CI] |
+|---|---:|---:|---:|
+| Remaining 80 dev (confirmation) | 0.7912 | **0.8449** | +0.0537 [+0.0371, +0.0713] |
+| All 100 dev (20 were used to choose) | 0.7886 | **0.8418** | +0.0531 [+0.0374, +0.0686] |
+
+Remaining80 wins/losses/ties 59/20/1; every query type improved. On all 100 dev
+queries source MRR@10 0.738 → 0.766 and source recall@10 92% → 93%.
+**Resources:** about $0.038 per uncached query for this step ($0.019 more than
+GPT-5.4 mini twice), so about $0.066 per search with Decision 46 and the Luna
+summary. Two passes in parallel took 3.24 s mean provider time (p95 3.76 s).
+
+**How this was decided, and its limits.** The model swap, then scores-only ordering,
+were chosen on the same 20 dev queries ([pilot](../data/results/top20-model-pilot/report.md),
+[ablations](../data/results/top20-ablations/report.md)). The plan was frozen and run
+once on the other 80 dev queries with no retries
+([confirmation](../data/results/top20-confirm/report.md)); all preregistered checks
+passed. One pass scored +0.0039 lower (CI includes zero); the owner chose two passes.
+Low reasoning effort scored higher on the pilot but was not significant and more than
+doubled latency. Labels are pooled AI judgments; the held-out test has not been run.
+Serving still runs Decision 47 until a new release adopts this configuration.
+
 ## Which LLMs
 
 **#4 Swappable LLMs.** The model that writes test queries never changes, and is a different model

@@ -39,7 +39,7 @@ separate prompts and evaluations.
 |---|---|
 | Corpus and vectors | 23,304 title/abstract records; normalized OpenAI-large embeddings, 3,072 dimensions; local NumPy exact search |
 | Stage 1 retrieval | Tuned BM25 + semantic retrieval; RRF shortlist followed by score reordering ([Decision 36](docs/02-decisions.md#36-recall-preserving-shortlist-score-baseline-promoted-2026-10-29)) |
-| Stage 2 reranking | Two GPT-5.4 mini passes over the top 50 fused with retrieval order, then two passes re-scoring the top 20, keeping rank 1 ([Decision 47](docs/02-decisions.md#47-top-20-refinement-promoted-as-the-reranking-baseline-2026-11-04)); approximately $0.039 per uncached query, p50 5.5 s |
+| Stage 2 reranking | Two GPT-5.4 mini passes over the top 50 fused with retrieval order (Decision 46), then two GPT-5.4 passes re-score the top 20, ordered by averaged score, keeping rank 1 ([Decision 50](docs/02-decisions.md#50-gpt-54-re-scores-the-top-20-ordered-by-its-scores-2026-11-06)); approximately $0.066 per uncached query; serving still runs [Decision 47](docs/02-decisions.md#47-top-20-refinement-promoted-as-the-reranking-baseline-2026-11-04) until a new release |
 | AI summary | GPT-6 Luna (prompt `answer-v2`) answers from the top 10 with an [n] citation in every sentence, or says the results don't answer and cites the closest papers ([Decision 49](docs/02-decisions.md#49-gpt-6-luna-writes-the-ai-summary-2026-11-04)); approximately $0.0004 per answer, p50 2.4 s |
 | Relevance labels | GPT-5.4 mini 0/1/2 grades with 100 ASTRA reference overrides; current Decision 47 layer has 3,579 pairs; no human validation |
 | Evaluation | 100 dev / 300 held-out queries; graded relevance, source ranking, coverage, cost and reliability |
@@ -62,6 +62,11 @@ Reranker scores vary between calls; offline evaluation is not a serving guarante
 
 nDCG measures graded relevance; source MRR measures the source paper's rank;
 source recall measures whether it appears in the top 10.
+
+**Decision 50** (GPT-5.4 top-20 re-scoring) is measured on the completed top-20
+label layer, so compare it with D47 on that layer: nDCG@10 0.7886 → **0.8418**,
+source MRR 0.738 → 0.766, source R@10 92% → 93% (100 dev); on the 80 queries not
+used to choose it, 0.7912 → **0.8449** (+0.054 [+0.037, +0.071]).
 
 <a id="historical-retrieval-milestones"></a>
 
@@ -94,7 +99,7 @@ connects hypotheses, outcomes and lessons to detailed reports.
 
 ## Status
 
-**Selected:** Decision 47 reranking and Decision 49 AI summaries.
+**Selected:** Decision 50 reranking (serving still on Decision 47) and Decision 49 AI summaries.
 **Still open:** final held-out evaluation, human validation, public deployment
 and end-to-end serving measurements.
 

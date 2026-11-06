@@ -119,6 +119,21 @@ def citations(text: str) -> list[int]:
     return seen
 
 
+def final_parts(output: list) -> list[dict]:
+    """Content parts of a Responses API reply; GPT-6 drafts in a commentary phase first."""
+    messages = [item for item in output if item.get("type") == "message"]
+    if any(item.get("phase") for item in messages):
+        messages = [item for item in messages if item.get("phase") == "final_answer"]
+    return [part for item in messages for part in item.get("content", [])]
+
+
+def structured_text(parts: list[dict]) -> str:
+    texts = [part["text"] for part in parts if part.get("type") == "output_text"]
+    if len(texts) != 1:
+        raise ValueError("Expected one structured response")
+    return texts[0]
+
+
 def validate(value: object, n_papers: int, *, ungrounded_may_cite: bool = False) -> dict:
     """Check the contract the server and UI rely on; returns {grounded, answer, cited}.
 

@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-05",
+  "evaluator": "GPT 6 Terra",
+  "authority": "Owner correction in this conversation: list the evaluator as GPT 6 Terra",
+  "collection_method": "Owner-collected model judgments; not human labels",
+  "workbook_evaluator": "Copilot SDK AI assistants (subagent model versions not exposed)",
+  "note": "The owner's correction supersedes the workbook attribution for reporting. The original workbook and original import evidence remain unchanged. No more specific model version is inferred."
+}

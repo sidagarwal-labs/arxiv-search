@@ -1,0 +1,13 @@
+{
+  "authority": "Owner approved two-call feasibility check, then explicitly approved process-only large daily guard450000. Full pilot not approved.",
+  "cap_usd": 0.35,
+  "date": "2026-11-05",
+  "max_requests": 2,
+  "passes": [
+    1,
+    2
+  ],
+  "plan_sha256": "6c7b12c9a05714082112abd22cdde2bc43bb44b9660569a176a19e633a691d95",
+  "process_large_daily_guard": 450000,
+  "query_id": "q-keyword-005"
+}

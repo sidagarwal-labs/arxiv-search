@@ -1,0 +1,43 @@
+{
+  "cost_scope": "Saved uncached refinement cost only; excludes common D46 upstream cost. Two-pass latency is max of sequential call durations, a hypothetical parallel estimate, not measured serving latency.",
+  "interpretation": "Nine declared cached variants, eight alternatives to the stronger reference. Post-hoc exploratory selection; paired intervals are unadjusted and not independent confirmation. Pass2 is diagnostic, not permission to choose the better pass per query.",
+  "methods": {
+    "equal_rrf": "base + model RRF weights1:1, c30",
+    "model_heavy_rrf": "base + model RRF weights1:2, c30",
+    "scores_only": "model score order, stable base tie-break"
+  },
+  "no_promotion": true,
+  "no_provider_calls": true,
+  "no_remaining80_scoring": true,
+  "passes": [
+    "average",
+    "pass1",
+    "pass2"
+  ],
+  "pin_first": true,
+  "scope": [
+    "q-keyword-005",
+    "q-keyword-008",
+    "q-keyword-017",
+    "q-keyword-079",
+    "q-keyword-081",
+    "q-known_item-017",
+    "q-known_item-019",
+    "q-known_item-031",
+    "q-known_item-042",
+    "q-known_item-048",
+    "q-paraphrase-020",
+    "q-paraphrase-043",
+    "q-paraphrase-063",
+    "q-paraphrase-077",
+    "q-paraphrase-096",
+    "q-question-040",
+    "q-question-056",
+    "q-question-077",
+    "q-question-088",
+    "q-question-095"
+  ],
+  "source_plan_sha256": "943efa9b1e3f445cd1ffe88be6b9af2b98b52b8be4ecc96fcd155d359502ffaf",
+  "tail_unchanged": true,
+  "version": "top20-cached-ablation-v1"
+}

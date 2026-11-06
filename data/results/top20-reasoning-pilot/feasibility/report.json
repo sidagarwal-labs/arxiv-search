@@ -1,0 +1,67 @@
+{
+  "accounting": {
+    "accounted_usd": 0.04131,
+    "by_model": {
+      "gpt-5.4-2026-03-05": {
+        "api_seconds": 11.129422900034115,
+        "input_tokens": 14460,
+        "output_tokens": 344,
+        "requests": 2,
+        "usd": 0.04131
+      }
+    },
+    "cap_usd": 0.35,
+    "requests": 2,
+    "shared_accounted_tokens_today": {
+      "large": 298050,
+      "mini": 336265
+    },
+    "task": "top20-low-reasoning-feasibility-v1",
+    "unknown_outcomes": 0
+  },
+  "full_pilot_approved": false,
+  "remaining80_scoring": false,
+  "rows": [
+    {
+      "pass": 1,
+      "query_id": "q-keyword-005",
+      "usage": {
+        "accounted_tokens": 7401,
+        "input_tokens": 7230,
+        "latency_seconds": 5.8879141000215895,
+        "model": "gpt-5.4-2026-03-05",
+        "output_tokens": 171,
+        "provider_request_id": "req_553470c35d43445787dc17f5e18fb82d",
+        "reasoning_tokens": 58,
+        "request_id": "61583029-f31e-48ce-a2dd-7715fc70db0b",
+        "reserved_input": 40353,
+        "reserved_output": 4096,
+        "response_model": "gpt-5.4-2026-03-05",
+        "started_utc": "2026-11-05T21:13:17.939485+00:00",
+        "status": "completed",
+        "tier": "large"
+      }
+    },
+    {
+      "pass": 2,
+      "query_id": "q-keyword-005",
+      "usage": {
+        "accounted_tokens": 7403,
+        "input_tokens": 7230,
+        "latency_seconds": 5.241508800012525,
+        "model": "gpt-5.4-2026-03-05",
+        "output_tokens": 173,
+        "provider_request_id": "req_a01350ba459e47848046eee80224c916",
+        "reasoning_tokens": 60,
+        "request_id": "b5463685-792d-4515-bf22-28166209622c",
+        "reserved_input": 40353,
+        "reserved_output": 4096,
+        "response_model": "gpt-5.4-2026-03-05",
+        "started_utc": "2026-11-05T21:13:23.848956+00:00",
+        "status": "completed",
+        "tier": "large"
+      }
+    }
+  ],
+  "status": "two valid replies; feasibility only, no quality evaluation"
+}

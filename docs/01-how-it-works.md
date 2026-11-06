@@ -57,6 +57,37 @@ reranking changes their order; answer generation must support claims from the
 supplied evidence. Each stage needs its own evaluation rather than borrowing
 another stage's score.
 
+### Paper-scoped conversation: core logic
+
+[paper_text.py](../arxiv_search/paper_text.py) extracts a caller-supplied,
+versioned arXiv HTML document or PDF into anchored sections or physical pages.
+It does not download papers. HTML keeps captions and LaTeX math when available;
+PDF extraction is lossy, does not separate references reliably, and has no OCR.
+Abstract-only fallback is an explicit source state, not a full-paper claim.
+Whole body sections are selected before appendices under a 24,000-token cap.
+HTML references are omitted; omissions and conversion warnings are returned.
+
+[paper_chat.py](../arxiv_search/paper_chat.py) builds a Luna request with that
+evidence and the newest six complete conversation exchanges, bounded to 3,000
+tokens. It drops additional old exchanges if the actual encoded request plus
+4,096 framing tokens would exceed the 32,000-input-token reservation window.
+There is no model-generated history compaction. Opening overviews use a fixed
+question and suggest three follow-ups; ordinary follow-ups do not.
+Replies are strict JSON with server-resolved links to included source locators.
+These checks establish citation validity, not factual faithfulness.
+
+Install the optional extraction/tokenization dependencies with
+`python -m pip install -e ".[paper-chat]"`. Run offline checks with
+`python -m pytest tests/test_paper_chat.py -q`. Token counting is injected;
+serving must use `o200k_base` consistently for selection and reservation.
+Reservations use full uncached Luna prices and the full 1,200-token output cap;
+the module computes reservations but does not enforce a budget or send requests.
+
+**Not implemented in these modules:** fetching, caching, budgets or HTTP endpoints.
+The live website's serving layer adds those statelessly: the browser resends the
+conversation history, which is treated as untrusted context, and each question is
+one Luna call reserved against the same daily budget as search.
+
 ## Recommended reading order
 
 Follow the architecture route above, then read the

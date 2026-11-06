@@ -1,0 +1,7 @@
+{
+  "authority": "Owner approved 2026-11-06: remaining80 confirmation, 160 GPT-5.4 calls, hard cap 5.00 USD, process-only large daily guard 1300000, no retries",
+  "cap_usd": 5.0,
+  "max_requests": 160,
+  "plan_sha256": "0a9afbdc4d57d5f62ef4bee85504b58c27a3af2d1eb8f3cda4abe0434d8399e9",
+  "process_large_daily_guard": 1300000
+}

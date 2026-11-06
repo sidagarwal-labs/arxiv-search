@@ -1,0 +1,157 @@
+{
+  "after": {
+    "grade_counts": {
+      "ranks11_20": {
+        "0": 415,
+        "1": 498,
+        "2": 87,
+        "unjudged": 0
+      },
+      "ranks21_50": {
+        "0": 580,
+        "1": 335,
+        "2": 45,
+        "unjudged": 2040
+      },
+      "top10": {
+        "0": 217,
+        "1": 449,
+        "2": 334,
+        "unjudged": 0
+      }
+    },
+    "loss": {
+      "ordering_top10": {
+        "ci95": [
+          0.03660872771257994,
+          0.05433935726460402
+        ],
+        "mean": 0.04505776562072199,
+        "queries_affected": 90,
+        "share_of_top50_gap": 0.23481590035342637
+      },
+      "outside_top50": {
+        "ci95": [
+          0.011520467899399795,
+          0.029002301635588198
+        ],
+        "mean": 0.019485812430448345,
+        "queries_affected": 23,
+        "share_of_top50_gap": null
+      },
+      "screening_21_50": {
+        "ci95": [
+          0.020996407570961582,
+          0.0364633789087404
+        ],
+        "mean": 0.028161248834053812,
+        "queries_affected": 41,
+        "share_of_top50_gap": 0.14676069505328623
+      },
+      "selection_11_20": {
+        "ci95": [
+          0.10176696171706213,
+          0.13625943248984698
+        ],
+        "mean": 0.11866648202525204,
+        "queries_affected": 89,
+        "share_of_top50_gap": 0.6184234045932868
+      }
+    },
+    "pin1_top20_oracle_penalty": 0.013197478262337243,
+    "queries": 100,
+    "scores": {
+      "actual": 0.7886286910895238,
+      "ideal": 1.0,
+      "oracle10": 0.8336864567102458,
+      "oracle20": 0.9523529387354978,
+      "oracle50": 0.9805141875695518
+    },
+    "unjudged_top50": 2040
+  },
+  "before": {
+    "grade_counts": {
+      "ranks11_20": {
+        "0": 396,
+        "1": 421,
+        "2": 84,
+        "unjudged": 99
+      },
+      "ranks21_50": {
+        "0": 580,
+        "1": 335,
+        "2": 45,
+        "unjudged": 2040
+      },
+      "top10": {
+        "0": 217,
+        "1": 449,
+        "2": 334,
+        "unjudged": 0
+      }
+    },
+    "loss": {
+      "ordering_top10": {
+        "ci95": [
+          0.03704369143546282,
+          0.0547868915946034
+        ],
+        "mean": 0.045490179932123544,
+        "queries_affected": 90,
+        "share_of_top50_gap": 0.2440240464560601
+      },
+      "outside_top50": {
+        "ci95": [
+          0.01159966384220597,
+          0.029273996558351997
+        ],
+        "mean": 0.01970203503496132,
+        "queries_affected": 23,
+        "share_of_top50_gap": null
+      },
+      "screening_21_50": {
+        "ci95": [
+          0.02277979067514704,
+          0.03896341826214515
+        ],
+        "mean": 0.030460811226845817,
+        "queries_affected": 42,
+        "share_of_top50_gap": 0.1634016489932602
+      },
+      "selection_11_20": {
+        "ci95": [
+          0.09353038428174833,
+          0.12683056819303995
+        ],
+        "mean": 0.11046580092678399,
+        "queries_affected": 86,
+        "share_of_top50_gap": 0.5925743045506803
+      }
+    },
+    "pin1_top20_oracle_penalty": 0.013197478262337243,
+    "queries": 100,
+    "scores": {
+      "actual": 0.7938811728792854,
+      "ideal": 1.0,
+      "oracle10": 0.8393713528114088,
+      "oracle20": 0.9498371537381928,
+      "oracle50": 0.9802979649650386
+    },
+    "unjudged_top50": 2139
+  },
+  "cautions": [
+    "No model version inferred beyond workbook provenance.",
+    "Mixed evaluator pool; new labels do not establish grader agreement.",
+    "No existing labels, frozen reports, catalog or baseline changed."
+  ],
+  "evaluator": {
+    "Collection method": "AI-assisted judgments via Copilot SDK in VS Code; not human labels.",
+    "Evaluation date": "2026-11-05",
+    "Evaluator model/name": "Copilot SDK AI assistants (subagent model versions not exposed)"
+  },
+  "new_grade_counts": {
+    "0": 19,
+    "1": 77,
+    "2": 3
+  }
+}

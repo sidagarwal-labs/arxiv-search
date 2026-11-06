@@ -2650,3 +2650,284 @@ graded them blind in a new session with 40 old answers mixed in to measure drift
 - **Lesson:** reading why sentences fail beat switching models; the fix that helped
   the cheap model also helped the others. The rule change is post hoc and was not
   confirmed on held-out queries.
+
+## 39. D47 loss decomposition: better top-ten selection is the largest known opportunity (2026-11-05)
+
+Free analysis of the saved D47 run and frozen D47 label layer on the same 100 dev
+queries ([report](../data/results/rerank-loss-d47/report.md),
+[per-query evidence](../data/results/rerank-loss-d47/report.json)).
+No new judgments, model calls, test evaluation or baseline change.
+
+| Counterfactual ordering | nDCG@10 | Increment |
+|---|---|---|
+| Current D47 | 0.7939 | -- |
+| Perfectly reorder its existing ten | 0.8394 | +0.0455 |
+| Select and order ten from its top twenty | 0.9498 | +0.1105 |
+| Select and order ten from its top fifty | 0.9803 | +0.0305 |
+| Global pooled-label ideal | 1.0000 | +0.0197 |
+
+The top-twenty selection increment accounts for 59% of the known gap between D47
+and its top-fifty oracle, and affects 86 queries. There are 84 known grade-2 papers
+at ranks 11-20, versus 45 at ranks 21-50. The current top ten contain 217 grade-0,
+449 grade-1 and 334 grade-2 query-paper pairs.
+
+**Implication:** a bounded comparative ranker should consider candidates across
+the top twenty, not just shuffle the current ten. This is a hypothesis, not a
+measured improvement. The idealized top-twenty penalty for keeping rank one fixed
+is only 0.0132; removing the pin alone cannot explain the full remaining gap.
+
+**Limits:** 99/1,000 pairs at ranks 11-20 and 2,040/3,000 at ranks 21-50 are
+unjudged and count as zero. These are known-label opportunities, not a fully
+judged ceiling or proof that deeper candidates are unhelpful. The decomposition
+credits top-ten ordering first, then top-twenty selection, then deeper selection;
+the allocation depends on this order and selection includes optimal ordering.
+No independent label audit was performed: candidate inversions identify cases
+to inspect, not established annotation errors. Repeated dev analysis remains
+optimistic.
+
+### Completed top20 labels and proposed comparative pilot (2026-11-05)
+
+The owner supplied all 99 missing top20 judgments: 19 grade-0, 77 grade-1 and
+3 grade-2 pairs. The effective evaluator attribution is **GPT 6 Terra**, per the
+owner's explicit correction. The workbook originally named unspecified Copilot
+SDK assistants; that original evidence is retained, with a separate
+[attribution correction](../data/results/top20-label-completion/evaluator-correction.json).
+The [original import report](../data/results/top20-label-completion/report.md)
+retains the workbook attribution; use the correction for current reporting.
+
+On the completed additive label pool, unchanged D47 scores 0.7886 and its top20
+oracle scores 0.9524. This is a new label scope, not a regression from the old
+0.7939 measurement. No existing labels or leaderboard entries changed.
+
+The [frozen comparative pilot proposal](../data/results/top20-compare/preregistration.json)
+uses the existing 20-query dev pilot, forty fixed comparisons among twenty papers
+in each of two reversed presentations, and equal comparison counts per paper.
+Primary ranking preserves D47 rank one and breaks vote ties by D47 order; deeper
+ranks are unchanged. Sparse opponent strength and inconsistent preferences are
+known risks, not assumed solved. Success requires nDCG gain above 0.0106 with a
+positive paired 95% lower bound and source MRR loss no worse than 0.02.
+The estimated incremental cost is $0.504, full-output reservation $0.630;
+the proposed $1.00 task cap requires approval before any calls. The proposal is
+not an implemented paid runner, and no new model responses have been collected.
+
+### Comparative pilot outcome: failed, no expansion (2026-11-05)
+
+The owner approved the $1 pilot and the runner subsequently collected all forty
+replies, with no retries or unknown outcomes. Earlier proposal status above is
+historical; see the [run approval](../data/results/top20-compare/run-approval.json)
+and [pilot report](../data/results/top20-compare/report.md).
+
+On the twenty pilot queries and completed top20 labels, D47 scores **0.7783**,
+while comparative voting with the rank-one pin scores **0.7161**:
+delta **-0.0622 [-0.1085, -0.0161]**. Eight queries improve and twelve worsen;
+all four query-type means decline. The unpinned diagnostic is worse at 0.6830.
+Source MRR changes by -0.0063, within its guard, but the primary nDCG gate fails.
+
+The same physical pair receives a reversal-consistent verdict only **48.75%**
+of the time when evidence order and A/B presentation are reversed. Those two
+changes are confounded, so this does not isolate a causal A-position effect.
+Sparse win counts also do not correct for opponent difficulty. The result rejects
+this particular batched-comparison plus sparse-vote design, not all pairwise
+ranking approaches.
+
+Incremental cost was **$0.2841** for forty calls; mean max-of-two API duration
+was 3.26 seconds (hypothetical parallel-pair timing, not measured serving latency).
+No full-dev expansion, replacement test, baseline promotion or deployment follows.
+
+### Free follow-up and model-only proposal
+
+The [saved-response diagnostic](../data/results/top20-compare/comparison-diagnostics.json)
+restricts attention to 441 pairs whose completed relevance grades differ.
+Against those grades, the forward judgments choose correctly 61.2% of the time,
+versus 47.6% in the reversed presentation; ties/insufficient count as incorrect.
+Even among these unequal-grade pairs, reversal agreement is only 47.8%.
+Thus instability is not explained solely by legitimate ties between equally
+graded papers. Grades remain model judgments, and evidence-order/A-B effects
+remain confounded.
+
+The next [offline pilot proposal](../data/results/top20-model-pilot/preregistration.json)
+changes only the refinement model from GPT-5.4 mini to GPT-5.4. Unlike the failed
+add-on comparison pilot, this replaces D47's two refinement calls over the same
+D46 top20, preserving prompt, presentation, score averaging, RRF, rank-one pin
+and output cap. Forty calls on the existing pilot20 cost an estimated $1.32;
+the conservative UTF-8-byte transport reservations total $4.35 at the full
+output cap. A new task budget requires owner approval. No calls have been made
+for this model-only proposal.
+
+### Model-only pilot outcome: positive diagnostic screen
+
+The owner approved a $4.50 task cap, then explicitly approved a process-only
+daily-token allowance increase after the local guard stopped before request 15.
+All fourteen completed responses were reused; only the 26 unsent calls followed.
+Forty replies completed without retries or unknown outcomes for **$0.7636**.
+
+The [model-only pilot](../data/results/top20-model-pilot/report.md) improved
+nDCG@10 from **0.7783 to 0.8111**, delta **+0.0328 [+0.0130, +0.0537]**.
+Source MRR increased by 0.0021. All frozen pilot checks passed. This changes
+only the top20 refinement model, not prompt, candidates, presentation, scoring,
+fusion or rank-one safeguard, and replaces the mini refinement rather than
+adding another stage. Mean max-of-two API duration was 3.13 seconds, not measured
+parallel serving latency.
+
+This is a positive screen on twenty repeatedly analyzed dev queries, not a
+baseline promotion or independent confirmation. The other eighty dev queries
+require separate approval before expansion. No test-set evaluation or deployed
+reranker change has occurred.
+
+### Cached-score ablations: stronger judgments may need less blending (2026-11-05)
+
+The [free ablation report](../data/results/top20-ablations/report.md) evaluates
+only the existing pilot20 responses. Three declared ordering methods (equal RRF,
+model-heavy RRF with weights 1:2, and score ordering without RRF) are crossed with
+averaging both passes, pass one, and pass two. Every variant keeps D46 rank one
+and the unchanged tail. These are exploratory alternatives, not nine independent
+confirmatory experiments; pass two is a stability diagnostic, not an instruction
+to select the better random pass in production.
+
+| Averaged GPT-5.4 scores, pin retained | nDCG@10 | Delta vs equal blend |
+|---|---|---|
+| Equal blend (stronger-model reference) | 0.8111 | -- |
+| Model-heavy blend | 0.8230 | +0.0119 [-0.0050, +0.0301] |
+| Scores only | 0.8291 | +0.0180 [-0.0062, +0.0437] |
+
+Score-only ordering improves fourteen queries and worsens six versus the stronger
+reference. Its source MRR delta versus D47 is -0.0007, inside the existing guard.
+The numerical gain over equal blending is not resolved by its paired interval,
+and intervals do not account for variant selection. It is a candidate for further
+pilot work, not a reason to promote.
+
+Under equal blending, pass one alone scores 0.7988 and pass two alone 0.8035,
+below averaging at 0.8111. Under scores-only ordering, the corresponding values
+are 0.8195 and 0.8331 versus 0.8291 averaged. This variation argues against
+retrospectively picking pass two. Averaging remains the quality-first working
+choice; single-pass cost is about $0.0191 per query versus $0.0382 for two
+GPT-5.4 refinement passes, excluding the common upstream pipeline.
+
+No new provider requests, remaining80 scoring, test evaluation, ledger writes or
+serving changes were made. These saved calls ran sequentially; max-of-two API
+duration is a hypothetical parallel estimate, not measured serving latency.
+
+### Low-reasoning pilot prepared, not run (2026-11-05)
+
+The [frozen offline proposal](../data/results/top20-reasoning-pilot/preregistration.json)
+keeps the same twenty pilot queries, D46 candidates, deterministic presentation,
+prompt and score schema. GPT-5.4's pinned snapshot supports `low` reasoning,
+according to the [model documentation](https://developers.openai.com/api/docs/models/gpt-5.4).
+The [reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)
+states that hidden reasoning consumes the output budget and is billed as output.
+Therefore this candidate also raises the output cap from 512 to 4096 tokens.
+This tests a practical configuration, not an isolated reasoning effect.
+
+Primary ordering is two-pass averaged score order with stable D46 tie-breaking
+and rank-one protection, compared with the saved non-reasoning score-only
+candidate (0.8291). Equal RRF is secondary diagnostic only. The screen requires
+a gain greater than 0.0106 with a positive paired interval lower bound, source
+MRR delta at least -0.02 versus D47, forty valid replies and fully judged top10.
+These are exploratory pilot screens, not promotion criteria or independent
+confirmation after repeated pilot analysis.
+
+The proposed new task cap is **$6.60 for at most forty requests**. Conservative
+UTF-8-byte input plus full-output reservations total **$6.49859**. A planning
+scenario with 1024 output tokens per call costs **$1.845715**, not a prediction.
+Both amounts exclude common upstream retrieval/reranking costs.
+
+4096 is deliberately below OpenAI's general 25000-token starting recommendation.
+Inspect the first two valid replies for feasibility; stop on the first invalid,
+incomplete or unknown outcome, without retries or automatic cap increases.
+The existing daily-token guard remains active and cannot be overridden by this
+proposal. No requests, ledger writes, remaining80 scoring, test evaluation,
+serving changes or promotion have occurred. A separate owner budget approval
+is required before implementation of paid execution.
+
+### Two-call reasoning feasibility check (2026-11-05)
+
+The owner instead approved a separate **$0.35 / two-call** check, followed by
+an explicit process-only large daily-token guard of 450000 after the unchanged
+150000 guard blocked the read-only preflight. Permanent configuration and serving
+budgets were not changed. The runner restores the prior guard in `finally`.
+
+The [feasibility report](../data/results/top20-reasoning-pilot/feasibility/report.json)
+contains two valid replies for the first frozen query, `q-keyword-005`, costing
+**$0.041310 total**, with no retries or unknown outcomes. Output usage was 171
+and 173 tokens, including 58 and 60 reasoning tokens. API durations were 5.89
+and 5.24 seconds; saved non-reasoning replies for the same query took 3.58 and
+2.86 seconds and used 111 output tokens each.
+
+Using the original pilot's measured input total and this query's mean output
+usage projects about **$0.80 for forty calls**, versus the original measured
+$0.7636. This is a one-query extrapolation, not a budget guarantee: other queries
+may reason longer or exhaust the output cap. The conservative full-pilot
+reservation remains $6.49859. No relevance metrics were computed from these two
+replies, and the remaining 38 requests, remaining80 evaluation and promotion
+remain unapproved.
+
+### Completed low-reasoning pilot: higher mean, failed frozen screen (2026-11-05)
+
+The owner subsequently approved the remaining38 calls under a new **$1.25 cap**
+and a process-only large daily-token guard of750000. The original two replies
+were reused, not resent. All forty replies were valid, with no retries or unknown
+outcomes. New spend was **$0.814690**; total including feasibility was **$0.856000**.
+The [complete report](../data/results/top20-reasoning-pilot/report.json) records
+response hashes, resource usage and per-query results.
+
+| Averaged passes, rank-one pin retained | No reasoning | Low reasoning | Paired delta, 95% interval |
+|---|---|---|---|
+| Scores only (primary) | 0.8291 | 0.8443 | +0.0153 [-0.0024, +0.0344] |
+| Equal RRF (diagnostic) | 0.8111 | 0.8186 | +0.0075 [-0.0073, +0.0205] |
+
+Primary wins/losses/ties were12/7/1. Source MRR delta versus D47 was+0.0104,
+and all top10 results were judged. The primary mean exceeds the declared0.0106
+threshold, but its paired interval includes zero: **the frozen screen failed**.
+The question-query subgroup gained+0.0425, while known-item queries lost0.0012;
+each subgroup has only five queries and is descriptive, not grounds for routing.
+
+Total output was10599 tokens, including6079 hidden reasoning tokens. Mean
+max-of-two API duration was7.66 seconds versus3.13 for the non-reasoning pilot.
+These are hypothetical parallel estimates from sequential calls, not serving
+latency. Total refinement spend rose from$0.7636 to$0.8560 (about12.1%), while
+that duration estimate rose about2.45x.
+
+Recommendation: retain non-reasoning averaged score-only ordering as the working
+challenger rather than automatically adopting the highest pilot mean. Do not
+relax the failed screen, introduce query-type routing or expand reasoning to the
+remaining80 on this evidence. Stop pilot tuning, freeze a single candidate
+before separately approved confirmation, and keep deployed D47 unchanged.
+No remaining80 scoring, test evaluation, deployment or promotion occurred.
+
+### Free reasoning disagreement analysis (2026-11-05)
+
+The [evidence review](../data/results/top20-reasoning-diagnostics/report.md) and
+[reproducible diagnostic](../data/results/top20-reasoning-diagnostics/report.json)
+compare the saved averaged score-only rankings on exactly the same pilot20,
+with complete labels and unchanged global nDCG denominators.
+Exact per-paper discounted contributions reconcile to every query delta.
+
+Reasoning corrects90 unequal-grade top20 inversions but introduces58; these
+unweighted pair counts are not nDCG. Top10 entrants are6 grade2,11 grade1 and4
+grade0 papers; exits are3 grade2,12 grade1 and6 grade0 papers. Two queries
+account for46.2% of gross positive query gains. Some high-impact promoted papers
+are graded2 even though their abstracts do not clearly establish the requested
+capability (unknown-graph GNN transfer or one model across atmospheric tasks).
+These are label-audit concerns, not proven labeling errors or corrections.
+
+Thus the gain does not support a simple claim that reasoning consistently checks
+constraints better. A narrow, untested prompt addition distinguishing absent
+evidence from explicit mismatch is proposed in the review, but the current prompt
+already covers much of that distinction. Prioritize a blinded high-impact label
+audit rather than forcing the non-reasoning model to imitate every reasoning
+ranking. Keep all labels immutable until separately reviewed and versioned.
+No model calls, ledger access, credential reads, remaining80 scoring or serving
+changes were needed for this analysis.
+
+## Remaining80 confirmation: GPT-5.4 two-pass scores-only (2026-11-06)
+
+Plan frozen before any call ([preregistration](../data/results/top20-confirm/preregistration.json)); 160 GPT-5.4 calls on the 80 dev queries no top20 experiment had seen; test split untouched; no retries. Owner approved a $5 cap and a process-only daily guard of 1.3M tokens.
+
+| Variant (same replies) | nDCG@10 | Delta vs D47 [95% CI] | W/L/T |
+|---|---:|---:|---:|
+| D47 (production) | 0.7912 | — | — |
+| **GPT-5.4 two-pass scores-only (gated)** | **0.8449** | **+0.0537 [+0.0371, +0.0713]** | 59/20/1 |
+| GPT-5.4 one-pass scores-only (diagnostic) | 0.8410 | +0.0498 [+0.0344, +0.0664] | 60/19/1 |
+| GPT-5.4 two-pass equal RRF (diagnostic) | 0.8194 | +0.0281 [+0.0156, +0.0406] | 58/22/0 |
+
+All preregistered checks passed (gain > 0.0106 with CI above zero, source MRR +0.035, 160/160 valid, fully judged). Cost $3.04 total: $0.0380/query two-pass, $0.0190 one-pass. Max-of-two API time 3.24 s mean (p95 3.76); one pass 3.14 s. Gains held across all four query types. Labels are pooled AI judgments; latency is provider time, not serving latency. Promoted as [Decision 50](02-decisions.md#50-gpt-54-re-scores-the-top-20-ordered-by-its-scores-2026-11-06) (two passes, owner choice); serving still runs Decision 47. See [report](../data/results/top20-confirm/report.md).

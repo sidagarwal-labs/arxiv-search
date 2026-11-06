@@ -1,0 +1,4437 @@
+{
+  "verdict_counts": {
+    "forward": {
+      "A": 506,
+      "B": 244,
+      "insufficient": 39,
+      "tie": 11
+    },
+    "reverse": {
+      "A": 378,
+      "B": 400,
+      "tie": 2,
+      "insufficient": 20
+    }
+  },
+  "unequal_grade_pairs": 441,
+  "accuracy_counting_tie_as_wrong": {
+    "forward": 0.6122448979591837,
+    "reverse": 0.47619047619047616
+  },
+  "unequal_grade_reversal_agreement": 0.47845804988662133,
+  "consistent_decisive_pairs": 211,
+  "consistent_decisive_accuracy": 0.6303317535545023,
+  "caution": "Grades are pooled model judgments, not ground truth. Equal-grade comparisons may legitimately differ. A/B and evidence-order reversals are confounded. This is a post-hoc diagnostic, never a new tuned ranking candidate.",
+  "rows": [
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 3,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 5,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 6,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 7,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 8,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 9,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 10,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 11,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 12,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 13,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 14,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 15,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 17,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 18,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 19,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 21,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 23,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 24,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 25,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 26,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 27,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 28,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 34,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 35,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 36,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 38,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "comparison": 39,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 3,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 6,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 7,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 8,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 9,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 10,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 11,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 12,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 14,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 15,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 16,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 17,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 20,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 21,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 22,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "tie",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 25,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 30,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 33,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 34,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 39,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "comparison": 40,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 5,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 7,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 8,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 9,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 12,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 13,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 14,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 15,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 16,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 17,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 21,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 22,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 24,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 25,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 26,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 27,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 28,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 29,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 32,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "comparison": 33,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 1,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 3,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 7,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 8,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 9,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 11,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 13,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 14,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 15,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 21,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 25,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 26,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 28,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 29,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 31,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 32,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 33,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 34,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 36,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 37,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "comparison": 39,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-081",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-081",
+      "comparison": 3,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-081",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-081",
+      "comparison": 5,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-keyword-081",
+      "comparison": 6,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-keyword-081",
+      "comparison": 7,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 3,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 4,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 6,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 7,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 8,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 9,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 10,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 25,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 26,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 29,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 39,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "comparison": 40,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "insufficient",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 3,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 4,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 5,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 6,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 7,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 9,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 10,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 12,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 13,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "tie"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 15,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "tie"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 16,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 18,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 20,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 21,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 22,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 23,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 24,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 25,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 27,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 28,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 31,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 32,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 37,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 38,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 39,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "comparison": 40,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 2,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 3,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 4,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 5,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 7,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 9,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 11,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 14,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 15,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 16,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 17,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 20,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 21,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 22,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 25,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 29,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 30,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 32,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 33,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 39,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "comparison": 40,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 9,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 11,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 14,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 15,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 16,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 26,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 29,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 30,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 31,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "comparison": 33,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 1,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 2,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 3,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 7,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 8,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 9,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 11,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 14,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 16,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 17,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 21,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 22,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "tie",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 24,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 25,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "tie",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 27,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "tie",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 28,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "tie",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 30,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 31,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 32,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 34,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "comparison": 35,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 2,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 3,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 4,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 5,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 7,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 9,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 11,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 12,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 13,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 14,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 15,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 16,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 18,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 19,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 20,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 22,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "tie",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 23,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 24,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 25,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "tie",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 26,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 28,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 29,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 31,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 32,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 34,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 35,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 36,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 37,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "comparison": 39,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 2,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 3,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 4,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 6,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 7,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 9,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 10,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 12,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 13,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 14,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 15,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 17,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 19,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 22,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 23,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 25,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 34,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 35,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 36,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "comparison": 38,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 3,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 10,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 11,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 13,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 14,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 18,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 21,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 23,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 25,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 26,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 27,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 28,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 30,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 34,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 37,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 39,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "comparison": 40,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 2,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 4,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 8,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 11,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 12,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 13,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 14,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 17,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 18,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 19,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 22,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 26,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 27,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 28,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 29,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 30,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 32,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 35,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 36,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 38,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 39,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "insufficient"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "comparison": 40,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 1,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 3,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 4,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 5,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 9,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 10,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 12,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 14,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 15,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 17,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 18,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 19,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 20,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 21,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 22,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 25,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 28,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 29,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 30,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 31,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 32,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 33,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 34,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 35,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "comparison": 39,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 3,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 4,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 13,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 17,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 18,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 20,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 21,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 22,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 27,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 28,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 32,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 35,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 36,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 38,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 39,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-040",
+      "comparison": 40,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 2,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 3,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 5,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 6,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 7,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 9,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 11,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 13,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 14,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 15,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 16,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 18,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 19,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 20,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 23,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 24,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 25,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 26,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 29,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 30,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 31,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 33,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 35,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 36,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 37,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-056",
+      "comparison": 38,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 3,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 5,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 8,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 9,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 10,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 14,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 16,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 17,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 18,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 20,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 21,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 22,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 23,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 24,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 26,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 27,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 28,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 31,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 33,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 36,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-077",
+      "comparison": 39,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 2,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 4,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 5,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 6,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 7,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 10,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 11,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 12,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 16,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 17,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 18,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 20,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 21,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 22,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "tie",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 27,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 29,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 32,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 33,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 34,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 35,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 36,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 37,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 38,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-088",
+      "comparison": 39,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 1,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 2,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 3,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 4,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 5,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 6,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 8,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 9,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 10,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 11,
+      "grades": [
+        1,
+        2
+      ],
+      "forward": "B",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 15,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 16,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 17,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 18,
+      "grades": [
+        2,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 19,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 20,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 21,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 22,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 24,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 25,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 26,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 28,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 29,
+      "grades": [
+        0,
+        2
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 31,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 32,
+      "grades": [
+        2,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 33,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 34,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "B",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 35,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "B"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 37,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 38,
+      "grades": [
+        0,
+        1
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    },
+    {
+      "query_id": "q-question-095",
+      "comparison": 39,
+      "grades": [
+        1,
+        0
+      ],
+      "forward": "A",
+      "reverse_canonical": "A"
+    }
+  ]
+}
