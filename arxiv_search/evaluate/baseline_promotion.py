@@ -144,7 +144,7 @@ def render_charts(report: dict, diagnosis: dict, d50: dict | None = None) -> str
         points.append((RERANK_MILESTONE, rerank, "2 reranking", stage2[rerank]))
     milestone_rows = []
     previous = None
-    for label, name, stage, result in points:
+    for index, (label, name, stage, result) in enumerate(points, 1):
         if result is None:
             raise ValueError(f"Cannot chart missing milestone: {name}")
         if not result["top10_fully_judged"]:
@@ -154,7 +154,7 @@ def render_charts(report: dict, diagnosis: dict, d50: dict | None = None) -> str
             raise ValueError(f"Cannot chart undefined milestone: {name}")
         delta = "-" if previous is None else f"{score - previous:+.4f}"
         milestone_rows.append(
-            f"| {stage} | {label} | `{name}` | {score:.4f} | {delta} | "
+            f"| M{index} | {stage} | {label} | `{name}` | {score:.4f} | {delta} | "
             f"{result['all']['source_mrr@10']['mean']:.4f} | "
             f"{result['all']['source_recall@10']['mean']:.0%} |")
         previous = score
@@ -196,7 +196,8 @@ def render_charts(report: dict, diagnosis: dict, d50: dict | None = None) -> str
         "and turning points; the Stage 2 point adds the LLM reranker on top of the current "
         "retrieval baseline. These are selected milestones, not "
         "every trial, independent experiments, or equally spaced dates. The x-axis is "
-        f"milestone order. **Zoomed linear y-axis: {lower:.2f}-{upper:.2f}, not zero-based.** "
+        "milestone order; M1, M2, and so on refer to the table below. "
+        f"**Zoomed linear y-axis: {lower:.2f}-{upper:.2f}, not zero-based.** "
         "This focuses on score changes, not their magnitude relative to zero. "
         "All plotted top10s are fully judged; no held-out test scores are included. "
         + ("D50 includes 20 queries used to select it. " if d50 else "") +
@@ -220,8 +221,7 @@ def render_charts(report: dict, diagnosis: dict, d50: dict | None = None) -> str
         "", "```mermaid", "xychart-beta",
         '    title "Hill climbing: graded relevance nDCG@10"',
         "    x-axis [" + ", ".join(
-            [f'\"{label}\"' for label, *_ in points]
-            + ([f'"{D50_MILESTONE}"'] if d50 else [])) + "]",
+            f"M{index}" for index in range(1, len(points) + 1 + bool(d50))) + "]",
         f'    y-axis "nDCG@10 (zoomed, higher is better)" {lower:g} --> {upper:g}',
         "    line [" + ", ".join(f"{v:.4f}" for v in scores + new_scores[1:]) + "]",
         *(["    line [" + ", ".join(f"{ceiling:.4f}" for _ in scores) + "]"]
@@ -235,9 +235,9 @@ def render_charts(report: dict, diagnosis: dict, d50: dict | None = None) -> str
            f"{d50['pair_count']:,} judgments; the same-pool D47 control scores "
            f"{new_scores[0]:.4f}. Earlier points use 3,579 judgments, so the plotted "
            "difference from the preceding point is not the measured step gain.*", ""] if d50 else []),
-        "| Stage | Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |",
-        "|---|---|---|---|---|---|---|", *milestone_rows,
-        *([f"| 2 reranking | {D50_MILESTONE} | `{D50_SYSTEM}` | {new_scores[1]:.4f} | "
+        "| Chart key | Stage | Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |",
+        "|---|---|---|---|---|---|---|---|", *milestone_rows,
+        *([f"| M{len(points) + 1} | 2 reranking | {D50_MILESTONE} | `{D50_SYSTEM}` | {new_scores[1]:.4f} | "
            f"{d50['summary']['ndcg_delta']:+.4f} | "
            f"{d50['summary']['d50']['source_mrr@10']:.4f} | "
            f"{d50['summary']['d50']['source_recall@10']:.0%} |"] if d50 else []), "",

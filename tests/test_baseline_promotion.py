@@ -18,10 +18,13 @@ def test_d50_saved_evidence_and_chart():
     diagnosis = json.loads((root / "baseline-promotion-dev" / "report.json").read_bytes())
     text = promotion.render_charts(report, diagnosis, comparison)
     assert comparison["pair_count"] == 3678
+    assert "x-axis [M1, M2, M3, M4, M5, M6, M7, M8, M9, M10]" in text
+    assert "| M1 | 1 retrieval | Tuned BM25 |" in text
+    assert "| M9 | 2 reranking | GPT-5.4 mini top-20 refinement + safeguard |" in text
     assert "0.5068, 0.5664, 0.6162, 0.6450, 0.6885, 0.6897, 0.7007, 0.7490, 0.7939, 0.8418" in text
     assert "same-pool D47 control scores 0.7886" in text
     assert "not the measured step gain" in text
-    assert f"| 2 reranking | {promotion.D50_MILESTONE} | `{promotion.D50_SYSTEM}` | 0.8418 | +0.0531 |" in text
+    assert f"| M10 | 2 reranking | {promotion.D50_MILESTONE} | `{promotion.D50_SYSTEM}` | 0.8418 | +0.0531 |" in text
     assert "0.7912 → **0.8449**" in text
     assert f"| S1 | GPT-5.4 two-pass top-20 scoring; average scores; keep rank 1<br>`{promotion.D50_SYSTEM}` | 0.8418 | — |" in text
     assert "**APPROVED BASELINE** (GPT-5.4 two-pass top-20 refinement)" in text
@@ -175,9 +178,9 @@ def test_charts_append_reranking_baseline_and_stage2_table():
                  "top10_grade_counts": {"0": 311, "1": 423, "2": 266}}
     text = promotion.render_charts(report, diagnosis)
     assert text.count("```mermaid") == 3
-    assert f'"{promotion.RERANK_MILESTONE}"]' in text
+    assert "x-axis [M1, M2, M3, M4, M5, M6, M7, M8]" in text
     assert "0.6200, 0.7000]" in text
-    assert f"| 2 reranking | {promotion.RERANK_MILESTONE} | `{rerank}` | 0.7000 | +0.0800 |" in text
+    assert f"| M8 | 2 reranking | {promotion.RERANK_MILESTONE} | `{rerank}` | 0.7000 | +0.0800 |" in text
     assert "retrieval alone reaches 0.6200, the reranker adds +0.0800" in text
     assert "same 3,461-pair dev label set" in text
     assert "line [0.6200, 0.7000, 0.7200]" in text

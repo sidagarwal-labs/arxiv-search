@@ -6,7 +6,7 @@
 
 ## Hill climbing: major milestones
 
-Milestones use 100 dev queries, 23,304 searchable papers. Earlier results use the **same 3,579-pair dev label set (`shared-labels/labels-d47.json`)**. Stage 1 points are retrieval baselines and turning points; the Stage 2 point adds the LLM reranker on top of the current retrieval baseline. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order. **Zoomed linear y-axis: 0.50-0.85, not zero-based.** This focuses on score changes, not their magnitude relative to zero. All plotted top10s are fully judged; no held-out test scores are included. D50 includes 20 queries used to select it. Scores shifted down slightly from older versions of this page when reranker top-10 grades joined the shared labels (167 in Decision45, 72 in Decision46); the curve's shape is unchanged.
+Milestones use 100 dev queries, 23,304 searchable papers. Earlier results use the **same 3,579-pair dev label set (`shared-labels/labels-d47.json`)**. Stage 1 points are retrieval baselines and turning points; the Stage 2 point adds the LLM reranker on top of the current retrieval baseline. These are selected milestones, not every trial, independent experiments, or equally spaced dates. The x-axis is milestone order; M1, M2, and so on refer to the table below. **Zoomed linear y-axis: 0.50-0.85, not zero-based.** This focuses on score changes, not their magnitude relative to zero. All plotted top10s are fully judged; no held-out test scores are included. D50 includes 20 queries used to select it. Scores shifted down slightly from older versions of this page when reranker top-10 grades joined the shared labels (167 in Decision45, 72 in Decision46); the curve's shape is unchanged.
 
 **Current reranking baseline: GPT-5.4 two-pass top-20 refinement, 0.8418 nDCG@10**, with a measured +0.0531 gain against D47.
 
@@ -15,7 +15,7 @@ Milestones use 100 dev queries, 23,304 searchable papers. Earlier results use th
 ```mermaid
 xychart-beta
     title "Hill climbing: graded relevance nDCG@10"
-    x-axis ["Tuned BM25", "GTE dense", "GTE hybrid", "OpenAI hybrid", "RRF75 c100", "RRF55 c30", "Shortlist scores", "GPT-5.4 mini top-50 rerank + safeguard", "GPT-5.4 mini top-20 refinement + safeguard", "GPT-5.4 2-pass top-20 refinement"]
+    x-axis [M1, M2, M3, M4, M5, M6, M7, M8, M9, M10]
     y-axis "nDCG@10 (zoomed, higher is better)" 0.5 --> 0.85
     line [0.5068, 0.5664, 0.6162, 0.6450, 0.6885, 0.6897, 0.7007, 0.7490, 0.7939, 0.8418]
 ```
@@ -24,18 +24,18 @@ xychart-beta
 
 *D50 and its +0.0531 step are measured on 3,678 judgments; the same-pool D47 control scores 0.7886. Earlier points use 3,579 judgments, so the plotted difference from the preceding point is not the measured step gain.*
 
-| Stage | Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |
-|---|---|---|---|---|---|---|
-| 1 retrieval | Tuned BM25 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | 0.5068 | - | 0.5687 | 71% |
-| 1 retrieval | GTE dense | `dense-gte-small` | 0.5664 | +0.0596 | 0.5254 | 71% |
-| 1 retrieval | GTE hybrid | `hybrid-gte-small+rrf+w=0.5+c=10` | 0.6162 | +0.0498 | 0.6350 | 80% |
-| 1 retrieval | OpenAI hybrid | `hybrid-openai-large+rrf+w=0.5+c=10` | 0.6450 | +0.0287 | 0.6534 | 84% |
-| 1 retrieval | RRF75 c100 | `fusion-rrf+w=0.75+d=100+c=100` | 0.6885 | +0.0435 | 0.6181 | 84% |
-| 1 retrieval | RRF55 c30 | `fusion-rrf+w=0.55+d=100+c=30` | 0.6897 | +0.0012 | 0.6459 | 86% |
-| 1 retrieval | Shortlist scores | `fusion-shortlist+a=1+d=500` | 0.7007 | +0.0109 | 0.6967 | 86% |
-| 2 reranking | GPT-5.4 mini top-50 rerank + safeguard | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | 0.7490 | +0.0483 | 0.7197 | 87% |
-| 2 reranking | GPT-5.4 mini top-20 refinement + safeguard | `llm-mini-refine20+d=20+avg2+rrf-d46+c=30+pin1-d46` | 0.7939 | +0.0449 | 0.7381 | 92% |
-| 2 reranking | GPT-5.4 2-pass top-20 refinement | `llm-gpt54-refine20+d=20+avg2+scores+pin1-d46` | 0.8418 | +0.0531 | 0.7659 | 93% |
+| Chart key | Stage | Milestone | Saved identity | nDCG@10 | Step gain | Source MRR@10 | Source R@10 |
+|---|---|---|---|---|---|---|---|
+| M1 | 1 retrieval | Tuned BM25 | `bm25+exact+stems+authors+title2x+k1=0.8,b=0.75` | 0.5068 | - | 0.5687 | 71% |
+| M2 | 1 retrieval | GTE dense | `dense-gte-small` | 0.5664 | +0.0596 | 0.5254 | 71% |
+| M3 | 1 retrieval | GTE hybrid | `hybrid-gte-small+rrf+w=0.5+c=10` | 0.6162 | +0.0498 | 0.6350 | 80% |
+| M4 | 1 retrieval | OpenAI hybrid | `hybrid-openai-large+rrf+w=0.5+c=10` | 0.6450 | +0.0287 | 0.6534 | 84% |
+| M5 | 1 retrieval | RRF75 c100 | `fusion-rrf+w=0.75+d=100+c=100` | 0.6885 | +0.0435 | 0.6181 | 84% |
+| M6 | 1 retrieval | RRF55 c30 | `fusion-rrf+w=0.55+d=100+c=30` | 0.6897 | +0.0012 | 0.6459 | 86% |
+| M7 | 1 retrieval | Shortlist scores | `fusion-shortlist+a=1+d=500` | 0.7007 | +0.0109 | 0.6967 | 86% |
+| M8 | 2 reranking | GPT-5.4 mini top-50 rerank + safeguard | `llm-mini-score-pilot+d=50+rrf-baseline+c=30` | 0.7490 | +0.0483 | 0.7197 | 87% |
+| M9 | 2 reranking | GPT-5.4 mini top-20 refinement + safeguard | `llm-mini-refine20+d=20+avg2+rrf-d46+c=30+pin1-d46` | 0.7939 | +0.0449 | 0.7381 | 92% |
+| M10 | 2 reranking | GPT-5.4 2-pass top-20 refinement | `llm-gpt54-refine20+d=20+avg2+scores+pin1-d46` | 0.8418 | +0.0531 | 0.7659 | 93% |
 
 **Reading the curve:** big earlier jumps came from complementary lexical/semantic retrieval and better embeddings. The 75%-RRF point was a challenger, not an approved baseline. The balanced RRF55% point recovered known-paper ranks. The current shortlist-score baseline improves ordering while preserving its top10 membership. These steps also change other parameters, so step differences are not isolated causal effects of one feature. The reranker step is one of the largest on the curve. Without the safeguard, the top-50 reranker scores higher on nDCG but pushes source papers down; the safeguard keeps most of the gain and improves source MRR.
 
