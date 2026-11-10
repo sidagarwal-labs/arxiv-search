@@ -1,5 +1,6 @@
 import { getMeta, isMock, search, summarize } from "./api.js";
 import { CONFIG } from "./config.js";
+import { openPaper, closePaper, previewPaperChat } from "./paper-chat.js";
 
 const $ = (sel) => document.querySelector(sel);
 const form = $("#search-form");
@@ -15,14 +16,134 @@ const summaryEl = $("#summary");
 const summaryBody = $("#summary-body");
 const summaryMeta = $("#summary-meta");
 const resultsMeta = $("#results-meta");
+
+// Two-pane layout: results on the left, answer or paper on the right. ?layout=classic keeps the single column.
+const SPLIT = new URLSearchParams(location.search).get("layout") !== "classic";
+if (SPLIT) {
+  document.body.classList.add("layout-split");
+  const split = document.createElement("div");
+  split.className = "split";
+  const left = document.createElement("div");
+  left.className = "split-left";
+  const right = document.createElement("div");
+  right.className = "split-right";
+  left.append(...["#workspace-bar", "#search-form", "#composer-help", "#examples", "#notice", "#sr-status", "#results-view"]
+    .map((sel) => $(sel)));
+  right.append(summaryEl, $("#paper-workspace"));
+  split.append(left, right);
+  $("#main").append(split);
+
+  const paperSplit = $(".paper-split");
+  const leftKey = () => (document.body.classList.contains("paper-open") ? "leftPaper" : "left");
+  split.insertBefore(addResizer({
+    host: split,
+    label: "Resize results pane",
+    prop: () => `--${leftKey() === "left" ? "left-w" : "left-w-paper"}`,
+    key: () => `arxiv.split.${leftKey()}`,
+    pane: () => left,
+    width: (x) => x - left.getBoundingClientRect().left,
+    bounds: () => (leftKey() === "left" ? [300, split.clientWidth - 440] : [220, split.clientWidth - 740]),
+    restore: [["--left-w", "arxiv.split.left"], ["--left-w-paper", "arxiv.split.leftPaper"]],
+  }), right);
+  paperSplit.insertBefore(addResizer({
+    host: paperSplit,
+    label: "Resize paper chat pane",
+    className: "paper-resizer",
+    direction: -1,
+    prop: () => "--chat-w",
+    key: () => "arxiv.split.chat",
+    pane: () => $("#paper-discussion"),
+    width: (x) => paperSplit.getBoundingClientRect().right - x,
+    bounds: () => [280, paperSplit.clientWidth - 360],
+    restore: [["--chat-w", "arxiv.split.chat"]],
+  }), $("#paper-discussion"));
+}
+
+// Draggable, keyboard-accessible divider. Widths persist per pane in localStorage;
+// CSS clamps them again so a window resize can't push a pane off screen.
+function addResizer({ host, label, prop, key, pane, width, bounds, restore, className = "split-resizer", direction = 1 }) {
+  const bar = document.createElement("div");
+  bar.className = `resizer ${className}`;
+  bar.tabIndex = 0;
+  bar.setAttribute("role", "separator");
+  bar.setAttribute("aria-orientation", "vertical");
+  bar.setAttribute("aria-label", label);
+  bar.title = "Drag to resize · double-click to reset";
+  const store = (value) => { try { value == null ? localStorage.removeItem(key()) : localStorage.setItem(key(), value); } catch {} };
+  const saved = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+  for (const [name, k] of restore) {
+    const v = Number(saved(k));
+    if (v > 0) host.style.setProperty(name, `${v}px`);
+  }
+  const apply = (px) => {
+    const [min, max] = bounds();
+    const value = Math.round(Math.min(Math.max(px, min), Math.max(min, max)));
+    host.style.setProperty(prop(), `${value}px`);
+    bar.setAttribute("aria-valuemin", min);
+    bar.setAttribute("aria-valuemax", Math.max(min, Math.round(max)));
+    bar.setAttribute("aria-valuenow", value);
+    return value;
+  };
+  const sync = () => {
+    const [min, max] = bounds();
+    bar.setAttribute("aria-valuemin", min);
+    bar.setAttribute("aria-valuemax", Math.max(min, Math.round(max)));
+    bar.setAttribute("aria-valuenow", Math.round(pane().getBoundingClientRect().width));
+  };
+  bar.addEventListener("focus", sync);
+  bar.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    bar.setPointerCapture(event.pointerId);
+    document.body.classList.add("resizing");
+    let last = null;
+    const move = (e) => { last = apply(width(e.clientX)); };
+    const up = () => {
+      bar.removeEventListener("pointermove", move);
+      document.body.classList.remove("resizing");
+      if (last != null) store(last);
+    };
+    bar.addEventListener("pointermove", move);
+    bar.addEventListener("pointerup", up, { once: true });
+    bar.addEventListener("pointercancel", up, { once: true });
+  });
+  bar.addEventListener("dblclick", () => {
+    host.style.removeProperty(prop());
+    store(null);
+  });
+  bar.addEventListener("keydown", (event) => {
+    const step = event.shiftKey ? 64 : 16;
+    const current = pane().getBoundingClientRect().width;
+    const [min, max] = bounds();
+    const next = {
+      ArrowLeft: current - step * direction,
+      ArrowRight: current + step * direction,
+      Home: min,
+      End: max,
+    }[event.key];
+    if (next == null) return;
+    event.preventDefault();
+    store(apply(next));
+  });
+  return bar;
+}
 const fallbackNote = $("#fallback-note");
 const template = $("#result-template");
 const wakeEl = $("#wake");
 const srStatus = $("#sr-status");
 const about = $("#about");
 
+if (CONFIG.SHOWCASE_ONLY) {
+  $(".intro > p:last-child").textContent = "Explore the design with sample papers. AI answers and paper chat are switched off.";
+  $(".site-footer p").textContent = "Public design demo · No AI calls. PDFs load directly from arXiv.";
+  $(".summary-foot").textContent = "Illustrative placeholder, not an AI-generated answer. Open the papers to read their findings.";
+  $("#about .steps").insertAdjacentHTML("beforebegin",
+    "<p class=\"showcase-note\">This public site demonstrates the design using sample data. The pipeline below describes the separate research system, not the demo running here.</p>");
+}
+
 let controller;
 let lastQuery = "";
+let searchPending = false;
 
 // Announce once per change; the results themselves aren't a live region.
 function announce(text) {
@@ -76,11 +197,14 @@ function errorText(err, where) {
   const wait = err.retryAfter ? ` in ${err.retryAfter} seconds` : " in a moment";
   switch (err.code) {
     case "rate_limited":
+      if (err.retryAfter > 120) {
+        return { title: "Daily search limit reached", message: err.message || "Please come back tomorrow.", retry: false };
+      }
       return { title: "Too many searches", message: `Please wait and try again${wait}.`, retry: true };
     case "budget_exhausted":
       return where === "summary"
-        ? { message: "Summaries are paused for today because the daily limit was reached. The papers below are still ranked." }
-        : { title: "Daily limit reached", message: "This demo has used today's search budget. Please come back tomorrow.", retry: false };
+        ? { message: "Today's AI answer budget is used up (resets at midnight UTC). The papers below are still ranked." }
+        : { title: "Search limit reached", message: err.message || "The search budget has been used. More searches need to be enabled by the operator.", retry: false };
     case "upstream_unavailable":
       return { title: "Service temporarily unavailable", message: "A service we depend on isn't responding. Please try again shortly.", retry: true };
     case "bad_request":
@@ -102,9 +226,15 @@ async function loadMeta() {
   try {
     const meta = await getMeta();
     const cats = (meta.categories ?? []).join(", ");
+    $("#collection-label").textContent =
+      `${Number(meta.papers).toLocaleString()} papers · ${formatMonth(meta.from_month)} – ${formatMonth(meta.to_month)}`;
     $("#notice-short").textContent =
       `Searches ${Number(meta.papers).toLocaleString()} arXiv papers (${cats}) from ` +
       `${formatMonth(meta.from_month)} to ${formatMonth(meta.to_month)}, using titles and abstracts. Not every paper is included.`;
+    if (CONFIG.SHOWCASE_ONLY) {
+      $("#collection-label").textContent = `${Number(meta.papers).toLocaleString()} sample papers · Design demo`;
+      $("#notice-short").textContent = "This demo uses simple keyword matching on a static sample, not the full RAG index. Summaries and paper discussion are illustrative. No query is sent to a model.";
+    }
     const extra = [meta.corpus_note];
     if (meta.baseline) extra.push(`Ranking system: ${meta.baseline.retrieval} → ${meta.baseline.reranking}.`);
     const text = extra.filter(Boolean).join(" ");
@@ -131,12 +261,14 @@ function setState(kind, title, message, retry) {
 
 function clearResults() {
   summaryEl.hidden = true;
+  summaryEl.classList.remove("summary-unavailable");
   resultsEl.innerHTML = "";
   moreResultsEl.innerHTML = "";
   moreWrap.hidden = true;
   fallbackNote.hidden = true;
   resultsMeta.textContent = "";
   resultsMeta.removeAttribute("title");
+  $(".summary-foot").hidden = false;
 }
 
 function showLoading() {
@@ -157,11 +289,21 @@ function buildResult(r, re) {
   const link = node.querySelector(".result-title a");
   link.href = r.url || `https://arxiv.org/abs/${r.arxiv_id}`;
   link.innerHTML = highlight(r.title, re);
+  // With a paper open in the split layout, the compact list switches papers.
+  link.addEventListener("click", (event) => {
+    if (!SPLIT || !document.body.classList.contains("paper-open")) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+    event.preventDefault();
+    openPaper(r, node.querySelector(".paper-chat-open"));
+  });
   node.querySelector(".result-byline").textContent =
     [formatAuthors(r.authors, r.authors_truncated), formatMonth(r.submitted_month), `arXiv:${r.arxiv_id}`]
       .filter(Boolean).join(" · ");
   node.querySelector(".result-abstract").innerHTML = highlight(r.abstract ?? "", re);
   node.querySelector(".pdf-link").href = `https://arxiv.org/pdf/${r.arxiv_id}`;
+  node.querySelector(".paper-chat-open").addEventListener("click", (event) => {
+    openPaper(r, event.currentTarget);
+  });
 
   const tags = node.querySelector(".result-tags");
   const cats = [r.primary_category, ...(r.categories ?? []).filter((c) => c !== r.primary_category)].slice(0, 4);
@@ -226,10 +368,18 @@ function renderSummary(text, cited, count) {
     .join("");
 }
 
-function renderUngrounded(text) {
-  summaryBody.innerHTML =
+function renderUngrounded(text, cited, count) {
+  renderSummary(
+    text?.trim() || "The papers below may still be related. Try rephrasing your search or opening a paper.",
+    cited, count,
+  );
+  summaryBody.insertAdjacentHTML("afterbegin",
     `<p class="summary-empty">No answer found in these abstracts.</p>` +
-    `<p>${text?.trim() ? escapeHtml(text.trim()) : "The papers below may still be related. Try rephrasing your search or opening a paper."}</p>`;
+    (summaryBody.querySelector(".cite")
+      ? `<p>Closest results — these papers do not answer the question directly.</p>` : ""));
+  for (const chip of summaryBody.querySelectorAll(".cite")) {
+    chip.setAttribute("aria-label", `Go to closest result ${chip.dataset.rank}`);
+  }
 }
 
 summaryBody.addEventListener("click", (e) => {
@@ -238,19 +388,46 @@ summaryBody.addEventListener("click", (e) => {
   const target = document.getElementById(`result-${btn.dataset.rank}`);
   if (!target) return;
   target.scrollIntoView({ behavior: "smooth", block: "center" });
-  target.classList.remove("flash");
-  void target.offsetWidth;
+  for (const highlighted of view.querySelectorAll(".result.flash")) {
+    highlighted.classList.remove("flash");
+  }
   target.classList.add("flash");
   target.querySelector(".result-title a")?.focus({ preventScroll: true });
 });
 
+if (SPLIT) {
+  for (const type of ["mouseover", "mouseout"]) {
+    summaryBody.addEventListener(type, (e) => {
+      const btn = e.target.closest(".cite");
+      if (!btn) return;
+      document.getElementById(`result-${btn.dataset.rank}`)?.classList.toggle("cite-hover", type === "mouseover");
+    });
+  }
+}
+
 // --------------------------------------------------------------- search
 
 async function runSearch(rawQuery, push = true) {
+  if (searchPending || !rawQuery.trim()) return;
+  searchPending = true;
+  const submit = form.querySelector('[type="submit"]');
+  submit.disabled = true;
+  try {
+    await executeSearch(rawQuery, push);
+  } finally {
+    searchPending = false;
+    submit.disabled = false;
+  }
+}
+
+async function executeSearch(rawQuery, push) {
   const query = rawQuery.trim().replace(/\s+/g, " ");
   if (!query) return;
   lastQuery = query;
+  if (SPLIT) closePaper();
+  $("#composer-help").textContent = "";
   input.value = query;
+  autosize();
   document.title = `${query} · arXiv Search`;
   if (push) history.pushState({ q: query }, "", `?${new URLSearchParams({ ...currentFlags(), q: query })}`);
 
@@ -259,6 +436,8 @@ async function runSearch(rawQuery, push = true) {
   const { signal } = controller;
 
   document.body.classList.add("has-results");
+  $("#workspace-bar").hidden = false;
+  $("#question-title").textContent = query;
   view.hidden = false;
   $("#notice").open = false;
   showLoading();
@@ -268,7 +447,7 @@ async function runSearch(rawQuery, push = true) {
   const wakeTimer = setTimeout(() => {
     if (signal.aborted) return;
     wakeEl.hidden = false;
-    announce("Waking up the search server. This can take up to a minute.");
+    announce("Still researching. Loading the collection and checking relevance can take a little time.");
   }, CONFIG.SLOW_START_MS);
   announce("Searching…");
   try {
@@ -303,14 +482,30 @@ async function runSearch(rawQuery, push = true) {
   resultsMeta.textContent = `${shown} results${latency}`;
   if (data.meta?.stage_detail) resultsMeta.title = data.meta.stage_detail;
   fallbackNote.hidden = !data.meta?.fallback;
+  fallbackNote.textContent = data.meta?.stage === "lexical"
+    ? "AI ranking is unavailable right now, so these are keyword matches."
+    : "AI reranking is unavailable right now, so these results are in search order.";
+  if (data.meta?.summary_available === false) {
+    const unavailable = {
+      authorization_unavailable: "The answer service is temporarily unavailable.",
+      model_unavailable: "The AI service is temporarily unavailable.",
+      daily_budget: "Today's AI budget is used up. AI answers and ranking return after midnight UTC.",
+    }[data.meta?.summary_unavailable_reason] || "AI answers aren't enabled yet.";
+    summaryBody.innerHTML = `<p>${escapeHtml(unavailable)} Showing relevant papers.</p>`;
+    summaryEl.classList.add("summary-unavailable");
+    $(".summary-foot").hidden = true;
+    summaryEl.setAttribute("aria-busy", "false");
+    announce(`${shown} papers found. ${unavailable}`);
+    return;
+  }
   announce(`${shown} papers found. Writing summary.`);
 
   // The summary covers only the top results the user sees first.
   const summarized = results.slice(0, CONFIG.RESULTS_K);
   summaryBody.innerHTML = `<p class="summary-loading">${spinner("Writing summary…")}</p>` + skeleton(3);
   try {
-    const s = await summarize(query, summarized.map((r) => r.arxiv_id), signal);
-    if (s.grounded === false) renderUngrounded(s.summary);
+    const s = await summarize(query, summarized.map((r) => r.arxiv_id), signal, data.search_token);
+    if (s.grounded === false) renderUngrounded(s.summary, s.cited, summarized.length);
     else if (!s.summary?.trim()) summaryEl.hidden = true;
     else renderSummary(s.summary, s.cited, summarized.length);
     summaryMeta.textContent = s.latency_ms ? seconds(s.latency_ms) : "";
@@ -330,23 +525,31 @@ async function runSearch(rawQuery, push = true) {
 function currentFlags() {
   const p = new URLSearchParams(location.search);
   const flags = {};
-  for (const k of ["mock", "api"]) if (p.has(k)) flags[k] = p.get(k);
+  for (const k of ["mock", "api", "clawpilotTheme", "layout"]) if (p.has(k)) flags[k] = p.get(k);
   return flags;
 }
 
 function resetHome() {
+  closePaper();
   controller?.abort();
   wakeEl.hidden = true;
   document.body.classList.remove("has-results");
+  $("#workspace-bar").hidden = true;
   view.hidden = true;
   input.value = "";
+  autosize();
+  $("#composer-help").textContent = "";
   document.title = "arXiv Search · Agarwal Labs";
 }
 
 function syncFromUrl() {
   const q = new URLSearchParams(location.search).get("q");
-  if (q) runSearch(q, false);
-  else resetHome();
+  resetHome();
+  if (q) {
+    input.value = q;
+  autosize();
+    $("#composer-help").textContent = "Question restored. Submit to search; loading this page does not spend a search.";
+  }
 }
 
 // --------------------------------------------------------------- events
@@ -357,20 +560,36 @@ form.addEventListener("submit", (e) => {
   runSearch(input.value);
 });
 
+function autosize() {
+  if (!input.style) return;
+  input.style.height = "auto";
+  input.style.height = `${Math.min(input.scrollHeight, 140)}px`;
+}
+input.addEventListener("input", autosize);
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
+    e.preventDefault();
+    form.requestSubmit();
+  }
+});
+
 $("#examples").addEventListener("click", (e) => {
   const chip = e.target.closest(".chip");
   if (chip) runSearch(chip.textContent);
 });
 
-document.querySelector("[data-home]").addEventListener("click", (e) => {
+function newQuestion(e) {
   e.preventDefault();
   const qs = new URLSearchParams(currentFlags()).toString();
   history.pushState({}, "", qs ? `?${qs}` : location.pathname);
   resetHome();
   input.focus();
-});
+}
+document.querySelector("[data-home]").addEventListener("click", newQuestion);
+$("#new-question").addEventListener("click", newQuestion);
 
 document.addEventListener("keydown", (e) => {
+  if (!$("#paper-workspace").hidden) return;
   if (e.key === "/" && !about.open && document.activeElement !== input && !e.target.closest("input, textarea")) {
     e.preventDefault();
     input.focus();
@@ -389,8 +608,8 @@ about.addEventListener("click", (e) => {
   if (e.target === about) about.close();
 });
 
-// Not awaited: the meta request doubles as a warm-up ping for a cold backend,
-// and shared ?q= links shouldn't wait on it to show the loading state.
+// Metadata warms the backend without spending a search.
 const metaReady = loadMeta();
 syncFromUrl();
 if (!document.body.classList.contains("has-results")) input.focus();
+if (new URLSearchParams(location.search).get("paperDemo") === "1") previewPaperChat();

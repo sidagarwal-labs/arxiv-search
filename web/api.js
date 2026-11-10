@@ -3,7 +3,7 @@ import { CONFIG } from "./config.js";
 const params = new URLSearchParams(location.search);
 const apiBase = (params.get("api") ?? CONFIG.API_BASE).replace(/\/$/, "");
 const scenario = params.get("mock") || "";
-let MOCK = params.has("mock") || CONFIG.MODE === "mock";
+let MOCK = CONFIG.SHOWCASE_ONLY || params.has("mock") || CONFIG.MODE === "mock";
 export const isMock = () => MOCK;
 
 export class ApiError extends Error {
@@ -134,6 +134,7 @@ async function mockMeta() {
   return {
     ...CONFIG.FALLBACK_META,
     ...data.meta,
+    ...(CONFIG.SHOWCASE_ONLY ? { papers: data.papers?.length ?? 0 } : {}),
     corpus_note: "Demo mode: searching a 1,500-paper sample, not the full index.",
     baseline: { retrieval: "mock", reranking: "none" },
   };
@@ -158,7 +159,9 @@ export async function search(query, signal) {
   return request("/api/search", { query, k: CONFIG.FETCH_K }, signal);
 }
 
-export async function summarize(query, arxivIds, signal) {
+export async function summarize(query, arxivIds, signal, searchToken) {
   if (MOCK) return mockSummary(query, arxivIds, signal);
-  return request("/api/summary", { query, arxiv_ids: arxivIds }, signal);
+  return request("/api/summary", {
+    query, arxiv_ids: arxivIds, ...(searchToken ? { search_token: searchToken } : {}),
+  }, signal);
 }
