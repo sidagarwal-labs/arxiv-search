@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const output = process.argv[2] && path.resolve(process.argv[2]);
 if (!output || fs.existsSync(output)) throw new Error("Provide a new output directory; existing packages are never overwritten.");
-const assets = ["index.html","styles.css","theme.js","app.js","api.js","config.js",
+const assets = ["index.html","styles.css","theme.js","app.js","portfolio.js","api.js","config.js",
   "paper-chat.js","paper-api.js","paper-reader.js","favicon.svg","apple-touch-icon.png",
   "og-image.png","robots.txt","sitemap.xml","mock/papers.json"];
 fs.mkdirSync(output,{recursive:true});

@@ -153,7 +153,7 @@ def export_release(output: Path, specification: Path, corpus_path: Path,
     web = config.PROJECT_ROOT / "web"
     public = output / "public"
     public.mkdir()
-    for name in ("index.html", "styles.css", "theme.js", "app.js", "paper-chat.js", "paper-api.js", "paper-reader.js", "api.js", "config.js", "favicon.svg",
+    for name in ("index.html", "styles.css", "theme.js", "app.js", "portfolio.js", "paper-chat.js", "paper-api.js", "paper-reader.js", "api.js", "config.js", "favicon.svg",
                  "apple-touch-icon.png", "og-image.png", "robots.txt", "sitemap.xml"):
         shutil.copyfile(web / name, public / name)
     if prepare_preview:
