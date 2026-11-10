@@ -2,13 +2,15 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
-test("viewer CSP allows only arXiv frames without loosening scripts, connections or objects", async () => {
+test("viewer CSP allows arXiv frames and only portfolio frame ancestors", async () => {
   const config = JSON.parse(await readFile(new URL("./vercel.json", import.meta.url), "utf8"));
   const policy = config.headers[0].headers.find(header => header.key === "Content-Security-Policy").value;
   for (const directive of ["frame-src https://arxiv.org", "script-src 'self'", "connect-src 'self'",
-    "object-src 'none'", "frame-ancestors 'none'"]) {
+    "object-src 'none'", "frame-ancestors 'self' https://agarwal-labs.com https://www.agarwal-labs.com"]) {
     assert.ok(policy.split(";").map(value => value.trim()).includes(directive), directive);
   }
+  assert.ok(!config.headers.flatMap(rule => rule.headers)
+    .some(header => header.key.toLowerCase() === "x-frame-options"));
 });
 
 test("public showcase ignores API overrides and only fetches static sample data", async t => {

@@ -13,6 +13,14 @@ below document older stages. Deploy the committed full application using the
 [serving runbook](../serving/README.md#deploy-only-committed-source), not this
 static directory alone.
 
+Portfolio embedding is allowed only from this site's own origin,
+`https://agarwal-labs.com` and `https://www.agarwal-labs.com` by CSP
+`frame-ancestors`. Other origins remain blocked. After UI initialization,
+`portfolio.js` sends `{ type: "arxiv-search:ready" }` to an allowlisted
+embedding parent's exact origin, inferred from the referrer; standalone pages
+and unknown referrers send nothing. `frame-src https://arxiv.org` still controls
+the paper viewer separately. Verify with `node --test web/portfolio.test.mjs web/showcase.test.mjs`.
+
 ## Paper workspace (demo by default; offline-wired API)
 
 Each result has a **Discuss paper** action opening a dedicated, responsive

@@ -1,6 +1,7 @@
 import { getMeta, isMock, search, summarize } from "./api.js";
 import { CONFIG } from "./config.js";
 import { openPaper, closePaper, previewPaperChat } from "./paper-chat.js";
+import { notifyPortfolioReady } from "./portfolio.js";
 
 const $ = (sel) => document.querySelector(sel);
 const form = $("#search-form");
@@ -613,3 +614,4 @@ const metaReady = loadMeta();
 syncFromUrl();
 if (!document.body.classList.contains("has-results")) input.focus();
 if (new URLSearchParams(location.search).get("paperDemo") === "1") previewPaperChat();
+notifyPortfolioReady();

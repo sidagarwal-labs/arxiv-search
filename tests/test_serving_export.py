@@ -68,10 +68,15 @@ def test_export_is_isolated_self_contained_and_never_overwrites(tmp_path, requir
     assert (output / "api" / "index.py").is_file()
     assert (output / "public" / "index.html").is_file()
     assert (output / "public" / "theme.js").is_file()
+    assert (output / "public" / "portfolio.js").is_file()
     assert (output / "public" / "paper-chat.js").is_file()
     assert (output / "public" / "paper-api.js").is_file()
     assert (output / "public" / "paper-reader.js").is_file()
     assert not (output / "public" / "paper-api.test.mjs").exists()
+    settings = json.loads((output / "vercel.json").read_text())
+    headers = {h["key"].lower(): h["value"] for h in settings["headers"][0]["headers"]}
+    assert "x-frame-options" not in headers
+    assert "frame-ancestors 'self' https://agarwal-labs.com https://www.agarwal-labs.com" in headers["content-security-policy"]
     assert (output / "arxiv_search" / "answer.py").is_file()
     assert not (output / "arxiv_search" / "paper_chat.py").exists()
     assert not (output / ".env").exists()
