@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "release_id": "d36-d46-serving-f16-v1",
+  "vector_storage": "float16",
+  "embedding": {
+    "provider": "openai",
+    "model": "text-embedding-3-large",
+    "dimensions": 3072,
+    "text_recipe": "title-abstract-v1"
+  },
+  "baseline": {
+    "retrieval": "fusion-shortlist+a=1+d=500",
+    "reranking": "llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30"
+  },
+  "retrieval": {
+    "adapter": "shortlist-v1",
+    "bm25_k1": 0.8,
+    "bm25_b": 0.75,
+    "score_depth": 500,
+    "score_semantic_weight": 0.75,
+    "shortlist_size": 10
+  },
+  "reranking": {
+    "model": "gpt-5.4-mini-2026-03-17",
+    "prompt_version": "scores-v2",
+    "depth": 50,
+    "passes": 2,
+    "rrf_c": 30
+  },
+  "summary": {
+    "model": null,
+    "prompt_version": null
+  }
+}
