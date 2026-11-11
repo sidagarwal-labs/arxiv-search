@@ -74,6 +74,10 @@ def test_export_is_isolated_self_contained_and_never_overwrites(tmp_path, requir
     assert (output / "public" / "paper-reader.js").is_file()
     assert not (output / "public" / "paper-api.test.mjs").exists()
     settings = json.loads((output / "vercel.json").read_text())
+    assert settings["buildCommand"] == ""
+    assert settings["outputDirectory"] == "public"
+    assert (output / "api" / "index.py").is_file()
+    assert settings["rewrites"] == [{"source": "/api/:path*", "destination": "/api/index"}]
     headers = {h["key"].lower(): h["value"] for h in settings["headers"][0]["headers"]}
     assert "x-frame-options" not in headers
     assert "frame-ancestors 'self' https://agarwal-labs.com https://www.agarwal-labs.com" in headers["content-security-policy"]

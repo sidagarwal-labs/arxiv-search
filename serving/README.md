@@ -15,6 +15,12 @@ The public domain is served by an exported backend bundle, not just `web/`.
 A direct CLI upload can publish local files without pushing them to GitHub;
 this caused production to run source missing from `main`. Reconcile source through
 a PR before deploying. Never deploy a static `web/` checkout over the API site.
+The raw checkout's `web/vercel.json` deliberately fails its build through
+`scripts/require-serving-export.mjs`: Git auto-deployments otherwise publish
+only static files and can replace a working production backend with 404s.
+The full exporter overrides that guard only in the generated, checksummed
+application bundle. A push to `main` saves source; it is not itself a complete
+production rollout. A failed static Git build must not be bypassed.
 
 1. Merge the reviewed PR, check out the merged revision, and verify a clean
    `git status --short` (including untracked source).
@@ -24,8 +30,12 @@ a PR before deploying. Never deploy a static `web/` checkout over the API site.
    `python -m arxiv_search.serving.export --spec serving/release-v4.json --include-paper --include-tracing --output data/serving/<new-release>/web`.
    The CLI refuses dirty source; the manifest records the source commit and
    runtime/artifact checksums. No embedding or model calls occur during export.
-4. Link that bundle to the existing Vercel `arxiv-search-web` project, deploy a
-   preview, then production after validation. Keep its existing environment
+4. Link the parent of the exported `web/` directory to the existing Vercel
+   `arxiv-search-web` project (its Root Directory is `web`). Stage with
+   `vercel deploy --prod --skip-domain` so it uses production settings without
+   replacing the public domain. Inspect `/api/meta` using `vercel curl` against
+   that deployment; after validation, run `vercel promote <deployment-url>`.
+   Keep its existing environment
    variables, budget settings and custom domain; do not copy credentials into Git.
 5. Verify `/api/meta` reports D36/D50/D49, compare the deployed public assets with
    the export, and check paper UI and response headers. A real uncached search

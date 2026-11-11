@@ -211,7 +211,7 @@ function errorText(err, where) {
     case "bad_request":
       return { title: "Couldn't run that search", message: err.message, retry: false };
     case "not_deployed":
-      return { title: "Search is coming soon", message: "The site is up, but the search service isn't live yet. Please check back soon.", retry: false };
+      return { title: "Search temporarily unavailable", message: err.message, retry: true };
     case "network":
       return { title: "Search failed", message: err.message, retry: true };
     case "timeout":
