@@ -33,10 +33,10 @@ async function request(path, body, signal) {
   }
   const data = await res.json().catch(() => null);
   if (!res.ok || data === null) {
-    // A bare 404/405/501 (no JSON error body) means nothing is serving /api/* yet;
+    // A bare 404/405/501 means the deployment is missing the expected API route;
     // static hosts answer POSTs to missing paths with any of these.
     if ([404, 405, 501].includes(res.status) && !data?.error) {
-      throw new ApiError("The search service hasn't been deployed yet.", "not_deployed");
+      throw new ApiError("The search API is unavailable in this deployment. Please try again later.", "not_deployed");
     }
     const retryAfter = Number(res.headers.get("Retry-After")) || undefined;
     const code = data?.error?.code || (res.status === 429 ? "rate_limited" : res.status >= 500 ? "internal" : "unknown");

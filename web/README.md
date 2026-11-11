@@ -12,6 +12,10 @@ stateless paper discussion enabled. The demo/offline and preview descriptions
 below document older stages. Deploy the committed full application using the
 [serving runbook](../serving/README.md#deploy-only-committed-source), not this
 static directory alone.
+Raw Git deployments deliberately fail the build rather than replace the
+Python API with a static-only site. Merge the source, then follow that serving
+runbook to stage and promote a full bundle. Static showcase packages remain
+separate and must never be promoted onto the live API project's domain.
 
 Portfolio embedding is allowed only from this site's own origin,
 `https://agarwal-labs.com` and `https://www.agarwal-labs.com` by CSP

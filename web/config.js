@@ -1,8 +1,7 @@
 // Deployment settings.
 // MODE: "live" calls the API; "mock" uses local sample data; "auto" tries the
 // API and falls back to mock (with a visible "Demo data" badge) if it's absent.
-// In live mode, a 404 from /api/* means the API isn't deployed yet; the page
-// shows "coming soon" and starts working once /api/* exists, with no redeploy.
+// In live mode, missing /api/* routes are a deployment error, not demo mode.
 // Per-visit overrides: ?api=https://host,
 // ?mock=1, or a mock scenario: ?mock=fallback|ungrounded|rate_limited|budget_exhausted|summary_error|cold
 export const CONFIG = {
