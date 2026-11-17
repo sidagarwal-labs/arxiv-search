@@ -14,19 +14,46 @@
     ]
   },
   "codebook": {
-    "version": "codebook-v0",
-    "status": "Written before any case evidence (query text, titles or abstracts) was read.",
-    "changes": [],
+    "version": "codebook-v1",
+    "status": "codebook-v0 was written before any case evidence was read. codebook-v1 was refined after reading cases.json for all 16 cases and before assigning any annotation; changes are listed below and the v0 causes were not removed.",
+    "changes": [
+      {
+        "from": "codebook-v0",
+        "to": "codebook-v1",
+        "change": "Added single_target_partial_credit.",
+        "reason": "Six of the ten lowest-nDCG cases have the source at D50 rank 1 as the only grade-2 paper; their loss comes from ordering partial matches, which no v0 code describes without calling it a system error."
+      },
+      {
+        "from": "codebook-v0",
+        "to": "codebook-v1",
+        "change": "vocabulary_gap may apply to other relevant papers, not only the source.",
+        "reason": "In lowest-nDCG cases with the source found, paraphrased wording can still pull off-target papers into ranks 2-10."
+      },
+      {
+        "from": "codebook-v0",
+        "to": "codebook-v1",
+        "change": "label_gap split into a primary rule (wrong grade 2 or clearly wrong grade 0) and a secondary-only rule (0-vs-1 inconsistency).",
+        "reason": "Partial-credit disagreements are common in the pool and would otherwise make label_gap the primary cause of every single-target case."
+      },
+      {
+        "from": "codebook-v0",
+        "to": "codebook-v1",
+        "change": "Added the selection-reason rule and a primary-cause precedence order.",
+        "reason": "Several codes can fit one case; a fixed order makes the single annotator's choices reproducible from the rules."
+      }
+    ],
     "rules": [
       "Assign exactly one primary cause: the most specific explanation supported by the shown titles and abstracts.",
       "Use secondary causes only for additional explanations that are also supported by the evidence.",
-      "Stage (where the paper was lost) is computed by code, not annotated; mechanism causes are used only when no content-level cause is evident."
+      "Stage (where the paper was lost) is computed by code, not annotated; mechanism causes are used only when no content-level cause is evident.",
+      "The primary cause must explain why the case was selected: for a source miss, why the source is outside the D50 top 10; for a lowest-nDCG case, where the graded loss comes from.",
+      "When several causes meet their decision rules, choose the primary in this order: query_generation_artifact, label_gap, competing_near_duplicate, acronym_or_rare_term, vocabulary_gap, single_target_partial_credit, broad_or_underspecified_query, rerank_demotion, stage1_miss."
     ],
     "causes": [
       {
         "id": "vocabulary_gap",
         "definition": "The query describes the source's contribution in different words from its title and abstract (paraphrase or terminology mismatch).",
-        "decision_rule": "The source satisfies the query, but its key concepts appear under different terms, and higher-ranked papers share the query's surface words rather than the source's specific contribution."
+        "decision_rule": "The source or other relevant papers satisfy the query, but their key concepts appear under different terms, and higher-ranked papers share the query's surface words rather than the specific contribution asked for."
       },
       {
         "id": "acronym_or_rare_term",
@@ -51,7 +78,12 @@
       {
         "id": "label_gap",
         "definition": "Relevance labels understate or distort quality: relevant-looking top-10 papers are graded 0 or are unjudged, or grades are inconsistent with the abstracts.",
-        "decision_rule": "At least one top-10 grade conflicts with its abstract strongly enough to change the case's apparent severity."
+        "decision_rule": "As primary: a grade 2 on a paper that shares only a word or a different sense of a query term, or a grade 0 on a top-10 paper that satisfies all of the query's main constraints, and these grades account for much of the loss. Inconsistent 0-vs-1 grades among partial matches are recorded only as a secondary label_gap."
+      },
+      {
+        "id": "single_target_partial_credit",
+        "definition": "The query has one clear target (the source), which D50 ranks first or second; few or no other papers meet all its constraints, so the loss comes from how partial matches (grade 0 vs 1) are ordered below it, a metric and label-pool effect more than a user-visible failure.",
+        "decision_rule": "Source at D50 rank 1 or 2 with grade 2, no grade-2 paper outside the D50 top 10, and the papers below the source each meet only part of the query."
       },
       {
         "id": "stage1_miss",
