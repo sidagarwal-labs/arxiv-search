@@ -1,0 +1,70 @@
+{
+  "version": "failure-taxonomy-annotations-v1",
+  "provenance": {
+    "Annotator model/name": "Copilot SDK AI assistant (subagent; model version not exposed)",
+    "Collection method": "AI-assisted cause annotation via Copilot SDK in VS Code; not human annotation.",
+    "Annotation date": "2026-11-16",
+    "Annotators": 1,
+    "Inter-annotator agreement": "Not measured; single annotator, no adjudication.",
+    "Evidence shown": "cases.json only: dev query text and metadata, source title/abstract, D50 top-20 titles/abstracts, completed top-20 grades with label provenance and judge reasons, stage ranks and graded-loss attribution.",
+    "Cautions": [
+      "Causes are an AI assistant's reading of titles and abstracts, not validated ground truth.",
+      "Grades are LLM judgments (GPT-5.4 mini, GPT-6 ASTRA reference, GPT-6 Terra completion), not human labels.",
+      "No relevance labels, rankings or other evidence were created or changed."
+    ]
+  },
+  "codebook": {
+    "version": "codebook-v0",
+    "status": "Written before any case evidence (query text, titles or abstracts) was read.",
+    "changes": [],
+    "rules": [
+      "Assign exactly one primary cause: the most specific explanation supported by the shown titles and abstracts.",
+      "Use secondary causes only for additional explanations that are also supported by the evidence.",
+      "Stage (where the paper was lost) is computed by code, not annotated; mechanism causes are used only when no content-level cause is evident."
+    ],
+    "causes": [
+      {
+        "id": "vocabulary_gap",
+        "definition": "The query describes the source's contribution in different words from its title and abstract (paraphrase or terminology mismatch).",
+        "decision_rule": "The source satisfies the query, but its key concepts appear under different terms, and higher-ranked papers share the query's surface words rather than the source's specific contribution."
+      },
+      {
+        "id": "acronym_or_rare_term",
+        "definition": "The query hinges on an acronym, named method, dataset or rare term that retrieval or reranking fails to match or resolve.",
+        "decision_rule": "Removing or expanding one specific rare token would plausibly change the outcome, and that token is in the source but rare or ambiguous in the corpus."
+      },
+      {
+        "id": "broad_or_underspecified_query",
+        "definition": "Many papers fit the query about as well as the source; the source is not uniquely best, so the miss is more a measurement limit than a system error.",
+        "decision_rule": "Several top-10 papers satisfy every stated requirement of the query, and the query omits the details that distinguish the source."
+      },
+      {
+        "id": "competing_near_duplicate",
+        "definition": "A top-ranked paper addresses nearly the same specific problem and method as the source, displacing it.",
+        "decision_rule": "At least one top-10 paper matches the source's specific problem and approach, not just its general topic."
+      },
+      {
+        "id": "query_generation_artifact",
+        "definition": "The generated query does not describe the source well: it emphasizes details absent from, peripheral to or inconsistent with the source abstract.",
+        "decision_rule": "A reader of the source title and abstract alone would not judge the source a strong answer to the query."
+      },
+      {
+        "id": "label_gap",
+        "definition": "Relevance labels understate or distort quality: relevant-looking top-10 papers are graded 0 or are unjudged, or grades are inconsistent with the abstracts.",
+        "decision_rule": "At least one top-10 grade conflicts with its abstract strongly enough to change the case's apparent severity."
+      },
+      {
+        "id": "stage1_miss",
+        "definition": "Residual mechanism code: the source or most missing relevant papers never reached the Decision 36 top 50, and no content-level cause is evident.",
+        "decision_rule": "Use only when the computed stage is Stage 1 and none of the content-level causes above is supported."
+      },
+      {
+        "id": "rerank_demotion",
+        "definition": "Residual mechanism code: the reranker had the source or better-graded papers in its pool but ranked less relevant papers above them.",
+        "decision_rule": "Use only when the loss is within the reranked pool, the displaced papers are clearly more relevant, and no content-level cause is evident."
+      }
+    ]
+  },
+  "annotations": [],
+  "candidate_fixes": []
+}
