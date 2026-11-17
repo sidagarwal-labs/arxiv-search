@@ -1,0 +1,5779 @@
+{
+  "scope": "Decision 50 saved ranking, 100 dev queries, completed top-20 label layer; no provider calls, label changes or held-out scoring",
+  "labels": {
+    "layer": "data/results/top20-label-completion/labels.json",
+    "pairs": 3678,
+    "by_labeler": "3,479 GPT-5.4 mini judge, 100 GPT-6 ASTRA reference override, 99 GPT-6 Terra top-20 completion",
+    "terra_attribution": "GPT 6 Terra",
+    "rubric_version": "b8b0c14a"
+  },
+  "reproduction": {
+    "ndcg@10": 0.8417577503361956,
+    "source_mrr@10": 0.7659444444444445,
+    "source_recall@10": 0.93
+  },
+  "segments": [
+    {
+      "group": "all",
+      "segment": "all",
+      "n": 100,
+      "ndcg_n": 100,
+      "ndcg@10": {
+        "mean": 0.8417577503361956,
+        "ci95": [
+          0.8206602445163224,
+          0.8625505662873094
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.7659444444444443,
+        "ci95": [
+          0.7018263888888889,
+          0.8303361111111112
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.93,
+        "ci95": [
+          0.88,
+          0.97
+        ]
+      },
+      "source_misses": 7,
+      "failure_cases": 16
+    },
+    {
+      "group": "query_type",
+      "segment": "keyword",
+      "n": 25,
+      "ndcg_n": 25,
+      "ndcg@10": {
+        "mean": 0.8232661498753966,
+        "ci95": [
+          0.7712707191340527,
+          0.8688377585629966
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.7204444444444446,
+        "ci95": [
+          0.5737555555555556,
+          0.8480222222222221
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.96,
+        "ci95": [
+          0.88,
+          1.0
+        ]
+      },
+      "source_misses": 1,
+      "failure_cases": 4
+    },
+    {
+      "group": "query_type",
+      "segment": "known_item",
+      "n": 25,
+      "ndcg_n": 25,
+      "ndcg@10": {
+        "mean": 0.8067310202784601,
+        "ci95": [
+          0.7677946880585017,
+          0.8478532127157825
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_recall@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_misses": 0,
+      "failure_cases": 5
+    },
+    {
+      "group": "query_type",
+      "segment": "paraphrase",
+      "n": 25,
+      "ndcg_n": 25,
+      "ndcg@10": {
+        "mean": 0.8661313731635399,
+        "ci95": [
+          0.8292335721783556,
+          0.9044276213093196
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.6333333333333333,
+        "ci95": [
+          0.49333333333333335,
+          0.7735
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.84,
+        "ci95": [
+          0.68,
+          0.96
+        ]
+      },
+      "source_misses": 4,
+      "failure_cases": 5
+    },
+    {
+      "group": "query_type",
+      "segment": "question",
+      "n": 25,
+      "ndcg_n": 25,
+      "ndcg@10": {
+        "mean": 0.8709024580273858,
+        "ci95": [
+          0.8370008479927105,
+          0.9047842887597536
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.71,
+        "ci95": [
+          0.58,
+          0.84
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.92,
+        "ci95": [
+          0.8,
+          1.0
+        ]
+      },
+      "source_misses": 2,
+      "failure_cases": 2
+    },
+    {
+      "group": "category",
+      "segment": "cs.CL",
+      "n": 34,
+      "ndcg_n": 34,
+      "ndcg@10": {
+        "mean": 0.8463708967743572,
+        "ci95": [
+          0.8128168344233034,
+          0.8768643898808034
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.7591503267973856,
+        "ci95": [
+          0.6385539215686274,
+          0.8709150326797386
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.9411764705882353,
+        "ci95": [
+          0.8529411764705882,
+          1.0
+        ]
+      },
+      "source_misses": 2,
+      "failure_cases": 5
+    },
+    {
+      "group": "category",
+      "segment": "cs.IR",
+      "n": 33,
+      "ndcg_n": 33,
+      "ndcg@10": {
+        "mean": 0.8345642701918001,
+        "ci95": [
+          0.7873976111851738,
+          0.8774301016401163
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.7146464646464646,
+        "ci95": [
+          0.5909090909090909,
+          0.8284090909090909
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.9090909090909091,
+        "ci95": [
+          0.7878787878787878,
+          1.0
+        ]
+      },
+      "source_misses": 3,
+      "failure_cases": 7
+    },
+    {
+      "group": "category",
+      "segment": "cs.LG",
+      "n": 33,
+      "ndcg_n": 33,
+      "ndcg@10": {
+        "mean": 0.8441982917261217,
+        "ci95": [
+          0.8105242953802411,
+          0.8751636682391315
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.8242424242424242,
+        "ci95": [
+          0.7212121212121212,
+          0.9242424242424242
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.9393939393939394,
+        "ci95": [
+          0.8484848484848485,
+          1.0
+        ]
+      },
+      "source_misses": 2,
+      "failure_cases": 4
+    },
+    {
+      "group": "specificity",
+      "segment": "broad",
+      "n": 26,
+      "ndcg_n": 26,
+      "ndcg@10": {
+        "mean": 0.8726106499356303,
+        "ci95": [
+          0.839384418122913,
+          0.9044010830810326
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.586965811965812,
+        "ci95": [
+          0.4542574786324787,
+          0.7211645299145298
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.9230769230769231,
+        "ci95": [
+          0.8076923076923077,
+          1.0
+        ]
+      },
+      "source_misses": 2,
+      "failure_cases": 2
+    },
+    {
+      "group": "specificity",
+      "segment": "specific",
+      "n": 74,
+      "ndcg_n": 74,
+      "ndcg@10": {
+        "mean": 0.8309175423688266,
+        "ci95": [
+          0.8067194110885357,
+          0.857193001656792
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.8288288288288288,
+        "ci95": [
+          0.7635135135135135,
+          0.8896396396396398
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.9324324324324325,
+        "ci95": [
+          0.8648648648648649,
+          0.9864864864864865
+        ]
+      },
+      "source_misses": 5,
+      "failure_cases": 14
+    },
+    {
+      "group": "query_type x category",
+      "segment": "keyword / cs.CL",
+      "n": 9,
+      "ndcg_n": 9,
+      "ndcg@10": {
+        "mean": 0.8477542094576802,
+        "ci95": [
+          0.7892922594796783,
+          0.8971796536041927
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.5901234567901235,
+        "ci95": [
+          0.3345679012345679,
+          0.8336419753086417
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.8888888888888888,
+        "ci95": [
+          0.6666666666666666,
+          1.0
+        ]
+      },
+      "source_misses": 1,
+      "failure_cases": 2
+    },
+    {
+      "group": "query_type x category",
+      "segment": "keyword / cs.IR",
+      "n": 8,
+      "ndcg_n": 8,
+      "ndcg@10": {
+        "mean": 0.762757603530144,
+        "ci95": [
+          0.6301687629473796,
+          0.8745224183205086
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.8125,
+        "ci95": [
+          0.625,
+          0.9375
+        ]
+      },
+      "source_recall@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_misses": 0,
+      "failure_cases": 2
+    },
+    {
+      "group": "query_type x category",
+      "segment": "keyword / cs.LG",
+      "n": 8,
+      "ndcg_n": 8,
+      "ndcg@10": {
+        "mean": 0.8562256291905798,
+        "ci95": [
+          0.8233228439817412,
+          0.8945631503233737
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.775,
+        "ci95": [
+          0.55,
+          1.0
+        ]
+      },
+      "source_recall@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_misses": 0,
+      "failure_cases": 0
+    },
+    {
+      "group": "query_type x category",
+      "segment": "known_item / cs.CL",
+      "n": 8,
+      "ndcg_n": 8,
+      "ndcg@10": {
+        "mean": 0.8136220717649554,
+        "ci95": [
+          0.7433792831426789,
+          0.8703634406135473
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_recall@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_misses": 0,
+      "failure_cases": 2
+    },
+    {
+      "group": "query_type x category",
+      "segment": "known_item / cs.IR",
+      "n": 8,
+      "ndcg_n": 8,
+      "ndcg@10": {
+        "mean": 0.8220008283755046,
+        "ci95": [
+          0.765132985876959,
+          0.8782193037934386
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_recall@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_misses": 0,
+      "failure_cases": 1
+    },
+    {
+      "group": "query_type x category",
+      "segment": "known_item / cs.LG",
+      "n": 9,
+      "ndcg_n": 9,
+      "ndcg@10": {
+        "mean": 0.7870324784264252,
+        "ci95": [
+          0.7103113994012782,
+          0.8606622866083645
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_recall@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_misses": 0,
+      "failure_cases": 2
+    },
+    {
+      "group": "query_type x category",
+      "segment": "paraphrase / cs.CL",
+      "n": 9,
+      "ndcg_n": 9,
+      "ndcg@10": {
+        "mean": 0.8385224562266843,
+        "ci95": [
+          0.7640968896235414,
+          0.9043034652194495
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.7777777777777778,
+        "ci95": [
+          0.6111111111111112,
+          0.9444444444444444
+        ]
+      },
+      "source_recall@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_misses": 0,
+      "failure_cases": 0
+    },
+    {
+      "group": "query_type x category",
+      "segment": "paraphrase / cs.IR",
+      "n": 8,
+      "ndcg_n": 8,
+      "ndcg@10": {
+        "mean": 0.9000693705399325,
+        "ci95": [
+          0.836933170218667,
+          0.948417553079226
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.47916666666666663,
+        "ci95": [
+          0.24999999999999997,
+          0.7291666666666666
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.75,
+        "ci95": [
+          0.375,
+          1.0
+        ]
+      },
+      "source_misses": 2,
+      "failure_cases": 3
+    },
+    {
+      "group": "query_type x category",
+      "segment": "paraphrase / cs.LG",
+      "n": 8,
+      "ndcg_n": 8,
+      "ndcg@10": {
+        "mean": 0.8632534073411098,
+        "ci95": [
+          0.812743382779175,
+          0.9090017127782302
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.625,
+        "ci95": [
+          0.3125,
+          0.9375
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.75,
+        "ci95": [
+          0.4968750000000002,
+          1.0
+        ]
+      },
+      "source_misses": 2,
+      "failure_cases": 2
+    },
+    {
+      "group": "query_type x category",
+      "segment": "question / cs.CL",
+      "n": 8,
+      "ndcg_n": 8,
+      "ndcg@10": {
+        "mean": 0.8863929906311518,
+        "ci95": [
+          0.8549363396663067,
+          0.9194070943537805
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.6875,
+        "ci95": [
+          0.4375,
+          0.9375
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.875,
+        "ci95": [
+          0.625,
+          1.0
+        ]
+      },
+      "source_misses": 1,
+      "failure_cases": 1
+    },
+    {
+      "group": "query_type x category",
+      "segment": "question / cs.IR",
+      "n": 9,
+      "ndcg_n": 9,
+      "ndcg@10": {
+        "mean": 0.8513331663071952,
+        "ci95": [
+          0.7786673721648208,
+          0.9130546202914269
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.5833333333333334,
+        "ci95": [
+          0.3888888888888889,
+          0.8055555555555556
+        ]
+      },
+      "source_recall@10": {
+        "mean": 0.8888888888888888,
+        "ci95": [
+          0.6666666666666666,
+          1.0
+        ]
+      },
+      "source_misses": 1,
+      "failure_cases": 1
+    },
+    {
+      "group": "query_type x category",
+      "segment": "question / cs.LG",
+      "n": 8,
+      "ndcg_n": 8,
+      "ndcg@10": {
+        "mean": 0.8774273786088342,
+        "ci95": [
+          0.8120306225449476,
+          0.9446905255025972
+        ]
+      },
+      "source_mrr@10": {
+        "mean": 0.875,
+        "ci95": [
+          0.75,
+          1.0
+        ]
+      },
+      "source_recall@10": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "source_misses": 0,
+      "failure_cases": 0
+    }
+  ],
+  "d50_loss": {
+    "queries": 100,
+    "scores": {
+      "actual": 0.8417577503361956,
+      "oracle10": 0.8805994321325938,
+      "oracle20": 0.9523529387354978,
+      "oracle50": 0.9805141875695518,
+      "ideal": 1.0
+    },
+    "loss": {
+      "ordering_top10": {
+        "mean": 0.03884168179639832,
+        "ci95": [
+          0.030638760665149478,
+          0.04788503033921756
+        ],
+        "queries_affected": 87,
+        "share_of_top50_gap": 0.2799270619140762
+      },
+      "selection_11_20": {
+        "mean": 0.07175350660290393,
+        "ci95": [
+          0.057789773863632876,
+          0.08550935545089756
+        ],
+        "queries_affected": 73,
+        "share_of_top50_gap": 0.5171183984944148
+      },
+      "screening_21_50": {
+        "mean": 0.028161248834053812,
+        "ci95": [
+          0.020996407570961582,
+          0.0364633789087404
+        ],
+        "queries_affected": 41,
+        "share_of_top50_gap": 0.20295453959150822
+      },
+      "outside_top50": {
+        "mean": 0.019485812430448345,
+        "ci95": [
+          0.011520467899399795,
+          0.029002301635588198
+        ],
+        "queries_affected": 23,
+        "share_of_top50_gap": null
+      }
+    },
+    "pin1_top20_oracle_penalty": 0.013197478262337243,
+    "unjudged_top50": 2040,
+    "grade_counts": {
+      "top10": {
+        "0": 156,
+        "1": 482,
+        "2": 362,
+        "unjudged": 0
+      },
+      "ranks11_20": {
+        "0": 476,
+        "1": 465,
+        "2": 59,
+        "unjudged": 0
+      },
+      "ranks21_50": {
+        "0": 580,
+        "1": 335,
+        "2": 45,
+        "unjudged": 2040
+      }
+    }
+  },
+  "cases": {
+    "q-keyword-004": [
+      "lowest_ndcg"
+    ],
+    "q-keyword-049": [
+      "source_outside_top10"
+    ],
+    "q-keyword-072": [
+      "lowest_ndcg"
+    ],
+    "q-keyword-078": [
+      "lowest_ndcg"
+    ],
+    "q-known_item-031": [
+      "lowest_ndcg"
+    ],
+    "q-known_item-032": [
+      "lowest_ndcg"
+    ],
+    "q-known_item-039": [
+      "lowest_ndcg"
+    ],
+    "q-known_item-047": [
+      "lowest_ndcg"
+    ],
+    "q-known_item-088": [
+      "lowest_ndcg"
+    ],
+    "q-paraphrase-006": [
+      "lowest_ndcg"
+    ],
+    "q-paraphrase-012": [
+      "source_outside_top10"
+    ],
+    "q-paraphrase-050": [
+      "source_outside_top10"
+    ],
+    "q-paraphrase-077": [
+      "source_outside_top10"
+    ],
+    "q-paraphrase-096": [
+      "source_outside_top10"
+    ],
+    "q-question-003": [
+      "source_outside_top10",
+      "lowest_ndcg"
+    ],
+    "q-question-094": [
+      "source_outside_top10"
+    ]
+  },
+  "taxonomy": {
+    "cases": 16,
+    "primary": {
+      "vocabulary_gap": 3,
+      "broad_or_underspecified_query": 2,
+      "competing_near_duplicate": 3,
+      "label_gap": 2,
+      "single_target_partial_credit": 6
+    },
+    "secondary": {
+      "vocabulary_gap": 2,
+      "broad_or_underspecified_query": 1,
+      "label_gap": 6,
+      "single_target_partial_credit": 1,
+      "rerank_demotion": 4
+    },
+    "by_failure_stage": {
+      "stage1_retrieval": {
+        "vocabulary_gap": 2,
+        "broad_or_underspecified_query": 1,
+        "competing_near_duplicate": 3,
+        "label_gap": 1
+      },
+      "d46_rerank": {
+        "broad_or_underspecified_query": 1,
+        "single_target_partial_credit": 1
+      },
+      "d50_refine": {
+        "vocabulary_gap": 1,
+        "label_gap": 1,
+        "single_target_partial_credit": 5
+      }
+    },
+    "by_query_type": {
+      "keyword": {
+        "broad_or_underspecified_query": 1,
+        "label_gap": 1,
+        "single_target_partial_credit": 2
+      },
+      "known_item": {
+        "label_gap": 1,
+        "single_target_partial_credit": 4
+      },
+      "paraphrase": {
+        "vocabulary_gap": 3,
+        "competing_near_duplicate": 2
+      },
+      "question": {
+        "broad_or_underspecified_query": 1,
+        "competing_near_duplicate": 1
+      }
+    },
+    "by_selection": {
+      "source_outside_top10": {
+        "vocabulary_gap": 2,
+        "broad_or_underspecified_query": 2,
+        "competing_near_duplicate": 3
+      },
+      "lowest_ndcg": {
+        "vocabulary_gap": 1,
+        "broad_or_underspecified_query": 1,
+        "label_gap": 2,
+        "single_target_partial_credit": 6
+      }
+    }
+  },
+  "fix_test": {
+    "plan_sha256": "4675c95cb061b5c03847a7fa8c7551c632bccd1c58ef66f1fee738dbbf16f963",
+    "ndcg@10": {
+      "d50": 0.8417577503361956,
+      "unpinned": 0.8475716087943214,
+      "delta": 0.0058138584581257065,
+      "ci95": [
+        -0.0014717497250569455,
+        0.013515502540060736
+      ]
+    },
+    "source_mrr@10": {
+      "d50": 0.7659444444444445,
+      "unpinned": 0.8819166666666667,
+      "delta": 0.11597222222222221,
+      "ci95": [
+        0.07527430555555556,
+        0.15667013888888887
+      ]
+    },
+    "source_recall@10": {
+      "d50": 0.93,
+      "unpinned": 0.93,
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "queries": 100,
+    "judged@10": 1.0,
+    "provisional": false,
+    "wins_losses_ties": [
+      10,
+      9,
+      81
+    ],
+    "rank1_changed": 32,
+    "rank1_grade0": {
+      "d50": 3,
+      "unpinned": 0
+    },
+    "by_query_type": {
+      "keyword": {
+        "n": 25,
+        "ndcg_delta": 0.018973734412365207,
+        "source_mrr_delta": 0.14055555555555554
+      },
+      "known_item": {
+        "n": 25,
+        "ndcg_delta": 0.0,
+        "source_mrr_delta": 0.0
+      },
+      "paraphrase": {
+        "n": 25,
+        "ndcg_delta": 0.006819846697143808,
+        "source_mrr_delta": 0.18
+      },
+      "question": {
+        "n": 25,
+        "ndcg_delta": -0.0025381472770061907,
+        "source_mrr_delta": 0.14333333333333334
+      }
+    },
+    "failure_cases": {
+      "n": 16,
+      "ndcg_delta": 0.016856918414477087
+    },
+    "supportive": false,
+    "rows": [
+      {
+        "query_id": "q-keyword-004",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.6748295260267165,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.6748295260267165,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-005",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8690303646178077,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8690303646178077,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-007",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8942748604427977,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8942748604427977,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-008",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7844603458710097,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7844603458710097,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-009",
+        "query_type": "keyword",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.8401882892213566,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        },
+        "unpinned": {
+          "ndcg@10": 0.9058465847904056,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-011",
+        "query_type": "keyword",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.968189605900524,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.968189605900524,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-017",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8860308691611207,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8860308691611207,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-021",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8839278099305758,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8839278099305758,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-022",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8850574043892294,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8850574043892294,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-026",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.805910155212601,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.805910155212601,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-049",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8950417704785903,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8950417704785903,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-052",
+        "query_type": "keyword",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.8974888257418075,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        },
+        "unpinned": {
+          "ndcg@10": 0.9678601618441227,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-053",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8762482544983626,
+          "source_mrr@10": 0.2,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8762482544983626,
+          "source_mrr@10": 0.2,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-054",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8885192655020312,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8885192655020312,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-057",
+        "query_type": "keyword",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.8542204750616449,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8468806782580224,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-061",
+        "query_type": "keyword",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.8608418891335191,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        },
+        "unpinned": {
+          "ndcg@10": 0.9219549363388988,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-062",
+        "query_type": "keyword",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.8361665507371169,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8361665507371169,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-064",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8244551683577056,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8244551683577056,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-072",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.5428373330848985,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.5428373330848985,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-074",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8237688875260955,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8237688875260955,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-078",
+        "query_type": "keyword",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.39433036089919116,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 0
+        },
+        "unpinned": {
+          "ndcg@10": 0.49821822632634033,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-079",
+        "query_type": "keyword",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.7325140515171443,
+          "source_mrr@10": 0.1111111111111111,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 0
+        },
+        "unpinned": {
+          "ndcg@10": 0.913166664326004,
+          "source_mrr@10": 0.125,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-081",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7517325307344866,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7517325307344866,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-085",
+        "query_type": "keyword",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9652843890316114,
+          "source_mrr@10": 0.2,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9652843890316114,
+          "source_mrr@10": 0.2,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-keyword-090",
+        "query_type": "keyword",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.946304763806967,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.946304763806967,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-016",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8876683119885541,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8876683119885541,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-017",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.887518335323431,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.887518335323431,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-019",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9134134640040705,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9134134640040705,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-025",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8417617658757478,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8417617658757478,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-026",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.905104061429538,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.905104061429538,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-029",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.826437964578993,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.826437964578993,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-031",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.6737067206335375,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.6737067206335375,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-032",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.6275039436952818,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.6275039436952818,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-039",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.6805504437180234,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.6805504437180234,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-042",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8885192655020312,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8885192655020312,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-047",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.6111808829204867,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.6111808829204867,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-048",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7569089432871685,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7569089432871685,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-054",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7619704350010204,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7619704350010204,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-059",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9787950465815365,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9787950465815365,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-060",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7882881113235097,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7882881113235097,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-061",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8467250299890352,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8467250299890352,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-062",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7583382557667127,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7583382557667127,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-068",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7183595877240819,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7183595877240819,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-070",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8847956039796168,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8847956039796168,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-072",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9489083433296783,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9489083433296783,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-073",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8188805428864647,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8188805428864647,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-075",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9027799507726441,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9027799507726441,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-088",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.6420251347626157,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.6420251347626157,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-089",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7700542278177657,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7700542278177657,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-known_item-096",
+        "query_type": "known_item",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8480811340699613,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8480811340699613,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-004",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9434117755526638,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9349386419948634,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-006",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.6841494015310245,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.6666735031034532,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-008",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.7910845718220805,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        },
+        "unpinned": {
+          "ndcg@10": 0.8340426206736341,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-012",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9641437888231621,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9641437888231621,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-014",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9271847678746653,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9271847678746653,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-020",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.906017859216572,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.906017859216572,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-022",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.7840577068741875,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        },
+        "unpinned": {
+          "ndcg@10": 0.8438311133779036,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-030",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9223104630423403,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9223104630423403,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-032",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8829636032465027,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8829636032465027,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-036",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9557294716109468,
+          "source_mrr@10": 0.3333333333333333,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9557294716109468,
+          "source_mrr@10": 0.3333333333333333,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-043",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.6905711440035777,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.6905711440035777,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-047",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9456973440158414,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9456973440158414,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-049",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.7903010000559009,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        },
+        "unpinned": {
+          "ndcg@10": 0.8636649221552609,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-050",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.7600791051976191,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        },
+        "unpinned": {
+          "ndcg@10": 0.7312625444731046,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        }
+      },
+      {
+        "query_id": "q-paraphrase-062",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9044301782346753,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8832252248162117,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-063",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9098052407296101,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9098052407296101,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-073",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9003468832049409,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9003468832049409,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-077",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7885698291209217,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        },
+        "unpinned": {
+          "ndcg@10": 0.7885698291209217,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        }
+      },
+      {
+        "query_id": "q-paraphrase-085",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.6899386495951924,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.6899386495951924,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-087",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9353717513169914,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9353717513169914,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-088",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9895189817329357,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9895189817329357,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-093",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.968189605900524,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.968189605900524,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-094",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.768084496064677,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.768084496064677,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-096",
+        "query_type": "paraphrase",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.8608552413648604,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        },
+        "unpinned": {
+          "ndcg@10": 0.9312265774671756,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-paraphrase-097",
+        "query_type": "paraphrase",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9904714689560834,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9904714689560834,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-002",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 1.0,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9904714689560834,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-003",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.6263433285151566,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 0
+        },
+        "unpinned": {
+          "ndcg@10": 0.8100363586821894,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-007",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8920411011353054,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8920411011353054,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-019",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9204542295162416,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9204542295162416,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-027",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.8484202339129773,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8402251862175395,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-036",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8257035064360579,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8257035064360579,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-037",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8803888904961308,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8803888904961308,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-039",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 1.0,
+          "source_mrr@10": 0.25,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 1.0,
+          "source_mrr@10": 0.3333333333333333,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-040",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9604700983816454,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9604700983816454,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-048",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9053212754014708,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9053212754014708,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-050",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8757182300606822,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8757182300606822,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-053",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9436777153556678,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9436777153556678,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-056",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.9053212754014708,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9053212754014708,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-057",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9353717513169914,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9353717513169914,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-060",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.7465312734644416,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.5590572180243863,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-064",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8124133990083013,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8124133990083013,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-074",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7766223659028095,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7766223659028095,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-077",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7532319442420715,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7532319442420715,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-078",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.839244633544332,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.839244633544332,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-085",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9105125520250026,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9105125520250026,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-088",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.8975356450482425,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.8975356450482425,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-089",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 1.0,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 1.0,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-094",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.8173280094383447,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7753789315255668,
+          "source_mrr@10": 0.0,
+          "source_recall@10": 0.0,
+          "judged@10": 1.0,
+          "rank1_grade": 1
+        }
+      },
+      {
+        "query_id": "q-question-095",
+        "query_type": "question",
+        "rank1_changed": false,
+        "d50": {
+          "ndcg@10": 0.7648474979079717,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.7648474979079717,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      },
+      {
+        "query_id": "q-question-099",
+        "query_type": "question",
+        "rank1_changed": true,
+        "d50": {
+          "ndcg@10": 0.9350624941733295,
+          "source_mrr@10": 0.5,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        },
+        "unpinned": {
+          "ndcg@10": 0.9350624941733295,
+          "source_mrr@10": 1.0,
+          "source_recall@10": 1.0,
+          "judged@10": 1.0,
+          "rank1_grade": 2
+        }
+      }
+    ]
+  },
+  "annotation_evidence_matches": true,
+  "provenance": {
+    "split": {
+      "path": "data/eval/split.json",
+      "sha256": "657c1e77aa67780b415da34de62cf873d28181c9149e2529604a24b659ceb67a"
+    },
+    "queries": {
+      "path": "data/eval/queries.jsonl",
+      "sha256": "64fd60a64ab3ef4771dc90c731e4627d1044e6b1e8b45e30c68f56a5943cda74"
+    },
+    "labels": {
+      "path": "data/results/top20-label-completion/labels.json",
+      "sha256": "e5624ca6094f598562ad3efb55dbdb0ab1a88f26aca2b5400c842b8abeb29f25"
+    },
+    "parent_labels": {
+      "path": "data/results/shared-labels/labels-d47.json",
+      "sha256": "342a220338b805445f0b17c4f80f18c40d1671a3669975ddbda54debb34c82d2"
+    },
+    "label_correction": {
+      "path": "data/results/top20-label-completion/evaluator-correction.json",
+      "sha256": "6e848947b77f91d39d8eb5eee41f00bd96d274fb312d5527e81ec8eb7cd54943"
+    },
+    "published": {
+      "path": "data/results/top20-confirm/dev100-summary.json",
+      "sha256": "f66d7ed8e60a71bb5b70bf605412b1b8a317a8041ab767d35a50de9145203fd7"
+    },
+    "d36": {
+      "path": "data/results/shortlist-score-dev/fusion-shortlist+a=1+d=500.run.json",
+      "sha256": "12f1828b0fa42a667c2e99fd2feda572aed6247215e44c2805b7fea77ba9949a"
+    },
+    "d46": {
+      "path": "data/results/llm-score-pass2/llm-mini-score-pilot+d=50+avg2+rrf-baseline+c=30.run.json",
+      "sha256": "1b5cc5150405351b4ffdb999f95d18afb06435af3853178ce295ef86fe8b4fc5"
+    },
+    "d47": {
+      "path": "data/results/llm-score-refine-pin/llm-mini-refine20+d=20+avg2+rrf-d46+c=30+pin1-d46.run.json",
+      "sha256": "4e226db36bfb759d9148aaf83a8ade38dd7e5671c90a780ad3ed35bad131b9b1"
+    },
+    "d50": {
+      "path": "data/results/top20-confirm/llm-gpt54-refine20+d=20+avg2+scores+pin1-d46.run.json",
+      "sha256": "10e76f07f339e965a553cb73a49df78b390d5d1d9ee908fa180f9ca8f5e629ff"
+    },
+    "lexical": {
+      "path": "data/results/dev/bm25+exact+stems+authors+title2x+k1=0.8,b=0.75.run.json",
+      "sha256": "8459343e2189e36ca9c8f9b35be97f41d1eb4e231fcdac7138c94638c2ac79c8"
+    },
+    "semantic": {
+      "path": "data/results/dev/dense-openai-large.run.json",
+      "sha256": "031510ab29475af1bfe694c51f6014079a2249dccfea4f0e9652e47fdae5435a"
+    },
+    "refine_replies": {
+      "paths": [
+        "data/results/top20-model-pilot",
+        "data/results/top20-confirm"
+      ],
+      "files": 202,
+      "sha256": "1923e12a4728f3fff45df776cf4d198c19eac8ddbebd5234ab71e4d1f4591c35"
+    },
+    "annotations": {
+      "path": "data/results/failure-taxonomy/annotations.json",
+      "sha256": "d02152d8a3356b6d0dadf0c9ed5ce78d3ee8c0148c4951149682b926c2f75074"
+    }
+  },
+  "rows": [
+    {
+      "query_id": "q-keyword-004",
+      "query": "computational political bias wales",
+      "query_type": "keyword",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 1.0,
+      "source_arxiv_id": "2604.17628",
+      "ndcg@10": 0.6748295260267165,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.052144264846557986,
+        "d50_refine": 0.2730262091267255
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-005",
+      "query": "rl self play strategy games",
+      "query_type": "keyword",
+      "category": "cs.LG",
+      "specificity": "broad",
+      "overlap": 0.8,
+      "source_arxiv_id": "2606.23348",
+      "ndcg@10": 0.8690303646178077,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 3,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.1309696353821923
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-007",
+      "query": "synthetic data curation llm",
+      "query_type": "keyword",
+      "category": "cs.CL",
+      "specificity": "broad",
+      "overlap": 1.0,
+      "source_arxiv_id": "2610.00779",
+      "ndcg@10": 0.8942748604427977,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.06493750582667046,
+        "d50_refine": 0.04078763373053185
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-keyword-008",
+      "query": "llm logical rules timeseries causality",
+      "query_type": "keyword",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2602.17829",
+      "ndcg@10": 0.7844603458710097,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.13633507784473908,
+        "d46_rerank": 0.03919913448933765,
+        "d50_refine": 0.04000544179491361
+      },
+      "graded_loss_stage": "stage1_retrieval"
+    },
+    {
+      "query_id": "q-keyword-009",
+      "query": "automated community clustering topic models",
+      "query_type": "keyword",
+      "category": "cs.IR",
+      "specificity": "broad",
+      "overlap": 0.8,
+      "source_arxiv_id": "2603.24765",
+      "ndcg@10": 0.8401882892213566,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 4,
+        "d36": 2,
+        "d46": 12,
+        "d47": 16,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.15981171077864342
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-011",
+      "query": "medical knowledge graphs clinical llm",
+      "query_type": "keyword",
+      "category": "cs.LG",
+      "specificity": "broad",
+      "overlap": 0.6,
+      "source_arxiv_id": "2610.06685",
+      "ndcg@10": 0.968189605900524,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 65,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.03181039409947595
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-017",
+      "query": "linear time long context recall",
+      "query_type": "keyword",
+      "category": "cs.LG",
+      "specificity": "broad",
+      "overlap": 1.0,
+      "source_arxiv_id": "2607.25357",
+      "ndcg@10": 0.8860308691611207,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 3,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.03181039409947595,
+        "d50_refine": 0.08215873673940333
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-021",
+      "query": "transformer recommender popularity bias",
+      "query_type": "keyword",
+      "category": "cs.IR",
+      "specificity": "broad",
+      "overlap": 0.75,
+      "source_arxiv_id": "2606.21911",
+      "ndcg@10": 0.8839278099305758,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 2,
+        "semantic": 4,
+        "d36": 3,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0749121008564958,
+        "d50_refine": 0.04116008921292835
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-keyword-022",
+      "query": "lifecycle memory strength control",
+      "query_type": "keyword",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 1.0,
+      "source_arxiv_id": "2604.16774",
+      "ndcg@10": 0.8850574043892294,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.04538697066857467,
+        "d50_refine": 0.06955562494219591
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-026",
+      "query": "LLM API priority bidding system",
+      "query_type": "keyword",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 1.0,
+      "source_arxiv_id": "2609.40070",
+      "ndcg@10": 0.805910155212601,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.052144264846557986,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.141945579940841
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-049",
+      "query": "multimodal llm decoding strategies",
+      "query_type": "keyword",
+      "category": "cs.CL",
+      "specificity": "broad",
+      "overlap": 0.75,
+      "source_arxiv_id": "2604.23443",
+      "ndcg@10": 0.8950417704785903,
+      "source_mrr@10": 0.0,
+      "source_recall@10": 0.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 6,
+        "semantic": null,
+        "d36": 27,
+        "d46": 21,
+        "d47": 21,
+        "d50": 21
+      },
+      "source_stage": "d46_rerank",
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.07007173210921003,
+        "d50_refine": 0.034886497412199624
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-keyword-052",
+      "query": "mllm parameter importance freezing",
+      "query_type": "keyword",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2608.11758",
+      "ndcg@10": 0.8974888257418075,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 65,
+        "d36": 7,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.10251117425819245
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-053",
+      "query": "graph machine learning chemical reaction",
+      "query_type": "keyword",
+      "category": "cs.LG",
+      "specificity": "broad",
+      "overlap": 0.4,
+      "source_arxiv_id": "2610.19640",
+      "ndcg@10": 0.8762482544983626,
+      "source_mrr@10": 0.2,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 35,
+        "semantic": 5,
+        "d36": 9,
+        "d46": 6,
+        "d47": 7,
+        "d50": 5
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.12375174550163737
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-054",
+      "query": "Bifocal diffusion R2LM throughput",
+      "query_type": "keyword",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 1.0,
+      "source_arxiv_id": "2606.27732",
+      "ndcg@10": 0.8885192655020312,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0749121008564958,
+        "d50_refine": 0.036568633641473
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-keyword-057",
+      "query": "dense to sparse retrieval",
+      "query_type": "keyword",
+      "category": "cs.IR",
+      "specificity": "broad",
+      "overlap": 1.0,
+      "source_arxiv_id": "2605.29384",
+      "ndcg@10": 0.8542204750616449,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 3,
+        "semantic": 5,
+        "d36": 3,
+        "d46": 2,
+        "d47": 3,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.06493750582667046,
+        "d50_refine": 0.08084201911168465
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-061",
+      "query": "robust intent classification for chatbots",
+      "query_type": "keyword",
+      "category": "cs.CL",
+      "specificity": "broad",
+      "overlap": 0.75,
+      "source_arxiv_id": "2610.05394",
+      "ndcg@10": 0.8608418891335191,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 4,
+        "semantic": 5,
+        "d36": 3,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.1391581108664809
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-062",
+      "query": "GNN proxy for SDP relaxations",
+      "query_type": "keyword",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2605.07113",
+      "ndcg@10": 0.8361665507371169,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 2,
+        "d36": 2,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.05649043773621709,
+        "d46_rerank": 0.059690150307484924,
+        "d50_refine": 0.04765286121918111
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-keyword-064",
+      "query": "bangla spoken regional speech data",
+      "query_type": "keyword",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.6,
+      "source_arxiv_id": "2510.24096",
+      "ndcg@10": 0.8244551683577056,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 3,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.1182210077028778,
+        "d50_refine": 0.057323823939416596
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-keyword-072",
+      "query": "BL19 digital collection retrieval benchmark",
+      "query_type": "keyword",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 1.0,
+      "source_arxiv_id": "2601.11874",
+      "ndcg@10": 0.5428373330848985,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 22,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.1633534780706204,
+        "d46_rerank": 0.12438588249677485,
+        "d50_refine": 0.1694233063477063
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-074",
+      "query": "distributional RL chaotic dynamics",
+      "query_type": "keyword",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 1.0,
+      "source_arxiv_id": "2605.30160",
+      "ndcg@10": 0.8237688875260955,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.052144264846557986,
+        "d50_refine": 0.12408684762734656
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-078",
+      "query": "llm synthetic slate preference",
+      "query_type": "keyword",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 1.0,
+      "source_arxiv_id": "2511.04541",
+      "ndcg@10": 0.39433036089919116,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 4,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.060614569639142135,
+        "d46_rerank": 0.07037133610231527,
+        "d50_refine": 0.47468373335935143
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-079",
+      "query": "regional language social media",
+      "query_type": "keyword",
+      "category": "cs.CL",
+      "specificity": "broad",
+      "overlap": 0.75,
+      "source_arxiv_id": "2604.15744",
+      "ndcg@10": 0.7325140515171443,
+      "source_mrr@10": 0.1111111111111111,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 2,
+        "semantic": 2,
+        "d36": 1,
+        "d46": 4,
+        "d47": 8,
+        "d50": 9
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.2674859484828557
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-081",
+      "query": "llm popularity prediction recommendation",
+      "query_type": "keyword",
+      "category": "cs.IR",
+      "specificity": "broad",
+      "overlap": 0.75,
+      "source_arxiv_id": "2602.04225",
+      "ndcg@10": 0.7517325307344866,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 20,
+        "d36": 2,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.09467872459852922,
+        "d46_rerank": 0.11858432724547308,
+        "d50_refine": 0.03500441742151106
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-keyword-085",
+      "query": "AI consciousness and self-awareness",
+      "query_type": "keyword",
+      "category": "cs.CL",
+      "specificity": "broad",
+      "overlap": 0.75,
+      "source_arxiv_id": "2510.24797",
+      "ndcg@10": 0.9652843890316114,
+      "source_mrr@10": 0.2,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 3,
+        "semantic": 16,
+        "d36": 4,
+        "d46": 4,
+        "d47": 3,
+        "d50": 5
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.0347156109683886
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-keyword-090",
+      "query": "video watch time mixture model",
+      "query_type": "keyword",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 1.0,
+      "source_arxiv_id": "2608.23356",
+      "ndcg@10": 0.946304763806967,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.05369523619303296
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-016",
+      "query": "Qiao hybrid architecture efficient attention",
+      "query_type": "known_item",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2606.15378",
+      "ndcg@10": 0.8876683119885541,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.11233168801144588
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-017",
+      "query": "Yang GraDE frequent subgraph discovery",
+      "query_type": "known_item",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2602.03257",
+      "ndcg@10": 0.887518335323431,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.08274908245792922,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.029732582218639725
+      },
+      "graded_loss_stage": "stage1_retrieval"
+    },
+    {
+      "query_id": "q-known_item-019",
+      "query": "shani-narkiss ai alignment sociodemographic",
+      "query_type": "known_item",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.6,
+      "source_arxiv_id": "2607.27232",
+      "ndcg@10": 0.9134134640040705,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 5,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.060614569639142135,
+        "d50_refine": 0.025971966356787335
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-known_item-025",
+      "query": "poliakov metadata filtering RAG",
+      "query_type": "known_item",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2607.03929",
+      "ndcg@10": 0.8417617658757478,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.1582382341242522
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-026",
+      "query": "Altmann quantum generator kernels",
+      "query_type": "known_item",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2602.00361",
+      "ndcg@10": 0.905104061429538,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.09489593857046197
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-029",
+      "query": "Zhou wind bridge forecasting",
+      "query_type": "known_item",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2604.01712",
+      "ndcg@10": 0.826437964578993,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 2,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.173562035421007
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-031",
+      "query": "Boyd clinical provenance categorization",
+      "query_type": "known_item",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2606.02487",
+      "ndcg@10": 0.6737067206335375,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 2,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.25843679758682947,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.067856481779633
+      },
+      "graded_loss_stage": "stage1_retrieval"
+    },
+    {
+      "query_id": "q-known_item-032",
+      "query": "Bekkers equivariant neural fields",
+      "query_type": "known_item",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2603.08758",
+      "ndcg@10": 0.6275039436952818,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 2,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.052144264846557986,
+        "d50_refine": 0.3203517914581602
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-039",
+      "query": "Fernandes brazilian legal document segmentation",
+      "query_type": "known_item",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2610.18622",
+      "ndcg@10": 0.6805504437180234,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.11732715127377424,
+        "d50_refine": 0.20212240500820233
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-042",
+      "query": "Jiang personalized dense retrieval reasoning",
+      "query_type": "known_item",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2608.18855",
+      "ndcg@10": 0.8885192655020312,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 2,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.1114807344979688
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-047",
+      "query": "van der Klis lorentz neural networks",
+      "query_type": "known_item",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.5,
+      "source_arxiv_id": "2601.21529",
+      "ndcg@10": 0.6111808829204867,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.17261732769135485,
+        "d46_rerank": 0.21620178938815848,
+        "d50_refine": 0.0
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-known_item-048",
+      "query": "Ziaoddini music graph recommendation",
+      "query_type": "known_item",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2511.05497",
+      "ndcg@10": 0.7569089432871685,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.2430910567128315
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-054",
+      "query": "Tannenbaum conversation context effect",
+      "query_type": "known_item",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2608.02556",
+      "ndcg@10": 0.7619704350010204,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 2,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.08841048563840337,
+        "d50_refine": 0.14961907936057628
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-059",
+      "query": "Roth GraphER reranking RAG",
+      "query_type": "known_item",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2603.24925",
+      "ndcg@10": 0.9787950465815365,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.021204953418463512
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-060",
+      "query": "Feng coding agents sufficient evidence",
+      "query_type": "known_item",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2609.20050",
+      "ndcg@10": 0.7882881113235097,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.21171188867649027
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-061",
+      "query": "Ko decoupling content delivery medical qa",
+      "query_type": "known_item",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.833,
+      "source_arxiv_id": "2601.02123",
+      "ndcg@10": 0.8467250299890352,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.1532749700109648
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-062",
+      "query": "Flek physics constraint adversarial attacks",
+      "query_type": "known_item",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2511.01352",
+      "ndcg@10": 0.7583382557667127,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.13567475897131243,
+        "d46_rerank": 0.04994140057099716,
+        "d50_refine": 0.05604558469097776
+      },
+      "graded_loss_stage": "stage1_retrieval"
+    },
+    {
+      "query_id": "q-known_item-068",
+      "query": "Koh synthetic self-distillation small models",
+      "query_type": "known_item",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.833,
+      "source_arxiv_id": "2610.13113",
+      "ndcg@10": 0.7183595877240819,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.2816404122759181
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-070",
+      "query": "Chenrun Wang research idea benchmark",
+      "query_type": "known_item",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.6,
+      "source_arxiv_id": "2608.13136",
+      "ndcg@10": 0.8847956039796168,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.060614569639142135,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.0545898263812411
+      },
+      "graded_loss_stage": "stage1_retrieval"
+    },
+    {
+      "query_id": "q-known_item-072",
+      "query": "Shukla generative recommendation hierarchical supervision",
+      "query_type": "known_item",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2610.17368",
+      "ndcg@10": 0.9489083433296783,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.05109165667032167
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-073",
+      "query": "Wei complexity structural generalization",
+      "query_type": "known_item",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2607.19573",
+      "ndcg@10": 0.8188805428864647,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.060614569639142135,
+        "d50_refine": 0.12050488747439314
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-075",
+      "query": "Hoehndorf drug safety knowledge graph",
+      "query_type": "known_item",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2602.19183",
+      "ndcg@10": 0.9027799507726441,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.09722004922735594
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-088",
+      "query": "Mathur rag policy qa",
+      "query_type": "known_item",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2603.24580",
+      "ndcg@10": 0.6420251347626157,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 16,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.09556982176532469,
+        "d50_refine": 0.2624050434720596
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-089",
+      "query": "Than fairness limits",
+      "query_type": "known_item",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.667,
+      "source_arxiv_id": "2606.17810",
+      "ndcg@10": 0.7700542278177657,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.09467872459852922,
+        "d50_refine": 0.1352670475837051
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-known_item-096",
+      "query": "Qiao variable length semantic ids",
+      "query_type": "known_item",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.8,
+      "source_arxiv_id": "2607.25209",
+      "ndcg@10": 0.8480811340699613,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 8,
+        "d36": 2,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.03181039409947595,
+        "d50_refine": 0.12010847183056272
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-004",
+      "query": "an automated system that decides if an image is actually helpful or harmful for verifying a claim",
+      "query_type": "paraphrase",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.1,
+      "source_arxiv_id": "2604.04692",
+      "ndcg@10": 0.9434117755526638,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 4,
+        "d36": 18,
+        "d46": 7,
+        "d47": 3,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.040742031470253126,
+        "d50_refine": 0.015846192977083118
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-paraphrase-006",
+      "query": "fixing systemic prejudices in generative suggestion engines by erasing the impact of problematic data points without full model updates",
+      "query_type": "paraphrase",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.214,
+      "source_arxiv_id": "2601.17492",
+      "ndcg@10": 0.6841494015310245,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 4,
+        "d36": 6,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.05163532490696954,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.2642152735620059
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-008",
+      "query": "managing delivery drivers who work for several different apps using reinforcement learning without seeing all their data",
+      "query_type": "paraphrase",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.231,
+      "source_arxiv_id": "2608.10897",
+      "ndcg@10": 0.7910845718220805,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 1,
+        "d36": 2,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.20891542817791953
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-012",
+      "query": "a way to make item IDs change and update automatically while training a generative search system to better capture user patterns",
+      "query_type": "paraphrase",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.312,
+      "source_arxiv_id": "2602.08530",
+      "ndcg@10": 0.9641437888231621,
+      "source_mrr@10": 0.0,
+      "source_recall@10": 0.0,
+      "judged@10": 1.0,
+      "source_grade": null,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 91,
+        "d36": null,
+        "d46": null,
+        "d47": null,
+        "d50": null
+      },
+      "source_stage": "stage1_retrieval",
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.035856211176837904
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-014",
+      "query": "finding a probabilistic upper limit on how far the actor parameter stays from the optimal value in a slow-fast reinforcement learning setup",
+      "query_type": "paraphrase",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.133,
+      "source_arxiv_id": "2609.29117",
+      "ndcg@10": 0.9271847678746653,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 1,
+        "d36": 2,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.0728152321253347
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-020",
+      "query": "reducing data exchange by avoiding error signal propagation in shared neural architectures",
+      "query_type": "paraphrase",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.5,
+      "source_arxiv_id": "2601.19261",
+      "ndcg@10": 0.906017859216572,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 3,
+        "semantic": 49,
+        "d36": 4,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.09398214078342804
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-022",
+      "query": "using a mix of slot-based training and preference optimization to spot political leaning in social posts",
+      "query_type": "paraphrase",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.364,
+      "source_arxiv_id": "2604.11121",
+      "ndcg@10": 0.7840577068741875,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 5,
+        "semantic": 8,
+        "d36": 3,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.21594229312581248
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-030",
+      "query": "a way to suggest places to visit based on the idea that some spots require prior knowledge from other spots",
+      "query_type": "paraphrase",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.154,
+      "source_arxiv_id": "2603.06624",
+      "ndcg@10": 0.9223104630423403,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.07768953695765968
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-032",
+      "query": "maximizing income for power conversion tools and cells by using actual device behavior in Nordic power exchanges",
+      "query_type": "paraphrase",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.25,
+      "source_arxiv_id": "2608.16238",
+      "ndcg@10": 0.8829636032465027,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.10644692083071661,
+        "d50_refine": 0.0105894759227807
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-paraphrase-036",
+      "query": "comparing how different fine tuning methods affect the utility of vector representations for legal technical documents across diverse domains",
+      "query_type": "paraphrase",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.2,
+      "source_arxiv_id": "2605.24297",
+      "ndcg@10": 0.9557294716109468,
+      "source_mrr@10": 0.3333333333333333,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 7,
+        "d36": 17,
+        "d46": 18,
+        "d47": 10,
+        "d50": 3
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.04427052838905321
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-043",
+      "query": "exploring how many previous turns in a chat are actually needed to identify a speaker's mood and the role of sentence starters",
+      "query_type": "paraphrase",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.214,
+      "source_arxiv_id": "2601.00181",
+      "ndcg@10": 0.6905711440035777,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 64,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.30942885599642234
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-047",
+      "query": "identifying clusters by removing odd ones out using a few starting markers",
+      "query_type": "paraphrase",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.222,
+      "source_arxiv_id": "2606.18833",
+      "ndcg@10": 0.9456973440158414,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 33,
+        "semantic": 2,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.05430265598415862
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-049",
+      "query": "improving how ai follows complex rules by creating its own feedback without needing human labels",
+      "query_type": "paraphrase",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.091,
+      "source_arxiv_id": "2510.14420",
+      "ndcg@10": 0.7903010000559009,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 19,
+        "d36": 35,
+        "d46": 12,
+        "d47": 4,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.03181039409947595,
+        "d46_rerank": 0.033127111727194514,
+        "d50_refine": 0.14476149411742867
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-050",
+      "query": "blocking fake info in external search results by checking how removing a page changes the answer",
+      "query_type": "paraphrase",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.091,
+      "source_arxiv_id": "2607.26339",
+      "ndcg@10": 0.7600791051976191,
+      "source_mrr@10": 0.0,
+      "source_recall@10": 0.0,
+      "judged@10": 1.0,
+      "source_grade": null,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": null,
+        "d36": null,
+        "d46": null,
+        "d47": null,
+        "d50": null
+      },
+      "source_stage": "stage1_retrieval",
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.1298750116533408,
+        "d50_refine": 0.11004588314904007
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-paraphrase-062",
+      "query": "guessing the number of tokens an AI will generate for a prompt that can have wildly different response sizes",
+      "query_type": "paraphrase",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.091,
+      "source_arxiv_id": "2604.07931",
+      "ndcg@10": 0.9044301782346753,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 6,
+        "d36": 10,
+        "d46": 4,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.04681599109282453,
+        "d50_refine": 0.048753830672500165
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-063",
+      "query": "using a network of reference answers to grade science tests where students write one big paragraph for several different questions",
+      "query_type": "paraphrase",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.467,
+      "source_arxiv_id": "2609.03857",
+      "ndcg@10": 0.9098052407296101,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.09019475927038989
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-073",
+      "query": "stopping student models from becoming too wordy and repetitive during their own data generation process in distillation",
+      "query_type": "paraphrase",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.462,
+      "source_arxiv_id": "2604.08527",
+      "ndcg@10": 0.9003468832049409,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 8,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.03181039409947595,
+        "d50_refine": 0.06784272269558311
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "query": "a comprehensive look at using low precision numbers to speed up training across distributed private devices",
+      "query_type": "paraphrase",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.167,
+      "source_arxiv_id": "2606.26822",
+      "ndcg@10": 0.7885698291209217,
+      "source_mrr@10": 0.0,
+      "source_recall@10": 0.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 32,
+        "d36": 58,
+        "d46": 58,
+        "d47": 58,
+        "d50": 58
+      },
+      "source_stage": "stage1_retrieval",
+      "graded_loss": {
+        "stage1_retrieval": 0.0749121008564958,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.13651807002258254
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-085",
+      "query": "removing company trademarks and corporate slogans from text generated by a large language model without breaking its general knowledge",
+      "query_type": "paraphrase",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.308,
+      "source_arxiv_id": "2609.37127",
+      "ndcg@10": 0.6899386495951924,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 3,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.31006135040480765
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-087",
+      "query": "finding the best evidence subgraphs from a hidden knowledge graph without needing to train the system",
+      "query_type": "paraphrase",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.3,
+      "source_arxiv_id": "2603.20309",
+      "ndcg@10": 0.9353717513169914,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 36,
+        "semantic": 15,
+        "d36": 9,
+        "d46": 5,
+        "d47": 3,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.05163532490696954,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.012992923776039111
+      },
+      "graded_loss_stage": "stage1_retrieval"
+    },
+    {
+      "query_id": "q-paraphrase-088",
+      "query": "a review of using programmable scripts as the core structure for managing ai assistant reasoning and tool execution",
+      "query_type": "paraphrase",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.455,
+      "source_arxiv_id": "2605.18747",
+      "ndcg@10": 0.9895189817329357,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 9,
+        "semantic": 10,
+        "d36": 2,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.010481018267064268
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-093",
+      "query": "finding a way to group chip design manual snippets into logical blocks to help a bot answer technical questions better",
+      "query_type": "paraphrase",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.312,
+      "source_arxiv_id": "2610.09361",
+      "ndcg@10": 0.968189605900524,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 33,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 6,
+        "d47": 5,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.03181039409947595
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-094",
+      "query": "making better picture descriptions by using a shared model that creates and checks specific quality rules through a moving average",
+      "query_type": "paraphrase",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.429,
+      "source_arxiv_id": "2609.36893",
+      "ndcg@10": 0.768084496064677,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 3,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.04681599109282453,
+        "d50_refine": 0.18509951284249848
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "query": "a way to find relevant text chunks using a hierarchy of summaries to connect search terms and documents",
+      "query_type": "paraphrase",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.091,
+      "source_arxiv_id": "2603.26668",
+      "ndcg@10": 0.8608552413648604,
+      "source_mrr@10": 0.0,
+      "source_recall@10": 0.0,
+      "judged@10": 1.0,
+      "source_grade": null,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": null,
+        "d36": null,
+        "d46": null,
+        "d47": null,
+        "d50": null
+      },
+      "source_stage": "stage1_retrieval",
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.13914475863513964
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-paraphrase-097",
+      "query": "improving language model self training by picking varied ways to solve a problem instead of just correct ones",
+      "query_type": "paraphrase",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.286,
+      "source_arxiv_id": "2609.31571",
+      "ndcg@10": 0.9904714689560834,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.0095285310439166
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-002",
+      "query": "How can we use variable precision quantization to speed up mixture of experts on mobile hardware?",
+      "query_type": "question",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.6,
+      "source_arxiv_id": "2603.19172",
+      "ndcg@10": 1.0,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 8,
+        "semantic": 6,
+        "d36": 4,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.0
+      },
+      "graded_loss_stage": null
+    },
+    {
+      "query_id": "q-question-003",
+      "query": "how can large language models actively gather information to improve product recommendations?",
+      "query_type": "question",
+      "category": "cs.IR",
+      "specificity": "broad",
+      "overlap": 0.556,
+      "source_arxiv_id": "2603.09843",
+      "ndcg@10": 0.6263433285151566,
+      "source_mrr@10": 0.0,
+      "source_recall@10": 0.0,
+      "judged@10": 1.0,
+      "source_grade": null,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 88,
+        "d36": null,
+        "d46": null,
+        "d47": null,
+        "d50": null
+      },
+      "source_stage": "stage1_retrieval",
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.3736566714848434
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-007",
+      "query": "What are some ways to make a large language model follow length constraints in its output?",
+      "query_type": "question",
+      "category": "cs.CL",
+      "specificity": "broad",
+      "overlap": 0.7,
+      "source_arxiv_id": "2511.01807",
+      "ndcg@10": 0.8920411011353054,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 2,
+        "semantic": 2,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.03421552093237212,
+        "d46_rerank": 0.07374337793232244,
+        "d50_refine": 0.0
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-question-019",
+      "query": "how does repeating training data affect model performance during pretraining?",
+      "query_type": "question",
+      "category": "cs.CL",
+      "specificity": "broad",
+      "overlap": 0.5,
+      "source_arxiv_id": "2610.05591",
+      "ndcg@10": 0.9204542295162416,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 21,
+        "semantic": 4,
+        "d36": 2,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.03421552093237212,
+        "d50_refine": 0.045330249551386315
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-027",
+      "query": "How can we determine the compute requirements for large scale suggesting systems?",
+      "query_type": "question",
+      "category": "cs.IR",
+      "specificity": "broad",
+      "overlap": 0.5,
+      "source_arxiv_id": "2602.10016",
+      "ndcg@10": 0.8484202339129773,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 2,
+        "d36": 8,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.03181039409947595,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.11976937198754678
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-036",
+      "query": "how can content creators understand why their items are not being recommended?",
+      "query_type": "question",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.625,
+      "source_arxiv_id": "2608.21641",
+      "ndcg@10": 0.8257035064360579,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.07007173210921003,
+        "d50_refine": 0.10422476145473203
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-037",
+      "query": "How do internal representations of language models correlate with the effort humans use to understand sentences?",
+      "query_type": "question",
+      "category": "cs.CL",
+      "specificity": "broad",
+      "overlap": 0.333,
+      "source_arxiv_id": "2606.05346",
+      "ndcg@10": 0.8803888904961308,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 21,
+        "d36": 33,
+        "d46": 19,
+        "d47": 10,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.040742031470253126,
+        "d46_rerank": 0.043537813281256055,
+        "d50_refine": 0.035331264752360036
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-question-039",
+      "query": "how to make a retrieval system that cares about the date of the information?",
+      "query_type": "question",
+      "category": "cs.IR",
+      "specificity": "broad",
+      "overlap": 0.286,
+      "source_arxiv_id": "2601.05549",
+      "ndcg@10": 1.0,
+      "source_mrr@10": 0.25,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 17,
+        "d36": 31,
+        "d46": 14,
+        "d47": 10,
+        "d50": 4
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.0
+      },
+      "graded_loss_stage": null
+    },
+    {
+      "query_id": "q-question-040",
+      "query": "How can tool specifications be used to create synthetic test cases for AI agents?",
+      "query_type": "question",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.75,
+      "source_arxiv_id": "2608.26133",
+      "ndcg@10": 0.9604700983816454,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.03952990161835457
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-048",
+      "query": "can we dynamically change how many pages are fetched for visual document QA without retraining?",
+      "query_type": "question",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.5,
+      "source_arxiv_id": "2609.02486",
+      "ndcg@10": 0.9053212754014708,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 9,
+        "semantic": 2,
+        "d36": 2,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.09467872459852922,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.0
+      },
+      "graded_loss_stage": "stage1_retrieval"
+    },
+    {
+      "query_id": "q-question-050",
+      "query": "can a geometry-based optimizer beat adam on non-convex surfaces?",
+      "query_type": "question",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.5,
+      "source_arxiv_id": "2512.06737",
+      "ndcg@10": 0.8757182300606822,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 4,
+        "semantic": 2,
+        "d36": 2,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.05163532490696954,
+        "d50_refine": 0.0726464450323483
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-053",
+      "query": "How can we inspect the internal activations of large language models during inference without slowing them down?",
+      "query_type": "question",
+      "category": "cs.LG",
+      "specificity": "broad",
+      "overlap": 0.333,
+      "source_arxiv_id": "2605.11093",
+      "ndcg@10": 0.9436777153556678,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 7,
+        "d36": 15,
+        "d46": 7,
+        "d47": 3,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.0563222846443322
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-056",
+      "query": "can we use an LLM to suggest new experiments in materials science without training a model?",
+      "query_type": "question",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.778,
+      "source_arxiv_id": "2511.19730",
+      "ndcg@10": 0.9053212754014708,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.04538697066857467,
+        "d46_rerank": 0.04929175392995455,
+        "d50_refine": 0.0
+      },
+      "graded_loss_stage": "d46_rerank"
+    },
+    {
+      "query_id": "q-question-057",
+      "query": "how can we use large language models to build personal knowledge graphs for better recommendations?",
+      "query_type": "question",
+      "category": "cs.IR",
+      "specificity": "broad",
+      "overlap": 0.7,
+      "source_arxiv_id": "2607.00003",
+      "ndcg@10": 0.9353717513169914,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 4,
+        "d36": 2,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.05163532490696954,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.012992923776039111
+      },
+      "graded_loss_stage": "stage1_retrieval"
+    },
+    {
+      "query_id": "q-question-060",
+      "query": "how can a graph structure stop generative rerankers from producing repetitive item lists?",
+      "query_type": "question",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.444,
+      "source_arxiv_id": "2510.10127",
+      "ndcg@10": 0.7465312734644416,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 2,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.2534687265355584
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-064",
+      "query": "Why is it difficult for neural networks to learn highly ambiguous token distributions?",
+      "query_type": "question",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.667,
+      "source_arxiv_id": "2608.15448",
+      "ndcg@10": 0.8124133990083013,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.18758660099169866
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-074",
+      "query": "how do different retraction maps affect the stability of spherical residual connections?",
+      "query_type": "question",
+      "category": "cs.LG",
+      "specificity": "specific",
+      "overlap": 0.625,
+      "source_arxiv_id": "2608.02668",
+      "ndcg@10": 0.7766223659028095,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.05729000096767667,
+        "d46_rerank": 0.060037150306097575,
+        "d50_refine": 0.10605048282341623
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-077",
+      "query": "can standard graph neural networks perform link prediction on unknown knowledge graphs?",
+      "query_type": "question",
+      "category": "cs.LG",
+      "specificity": "broad",
+      "overlap": 0.5,
+      "source_arxiv_id": "2609.11347",
+      "ndcg@10": 0.7532319442420715,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 27,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.24676805575792848
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-078",
+      "query": "how can we automatically judge reports that help readers evaluate if news is trustworthy?",
+      "query_type": "question",
+      "category": "cs.IR",
+      "specificity": "specific",
+      "overlap": 0.7,
+      "source_arxiv_id": "2602.24277",
+      "ndcg@10": 0.839244633544332,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.10912004154869848,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.05163532490696954
+      },
+      "graded_loss_stage": "stage1_retrieval"
+    },
+    {
+      "query_id": "q-question-085",
+      "query": "How does a person's writing style change over time or across different types of text?",
+      "query_type": "question",
+      "category": "cs.CL",
+      "specificity": "broad",
+      "overlap": 0.636,
+      "source_arxiv_id": "2608.17979",
+      "ndcg@10": 0.9105125520250026,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 8,
+        "semantic": 5,
+        "d36": 3,
+        "d46": 2,
+        "d47": 2,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.08948744797499741
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-088",
+      "query": "how can llm agents reuse specific workflows from previous tasks to avoid forgetting?",
+      "query_type": "question",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.667,
+      "source_arxiv_id": "2609.12655",
+      "ndcg@10": 0.8975356450482425,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.03712651420061508,
+        "d50_refine": 0.06533784075114246
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-089",
+      "query": "can machine learning help detect dementia in its first stages?",
+      "query_type": "question",
+      "category": "cs.LG",
+      "specificity": "broad",
+      "overlap": 0.857,
+      "source_arxiv_id": "2607.02142",
+      "ndcg@10": 1.0,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 1,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.0
+      },
+      "graded_loss_stage": null
+    },
+    {
+      "query_id": "q-question-094",
+      "query": "how can we measure if a model can learn new rules or knowledge from a provided text?",
+      "query_type": "question",
+      "category": "cs.CL",
+      "specificity": "specific",
+      "overlap": 0.5,
+      "source_arxiv_id": "2602.03587",
+      "ndcg@10": 0.8173280094383447,
+      "source_mrr@10": 0.0,
+      "source_recall@10": 0.0,
+      "judged@10": 1.0,
+      "source_grade": null,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": null,
+        "d36": null,
+        "d46": null,
+        "d47": null,
+        "d50": null
+      },
+      "source_stage": "stage1_retrieval",
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.18267199056165528
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-095",
+      "query": "Can a single general purpose model be used for various atmospheric science tasks?",
+      "query_type": "question",
+      "category": "cs.LG",
+      "specificity": "broad",
+      "overlap": 0.5,
+      "source_arxiv_id": "2602.03924",
+      "ndcg@10": 0.7648474979079717,
+      "source_mrr@10": 1.0,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": 5,
+        "semantic": 1,
+        "d36": 1,
+        "d46": 1,
+        "d47": 1,
+        "d50": 1
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.0,
+        "d50_refine": 0.23515250209202831
+      },
+      "graded_loss_stage": "d50_refine"
+    },
+    {
+      "query_id": "q-question-099",
+      "query": "How can we make recommender systems better by using a more detailed understanding of user goals?",
+      "query_type": "question",
+      "category": "cs.IR",
+      "specificity": "broad",
+      "overlap": 0.4,
+      "source_arxiv_id": "2606.18897",
+      "ndcg@10": 0.9350624941733295,
+      "source_mrr@10": 0.5,
+      "source_recall@10": 1.0,
+      "judged@10": 1.0,
+      "source_grade": 2,
+      "source_ranks": {
+        "lexical": null,
+        "semantic": 24,
+        "d36": 41,
+        "d46": 14,
+        "d47": 8,
+        "d50": 2
+      },
+      "source_stage": null,
+      "graded_loss": {
+        "stage1_retrieval": 0.0,
+        "d46_rerank": 0.03181039409947595,
+        "d50_refine": 0.033127111727194514
+      },
+      "graded_loss_stage": "d50_refine"
+    }
+  ]
+}

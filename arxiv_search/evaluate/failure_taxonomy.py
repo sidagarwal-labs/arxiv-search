@@ -514,17 +514,21 @@ def markdown(report: dict, cases_evidence: dict, annotations: dict, data: dict) 
     rows = {r["query_id"]: r for r in report["rows"]}
     rep, lab, tax = report["reproduction"], report["labels"], report["taxonomy"]
     causes = {c["id"]: c for c in data["codebook"]["causes"]}
+    sizes = [s["n"] for s in report["segments"] if s["group"] != "all"]
+    cross = [s["n"] for s in report["segments"] if s["group"] == "query_type x category"]
     lines = [
         "# Decision 50 failure taxonomy (dev)", "",
         f"**Scope:** the saved Decision 50 ranking on the **{len(rows)} dev queries**, scored on "
         f"the completed top-20 label layer ({lab['pairs']:,} pairs: {lab['by_labeler']}). "
         "Grades are LLM judgments, not human-validated. Cause labels are **AI-assisted "
         "annotation** by a single annotator (no inter-annotator agreement). Held-out queries "
-        "were not read or scored; no API calls, new labels or ranking changes.", "",
+        "were not read or scored; no API calls or new labels. The only new ranking is the "
+        "offline unpinned fix test, rebuilt from saved replies.", "",
         f"Reproduction check: nDCG@10 **{rep['ndcg@10']:.4f}**, source MRR@10 "
         f"**{rep['source_mrr@10']:.4f}**, source R@10 **{rep['source_recall@10']:.0%}** "
         "match the published [dev100 summary](../top20-confirm/dev100-summary.json).", "",
-        "Segment cells are small (8-34 queries; query type x category 8-9). Intervals are "
+        f"Segment cells range from {min(sizes)} to {max(sizes)} queries (query type x category "
+        f"{min(cross)}-{max(cross)}), so most are small. Intervals are "
         f"query-bootstrap 95% CIs ({config.BOOTSTRAP_SAMPLES} resamples, seed "
         f"{config.RANDOM_SEED}), shown only for n>={MIN_CI_N}; exploratory, no "
         "multiple-testing correction. Source R@10 is the share of queries whose source paper "
@@ -582,9 +586,12 @@ def markdown(report: dict, cases_evidence: dict, annotations: dict, data: dict) 
               f"{total} failure cases ({sum('source_outside_top10' in v for v in report['cases'].values())} "
               f"source misses, {LOWEST} lowest nDCG@10, overlapping). One primary cause per case; "
               "secondary causes are additional explanations. Annotation provenance: "
-              f"{data['provenance']['Annotator model/name']}; "
-              f"{data['provenance']['Collection method']} "
-              f"{data['provenance']['Inter-annotator agreement']}", "",
+              f"{data['provenance']['Annotator model/name']}, "
+              f"{data['provenance']['Annotation date']}. "
+              f"{data['provenance']['Collection method']} Inter-annotator agreement: "
+              f"{data['provenance']['Inter-annotator agreement']} Codebook "
+              f"{data['codebook']['version']} (decision rules and pre-annotation changes in "
+              "[annotations.json](annotations.json)).", "",
               "| Cause | Primary | Secondary mentions | Definition |", "|---|---:|---:|---|"]
     for cid, cause in causes.items():
         primary = tax["primary"].get(cid, 0)
@@ -640,12 +647,11 @@ def markdown(report: dict, cases_evidence: dict, annotations: dict, data: dict) 
               "", "| Query type | n | nDCG@10 delta | Source MRR@10 delta |", "|---|---:|---:|---:|"]
     lines += [f"| {t} | {v['n']} | {v['ndcg_delta']:+.4f} | {v['source_mrr_delta']:+.4f} |"
               for t, v in fix["by_query_type"].items()]
+    type_sizes = sorted({v["n"] for v in fix["by_query_type"].values()})
     lines += ["", f"Frozen rule (nDCG@10 delta > {MIN_GAIN} with CI lower bound > 0, source "
               f"MRR@10 delta >= -{MAX_SOURCE_MRR_LOSS}, judged@10 100%) met: "
               f"**{'yes' if fix['supportive'] else 'no'}**. Query-type cells have "
-              f"{min(v['n'] for v in fix['by_query_type'].values())}-"
-              f"{max(v['n'] for v in fix['by_query_type'].values())} queries; "
-              "no multiple-testing correction.", ""]
+              f"{'-'.join(map(str, type_sizes))} queries each; no multiple-testing correction.", ""]
     fixes = data.get("candidate_fixes") or []
     if fixes:
         lines += ["## Candidate fixes (general rules, not query-specific)", "",

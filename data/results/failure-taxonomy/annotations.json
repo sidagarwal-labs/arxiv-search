@@ -224,5 +224,42 @@
       "rationale": "RuleWorld (the benchmark in 'Beyond Factual Knowledge', rank 3) and 'LLMs Learn Better In-Context from Rules than from Examples' (rank 1) measure learning externally provided rules from context as directly as the CL-bench source, and the general question fits many in-context-learning papers, so CL-bench was outside both Stage 1 components' top 100."
     }
   ],
-  "candidate_fixes": []
+  "candidate_fixes": [
+    {
+      "cause": "single_target_partial_credit",
+      "proposal": "Report source MRR@10 and success@1 beside nDCG@10 for single-target (known-item) queries, and report their below-source partial-credit loss as its own bucket rather than as a ranking failure.",
+      "status": "proposal (evaluation reporting change; no ranking change to test)",
+      "evidence": "Six of 16 cases; all have the source at rank 1, and in five it is the only grade-2 paper in the judged pool (the sixth has one more, at rank 2); known-item source MRR@10 is already 1.000."
+    },
+    {
+      "cause": "vocabulary_gap",
+      "proposal": "Rewrite or expand every query into the corpus's technical terms (for example an LLM terminology rewrite or a hypothetical-abstract embedding) before Stage 1, fused with the original query.",
+      "status": "proposal only: needs new LLM and embedding calls (paid), so not testable offline on saved data",
+      "evidence": "Three primary and two secondary cases; in the two vocabulary-gap source misses the source is outside the lexical top 100 and either outside the semantic top 100 or at semantic rank 32."
+    },
+    {
+      "cause": "competing_near_duplicate",
+      "proposal": "Treat this as a measurement limit: report 'source or any grade-2 paper in the top 10' beside source R@10, and keep diverse near-duplicates rather than tuning toward the generating paper.",
+      "status": "proposal (evaluation reporting change)",
+      "evidence": "Three source misses where several grade-2 top-10 papers address the source's specific problem."
+    },
+    {
+      "cause": "broad_or_underspecified_query",
+      "proposal": "For future query sets, have the query generator add a distinguishing constraint for broad queries, and read broad-query source MRR as a measurement limit; frozen queries stay unchanged.",
+      "status": "proposal (affects future query generation only)",
+      "evidence": "Two cases; broad-specificity source MRR@10 is lower than specific queries' while nDCG@10 is higher (segment table)."
+    },
+    {
+      "cause": "label_gap",
+      "proposal": "Tighten the rubric so grade 2 requires the query's sense of each key term (not a shared word), calibrate 0 versus 1 for partial matches, and audit the top-20 pool with a second judge in a new versioned label layer.",
+      "status": "proposal only: needs new paid judgments and owner approval; no labels changed here",
+      "evidence": "Two primary and six secondary cases."
+    },
+    {
+      "cause": "rerank_demotion",
+      "proposal": "Drop Decision 50's rank-one pin so the GPT-5.4 refinement can move a better paper above Decision 46's rank 1 (same saved replies; general rule, no query-specific logic).",
+      "status": "tested offline on saved replies (dev only, post hoc, frozen plan): frozen nDCG@10 rule not met; not promoted",
+      "evidence": "See the offline fix test section: the nDCG@10 gain is below the frozen threshold with a CI that includes zero, while source MRR@10 rises with a CI above zero; top 10 fully judged. Widening the Decision 50 re-scoring depth for the two Decision 46 demotions would need paid calls."
+    }
+  ]
 }
