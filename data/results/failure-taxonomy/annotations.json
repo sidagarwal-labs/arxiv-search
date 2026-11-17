@@ -6,12 +6,13 @@
     "Annotation date": "2026-11-16",
     "Annotators": 1,
     "Inter-annotator agreement": "Not measured; single annotator, no adjudication.",
-    "Evidence shown": "cases.json only: dev query text and metadata, source title/abstract, D50 top-20 titles/abstracts, completed top-20 grades with label provenance and judge reasons, stage ranks and graded-loss attribution.",
+    "Evidence shown": "cases.json only: dev query text and metadata, source title/abstract, D50 top-20 titles (abstracts for the top 10), positive-grade papers outside the D50 top 20 (abstracts for grade 2), completed top-20 grades with label provenance and judge reasons, stage ranks and graded-loss attribution.",
     "Cautions": [
       "Causes are an AI assistant's reading of titles and abstracts, not validated ground truth.",
       "Grades are LLM judgments (GPT-5.4 mini, GPT-6 ASTRA reference, GPT-6 Terra completion), not human labels.",
       "No relevance labels, rankings or other evidence were created or changed."
-    ]
+    ],
+    "Annotated cases.json sha256": "3ef2cc81b74186d4a4872fae9ee8cce837210b7f8a2f1ac6410f26c4990cdf10"
   },
   "codebook": {
     "version": "codebook-v1",
@@ -97,6 +98,131 @@
       }
     ]
   },
-  "annotations": [],
+  "annotations": [
+    {
+      "query_id": "q-keyword-004",
+      "primary_cause": "single_target_partial_credit",
+      "secondary_causes": [
+        "label_gap"
+      ],
+      "rationale": "The Welsh-media source (bias in Nation.Cymru's political reporting) is at rank 1 and is the only grade-2 paper, so the loss comes from ranks 2-10: non-Welsh political-bias papers graded 0 or 1 inconsistently (LLM political-bias detection at rank 2 and German ideology prediction at rank 3 get 0, while algorithmic partisanship and target-stance extraction get 1)."
+    },
+    {
+      "query_id": "q-keyword-049",
+      "primary_cause": "broad_or_underspecified_query",
+      "secondary_causes": [
+        "rerank_demotion"
+      ],
+      "rationale": "The topic-only query 'multimodal llm decoding strategies' fits many papers (seven top-10 papers are grade-2 multimodal decoding methods, mostly for diffusion MLLMs), so the greedy-decoding-for-VQA source is one good answer among many; Decision 46 placed it at 21, below grade-1 text-only dLLM decoding papers and the grade-0 Modality Collapse paper, so the refinement never re-scored it."
+    },
+    {
+      "query_id": "q-keyword-072",
+      "primary_cause": "single_target_partial_credit",
+      "secondary_causes": [
+        "label_gap"
+      ],
+      "rationale": "The BL19 source (inclusive evaluation frameworks for historical IR) is at rank 1 and is the only grade-2 paper; ranks 2-10 are generic IR benchmarks and cultural-heritage retrieval systems graded mostly 0, with inconsistent splits such as NeuCLIRBench graded 0 at rank 9 but NeuCLIRTech graded 1 at rank 10."
+    },
+    {
+      "query_id": "q-keyword-078",
+      "primary_cause": "label_gap",
+      "secondary_causes": [
+        "rerank_demotion"
+      ],
+      "rationale": "The keyword query hinges on 'slate', yet three of its four grade-2 papers have no slate component (Learning What Evaluators Value at rank 9, Pedagogically Aligned LLM Tutors at 38, the unranked LLM-evaluator narcissism paper), which inflates the ideal; separately, Decision 46 moved the source from Decision 36 rank 1 to 4 and the rank-one pin kept the grade-0 'Once Generated, Ranked' slate paper above it."
+    },
+    {
+      "query_id": "q-known_item-031",
+      "primary_cause": "label_gap",
+      "secondary_causes": [
+        "single_target_partial_credit"
+      ],
+      "rationale": "The source (sentence-level clinical provenance categorization) is at rank 1, but grade 2 also goes to papers that share only the word 'provenance' in another sense (PhysioTRACE provenance-aware stress tests at rank 7, DeconDTN provenance shift at 58, concept provenance in LLM query simulation at 81), which inflates the ideal and produces most of the Stage 1 loss."
+    },
+    {
+      "query_id": "q-known_item-032",
+      "primary_cause": "single_target_partial_credit",
+      "secondary_causes": [
+        "label_gap"
+      ],
+      "rationale": "Bekkers' equivariant-neural-fields paper is at rank 1 and is the only grade-2 paper; ranks 2-10 are other equivariant operators or neural-field papers graded inconsistently (EqGINO and groupoid-equivariant networks 0, PACE-FNO and Clifford Sheaf Neural Networks 1)."
+    },
+    {
+      "query_id": "q-known_item-039",
+      "primary_cause": "single_target_partial_credit",
+      "secondary_causes": [
+        "label_gap"
+      ],
+      "rationale": "The Brazilian legal segmentation source is at rank 1 and is the only grade-2 paper; ranks 2-10 are Brazilian or other legal-retrieval papers without the segmentation contribution, graded inconsistently (NormasTCU and Domain-Adaptive Dense Retrieval for Brazilian Legal Search 0, JUA and PRecG 1)."
+    },
+    {
+      "query_id": "q-known_item-047",
+      "primary_cause": "single_target_partial_credit",
+      "secondary_causes": [
+        "rerank_demotion"
+      ],
+      "rationale": "The Lorentz neural network source is at rank 1 and is the only grade-2 paper in a corpus with few hyperbolic papers; the remaining loss is partial matches (Lorentz-equivariant jet taggers, hyperbolic retrieval for RAG) that Decision 46 left at 22 and 24 behind grade-0 generic neural-network theory papers, so the refinement never re-scored them."
+    },
+    {
+      "query_id": "q-known_item-088",
+      "primary_cause": "single_target_partial_credit",
+      "secondary_causes": [
+        "label_gap"
+      ],
+      "rationale": "The policy-QA RAG source (rank 1) and TimelyRAG (rank 2) are the only grade-2 papers; ranks 3-10 are generic or legal RAG QA systems split inconsistently between 0 (legal RAG, Doctor-RAG, HybridRAG) and 1 (PluriHopRAG, Matryoshka hierarchical RAG)."
+    },
+    {
+      "query_id": "q-paraphrase-006",
+      "primary_cause": "vocabulary_gap",
+      "secondary_causes": [
+        "label_gap"
+      ],
+      "rationale": "The source is at rank 2 behind a grade-2 recommendation-unlearning paper, but the paraphrase 'systemic prejudices' in 'generative suggestion engines' also pulled generic LLM-debiasing papers graded 0 into ranks 4 and 6-8, while recommender-specific erasure or debiasing papers graded 1 (TRACER at 76, CRAB unranked) sit outside the Stage 1 top 50; grades are also inconsistent (Fairness Pruning 0 vs the similar Fairness Evaluation and Inference Level Mitigation 2)."
+    },
+    {
+      "query_id": "q-paraphrase-012",
+      "primary_cause": "competing_near_duplicate",
+      "secondary_causes": [
+        "vocabulary_gap"
+      ],
+      "rationale": "Seven grade-2 top-10 papers (e.g. DREAM, Grevo, Differentiable Semantic ID, Drift-Aware Continual Tokenization) address the same problem of item identifiers that evolve with collaborative signals during generative-recommender training, and the query's 'item IDs'/'generative search' wording differs from the source's 'item tokenizer'/'generative recommendation', so PIT stayed outside the Decision 36 top 100 (semantic rank 91, lexical outside 100)."
+    },
+    {
+      "query_id": "q-paraphrase-050",
+      "primary_cause": "vocabulary_gap",
+      "secondary_causes": [],
+      "rationale": "The query restates RAG corpus-poisoning defense ('fake info', 'external search results', 'removing a page' for leave-one-out decoding) in web-search words, so both Stage 1 components rank RAGuard outside their top 100 and the top 10 fills with AI-search credibility and generative-engine-optimization papers (no grade-2 paper anywhere in the pool)."
+    },
+    {
+      "query_id": "q-paraphrase-077",
+      "primary_cause": "vocabulary_gap",
+      "secondary_causes": [],
+      "rationale": "The query's 'low precision numbers', 'distributed private devices' and 'comprehensive look' stand for quantization, federated learning and survey, so Stage 1 ranked the federated-quantization survey 58th (semantic 32, lexical outside 100) while the top 10 are centralized FP4/NVFP4 low-precision training papers graded mostly 1."
+    },
+    {
+      "query_id": "q-paraphrase-096",
+      "primary_cause": "competing_near_duplicate",
+      "secondary_causes": [
+        "vocabulary_gap"
+      ],
+      "rationale": "DTCRS (recursive summarization trees), SVD-RAG (tree-organized RAG) and LLM-guided Hierarchical Search implement the query's 'hierarchy of summaries' retrieval as directly as the source, whose own terms ('abstract bridge tree', query entities) differ from the query, so Bridge-RAG was outside both Stage 1 components' top 100."
+    },
+    {
+      "query_id": "q-question-003",
+      "primary_cause": "broad_or_underspecified_query",
+      "secondary_causes": [
+        "rerank_demotion"
+      ],
+      "rationale": "'Actively gather information' fits preference elicitation, clarifying questions, cold-start querying and agentic tool use alike, so many papers partly fit and only one pool paper is graded 2 (Ask to Be Sure, rank 2); the agentic tool-use source RecThinker never reached the Decision 36 top 100 (semantic rank 88), and the rank-one pin kept the grade-0 semantic-augmentation paper first."
+    },
+    {
+      "query_id": "q-question-094",
+      "primary_cause": "competing_near_duplicate",
+      "secondary_causes": [
+        "broad_or_underspecified_query"
+      ],
+      "rationale": "RuleWorld (the benchmark in 'Beyond Factual Knowledge', rank 3) and 'LLMs Learn Better In-Context from Rules than from Examples' (rank 1) measure learning externally provided rules from context as directly as the CL-bench source, and the general question fits many in-context-learning papers, so CL-bench was outside both Stage 1 components' top 100."
+    }
+  ],
   "candidate_fixes": []
 }
