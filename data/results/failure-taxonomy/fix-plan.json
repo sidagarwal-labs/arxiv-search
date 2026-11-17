@@ -1,0 +1,29 @@
+{
+  "automatic_promotion": false,
+  "baseline": "Saved Decision 50 ranking, which must be reproduced exactly from the same replies with the pin.",
+  "candidate": "Decision 50 without the rank-one pin: the same saved GPT-5.4 two-pass replies, averaged scores, Decision 46 order as tie-break, ranks 21+ unchanged.",
+  "fingerprints": {
+    "d46": "1b5cc5150405351b4ffdb999f95d18afb06435af3853178ce295ef86fe8b4fc5",
+    "d50": "10e76f07f339e965a553cb73a49df78b390d5d1d9ee908fa180f9ca8f5e629ff",
+    "labels": "e5624ca6094f598562ad3efb55dbdb0ab1a88f26aca2b5400c842b8abeb29f25",
+    "refine_files": 202,
+    "refine_files_sha256": "1923e12a4728f3fff45df776cf4d198c19eac8ddbebd5234ab71e4d1f4591c35"
+  },
+  "interpretation": "Exploratory dev evidence on queries already used to design and select Decision 50. A supportive result would still need confirmation on queries not used here; it is not a promotion. If any top-10 paper is unjudged the result is PROVISIONAL.",
+  "metrics": [
+    "nDCG@10 paired difference with query-bootstrap 95% CI",
+    "source MRR@10 and source R@10 paired differences with 95% CI",
+    "judged@10 coverage",
+    "wins/losses/ties",
+    "query-type mean differences",
+    "rank-1 papers graded 0"
+  ],
+  "motivation": "rerank_demotion is a secondary cause in four failure cases; in two the rank-one pin kept a grade-0 Decision 46 rank-1 paper first. Chosen after reading the failure cases (post hoc). An unpinned GPT-5.4 mini refinement raised source MRR on new80 in Finding 36, but the GPT-5.4 replies behind Decision 50 were never evaluated without the pin.",
+  "new_labels": false,
+  "provider_calls": false,
+  "scope": "100 dev queries; held-out test not read or scored; completed top-20 label layer unchanged.",
+  "status": "Frozen before any unpinned ranking or metric was computed.",
+  "supportive_if": "nDCG@10 delta > 0.0106 with 95% CI lower bound > 0, source MRR@10 delta >= -0.02, judged@10 100%",
+  "test_evaluation": false,
+  "version": "failure-taxonomy-unpinned-v1"
+}
