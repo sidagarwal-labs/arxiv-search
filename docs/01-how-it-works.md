@@ -14,7 +14,9 @@ every former model or plan remains selected.
 
 Hybrid retrieval, LLM reranking and cited answer generation have been evaluated
 on dev and are available on the [live site](https://arxiv.agarwal-labs.com/).
-The deployed frontend and serving code are not yet committed to this repository.
+The production frontend ([`web/`](../web/README.md)) and serving API
+([`arxiv_search/serving/`](../arxiv_search/serving/)) are committed and deployed
+from committed source; see the [serving runbook](../serving/README.md#deploy-only-committed-source).
 Final held-out evaluation and human validation remain open; offline timings are
 not production latency measurements.
 Detailed measurements belong in [Findings](03-findings.md), with
