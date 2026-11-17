@@ -30,8 +30,13 @@ produces cited summaries, and opens an arXiv PDF with paper-scoped discussion.
 Discussion separately loads available paper text: HTML first, then PDF text,
 then abstract fallback. Source coverage is displayed in the UI.
 
-The deployed UI and serving implementation are not yet committed to this
-repository. Offline experiment timings are not end-to-end production latency.
+The production UI ([`web/`](web/README.md)) and serving API
+([`arxiv_search/serving/`](arxiv_search/serving/)) are committed. Production runs
+the [`release-v4`](serving/release-v4.json) manifest (D36 retrieval, D50 reranking,
+D49 summaries), deployed from committed source with the
+[serving runbook](serving/README.md#deploy-only-committed-source). API keys, budget
+settings and the exported data bundle stay out of Git. Offline experiment timings
+are not end-to-end production latency.
 
 ## Current working baselines
 
@@ -124,6 +129,7 @@ Older plans and controls in the learning history are not necessarily current sel
 | Doc | What's in it |
 |---|---|
 | [How it works](docs/01-how-it-works.md) | Architecture, worked examples and historical walkthroughs |
+| [Serving runbook](serving/README.md) | Production API, release manifests and clean-source deployment |
 | [Decisions](docs/02-decisions.md) | Every choice and why it was made |
 | [Findings](docs/03-findings.md) | Measurements behind the decisions |
 | [Glossary](docs/04-glossary.md) | What BM25, embedding, MRR, etc. mean |

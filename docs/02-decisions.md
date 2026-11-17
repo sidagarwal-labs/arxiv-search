@@ -911,8 +911,10 @@ once on the other 80 dev queries with no retries
 passed. One pass scored +0.0039 lower (CI includes zero); the owner chose two passes.
 Low reasoning effort scored higher on the pilot but was not significant and more than
 doubled latency. Labels are pooled AI judgments; the held-out test has not been run.
-The frontend handoff reports D50 deployed in release `d36-d50-d49-serving-f16-v4`;
-the deployed serving implementation is not yet committed to this repository.
+The frontend handoff reports D50 deployed in release `d36-d50-d49-serving-f16-v4`.
+The serving implementation was not yet committed when this decision was recorded;
+it was committed on 2026-11-10 ([PR #3](https://github.com/sidagarwal-labs/arxiv-search/pull/3))
+with its release manifest [`serving/release-v4.json`](../serving/release-v4.json).
 
 ## Which LLMs
 
