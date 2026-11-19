@@ -1,3 +1,5 @@
+Made by @sidagarwal-labs, @priyall33, Greg Fong
+
 # arXiv Search
 
 Hybrid search over **23,304 recent arXiv papers** in information retrieval (cs.IR),
