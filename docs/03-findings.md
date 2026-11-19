@@ -33,6 +33,7 @@ agreement has its own [comparison method](09-labeler-comparison.md).
 | Query-document interactions | [Cross-encoder](#24-query-document-interaction-first-local-cross-encoder), [field scores](#25-separate-titleabstract-field-scores), [paraphrase recovery](#28-recovering-paraphrases-without-query-type-routing) |
 | LLM reranking and reliability | [Output reliability](#30-mini-llm-pilot-results-and-output-reliability), [fixed-key scoring](#31-fixed-key-reranker-v2-reliable-output-and-pilot-quality), [loss analysis](#32-stage-2-loss-analysis-and-the-north-star-2026-11-03), [Experiment D](#33-experiment-d-a-requirement-checklist-made-the-reranker-worse-2026-11-03), [Experiment E](#35-experiment-e-a-second-look-at-the-top-20-ranks-better-but-moves-the-source-paper-2026-11-04), [Experiment E2](#36-experiment-e2-refinement-holds-up-on-80-unseen-queries-2026-11-04), [subsequent experiments](07-experiment-log.md#reranker-follow-ups-after-decision-45) |
 | AI summary (RAG answers) | [Choosing the AI-summary model](#37-choosing-the-ai-summary-model-2026-11-04), [Experiment L: per-sentence citations](#38-experiment-l-a-citation-rule-made-the-cheapest-model-the-most-faithful-2026-11-04) |
+| Failure analysis | [Decision 50 failure taxonomy by query type and category](#40-failure-taxonomy-of-decision-50-by-query-type-and-category-2026-11-16) |
 | All metrics, not just selected milestones | [Complete all-system tables](../data/results/catalog-dev/report.md), [results index](05-results.md), [charts](06-charts.md) |
 
 Sections remain in place so their evidence and incoming links stay intact.
@@ -2931,3 +2932,151 @@ Plan frozen before any call ([preregistration](../data/results/top20-confirm/pre
 | GPT-5.4 two-pass equal RRF (diagnostic) | 0.8194 | +0.0281 [+0.0156, +0.0406] | 58/22/0 |
 
 All preregistered checks passed (gain > 0.0106 with CI above zero, source MRR +0.035, 160/160 valid, fully judged). Cost $3.04 total: $0.0380/query two-pass, $0.0190 one-pass. Max-of-two API time 3.24 s mean (p95 3.76); one pass 3.14 s. Gains held across all four query types. Labels are pooled AI judgments; latency is provider time, not serving latency. Promoted as [Decision 50](02-decisions.md#50-gpt-54-re-scores-the-top-20-ordered-by-its-scores-2026-11-06) (two passes, owner choice); the frontend handoff reports D50 deployed. See [report](../data/results/top20-confirm/report.md).
+
+## 40. Failure taxonomy of Decision 50 by query type and category (2026-11-16)
+
+Free offline analysis of the saved Decision 50 ranking on the **100 dev queries**,
+scored on the completed top-20 label layer
+([labels](../data/results/top20-label-completion/labels.json): 3,678 pairs, of which
+3,479 are GPT-5.4 mini judgments, 100 GPT-6 ASTRA reference overrides and 99 GPT-6
+Terra completion grades; rubric `b8b0c14a`). Grades are LLM judgments, not
+human-validated. The generator reproduces the published D50 scores exactly (nDCG@10
+**0.8418**, source MRR@10 **0.7659**, source R@10 **93%**, judged@10 100%). No API
+calls, new labels, re-embedding or held-out queries were used. Evidence:
+[report](../data/results/failure-taxonomy/report.md),
+[per-query rows](../data/results/failure-taxonomy/report.json),
+[case evidence](../data/results/failure-taxonomy/cases.json) and
+[codebook and annotations](../data/results/failure-taxonomy/annotations.json).
+
+**Segments.** Cells are small (25 queries per type, 8-9 per type x category),
+the queries were already used to design Decision 50, and the intervals carry no
+multiple-testing correction. Treat them as exploratory descriptions.
+
+| Query type | nDCG@10 [95% CI] | Source MRR@10 [95% CI] | Source R@10 | Source misses |
+|---|---:|---:|---:|---:|
+| keyword | 0.823 [0.771, 0.869] | 0.720 [0.574, 0.848] | 96% | 1 |
+| known_item | 0.807 [0.768, 0.848] | 1.000 [1.000, 1.000] | 100% | 0 |
+| paraphrase | 0.866 [0.829, 0.904] | 0.633 [0.493, 0.773] | 84% | 4 |
+| question | 0.871 [0.837, 0.905] | 0.710 [0.580, 0.840] | 92% | 2 |
+
+Graded relevance and source-paper lookup disagree. Known-item queries have the
+lowest nDCG@10 but find the source at rank 1 every time. Paraphrases score well on
+nDCG@10 but miss the source most often. Broad queries (n=26) show the same split:
+nDCG@10 0.873 versus 0.831 for specific queries, but source MRR@10 0.587 versus
+0.829. Categories are flat (nDCG@10 cs.CL 0.846, cs.IR 0.835, cs.LG 0.844, with
+overlapping intervals). The weakest cross cells are paraphrase/cs.IR and
+paraphrase/cs.LG, at 75% source R@10 (two misses each among eight queries).
+
+**Where the graded loss sits.** This uses the same telescoping decomposition as
+Finding 39, but applies it to D50 on the completed layer, so the two are not
+directly comparable. Mean loss is 0.0388 from top-10 ordering, **0.0718 from
+selecting among ranks 11-20**, 0.0282 from ranks 21-50 and 0.0195 from papers
+outside the top 50. Selection within the re-scored top 20 is still the largest
+known-label component. These oracles use labels; they are diagnostics, not systems.
+
+**Stage attribution.** Seven queries have the source paper outside the D50 top 10:
+
+- **Six are Stage 1 misses.** Decision 36 never ranked the source in its top 50,
+  so no reranker saw it. In five of them the source is outside the saved D36 top
+  100, and in three it is outside both the lexical and the semantic top 100.
+- **One was lost at Decision 46** (q-keyword-049, D46 rank 21, one place outside
+  the re-scored top 20).
+- **None was lost by the Decision 50 refinement itself.**
+
+These seven queries still average nDCG@10 0.816 because other relevant papers
+fill their top 10.
+
+**Cause taxonomy (AI-assisted, single annotator).** The 16 failure cases are the
+seven source misses plus the ten lowest-nDCG@10 queries (q-question-003 is in
+both).
+
+- **Codebook.** The cause codebook was committed before any case evidence was
+  read (v0). It was refined to v1 after reading the evidence but before assigning
+  annotations, and every change is recorded in the file.
+- **Annotator.** Copilot SDK AI assistant (subagent; model version not exposed),
+  reading titles, abstracts, grades and stage ranks. No human annotation and no
+  inter-annotator agreement.
+
+| Primary cause | Cases | Source misses | Lowest nDCG@10 | Secondary mentions |
+|---|---:|---:|---:|---:|
+| single_target_partial_credit | 6 (38%) | 0 | 6 | 1 |
+| vocabulary_gap | 3 (19%) | 2 | 1 | 2 |
+| competing_near_duplicate | 3 (19%) | 3 | 0 | 0 |
+| broad_or_underspecified_query | 2 (12%) | 2 | 1 | 1 |
+| label_gap | 2 (12%) | 0 | 2 | 6 |
+| rerank_demotion | 0 | 0 | 0 | 4 |
+| stage1_miss, acronym_or_rare_term, query_generation_artifact | 0 | 0 | 0 | 0 |
+
+The columns overlap because one case is both a source miss and a lowest-nDCG query.
+
+- **By failure stage:** Stage 1 has 7 cases, Decision 46 has 2 and Decision 50
+  has 7.
+- **By query type:** paraphrase failures are vocabulary gaps (3) or near-duplicates
+  (2). Known-item failures are mostly single-target partial credit (4 of 5).
+
+1. **Most low-nDCG queries are a metric effect, not a visible failure.** Of the
+   ten lowest-nDCG@10 queries, nine have the source at rank 1 or 2. In the six
+   single-target cases the source is at rank 1 and is the only grade-2 paper in
+   the judged pool in five of them; the sixth has one more, at rank 2. The loss
+   comes from how grade-0 and grade-1 partial matches are ordered below the source.
+2. **Source misses start in Stage 1 and are often not wrong answers.** In the
+   three near-duplicate misses, the top 10 holds 4-8 grade-2 papers on the same
+   problem. The two vocabulary-gap misses are paraphrases whose wording shares
+   little with the source abstract.
+3. **Some losses are label artefacts.** label_gap is primary in 2 cases and
+   secondary in 6. For example, in q-known_item-031 grade 2 goes to papers that
+   share only the word "provenance" in another sense. These are audit leads, not
+   proven label errors; no labels were changed.
+
+**Offline fix test: drop the rank-one pin.** The plan was frozen before any
+unpinned metric was computed ([fix-plan.json](../data/results/failure-taxonomy/fix-plan.json)).
+
+- **Method.** It reuses the same saved GPT-5.4 two-pass replies, with averaged
+  scores, D46 order as tie-break and ranks 21+ unchanged; only the rule that keeps
+  D46's rank 1 first is removed. With the pin, the recomputation reproduces the
+  saved D50 ranking for all 100 queries.
+- **Scope.** The test is post hoc and exploratory, on queries already used to
+  design Decision 50.
+
+| Metric | D50 (pinned) | Unpinned | Paired delta [95% CI] |
+|---|---:|---:|---:|
+| nDCG@10 | 0.8418 | 0.8476 | +0.0058 [-0.0015, +0.0135] |
+| Source MRR@10 | 0.7659 | 0.8819 | +0.1160 [+0.0753, +0.1567] |
+| Source R@10 | 93% | 93% | 0 |
+
+**The frozen rule is not met:** the nDCG@10 gain is below 0.0106 and its interval
+includes zero. This is a negative result on the primary metric.
+
+- **Source MRR.** It rises clearly. Rank 1 changes in 32 queries, and rank-1
+  papers graded 0 fall from 3 to 0.
+- **Other checks.** Judged@10 is 100%, so the result is not provisional. Wins,
+  losses and ties are 10/9/81. Known-item queries are unchanged.
+- **Context.** This agrees with Finding 36, where the pin's benefit did not
+  replicate on new80, and with Finding 39's small idealized pin penalty. Adopting
+  it would need a separate decision with confirmation on queries not used here.
+  Nothing was promoted.
+
+**Candidate fixes (general rules; proposals unless stated):**
+
+- **Single-target partial credit:** report source MRR@10 and success@1 beside
+  nDCG@10 for single-target queries.
+- **Vocabulary gap:** add an LLM terminology rewrite or a hypothetical-abstract
+  query fused with the original. This needs paid calls and was not tested.
+- **Near-duplicates:** report "source or any grade-2 paper in the top 10" beside
+  source R@10.
+- **Broad queries:** ask the query generator for a distinguishing constraint in
+  future query sets. Frozen queries stay as they are.
+- **Label gaps:** tighten the grade-2 rule to the query's sense of each key term
+  and audit the top-20 pool in a new versioned layer. This needs paid judgments
+  and approval.
+- **Rerank demotion:** drop the pin. This was tested above and did not meet the
+  frozen rule.
+
+**Limits.**
+
+- One AI annotator with no agreement study: the causes are leads, not
+  established causes.
+- 100 repeatedly analyzed dev queries, LLM-judged labels, and unjudged papers
+  counted as zero.
+- Source metrics treat the generating paper as the only right answer.
+- Stage 1 component ranks cover only the saved top 100.

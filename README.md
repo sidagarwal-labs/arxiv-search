@@ -128,6 +128,7 @@ Older plans and controls in the learning history are not necessarily current sel
 | [How it works](docs/01-how-it-works.md) | Architecture, worked examples and historical walkthroughs |
 | [Decisions](docs/02-decisions.md) | Every choice and why it was made |
 | [Findings](docs/03-findings.md) | Measurements behind the decisions |
+| [Failure taxonomy](docs/03-findings.md#40-failure-taxonomy-of-decision-50-by-query-type-and-category-2026-11-16) | Where Decision 50 still fails, by query type and category (100 dev queries, AI-assisted cause annotation) |
 | [Glossary](docs/04-glossary.md) | What BM25, embedding, MRR, etc. mean |
 | [Results](docs/05-results.md) | Stage 1 retrieval and Stage 2 reranker progress; links to the full every-system tables |
 | [Charts](docs/06-charts.md) | Hill-climbing milestones (retrieval + reranker), latest Stage 1 and Stage 2 scores, and measured remaining headroom |
